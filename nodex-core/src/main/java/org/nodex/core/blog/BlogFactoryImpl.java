@@ -14,7 +14,7 @@ import org.nodex.api.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
 
-import static org.nodex.core.util.ValidationUtils.checkSize;
+import static org.nodex.api.util.ValidationUtils.checkSize;
 
 @Immutable
 @NotNullByDefault
