@@ -8,3 +8,14 @@ dependencies {
 	implementation 'javax.annotation:javax.annotation-api:1.3.2'
 	testImplementation "junit:junit:$junit_version"
 }
+
+configurations {
+	testOutput.extendsFrom(testImplementation)
+}
+task jarTest(type: Jar, dependsOn: testClasses) {
+	from sourceSets.test.output, sourceSets.main.output
+	archiveClassifier = 'test'
+}
+artifacts {
+	testOutput jarTest
+}
