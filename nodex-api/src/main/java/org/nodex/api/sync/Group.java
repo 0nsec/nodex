@@ -52,16 +52,9 @@ public class Group {
         return descriptor.clone();
     }
 
-    public long getVersion() {
-        return version;
-    }
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Group group = (Group) o;
-        return id.equals(group.id);
+        return o instanceof Group && id.equals(((Group) o).id);
     }
 
     @Override
@@ -71,7 +64,7 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group{id=" + id + ", version=" + version + '}';
+        return "Group{id=" + id + ", clientId=" + clientId + ", majorVersion=" + majorVersion + '}';
     }
     
     /**
@@ -79,18 +72,32 @@ public class Group {
      */
     public enum Visibility {
         /**
-         * Group is visible only to the local user.
+         * The group is not visible.
          */
-        PRIVATE,
+        INVISIBLE(0),
         
         /**
-         * Group is shared with contacts.
+         * The group is visible, messages are accepted but not sent.
          */
-        SHARED,
+        VISIBLE(1), 
         
         /**
-         * Group is visible to all contacts.
+         * The group is visible, messages are accepted and sent.
          */
-        PUBLIC
+        SHARED(2);
+
+        private final int value;
+
+        Visibility(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+
+        public static Visibility min(Visibility a, Visibility b) {
+            return a.getValue() < b.getValue() ? a : b;
+        }
     }
 }
