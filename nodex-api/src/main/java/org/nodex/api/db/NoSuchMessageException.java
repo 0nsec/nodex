@@ -4,10 +4,6 @@ package org.nodex.api.db;
  * Exception thrown when a message is not found in the database.
  */
 public class NoSuchMessageException extends DbException {
-    public NoSuchMessageException() {
-        super();
-    }
-
     public NoSuchMessageException(String message) {
         super(message);
     }
