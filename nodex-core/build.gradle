@@ -25,7 +25,7 @@ dependencies {
 }
 
 configurations {
-	testOutput.extendsFrom(testCompile)
+	testOutput.extendsFrom(testImplementation)
 }
 task jarTest(type: Jar, dependsOn: testClasses) {
 	from sourceSets.test.output, sourceSets.main.output
