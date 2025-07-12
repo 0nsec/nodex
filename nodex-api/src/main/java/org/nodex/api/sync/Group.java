@@ -1,6 +1,5 @@
 package org.nodex.api.sync;
 
-import org.nodex.api.contact.ContactId;
 import org.nodex.api.nullsafety.NotNullByDefault;
 
 /**
@@ -8,20 +7,45 @@ import org.nodex.api.nullsafety.NotNullByDefault;
  */
 @NotNullByDefault
 public class Group {
+    
+    /**
+     * The maximum length of a group descriptor in bytes.
+     */
+    public static final int MAX_GROUP_DESCRIPTOR_LENGTH = 1024;
+    
+    /**
+     * The current version of the group format.
+     */
+    public static final int FORMAT_VERSION = 1;
+    
     private final GroupId id;
+    private final ClientId clientId;
+    private final int majorVersion;
     private final byte[] descriptor;
-    private final long version;
 
-    public Group(GroupId id, byte[] descriptor, long version) {
+    public Group(GroupId id, ClientId clientId, int majorVersion, byte[] descriptor) {
         if (id == null) throw new IllegalArgumentException("Group ID cannot be null");
+        if (clientId == null) throw new IllegalArgumentException("Client ID cannot be null");
         if (descriptor == null) throw new IllegalArgumentException("Descriptor cannot be null");
+        if (descriptor.length > MAX_GROUP_DESCRIPTOR_LENGTH) {
+            throw new IllegalArgumentException("Descriptor too long");
+        }
         this.id = id;
+        this.clientId = clientId;
+        this.majorVersion = majorVersion;
         this.descriptor = descriptor.clone();
-        this.version = version;
     }
 
     public GroupId getId() {
         return id;
+    }
+    
+    public ClientId getClientId() {
+        return clientId;
+    }
+    
+    public int getMajorVersion() {
+        return majorVersion;
     }
 
     public byte[] getDescriptor() {
