@@ -53,4 +53,6 @@ nodex/
 2. Sync Gradle files
 3. Run the app on a device or emulator
 
+**Note**: This project has been cleaned and restructured for Android Studio compatibility. See `FIXES_APPLIED.md` for details about resolved compilation issues.
+
 The app uses a modern Android architecture with dependency injection (Dagger), ViewModels, and clean separation of concerns.
