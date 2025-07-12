@@ -1,10 +1,10 @@
 package org.nodex.introduction;
-import org.nodex.core.api.crypto.KeyPair;
-import org.nodex.core.api.crypto.PrivateKey;
-import org.nodex.core.api.crypto.SecretKey;
-import org.nodex.core.api.identity.Author;
-import org.nodex.core.api.identity.AuthorId;
-import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.api.crypto.KeyPair;
+import org.nodex.api.crypto.PrivateKey;
+import org.nodex.api.crypto.SecretKey;
+import org.nodex.api.identity.Author;
+import org.nodex.api.identity.AuthorId;
+import org.nodex.api.identity.LocalAuthor;
 import org.nodex.api.client.SessionId;
 import java.security.GeneralSecurityException;
 interface IntroductionCrypto {

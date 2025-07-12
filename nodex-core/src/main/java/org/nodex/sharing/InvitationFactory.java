@@ -1,7 +1,7 @@
 package org.nodex.sharing;
-import org.nodex.core.api.contact.ContactId;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.contact.ContactId;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.conversation.ConversationRequest;
 import org.nodex.api.sharing.InvitationResponse;
 import org.nodex.api.sharing.Shareable;

@@ -1,9 +1,9 @@
 package org.nodex.forum;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.client.ClientHelper;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.sync.Group;
-import org.nodex.core.api.sync.GroupFactory;
+import org.nodex.api.FormatException;
+import org.nodex.api.client.ClientHelper;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.sync.Group;
+import org.nodex.api.sync.GroupFactory;
 import org.nodex.core.util.StringUtils;
 import org.nodex.api.forum.Forum;
 import org.nodex.api.forum.ForumFactory;

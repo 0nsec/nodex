@@ -1,9 +1,9 @@
 package org.nodex.sharing;
-import org.nodex.core.api.data.BdfDictionary;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.Message;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.data.BdfDictionary;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.Message;
+import org.nodex.api.sync.MessageId;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 @NotNullByDefault

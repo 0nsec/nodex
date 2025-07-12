@@ -1,7 +1,7 @@
 package org.nodex.api.blog;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.identity.Author;
-import org.nodex.core.api.sync.Group;
+import org.nodex.api.FormatException;
+import org.nodex.api.identity.Author;
+import org.nodex.api.sync.Group;
 import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public interface BlogFactory {

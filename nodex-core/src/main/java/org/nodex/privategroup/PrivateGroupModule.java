@@ -1,9 +1,9 @@
 package org.nodex.privategroup;
-import org.nodex.core.api.FeatureFlags;
-import org.nodex.core.api.client.ClientHelper;
-import org.nodex.core.api.data.MetadataEncoder;
-import org.nodex.core.api.sync.validation.ValidationManager;
-import org.nodex.core.api.system.Clock;
+import org.nodex.api.FeatureFlags;
+import org.nodex.api.client.ClientHelper;
+import org.nodex.api.data.MetadataEncoder;
+import org.nodex.api.sync.validation.ValidationManager;
+import org.nodex.api.system.Clock;
 import org.nodex.api.privategroup.GroupMessageFactory;
 import org.nodex.api.privategroup.PrivateGroupFactory;
 import org.nodex.api.privategroup.PrivateGroupManager;

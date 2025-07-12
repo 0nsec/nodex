@@ -1,10 +1,10 @@
 package org.nodex.sharing;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.client.ClientHelper;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.data.MetadataEncoder;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.system.Clock;
+import org.nodex.api.FormatException;
+import org.nodex.api.client.ClientHelper;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.data.MetadataEncoder;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.system.Clock;
 import org.nodex.api.forum.Forum;
 import org.nodex.api.forum.ForumFactory;
 import org.nodex.nullsafety.NotNullByDefault;

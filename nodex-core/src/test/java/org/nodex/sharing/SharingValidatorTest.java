@@ -1,10 +1,10 @@
 package org.nodex.sharing;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.UniqueId;
-import org.nodex.core.api.client.BdfMessageContext;
-import org.nodex.core.api.data.BdfDictionary;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.FormatException;
+import org.nodex.api.UniqueId;
+import org.nodex.api.client.BdfMessageContext;
+import org.nodex.api.data.BdfDictionary;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.sync.MessageId;
 import org.nodex.core.test.ValidatorTestCase;
 import org.nodex.api.blog.BlogFactory;
 import org.nodex.api.forum.ForumFactory;

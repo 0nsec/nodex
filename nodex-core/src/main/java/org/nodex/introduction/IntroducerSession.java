@@ -1,8 +1,8 @@
 package org.nodex.introduction;
-import org.nodex.core.api.identity.Author;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.Message;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.identity.Author;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.Message;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.client.SessionId;
 import org.nodex.api.introduction.Role;
 import org.nodex.nullsafety.NotNullByDefault;

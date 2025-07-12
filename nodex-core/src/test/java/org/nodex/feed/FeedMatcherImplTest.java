@@ -1,6 +1,6 @@
 package org.nodex.feed;
-import org.nodex.core.api.identity.LocalAuthor;
-import org.nodex.core.api.sync.ClientId;
+import org.nodex.api.identity.LocalAuthor;
+import org.nodex.api.sync.ClientId;
 import org.nodex.core.test.BrambleTestCase;
 import org.nodex.api.blog.Blog;
 import org.nodex.api.feed.Feed;

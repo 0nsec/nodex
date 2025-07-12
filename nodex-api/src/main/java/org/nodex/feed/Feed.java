@@ -1,6 +1,6 @@
 package org.nodex.api.feed;
-import org.nodex.core.api.identity.LocalAuthor;
-import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.identity.LocalAuthor;
+import org.nodex.api.sync.GroupId;
 import org.nodex.api.blog.Blog;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;

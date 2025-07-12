@@ -1,5 +1,5 @@
 package org.nodex.api.privategroup.invitation;
-import org.nodex.core.api.contact.Contact;
+import org.nodex.api.contact.Contact;
 import org.nodex.api.privategroup.PrivateGroup;
 import org.nodex.api.sharing.InvitationItem;
 import org.nodex.nullsafety.NotNullByDefault;

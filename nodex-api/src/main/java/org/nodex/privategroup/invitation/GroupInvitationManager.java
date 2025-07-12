@@ -1,10 +1,10 @@
 package org.nodex.api.privategroup.invitation;
-import org.nodex.core.api.contact.Contact;
-import org.nodex.core.api.contact.ContactId;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.db.Transaction;
-import org.nodex.core.api.sync.ClientId;
-import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.contact.ContactId;
+import org.nodex.api.db.DbException;
+import org.nodex.api.db.Transaction;
+import org.nodex.api.sync.ClientId;
+import org.nodex.api.sync.GroupId;
 import org.nodex.api.client.ProtocolStateException;
 import org.nodex.api.client.SessionId;
 import org.nodex.api.conversation.ConversationManager.ConversationClient;

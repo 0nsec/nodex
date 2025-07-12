@@ -1,8 +1,8 @@
 package org.nodex.feed;
 import org.nodex.core.BrambleCoreIntegrationTestEagerSingletons;
 import org.nodex.core.BrambleCoreModule;
-import org.nodex.core.api.identity.IdentityManager;
-import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.api.identity.IdentityManager;
+import org.nodex.api.lifecycle.LifecycleManager;
 import org.nodex.core.mailbox.ModularMailboxModule;
 import org.nodex.core.test.BrambleCoreIntegrationTestModule;
 import org.nodex.core.test.TestDnsModule;

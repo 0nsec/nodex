@@ -1,7 +1,7 @@
 package org.nodex.feed;
 import com.rometools.rome.feed.synd.SyndFeed;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.api.FormatException;
+import org.nodex.api.data.BdfDictionary;
 import org.nodex.api.feed.Feed;
 import javax.annotation.Nullable;
 interface FeedFactory {

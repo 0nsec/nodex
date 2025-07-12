@@ -1,5 +1,5 @@
 package org.nodex.api.sharing;
-import org.nodex.core.api.contact.Contact;
+import org.nodex.api.contact.Contact;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import javax.annotation.concurrent.Immutable;

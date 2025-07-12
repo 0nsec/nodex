@@ -1,8 +1,8 @@
 package org.nodex.api.privategroup.event;
-import org.nodex.core.api.contact.ContactId;
-import org.nodex.core.api.event.Event;
-import org.nodex.core.api.identity.AuthorId;
-import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.contact.ContactId;
+import org.nodex.api.event.Event;
+import org.nodex.api.identity.AuthorId;
+import org.nodex.api.sync.GroupId;
 import org.nodex.api.privategroup.Visibility;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;

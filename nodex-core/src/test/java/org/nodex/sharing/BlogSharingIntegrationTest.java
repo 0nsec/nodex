@@ -1,11 +1,11 @@
 package org.nodex.sharing;
 import net.jodah.concurrentunit.Waiter;
-import org.nodex.core.api.contact.Contact;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.db.NoSuchGroupException;
-import org.nodex.core.api.event.Event;
-import org.nodex.core.api.event.EventListener;
-import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.db.DbException;
+import org.nodex.api.db.NoSuchGroupException;
+import org.nodex.api.event.Event;
+import org.nodex.api.event.EventListener;
+import org.nodex.api.sync.GroupId;
 import org.nodex.core.test.TestDatabaseConfigModule;
 import org.nodex.api.blog.Blog;
 import org.nodex.api.blog.BlogFactory;

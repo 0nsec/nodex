@@ -1,5 +1,5 @@
 package org.nodex.api.privategroup;
-import org.nodex.core.api.FormatException;
+import org.nodex.api.FormatException;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable

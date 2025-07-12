@@ -1,7 +1,7 @@
 package org.nodex.sharing;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.client.ClientHelper;
-import org.nodex.core.api.data.BdfList;
+import org.nodex.api.FormatException;
+import org.nodex.api.client.ClientHelper;
+import org.nodex.api.data.BdfList;
 import org.nodex.api.forum.Forum;
 import org.nodex.api.forum.ForumFactory;
 import org.nodex.nullsafety.NotNullByDefault;

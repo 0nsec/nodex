@@ -1,8 +1,8 @@
 package org.nodex.privategroup.invitation;
-import org.nodex.core.api.contact.ContactId;
-import org.nodex.core.api.db.DatabaseComponent;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.contact.ContactId;
+import org.nodex.api.db.DatabaseComponent;
+import org.nodex.api.db.DbException;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.autodelete.event.ConversationMessagesDeletedEvent;
 import org.nodex.api.conversation.ConversationManager.ConversationClient;
 import org.nodex.api.privategroup.GroupMessage;

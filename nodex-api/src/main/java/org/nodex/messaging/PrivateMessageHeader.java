@@ -1,6 +1,6 @@
 package org.nodex.api.messaging;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.attachment.AttachmentHeader;
 import org.nodex.api.conversation.ConversationMessageHeader;
 import org.nodex.api.conversation.ConversationMessageVisitor;

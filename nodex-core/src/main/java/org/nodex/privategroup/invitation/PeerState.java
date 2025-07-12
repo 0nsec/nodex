@@ -1,6 +1,6 @@
 package org.nodex.privategroup.invitation;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.sync.Group.Visibility;
+import org.nodex.api.FormatException;
+import org.nodex.api.sync.Group.Visibility;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import static org.nodex.core.api.sync.Group.Visibility.INVISIBLE;

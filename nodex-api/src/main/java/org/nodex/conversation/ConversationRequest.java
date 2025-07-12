@@ -1,7 +1,7 @@
 package org.nodex.api.conversation;
-import org.nodex.core.api.Nameable;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.Nameable;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.client.SessionId;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;

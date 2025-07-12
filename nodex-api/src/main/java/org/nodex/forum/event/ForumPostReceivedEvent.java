@@ -1,6 +1,6 @@
 package org.nodex.api.forum.event;
-import org.nodex.core.api.event.Event;
-import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.event.Event;
+import org.nodex.api.sync.GroupId;
 import org.nodex.api.forum.ForumPostHeader;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;

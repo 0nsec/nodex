@@ -1,5 +1,5 @@
 package org.nodex.client;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.core.test.TestUtils;
 import org.nodex.api.client.MessageTree;
 import org.nodex.nullsafety.NotNullByDefault;

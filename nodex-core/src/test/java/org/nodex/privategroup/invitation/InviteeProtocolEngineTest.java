@@ -1,9 +1,9 @@
 package org.nodex.privategroup.invitation;
-import org.nodex.core.api.contact.Contact;
-import org.nodex.core.api.data.BdfDictionary;
-import org.nodex.core.api.data.BdfEntry;
-import org.nodex.core.api.identity.LocalAuthor;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.data.BdfDictionary;
+import org.nodex.api.data.BdfEntry;
+import org.nodex.api.identity.LocalAuthor;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.client.ProtocolStateException;
 import org.nodex.api.privategroup.GroupMessage;
 import org.jmock.Expectations;

@@ -1,5 +1,5 @@
 package org.nodex.sharing;
-import org.nodex.core.api.db.DbException;
+import org.nodex.api.db.DbException;
 import org.nodex.api.conversation.ConversationManager.ConversationClient;
 import org.nodex.api.conversation.event.ConversationMessageReceivedEvent;
 import org.nodex.api.forum.Forum;

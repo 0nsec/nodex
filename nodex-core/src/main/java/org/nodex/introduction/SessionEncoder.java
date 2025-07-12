@@ -1,6 +1,6 @@
 package org.nodex.introduction;
-import org.nodex.core.api.data.BdfDictionary;
-import org.nodex.core.api.identity.Author;
+import org.nodex.api.data.BdfDictionary;
+import org.nodex.api.identity.Author;
 import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 interface SessionEncoder {

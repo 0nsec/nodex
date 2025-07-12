@@ -1,6 +1,6 @@
 package org.nodex.privategroup.invitation;
-import org.nodex.core.api.data.BdfDictionary;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.data.BdfDictionary;
+import org.nodex.api.sync.MessageId;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;

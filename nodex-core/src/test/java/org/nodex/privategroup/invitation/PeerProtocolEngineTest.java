@@ -1,5 +1,5 @@
 package org.nodex.privategroup.invitation;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.client.ProtocolStateException;
 import org.jmock.Expectations;
 import org.junit.Test;

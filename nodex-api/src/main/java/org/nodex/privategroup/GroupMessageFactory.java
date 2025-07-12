@@ -1,8 +1,8 @@
 package org.nodex.api.privategroup;
-import org.nodex.core.api.crypto.CryptoExecutor;
-import org.nodex.core.api.identity.LocalAuthor;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.crypto.CryptoExecutor;
+import org.nodex.api.identity.LocalAuthor;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import static org.nodex.api.privategroup.PrivateGroupManager.CLIENT_ID;

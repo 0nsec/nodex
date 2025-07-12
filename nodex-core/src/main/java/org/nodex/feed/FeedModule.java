@@ -1,7 +1,7 @@
 package org.nodex.feed;
-import org.nodex.core.api.FeatureFlags;
-import org.nodex.core.api.event.EventBus;
-import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.api.FeatureFlags;
+import org.nodex.api.event.EventBus;
+import org.nodex.api.lifecycle.LifecycleManager;
 import org.nodex.api.blog.BlogManager;
 import org.nodex.api.feed.FeedManager;
 import javax.inject.Inject;

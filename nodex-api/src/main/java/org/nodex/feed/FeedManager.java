@@ -1,7 +1,7 @@
 package org.nodex.api.feed;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.db.Transaction;
-import org.nodex.core.api.sync.ClientId;
+import org.nodex.api.db.DbException;
+import org.nodex.api.db.Transaction;
+import org.nodex.api.sync.ClientId;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.io.IOException;
 import java.io.InputStream;

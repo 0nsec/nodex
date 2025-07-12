@@ -1,7 +1,7 @@
 package org.nodex.sharing;
-import org.nodex.core.api.contact.Contact;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.db.DbException;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.autodelete.event.ConversationMessagesDeletedEvent;
 import org.nodex.api.blog.Blog;
 import org.nodex.api.client.BaseGroup;

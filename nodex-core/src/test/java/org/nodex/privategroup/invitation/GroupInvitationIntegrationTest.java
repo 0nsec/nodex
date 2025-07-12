@@ -1,7 +1,7 @@
 package org.nodex.privategroup.invitation;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.sync.Group;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.db.DbException;
+import org.nodex.api.sync.Group;
+import org.nodex.api.sync.MessageId;
 import org.nodex.core.test.TestDatabaseConfigModule;
 import org.nodex.api.client.ProtocolStateException;
 import org.nodex.api.conversation.ConversationManager;

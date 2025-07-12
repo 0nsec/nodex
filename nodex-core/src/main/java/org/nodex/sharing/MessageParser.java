@@ -1,12 +1,12 @@
 package org.nodex.sharing;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.data.BdfDictionary;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.db.Transaction;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.Message;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.FormatException;
+import org.nodex.api.data.BdfDictionary;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.db.DbException;
+import org.nodex.api.db.Transaction;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.Message;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.sharing.Shareable;
 import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault

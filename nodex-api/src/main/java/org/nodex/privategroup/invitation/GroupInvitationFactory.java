@@ -1,10 +1,10 @@
 package org.nodex.api.privategroup.invitation;
-import org.nodex.core.api.contact.Contact;
-import org.nodex.core.api.crypto.CryptoExecutor;
-import org.nodex.core.api.crypto.PrivateKey;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.identity.AuthorId;
-import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.crypto.CryptoExecutor;
+import org.nodex.api.crypto.PrivateKey;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.identity.AuthorId;
+import org.nodex.api.sync.GroupId;
 import org.nodex.nullsafety.NotNullByDefault;
 import static org.nodex.api.privategroup.invitation.GroupInvitationManager.CLIENT_ID;
 @NotNullByDefault

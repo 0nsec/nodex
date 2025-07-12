@@ -1,9 +1,9 @@
 package org.nodex.privategroup.invitation;
-import org.nodex.core.api.client.ClientHelper;
-import org.nodex.core.api.db.DatabaseComponent;
-import org.nodex.core.api.identity.IdentityManager;
-import org.nodex.core.api.system.Clock;
-import org.nodex.core.api.versioning.ClientVersioningManager;
+import org.nodex.api.client.ClientHelper;
+import org.nodex.api.db.DatabaseComponent;
+import org.nodex.api.identity.IdentityManager;
+import org.nodex.api.system.Clock;
+import org.nodex.api.versioning.ClientVersioningManager;
 import org.nodex.api.autodelete.AutoDeleteManager;
 import org.nodex.api.conversation.ConversationManager;
 import org.nodex.api.privategroup.GroupMessageFactory;

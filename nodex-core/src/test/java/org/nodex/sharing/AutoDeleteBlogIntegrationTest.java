@@ -1,5 +1,5 @@
 package org.nodex.sharing;
-import org.nodex.core.api.db.DbException;
+import org.nodex.api.db.DbException;
 import org.nodex.api.blog.Blog;
 import org.nodex.api.blog.BlogManager;
 import org.nodex.api.blog.event.BlogInvitationResponseReceivedEvent;

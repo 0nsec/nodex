@@ -1,5 +1,5 @@
 package org.nodex.api.blog.event;
-import org.nodex.core.api.contact.ContactId;
+import org.nodex.api.contact.ContactId;
 import org.nodex.api.blog.Blog;
 import org.nodex.api.conversation.ConversationRequest;
 import org.nodex.api.conversation.event.ConversationMessageReceivedEvent;

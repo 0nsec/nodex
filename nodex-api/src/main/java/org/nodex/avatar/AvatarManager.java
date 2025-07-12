@@ -1,8 +1,8 @@
 package org.nodex.api.avatar;
-import org.nodex.core.api.contact.Contact;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.db.Transaction;
-import org.nodex.core.api.sync.ClientId;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.db.DbException;
+import org.nodex.api.db.Transaction;
+import org.nodex.api.sync.ClientId;
 import org.nodex.api.attachment.AttachmentHeader;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.io.IOException;

@@ -1,8 +1,8 @@
 package org.nodex.sharing;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.client.BdfMessageContext;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.identity.Author;
+import org.nodex.api.FormatException;
+import org.nodex.api.client.BdfMessageContext;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.identity.Author;
 import org.nodex.api.blog.Blog;
 import org.jmock.Expectations;
 import org.junit.Test;

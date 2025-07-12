@@ -1,6 +1,6 @@
 package org.nodex.api.sharing;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.client.SessionId;
 import org.nodex.api.conversation.ConversationResponse;
 public abstract class InvitationResponse extends ConversationResponse {

@@ -1,7 +1,7 @@
 package org.nodex.api.test;
-import org.nodex.core.api.contact.Contact;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.lifecycle.IoExecutor;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.db.DbException;
+import org.nodex.api.lifecycle.IoExecutor;
 import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public interface TestDataCreator {

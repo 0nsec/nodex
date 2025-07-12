@@ -1,5 +1,5 @@
 package org.nodex.api.messaging;
-import org.nodex.core.api.sync.Message;
+import org.nodex.api.sync.Message;
 import org.nodex.api.attachment.AttachmentHeader;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.util.List;

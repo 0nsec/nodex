@@ -1,5 +1,5 @@
 package org.nodex.privategroup.invitation;
-import org.nodex.core.api.sync.Group.Visibility;
+import org.nodex.api.sync.Group.Visibility;
 interface State {
 	int getValue();
 	Visibility getVisibility();

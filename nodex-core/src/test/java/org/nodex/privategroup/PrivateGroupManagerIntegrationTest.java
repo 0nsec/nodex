@@ -1,8 +1,8 @@
 package org.nodex.privategroup;
-import org.nodex.core.api.contact.Contact;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.core.test.TestDatabaseConfigModule;
 import org.nodex.api.client.MessageTracker.GroupCount;
 import org.nodex.api.privategroup.GroupMember;

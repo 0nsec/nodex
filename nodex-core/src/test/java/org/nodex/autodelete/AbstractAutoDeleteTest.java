@@ -1,10 +1,10 @@
 package org.nodex.autodelete;
-import org.nodex.core.api.contact.Contact;
-import org.nodex.core.api.contact.ContactId;
-import org.nodex.core.api.db.DatabaseComponent;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.contact.ContactId;
+import org.nodex.api.db.DatabaseComponent;
+import org.nodex.api.db.DbException;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.core.system.TimeTravelModule;
 import org.nodex.core.test.TestDatabaseConfigModule;
 import org.nodex.api.autodelete.AutoDeleteManager;

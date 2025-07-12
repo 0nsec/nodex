@@ -1,6 +1,6 @@
 package org.nodex.blog;
-import org.nodex.core.api.identity.LocalAuthor;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.identity.LocalAuthor;
+import org.nodex.api.sync.MessageId;
 import org.nodex.core.test.TestDatabaseConfigModule;
 import org.nodex.api.blog.Blog;
 import org.nodex.api.blog.BlogCommentHeader;

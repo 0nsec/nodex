@@ -1,6 +1,6 @@
 package org.nodex.autodelete;
-import org.nodex.core.api.contact.ContactManager;
-import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.api.contact.ContactManager;
+import org.nodex.api.lifecycle.LifecycleManager;
 import org.nodex.api.autodelete.AutoDeleteManager;
 import javax.inject.Inject;
 import javax.inject.Singleton;

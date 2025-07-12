@@ -1,11 +1,11 @@
 package org.nodex.messaging;
 import org.nodex.core.BrambleCoreIntegrationTestEagerSingletons;
 import org.nodex.core.BrambleCoreModule;
-import org.nodex.core.api.connection.ConnectionManager;
-import org.nodex.core.api.contact.ContactManager;
-import org.nodex.core.api.event.EventBus;
-import org.nodex.core.api.identity.IdentityManager;
-import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.api.connection.ConnectionManager;
+import org.nodex.api.contact.ContactManager;
+import org.nodex.api.event.EventBus;
+import org.nodex.api.identity.IdentityManager;
+import org.nodex.api.lifecycle.LifecycleManager;
 import org.nodex.core.mailbox.ModularMailboxModule;
 import org.nodex.core.test.BrambleCoreIntegrationTestModule;
 import org.nodex.core.test.TestDnsModule;

@@ -1,10 +1,10 @@
 package org.nodex.api.blog;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.identity.LocalAuthor;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.Message;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.FormatException;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.identity.LocalAuthor;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.Message;
+import org.nodex.api.sync.MessageId;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.security.GeneralSecurityException;
 import javax.annotation.Nullable;

@@ -1,5 +1,5 @@
 package org.nodex.api.introduction.event;
-import org.nodex.core.api.contact.ContactId;
+import org.nodex.api.contact.ContactId;
 import org.nodex.api.conversation.event.ConversationMessageReceivedEvent;
 import org.nodex.api.introduction.IntroductionResponse;
 import org.nodex.nullsafety.NotNullByDefault;

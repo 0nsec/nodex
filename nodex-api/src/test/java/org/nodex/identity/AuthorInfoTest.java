@@ -1,6 +1,6 @@
 package org.nodex.api.identity;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.core.test.BrambleTestCase;
 import org.nodex.api.attachment.AttachmentHeader;
 import org.junit.Test;

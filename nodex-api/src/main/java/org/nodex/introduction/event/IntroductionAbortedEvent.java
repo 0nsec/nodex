@@ -1,5 +1,5 @@
 package org.nodex.api.introduction.event;
-import org.nodex.core.api.event.Event;
+import org.nodex.api.event.Event;
 import org.nodex.api.client.SessionId;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;

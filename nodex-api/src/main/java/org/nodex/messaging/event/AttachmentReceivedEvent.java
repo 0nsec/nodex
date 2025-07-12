@@ -1,7 +1,7 @@
 package org.nodex.api.messaging.event;
-import org.nodex.core.api.contact.ContactId;
-import org.nodex.core.api.event.Event;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.contact.ContactId;
+import org.nodex.api.event.Event;
+import org.nodex.api.sync.MessageId;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable

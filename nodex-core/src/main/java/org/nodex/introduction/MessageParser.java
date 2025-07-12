@@ -1,8 +1,8 @@
 package org.nodex.introduction;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.data.BdfDictionary;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.sync.Message;
+import org.nodex.api.FormatException;
+import org.nodex.api.data.BdfDictionary;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.sync.Message;
 import org.nodex.api.client.SessionId;
 import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault

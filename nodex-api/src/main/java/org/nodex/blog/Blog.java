@@ -1,6 +1,6 @@
 package org.nodex.api.blog;
-import org.nodex.core.api.identity.Author;
-import org.nodex.core.api.sync.Group;
+import org.nodex.api.identity.Author;
+import org.nodex.api.sync.Group;
 import org.nodex.api.client.BaseGroup;
 import org.nodex.api.sharing.Shareable;
 import org.nodex.nullsafety.NotNullByDefault;

@@ -1,8 +1,8 @@
 package org.nodex.api.autodelete;
-import org.nodex.core.api.contact.ContactId;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.db.Transaction;
-import org.nodex.core.api.sync.ClientId;
+import org.nodex.api.contact.ContactId;
+import org.nodex.api.db.DbException;
+import org.nodex.api.db.Transaction;
+import org.nodex.api.sync.ClientId;
 import org.nodex.nullsafety.NotNullByDefault;
 import static java.util.concurrent.TimeUnit.DAYS;
 @NotNullByDefault

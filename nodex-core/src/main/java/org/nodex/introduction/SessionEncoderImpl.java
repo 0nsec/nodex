@@ -1,10 +1,10 @@
 package org.nodex.introduction;
-import org.nodex.core.api.client.ClientHelper;
-import org.nodex.core.api.data.BdfDictionary;
-import org.nodex.core.api.data.BdfEntry;
-import org.nodex.core.api.identity.Author;
-import org.nodex.core.api.plugin.TransportId;
-import org.nodex.core.api.transport.KeySetId;
+import org.nodex.api.client.ClientHelper;
+import org.nodex.api.data.BdfDictionary;
+import org.nodex.api.data.BdfEntry;
+import org.nodex.api.identity.Author;
+import org.nodex.api.plugin.TransportId;
+import org.nodex.api.transport.KeySetId;
 import org.nodex.introduction.IntroduceeSession.Common;
 import org.nodex.introduction.IntroduceeSession.Local;
 import org.nodex.introduction.IntroduceeSession.Remote;

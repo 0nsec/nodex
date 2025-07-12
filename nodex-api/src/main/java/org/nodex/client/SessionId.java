@@ -1,5 +1,5 @@
 package org.nodex.api.client;
-import org.nodex.core.api.UniqueId;
+import org.nodex.api.UniqueId;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe

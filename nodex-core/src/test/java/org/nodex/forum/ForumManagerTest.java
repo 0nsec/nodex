@@ -1,5 +1,5 @@
 package org.nodex.forum;
-import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.sync.GroupId;
 import org.nodex.core.test.TestDatabaseConfigModule;
 import org.nodex.api.forum.Forum;
 import org.nodex.api.forum.ForumManager;

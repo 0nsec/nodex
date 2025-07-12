@@ -1,9 +1,9 @@
 package org.nodex.messaging;
-import org.nodex.core.api.contact.ContactId;
-import org.nodex.core.api.db.DatabaseComponent;
-import org.nodex.core.api.db.MessageDeletedException;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.contact.ContactId;
+import org.nodex.api.db.DatabaseComponent;
+import org.nodex.api.db.MessageDeletedException;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.core.test.TestDatabaseConfigModule;
 import org.nodex.api.attachment.AttachmentHeader;
 import org.nodex.api.conversation.ConversationMessageHeader;

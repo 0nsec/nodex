@@ -1,7 +1,7 @@
 package org.nodex.sharing;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.db.Transaction;
+import org.nodex.api.FormatException;
+import org.nodex.api.db.DbException;
+import org.nodex.api.db.Transaction;
 import org.nodex.api.sharing.Shareable;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;

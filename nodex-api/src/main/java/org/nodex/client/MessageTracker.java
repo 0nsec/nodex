@@ -1,9 +1,9 @@
 package org.nodex.api.client;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.db.Transaction;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.Message;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.db.DbException;
+import org.nodex.api.db.Transaction;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.Message;
+import org.nodex.api.sync.MessageId;
 import org.nodex.api.conversation.ConversationManager;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;

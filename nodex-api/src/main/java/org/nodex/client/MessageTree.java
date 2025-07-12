@@ -1,5 +1,5 @@
 package org.nodex.api.client;
-import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.sync.MessageId;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import java.util.List;

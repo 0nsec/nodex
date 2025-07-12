@@ -1,6 +1,6 @@
 package org.nodex.test;
-import org.nodex.core.api.event.Event;
-import org.nodex.core.api.event.EventListener;
+import org.nodex.api.event.Event;
+import org.nodex.api.event.EventListener;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.util.concurrent.atomic.AtomicReference;
 import static org.nodex.test.NodexIntegrationTest.waitForEvents;

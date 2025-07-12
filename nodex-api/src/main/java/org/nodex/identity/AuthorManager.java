@@ -1,9 +1,9 @@
 package org.nodex.api.identity;
-import org.nodex.core.api.contact.Contact;
-import org.nodex.core.api.db.DbException;
-import org.nodex.core.api.db.Transaction;
-import org.nodex.core.api.identity.AuthorId;
-import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.db.DbException;
+import org.nodex.api.db.Transaction;
+import org.nodex.api.identity.AuthorId;
+import org.nodex.api.identity.LocalAuthor;
 import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public interface AuthorManager {

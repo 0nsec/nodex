@@ -1,7 +1,7 @@
 package org.nodex.feed;
-import org.nodex.core.api.identity.Identity;
-import org.nodex.core.api.identity.IdentityManager;
-import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.api.identity.Identity;
+import org.nodex.api.identity.IdentityManager;
+import org.nodex.api.lifecycle.LifecycleManager;
 import org.nodex.core.test.BrambleTestCase;
 import org.nodex.core.test.TestDatabaseConfigModule;
 import org.nodex.api.blog.Blog;

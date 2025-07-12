@@ -1,9 +1,9 @@
 package org.nodex.messaging;
-import org.nodex.core.api.FormatException;
-import org.nodex.core.api.client.ClientHelper;
-import org.nodex.core.api.data.BdfList;
-import org.nodex.core.api.sync.GroupId;
-import org.nodex.core.api.sync.Message;
+import org.nodex.api.FormatException;
+import org.nodex.api.client.ClientHelper;
+import org.nodex.api.data.BdfList;
+import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.Message;
 import org.nodex.api.attachment.AttachmentHeader;
 import org.nodex.api.messaging.PrivateMessage;
 import org.nodex.api.messaging.PrivateMessageFactory;
