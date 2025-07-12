@@ -1,6 +1,6 @@
 package org.nodex.test;
-import static org.nodex.core.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
-import static org.nodex.core.util.StringUtils.getRandomString;
+import static org.nodex.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
+import static org.nodex.api.util.StringUtils.getRandomString;
 import static org.nodex.api.forum.ForumConstants.MAX_FORUM_NAME_LENGTH;
 public interface TestData {
 	String AUTHOR_NAMES[] = {
