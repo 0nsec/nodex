@@ -1,5 +1,5 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.briar.client.MessageTrackerConstants;
+package org.nodex.sharing;
+import org.nodex.client.MessageTrackerConstants;
 interface SharingConstants {
 	String MSG_KEY_MESSAGE_TYPE = "messageType";
 	String MSG_KEY_SHAREABLE_ID = "shareableId";

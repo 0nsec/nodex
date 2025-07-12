@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.viewmodel;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.viewmodel;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.Nullable;
 import androidx.core.util.Consumer;
 @NotNullByDefault

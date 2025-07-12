@@ -1,6 +1,6 @@
-package org.briarproject.briar.api.sharing;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.sharing;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import javax.annotation.concurrent.Immutable;
 @Immutable

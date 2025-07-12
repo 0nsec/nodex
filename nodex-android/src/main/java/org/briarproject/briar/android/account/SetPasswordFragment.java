@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.LayoutInflater;
@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.login.StrengthMeter;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.login.StrengthMeter;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts.RequestPermission;
@@ -23,11 +23,11 @@ import static android.os.Build.VERSION.SDK_INT;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static androidx.core.content.ContextCompat.checkSelfPermission;
-import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.QUITE_WEAK;
-import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.STRONG;
-import static org.briarproject.briar.android.util.UiUtils.hideViewOnSmallScreen;
-import static org.briarproject.briar.android.util.UiUtils.setError;
-import static org.briarproject.briar.android.util.UiUtils.showOnboardingDialog;
+import static org.nodex.core.api.crypto.PasswordStrengthEstimator.QUITE_WEAK;
+import static org.nodex.core.api.crypto.PasswordStrengthEstimator.STRONG;
+import static org.nodex.android.util.UiUtils.hideViewOnSmallScreen;
+import static org.nodex.android.util.UiUtils.setError;
+import static org.nodex.android.util.UiUtils.showOnboardingDialog;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class SetPasswordFragment extends SetupFragment {

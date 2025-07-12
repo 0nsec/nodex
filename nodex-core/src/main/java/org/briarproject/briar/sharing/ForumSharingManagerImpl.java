@@ -1,19 +1,19 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.client.ContactGroupFactory;
-import org.briarproject.bramble.api.data.MetadataParser;
-import org.briarproject.bramble.api.db.DatabaseComponent;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.sync.ClientId;
-import org.briarproject.bramble.api.versioning.ClientVersioningManager;
-import org.briarproject.briar.api.client.MessageTracker;
-import org.briarproject.briar.api.forum.Forum;
-import org.briarproject.briar.api.forum.ForumInvitationResponse;
-import org.briarproject.briar.api.forum.ForumManager;
-import org.briarproject.briar.api.forum.ForumManager.RemoveForumHook;
-import org.briarproject.briar.api.forum.ForumSharingManager;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.sharing;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.client.ContactGroupFactory;
+import org.nodex.core.api.data.MetadataParser;
+import org.nodex.core.api.db.DatabaseComponent;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.sync.ClientId;
+import org.nodex.core.api.versioning.ClientVersioningManager;
+import org.nodex.api.client.MessageTracker;
+import org.nodex.api.forum.Forum;
+import org.nodex.api.forum.ForumInvitationResponse;
+import org.nodex.api.forum.ForumManager;
+import org.nodex.api.forum.ForumManager.RemoveForumHook;
+import org.nodex.api.forum.ForumSharingManager;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.inject.Inject;
 @NotNullByDefault
 class ForumSharingManagerImpl extends SharingManagerImpl<Forum>

@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.viewmodel;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.viewmodel;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public class MutableLiveEvent<T> extends LiveEvent<T> {
 	public MutableLiveEvent(T value) {

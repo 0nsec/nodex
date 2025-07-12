@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.view.View;
-import org.briarproject.briar.android.attachment.AttachmentItem;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.android.attachment.AttachmentItem;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.UiThread;
 @UiThread
 @NotNullByDefault

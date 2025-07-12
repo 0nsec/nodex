@@ -1,11 +1,11 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.briar.api.forum.Forum;
-import org.briarproject.briar.api.forum.ForumInvitationRequest;
-import org.briarproject.briar.api.forum.ForumInvitationResponse;
+package org.nodex.sharing;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.SessionId;
+import org.nodex.api.forum.Forum;
+import org.nodex.api.forum.ForumInvitationRequest;
+import org.nodex.api.forum.ForumInvitationResponse;
 import javax.inject.Inject;
 public class ForumInvitationFactoryImpl
 		implements InvitationFactory<Forum, ForumInvitationResponse> {

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -13,16 +13,16 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.widget.TextView;
 import com.google.android.material.appbar.AppBarLayout;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.briar.android.attachment.AttachmentItem;
-import org.briarproject.briar.android.util.ActivityLaunchers.CreateDocumentAdvanced;
-import org.briarproject.briar.android.util.BriarSnackbarBuilder;
-import org.briarproject.briar.android.view.PullDownLayout;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.attachment.AttachmentItem;
+import org.nodex.android.util.ActivityLaunchers.CreateDocumentAdvanced;
+import org.nodex.android.util.BriarSnackbarBuilder;
+import org.nodex.android.view.PullDownLayout;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import javax.inject.Inject;
@@ -42,8 +42,8 @@ import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
 import static android.view.View.VISIBLE;
 import static com.google.android.material.snackbar.Snackbar.LENGTH_LONG;
 import static java.util.Objects.requireNonNull;
-import static org.briarproject.briar.android.util.UiUtils.formatDateAbsolute;
-import static org.briarproject.briar.android.util.UiUtils.getDialogIcon;
+import static org.nodex.android.util.UiUtils.formatDateAbsolute;
+import static org.nodex.android.util.UiUtils.getDialogIcon;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ImageActivity extends BriarActivity

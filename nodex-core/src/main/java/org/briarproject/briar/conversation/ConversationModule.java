@@ -1,5 +1,5 @@
-package org.briarproject.briar.conversation;
-import org.briarproject.briar.api.conversation.ConversationManager;
+package org.nodex.conversation;
+import org.nodex.api.conversation.ConversationManager;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import dagger.Module;

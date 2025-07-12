@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.controller;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.controller;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 import javax.annotation.concurrent.Immutable;

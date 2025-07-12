@@ -1,9 +1,9 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.provider.Settings;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.util.Permission;
-import org.briarproject.briar.android.util.PermissionUtils;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.util.Permission;
+import org.nodex.android.util.PermissionUtils;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.logging.Logger;
 import androidx.activity.result.ActivityResultCaller;
 import androidx.activity.result.ActivityResultLauncher;
@@ -17,8 +17,8 @@ import static androidx.core.app.ActivityCompat.shouldShowRequestPermissionRation
 import static java.lang.Boolean.TRUE;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.briar.android.util.PermissionUtils.isLocationEnabledForWiFi;
-import static org.briarproject.briar.android.util.PermissionUtils.showLocationDialog;
+import static org.nodex.android.util.PermissionUtils.isLocationEnabledForWiFi;
+import static org.nodex.android.util.PermissionUtils.showLocationDialog;
 @RequiresApi(29)
 @NotNullByDefault
 class ConditionManager29 extends AbstractConditionManager {

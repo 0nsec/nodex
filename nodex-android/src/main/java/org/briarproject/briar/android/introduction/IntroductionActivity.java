@@ -1,15 +1,15 @@
-package org.briarproject.briar.android.introduction;
+package org.nodex.android.introduction;
 import android.content.Intent;
 import android.os.Bundle;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.briar.android.fragment.BaseFragment.BaseFragmentListener;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.fragment.BaseFragment.BaseFragmentListener;
 import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
-import static org.briarproject.briar.android.conversation.ConversationActivity.CONTACT_ID;
+import static org.nodex.android.conversation.ConversationActivity.CONTACT_ID;
 public class IntroductionActivity extends BriarActivity
 		implements BaseFragmentListener {
 	@Inject

@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.settings;
+package org.nodex.android.settings;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.Map;
 import javax.inject.Inject;
 import androidx.activity.result.ActivityResultLauncher;
@@ -20,13 +20,13 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
 import static android.Manifest.permission.BLUETOOTH_CONNECT;
 import static android.os.Build.VERSION.SDK_INT;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.settings.SettingsActivity.enableAndPersist;
-import static org.briarproject.briar.android.util.PermissionUtils.areBluetoothPermissionsGranted;
-import static org.briarproject.briar.android.util.PermissionUtils.requestBluetoothPermissions;
-import static org.briarproject.briar.android.util.PermissionUtils.showDenialDialog;
-import static org.briarproject.briar.android.util.PermissionUtils.showRationale;
-import static org.briarproject.briar.android.util.PermissionUtils.wasGrantedBluetoothPermissions;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.settings.SettingsActivity.enableAndPersist;
+import static org.nodex.android.util.PermissionUtils.areBluetoothPermissionsGranted;
+import static org.nodex.android.util.PermissionUtils.requestBluetoothPermissions;
+import static org.nodex.android.util.PermissionUtils.showDenialDialog;
+import static org.nodex.android.util.PermissionUtils.showRationale;
+import static org.nodex.android.util.PermissionUtils.wasGrantedBluetoothPermissions;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ConnectionsFragment extends PreferenceFragmentCompat {

@@ -1,14 +1,14 @@
-package org.briarproject.briar.api.conversation;
-import org.briarproject.briar.api.blog.BlogInvitationRequest;
-import org.briarproject.briar.api.blog.BlogInvitationResponse;
-import org.briarproject.briar.api.forum.ForumInvitationRequest;
-import org.briarproject.briar.api.forum.ForumInvitationResponse;
-import org.briarproject.briar.api.introduction.IntroductionRequest;
-import org.briarproject.briar.api.introduction.IntroductionResponse;
-import org.briarproject.briar.api.messaging.PrivateMessageHeader;
-import org.briarproject.briar.api.privategroup.invitation.GroupInvitationRequest;
-import org.briarproject.briar.api.privategroup.invitation.GroupInvitationResponse;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.conversation;
+import org.nodex.api.blog.BlogInvitationRequest;
+import org.nodex.api.blog.BlogInvitationResponse;
+import org.nodex.api.forum.ForumInvitationRequest;
+import org.nodex.api.forum.ForumInvitationResponse;
+import org.nodex.api.introduction.IntroductionRequest;
+import org.nodex.api.introduction.IntroductionResponse;
+import org.nodex.api.messaging.PrivateMessageHeader;
+import org.nodex.api.privategroup.invitation.GroupInvitationRequest;
+import org.nodex.api.privategroup.invitation.GroupInvitationResponse;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public interface ConversationMessageVisitor<T> {
 	T visitPrivateMessageHeader(PrivateMessageHeader h);

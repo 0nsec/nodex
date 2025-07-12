@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.blog;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.blog;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 abstract class RssImportResult {
 	static class UrlImportSuccess extends RssImportResult {

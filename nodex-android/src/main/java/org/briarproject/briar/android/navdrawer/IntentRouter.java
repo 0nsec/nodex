@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.navdrawer;
+package org.nodex.android.navdrawer;
 import android.content.Context;
 import android.content.Intent;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.briar.android.contact.add.remote.AddContactActivity;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.contact.add.remote.AddContactActivity;
 import static android.content.Intent.ACTION_SEND;
 import static android.content.Intent.ACTION_VIEW;
 import static android.content.Intent.EXTRA_TEXT;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static org.briarproject.bramble.api.contact.HandshakeLinkConstants.LINK_REGEX;
+import static org.nodex.core.api.contact.HandshakeLinkConstants.LINK_REGEX;
 class IntentRouter {
 	static void handleExternalIntent(Context ctx, Intent i) {
 		String action = i.getAction();

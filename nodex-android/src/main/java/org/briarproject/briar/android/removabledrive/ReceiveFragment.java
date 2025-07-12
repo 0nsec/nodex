@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.removabledrive;
+package org.nodex.android.removabledrive;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.util.ActivityLaunchers.GetContentAdvanced;
-import org.briarproject.briar.android.util.ActivityLaunchers.OpenDocumentAdvanced;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.util.ActivityLaunchers.GetContentAdvanced;
+import org.nodex.android.util.ActivityLaunchers.OpenDocumentAdvanced;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.Nullable;
@@ -21,9 +21,9 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import static android.view.View.VISIBLE;
 import static android.widget.Toast.LENGTH_LONG;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.util.UiUtils.hideViewOnSmallScreen;
-import static org.briarproject.briar.android.util.UiUtils.launchActivityToOpenFile;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.util.UiUtils.hideViewOnSmallScreen;
+import static org.nodex.android.util.UiUtils.launchActivityToOpenFile;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ReceiveFragment extends Fragment {

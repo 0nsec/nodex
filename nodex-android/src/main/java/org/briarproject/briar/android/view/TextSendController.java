@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.content.Context;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.view.EmojiTextInputView.TextInputListener;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.view.EmojiTextInputView.TextInputListener;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.List;
 import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
@@ -18,10 +18,10 @@ import androidx.lifecycle.LiveData;
 import static android.widget.Toast.LENGTH_LONG;
 import static com.google.android.material.snackbar.Snackbar.LENGTH_SHORT;
 import static java.util.Collections.emptyList;
-import static org.briarproject.briar.android.view.TextSendController.SendState.ERROR;
-import static org.briarproject.briar.android.view.TextSendController.SendState.SENT;
-import static org.briarproject.briar.android.view.TextSendController.SendState.UNEXPECTED_TIMER;
-import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
+import static org.nodex.android.view.TextSendController.SendState.ERROR;
+import static org.nodex.android.view.TextSendController.SendState.SENT;
+import static org.nodex.android.view.TextSendController.SendState.UNEXPECTED_TIMER;
+import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 @UiThread
 @NotNullByDefault
 public class TextSendController implements TextInputListener {

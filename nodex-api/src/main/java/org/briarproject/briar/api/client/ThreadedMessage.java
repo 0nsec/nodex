@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.client;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.client;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable

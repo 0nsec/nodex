@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.contact.add.nearby;
+package org.nodex.android.contact.add.nearby;
 import android.graphics.Bitmap;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.qrcode.QrCodeClassifier.QrCodeType;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.qrcode.QrCodeClassifier.QrCodeType;
 import androidx.annotation.Nullable;
 abstract class AddContactState {
 	static class KeyAgreementListening extends AddContactState {

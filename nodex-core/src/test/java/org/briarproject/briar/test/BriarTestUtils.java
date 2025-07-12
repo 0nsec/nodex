@@ -1,20 +1,20 @@
-package org.briarproject.briar.test;
-import org.briarproject.bramble.api.crypto.CryptoComponent;
-import org.briarproject.bramble.api.crypto.KeyPair;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.identity.AuthorFactory;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.util.Base32;
-import org.briarproject.briar.api.client.MessageTracker;
-import org.briarproject.briar.api.client.MessageTracker.GroupCount;
+package org.nodex.test;
+import org.nodex.core.api.crypto.CryptoComponent;
+import org.nodex.core.api.crypto.KeyPair;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.identity.AuthorFactory;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.util.Base32;
+import org.nodex.api.client.MessageTracker;
+import org.nodex.api.client.MessageTracker.GroupCount;
 import java.util.Locale;
 import static java.lang.System.arraycopy;
-import static org.briarproject.bramble.api.contact.HandshakeLinkConstants.FORMAT_VERSION;
-import static org.briarproject.bramble.api.contact.HandshakeLinkConstants.RAW_LINK_BYTES;
-import static org.briarproject.bramble.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
-import static org.briarproject.bramble.util.StringUtils.getRandomString;
+import static org.nodex.core.api.contact.HandshakeLinkConstants.FORMAT_VERSION;
+import static org.nodex.core.api.contact.HandshakeLinkConstants.RAW_LINK_BYTES;
+import static org.nodex.core.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
+import static org.nodex.core.util.StringUtils.getRandomString;
 import static org.junit.Assert.assertEquals;
 public class BriarTestUtils {
 	public static void assertGroupCount(MessageTracker tracker, GroupId g,

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.LayoutInflater;
@@ -7,15 +7,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
-import static org.briarproject.bramble.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
-import static org.briarproject.bramble.util.StringUtils.toUtf8;
-import static org.briarproject.briar.android.util.UiUtils.hideViewOnSmallScreen;
-import static org.briarproject.briar.android.util.UiUtils.setError;
-import static org.briarproject.briar.android.util.UiUtils.showOnboardingDialog;
+import static org.nodex.core.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
+import static org.nodex.core.util.StringUtils.toUtf8;
+import static org.nodex.android.util.UiUtils.hideViewOnSmallScreen;
+import static org.nodex.android.util.UiUtils.setError;
+import static org.nodex.android.util.UiUtils.showOnboardingDialog;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class AuthorNameFragment extends SetupFragment {

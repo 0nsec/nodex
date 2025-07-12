@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.conversation;
-import org.briarproject.briar.api.conversation.ConversationRequest;
-import org.briarproject.briar.api.conversation.ConversationResponse;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.conversation;
+import org.nodex.api.conversation.ConversationRequest;
+import org.nodex.api.conversation.ConversationResponse;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 import androidx.annotation.LayoutRes;

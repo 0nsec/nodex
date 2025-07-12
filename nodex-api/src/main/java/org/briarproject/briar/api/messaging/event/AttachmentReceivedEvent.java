@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.messaging.event;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.event.Event;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.messaging.event;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.event.Event;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

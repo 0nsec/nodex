@@ -1,4 +1,4 @@
-package org.briarproject.briar.android;
+package org.nodex.android;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.BroadcastReceiver;
@@ -10,11 +10,11 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.Signature;
-import org.briarproject.bramble.api.lifecycle.Service;
-import org.briarproject.bramble.api.system.AndroidExecutor;
-import org.briarproject.bramble.util.StringUtils;
-import org.briarproject.briar.api.android.ScreenFilterMonitor;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.lifecycle.Service;
+import org.nodex.core.api.system.AndroidExecutor;
+import org.nodex.core.util.StringUtils;
+import org.nodex.api.android.ScreenFilterMonitor;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.security.cert.CertificateException;
@@ -43,8 +43,8 @@ import static android.content.pm.PackageManager.GET_PERMISSIONS;
 import static android.content.pm.PackageManager.GET_SIGNATURES;
 import static android.os.Build.VERSION.SDK_INT;
 import static java.util.logging.Level.WARNING;
-import static org.briarproject.bramble.util.AndroidUtils.registerReceiver;
-import static org.briarproject.bramble.util.LogUtils.logException;
+import static org.nodex.core.util.AndroidUtils.registerReceiver;
+import static org.nodex.core.util.LogUtils.logException;
 @NotNullByDefault
 class ScreenFilterMonitorImpl implements ScreenFilterMonitor, Service {
 	private static final Logger LOG =

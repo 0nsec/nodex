@@ -1,24 +1,24 @@
-package org.briarproject.briar.android.sharing;
+package org.nodex.android.sharing;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.briar.android.controller.handler.UiExceptionHandler;
-import org.briarproject.briar.android.controller.handler.UiResultExceptionHandler;
-import org.briarproject.briar.android.sharing.InvitationController.InvitationListener;
-import org.briarproject.briar.android.view.BriarRecyclerView;
-import org.briarproject.briar.api.sharing.InvitationItem;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.db.DbException;
+import org.nodex.R;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.controller.handler.UiExceptionHandler;
+import org.nodex.android.controller.handler.UiResultExceptionHandler;
+import org.nodex.android.sharing.InvitationController.InvitationListener;
+import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.api.sharing.InvitationItem;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.Collection;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import static android.widget.Toast.LENGTH_SHORT;
-import static org.briarproject.briar.android.sharing.InvitationAdapter.InvitationClickListener;
+import static org.nodex.android.sharing.InvitationAdapter.InvitationClickListener;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class InvitationActivity<I extends InvitationItem>

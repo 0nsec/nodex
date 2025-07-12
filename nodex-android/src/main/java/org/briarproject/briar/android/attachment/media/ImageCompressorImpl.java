@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.attachment.media;
+package org.nodex.android.attachment.media;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import java.io.BufferedInputStream;
@@ -13,8 +13,8 @@ import static android.graphics.BitmapFactory.decodeStream;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.IoUtils.tryToClose;
-import static org.briarproject.briar.api.attachment.MediaConstants.MAX_IMAGE_SIZE;
+import static org.nodex.core.util.IoUtils.tryToClose;
+import static org.nodex.api.attachment.MediaConstants.MAX_IMAGE_SIZE;
 class ImageCompressorImpl implements ImageCompressor {
 	private static final Logger LOG =
 			getLogger(ImageCompressorImpl.class.getName());

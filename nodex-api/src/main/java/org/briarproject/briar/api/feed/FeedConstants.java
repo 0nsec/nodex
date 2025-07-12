@@ -1,4 +1,4 @@
-package org.briarproject.briar.api.feed;
+package org.nodex.api.feed;
 import java.util.concurrent.TimeUnit;
 import static java.util.concurrent.TimeUnit.MINUTES;
 public interface FeedConstants {

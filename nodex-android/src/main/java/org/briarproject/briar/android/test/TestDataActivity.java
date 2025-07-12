@@ -1,18 +1,18 @@
-package org.briarproject.briar.android.test;
+package org.nodex.android.test;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.briar.api.test.TestDataCreator;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.api.test.TestDataCreator;
 import javax.inject.Inject;
 import androidx.appcompat.app.ActionBar;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static org.briarproject.briar.android.BriarApplication.ENTRY_ACTIVITY;
+import static org.nodex.android.BriarApplication.ENTRY_ACTIVITY;
 public class TestDataActivity extends BriarActivity {
 	@Inject
 	TestDataCreator testDataCreator;

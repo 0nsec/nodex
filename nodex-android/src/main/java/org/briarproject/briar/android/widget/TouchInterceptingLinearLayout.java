@@ -1,9 +1,9 @@
-package org.briarproject.briar.android.widget;
+package org.nodex.android.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.Nullable;
 @NotNullByDefault
 public class TouchInterceptingLinearLayout extends LinearLayout {

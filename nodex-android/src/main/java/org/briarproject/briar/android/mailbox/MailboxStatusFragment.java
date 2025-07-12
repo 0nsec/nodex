@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.mailbox;
+package org.nodex.android.mailbox;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -12,11 +12,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import org.briarproject.bramble.api.mailbox.MailboxStatus;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.view.BriarButton;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.mailbox.MailboxStatus;
+import org.nodex.R;
+import org.nodex.android.view.BriarButton;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
@@ -32,12 +32,12 @@ import static android.view.View.VISIBLE;
 import static androidx.core.content.ContextCompat.getColor;
 import static androidx.core.widget.ImageViewCompat.setImageTintList;
 import static androidx.transition.TransitionManager.beginDelayedTransition;
-import static org.briarproject.bramble.api.mailbox.MailboxConstants.API_CLIENT_TOO_OLD;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.util.UiUtils.MIN_DATE_RESOLUTION;
-import static org.briarproject.briar.android.util.UiUtils.formatDate;
-import static org.briarproject.briar.android.util.UiUtils.observeOnce;
-import static org.briarproject.briar.android.util.UiUtils.showFragment;
+import static org.nodex.core.api.mailbox.MailboxConstants.API_CLIENT_TOO_OLD;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.util.UiUtils.MIN_DATE_RESOLUTION;
+import static org.nodex.android.util.UiUtils.formatDate;
+import static org.nodex.android.util.UiUtils.observeOnce;
+import static org.nodex.android.util.UiUtils.showFragment;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class MailboxStatusFragment extends Fragment {

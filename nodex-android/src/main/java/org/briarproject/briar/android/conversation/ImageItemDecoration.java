@@ -1,18 +1,18 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.view.View;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration;
 import androidx.recyclerview.widget.RecyclerView.State;
-import static org.briarproject.briar.android.conversation.ImageAdapter.isBottomRow;
-import static org.briarproject.briar.android.conversation.ImageAdapter.isLeft;
-import static org.briarproject.briar.android.conversation.ImageAdapter.isTopRow;
-import static org.briarproject.briar.android.conversation.ImageAdapter.singleInRow;
-import static org.briarproject.briar.android.util.UiUtils.isRtl;
+import static org.nodex.android.conversation.ImageAdapter.isBottomRow;
+import static org.nodex.android.conversation.ImageAdapter.isLeft;
+import static org.nodex.android.conversation.ImageAdapter.isTopRow;
+import static org.nodex.android.conversation.ImageAdapter.singleInRow;
+import static org.nodex.android.util.UiUtils.isRtl;
 @NotNullByDefault
 class ImageItemDecoration extends ItemDecoration {
 	private final int border;

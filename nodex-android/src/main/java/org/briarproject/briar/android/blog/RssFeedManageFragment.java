@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.blog;
+package org.nodex.android.blog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,21 +7,21 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.briar.android.view.BriarRecyclerView;
-import org.briarproject.briar.api.feed.Feed;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.api.feed.Feed;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_ID;
-import static org.briarproject.briar.android.blog.RssFeedAdapter.RssFeedListener;
-import static org.briarproject.nullsafety.NullSafety.requireNonNull;
+import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.blog.RssFeedAdapter.RssFeedListener;
+import static org.nodex.nullsafety.NullSafety.requireNonNull;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class RssFeedManageFragment extends BaseFragment

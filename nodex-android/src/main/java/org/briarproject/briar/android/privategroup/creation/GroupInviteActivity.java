@@ -1,19 +1,19 @@
-package org.briarproject.briar.android.privategroup.creation;
+package org.nodex.android.privategroup.creation;
 import android.content.Intent;
 import android.os.Bundle;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.contactselection.ContactSelectorActivity;
-import org.briarproject.briar.android.controller.handler.UiResultExceptionHandler;
-import org.briarproject.briar.android.sharing.BaseMessageFragment.MessageFragmentListener;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.contactselection.ContactSelectorActivity;
+import org.nodex.android.controller.handler.UiResultExceptionHandler;
+import org.nodex.android.sharing.BaseMessageFragment.MessageFragmentListener;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.Collection;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-import static org.briarproject.briar.api.privategroup.PrivateGroupConstants.MAX_GROUP_INVITATION_TEXT_LENGTH;
+import static org.nodex.api.privategroup.PrivateGroupConstants.MAX_GROUP_INVITATION_TEXT_LENGTH;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class GroupInviteActivity extends ContactSelectorActivity

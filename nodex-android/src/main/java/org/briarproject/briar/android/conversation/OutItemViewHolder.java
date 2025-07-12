@@ -1,8 +1,8 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.view.View;
 import android.widget.ImageView;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.UiThread;
 @UiThread
 @NotNullByDefault

@@ -1,6 +1,6 @@
-package org.briarproject.briar.privategroup.invitation;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.privategroup.invitation;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 interface SessionEncoder {
 	BdfDictionary encodeSession(Session s);

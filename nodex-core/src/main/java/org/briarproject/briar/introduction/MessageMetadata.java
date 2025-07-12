@@ -1,6 +1,6 @@
-package org.briarproject.briar.introduction;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.introduction;
+import org.nodex.api.client.SessionId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable

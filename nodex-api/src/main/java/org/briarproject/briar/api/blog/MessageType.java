@@ -1,4 +1,4 @@
-package org.briarproject.briar.api.blog;
+package org.nodex.api.blog;
 public enum MessageType {
 	POST(0),
 	COMMENT(1),

@@ -1,21 +1,21 @@
-package org.briarproject.briar.messaging;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.briar.api.messaging.PrivateMessage;
-import org.briarproject.briar.api.messaging.PrivateMessageFactory;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.messaging;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.api.messaging.PrivateMessage;
+import org.nodex.api.messaging.PrivateMessageFactory;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.bramble.util.StringUtils.utf8IsTooLong;
-import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
-import static org.briarproject.briar.api.messaging.MessagingConstants.MAX_PRIVATE_MESSAGE_TEXT_LENGTH;
-import static org.briarproject.briar.messaging.MessageTypes.PRIVATE_MESSAGE;
+import static org.nodex.core.util.StringUtils.utf8IsTooLong;
+import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
+import static org.nodex.api.messaging.MessagingConstants.MAX_PRIVATE_MESSAGE_TEXT_LENGTH;
+import static org.nodex.messaging.MessageTypes.PRIVATE_MESSAGE;
 @Immutable
 @NotNullByDefault
 class PrivateMessageFactoryImpl implements PrivateMessageFactory {

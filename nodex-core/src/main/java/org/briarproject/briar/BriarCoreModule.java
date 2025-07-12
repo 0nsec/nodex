@@ -1,19 +1,19 @@
-package org.briarproject.briar;
-import org.briarproject.briar.attachment.AttachmentModule;
-import org.briarproject.briar.autodelete.AutoDeleteModule;
-import org.briarproject.briar.avatar.AvatarModule;
-import org.briarproject.briar.blog.BlogModule;
-import org.briarproject.briar.client.BriarClientModule;
-import org.briarproject.briar.conversation.ConversationModule;
-import org.briarproject.briar.feed.FeedModule;
-import org.briarproject.briar.forum.ForumModule;
-import org.briarproject.briar.identity.IdentityModule;
-import org.briarproject.briar.introduction.IntroductionModule;
-import org.briarproject.briar.messaging.MessagingModule;
-import org.briarproject.briar.privategroup.PrivateGroupModule;
-import org.briarproject.briar.privategroup.invitation.GroupInvitationModule;
-import org.briarproject.briar.sharing.SharingModule;
-import org.briarproject.briar.test.TestModule;
+package org.nodex;
+import org.nodex.attachment.AttachmentModule;
+import org.nodex.autodelete.AutoDeleteModule;
+import org.nodex.avatar.AvatarModule;
+import org.nodex.blog.BlogModule;
+import org.nodex.client.BriarClientModule;
+import org.nodex.conversation.ConversationModule;
+import org.nodex.feed.FeedModule;
+import org.nodex.forum.ForumModule;
+import org.nodex.identity.IdentityModule;
+import org.nodex.introduction.IntroductionModule;
+import org.nodex.messaging.MessagingModule;
+import org.nodex.privategroup.PrivateGroupModule;
+import org.nodex.privategroup.invitation.GroupInvitationModule;
+import org.nodex.sharing.SharingModule;
+import org.nodex.test.TestModule;
 import dagger.Module;
 @Module(includes = {
 		AttachmentModule.class,

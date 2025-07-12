@@ -1,7 +1,7 @@
-package org.briarproject.briar.client;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.MessageTree;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.client;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.MessageTree;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;

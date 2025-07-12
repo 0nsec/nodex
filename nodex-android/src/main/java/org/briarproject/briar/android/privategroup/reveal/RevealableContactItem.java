@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.privategroup.reveal;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.briar.android.contactselection.BaseSelectableContactItem;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.briar.api.privategroup.Visibility;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.privategroup.reveal;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.android.contactselection.BaseSelectableContactItem;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.api.privategroup.Visibility;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.NotThreadSafe;
-import static org.briarproject.briar.api.privategroup.Visibility.INVISIBLE;
+import static org.nodex.api.privategroup.Visibility.INVISIBLE;
 @NotThreadSafe
 @NotNullByDefault
 class RevealableContactItem extends BaseSelectableContactItem {

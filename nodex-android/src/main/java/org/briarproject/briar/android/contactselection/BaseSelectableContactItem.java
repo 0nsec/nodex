@@ -1,8 +1,8 @@
-package org.briarproject.briar.android.contactselection;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.briar.android.contact.ContactItem;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.contactselection;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.android.contact.ContactItem;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 @NotNullByDefault

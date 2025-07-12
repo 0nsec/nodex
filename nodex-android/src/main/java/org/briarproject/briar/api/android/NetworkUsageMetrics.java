@@ -1,6 +1,6 @@
-package org.briarproject.briar.api.android;
-import org.briarproject.bramble.api.lifecycle.Service;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.android;
+import org.nodex.core.api.lifecycle.Service;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public interface NetworkUsageMetrics extends Service {
 	Metrics getMetrics();

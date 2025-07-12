@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.widget;
+package org.nodex.android.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-import org.briarproject.briar.android.util.UiUtils;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.android.util.UiUtils;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import androidx.annotation.AttrRes;
 import static android.view.MotionEvent.FLAG_WINDOW_IS_OBSCURED;

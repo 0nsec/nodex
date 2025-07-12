@@ -1,24 +1,24 @@
-package org.briarproject.briar.android.contactselection;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.contact.ContactManager;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.android.controller.DbControllerImpl;
-import org.briarproject.briar.android.controller.handler.ResultExceptionHandler;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.briar.api.identity.AuthorManager;
-import org.briarproject.briar.api.sharing.SharingManager.SharingStatus;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.contactselection;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.contact.ContactManager;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.android.controller.DbControllerImpl;
+import org.nodex.android.controller.handler.ResultExceptionHandler;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.api.identity.AuthorManager;
+import org.nodex.api.sharing.SharingManager.SharingStatus;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 import javax.annotation.concurrent.Immutable;
 import static java.util.logging.Level.WARNING;
-import static org.briarproject.bramble.util.LogUtils.logException;
+import static org.nodex.core.util.LogUtils.logException;
 @Immutable
 @NotNullByDefault
 public abstract class ContactSelectorControllerImpl

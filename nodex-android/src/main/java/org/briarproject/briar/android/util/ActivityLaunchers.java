@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.util;
+package org.nodex.android.util;
 import android.content.Context;
 import android.content.Intent;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts.CreateDocument;
 import androidx.activity.result.contract.ActivityResultContracts.GetContent;
@@ -16,7 +16,7 @@ import static android.bluetooth.BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION;
 import static android.content.Intent.EXTRA_MIME_TYPES;
 import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 import static android.os.Build.VERSION.SDK_INT;
-import static org.briarproject.bramble.util.AndroidUtils.getSupportedImageContentTypes;
+import static org.nodex.core.util.AndroidUtils.getSupportedImageContentTypes;
 @NotNullByDefault
 public class ActivityLaunchers {
 	public static class CreateDocumentAdvanced extends CreateDocument {

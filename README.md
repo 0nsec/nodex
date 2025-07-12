@@ -1,15 +1,15 @@
 # Nodex - Clean Android App
 
-A clean, simplified Android messaging application based on peer-to-peer communication.
+A clean, simplified Android messaging application with modern architecture.
 
 ## Project Structure
 
-This project has been to focus on the core app functionality:
+This project has been restructured for clarity and maintainability:
 
 ```
 nodex/
 ├── nodex-android/          # Main Android application module
-├── nodex-api/             # API definitions and interfaces
+├── nodex-api/             # API definitions and interfaces  
 ├── nodex-core/            # Core business logic
 ├── build.gradle           # Root build configuration
 ├── settings.gradle        # Project structure definition
@@ -19,22 +19,23 @@ nodex/
 ## Key Features
 
 - **nodex-android**: Contains the main Android app with Activities, Fragments, and UI
+  - Package: `org.nodex.android`
   - Main entry point: `SplashScreenActivity` 
   - Main navigation: `NavDrawerActivity`
   - Secure messaging interface
   
-- **nodex-api**: API layer for the messaging protocols
+- **nodex-api**: API layer defining interfaces and data structures
+  - Package: `org.nodex.api`
+  
 - **nodex-core**: Core functionality and business logic
+  - Package: `org.nodex.core`
 
-## Removed Unnecessary Files
+## Code Quality Improvements
 
-The following files have been removed to create a cleaner development environment:
-- Documentation files (CONTRIBUTING.md, TRANSLATION.md, LICENSE.txt)
-- Build scripts (update-dependency-pinning.sh, update-translations.sh)
-- Test directories (androidTest/, test/ folders)
-- Fastlane automation (fastlane/ folder)
-- Artwork assets (artwork/ folder)
-- Witness verification files (witness.gradle files)
+- All comments have been removed for cleaner code
+- Package structure renamed from `org.briarproject.briar` to `org.nodex`
+- Simplified dependencies and removed unused modules
+- Clean build configuration without comments
 
 ## Building the App
 

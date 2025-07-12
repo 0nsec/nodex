@@ -1,14 +1,14 @@
-package org.briarproject.briar.android.blog;
+package org.nodex.android.blog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.briar.android.fragment.BaseFragment.BaseFragmentListener;
-import static org.briarproject.briar.android.blog.BlogPostFragment.POST_ID;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.fragment.BaseFragment.BaseFragmentListener;
+import static org.nodex.android.blog.BlogPostFragment.POST_ID;
 public class ReblogActivity extends BriarActivity implements
 		BaseFragmentListener {
 	@Override

@@ -1,11 +1,11 @@
-package org.briarproject.briar.android;
+package org.nodex.android;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.PowerManager;
-import org.briarproject.bramble.api.lifecycle.Service;
-import org.briarproject.briar.api.android.DozeWatchdog;
+import org.nodex.core.api.lifecycle.Service;
+import org.nodex.api.android.DozeWatchdog;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Logger;
 import androidx.annotation.RequiresApi;
@@ -16,7 +16,7 @@ import static android.os.PowerManager.ACTION_DEVICE_LIGHT_IDLE_MODE_CHANGED;
 import static android.os.PowerManager.ACTION_LOW_POWER_STANDBY_ENABLED_CHANGED;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.AndroidUtils.registerReceiver;
+import static org.nodex.core.util.AndroidUtils.registerReceiver;
 class DozeWatchdogImpl implements DozeWatchdog, Service {
 	private static final Logger LOG =
 			getLogger(DozeWatchdogImpl.class.getName());

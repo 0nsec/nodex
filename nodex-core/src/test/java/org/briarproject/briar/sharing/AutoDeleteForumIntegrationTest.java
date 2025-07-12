@@ -1,14 +1,14 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.briar.api.conversation.ConversationManager.ConversationClient;
-import org.briarproject.briar.api.conversation.event.ConversationMessageReceivedEvent;
-import org.briarproject.briar.api.forum.Forum;
-import org.briarproject.briar.api.forum.ForumManager;
-import org.briarproject.briar.api.forum.event.ForumInvitationResponseReceivedEvent;
-import org.briarproject.briar.api.sharing.InvitationResponse;
-import org.briarproject.briar.api.sharing.Shareable;
-import org.briarproject.briar.api.sharing.SharingManager;
-import org.briarproject.briar.test.BriarIntegrationTestComponent;
+package org.nodex.sharing;
+import org.nodex.core.api.db.DbException;
+import org.nodex.api.conversation.ConversationManager.ConversationClient;
+import org.nodex.api.conversation.event.ConversationMessageReceivedEvent;
+import org.nodex.api.forum.Forum;
+import org.nodex.api.forum.ForumManager;
+import org.nodex.api.forum.event.ForumInvitationResponseReceivedEvent;
+import org.nodex.api.sharing.InvitationResponse;
+import org.nodex.api.sharing.Shareable;
+import org.nodex.api.sharing.SharingManager;
+import org.nodex.test.BriarIntegrationTestComponent;
 import org.junit.Before;
 import java.util.Collection;
 public class AutoDeleteForumIntegrationTest

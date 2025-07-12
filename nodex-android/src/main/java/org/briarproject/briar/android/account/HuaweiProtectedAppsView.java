@@ -1,14 +1,14 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.content.Context;
 import android.util.AttributeSet;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.UiThread;
-import static org.briarproject.android.dontkillmelib.HuaweiUtils.getHuaweiProtectedAppsIntent;
-import static org.briarproject.android.dontkillmelib.HuaweiUtils.protectedAppsNeedsToBeShown;
-import static org.briarproject.briar.android.util.UiUtils.tryToStartActivity;
+import static org.nodex.android.dontkillmelib.HuaweiUtils.getHuaweiProtectedAppsIntent;
+import static org.nodex.android.dontkillmelib.HuaweiUtils.protectedAppsNeedsToBeShown;
+import static org.nodex.android.util.UiUtils.tryToStartActivity;
 @UiThread
 @NotNullByDefault
 class HuaweiProtectedAppsView extends PowerView {

@@ -1,13 +1,13 @@
-package org.briarproject.briar.android;
+package org.nodex.android;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Locale;
 import javax.annotation.Nullable;
 import static android.os.Build.VERSION.SDK_INT;
-import static org.briarproject.briar.android.settings.DisplayFragment.PREF_LANGUAGE;
+import static org.nodex.android.settings.DisplayFragment.PREF_LANGUAGE;
 @NotNullByDefault
 public class Localizer {
 	@Nullable

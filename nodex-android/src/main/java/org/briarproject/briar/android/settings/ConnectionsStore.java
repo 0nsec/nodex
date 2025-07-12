@@ -1,18 +1,18 @@
-package org.briarproject.briar.android.settings;
-import org.briarproject.bramble.api.settings.SettingsManager;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.settings;
+import org.nodex.core.api.settings.SettingsManager;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.concurrent.Executor;
 import androidx.annotation.Nullable;
-import static org.briarproject.bramble.api.plugin.Plugin.PREF_PLUGIN_ENABLE;
-import static org.briarproject.bramble.api.plugin.TorConstants.PREF_TOR_MOBILE;
-import static org.briarproject.bramble.api.plugin.TorConstants.PREF_TOR_NETWORK;
-import static org.briarproject.bramble.api.plugin.TorConstants.PREF_TOR_ONLY_WHEN_CHARGING;
-import static org.briarproject.briar.android.settings.ConnectionsFragment.PREF_KEY_BLUETOOTH;
-import static org.briarproject.briar.android.settings.ConnectionsFragment.PREF_KEY_TOR_ENABLE;
-import static org.briarproject.briar.android.settings.ConnectionsFragment.PREF_KEY_TOR_MOBILE_DATA;
-import static org.briarproject.briar.android.settings.ConnectionsFragment.PREF_KEY_TOR_NETWORK;
-import static org.briarproject.briar.android.settings.ConnectionsFragment.PREF_KEY_TOR_ONLY_WHEN_CHARGING;
-import static org.briarproject.briar.android.settings.ConnectionsFragment.PREF_KEY_WIFI;
+import static org.nodex.core.api.plugin.Plugin.PREF_PLUGIN_ENABLE;
+import static org.nodex.core.api.plugin.TorConstants.PREF_TOR_MOBILE;
+import static org.nodex.core.api.plugin.TorConstants.PREF_TOR_NETWORK;
+import static org.nodex.core.api.plugin.TorConstants.PREF_TOR_ONLY_WHEN_CHARGING;
+import static org.nodex.android.settings.ConnectionsFragment.PREF_KEY_BLUETOOTH;
+import static org.nodex.android.settings.ConnectionsFragment.PREF_KEY_TOR_ENABLE;
+import static org.nodex.android.settings.ConnectionsFragment.PREF_KEY_TOR_MOBILE_DATA;
+import static org.nodex.android.settings.ConnectionsFragment.PREF_KEY_TOR_NETWORK;
+import static org.nodex.android.settings.ConnectionsFragment.PREF_KEY_TOR_ONLY_WHEN_CHARGING;
+import static org.nodex.android.settings.ConnectionsFragment.PREF_KEY_WIFI;
 @NotNullByDefault
 class ConnectionsStore extends SettingsStore {
 	ConnectionsStore(

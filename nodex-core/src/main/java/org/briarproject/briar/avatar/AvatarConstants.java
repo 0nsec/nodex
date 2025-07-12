@@ -1,4 +1,4 @@
-package org.briarproject.briar.avatar;
+package org.nodex.avatar;
 interface AvatarConstants {
 	int MSG_TYPE_UPDATE = 0;
 	String GROUP_KEY_CONTACT_ID = "contactId";

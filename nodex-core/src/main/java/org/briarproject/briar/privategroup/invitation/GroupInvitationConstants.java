@@ -1,4 +1,4 @@
-package org.briarproject.briar.privategroup.invitation;
+package org.nodex.privategroup.invitation;
 interface GroupInvitationConstants {
 	String MSG_KEY_MESSAGE_TYPE = "messageType";
 	String MSG_KEY_PRIVATE_GROUP_ID = "privateGroupId";

@@ -1,9 +1,9 @@
-package org.briarproject.briar.android.blog;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.blog.BlogPostHeader;
-import org.briarproject.briar.api.identity.AuthorInfo;
+package org.nodex.android.blog;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.blog.BlogPostHeader;
+import org.nodex.api.identity.AuthorInfo;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 import androidx.annotation.NonNull;

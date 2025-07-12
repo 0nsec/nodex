@@ -1,11 +1,11 @@
-package org.briarproject.briar.api.privategroup;
-import org.briarproject.bramble.api.crypto.CryptoExecutor;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.privategroup;
+import org.nodex.core.api.crypto.CryptoExecutor;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
-import static org.briarproject.briar.api.privategroup.PrivateGroupManager.CLIENT_ID;
+import static org.nodex.api.privategroup.PrivateGroupManager.CLIENT_ID;
 @NotNullByDefault
 public interface GroupMessageFactory {
 	String SIGNING_LABEL_JOIN = CLIENT_ID.getString() + "/JOIN";

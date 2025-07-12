@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.app.Application;
-import org.briarproject.android.dontkillmelib.DozeHelper;
-import org.briarproject.bramble.api.account.AccountManager;
-import org.briarproject.bramble.api.crypto.PasswordStrengthEstimator;
-import org.briarproject.bramble.api.lifecycle.IoExecutor;
-import org.briarproject.briar.android.viewmodel.LiveEvent;
-import org.briarproject.briar.android.viewmodel.MutableLiveEvent;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.android.dontkillmelib.DozeHelper;
+import org.nodex.core.api.account.AccountManager;
+import org.nodex.core.api.crypto.PasswordStrengthEstimator;
+import org.nodex.core.api.lifecycle.IoExecutor;
+import org.nodex.android.viewmodel.LiveEvent;
+import org.nodex.android.viewmodel.MutableLiveEvent;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -16,11 +16,11 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.briar.android.account.SetupViewModel.State.AUTHOR_NAME;
-import static org.briarproject.briar.android.account.SetupViewModel.State.CREATED;
-import static org.briarproject.briar.android.account.SetupViewModel.State.DOZE;
-import static org.briarproject.briar.android.account.SetupViewModel.State.FAILED;
-import static org.briarproject.briar.android.account.SetupViewModel.State.SET_PASSWORD;
+import static org.nodex.android.account.SetupViewModel.State.AUTHOR_NAME;
+import static org.nodex.android.account.SetupViewModel.State.CREATED;
+import static org.nodex.android.account.SetupViewModel.State.DOZE;
+import static org.nodex.android.account.SetupViewModel.State.FAILED;
+import static org.nodex.android.account.SetupViewModel.State.SET_PASSWORD;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 class SetupViewModel extends AndroidViewModel {

@@ -1,14 +1,14 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.content.Context;
 import android.util.AttributeSet;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.UiThread;
-import static org.briarproject.android.dontkillmelib.XiaomiUtils.isMiuiVersionAtLeast;
-import static org.briarproject.android.dontkillmelib.XiaomiUtils.xiaomiRecentAppsNeedsToBeShown;
-import static org.briarproject.briar.android.util.UiUtils.showOnboardingDialog;
+import static org.nodex.android.dontkillmelib.XiaomiUtils.isMiuiVersionAtLeast;
+import static org.nodex.android.dontkillmelib.XiaomiUtils.xiaomiRecentAppsNeedsToBeShown;
+import static org.nodex.android.util.UiUtils.showOnboardingDialog;
 @UiThread
 @NotNullByDefault
 class XiaomiRecentAppsView extends PowerView {

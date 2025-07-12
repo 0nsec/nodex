@@ -1,5 +1,5 @@
-package org.briarproject.briar.android;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;

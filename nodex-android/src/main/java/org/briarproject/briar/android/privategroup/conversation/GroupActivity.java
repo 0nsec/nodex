@@ -1,30 +1,30 @@
-package org.briarproject.briar.android.privategroup.conversation;
+package org.nodex.android.privategroup.conversation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.privategroup.creation.GroupInviteActivity;
-import org.briarproject.briar.android.privategroup.memberlist.GroupMemberListActivity;
-import org.briarproject.briar.android.privategroup.reveal.RevealContactsActivity;
-import org.briarproject.briar.android.threaded.ThreadListActivity;
-import org.briarproject.briar.android.threaded.ThreadListViewModel;
-import org.briarproject.briar.android.widget.LinkDialogFragment;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.privategroup.creation.GroupInviteActivity;
+import org.nodex.android.privategroup.memberlist.GroupMemberListActivity;
+import org.nodex.android.privategroup.reveal.RevealContactsActivity;
+import org.nodex.android.threaded.ThreadListActivity;
+import org.nodex.android.threaded.ThreadListViewModel;
+import org.nodex.android.widget.LinkDialogFragment;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static org.briarproject.briar.android.activity.RequestCodes.REQUEST_GROUP_INVITE;
-import static org.briarproject.briar.android.util.UiUtils.observeOnce;
-import static org.briarproject.briar.api.privategroup.PrivateGroupConstants.MAX_GROUP_POST_TEXT_LENGTH;
-import static org.briarproject.nullsafety.NullSafety.requireNonNull;
+import static org.nodex.android.activity.RequestCodes.REQUEST_GROUP_INVITE;
+import static org.nodex.android.util.UiUtils.observeOnce;
+import static org.nodex.api.privategroup.PrivateGroupConstants.MAX_GROUP_POST_TEXT_LENGTH;
+import static org.nodex.nullsafety.NullSafety.requireNonNull;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class GroupActivity extends

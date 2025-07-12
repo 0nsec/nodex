@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.fragment;
+package org.nodex.android.fragment;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
@@ -12,12 +12,12 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.BaseActivity;
-import org.briarproject.briar.api.android.ScreenFilterMonitor;
-import org.briarproject.briar.api.android.ScreenFilterMonitor.AppDetails;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.BaseActivity;
+import org.nodex.api.android.ScreenFilterMonitor;
+import org.nodex.api.android.ScreenFilterMonitor.AppDetails;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,7 +27,7 @@ import androidx.fragment.app.DialogFragment;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION;
 import static android.view.View.GONE;
-import static org.briarproject.briar.android.util.UiUtils.tryToStartActivity;
+import static org.nodex.android.util.UiUtils.tryToStartActivity;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ScreenFilterDialogFragment extends DialogFragment {

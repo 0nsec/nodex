@@ -1,10 +1,10 @@
-package org.briarproject.briar.privategroup.invitation;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.privategroup.invitation;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 @NotNullByDefault
 interface MessageEncoder {

@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.contact.add.remote;
-import org.briarproject.bramble.api.contact.PendingContact;
-import org.briarproject.bramble.api.contact.PendingContactState;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.contact.add.remote;
+import org.nodex.core.api.contact.PendingContact;
+import org.nodex.core.api.contact.PendingContactState;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
-import static org.briarproject.bramble.api.contact.PendingContactState.CONNECTING;
-import static org.briarproject.bramble.api.contact.PendingContactState.WAITING_FOR_CONNECTION;
+import static org.nodex.core.api.contact.PendingContactState.CONNECTING;
+import static org.nodex.core.api.contact.PendingContactState.WAITING_FOR_CONNECTION;
 @Immutable
 @NotNullByDefault
 class PendingContactItem {

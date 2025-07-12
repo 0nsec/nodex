@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
@@ -12,17 +12,17 @@ import android.net.wifi.p2p.WifiP2pManager.GroupInfoListener;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.util.DisplayMetrics;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.lifecycle.IoExecutor;
-import org.briarproject.bramble.api.settings.Settings;
-import org.briarproject.bramble.api.settings.SettingsManager;
-import org.briarproject.bramble.api.system.AndroidExecutor;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.hotspot.HotspotState.NetworkConfig;
-import org.briarproject.briar.android.qrcode.QrCodeUtils;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.lifecycle.IoExecutor;
+import org.nodex.core.api.settings.Settings;
+import org.nodex.core.api.settings.SettingsManager;
+import org.nodex.core.api.system.AndroidExecutor;
+import org.nodex.R;
+import org.nodex.android.hotspot.HotspotState.NetworkConfig;
+import org.nodex.android.qrcode.QrCodeUtils;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.security.SecureRandom;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
@@ -46,8 +46,8 @@ import static java.util.Objects.requireNonNull;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.briar.android.qrcode.QrCodeUtils.HOTSPOT_QRCODE_FACTOR;
-import static org.briarproject.briar.android.util.UiUtils.handleException;
+import static org.nodex.android.qrcode.QrCodeUtils.HOTSPOT_QRCODE_FACTOR;
+import static org.nodex.android.util.UiUtils.handleException;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 class HotspotManager {

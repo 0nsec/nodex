@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.privategroup.conversation;
+package org.nodex.android.privategroup.conversation;
 import android.content.Context;
 import android.view.View;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.threaded.BaseThreadItemViewHolder;
-import org.briarproject.briar.android.threaded.ThreadItemAdapter.ThreadItemListener;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.threaded.BaseThreadItemViewHolder;
+import org.nodex.android.threaded.ThreadItemAdapter.ThreadItemListener;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.UiThread;
-import static org.briarproject.briar.api.identity.AuthorInfo.Status.OURSELVES;
+import static org.nodex.api.identity.AuthorInfo.Status.OURSELVES;
 @UiThread
 @NotNullByDefault
 class JoinMessageItemViewHolder

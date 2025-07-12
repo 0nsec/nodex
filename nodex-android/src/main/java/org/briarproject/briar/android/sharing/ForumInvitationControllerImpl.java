@@ -1,23 +1,23 @@
-package org.briarproject.briar.android.sharing;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.event.Event;
-import org.briarproject.bramble.api.event.EventBus;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.sync.ClientId;
-import org.briarproject.briar.android.controller.handler.ExceptionHandler;
-import org.briarproject.briar.api.forum.Forum;
-import org.briarproject.briar.api.forum.ForumSharingManager;
-import org.briarproject.briar.api.forum.event.ForumInvitationRequestReceivedEvent;
-import org.briarproject.briar.api.sharing.SharingInvitationItem;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.sharing;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.event.Event;
+import org.nodex.core.api.event.EventBus;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.sync.ClientId;
+import org.nodex.android.controller.handler.ExceptionHandler;
+import org.nodex.api.forum.Forum;
+import org.nodex.api.forum.ForumSharingManager;
+import org.nodex.api.forum.event.ForumInvitationRequestReceivedEvent;
+import org.nodex.api.sharing.SharingInvitationItem;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import java.util.concurrent.Executor;
 import javax.inject.Inject;
 import static java.util.logging.Level.WARNING;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.briar.api.forum.ForumManager.CLIENT_ID;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.api.forum.ForumManager.CLIENT_ID;
 @NotNullByDefault
 class ForumInvitationControllerImpl
 		extends InvitationControllerImpl<SharingInvitationItem>

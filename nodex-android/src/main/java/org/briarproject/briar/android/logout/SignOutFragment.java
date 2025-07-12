@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.logout;
+package org.nodex.android.logout;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault

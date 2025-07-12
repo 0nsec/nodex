@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.controller.handler;
-import org.briarproject.briar.android.DestroyableContext;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.controller.handler;
+import org.nodex.android.DestroyableContext;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import androidx.annotation.UiThread;
 @Immutable

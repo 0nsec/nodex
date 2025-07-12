@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.avatar;
-import org.briarproject.bramble.api.Pair;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
+package org.nodex.api.avatar;
+import org.nodex.core.api.Pair;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
 import java.io.IOException;
 import java.io.InputStream;
 public interface AvatarMessageEncoder {

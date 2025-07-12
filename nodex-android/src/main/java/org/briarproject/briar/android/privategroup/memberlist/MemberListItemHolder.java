@@ -1,16 +1,16 @@
-package org.briarproject.briar.android.privategroup.memberlist;
+package org.nodex.android.privategroup.memberlist;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.view.AuthorView;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.view.AuthorView;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static org.briarproject.briar.android.util.UiUtils.getContactDisplayName;
-import static org.briarproject.briar.api.identity.AuthorInfo.Status.OURSELVES;
+import static org.nodex.android.util.UiUtils.getContactDisplayName;
+import static org.nodex.api.identity.AuthorInfo.Status.OURSELVES;
 @UiThread
 @NotNullByDefault
 class MemberListItemHolder extends RecyclerView.ViewHolder {

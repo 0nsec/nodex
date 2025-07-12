@@ -1,7 +1,7 @@
-package org.briarproject.briar.android;
-import org.briarproject.bramble.api.crypto.KeyStrengthener;
-import org.briarproject.bramble.api.db.DatabaseConfig;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android;
+import org.nodex.core.api.crypto.KeyStrengthener;
+import org.nodex.core.api.db.DatabaseConfig;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.File;
 import javax.annotation.Nullable;
 @NotNullByDefault

@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.threaded;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.MessageTree.MessageNode;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.threaded;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.MessageTree.MessageNode;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
-import static org.briarproject.briar.android.threaded.ThreadItemAdapter.UNDEFINED;
-import static org.briarproject.briar.android.util.UiUtils.getContactDisplayName;
+import static org.nodex.android.threaded.ThreadItemAdapter.UNDEFINED;
+import static org.nodex.android.util.UiUtils.getContactDisplayName;
 @NotThreadSafe
 @NotNullByDefault
 public abstract class ThreadItem implements MessageNode {

@@ -1,5 +1,5 @@
-package org.briarproject.briar.client;
-import org.briarproject.briar.api.client.MessageTracker;
+package org.nodex.client;
+import org.nodex.api.client.MessageTracker;
 import dagger.Module;
 import dagger.Provides;
 @Module

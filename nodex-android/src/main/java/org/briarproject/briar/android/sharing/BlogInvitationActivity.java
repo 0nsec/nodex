@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.sharing;
+package org.nodex.android.sharing;
 import android.content.Context;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.api.sharing.SharingInvitationItem;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.api.sharing.SharingInvitationItem;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
-import static org.briarproject.briar.android.sharing.InvitationAdapter.InvitationClickListener;
+import static org.nodex.android.sharing.InvitationAdapter.InvitationClickListener;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class BlogInvitationActivity

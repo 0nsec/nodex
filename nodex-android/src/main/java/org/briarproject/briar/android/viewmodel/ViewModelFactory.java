@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.viewmodel;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.viewmodel;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Map;
 import java.util.Map.Entry;
 import javax.inject.Inject;

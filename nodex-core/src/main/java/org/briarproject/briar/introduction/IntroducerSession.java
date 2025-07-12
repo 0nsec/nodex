@@ -1,14 +1,14 @@
-package org.briarproject.briar.introduction;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.briar.api.introduction.Role;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.introduction;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.SessionId;
+import org.nodex.api.introduction.Role;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
-import static org.briarproject.briar.api.introduction.Role.INTRODUCER;
+import static org.nodex.api.introduction.Role.INTRODUCER;
 @Immutable
 @NotNullByDefault
 class IntroducerSession extends Session<IntroducerState> {

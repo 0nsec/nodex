@@ -1,18 +1,18 @@
-package org.briarproject.briar.blog;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.Group;
-import org.briarproject.bramble.api.sync.GroupFactory;
-import org.briarproject.briar.api.blog.Blog;
-import org.briarproject.briar.api.blog.BlogFactory;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.blog;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.Group;
+import org.nodex.core.api.sync.GroupFactory;
+import org.nodex.api.blog.Blog;
+import org.nodex.api.blog.BlogFactory;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.bramble.util.ValidationUtils.checkSize;
-import static org.briarproject.briar.api.blog.BlogManager.CLIENT_ID;
-import static org.briarproject.briar.api.blog.BlogManager.MAJOR_VERSION;
+import static org.nodex.core.util.ValidationUtils.checkSize;
+import static org.nodex.api.blog.BlogManager.CLIENT_ID;
+import static org.nodex.api.blog.BlogManager.MAJOR_VERSION;
 @Immutable
 @NotNullByDefault
 class BlogFactoryImpl implements BlogFactory {

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.reporting;
+package org.nodex.android.reporting;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;

@@ -1,5 +1,5 @@
-package org.briarproject.briar.api.forum;
-import static org.briarproject.bramble.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
+package org.nodex.api.forum;
+import static org.nodex.core.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
 public interface ForumConstants {
 	int MAX_FORUM_NAME_LENGTH = 100;
 	int FORUM_SALT_LENGTH = 32;

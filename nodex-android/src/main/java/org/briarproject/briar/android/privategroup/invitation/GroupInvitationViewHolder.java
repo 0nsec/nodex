@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.privategroup.invitation;
+package org.nodex.android.privategroup.invitation;
 import android.view.View;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.sharing.InvitationAdapter.InvitationClickListener;
-import org.briarproject.briar.android.sharing.InvitationViewHolder;
-import org.briarproject.briar.api.privategroup.invitation.GroupInvitationItem;
+import org.nodex.R;
+import org.nodex.android.sharing.InvitationAdapter.InvitationClickListener;
+import org.nodex.android.sharing.InvitationViewHolder;
+import org.nodex.api.privategroup.invitation.GroupInvitationItem;
 import javax.annotation.Nullable;
-import static org.briarproject.briar.android.util.UiUtils.getContactDisplayName;
+import static org.nodex.android.util.UiUtils.getContactDisplayName;
 class GroupInvitationViewHolder
 		extends InvitationViewHolder<GroupInvitationItem> {
 	GroupInvitationViewHolder(View v) {

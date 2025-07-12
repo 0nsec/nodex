@@ -1,16 +1,16 @@
-package org.briarproject.briar.api.avatar;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.sync.ClientId;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.avatar;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.sync.ClientId;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
 @NotNullByDefault
 public interface AvatarManager {
-	ClientId CLIENT_ID = new ClientId("org.briarproject.briar.avatar");
+	ClientId CLIENT_ID = new ClientId("org.nodex.avatar");
 	int MAJOR_VERSION = 0;
 	int MINOR_VERSION = 0;
 	AttachmentHeader addAvatar(String contentType, InputStream in)

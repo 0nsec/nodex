@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.activity;
+package org.nodex.android.activity;
 public interface RequestCodes {
 	int REQUEST_PASSWORD = 1;
 	int REQUEST_INTRODUCTION = 2;

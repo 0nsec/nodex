@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.controller.handler;
-import org.briarproject.briar.android.DestroyableContext;
+package org.nodex.android.controller.handler;
+import org.nodex.android.DestroyableContext;
 import androidx.annotation.UiThread;
 public abstract class UiResultHandler<R> implements ResultHandler<R> {
 	private final DestroyableContext listener;

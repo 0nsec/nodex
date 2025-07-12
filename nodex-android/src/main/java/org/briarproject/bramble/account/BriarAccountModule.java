@@ -1,5 +1,5 @@
-package org.briarproject.bramble.account;
-import org.briarproject.bramble.api.account.AccountManager;
+package org.nodex.core.account;
+import org.nodex.core.api.account.AccountManager;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;

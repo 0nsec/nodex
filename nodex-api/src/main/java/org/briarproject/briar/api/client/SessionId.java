@@ -1,6 +1,6 @@
-package org.briarproject.briar.api.client;
-import org.briarproject.bramble.api.UniqueId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.client;
+import org.nodex.core.api.UniqueId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @NotNullByDefault

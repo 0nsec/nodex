@@ -1,14 +1,14 @@
-package org.briarproject.briar.android.contact.add.remote;
+package org.nodex.android.contact.add.remote;
 import android.view.View;
 import android.widget.TextView;
-import org.briarproject.bramble.api.contact.PendingContact;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.view.TextAvatarView;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.contact.PendingContact;
+import org.nodex.R;
+import org.nodex.android.view.TextAvatarView;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
-import static org.briarproject.briar.android.util.UiUtils.formatDate;
+import static org.nodex.android.util.UiUtils.formatDate;
 @NotNullByDefault
 class PendingContactViewHolder extends ViewHolder {
 	private final PendingContactListener listener;

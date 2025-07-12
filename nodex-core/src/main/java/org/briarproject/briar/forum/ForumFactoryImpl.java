@@ -1,20 +1,20 @@
-package org.briarproject.briar.forum;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.sync.Group;
-import org.briarproject.bramble.api.sync.GroupFactory;
-import org.briarproject.bramble.util.StringUtils;
-import org.briarproject.briar.api.forum.Forum;
-import org.briarproject.briar.api.forum.ForumFactory;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.forum;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.sync.Group;
+import org.nodex.core.api.sync.GroupFactory;
+import org.nodex.core.util.StringUtils;
+import org.nodex.api.forum.Forum;
+import org.nodex.api.forum.ForumFactory;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.security.SecureRandom;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.briar.api.forum.ForumConstants.FORUM_SALT_LENGTH;
-import static org.briarproject.briar.api.forum.ForumConstants.MAX_FORUM_NAME_LENGTH;
-import static org.briarproject.briar.api.forum.ForumManager.CLIENT_ID;
-import static org.briarproject.briar.api.forum.ForumManager.MAJOR_VERSION;
+import static org.nodex.api.forum.ForumConstants.FORUM_SALT_LENGTH;
+import static org.nodex.api.forum.ForumConstants.MAX_FORUM_NAME_LENGTH;
+import static org.nodex.api.forum.ForumManager.CLIENT_ID;
+import static org.nodex.api.forum.ForumManager.MAJOR_VERSION;
 @Immutable
 @NotNullByDefault
 class ForumFactoryImpl implements ForumFactory {

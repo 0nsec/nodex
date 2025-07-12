@@ -1,4 +1,4 @@
-package org.briarproject.briar.messaging;
+package org.nodex.messaging;
 import static java.util.concurrent.TimeUnit.DAYS;
 interface MessagingConstants {
 	String MSG_KEY_TIMESTAMP = "timestamp";

@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.threaded;
-import org.briarproject.briar.android.view.BriarRecyclerViewScrollListener;
-import org.briarproject.briar.android.view.UnreadMessageButton;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.threaded;
+import org.nodex.android.view.BriarRecyclerViewScrollListener;
+import org.nodex.android.view.UnreadMessageButton;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.logging.Logger;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;

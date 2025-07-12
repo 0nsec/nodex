@@ -1,17 +1,17 @@
-package org.briarproject.briar.android.contact.add.remote;
+package org.nodex.android.contact.add.remote;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.MenuItem;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
-import org.briarproject.bramble.api.contact.PendingContactId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.briar.android.util.BriarSnackbarBuilder;
-import org.briarproject.briar.android.view.BriarRecyclerView;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.contact.PendingContactId;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.util.BriarSnackbarBuilder;
+import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.Collection;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -19,8 +19,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import static com.google.android.material.snackbar.Snackbar.LENGTH_INDEFINITE;
-import static org.briarproject.bramble.api.contact.PendingContactState.FAILED;
-import static org.briarproject.briar.android.contact.add.remote.PendingContactItem.POLL_DURATION_MS;
+import static org.nodex.core.api.contact.PendingContactState.FAILED;
+import static org.nodex.android.contact.add.remote.PendingContactItem.POLL_DURATION_MS;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class PendingContactListActivity extends BriarActivity

@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.activity;
+package org.nodex.android.activity;
 import android.app.Activity;
-import org.briarproject.briar.android.controller.BriarController;
-import org.briarproject.briar.android.controller.BriarControllerImpl;
-import org.briarproject.briar.android.controller.DbController;
-import org.briarproject.briar.android.controller.DbControllerImpl;
+import org.nodex.android.controller.BriarController;
+import org.nodex.android.controller.BriarControllerImpl;
+import org.nodex.android.controller.DbController;
+import org.nodex.android.controller.DbControllerImpl;
 import dagger.Module;
 import dagger.Provides;
-import static org.briarproject.briar.android.BriarService.BriarServiceConnection;
+import static org.nodex.android.BriarService.BriarServiceConnection;
 @Module
 public class ActivityModule {
 	private final BaseActivity activity;

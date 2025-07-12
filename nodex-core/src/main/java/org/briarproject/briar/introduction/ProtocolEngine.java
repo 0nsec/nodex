@@ -1,8 +1,8 @@
-package org.briarproject.briar.introduction;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.introduction;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 @NotNullByDefault
 interface ProtocolEngine<S extends Session<?>> {

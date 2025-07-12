@@ -1,5 +1,5 @@
-package org.briarproject.briar.api.android;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.android;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import androidx.annotation.UiThread;
 @NotNullByDefault

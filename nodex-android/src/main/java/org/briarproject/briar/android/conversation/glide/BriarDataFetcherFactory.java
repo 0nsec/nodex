@@ -1,8 +1,8 @@
-package org.briarproject.briar.android.conversation.glide;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.briar.api.attachment.AttachmentReader;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.conversation.glide;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.api.attachment.AttachmentReader;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.concurrent.Executor;
 import javax.inject.Inject;
 @NotNullByDefault

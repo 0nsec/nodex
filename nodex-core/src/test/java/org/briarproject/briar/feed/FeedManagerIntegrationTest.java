@@ -1,15 +1,15 @@
-package org.briarproject.briar.feed;
-import org.briarproject.bramble.api.identity.Identity;
-import org.briarproject.bramble.api.identity.IdentityManager;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.test.BrambleTestCase;
-import org.briarproject.bramble.test.TestDatabaseConfigModule;
-import org.briarproject.briar.api.blog.Blog;
-import org.briarproject.briar.api.blog.BlogManager;
-import org.briarproject.briar.api.blog.BlogPostHeader;
-import org.briarproject.briar.api.feed.Feed;
-import org.briarproject.briar.api.feed.FeedManager;
-import org.briarproject.nullsafety.NullSafety;
+package org.nodex.feed;
+import org.nodex.core.api.identity.Identity;
+import org.nodex.core.api.identity.IdentityManager;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.test.BrambleTestCase;
+import org.nodex.core.test.TestDatabaseConfigModule;
+import org.nodex.api.blog.Blog;
+import org.nodex.api.blog.BlogManager;
+import org.nodex.api.blog.BlogPostHeader;
+import org.nodex.api.feed.Feed;
+import org.nodex.api.feed.FeedManager;
+import org.nodex.nullsafety.NullSafety;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,17 +17,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Collection;
 import javax.annotation.Nullable;
-import static org.briarproject.bramble.test.TestUtils.deleteTestDirectory;
-import static org.briarproject.bramble.test.TestUtils.getSecretKey;
-import static org.briarproject.bramble.test.TestUtils.getTestDirectory;
-import static org.briarproject.nullsafety.NullSafety.requireNonNull;
+import static org.nodex.core.test.TestUtils.deleteTestDirectory;
+import static org.nodex.core.test.TestUtils.getSecretKey;
+import static org.nodex.core.test.TestUtils.getTestDirectory;
+import static org.nodex.nullsafety.NullSafety.requireNonNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 public class FeedManagerIntegrationTest extends BrambleTestCase {
 	private static final String FEED_PATH =
-			"src/test/resources/briarproject.org_news_index.xml";
+			"src/test/resources/nodex.org_news_index.xml";
 	private static final String FEED_URL =
 			"https:
 	private static final String FEED_TITLE = "News - Briar";

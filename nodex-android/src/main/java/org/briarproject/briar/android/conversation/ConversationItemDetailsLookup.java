@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.view.MotionEvent;
 import android.view.View;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.ItemDetailsLookup;
 import androidx.recyclerview.widget.RecyclerView;

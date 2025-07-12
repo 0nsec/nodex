@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.mailbox;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+package org.nodex.android.mailbox;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class OfflineStatusFragment extends OfflineFragment {

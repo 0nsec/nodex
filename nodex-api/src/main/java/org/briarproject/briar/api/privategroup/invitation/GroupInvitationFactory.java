@@ -1,12 +1,12 @@
-package org.briarproject.briar.api.privategroup.invitation;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.api.crypto.CryptoExecutor;
-import org.briarproject.bramble.api.crypto.PrivateKey;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.identity.AuthorId;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.nullsafety.NotNullByDefault;
-import static org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager.CLIENT_ID;
+package org.nodex.api.privategroup.invitation;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.api.crypto.CryptoExecutor;
+import org.nodex.core.api.crypto.PrivateKey;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.identity.AuthorId;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.nullsafety.NotNullByDefault;
+import static org.nodex.api.privategroup.invitation.GroupInvitationManager.CLIENT_ID;
 @NotNullByDefault
 public interface GroupInvitationFactory {
 	String SIGNING_LABEL_INVITE = CLIENT_ID.getString() + "/INVITE";

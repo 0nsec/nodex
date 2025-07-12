@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.sharing.event;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.event.Event;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.sharing.event;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.event.Event;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

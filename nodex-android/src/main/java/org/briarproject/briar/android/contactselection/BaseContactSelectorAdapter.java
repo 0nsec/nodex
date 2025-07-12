@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.contactselection;
+package org.nodex.android.contactselection;
 import android.content.Context;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.briar.android.contact.BaseContactListAdapter;
-import org.briarproject.briar.android.contact.ContactItemViewHolder;
-import org.briarproject.briar.android.contact.OnContactClickListener;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.android.contact.BaseContactListAdapter;
+import org.nodex.android.contact.ContactItemViewHolder;
+import org.nodex.android.contact.OnContactClickListener;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 @NotNullByDefault

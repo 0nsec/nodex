@@ -1,9 +1,9 @@
-package org.briarproject.briar.android.util;
+package org.nodex.android.util;
 import android.view.View;
 import android.view.View.OnClickListener;
 import com.google.android.material.snackbar.Snackbar;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.ColorRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;

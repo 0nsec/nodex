@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.qrcode;
+package org.nodex.android.qrcode;
 import android.content.Context;
 import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
@@ -12,8 +12,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
@@ -33,7 +33,7 @@ import static android.hardware.Camera.Parameters.SCENE_MODE_AUTO;
 import static android.hardware.Camera.Parameters.SCENE_MODE_BARCODE;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.WARNING;
-import static org.briarproject.bramble.util.LogUtils.logException;
+import static org.nodex.core.util.LogUtils.logException;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class CameraView extends SurfaceView implements SurfaceHolder.Callback,

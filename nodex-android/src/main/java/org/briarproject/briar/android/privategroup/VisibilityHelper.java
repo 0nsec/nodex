@@ -1,9 +1,9 @@
-package org.briarproject.briar.android.privategroup;
+package org.nodex.android.privategroup;
 import android.content.Context;
-import org.briarproject.briar.R;
-import org.briarproject.briar.api.privategroup.Visibility;
+import org.nodex.R;
+import org.nodex.api.privategroup.Visibility;
 import androidx.annotation.DrawableRes;
-import static org.briarproject.briar.api.privategroup.Visibility.INVISIBLE;
+import static org.nodex.api.privategroup.Visibility.INVISIBLE;
 public class VisibilityHelper {
 	public static String getVisibilityString(Context ctx, Visibility v,
 			String contact) {

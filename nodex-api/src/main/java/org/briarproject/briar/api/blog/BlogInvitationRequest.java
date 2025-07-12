@@ -1,10 +1,10 @@
-package org.briarproject.briar.api.blog;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.briar.api.conversation.ConversationMessageVisitor;
-import org.briarproject.briar.api.sharing.InvitationRequest;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.blog;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.SessionId;
+import org.nodex.api.conversation.ConversationMessageVisitor;
+import org.nodex.api.sharing.InvitationRequest;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 @NotNullByDefault
 public class BlogInvitationRequest extends InvitationRequest<Blog> {

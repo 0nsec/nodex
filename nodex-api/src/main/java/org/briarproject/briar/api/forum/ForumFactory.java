@@ -1,5 +1,5 @@
-package org.briarproject.briar.api.forum;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.forum;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public interface ForumFactory {
 	Forum createForum(String name);

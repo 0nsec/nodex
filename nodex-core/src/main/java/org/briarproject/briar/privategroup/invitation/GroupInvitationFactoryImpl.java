@@ -1,20 +1,20 @@
-package org.briarproject.briar.privategroup.invitation;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.client.ContactGroupFactory;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.api.crypto.PrivateKey;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.identity.AuthorId;
-import org.briarproject.bramble.api.sync.Group;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.api.privategroup.invitation.GroupInvitationFactory;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.privategroup.invitation;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.client.ContactGroupFactory;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.api.crypto.PrivateKey;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.identity.AuthorId;
+import org.nodex.core.api.sync.Group;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.privategroup.invitation.GroupInvitationFactory;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.security.GeneralSecurityException;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager.CLIENT_ID;
-import static org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager.MAJOR_VERSION;
+import static org.nodex.api.privategroup.invitation.GroupInvitationManager.CLIENT_ID;
+import static org.nodex.api.privategroup.invitation.GroupInvitationManager.MAJOR_VERSION;
 @Immutable
 @NotNullByDefault
 class GroupInvitationFactoryImpl implements GroupInvitationFactory {

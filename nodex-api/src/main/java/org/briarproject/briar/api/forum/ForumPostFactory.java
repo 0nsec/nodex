@@ -1,13 +1,13 @@
-package org.briarproject.briar.api.forum;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.crypto.CryptoExecutor;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.forum;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.crypto.CryptoExecutor;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.security.GeneralSecurityException;
 import javax.annotation.Nullable;
-import static org.briarproject.briar.api.forum.ForumManager.CLIENT_ID;
+import static org.nodex.api.forum.ForumManager.CLIENT_ID;
 @NotNullByDefault
 public interface ForumPostFactory {
 	String SIGNING_LABEL_POST = CLIENT_ID.getString() + "/POST";

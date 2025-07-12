@@ -1,23 +1,23 @@
-package org.briarproject.briar.android.privategroup.list;
+package org.nodex.android.privategroup.list;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.privategroup.conversation.GroupActivity;
-import org.briarproject.briar.android.util.UiUtils;
-import org.briarproject.briar.android.view.TextAvatarView;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.R;
+import org.nodex.android.privategroup.conversation.GroupActivity;
+import org.nodex.android.util.UiUtils;
+import org.nodex.android.view.TextAvatarView;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import androidx.recyclerview.widget.RecyclerView;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_ID;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_NAME;
-import static org.briarproject.briar.android.util.UiUtils.getContactDisplayName;
+import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.BriarActivity.GROUP_NAME;
+import static org.nodex.android.util.UiUtils.getContactDisplayName;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 class GroupViewHolder extends RecyclerView.ViewHolder {

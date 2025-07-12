@@ -1,8 +1,8 @@
-package org.briarproject.briar.android;
+package org.nodex.android;
 import android.app.Activity;
 import android.content.SharedPreferences;
-import org.briarproject.bramble.BrambleApplication;
-import org.briarproject.briar.android.navdrawer.NavDrawerActivity;
+import org.nodex.core.BrambleApplication;
+import org.nodex.android.navdrawer.NavDrawerActivity;
 public interface BriarApplication extends BrambleApplication {
 	Class<? extends Activity> ENTRY_ACTIVITY = NavDrawerActivity.class;
 	AndroidComponent getApplicationComponent();

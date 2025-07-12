@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.reporting;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.reporting;
+import org.nodex.nullsafety.NotNullByDefault;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;

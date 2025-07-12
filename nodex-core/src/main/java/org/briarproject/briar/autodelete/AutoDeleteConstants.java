@@ -1,4 +1,4 @@
-package org.briarproject.briar.autodelete;
+package org.nodex.autodelete;
 interface AutoDeleteConstants {
 	String GROUP_KEY_TIMER = "autoDeleteTimer";
 	String GROUP_KEY_TIMESTAMP = "autoDeleteTimestamp";

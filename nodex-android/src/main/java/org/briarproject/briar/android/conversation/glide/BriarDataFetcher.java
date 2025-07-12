@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.conversation.glide;
+package org.nodex.android.conversation.glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.data.DataFetcher;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.briar.api.attachment.Attachment;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.briar.api.attachment.AttachmentReader;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.api.attachment.Attachment;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.api.attachment.AttachmentReader;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import static com.bumptech.glide.load.DataSource.LOCAL;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.IoUtils.tryToClose;
+import static org.nodex.core.util.IoUtils.tryToClose;
 @NotNullByDefault
 class BriarDataFetcher implements DataFetcher<InputStream> {
 	private final static Logger LOG =

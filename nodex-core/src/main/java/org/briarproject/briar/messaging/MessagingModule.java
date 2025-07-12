@@ -1,23 +1,23 @@
-package org.briarproject.briar.messaging;
-import org.briarproject.bramble.api.FeatureFlags;
-import org.briarproject.bramble.api.cleanup.CleanupManager;
-import org.briarproject.bramble.api.contact.ContactManager;
-import org.briarproject.bramble.api.data.BdfReaderFactory;
-import org.briarproject.bramble.api.data.MetadataEncoder;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.sync.validation.ValidationManager;
-import org.briarproject.bramble.api.system.Clock;
-import org.briarproject.bramble.api.versioning.ClientVersioningManager;
-import org.briarproject.briar.api.conversation.ConversationManager;
-import org.briarproject.briar.api.messaging.MessagingManager;
-import org.briarproject.briar.api.messaging.PrivateMessageFactory;
+package org.nodex.messaging;
+import org.nodex.core.api.FeatureFlags;
+import org.nodex.core.api.cleanup.CleanupManager;
+import org.nodex.core.api.contact.ContactManager;
+import org.nodex.core.api.data.BdfReaderFactory;
+import org.nodex.core.api.data.MetadataEncoder;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.sync.validation.ValidationManager;
+import org.nodex.core.api.system.Clock;
+import org.nodex.core.api.versioning.ClientVersioningManager;
+import org.nodex.api.conversation.ConversationManager;
+import org.nodex.api.messaging.MessagingManager;
+import org.nodex.api.messaging.PrivateMessageFactory;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
-import static org.briarproject.briar.api.messaging.MessagingManager.CLIENT_ID;
-import static org.briarproject.briar.api.messaging.MessagingManager.MAJOR_VERSION;
-import static org.briarproject.briar.api.messaging.MessagingManager.MINOR_VERSION;
+import static org.nodex.api.messaging.MessagingManager.CLIENT_ID;
+import static org.nodex.api.messaging.MessagingManager.MAJOR_VERSION;
+import static org.nodex.api.messaging.MessagingManager.MINOR_VERSION;
 @Module
 public class MessagingModule {
 	public static class EagerSingletons {

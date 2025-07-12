@@ -1,21 +1,21 @@
-package org.briarproject.briar.introduction;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageFactory;
-import org.briarproject.bramble.test.BrambleMockTestCase;
+package org.nodex.introduction;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageFactory;
+import org.nodex.core.test.BrambleMockTestCase;
 import org.jmock.Expectations;
 import org.junit.Test;
-import static org.briarproject.bramble.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
-import static org.briarproject.bramble.test.TestUtils.getAuthor;
-import static org.briarproject.bramble.test.TestUtils.getMessage;
-import static org.briarproject.bramble.test.TestUtils.getRandomId;
-import static org.briarproject.bramble.util.StringUtils.getRandomString;
-import static org.briarproject.briar.api.introduction.IntroductionConstants.MAX_INTRODUCTION_TEXT_LENGTH;
-import static org.briarproject.briar.introduction.MessageType.REQUEST;
+import static org.nodex.core.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
+import static org.nodex.core.test.TestUtils.getAuthor;
+import static org.nodex.core.test.TestUtils.getMessage;
+import static org.nodex.core.test.TestUtils.getRandomId;
+import static org.nodex.core.util.StringUtils.getRandomString;
+import static org.nodex.api.introduction.IntroductionConstants.MAX_INTRODUCTION_TEXT_LENGTH;
+import static org.nodex.introduction.MessageType.REQUEST;
 public class MessageEncoderTest extends BrambleMockTestCase {
 	private final ClientHelper clientHelper = context.mock(ClientHelper.class);
 	private final MessageFactory messageFactory =

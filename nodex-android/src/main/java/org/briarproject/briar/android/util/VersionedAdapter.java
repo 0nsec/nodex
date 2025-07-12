@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.util;
+package org.nodex.android.util;
 import androidx.annotation.UiThread;
 public interface VersionedAdapter {
 	int getRevision();

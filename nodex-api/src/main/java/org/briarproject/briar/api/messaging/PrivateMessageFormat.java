@@ -1,4 +1,4 @@
-package org.briarproject.briar.api.messaging;
+package org.nodex.api.messaging;
 public enum PrivateMessageFormat {
 	TEXT_ONLY,
 	TEXT_IMAGES,

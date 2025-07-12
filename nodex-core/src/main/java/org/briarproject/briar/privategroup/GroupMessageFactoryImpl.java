@@ -1,20 +1,20 @@
-package org.briarproject.briar.privategroup;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.privategroup.GroupMessage;
-import org.briarproject.briar.api.privategroup.GroupMessageFactory;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.privategroup;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.privategroup.GroupMessage;
+import org.nodex.api.privategroup.GroupMessageFactory;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.security.GeneralSecurityException;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.briar.api.privategroup.MessageType.JOIN;
-import static org.briarproject.briar.api.privategroup.MessageType.POST;
+import static org.nodex.api.privategroup.MessageType.JOIN;
+import static org.nodex.api.privategroup.MessageType.POST;
 @Immutable
 @NotNullByDefault
 class GroupMessageFactoryImpl implements GroupMessageFactory {

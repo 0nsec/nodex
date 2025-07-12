@@ -1,27 +1,27 @@
-package org.briarproject.briar.blog;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.bramble.api.system.Clock;
-import org.briarproject.bramble.util.StringUtils;
-import org.briarproject.briar.api.blog.BlogPost;
-import org.briarproject.briar.api.blog.BlogPostFactory;
-import org.briarproject.briar.api.blog.MessageType;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.blog;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.core.api.system.Clock;
+import org.nodex.core.util.StringUtils;
+import org.nodex.api.blog.BlogPost;
+import org.nodex.api.blog.BlogPostFactory;
+import org.nodex.api.blog.MessageType;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.security.GeneralSecurityException;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.briar.api.blog.BlogConstants.MAX_BLOG_COMMENT_TEXT_LENGTH;
-import static org.briarproject.briar.api.blog.BlogConstants.MAX_BLOG_POST_TEXT_LENGTH;
-import static org.briarproject.briar.api.blog.MessageType.COMMENT;
-import static org.briarproject.briar.api.blog.MessageType.POST;
-import static org.briarproject.briar.api.blog.MessageType.WRAPPED_COMMENT;
-import static org.briarproject.briar.api.blog.MessageType.WRAPPED_POST;
+import static org.nodex.api.blog.BlogConstants.MAX_BLOG_COMMENT_TEXT_LENGTH;
+import static org.nodex.api.blog.BlogConstants.MAX_BLOG_POST_TEXT_LENGTH;
+import static org.nodex.api.blog.MessageType.COMMENT;
+import static org.nodex.api.blog.MessageType.POST;
+import static org.nodex.api.blog.MessageType.WRAPPED_COMMENT;
+import static org.nodex.api.blog.MessageType.WRAPPED_POST;
 @Immutable
 @NotNullByDefault
 class BlogPostFactoryImpl implements BlogPostFactory {

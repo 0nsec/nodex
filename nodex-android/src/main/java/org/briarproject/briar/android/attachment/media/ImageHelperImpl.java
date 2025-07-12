@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.attachment.media;
+package org.nodex.android.attachment.media;
 import android.graphics.BitmapFactory;
 import android.webkit.MimeTypeMap;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.InputStream;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;

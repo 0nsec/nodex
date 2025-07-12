@@ -1,10 +1,10 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.sharing;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 @NotNullByDefault
 interface MessageEncoder {

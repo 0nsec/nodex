@@ -1,5 +1,5 @@
-package org.briarproject.briar.attachment;
-import org.briarproject.briar.api.attachment.AttachmentReader;
+package org.nodex.attachment;
+import org.nodex.api.attachment.AttachmentReader;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;

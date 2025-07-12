@@ -1,7 +1,7 @@
-package org.briarproject.briar.api.identity;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.nullsafety.NotNullByDefault;
-import org.briarproject.nullsafety.NullSafety;
+package org.nodex.api.identity;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NullSafety;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable

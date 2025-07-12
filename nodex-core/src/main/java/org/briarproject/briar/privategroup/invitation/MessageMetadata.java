@@ -1,6 +1,6 @@
-package org.briarproject.briar.privategroup.invitation;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.privategroup.invitation;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.util;
+package org.nodex.android.util;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.net.Uri;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.Map;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.Nullable;
@@ -24,8 +24,8 @@ import static android.os.Build.VERSION.SDK_INT;
 import static android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS;
 import static androidx.core.content.ContextCompat.checkSelfPermission;
 import static java.lang.Boolean.TRUE;
-import static org.briarproject.briar.BuildConfig.APPLICATION_ID;
-import static org.briarproject.briar.android.util.UiUtils.tryToStartActivity;
+import static org.nodex.BuildConfig.APPLICATION_ID;
+import static org.nodex.android.util.UiUtils.tryToStartActivity;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class PermissionUtils {

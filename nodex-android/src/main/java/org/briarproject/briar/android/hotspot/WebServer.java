@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.content.Context;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import java.io.File;
@@ -21,9 +21,9 @@ import static fi.iki.elonen.NanoHTTPD.Response.Status.OK;
 import static java.util.Objects.requireNonNull;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.briar.BuildConfig.VERSION_NAME;
-import static org.briarproject.briar.android.hotspot.HotspotViewModel.getApkFileName;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.BuildConfig.VERSION_NAME;
+import static org.nodex.android.hotspot.HotspotViewModel.getApkFileName;
 @NotNullByDefault
 class WebServer extends NanoHTTPD {
 	final static int PORT = 9999;

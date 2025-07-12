@@ -1,19 +1,19 @@
-package org.briarproject.briar.android.forum;
+package org.nodex.android.forum;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.util.UiUtils;
-import org.briarproject.briar.android.view.TextAvatarView;
-import org.briarproject.briar.api.forum.Forum;
+import org.nodex.R;
+import org.nodex.android.util.UiUtils;
+import org.nodex.android.view.TextAvatarView;
+import org.nodex.api.forum.Forum;
 import androidx.recyclerview.widget.RecyclerView;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_ID;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_NAME;
+import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.BriarActivity.GROUP_NAME;
 class ForumViewHolder extends RecyclerView.ViewHolder {
 	private final ForumListViewModel viewModel;
 	private final Context ctx;

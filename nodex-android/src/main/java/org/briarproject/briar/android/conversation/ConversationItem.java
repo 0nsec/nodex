@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.conversation;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.conversation.ConversationMessageHeader;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.conversation;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.conversation.ConversationMessageHeader;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 import androidx.annotation.LayoutRes;
 import androidx.lifecycle.LiveData;
-import static org.briarproject.bramble.util.StringUtils.toHexString;
+import static org.nodex.core.util.StringUtils.toHexString;
 @NotThreadSafe
 @NotNullByDefault
 abstract class ConversationItem {

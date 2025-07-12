@@ -1,9 +1,9 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.sharing;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.client.SessionId;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 interface SessionParser {
 	BdfDictionary getSessionQuery(SessionId s);

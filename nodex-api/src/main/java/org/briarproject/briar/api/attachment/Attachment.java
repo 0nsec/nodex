@@ -1,5 +1,5 @@
-package org.briarproject.briar.api.attachment;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.attachment;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.InputStream;
 import javax.annotation.concurrent.Immutable;
 @Immutable

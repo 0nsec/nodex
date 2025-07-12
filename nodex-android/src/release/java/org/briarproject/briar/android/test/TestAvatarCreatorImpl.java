@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.test;
-import org.briarproject.briar.api.test.TestAvatarCreator;
+package org.nodex.android.test;
+import org.nodex.api.test.TestAvatarCreator;
 import java.io.InputStream;
 import javax.annotation.Nullable;
 import javax.inject.Inject;

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
@@ -22,8 +22,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 import static androidx.core.app.ActivityCompat.finishAfterTransition;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.util.UiUtils.showFragment;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.util.UiUtils.showFragment;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class AbstractTabsFragment extends Fragment {

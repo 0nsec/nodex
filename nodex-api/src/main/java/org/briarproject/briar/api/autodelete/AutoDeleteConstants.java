@@ -1,4 +1,4 @@
-package org.briarproject.briar.api.autodelete;
+package org.nodex.api.autodelete;
 import static java.util.concurrent.TimeUnit.DAYS;
 import static java.util.concurrent.TimeUnit.MINUTES;
 public interface AutoDeleteConstants {

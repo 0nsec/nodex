@@ -1,17 +1,17 @@
-package org.briarproject.briar.android.privategroup.reveal;
+package org.nodex.android.privategroup.reveal;
 import android.content.Context;
 import android.os.Bundle;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.contact.OnContactClickListener;
-import org.briarproject.briar.android.contactselection.BaseContactSelectorFragment;
-import org.briarproject.briar.android.contactselection.ContactSelectorController;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.contact.OnContactClickListener;
+import org.nodex.android.contactselection.BaseContactSelectorFragment;
+import org.nodex.android.contactselection.ContactSelectorController;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.Collection;
 import javax.inject.Inject;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.BriarActivity.GROUP_ID;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class RevealContactsFragment extends

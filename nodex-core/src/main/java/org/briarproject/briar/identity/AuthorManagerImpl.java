@@ -1,23 +1,23 @@
-package org.briarproject.briar.identity;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.api.db.DatabaseComponent;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.identity.AuthorId;
-import org.briarproject.bramble.api.identity.IdentityManager;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.briar.api.avatar.AvatarManager;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.briar.api.identity.AuthorManager;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.identity;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.api.db.DatabaseComponent;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.identity.AuthorId;
+import org.nodex.core.api.identity.IdentityManager;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.api.avatar.AvatarManager;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.api.identity.AuthorManager;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import javax.annotation.concurrent.ThreadSafe;
 import javax.inject.Inject;
-import static org.briarproject.briar.api.identity.AuthorInfo.Status.OURSELVES;
-import static org.briarproject.briar.api.identity.AuthorInfo.Status.UNKNOWN;
-import static org.briarproject.briar.api.identity.AuthorInfo.Status.UNVERIFIED;
-import static org.briarproject.briar.api.identity.AuthorInfo.Status.VERIFIED;
+import static org.nodex.api.identity.AuthorInfo.Status.OURSELVES;
+import static org.nodex.api.identity.AuthorInfo.Status.UNKNOWN;
+import static org.nodex.api.identity.AuthorInfo.Status.UNVERIFIED;
+import static org.nodex.api.identity.AuthorInfo.Status.VERIFIED;
 @ThreadSafe
 @NotNullByDefault
 class AuthorManagerImpl implements AuthorManager {

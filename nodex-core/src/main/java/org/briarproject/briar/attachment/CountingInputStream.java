@@ -1,5 +1,5 @@
-package org.briarproject.briar.attachment;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.attachment;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android;
+package org.nodex.android;
 interface AndroidEagerSingletons {
 	void inject(AppModule.EagerSingletons init);
 	class Helper {

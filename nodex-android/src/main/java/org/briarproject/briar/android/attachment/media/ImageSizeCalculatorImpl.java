@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.attachment.media;
+package org.nodex.android.attachment.media;
 import com.bumptech.glide.util.MarkEnforcingInputStream;
-import org.briarproject.briar.android.attachment.media.ImageHelper.DecodeResult;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.android.attachment.media.ImageHelper.DecodeResult;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Logger;
@@ -15,7 +15,7 @@ import static androidx.exifinterface.media.ExifInterface.TAG_IMAGE_WIDTH;
 import static androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.LogUtils.logException;
+import static org.nodex.core.util.LogUtils.logException;
 @NotNullByDefault
 class ImageSizeCalculatorImpl implements ImageSizeCalculator {
 	private static final Logger LOG =

@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.fragment;
-import org.briarproject.bramble.api.event.EventBus;
-import org.briarproject.bramble.api.event.EventListener;
+package org.nodex.android.fragment;
+import org.nodex.core.api.event.EventBus;
+import org.nodex.core.api.event.EventListener;
 import javax.inject.Inject;
 public abstract class BaseEventFragment extends BaseFragment implements
 		EventListener {

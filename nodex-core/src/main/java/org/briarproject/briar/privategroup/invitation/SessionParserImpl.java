@@ -1,26 +1,26 @@
-package org.briarproject.briar.privategroup.invitation;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.data.BdfEntry;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.privategroup.invitation;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.data.BdfEntry;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.SessionId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_INVITE_TIMESTAMP;
-import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_IS_SESSION;
-import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_LAST_LOCAL_MESSAGE_ID;
-import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_LAST_REMOTE_MESSAGE_ID;
-import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_LOCAL_TIMESTAMP;
-import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_PRIVATE_GROUP_ID;
-import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_ROLE;
-import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_SESSION_ID;
-import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_STATE;
-import static org.briarproject.briar.privategroup.invitation.Role.CREATOR;
-import static org.briarproject.briar.privategroup.invitation.Role.INVITEE;
-import static org.briarproject.briar.privategroup.invitation.Role.PEER;
+import static org.nodex.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_INVITE_TIMESTAMP;
+import static org.nodex.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_IS_SESSION;
+import static org.nodex.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_LAST_LOCAL_MESSAGE_ID;
+import static org.nodex.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_LAST_REMOTE_MESSAGE_ID;
+import static org.nodex.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_LOCAL_TIMESTAMP;
+import static org.nodex.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_PRIVATE_GROUP_ID;
+import static org.nodex.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_ROLE;
+import static org.nodex.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_SESSION_ID;
+import static org.nodex.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_STATE;
+import static org.nodex.privategroup.invitation.Role.CREATOR;
+import static org.nodex.privategroup.invitation.Role.INVITEE;
+import static org.nodex.privategroup.invitation.Role.PEER;
 @Immutable
 @NotNullByDefault
 class SessionParserImpl implements SessionParser {

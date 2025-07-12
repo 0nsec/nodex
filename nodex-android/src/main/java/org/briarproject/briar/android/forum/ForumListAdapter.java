@@ -1,9 +1,9 @@
-package org.briarproject.briar.android.forum;
+package org.nodex.android.forum;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.recyclerview.widget.DiffUtil.ItemCallback;
 import androidx.recyclerview.widget.ListAdapter;
 @NotNullByDefault

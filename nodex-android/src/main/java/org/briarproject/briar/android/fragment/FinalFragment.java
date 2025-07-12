@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.fragment;
+package org.nodex.android.fragment;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import static android.view.View.GONE;
 import static androidx.core.widget.ImageViewCompat.setImageTintList;
-import static org.briarproject.briar.android.util.UiUtils.hideViewOnSmallScreen;
+import static org.nodex.android.util.UiUtils.hideViewOnSmallScreen;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class FinalFragment extends Fragment {

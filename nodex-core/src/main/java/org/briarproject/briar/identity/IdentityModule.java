@@ -1,5 +1,5 @@
-package org.briarproject.briar.identity;
-import org.briarproject.briar.api.identity.AuthorManager;
+package org.nodex.identity;
+import org.nodex.api.identity.AuthorManager;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import dagger.Module;

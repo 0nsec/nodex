@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.annotation.SuppressLint;
 import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
@@ -10,12 +10,12 @@ import android.hardware.biometrics.BiometricPrompt.Builder;
 import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.widget.Toast;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BaseActivity;
-import org.briarproject.briar.api.android.LockManager;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BaseActivity;
+import org.nodex.api.android.LockManager;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.logging.Logger;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
@@ -25,9 +25,9 @@ import static android.hardware.biometrics.BiometricPrompt.BIOMETRIC_ERROR_USER_C
 import static android.os.Build.VERSION.SDK_INT;
 import static android.view.View.INVISIBLE;
 import static android.widget.Toast.LENGTH_LONG;
-import static org.briarproject.briar.android.activity.RequestCodes.REQUEST_KEYGUARD_UNLOCK;
-import static org.briarproject.briar.android.util.UiUtils.hasKeyguardLock;
-import static org.briarproject.briar.android.util.UiUtils.hasUsableFingerprint;
+import static org.nodex.android.activity.RequestCodes.REQUEST_KEYGUARD_UNLOCK;
+import static org.nodex.android.util.UiUtils.hasKeyguardLock;
+import static org.nodex.android.util.UiUtils.hasUsableFingerprint;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class UnlockActivity extends BaseActivity {

@@ -1,17 +1,17 @@
-package org.briarproject.briar.android.contact;
+package org.nodex.android.contact;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.view.TrustIndicatorView;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.view.TrustIndicatorView;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
-import static org.briarproject.briar.android.util.UiUtils.getContactDisplayName;
-import static org.briarproject.briar.android.view.AuthorView.setAvatar;
+import static org.nodex.android.util.UiUtils.getContactDisplayName;
+import static org.nodex.android.view.AuthorView.setAvatar;
 @UiThread
 @NotNullByDefault
 public class ContactItemViewHolder<I extends ContactItem>

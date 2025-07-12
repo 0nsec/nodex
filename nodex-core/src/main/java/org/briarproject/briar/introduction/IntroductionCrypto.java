@@ -1,11 +1,11 @@
-package org.briarproject.briar.introduction;
-import org.briarproject.bramble.api.crypto.KeyPair;
-import org.briarproject.bramble.api.crypto.PrivateKey;
-import org.briarproject.bramble.api.crypto.SecretKey;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.identity.AuthorId;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.briar.api.client.SessionId;
+package org.nodex.introduction;
+import org.nodex.core.api.crypto.KeyPair;
+import org.nodex.core.api.crypto.PrivateKey;
+import org.nodex.core.api.crypto.SecretKey;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.identity.AuthorId;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.api.client.SessionId;
 import java.security.GeneralSecurityException;
 interface IntroductionCrypto {
 	SessionId getSessionId(Author introducer, Author local, Author remote);

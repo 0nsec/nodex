@@ -156,7 +156,7 @@
 
 	</ScrollView>
 
-	<org.briarproject.briar.android.view.BriarButton
+	<org.nodex.android.view.BriarButton
 		android:id="@+id/addButton"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

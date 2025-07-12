@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.login;
+package org.nodex.android.login;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,24 +13,24 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
-import org.briarproject.bramble.api.crypto.DecryptionResult;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
+import org.nodex.core.api.crypto.DecryptionResult;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
 import javax.inject.Inject;
 import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.ViewModelProvider;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static android.widget.Toast.LENGTH_LONG;
-import static org.briarproject.bramble.api.crypto.DecryptionResult.KEY_STRENGTHENER_ERROR;
-import static org.briarproject.bramble.api.crypto.DecryptionResult.SUCCESS;
-import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.QUITE_WEAK;
-import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.STRONG;
-import static org.briarproject.briar.android.login.LoginUtils.createKeyStrengthenerErrorDialog;
-import static org.briarproject.briar.android.util.UiUtils.hideSoftKeyboard;
-import static org.briarproject.briar.android.util.UiUtils.setError;
-import static org.briarproject.briar.android.util.UiUtils.showSoftKeyboard;
+import static org.nodex.core.api.crypto.DecryptionResult.KEY_STRENGTHENER_ERROR;
+import static org.nodex.core.api.crypto.DecryptionResult.SUCCESS;
+import static org.nodex.core.api.crypto.PasswordStrengthEstimator.QUITE_WEAK;
+import static org.nodex.core.api.crypto.PasswordStrengthEstimator.STRONG;
+import static org.nodex.android.login.LoginUtils.createKeyStrengthenerErrorDialog;
+import static org.nodex.android.util.UiUtils.hideSoftKeyboard;
+import static org.nodex.android.util.UiUtils.setError;
+import static org.nodex.android.util.UiUtils.showSoftKeyboard;
 public class ChangePasswordActivity extends BriarActivity
 		implements OnClickListener, OnEditorActionListener {
 	@Inject

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.controller;
+package org.nodex.android.controller;
 import android.app.Activity;
 public interface ActivityLifecycleController {
 	void onActivityCreate(Activity activity);

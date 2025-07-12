@@ -1,5 +1,5 @@
-package org.briarproject.briar.api.attachment;
-import static org.briarproject.bramble.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
+package org.nodex.api.attachment;
+import static org.nodex.core.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
 public interface MediaConstants {
 	String MSG_KEY_CONTENT_TYPE = "contentType";
 	String MSG_KEY_DESCRIPTOR_LENGTH = "descriptorLength";

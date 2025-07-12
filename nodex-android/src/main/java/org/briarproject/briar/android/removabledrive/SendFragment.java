@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.removabledrive;
+package org.nodex.android.removabledrive;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.net.Uri;
@@ -10,11 +10,11 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import org.briarproject.bramble.api.plugin.file.RemovableDriveTask;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.util.ActivityLaunchers.CreateDocumentAdvanced;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.plugin.file.RemovableDriveTask;
+import org.nodex.R;
+import org.nodex.android.util.ActivityLaunchers.CreateDocumentAdvanced;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.logging.Logger;
 import javax.inject.Inject;
 import androidx.activity.result.ActivityResultLauncher;
@@ -27,9 +27,9 @@ import static android.view.View.VISIBLE;
 import static android.widget.Toast.LENGTH_LONG;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.util.UiUtils.hideViewOnSmallScreen;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.util.UiUtils.hideViewOnSmallScreen;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class SendFragment extends Fragment {

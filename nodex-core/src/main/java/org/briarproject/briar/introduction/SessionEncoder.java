@@ -1,7 +1,7 @@
-package org.briarproject.briar.introduction;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.introduction;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.identity.Author;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 interface SessionEncoder {
 	BdfDictionary getIntroduceeSessionsByIntroducerQuery(Author introducer);

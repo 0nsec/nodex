@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Locale;
 import javax.annotation.Nullable;
 import androidx.annotation.UiThread;

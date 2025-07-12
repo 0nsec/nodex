@@ -1,7 +1,7 @@
-package org.briarproject.briar.api.android;
+package org.nodex.api.android;
 import android.app.Notification;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.sync.GroupId;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.sync.GroupId;
 public interface AndroidNotificationManager {
 	String PREF_NOTIFY_PRIVATE = "notifyPrivateMessages";
 	String PREF_NOTIFY_GROUP = "notifyGroupMessages";

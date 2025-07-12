@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.conversation;
-import org.briarproject.briar.android.view.BriarRecyclerViewScrollListener;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.conversation;
+import org.nodex.android.view.BriarRecyclerViewScrollListener;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 class ConversationScrollListener extends
 		BriarRecyclerViewScrollListener<ConversationAdapter, ConversationItem> {

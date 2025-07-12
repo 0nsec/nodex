@@ -1,14 +1,14 @@
-package org.briarproject.briar.android.privategroup.invitation;
+package org.nodex.android.privategroup.invitation;
 import android.content.Context;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.sharing.InvitationActivity;
-import org.briarproject.briar.android.sharing.InvitationAdapter;
-import org.briarproject.briar.api.privategroup.invitation.GroupInvitationItem;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.sharing.InvitationActivity;
+import org.nodex.android.sharing.InvitationAdapter;
+import org.nodex.api.privategroup.invitation.GroupInvitationItem;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
-import static org.briarproject.briar.android.sharing.InvitationAdapter.InvitationClickListener;
+import static org.nodex.android.sharing.InvitationAdapter.InvitationClickListener;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class GroupInvitationActivity

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.reporting;
+package org.nodex.android.reporting;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,11 +13,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.logging.Logger;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
@@ -29,8 +29,8 @@ import static android.view.View.VISIBLE;
 import static android.widget.Toast.LENGTH_SHORT;
 import static java.util.Objects.requireNonNull;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.briar.android.util.UiUtils.onSingleLinkClick;
-import static org.briarproject.briar.android.util.UiUtils.tryToStartActivity;
+import static org.nodex.android.util.UiUtils.onSingleLinkClick;
+import static org.nodex.android.util.UiUtils.tryToStartActivity;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ReportFormFragment extends BaseFragment {

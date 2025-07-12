@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.sharing;
+package org.nodex.android.sharing;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.contact.BaseContactListAdapter;
-import org.briarproject.briar.android.contact.ContactItem;
-import org.briarproject.briar.android.contact.ContactItemViewHolder;
+import org.nodex.R;
+import org.nodex.android.contact.BaseContactListAdapter;
+import org.nodex.android.contact.ContactItem;
+import org.nodex.android.contact.ContactItemViewHolder;
 class SharingStatusAdapter extends
 		BaseContactListAdapter<ContactItem, ContactItemViewHolder<ContactItem>> {
 	SharingStatusAdapter(Context context) {

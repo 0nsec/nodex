@@ -1,16 +1,16 @@
-package org.briarproject.briar.android.login;
+package org.nodex.android.login;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.BriarService;
-import org.briarproject.briar.android.account.SetupActivity;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BaseActivity;
-import org.briarproject.briar.android.fragment.BaseFragment.BaseFragmentListener;
-import org.briarproject.briar.android.login.StartupViewModel.State;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.BriarService;
+import org.nodex.android.account.SetupActivity;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BaseActivity;
+import org.nodex.android.fragment.BaseFragment.BaseFragmentListener;
+import org.nodex.android.login.StartupViewModel.State;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
@@ -18,10 +18,10 @@ import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_TASK_ON_HOME;
-import static org.briarproject.briar.android.login.StartupViewModel.State.SIGNED_IN;
-import static org.briarproject.briar.android.login.StartupViewModel.State.SIGNED_OUT;
-import static org.briarproject.briar.android.login.StartupViewModel.State.STARTED;
-import static org.briarproject.briar.android.login.StartupViewModel.State.STARTING;
+import static org.nodex.android.login.StartupViewModel.State.SIGNED_IN;
+import static org.nodex.android.login.StartupViewModel.State.SIGNED_OUT;
+import static org.nodex.android.login.StartupViewModel.State.STARTED;
+import static org.nodex.android.login.StartupViewModel.State.STARTING;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class StartupActivity extends BaseActivity implements

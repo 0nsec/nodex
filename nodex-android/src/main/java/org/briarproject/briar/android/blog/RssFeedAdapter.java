@@ -1,19 +1,19 @@
-package org.briarproject.briar.android.blog;
+package org.nodex.android.blog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.briar.api.feed.Feed;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.api.feed.Feed;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static org.briarproject.briar.android.util.UiUtils.formatDate;
+import static org.nodex.android.util.UiUtils.formatDate;
 @NotNullByDefault
 class RssFeedAdapter extends ListAdapter<Feed, RssFeedAdapter.FeedViewHolder> {
 	private final RssFeedListener listener;

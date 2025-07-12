@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.view.View;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration;
 import androidx.recyclerview.widget.RecyclerView.State;

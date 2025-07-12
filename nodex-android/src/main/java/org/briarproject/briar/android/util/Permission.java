@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.util;
+package org.nodex.android.util;
 public enum Permission {
 	UNKNOWN, GRANTED, SHOW_RATIONALE, PERMANENTLY_DENIED
 }

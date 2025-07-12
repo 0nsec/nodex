@@ -1,6 +1,6 @@
-package org.briarproject.briar.api.introduction;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.introduction;
+import org.nodex.core.api.FormatException;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

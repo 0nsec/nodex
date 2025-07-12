@@ -63,7 +63,7 @@
 		app:layout_constraintVertical_chainStyle="packed"
 		tools:text="This is a name of a contact" />
 
-	<org.briarproject.briar.android.view.TrustIndicatorView
+	<org.nodex.android.view.TrustIndicatorView
 		android:id="@+id/trustIndicator"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"

@@ -1,5 +1,5 @@
-package org.briarproject.briar.privategroup.invitation;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.privategroup.invitation;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 interface ProtocolEngineFactory {
 	ProtocolEngine<CreatorSession> createCreatorEngine();

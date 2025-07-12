@@ -1,14 +1,14 @@
-package org.briarproject.briar.android.contactselection;
+package org.nodex.android.contactselection;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.contact.ContactItemViewHolder;
-import org.briarproject.briar.android.contact.OnContactClickListener;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.contact.ContactItemViewHolder;
+import org.nodex.android.contact.OnContactClickListener;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import androidx.annotation.UiThread;
-import static org.briarproject.briar.android.util.UiUtils.GREY_OUT;
+import static org.nodex.android.util.UiUtils.GREY_OUT;
 @UiThread
 @NotNullByDefault
 public abstract class BaseSelectableContactHolder<I extends BaseSelectableContactItem>

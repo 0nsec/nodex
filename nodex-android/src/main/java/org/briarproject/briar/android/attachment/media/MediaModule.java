@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.attachment.media;
+package org.nodex.android.attachment.media;
 import dagger.Module;
 import dagger.Provides;
 @Module

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,14 +9,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.UiThread;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
-import static org.briarproject.briar.android.util.UiUtils.showOnboardingDialog;
+import static org.nodex.android.util.UiUtils.showOnboardingDialog;
 @UiThread
 @NotNullByDefault
 abstract class PowerView extends ConstraintLayout {

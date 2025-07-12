@@ -1,27 +1,27 @@
-package org.briarproject.briar.android.sharing;
+package org.nodex.android.sharing;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.briar.android.view.LargeTextInputView;
-import org.briarproject.briar.android.view.TextSendController;
-import org.briarproject.briar.android.view.TextSendController.SendListener;
-import org.briarproject.briar.android.view.TextSendController.SendState;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.NotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.android.view.LargeTextInputView;
+import org.nodex.android.view.TextSendController;
+import org.nodex.android.view.TextSendController.SendListener;
+import org.nodex.android.view.TextSendController.SendState;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.UiThread;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import static org.briarproject.briar.android.view.TextSendController.SendState.SENT;
+import static org.nodex.android.view.TextSendController.SendState.SENT;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class BaseMessageFragment extends BaseFragment

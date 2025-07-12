@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.provider.Settings;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.logging.Logger;
 import androidx.core.util.Consumer;
 import static java.util.logging.Level.INFO;

@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.reporting;
+package org.nodex.android.reporting;
 import android.app.Application;
 import android.os.Process;
 import android.util.Log;
-import org.briarproject.briar.android.logging.LogEncrypter;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.android.logging.LogEncrypter;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.lang.Thread.UncaughtExceptionHandler;
 import javax.inject.Inject;
-import static org.briarproject.briar.android.TestingConstants.IS_DEBUG_BUILD;
-import static org.briarproject.briar.android.util.UiUtils.startDevReportActivity;
+import static org.nodex.android.TestingConstants.IS_DEBUG_BUILD;
+import static org.nodex.android.util.UiUtils.startDevReportActivity;
 @NotNullByDefault
 class BriarExceptionHandler implements UncaughtExceptionHandler {
 	private final Application app;

@@ -1,5 +1,5 @@
-package org.briarproject.briar.api.feed;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.feed;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable

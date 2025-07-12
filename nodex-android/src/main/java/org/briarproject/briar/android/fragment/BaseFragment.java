@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.fragment;
+package org.nodex.android.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
-import org.briarproject.briar.android.DestroyableContext;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.android.DestroyableContext;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;

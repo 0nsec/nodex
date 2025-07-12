@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.conversation.glide;
+package org.nodex.android.conversation.glide;
 import android.graphics.Bitmap;
 import com.bumptech.glide.load.MultiTransformation;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;

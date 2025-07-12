@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.login;
+package org.nodex.android.login;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,12 +10,12 @@ import android.widget.ProgressBar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import org.briarproject.bramble.api.crypto.DecryptionResult;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.crypto.DecryptionResult;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import androidx.activity.result.ActivityResultLauncher;
@@ -30,14 +30,14 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static android.view.inputmethod.EditorInfo.IME_ACTION_DONE;
 import static androidx.core.content.ContextCompat.checkSelfPermission;
-import static org.briarproject.bramble.api.crypto.DecryptionResult.KEY_STRENGTHENER_ERROR;
-import static org.briarproject.bramble.api.crypto.DecryptionResult.SUCCESS;
-import static org.briarproject.briar.android.login.LoginUtils.createKeyStrengthenerErrorDialog;
-import static org.briarproject.briar.android.util.UiUtils.enterPressed;
-import static org.briarproject.briar.android.util.UiUtils.hideSoftKeyboard;
-import static org.briarproject.briar.android.util.UiUtils.hideViewOnSmallScreen;
-import static org.briarproject.briar.android.util.UiUtils.setError;
-import static org.briarproject.briar.android.util.UiUtils.showSoftKeyboard;
+import static org.nodex.core.api.crypto.DecryptionResult.KEY_STRENGTHENER_ERROR;
+import static org.nodex.core.api.crypto.DecryptionResult.SUCCESS;
+import static org.nodex.android.login.LoginUtils.createKeyStrengthenerErrorDialog;
+import static org.nodex.android.util.UiUtils.enterPressed;
+import static org.nodex.android.util.UiUtils.hideSoftKeyboard;
+import static org.nodex.android.util.UiUtils.hideViewOnSmallScreen;
+import static org.nodex.android.util.UiUtils.setError;
+import static org.nodex.android.util.UiUtils.showSoftKeyboard;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class PasswordFragment extends BaseFragment implements TextWatcher {

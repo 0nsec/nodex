@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.privategroup.memberlist;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.briar.api.identity.AuthorInfo.Status;
-import org.briarproject.briar.api.privategroup.GroupMember;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.privategroup.memberlist;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.identity.Author;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.api.identity.AuthorInfo.Status;
+import org.nodex.api.privategroup.GroupMember;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe

@@ -1,8 +1,8 @@
-package org.briarproject.briar.feed;
+package org.nodex.feed;
 import com.rometools.rome.feed.synd.SyndFeed;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.briar.api.feed.Feed;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.api.feed.Feed;
 import javax.annotation.Nullable;
 interface FeedFactory {
 	Feed createFeed(@Nullable String url, SyndFeed sf);

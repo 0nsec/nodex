@@ -1,10 +1,10 @@
-package org.briarproject.briar.privategroup.invitation;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.sync.Group.Visibility;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.privategroup.invitation;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.sync.Group.Visibility;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
-import static org.briarproject.bramble.api.sync.Group.Visibility.INVISIBLE;
-import static org.briarproject.bramble.api.sync.Group.Visibility.SHARED;
+import static org.nodex.core.api.sync.Group.Visibility.INVISIBLE;
+import static org.nodex.core.api.sync.Group.Visibility.SHARED;
 @Immutable
 @NotNullByDefault
 enum CreatorState implements State {

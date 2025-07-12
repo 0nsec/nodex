@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Bundle;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BaseActivity;
-import org.briarproject.briar.android.fragment.BaseFragment.BaseFragmentListener;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BaseActivity;
+import org.nodex.android.fragment.BaseFragment.BaseFragmentListener;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import androidx.lifecycle.ViewModelProvider;
@@ -15,14 +15,14 @@ import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_TASK_ON_HOME;
-import static org.briarproject.briar.android.BriarApplication.ENTRY_ACTIVITY;
-import static org.briarproject.briar.android.account.SetupViewModel.State.AUTHOR_NAME;
-import static org.briarproject.briar.android.account.SetupViewModel.State.CREATED;
-import static org.briarproject.briar.android.account.SetupViewModel.State.DOZE;
-import static org.briarproject.briar.android.account.SetupViewModel.State.FAILED;
-import static org.briarproject.briar.android.account.SetupViewModel.State.SET_PASSWORD;
-import static org.briarproject.briar.android.util.UiUtils.setInputStateAlwaysVisible;
-import static org.briarproject.briar.android.util.UiUtils.setInputStateHidden;
+import static org.nodex.android.BriarApplication.ENTRY_ACTIVITY;
+import static org.nodex.android.account.SetupViewModel.State.AUTHOR_NAME;
+import static org.nodex.android.account.SetupViewModel.State.CREATED;
+import static org.nodex.android.account.SetupViewModel.State.DOZE;
+import static org.nodex.android.account.SetupViewModel.State.FAILED;
+import static org.nodex.android.account.SetupViewModel.State.SET_PASSWORD;
+import static org.nodex.android.util.UiUtils.setInputStateAlwaysVisible;
+import static org.nodex.android.util.UiUtils.setInputStateHidden;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class SetupActivity extends BaseActivity

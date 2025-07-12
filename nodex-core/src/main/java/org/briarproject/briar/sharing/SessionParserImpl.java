@@ -1,22 +1,22 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.data.BdfEntry;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.sharing;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.data.BdfEntry;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.SessionId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.briar.sharing.SharingConstants.SESSION_KEY_INVITE_TIMESTAMP;
-import static org.briarproject.briar.sharing.SharingConstants.SESSION_KEY_IS_SESSION;
-import static org.briarproject.briar.sharing.SharingConstants.SESSION_KEY_LAST_LOCAL_MESSAGE_ID;
-import static org.briarproject.briar.sharing.SharingConstants.SESSION_KEY_LAST_REMOTE_MESSAGE_ID;
-import static org.briarproject.briar.sharing.SharingConstants.SESSION_KEY_LOCAL_TIMESTAMP;
-import static org.briarproject.briar.sharing.SharingConstants.SESSION_KEY_SESSION_ID;
-import static org.briarproject.briar.sharing.SharingConstants.SESSION_KEY_SHAREABLE_ID;
-import static org.briarproject.briar.sharing.SharingConstants.SESSION_KEY_STATE;
+import static org.nodex.sharing.SharingConstants.SESSION_KEY_INVITE_TIMESTAMP;
+import static org.nodex.sharing.SharingConstants.SESSION_KEY_IS_SESSION;
+import static org.nodex.sharing.SharingConstants.SESSION_KEY_LAST_LOCAL_MESSAGE_ID;
+import static org.nodex.sharing.SharingConstants.SESSION_KEY_LAST_REMOTE_MESSAGE_ID;
+import static org.nodex.sharing.SharingConstants.SESSION_KEY_LOCAL_TIMESTAMP;
+import static org.nodex.sharing.SharingConstants.SESSION_KEY_SESSION_ID;
+import static org.nodex.sharing.SharingConstants.SESSION_KEY_SHAREABLE_ID;
+import static org.nodex.sharing.SharingConstants.SESSION_KEY_STATE;
 @Immutable
 @NotNullByDefault
 class SessionParserImpl implements SessionParser {

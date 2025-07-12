@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.sharing;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.event.EventBus;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.sharing;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.event.EventBus;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import androidx.annotation.UiThread;
 import androidx.lifecycle.LiveData;

@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.sharing;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.briar.api.conversation.ConversationRequest;
+package org.nodex.api.sharing;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.SessionId;
+import org.nodex.api.conversation.ConversationRequest;
 import javax.annotation.Nullable;
 public abstract class InvitationRequest<S extends Shareable> extends
 		ConversationRequest<S> {

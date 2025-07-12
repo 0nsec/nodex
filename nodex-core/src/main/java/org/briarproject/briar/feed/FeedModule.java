@@ -1,9 +1,9 @@
-package org.briarproject.briar.feed;
-import org.briarproject.bramble.api.FeatureFlags;
-import org.briarproject.bramble.api.event.EventBus;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.briar.api.blog.BlogManager;
-import org.briarproject.briar.api.feed.FeedManager;
+package org.nodex.feed;
+import org.nodex.core.api.FeatureFlags;
+import org.nodex.core.api.event.EventBus;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.api.blog.BlogManager;
+import org.nodex.api.feed.FeedManager;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import dagger.Module;

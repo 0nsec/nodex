@@ -1,10 +1,10 @@
-package org.briarproject.briar.api.privategroup;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.PostHeader;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.privategroup;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.PostHeader;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.contact.connect;
+package org.nodex.android.contact.connect;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.util.ActivityLaunchers.RequestBluetoothDiscoverable;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.util.ActivityLaunchers.RequestBluetoothDiscoverable;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.Map;
 import javax.inject.Inject;
 import androidx.activity.result.ActivityResultLauncher;
@@ -19,8 +19,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import static android.widget.Toast.LENGTH_LONG;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.util.UiUtils.hideViewOnSmallScreen;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.util.UiUtils.hideViewOnSmallScreen;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class BluetoothIntroFragment extends Fragment {

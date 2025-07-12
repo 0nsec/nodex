@@ -1,9 +1,9 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.google.android.material.snackbar.Snackbar.SnackbarLayout;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior;
 import androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams;

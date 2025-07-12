@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.InterfaceNotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.InterfaceNotNullByDefault;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.cardview.widget.CardView;

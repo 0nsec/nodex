@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.contact;
+package org.nodex.android.contact;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.contact.add.nearby.AddNearbyContactActivity;
-import org.briarproject.briar.android.contact.add.remote.AddContactActivity;
-import org.briarproject.briar.android.contact.add.remote.PendingContactListActivity;
-import org.briarproject.briar.android.conversation.ConversationActivity;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.briar.android.util.BriarSnackbarBuilder;
-import org.briarproject.briar.android.view.BriarRecyclerView;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.contact.add.nearby.AddNearbyContactActivity;
+import org.nodex.android.contact.add.remote.AddContactActivity;
+import org.nodex.android.contact.add.remote.PendingContactListActivity;
+import org.nodex.android.conversation.ConversationActivity;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.android.util.BriarSnackbarBuilder;
+import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import androidx.annotation.UiThread;
@@ -27,7 +27,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import io.github.kobakei.materialfabspeeddial.FabSpeedDial;
 import io.github.kobakei.materialfabspeeddial.FabSpeedDial.OnMenuItemClickListener;
 import static com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE;
-import static org.briarproject.briar.android.conversation.ConversationActivity.CONTACT_ID;
+import static org.nodex.android.conversation.ConversationActivity.CONTACT_ID;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ContactListFragment extends BaseFragment

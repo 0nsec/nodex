@@ -1,5 +1,5 @@
-package org.briarproject.briar.api.privategroup;
-import static org.briarproject.bramble.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
+package org.nodex.api.privategroup;
+import static org.nodex.core.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
 public interface PrivateGroupConstants {
 	int MAX_GROUP_NAME_LENGTH = 100;
 	int GROUP_SALT_LENGTH = 32;

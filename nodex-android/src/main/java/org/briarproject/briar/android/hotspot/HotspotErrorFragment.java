@@ -1,18 +1,18 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
-import static org.briarproject.briar.android.util.UiUtils.triggerFeedback;
+import static org.nodex.android.util.UiUtils.triggerFeedback;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class HotspotErrorFragment extends BaseFragment {

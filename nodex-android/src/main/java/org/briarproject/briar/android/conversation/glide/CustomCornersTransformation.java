@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.conversation.glide;
+package org.nodex.android.conversation.glide;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.security.MessageDigest;
 import javax.annotation.concurrent.Immutable;
 import androidx.annotation.NonNull;

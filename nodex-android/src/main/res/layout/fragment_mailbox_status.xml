@@ -73,7 +73,7 @@
 			app:layout_constraintTop_toBottomOf="@+id/statusMessageView"
 			tools:text="@string/mailbox_status_connected_info" />
 
-		<org.briarproject.briar.android.view.BriarButton
+		<org.nodex.android.view.BriarButton
 			android:id="@+id/checkButton"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

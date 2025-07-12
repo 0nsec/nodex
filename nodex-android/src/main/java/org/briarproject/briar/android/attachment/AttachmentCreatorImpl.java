@@ -1,17 +1,17 @@
-package org.briarproject.briar.android.attachment;
+package org.nodex.android.attachment;
 import android.app.Application;
 import android.net.Uri;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.lifecycle.IoExecutor;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.attachment.media.ImageCompressor;
-import org.briarproject.briar.api.attachment.Attachment;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.briar.api.attachment.FileTooBigException;
-import org.briarproject.briar.api.messaging.MessagingManager;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.lifecycle.IoExecutor;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.R;
+import org.nodex.android.attachment.media.ImageCompressor;
+import org.nodex.api.attachment.Attachment;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.api.attachment.FileTooBigException;
+import org.nodex.api.messaging.MessagingManager;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -26,10 +26,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.briar.android.attachment.AttachmentItem.State.ERROR;
-import static org.briarproject.briar.android.util.UiUtils.observeForeverOnce;
-import static org.briarproject.briar.api.attachment.MediaConstants.MAX_IMAGE_SIZE;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.android.attachment.AttachmentItem.State.ERROR;
+import static org.nodex.android.util.UiUtils.observeForeverOnce;
+import static org.nodex.api.attachment.MediaConstants.MAX_IMAGE_SIZE;
 @NotNullByDefault
 class AttachmentCreatorImpl implements AttachmentCreator {
 	private static final Logger LOG =

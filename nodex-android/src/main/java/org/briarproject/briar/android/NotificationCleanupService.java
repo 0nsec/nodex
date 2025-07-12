@@ -1,15 +1,15 @@
-package org.briarproject.briar.android;
+package org.nodex.android;
 import android.app.IntentService;
 import android.content.Intent;
 import android.net.Uri;
-import org.briarproject.briar.api.android.AndroidNotificationManager;
+import org.nodex.api.android.AndroidNotificationManager;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
-import static org.briarproject.briar.android.navdrawer.NavDrawerActivity.BLOG_URI;
-import static org.briarproject.briar.android.navdrawer.NavDrawerActivity.CONTACT_ADDED_URI;
-import static org.briarproject.briar.android.navdrawer.NavDrawerActivity.CONTACT_URI;
-import static org.briarproject.briar.android.navdrawer.NavDrawerActivity.FORUM_URI;
-import static org.briarproject.briar.android.navdrawer.NavDrawerActivity.GROUP_URI;
+import static org.nodex.android.navdrawer.NavDrawerActivity.BLOG_URI;
+import static org.nodex.android.navdrawer.NavDrawerActivity.CONTACT_ADDED_URI;
+import static org.nodex.android.navdrawer.NavDrawerActivity.CONTACT_URI;
+import static org.nodex.android.navdrawer.NavDrawerActivity.FORUM_URI;
+import static org.nodex.android.navdrawer.NavDrawerActivity.GROUP_URI;
 public class NotificationCleanupService extends IntentService {
 	private static final String TAG =
 			NotificationCleanupService.class.getName();

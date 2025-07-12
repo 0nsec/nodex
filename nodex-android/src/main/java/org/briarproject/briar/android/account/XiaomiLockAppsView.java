@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Toast;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -12,9 +12,9 @@ import androidx.annotation.UiThread;
 import static android.widget.Toast.LENGTH_LONG;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.android.dontkillmelib.XiaomiUtils.getXiaomiLockAppsIntent;
-import static org.briarproject.android.dontkillmelib.XiaomiUtils.xiaomiLockAppsNeedsToBeShown;
-import static org.briarproject.bramble.util.LogUtils.logException;
+import static org.nodex.android.dontkillmelib.XiaomiUtils.getXiaomiLockAppsIntent;
+import static org.nodex.android.dontkillmelib.XiaomiUtils.xiaomiLockAppsNeedsToBeShown;
+import static org.nodex.core.util.LogUtils.logException;
 @UiThread
 @NotNullByDefault
 class XiaomiLockAppsView extends PowerView {

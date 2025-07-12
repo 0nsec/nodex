@@ -1,11 +1,11 @@
-package org.briarproject.briar.privategroup.invitation;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.privategroup.invitation;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
-import static org.briarproject.briar.privategroup.invitation.PeerState.START;
-import static org.briarproject.briar.privategroup.invitation.Role.PEER;
+import static org.nodex.privategroup.invitation.PeerState.START;
+import static org.nodex.privategroup.invitation.Role.PEER;
 @Immutable
 @NotNullByDefault
 class PeerSession extends Session<PeerState> {

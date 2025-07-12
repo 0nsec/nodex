@@ -1,26 +1,26 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.UniqueId;
-import org.briarproject.bramble.api.client.BdfMessageContext;
-import org.briarproject.bramble.api.client.BdfMessageValidator;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.data.MetadataEncoder;
-import org.briarproject.bramble.api.sync.Group;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.bramble.api.system.Clock;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.sharing;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.UniqueId;
+import org.nodex.core.api.client.BdfMessageContext;
+import org.nodex.core.api.client.BdfMessageValidator;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.data.MetadataEncoder;
+import org.nodex.core.api.sync.Group;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.core.api.system.Clock;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import static java.util.Collections.singletonList;
-import static org.briarproject.bramble.util.ValidationUtils.checkLength;
-import static org.briarproject.bramble.util.ValidationUtils.checkSize;
-import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
-import static org.briarproject.briar.api.sharing.SharingConstants.MAX_INVITATION_TEXT_LENGTH;
-import static org.briarproject.briar.sharing.MessageType.INVITE;
-import static org.briarproject.briar.util.ValidationUtils.validateAutoDeleteTimer;
+import static org.nodex.core.util.ValidationUtils.checkLength;
+import static org.nodex.core.util.ValidationUtils.checkSize;
+import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
+import static org.nodex.api.sharing.SharingConstants.MAX_INVITATION_TEXT_LENGTH;
+import static org.nodex.sharing.MessageType.INVITE;
+import static org.nodex.util.ValidationUtils.validateAutoDeleteTimer;
 @Immutable
 @NotNullByDefault
 abstract class SharingValidator extends BdfMessageValidator {

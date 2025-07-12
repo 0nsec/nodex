@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
@@ -6,17 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.attachment.AttachmentItem;
-import org.briarproject.briar.android.conversation.glide.Radii;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.attachment.AttachmentItem;
+import org.nodex.android.conversation.glide.Radii;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 import static android.content.Context.WINDOW_SERVICE;
 import static java.util.Objects.requireNonNull;
-import static org.briarproject.briar.android.util.UiUtils.isRtl;
+import static org.nodex.android.util.UiUtils.isRtl;
 @NotNullByDefault
 class ImageAdapter extends Adapter<ImageViewHolder> {
 	private final List<AttachmentItem> items = new ArrayList<>();

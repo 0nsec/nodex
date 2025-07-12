@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.test;
+package org.nodex.android.test;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import org.briarproject.briar.android.attachment.media.ImageCompressor;
-import org.briarproject.briar.api.test.TestAvatarCreator;
+import org.nodex.android.attachment.media.ImageCompressor;
+import org.nodex.api.test.TestAvatarCreator;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Random;

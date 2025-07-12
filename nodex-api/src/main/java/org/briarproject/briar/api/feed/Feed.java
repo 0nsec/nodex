@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.feed;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.api.blog.Blog;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.feed;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.blog.Blog;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

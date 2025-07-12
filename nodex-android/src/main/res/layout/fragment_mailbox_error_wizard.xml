@@ -77,7 +77,7 @@
 				android:text="@string/mailbox_error_wizard_info3"
 				android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
-			<org.briarproject.briar.android.view.BriarButton
+			<org.nodex.android.view.BriarButton
 				android:id="@+id/button3"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"

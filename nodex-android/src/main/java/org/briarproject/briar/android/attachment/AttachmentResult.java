@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.attachment;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.attachment;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import javax.annotation.concurrent.Immutable;
 @Immutable

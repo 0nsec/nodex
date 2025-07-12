@@ -1,5 +1,5 @@
-package org.briarproject.briar.util;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.util;
+import org.nodex.nullsafety.NotNullByDefault;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Safelist;
 @NotNullByDefault

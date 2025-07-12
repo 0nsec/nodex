@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -9,18 +9,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.account.PowerView.OnCheckedChangedListener;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.account.PowerView.OnCheckedChangedListener;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import androidx.annotation.Nullable;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static android.widget.Toast.LENGTH_LONG;
-import static org.briarproject.android.dontkillmelib.DozeUtils.getDozeWhitelistingIntent;
-import static org.briarproject.briar.android.activity.RequestCodes.REQUEST_DOZE_WHITELISTING;
-import static org.briarproject.briar.android.util.UiUtils.hideViewOnSmallScreen;
-import static org.briarproject.briar.android.util.UiUtils.showOnboardingDialog;
+import static org.nodex.android.dontkillmelib.DozeUtils.getDozeWhitelistingIntent;
+import static org.nodex.android.activity.RequestCodes.REQUEST_DOZE_WHITELISTING;
+import static org.nodex.android.util.UiUtils.hideViewOnSmallScreen;
+import static org.nodex.android.util.UiUtils.showOnboardingDialog;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class DozeFragment extends SetupFragment

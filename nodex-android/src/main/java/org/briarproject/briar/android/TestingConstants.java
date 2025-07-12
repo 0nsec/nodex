@@ -1,7 +1,7 @@
-package org.briarproject.briar.android;
-import org.briarproject.briar.BuildConfig;
+package org.nodex.android;
+import org.nodex.BuildConfig;
 import static java.util.concurrent.TimeUnit.DAYS;
-import static org.briarproject.briar.BuildConfig.BuildTimestamp;
+import static org.nodex.BuildConfig.BuildTimestamp;
 public interface TestingConstants {
 	boolean IS_DEBUG_BUILD = BuildConfig.DEBUG;
 	boolean PREVENT_SCREENSHOTS = !IS_DEBUG_BUILD;

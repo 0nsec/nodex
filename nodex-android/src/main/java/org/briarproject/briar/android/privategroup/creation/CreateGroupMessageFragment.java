@@ -1,8 +1,8 @@
-package org.briarproject.briar.android.privategroup.creation;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.sharing.BaseMessageFragment;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+package org.nodex.android.privategroup.creation;
+import org.nodex.R;
+import org.nodex.android.sharing.BaseMessageFragment;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import androidx.annotation.StringRes;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault

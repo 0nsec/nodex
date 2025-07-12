@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.conversation;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.briar.api.conversation.ConversationRequest;
-import org.briarproject.briar.api.sharing.InvitationRequest;
-import org.briarproject.briar.api.sharing.Shareable;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.conversation;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.client.SessionId;
+import org.nodex.api.conversation.ConversationRequest;
+import org.nodex.api.sharing.InvitationRequest;
+import org.nodex.api.sharing.Shareable;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 import androidx.annotation.LayoutRes;

@@ -224,7 +224,7 @@
 				app:layout_constraintTop_toBottomOf="@+id/linkInputLayout"
 				app:layout_constraintVertical_bias="0.0" />
 
-			<org.briarproject.briar.android.view.InfoView
+			<org.nodex.android.view.InfoView
 				android:id="@+id/infoView"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"

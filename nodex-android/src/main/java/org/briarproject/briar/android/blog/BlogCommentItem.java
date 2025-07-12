@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.blog;
-import org.briarproject.briar.api.blog.BlogCommentHeader;
-import org.briarproject.briar.api.blog.BlogPostHeader;
+package org.nodex.android.blog;
+import org.nodex.api.blog.BlogCommentHeader;
+import org.nodex.api.blog.BlogPostHeader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

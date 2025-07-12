@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,11 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.briar.android.util.ActivityLaunchers.CreateDocumentAdvanced;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.android.util.ActivityLaunchers.CreateDocumentAdvanced;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.Nullable;
@@ -24,9 +24,9 @@ import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static androidx.transition.TransitionManager.beginDelayedTransition;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.hotspot.HotspotViewModel.getApkFileName;
-import static org.briarproject.briar.android.util.UiUtils.tryToStartActivity;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.hotspot.HotspotViewModel.getApkFileName;
+import static org.nodex.android.util.UiUtils.tryToStartActivity;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class FallbackFragment extends BaseFragment {

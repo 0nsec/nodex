@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.panic;
+package org.nodex.android.panic;
 import info.guardianproject.trustedintents.ApkSignaturePin;
 public final class FDroidSignaturePin extends ApkSignaturePin {
 	public FDroidSignaturePin() {

@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.view;
-import org.briarproject.briar.android.util.ItemReturningAdapter;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.view;
+import org.nodex.android.util.ItemReturningAdapter;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.CallSuper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;

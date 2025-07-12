@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.contact;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.contact;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

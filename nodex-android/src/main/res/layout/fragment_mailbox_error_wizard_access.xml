@@ -73,7 +73,7 @@
 			android:text="@string/mailbox_error_wizard_info1_1_1"
 			android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
-		<org.briarproject.briar.android.view.BriarButton
+		<org.nodex.android.view.BriarButton
 			android:id="@+id/button1_1_1"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
 			android:text="@string/mailbox_error_wizard_info_1_1_2"
 			android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
-		<org.briarproject.briar.android.view.BriarButton
+		<org.nodex.android.view.BriarButton
 			android:id="@+id/button1_1_2"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
 			android:text="@string/mailbox_error_wizard_info1_1_3"
 			android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
-		<org.briarproject.briar.android.view.BriarButton
+		<org.nodex.android.view.BriarButton
 			android:id="@+id/button1_1_3"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

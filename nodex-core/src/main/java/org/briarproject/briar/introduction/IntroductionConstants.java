@@ -1,4 +1,4 @@
-package org.briarproject.briar.introduction;
+package org.nodex.introduction;
 interface IntroductionConstants {
 	String MSG_KEY_MESSAGE_TYPE = "messageType";
 	String MSG_KEY_SESSION_ID = "sessionId";

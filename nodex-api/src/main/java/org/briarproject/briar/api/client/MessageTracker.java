@@ -1,11 +1,11 @@
-package org.briarproject.briar.api.client;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.conversation.ConversationManager;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.client;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.conversation.ConversationManager;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 @NotNullByDefault
 public interface MessageTracker {

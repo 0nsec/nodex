@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.privategroup.reveal;
+package org.nodex.android.privategroup.reveal;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.contact.OnContactClickListener;
-import org.briarproject.briar.android.contactselection.BaseContactSelectorAdapter;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.R;
+import org.nodex.android.contact.OnContactClickListener;
+import org.nodex.android.contactselection.BaseContactSelectorAdapter;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 @NotNullByDefault

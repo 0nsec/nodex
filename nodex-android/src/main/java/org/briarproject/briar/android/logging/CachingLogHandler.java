@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.logging;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.logging;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;

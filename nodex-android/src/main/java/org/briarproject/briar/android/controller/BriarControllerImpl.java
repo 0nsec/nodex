@@ -1,30 +1,30 @@
-package org.briarproject.briar.android.controller;
+package org.nodex.android.controller;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.IBinder;
-import org.briarproject.android.dontkillmelib.wakelock.AndroidWakeLockManager;
-import org.briarproject.bramble.api.account.AccountManager;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.settings.Settings;
-import org.briarproject.bramble.api.settings.SettingsManager;
-import org.briarproject.briar.android.BriarApplication;
-import org.briarproject.briar.android.BriarService;
-import org.briarproject.briar.android.BriarService.BriarServiceConnection;
-import org.briarproject.briar.android.controller.handler.ResultHandler;
-import org.briarproject.briar.api.android.DozeWatchdog;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.android.dontkillmelib.wakelock.AndroidWakeLockManager;
+import org.nodex.core.api.account.AccountManager;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.settings.Settings;
+import org.nodex.core.api.settings.SettingsManager;
+import org.nodex.android.BriarApplication;
+import org.nodex.android.BriarService;
+import org.nodex.android.BriarService.BriarServiceConnection;
+import org.nodex.android.controller.handler.ResultHandler;
+import org.nodex.api.android.DozeWatchdog;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 import javax.inject.Inject;
 import androidx.annotation.CallSuper;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.android.dontkillmelib.DozeUtils.needsDozeWhitelisting;
-import static org.briarproject.bramble.api.lifecycle.LifecycleManager.LifecycleState.STARTING_SERVICES;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.briar.android.settings.SettingsFragment.SETTINGS_NAMESPACE;
+import static org.nodex.android.dontkillmelib.DozeUtils.needsDozeWhitelisting;
+import static org.nodex.core.api.lifecycle.LifecycleManager.LifecycleState.STARTING_SERVICES;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.android.settings.SettingsFragment.SETTINGS_NAMESPACE;
 @NotNullByDefault
 public class BriarControllerImpl implements BriarController {
 	private static final Logger LOG =

@@ -1,17 +1,17 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.briar.android.widget.OnboardingFullDialogFragment;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.android.widget.OnboardingFullDialogFragment;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.logging.Logger;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
@@ -21,8 +21,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import static java.util.logging.Level.INFO;
-import static org.briarproject.briar.android.conversation.ConversationActivity.CONTACT_ID;
-import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
+import static org.nodex.android.conversation.ConversationActivity.CONTACT_ID;
+import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ConversationSettingsDialog extends DialogFragment {

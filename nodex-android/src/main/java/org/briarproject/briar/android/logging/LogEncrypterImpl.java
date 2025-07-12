@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.logging;
-import org.briarproject.bramble.api.crypto.CryptoComponent;
-import org.briarproject.bramble.api.crypto.SecretKey;
-import org.briarproject.bramble.api.reporting.DevConfig;
-import org.briarproject.bramble.api.transport.StreamWriter;
-import org.briarproject.bramble.api.transport.StreamWriterFactory;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.logging;
+import org.nodex.core.api.crypto.CryptoComponent;
+import org.nodex.core.api.crypto.SecretKey;
+import org.nodex.core.api.reporting.DevConfig;
+import org.nodex.core.api.transport.StreamWriter;
+import org.nodex.core.api.transport.StreamWriterFactory;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,7 +18,7 @@ import javax.inject.Inject;
 import androidx.annotation.Nullable;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.LogUtils.logException;
+import static org.nodex.core.util.LogUtils.logException;
 @NotNullByDefault
 class LogEncrypterImpl implements LogEncrypter {
 	private static final Logger LOG =

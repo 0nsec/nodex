@@ -1,14 +1,14 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.briar.api.blog.Blog;
-import org.briarproject.briar.api.blog.BlogManager;
-import org.briarproject.briar.api.blog.event.BlogInvitationResponseReceivedEvent;
-import org.briarproject.briar.api.conversation.ConversationManager.ConversationClient;
-import org.briarproject.briar.api.conversation.event.ConversationMessageReceivedEvent;
-import org.briarproject.briar.api.sharing.InvitationResponse;
-import org.briarproject.briar.api.sharing.Shareable;
-import org.briarproject.briar.api.sharing.SharingManager;
-import org.briarproject.briar.test.BriarIntegrationTestComponent;
+package org.nodex.sharing;
+import org.nodex.core.api.db.DbException;
+import org.nodex.api.blog.Blog;
+import org.nodex.api.blog.BlogManager;
+import org.nodex.api.blog.event.BlogInvitationResponseReceivedEvent;
+import org.nodex.api.conversation.ConversationManager.ConversationClient;
+import org.nodex.api.conversation.event.ConversationMessageReceivedEvent;
+import org.nodex.api.sharing.InvitationResponse;
+import org.nodex.api.sharing.Shareable;
+import org.nodex.api.sharing.SharingManager;
+import org.nodex.test.BriarIntegrationTestComponent;
 import org.junit.Before;
 import java.util.Collection;
 public class AutoDeleteBlogIntegrationTest

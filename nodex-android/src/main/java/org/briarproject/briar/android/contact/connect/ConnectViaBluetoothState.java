@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.contact.connect;
+package org.nodex.android.contact.connect;
 import androidx.annotation.StringRes;
 abstract class ConnectViaBluetoothState {
 	static class Connecting extends ConnectViaBluetoothState {

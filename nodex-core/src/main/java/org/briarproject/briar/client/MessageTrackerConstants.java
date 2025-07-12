@@ -1,4 +1,4 @@
-package org.briarproject.briar.client;
+package org.nodex.client;
 public interface MessageTrackerConstants {
 	String GROUP_KEY_STORED_MESSAGE_ID = "storedMessageId";
 	String GROUP_KEY_MSG_COUNT = "messageCount";

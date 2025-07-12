@@ -1,19 +1,19 @@
-package org.briarproject.briar.api.privategroup;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.identity.AuthorId;
-import org.briarproject.bramble.api.sync.ClientId;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.MessageTracker.GroupCount;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.privategroup;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.identity.AuthorId;
+import org.nodex.core.api.sync.ClientId;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.MessageTracker.GroupCount;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import java.util.List;
 @NotNullByDefault
 public interface PrivateGroupManager {
-	ClientId CLIENT_ID = new ClientId("org.briarproject.briar.privategroup");
+	ClientId CLIENT_ID = new ClientId("org.nodex.privategroup");
 	int MAJOR_VERSION = 0;
 	int MINOR_VERSION = 0;
 	void addPrivateGroup(PrivateGroup group, GroupMessage joinMsg,

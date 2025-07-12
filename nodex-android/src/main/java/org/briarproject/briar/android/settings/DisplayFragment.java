@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.settings;
+package org.nodex.android.settings;
 import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.Localizer;
-import org.briarproject.briar.android.util.UiUtils;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.Localizer;
+import org.nodex.android.util.UiUtils;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -17,9 +17,9 @@ import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static java.util.Objects.requireNonNull;
-import static org.briarproject.briar.android.BriarApplication.ENTRY_ACTIVITY;
-import static org.briarproject.briar.android.navdrawer.NavDrawerActivity.SIGN_OUT_URI;
-import static org.briarproject.briar.android.settings.SettingsActivity.EXTRA_THEME_CHANGE;
+import static org.nodex.android.BriarApplication.ENTRY_ACTIVITY;
+import static org.nodex.android.navdrawer.NavDrawerActivity.SIGN_OUT_URI;
+import static org.nodex.android.settings.SettingsActivity.EXTRA_THEME_CHANGE;
 @NotNullByDefault
 public class DisplayFragment extends PreferenceFragmentCompat {
 	public static final String PREF_LANGUAGE = "pref_key_language";

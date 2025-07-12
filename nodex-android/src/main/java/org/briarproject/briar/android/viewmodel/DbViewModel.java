@@ -1,15 +1,15 @@
-package org.briarproject.briar.android.viewmodel;
+package org.nodex.android.viewmodel;
 import android.app.Application;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbCallable;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.DbRunnable;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.db.TransactionManager;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.system.AndroidExecutor;
-import org.briarproject.briar.android.util.UiUtils;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbCallable;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.DbRunnable;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.db.TransactionManager;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.system.AndroidExecutor;
+import org.nodex.android.util.UiUtils;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -28,7 +28,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.LogUtils.logException;
+import static org.nodex.core.util.LogUtils.logException;
 @Immutable
 @NotNullByDefault
 public abstract class DbViewModel extends AndroidViewModel {

@@ -1,23 +1,23 @@
-package org.briarproject.briar.privategroup;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.Group;
-import org.briarproject.bramble.api.sync.GroupFactory;
-import org.briarproject.bramble.util.StringUtils;
-import org.briarproject.briar.api.privategroup.PrivateGroup;
-import org.briarproject.briar.api.privategroup.PrivateGroupFactory;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.privategroup;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.Group;
+import org.nodex.core.api.sync.GroupFactory;
+import org.nodex.core.util.StringUtils;
+import org.nodex.api.privategroup.PrivateGroup;
+import org.nodex.api.privategroup.PrivateGroupFactory;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.security.SecureRandom;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.bramble.util.ValidationUtils.checkLength;
-import static org.briarproject.bramble.util.ValidationUtils.checkSize;
-import static org.briarproject.briar.api.privategroup.PrivateGroupConstants.GROUP_SALT_LENGTH;
-import static org.briarproject.briar.api.privategroup.PrivateGroupConstants.MAX_GROUP_NAME_LENGTH;
-import static org.briarproject.briar.api.privategroup.PrivateGroupManager.CLIENT_ID;
-import static org.briarproject.briar.api.privategroup.PrivateGroupManager.MAJOR_VERSION;
+import static org.nodex.core.util.ValidationUtils.checkLength;
+import static org.nodex.core.util.ValidationUtils.checkSize;
+import static org.nodex.api.privategroup.PrivateGroupConstants.GROUP_SALT_LENGTH;
+import static org.nodex.api.privategroup.PrivateGroupConstants.MAX_GROUP_NAME_LENGTH;
+import static org.nodex.api.privategroup.PrivateGroupManager.CLIENT_ID;
+import static org.nodex.api.privategroup.PrivateGroupManager.MAJOR_VERSION;
 @Immutable
 @NotNullByDefault
 class PrivateGroupFactoryImpl implements PrivateGroupFactory {

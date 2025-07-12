@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.attachment.AttachmentItemResult;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.attachment.AttachmentItemResult;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;

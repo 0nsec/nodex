@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.account;
+package org.nodex.android.account;
 import android.content.Context;
 import android.util.AttributeSet;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
-import static org.briarproject.android.dontkillmelib.DozeUtils.needsDozeWhitelisting;
+import static org.nodex.android.dontkillmelib.DozeUtils.needsDozeWhitelisting;
 @UiThread
 @NotNullByDefault
 class DozeView extends PowerView {

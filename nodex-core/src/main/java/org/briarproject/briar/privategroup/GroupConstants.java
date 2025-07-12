@@ -1,5 +1,5 @@
-package org.briarproject.briar.privategroup;
-import static org.briarproject.briar.client.MessageTrackerConstants.MSG_KEY_READ;
+package org.nodex.privategroup;
+import static org.nodex.client.MessageTrackerConstants.MSG_KEY_READ;
 interface GroupConstants {
 	String KEY_TYPE = "type";
 	String KEY_TIMESTAMP = "timestamp";

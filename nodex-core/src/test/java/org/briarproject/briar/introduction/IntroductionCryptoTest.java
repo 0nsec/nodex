@@ -1,14 +1,14 @@
-package org.briarproject.briar.introduction;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.crypto.CryptoComponent;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.test.BrambleMockTestCase;
-import org.briarproject.briar.api.client.SessionId;
+package org.nodex.introduction;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.crypto.CryptoComponent;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.test.BrambleMockTestCase;
+import org.nodex.api.client.SessionId;
 import org.jmock.Expectations;
 import org.junit.Test;
-import static org.briarproject.bramble.test.TestUtils.getAuthor;
-import static org.briarproject.bramble.test.TestUtils.getRandomId;
-import static org.briarproject.briar.api.introduction.IntroductionConstants.LABEL_SESSION_ID;
+import static org.nodex.core.test.TestUtils.getAuthor;
+import static org.nodex.core.test.TestUtils.getRandomId;
+import static org.nodex.api.introduction.IntroductionConstants.LABEL_SESSION_ID;
 import static org.junit.Assert.assertEquals;
 public class IntroductionCryptoTest extends BrambleMockTestCase {
 	private final CryptoComponent cryptoComponent =

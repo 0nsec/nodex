@@ -1,8 +1,8 @@
-package org.briarproject.briar.android.settings;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.settings.Settings;
-import org.briarproject.bramble.api.settings.SettingsManager;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.settings;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.settings.Settings;
+import org.nodex.core.api.settings.SettingsManager;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 import androidx.annotation.Nullable;
@@ -10,9 +10,9 @@ import androidx.preference.PreferenceDataStore;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.LogUtils.logDuration;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.bramble.util.LogUtils.now;
+import static org.nodex.core.util.LogUtils.logDuration;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.core.util.LogUtils.now;
 @NotNullByDefault
 class SettingsStore extends PreferenceDataStore {
 	private final static Logger LOG = getLogger(SettingsStore.class.getName());

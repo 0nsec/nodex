@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.mailbox;
+package org.nodex.android.mailbox;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.os.Bundle;
@@ -10,10 +10,10 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import com.google.android.material.animation.ArgbEvaluatorCompat;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.view.BriarButton;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.view.BriarButton;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -29,7 +29,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static androidx.core.content.ContextCompat.getColor;
 import static androidx.transition.TransitionManager.beginDelayedTransition;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
+import static org.nodex.android.AppModule.getAndroidComponent;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ErrorWizardFragment extends Fragment {

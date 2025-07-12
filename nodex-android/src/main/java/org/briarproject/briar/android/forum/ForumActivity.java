@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.forum;
+package org.nodex.android.forum;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,23 +6,23 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.sharing.ForumSharingStatusActivity;
-import org.briarproject.briar.android.sharing.ShareForumActivity;
-import org.briarproject.briar.android.threaded.ThreadItemAdapter;
-import org.briarproject.briar.android.threaded.ThreadListActivity;
-import org.briarproject.briar.android.threaded.ThreadListViewModel;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.sharing.ForumSharingStatusActivity;
+import org.nodex.android.sharing.ShareForumActivity;
+import org.nodex.android.threaded.ThreadItemAdapter;
+import org.nodex.android.threaded.ThreadListActivity;
+import org.nodex.android.threaded.ThreadListViewModel;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static org.briarproject.briar.android.activity.RequestCodes.REQUEST_SHARE_FORUM;
-import static org.briarproject.briar.android.util.UiUtils.observeOnce;
-import static org.briarproject.briar.api.forum.ForumConstants.MAX_FORUM_POST_TEXT_LENGTH;
+import static org.nodex.android.activity.RequestCodes.REQUEST_SHARE_FORUM;
+import static org.nodex.android.util.UiUtils.observeOnce;
+import static org.nodex.api.forum.ForumConstants.MAX_FORUM_POST_TEXT_LENGTH;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ForumActivity extends

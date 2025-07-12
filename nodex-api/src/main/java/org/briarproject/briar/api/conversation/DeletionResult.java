@@ -1,10 +1,10 @@
-package org.briarproject.briar.api.conversation;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.conversation;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.NotThreadSafe;
-import static org.briarproject.briar.api.conversation.ConversationManager.DELETE_SESSION_INTRODUCTION_INCOMPLETE;
-import static org.briarproject.briar.api.conversation.ConversationManager.DELETE_SESSION_INTRODUCTION_IN_PROGRESS;
-import static org.briarproject.briar.api.conversation.ConversationManager.DELETE_SESSION_INVITATION_INCOMPLETE;
-import static org.briarproject.briar.api.conversation.ConversationManager.DELETE_SESSION_INVITATION_IN_PROGRESS;
+import static org.nodex.api.conversation.ConversationManager.DELETE_SESSION_INTRODUCTION_INCOMPLETE;
+import static org.nodex.api.conversation.ConversationManager.DELETE_SESSION_INTRODUCTION_IN_PROGRESS;
+import static org.nodex.api.conversation.ConversationManager.DELETE_SESSION_INVITATION_INCOMPLETE;
+import static org.nodex.api.conversation.ConversationManager.DELETE_SESSION_INVITATION_IN_PROGRESS;
 @NotThreadSafe
 @NotNullByDefault
 public class DeletionResult {

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.method.ArrowKeyMovementMethod;

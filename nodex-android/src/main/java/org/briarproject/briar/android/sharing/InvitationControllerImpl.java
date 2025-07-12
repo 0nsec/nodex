@@ -1,29 +1,29 @@
-package org.briarproject.briar.android.sharing;
+package org.nodex.android.sharing;
 import android.app.Activity;
-import org.briarproject.bramble.api.contact.event.ContactRemovedEvent;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.event.Event;
-import org.briarproject.bramble.api.event.EventBus;
-import org.briarproject.bramble.api.event.EventListener;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.sync.ClientId;
-import org.briarproject.bramble.api.sync.event.GroupAddedEvent;
-import org.briarproject.bramble.api.sync.event.GroupRemovedEvent;
-import org.briarproject.briar.android.controller.DbControllerImpl;
-import org.briarproject.briar.android.controller.handler.ResultExceptionHandler;
-import org.briarproject.briar.api.sharing.InvitationItem;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.contact.event.ContactRemovedEvent;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.event.Event;
+import org.nodex.core.api.event.EventBus;
+import org.nodex.core.api.event.EventListener;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.sync.ClientId;
+import org.nodex.core.api.sync.event.GroupAddedEvent;
+import org.nodex.core.api.sync.event.GroupRemovedEvent;
+import org.nodex.android.controller.DbControllerImpl;
+import org.nodex.android.controller.handler.ResultExceptionHandler;
+import org.nodex.api.sharing.InvitationItem;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 import androidx.annotation.CallSuper;
 import static java.util.logging.Level.WARNING;
-import static org.briarproject.bramble.util.LogUtils.logDuration;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.bramble.util.LogUtils.now;
+import static org.nodex.core.util.LogUtils.logDuration;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.core.util.LogUtils.now;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class InvitationControllerImpl<I extends InvitationItem>

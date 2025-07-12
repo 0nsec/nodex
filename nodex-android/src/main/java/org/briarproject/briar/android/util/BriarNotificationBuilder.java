@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.util;
+package org.nodex.android.util;
 import android.content.Context;
-import org.briarproject.briar.R;
+import org.nodex.R;
 import androidx.annotation.ColorRes;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.panic;
+package org.nodex.android.panic;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import org.briarproject.briar.R;
+import org.nodex.R;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;

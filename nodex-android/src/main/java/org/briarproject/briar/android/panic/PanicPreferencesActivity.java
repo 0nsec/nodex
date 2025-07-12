@@ -1,9 +1,9 @@
-package org.briarproject.briar.android.panic;
+package org.nodex.android.panic;
 import android.os.Bundle;
 import android.view.MenuItem;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
 import androidx.appcompat.app.ActionBar;
 public class PanicPreferencesActivity extends BriarActivity {
 	@Override

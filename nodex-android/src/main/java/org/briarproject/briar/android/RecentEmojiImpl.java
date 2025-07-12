@@ -1,18 +1,18 @@
-package org.briarproject.briar.android;
+package org.nodex.android;
 import com.vanniktech.emoji.EmojiRange;
 import com.vanniktech.emoji.EmojiUtils;
 import com.vanniktech.emoji.RecentEmoji;
 import com.vanniktech.emoji.emoji.Emoji;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager.OpenDatabaseHook;
-import org.briarproject.bramble.api.settings.Settings;
-import org.briarproject.bramble.api.settings.SettingsManager;
-import org.briarproject.bramble.api.system.AndroidExecutor;
-import org.briarproject.bramble.util.StringUtils;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.lifecycle.LifecycleManager.OpenDatabaseHook;
+import org.nodex.core.api.settings.Settings;
+import org.nodex.core.api.settings.SettingsManager;
+import org.nodex.core.api.system.AndroidExecutor;
+import org.nodex.core.util.StringUtils;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -20,8 +20,8 @@ import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 import javax.inject.Inject;
 import static java.util.logging.Level.WARNING;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.briar.android.settings.SettingsFragment.SETTINGS_NAMESPACE;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.android.settings.SettingsFragment.SETTINGS_NAMESPACE;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 class RecentEmojiImpl implements RecentEmoji, OpenDatabaseHook {

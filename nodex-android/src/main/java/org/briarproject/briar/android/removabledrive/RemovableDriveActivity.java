@@ -1,17 +1,17 @@
-package org.briarproject.briar.android.removabledrive;
+package org.nodex.android.removabledrive;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.plugin.file.RemovableDriveTask;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.briar.android.fragment.FinalFragment;
-import org.briarproject.briar.android.removabledrive.RemovableDriveViewModel.Action;
-import org.briarproject.briar.android.removabledrive.TransferDataState.TaskAvailable;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.plugin.file.RemovableDriveTask;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.fragment.FinalFragment;
+import org.nodex.android.removabledrive.RemovableDriveViewModel.Action;
+import org.nodex.android.removabledrive.TransferDataState.TaskAvailable;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,8 +20,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import static java.util.Objects.requireNonNull;
-import static org.briarproject.briar.android.conversation.ConversationActivity.CONTACT_ID;
-import static org.briarproject.briar.android.util.UiUtils.showFragment;
+import static org.nodex.android.conversation.ConversationActivity.CONTACT_ID;
+import static org.nodex.android.util.UiUtils.showFragment;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class RemovableDriveActivity extends BriarActivity {

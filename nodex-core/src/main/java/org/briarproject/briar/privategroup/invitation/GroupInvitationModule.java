@@ -1,25 +1,25 @@
-package org.briarproject.briar.privategroup.invitation;
-import org.briarproject.bramble.api.FeatureFlags;
-import org.briarproject.bramble.api.cleanup.CleanupManager;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.contact.ContactManager;
-import org.briarproject.bramble.api.data.MetadataEncoder;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.sync.validation.ValidationManager;
-import org.briarproject.bramble.api.system.Clock;
-import org.briarproject.bramble.api.versioning.ClientVersioningManager;
-import org.briarproject.briar.api.conversation.ConversationManager;
-import org.briarproject.briar.api.privategroup.PrivateGroupFactory;
-import org.briarproject.briar.api.privategroup.PrivateGroupManager;
-import org.briarproject.briar.api.privategroup.invitation.GroupInvitationFactory;
-import org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager;
+package org.nodex.privategroup.invitation;
+import org.nodex.core.api.FeatureFlags;
+import org.nodex.core.api.cleanup.CleanupManager;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.contact.ContactManager;
+import org.nodex.core.api.data.MetadataEncoder;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.sync.validation.ValidationManager;
+import org.nodex.core.api.system.Clock;
+import org.nodex.core.api.versioning.ClientVersioningManager;
+import org.nodex.api.conversation.ConversationManager;
+import org.nodex.api.privategroup.PrivateGroupFactory;
+import org.nodex.api.privategroup.PrivateGroupManager;
+import org.nodex.api.privategroup.invitation.GroupInvitationFactory;
+import org.nodex.api.privategroup.invitation.GroupInvitationManager;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
-import static org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager.CLIENT_ID;
-import static org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager.MAJOR_VERSION;
-import static org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager.MINOR_VERSION;
+import static org.nodex.api.privategroup.invitation.GroupInvitationManager.CLIENT_ID;
+import static org.nodex.api.privategroup.invitation.GroupInvitationManager.MAJOR_VERSION;
+import static org.nodex.api.privategroup.invitation.GroupInvitationManager.MINOR_VERSION;
 @Module
 public class GroupInvitationModule {
 	public static class EagerSingletons {

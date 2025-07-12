@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.forum;
-import org.briarproject.briar.api.client.MessageTracker.GroupCount;
-import org.briarproject.briar.api.forum.Forum;
-import org.briarproject.briar.api.forum.ForumPostHeader;
+package org.nodex.android.forum;
+import org.nodex.api.client.MessageTracker.GroupCount;
+import org.nodex.api.forum.Forum;
+import org.nodex.api.forum.ForumPostHeader;
 import javax.annotation.concurrent.Immutable;
 import androidx.annotation.Nullable;
 @Immutable

@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.privategroup.list;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.api.client.MessageTracker.GroupCount;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.briar.api.privategroup.GroupMessageHeader;
-import org.briarproject.briar.api.privategroup.PrivateGroup;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.privategroup.list;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.client.MessageTracker.GroupCount;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.api.privategroup.GroupMessageHeader;
+import org.nodex.api.privategroup.PrivateGroup;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import androidx.annotation.Nullable;
 @Immutable

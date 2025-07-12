@@ -1,5 +1,5 @@
-package org.briarproject.briar.test;
-import org.briarproject.briar.api.test.TestDataCreator;
+package org.nodex.test;
+import org.nodex.api.test.TestDataCreator;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;

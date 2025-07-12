@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
 import android.widget.Toast;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import org.briarproject.briar.R;
+import org.nodex.R;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.StringRes;

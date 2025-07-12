@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Handler;
@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import org.briarproject.briar.R;
+import org.nodex.R;
 import javax.annotation.Nullable;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
-import static org.briarproject.briar.android.util.UiUtils.MIN_DATE_RESOLUTION;
+import static org.nodex.android.util.UiUtils.MIN_DATE_RESOLUTION;
 public class BriarRecyclerView extends FrameLayout {
 	private final Handler handler = new Handler(Looper.getMainLooper());
 	private RecyclerView recyclerView;

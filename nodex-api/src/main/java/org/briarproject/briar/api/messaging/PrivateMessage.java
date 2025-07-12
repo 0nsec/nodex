@@ -1,14 +1,14 @@
-package org.briarproject.briar.api.messaging;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.messaging;
+import org.nodex.core.api.sync.Message;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.List;
 import javax.annotation.concurrent.Immutable;
 import static java.util.Collections.emptyList;
-import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
-import static org.briarproject.briar.api.messaging.PrivateMessageFormat.TEXT_IMAGES;
-import static org.briarproject.briar.api.messaging.PrivateMessageFormat.TEXT_IMAGES_AUTO_DELETE;
-import static org.briarproject.briar.api.messaging.PrivateMessageFormat.TEXT_ONLY;
+import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
+import static org.nodex.api.messaging.PrivateMessageFormat.TEXT_IMAGES;
+import static org.nodex.api.messaging.PrivateMessageFormat.TEXT_IMAGES_AUTO_DELETE;
+import static org.nodex.api.messaging.PrivateMessageFormat.TEXT_ONLY;
 @Immutable
 @NotNullByDefault
 public class PrivateMessage {

@@ -1,21 +1,21 @@
-package org.briarproject.briar.introduction;
-import org.briarproject.bramble.api.cleanup.CleanupManager;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.contact.ContactManager;
-import org.briarproject.bramble.api.data.MetadataEncoder;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.sync.validation.ValidationManager;
-import org.briarproject.bramble.api.system.Clock;
-import org.briarproject.bramble.api.versioning.ClientVersioningManager;
-import org.briarproject.briar.api.conversation.ConversationManager;
-import org.briarproject.briar.api.introduction.IntroductionManager;
+package org.nodex.introduction;
+import org.nodex.core.api.cleanup.CleanupManager;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.contact.ContactManager;
+import org.nodex.core.api.data.MetadataEncoder;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.sync.validation.ValidationManager;
+import org.nodex.core.api.system.Clock;
+import org.nodex.core.api.versioning.ClientVersioningManager;
+import org.nodex.api.conversation.ConversationManager;
+import org.nodex.api.introduction.IntroductionManager;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
-import static org.briarproject.briar.api.introduction.IntroductionManager.CLIENT_ID;
-import static org.briarproject.briar.api.introduction.IntroductionManager.MAJOR_VERSION;
-import static org.briarproject.briar.api.introduction.IntroductionManager.MINOR_VERSION;
+import static org.nodex.api.introduction.IntroductionManager.CLIENT_ID;
+import static org.nodex.api.introduction.IntroductionManager.MAJOR_VERSION;
+import static org.nodex.api.introduction.IntroductionManager.MINOR_VERSION;
 @Module
 public class IntroductionModule {
 	public static class EagerSingletons {

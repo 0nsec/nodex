@@ -1,13 +1,13 @@
-package org.briarproject.briar.android.attachment;
+package org.nodex.android.attachment;
 import android.content.ContentResolver;
 import android.net.Uri;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.lifecycle.IoExecutor;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.android.attachment.media.ImageCompressor;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.briar.api.messaging.MessagingManager;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.lifecycle.IoExecutor;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.android.attachment.media.ImageCompressor;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.api.messaging.MessagingManager;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
@@ -16,12 +16,12 @@ import androidx.annotation.Nullable;
 import static java.util.Arrays.asList;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.AndroidUtils.getSupportedImageContentTypes;
-import static org.briarproject.bramble.util.IoUtils.tryToClose;
-import static org.briarproject.bramble.util.LogUtils.logDuration;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.bramble.util.LogUtils.now;
-import static org.briarproject.briar.android.attachment.media.ImageCompressor.MIME_TYPE;
+import static org.nodex.core.util.AndroidUtils.getSupportedImageContentTypes;
+import static org.nodex.core.util.IoUtils.tryToClose;
+import static org.nodex.core.util.LogUtils.logDuration;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.core.util.LogUtils.now;
+import static org.nodex.android.attachment.media.ImageCompressor.MIME_TYPE;
 @NotNullByDefault
 class AttachmentCreationTask {
 	private static final Logger LOG =

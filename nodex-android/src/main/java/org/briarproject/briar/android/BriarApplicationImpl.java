@@ -1,4 +1,4 @@
-package org.briarproject.briar.android;
+package org.nodex.android;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Application;
@@ -11,13 +11,13 @@ import android.os.StrictMode.VmPolicy;
 import android.preference.PreferenceManager;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
-import org.briarproject.bramble.BrambleAndroidEagerSingletons;
-import org.briarproject.bramble.BrambleAppComponent;
-import org.briarproject.bramble.BrambleCoreEagerSingletons;
-import org.briarproject.briar.BriarCoreEagerSingletons;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.logging.CachingLogHandler;
-import org.briarproject.briar.android.util.UiUtils;
+import org.nodex.core.BrambleAndroidEagerSingletons;
+import org.nodex.core.BrambleAppComponent;
+import org.nodex.core.BrambleCoreEagerSingletons;
+import org.nodex.BriarCoreEagerSingletons;
+import org.nodex.R;
+import org.nodex.android.logging.CachingLogHandler;
+import org.nodex.android.util.UiUtils;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
@@ -26,8 +26,8 @@ import static android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREG
 import static java.util.logging.Level.FINE;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.briar.android.TestingConstants.IS_DEBUG_BUILD;
-import static org.briarproject.briar.android.settings.DisplayFragment.PREF_THEME;
+import static org.nodex.android.TestingConstants.IS_DEBUG_BUILD;
+import static org.nodex.android.settings.DisplayFragment.PREF_THEME;
 public class BriarApplicationImpl extends Application
 		implements BriarApplication {
 	private static final Logger LOG =

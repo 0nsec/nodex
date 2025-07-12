@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.content.Context;
 import android.text.util.Linkify;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
@@ -13,11 +13,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static org.briarproject.bramble.util.StringUtils.trim;
-import static org.briarproject.briar.android.util.UiUtils.formatDate;
-import static org.briarproject.briar.android.util.UiUtils.formatDuration;
-import static org.briarproject.briar.android.util.UiUtils.makeLinksClickable;
-import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
+import static org.nodex.core.util.StringUtils.trim;
+import static org.nodex.android.util.UiUtils.formatDate;
+import static org.nodex.android.util.UiUtils.formatDuration;
+import static org.nodex.android.util.UiUtils.makeLinksClickable;
+import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 @UiThread
 @NotNullByDefault
 abstract class ConversationItemViewHolder extends ViewHolder {

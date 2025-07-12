@@ -1,15 +1,15 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.content.Context;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.bramble.api.Pair;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.util.BriarAdapter;
-import org.briarproject.briar.android.util.ItemReturningAdapter;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.Pair;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.R;
+import org.nodex.android.util.BriarAdapter;
+import org.nodex.android.util.ItemReturningAdapter;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -20,7 +20,7 @@ import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView.RecycledViewPool;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
-import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
+import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 @NotNullByDefault
 class ConversationAdapter
 		extends BriarAdapter<ConversationItem, ConversationItemViewHolder>

@@ -1,16 +1,16 @@
-package org.briarproject.briar.android.login;
-import org.briarproject.bramble.api.account.AccountManager;
-import org.briarproject.bramble.api.crypto.DecryptionException;
-import org.briarproject.bramble.api.crypto.DecryptionResult;
-import org.briarproject.bramble.api.crypto.PasswordStrengthEstimator;
-import org.briarproject.bramble.api.lifecycle.IoExecutor;
-import org.briarproject.briar.android.viewmodel.LiveEvent;
-import org.briarproject.briar.android.viewmodel.MutableLiveEvent;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.login;
+import org.nodex.core.api.account.AccountManager;
+import org.nodex.core.api.crypto.DecryptionException;
+import org.nodex.core.api.crypto.DecryptionResult;
+import org.nodex.core.api.crypto.PasswordStrengthEstimator;
+import org.nodex.core.api.lifecycle.IoExecutor;
+import org.nodex.android.viewmodel.LiveEvent;
+import org.nodex.android.viewmodel.MutableLiveEvent;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.concurrent.Executor;
 import javax.inject.Inject;
 import androidx.lifecycle.ViewModel;
-import static org.briarproject.bramble.api.crypto.DecryptionResult.SUCCESS;
+import static org.nodex.core.api.crypto.DecryptionResult.SUCCESS;
 @NotNullByDefault
 public class ChangePasswordViewModel extends ViewModel {
 	private final AccountManager accountManager;

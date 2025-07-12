@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.privategroup;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.Group;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.privategroup;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.Group;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public interface PrivateGroupFactory {
 	PrivateGroup createPrivateGroup(String name, Author creator);

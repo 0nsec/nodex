@@ -1,22 +1,22 @@
-package org.briarproject.briar.api.privategroup.invitation;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.sync.ClientId;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.api.client.ProtocolStateException;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.briar.api.conversation.ConversationManager.ConversationClient;
-import org.briarproject.briar.api.privategroup.PrivateGroup;
-import org.briarproject.briar.api.sharing.SharingManager.SharingStatus;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.privategroup.invitation;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.sync.ClientId;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.client.ProtocolStateException;
+import org.nodex.api.client.SessionId;
+import org.nodex.api.conversation.ConversationManager.ConversationClient;
+import org.nodex.api.privategroup.PrivateGroup;
+import org.nodex.api.sharing.SharingManager.SharingStatus;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import javax.annotation.Nullable;
 @NotNullByDefault
 public interface GroupInvitationManager extends ConversationClient {
 	ClientId CLIENT_ID =
-			new ClientId("org.briarproject.briar.privategroup.invitation");
+			new ClientId("org.nodex.privategroup.invitation");
 	int MAJOR_VERSION = 0;
 	int MINOR_VERSION = 1;
 	void sendInvitation(GroupId g, ContactId c, @Nullable String text,

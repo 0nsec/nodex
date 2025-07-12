@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.attachment;
+package org.nodex.android.attachment;
 import android.net.Uri;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable

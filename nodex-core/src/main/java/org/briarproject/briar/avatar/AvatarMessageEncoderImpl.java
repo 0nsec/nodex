@@ -1,25 +1,25 @@
-package org.briarproject.briar.avatar;
-import org.briarproject.bramble.api.Pair;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.system.Clock;
-import org.briarproject.briar.api.attachment.FileTooBigException;
-import org.briarproject.briar.api.avatar.AvatarMessageEncoder;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.avatar;
+import org.nodex.core.api.Pair;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.system.Clock;
+import org.nodex.api.attachment.FileTooBigException;
+import org.nodex.api.avatar.AvatarMessageEncoder;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.bramble.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
-import static org.briarproject.bramble.util.IoUtils.copyAndClose;
-import static org.briarproject.briar.api.attachment.MediaConstants.MSG_KEY_CONTENT_TYPE;
-import static org.briarproject.briar.api.attachment.MediaConstants.MSG_KEY_DESCRIPTOR_LENGTH;
-import static org.briarproject.briar.avatar.AvatarConstants.MSG_KEY_VERSION;
-import static org.briarproject.briar.avatar.AvatarConstants.MSG_TYPE_UPDATE;
+import static org.nodex.core.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
+import static org.nodex.core.util.IoUtils.copyAndClose;
+import static org.nodex.api.attachment.MediaConstants.MSG_KEY_CONTENT_TYPE;
+import static org.nodex.api.attachment.MediaConstants.MSG_KEY_DESCRIPTOR_LENGTH;
+import static org.nodex.avatar.AvatarConstants.MSG_KEY_VERSION;
+import static org.nodex.avatar.AvatarConstants.MSG_TYPE_UPDATE;
 @Immutable
 @NotNullByDefault
 class AvatarMessageEncoderImpl implements AvatarMessageEncoder {

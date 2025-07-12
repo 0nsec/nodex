@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.introduction;
-import org.briarproject.briar.android.contact.ContactItem;
+package org.nodex.android.introduction;
+import org.nodex.android.contact.ContactItem;
 class IntroductionInfo {
 	private final ContactItem c1;
 	private final ContactItem c2;

@@ -1,8 +1,8 @@
-package org.briarproject.briar.android;
+package org.nodex.android;
 import android.security.keystore.KeyGenParameterSpec;
-import org.briarproject.bramble.api.crypto.KeyStrengthener;
-import org.briarproject.bramble.api.crypto.SecretKey;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.crypto.KeyStrengthener;
+import org.nodex.core.api.crypto.SecretKey;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
@@ -24,7 +24,7 @@ import static java.util.Collections.singletonList;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.LogUtils.logException;
+import static org.nodex.core.util.LogUtils.logException;
 @RequiresApi(23)
 @NotNullByDefault
 class AndroidKeyStrengthener implements KeyStrengthener {

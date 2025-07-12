@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.contactselection;
+package org.nodex.android.contactselection;
 import android.content.Context;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.contact.OnContactClickListener;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.contact.OnContactClickListener;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class ContactSelectorFragment extends

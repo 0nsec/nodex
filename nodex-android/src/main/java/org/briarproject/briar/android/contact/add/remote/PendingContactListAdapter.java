@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.contact.add.remote;
+package org.nodex.android.contact.add.remote;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.bramble.api.contact.PendingContact;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.util.BriarAdapter;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.contact.PendingContact;
+import org.nodex.R;
+import org.nodex.android.util.BriarAdapter;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 class PendingContactListAdapter extends
 		BriarAdapter<PendingContactItem, PendingContactViewHolder> {

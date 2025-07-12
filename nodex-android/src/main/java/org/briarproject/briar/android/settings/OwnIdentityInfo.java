@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.settings;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.settings;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

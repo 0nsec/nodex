@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.contact;
+package org.nodex.android.contact;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
-import org.briarproject.nullsafety.NullSafety;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NullSafety;
 import androidx.recyclerview.widget.DiffUtil.ItemCallback;
 import androidx.recyclerview.widget.ListAdapter;
 @NotNullByDefault

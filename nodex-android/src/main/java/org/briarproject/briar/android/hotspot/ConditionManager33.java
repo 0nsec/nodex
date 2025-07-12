@@ -1,9 +1,9 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.provider.Settings;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.util.Permission;
-import org.briarproject.briar.android.util.PermissionUtils;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.util.Permission;
+import org.nodex.android.util.PermissionUtils;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.logging.Logger;
 import androidx.activity.result.ActivityResultCaller;
 import androidx.activity.result.ActivityResultLauncher;

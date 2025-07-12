@@ -1,17 +1,17 @@
-package org.briarproject.briar.android.attachment;
+package org.nodex.android.attachment;
 import android.os.Parcel;
 import android.os.Parcelable;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import androidx.annotation.Nullable;
 import static java.lang.System.arraycopy;
 import static java.util.Objects.requireNonNull;
-import static org.briarproject.bramble.util.StringUtils.toHexString;
-import static org.briarproject.briar.android.attachment.AttachmentItem.State.LOADING;
-import static org.briarproject.briar.android.attachment.AttachmentItem.State.MISSING;
+import static org.nodex.core.util.StringUtils.toHexString;
+import static org.nodex.android.attachment.AttachmentItem.State.LOADING;
+import static org.nodex.android.attachment.AttachmentItem.State.MISSING;
 @Immutable
 @NotNullByDefault
 public class AttachmentItem implements Parcelable {

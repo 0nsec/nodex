@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.avatar.event;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.event.Event;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.avatar.event;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.event.Event;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

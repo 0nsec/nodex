@@ -1,6 +1,6 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.sharing;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 interface SessionEncoder {
 	BdfDictionary encodeSession(Session s);

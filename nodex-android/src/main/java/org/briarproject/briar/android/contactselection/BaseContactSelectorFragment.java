@@ -1,29 +1,29 @@
-package org.briarproject.briar.android.contactselection;
+package org.nodex.android.contactselection;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.contact.ContactItemViewHolder;
-import org.briarproject.briar.android.contact.OnContactClickListener;
-import org.briarproject.briar.android.controller.handler.UiResultExceptionHandler;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.briar.android.view.BriarRecyclerView;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.R;
+import org.nodex.android.contact.ContactItemViewHolder;
+import org.nodex.android.contact.OnContactClickListener;
+import org.nodex.android.controller.handler.UiResultExceptionHandler;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.annotation.Nullable;
 import androidx.annotation.CallSuper;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_ID;
-import static org.briarproject.briar.android.contactselection.ContactSelectorActivity.CONTACTS;
-import static org.briarproject.briar.android.contactselection.ContactSelectorActivity.getContactsFromIds;
-import static org.briarproject.briar.android.contactselection.ContactSelectorActivity.getContactsFromIntegers;
+import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.contactselection.ContactSelectorActivity.CONTACTS;
+import static org.nodex.android.contactselection.ContactSelectorActivity.getContactsFromIds;
+import static org.nodex.android.contactselection.ContactSelectorActivity.getContactsFromIntegers;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class BaseContactSelectorFragment<I extends BaseSelectableContactItem, A extends BaseContactSelectorAdapter<I, ? extends ContactItemViewHolder<I>>>

@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.messaging;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.messaging;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.List;
 import javax.annotation.Nullable;
 @NotNullByDefault

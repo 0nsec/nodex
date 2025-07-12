@@ -1,10 +1,10 @@
-package org.briarproject.briar.introduction;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.introduction;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.sync.Message;
+import org.nodex.api.client.SessionId;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 interface MessageParser {
 	BdfDictionary getMessagesVisibleInUiQuery();

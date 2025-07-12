@@ -1,8 +1,8 @@
-package org.briarproject.briar.android.privategroup.memberlist;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.android.controller.DbController;
-import org.briarproject.briar.android.controller.handler.ResultExceptionHandler;
+package org.nodex.android.privategroup.memberlist;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.android.controller.DbController;
+import org.nodex.android.controller.handler.ResultExceptionHandler;
 import java.util.Collection;
 public interface GroupMemberListController extends DbController {
 	void loadMembers(GroupId groupId,

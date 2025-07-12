@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.account;
-import org.briarproject.android.dontkillmelib.DozeHelper;
-import org.briarproject.android.dontkillmelib.DozeHelperImpl;
+package org.nodex.android.account;
+import org.nodex.android.dontkillmelib.DozeHelper;
+import org.nodex.android.dontkillmelib.DozeHelperImpl;
 import dagger.Module;
 import dagger.Provides;
 @Module

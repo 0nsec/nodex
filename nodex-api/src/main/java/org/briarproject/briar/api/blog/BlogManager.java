@@ -1,18 +1,18 @@
-package org.briarproject.briar.api.blog;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.bramble.api.sync.ClientId;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.blog;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.core.api.sync.ClientId;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 @NotNullByDefault
 public interface BlogManager {
-	ClientId CLIENT_ID = new ClientId("org.briarproject.briar.blog");
+	ClientId CLIENT_ID = new ClientId("org.nodex.blog");
 	int MAJOR_VERSION = 0;
 	int MINOR_VERSION = 0;
 	void addBlog(Blog b) throws DbException;

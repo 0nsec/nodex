@@ -1,15 +1,15 @@
-package org.briarproject.briar.android.settings;
+package org.nodex.android.settings;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.mailbox.MailboxActivity;
-import org.briarproject.briar.android.util.ActivityLaunchers.GetImageAdvanced;
-import org.briarproject.briar.android.util.ActivityLaunchers.OpenImageDocumentAdvanced;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.mailbox.MailboxActivity;
+import org.nodex.android.util.ActivityLaunchers.GetImageAdvanced;
+import org.nodex.android.util.ActivityLaunchers.OpenImageDocumentAdvanced;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
@@ -22,11 +22,11 @@ import androidx.preference.PreferenceGroup;
 import static android.content.Intent.ACTION_SEND;
 import static android.content.Intent.EXTRA_TEXT;
 import static java.util.Objects.requireNonNull;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.TestingConstants.IS_DEBUG_BUILD;
-import static org.briarproject.briar.android.util.UiUtils.launchActivityToOpenFile;
-import static org.briarproject.briar.android.util.UiUtils.triggerFeedback;
-import static org.briarproject.briar.android.util.UiUtils.tryToStartActivity;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.TestingConstants.IS_DEBUG_BUILD;
+import static org.nodex.android.util.UiUtils.launchActivityToOpenFile;
+import static org.nodex.android.util.UiUtils.triggerFeedback;
+import static org.nodex.android.util.UiUtils.tryToStartActivity;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class SettingsFragment extends PreferenceFragmentCompat {

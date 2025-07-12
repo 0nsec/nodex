@@ -1,25 +1,25 @@
-package org.briarproject.briar.android.privategroup.invitation;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.event.Event;
-import org.briarproject.bramble.api.event.EventBus;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.sync.ClientId;
-import org.briarproject.briar.android.controller.handler.ExceptionHandler;
-import org.briarproject.briar.android.sharing.InvitationControllerImpl;
-import org.briarproject.briar.api.privategroup.PrivateGroup;
-import org.briarproject.briar.api.privategroup.event.GroupInvitationRequestReceivedEvent;
-import org.briarproject.briar.api.privategroup.event.GroupInvitationResponseReceivedEvent;
-import org.briarproject.briar.api.privategroup.invitation.GroupInvitationItem;
-import org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.privategroup.invitation;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.event.Event;
+import org.nodex.core.api.event.EventBus;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.sync.ClientId;
+import org.nodex.android.controller.handler.ExceptionHandler;
+import org.nodex.android.sharing.InvitationControllerImpl;
+import org.nodex.api.privategroup.PrivateGroup;
+import org.nodex.api.privategroup.event.GroupInvitationRequestReceivedEvent;
+import org.nodex.api.privategroup.event.GroupInvitationResponseReceivedEvent;
+import org.nodex.api.privategroup.invitation.GroupInvitationItem;
+import org.nodex.api.privategroup.invitation.GroupInvitationManager;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import java.util.concurrent.Executor;
 import javax.inject.Inject;
 import static java.util.logging.Level.WARNING;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.briar.api.privategroup.PrivateGroupManager.CLIENT_ID;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.api.privategroup.PrivateGroupManager.CLIENT_ID;
 @NotNullByDefault
 class GroupInvitationControllerImpl
 		extends InvitationControllerImpl<GroupInvitationItem>

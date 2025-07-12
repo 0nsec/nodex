@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.contactselection;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.briar.api.identity.AuthorInfo;
-import org.briarproject.briar.api.sharing.SharingManager.SharingStatus;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.contactselection;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.api.identity.AuthorInfo;
+import org.nodex.api.sharing.SharingManager.SharingStatus;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.NotThreadSafe;
-import static org.briarproject.briar.api.sharing.SharingManager.SharingStatus.SHAREABLE;
+import static org.nodex.api.sharing.SharingManager.SharingStatus.SHAREABLE;
 @NotThreadSafe
 @NotNullByDefault
 public class SelectableContactItem extends BaseSelectableContactItem {

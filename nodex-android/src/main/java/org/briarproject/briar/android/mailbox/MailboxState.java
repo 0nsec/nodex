@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.mailbox;
-import org.briarproject.bramble.api.mailbox.MailboxPairingState;
+package org.nodex.android.mailbox;
+import org.nodex.core.api.mailbox.MailboxPairingState;
 class MailboxState {
 	static class NotSetup extends MailboxState {
 	}

@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.attachment;
+package org.nodex.android.attachment;
 import android.content.res.Resources;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import androidx.annotation.VisibleForTesting;
 @Immutable

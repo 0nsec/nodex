@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.privategroup.conversation;
-import org.briarproject.briar.R;
-import org.briarproject.briar.api.privategroup.JoinMessageHeader;
+package org.nodex.android.privategroup.conversation;
+import org.nodex.R;
+import org.nodex.api.privategroup.JoinMessageHeader;
 import javax.annotation.concurrent.NotThreadSafe;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.UiThread;

@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.graphics.Bitmap;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 @NotNullByDefault

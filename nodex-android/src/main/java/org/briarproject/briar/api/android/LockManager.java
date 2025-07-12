@@ -1,4 +1,4 @@
-package org.briarproject.briar.api.android;
+package org.nodex.api.android;
 import android.app.Activity;
 import androidx.annotation.UiThread;
 import androidx.lifecycle.LiveData;

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import org.briarproject.briar.R;
+import org.nodex.R;
 import java.util.Locale;
 import javax.annotation.Nullable;
 import androidx.annotation.UiThread;

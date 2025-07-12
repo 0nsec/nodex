@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.mailbox;
+package org.nodex.android.mailbox;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import org.briarproject.bramble.api.plugin.TorConstants;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.plugin.TorConstants;
+import org.nodex.R;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import static org.briarproject.briar.android.util.UiUtils.formatDuration;
+import static org.nodex.android.util.UiUtils.formatDuration;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class MailboxConnectingFragment extends Fragment {

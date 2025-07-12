@@ -1,4 +1,4 @@
-package org.briarproject.briar.api.autodelete;
-import org.briarproject.bramble.api.db.DbException;
+package org.nodex.api.autodelete;
+import org.nodex.core.api.db.DbException;
 public class UnexpectedTimerException extends DbException {
 }

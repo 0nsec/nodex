@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.controller;
-import org.briarproject.bramble.api.system.Wakeful;
-import org.briarproject.briar.android.controller.handler.ResultHandler;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.controller;
+import org.nodex.core.api.system.Wakeful;
+import org.nodex.android.controller.handler.ResultHandler;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public interface BriarController extends ActivityLifecycleController {
 	void startAndBindService();

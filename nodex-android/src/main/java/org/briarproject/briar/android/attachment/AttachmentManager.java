@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.attachment;
+package org.nodex.android.attachment;
 import android.net.Uri;
-import org.briarproject.briar.api.attachment.AttachmentHeader;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.api.attachment.AttachmentHeader;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import java.util.List;
 import androidx.annotation.UiThread;

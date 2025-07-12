@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.sharing;
+package org.nodex.android.sharing;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.sharing.InvitationAdapter.InvitationClickListener;
-import org.briarproject.briar.android.view.TextAvatarView;
-import org.briarproject.briar.api.sharing.InvitationItem;
+import org.nodex.R;
+import org.nodex.android.sharing.InvitationAdapter.InvitationClickListener;
+import org.nodex.android.view.TextAvatarView;
+import org.nodex.api.sharing.InvitationItem;
 import javax.annotation.Nullable;
 import androidx.annotation.CallSuper;
 import androidx.recyclerview.widget.RecyclerView;

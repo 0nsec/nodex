@@ -25,7 +25,7 @@
 			app:layout_constraintTop_toTopOf="parent"
 			app:layout_constraintVertical_chainStyle="packed" />
 
-		<org.briarproject.briar.android.account.DozeView
+		<org.nodex.android.account.DozeView
 			android:id="@+id/dozeView"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/logo" />
 
-		<org.briarproject.briar.android.account.HuaweiProtectedAppsView
+		<org.nodex.android.account.HuaweiProtectedAppsView
 			android:id="@+id/huaweiProtectedAppsView"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/dozeView" />
 
-		<org.briarproject.briar.android.account.HuaweiAppLaunchView
+		<org.nodex.android.account.HuaweiAppLaunchView
 			android:id="@+id/huaweiAppLaunchView"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/huaweiProtectedAppsView" />
 
-		<org.briarproject.briar.android.account.XiaomiRecentAppsView
+		<org.nodex.android.account.XiaomiRecentAppsView
 			android:id="@+id/xiaomiRecentAppsView"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/huaweiAppLaunchView" />
 
-		<org.briarproject.briar.android.account.XiaomiLockAppsView
+		<org.nodex.android.account.XiaomiLockAppsView
 			android:id="@+id/xiaomiLockAppsView"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

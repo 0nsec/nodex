@@ -1,17 +1,17 @@
-package org.briarproject.briar.client;
-import org.briarproject.bramble.api.client.BdfIncomingMessageHook;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.data.MetadataParser;
-import org.briarproject.bramble.api.db.DatabaseComponent;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.api.client.MessageTracker;
-import org.briarproject.briar.api.client.MessageTracker.GroupCount;
-import org.briarproject.briar.api.conversation.ConversationManager.ConversationClient;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.client;
+import org.nodex.core.api.client.BdfIncomingMessageHook;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.data.MetadataParser;
+import org.nodex.core.api.db.DatabaseComponent;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.api.client.MessageTracker;
+import org.nodex.api.client.MessageTracker.GroupCount;
+import org.nodex.api.conversation.ConversationManager.ConversationClient;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

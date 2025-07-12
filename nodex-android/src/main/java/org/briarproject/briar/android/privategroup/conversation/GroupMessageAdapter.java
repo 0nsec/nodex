@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.privategroup.conversation;
+package org.nodex.android.privategroup.conversation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.threaded.BaseThreadItemViewHolder;
-import org.briarproject.briar.android.threaded.ThreadItemAdapter;
-import org.briarproject.briar.android.threaded.ThreadPostViewHolder;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.threaded.BaseThreadItemViewHolder;
+import org.nodex.android.threaded.ThreadItemAdapter;
+import org.nodex.android.threaded.ThreadPostViewHolder;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.UiThread;
 @UiThread

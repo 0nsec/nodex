@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -7,12 +7,12 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.widget.Toast;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.attachment.AttachmentItemResult;
-import org.briarproject.briar.android.attachment.AttachmentManager;
-import org.briarproject.briar.android.attachment.AttachmentResult;
-import org.briarproject.briar.android.view.ImagePreview.ImagePreviewListener;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.attachment.AttachmentItemResult;
+import org.nodex.android.attachment.AttachmentManager;
+import org.nodex.android.attachment.AttachmentResult;
+import org.nodex.android.view.ImagePreview.ImagePreviewListener;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -30,9 +30,9 @@ import static android.widget.Toast.LENGTH_LONG;
 import static androidx.core.content.ContextCompat.getColor;
 import static androidx.customview.view.AbsSavedState.EMPTY_STATE;
 import static androidx.lifecycle.Lifecycle.State.DESTROYED;
-import static org.briarproject.briar.android.util.UiUtils.resolveColorAttribute;
-import static org.briarproject.briar.android.view.TextSendController.SendState.SENT;
-import static org.briarproject.briar.api.messaging.MessagingConstants.MAX_ATTACHMENTS_PER_MESSAGE;
+import static org.nodex.android.util.UiUtils.resolveColorAttribute;
+import static org.nodex.android.view.TextSendController.SendState.SENT;
+import static org.nodex.api.messaging.MessagingConstants.MAX_ATTACHMENTS_PER_MESSAGE;
 @UiThread
 @NotNullByDefault
 public class TextAttachmentController extends TextSendController

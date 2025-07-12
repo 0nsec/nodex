@@ -1,10 +1,10 @@
-package org.briarproject.briar.api.identity;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.identity.AuthorId;
-import org.briarproject.bramble.api.identity.LocalAuthor;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.identity;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.identity.AuthorId;
+import org.nodex.core.api.identity.LocalAuthor;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public interface AuthorManager {
 	AuthorInfo getAuthorInfo(AuthorId a) throws DbException;

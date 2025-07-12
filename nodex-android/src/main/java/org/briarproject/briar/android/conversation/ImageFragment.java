@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.content.Context;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
@@ -11,13 +11,13 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.github.chrisbanes.photoview.PhotoView;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BaseActivity;
-import org.briarproject.briar.android.attachment.AttachmentItem;
-import org.briarproject.briar.android.conversation.glide.GlideApp;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BaseActivity;
+import org.nodex.android.attachment.AttachmentItem;
+import org.nodex.android.conversation.glide.GlideApp;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.DrawableRes;
@@ -27,11 +27,11 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import static android.widget.ImageView.ScaleType.FIT_START;
 import static com.bumptech.glide.load.engine.DiskCacheStrategy.NONE;
-import static org.briarproject.briar.android.attachment.AttachmentItem.State.AVAILABLE;
-import static org.briarproject.briar.android.attachment.AttachmentItem.State.ERROR;
-import static org.briarproject.briar.android.conversation.ImageActivity.ATTACHMENT_POSITION;
-import static org.briarproject.briar.android.conversation.ImageActivity.ITEM_ID;
-import static org.briarproject.nullsafety.NullSafety.requireNonNull;
+import static org.nodex.android.attachment.AttachmentItem.State.AVAILABLE;
+import static org.nodex.android.attachment.AttachmentItem.State.ERROR;
+import static org.nodex.android.conversation.ImageActivity.ATTACHMENT_POSITION;
+import static org.nodex.android.conversation.ImageActivity.ITEM_ID;
+import static org.nodex.nullsafety.NullSafety.requireNonNull;
 @MethodsNotNullByDefault
 @ParametersAreNonnullByDefault
 public class ImageFragment extends Fragment

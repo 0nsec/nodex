@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.conversation.glide;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.conversation.glide;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.Nullable;
 @NotNullByDefault
 public class Radii {

@@ -1,15 +1,15 @@
-package org.briarproject.briar.api.conversation;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.sync.Group;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.client.MessageTracker.GroupCount;
-import org.briarproject.briar.api.messaging.MessagingManager;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.conversation;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.sync.Group;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.client.MessageTracker.GroupCount;
+import org.nodex.api.messaging.MessagingManager;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import java.util.Set;
 @NotNullByDefault

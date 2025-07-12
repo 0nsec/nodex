@@ -1,18 +1,18 @@
-package org.briarproject.briar.forum;
-import org.briarproject.bramble.api.FeatureFlags;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.MetadataEncoder;
-import org.briarproject.bramble.api.sync.validation.ValidationManager;
-import org.briarproject.bramble.api.system.Clock;
-import org.briarproject.briar.api.forum.ForumFactory;
-import org.briarproject.briar.api.forum.ForumManager;
-import org.briarproject.briar.api.forum.ForumPostFactory;
+package org.nodex.forum;
+import org.nodex.core.api.FeatureFlags;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.MetadataEncoder;
+import org.nodex.core.api.sync.validation.ValidationManager;
+import org.nodex.core.api.system.Clock;
+import org.nodex.api.forum.ForumFactory;
+import org.nodex.api.forum.ForumManager;
+import org.nodex.api.forum.ForumPostFactory;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
-import static org.briarproject.briar.api.forum.ForumManager.CLIENT_ID;
-import static org.briarproject.briar.api.forum.ForumManager.MAJOR_VERSION;
+import static org.nodex.api.forum.ForumManager.CLIENT_ID;
+import static org.nodex.api.forum.ForumManager.MAJOR_VERSION;
 @Module
 public class ForumModule {
 	public static class EagerSingletons {

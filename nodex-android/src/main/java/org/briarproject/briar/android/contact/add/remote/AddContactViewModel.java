@@ -1,20 +1,20 @@
-package org.briarproject.briar.android.contact.add.remote;
+package org.nodex.android.contact.add.remote;
 import android.app.Application;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.UnsupportedVersionException;
-import org.briarproject.bramble.api.contact.ContactManager;
-import org.briarproject.bramble.api.contact.PendingContact;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.NoSuchPendingContactException;
-import org.briarproject.bramble.api.db.TransactionManager;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.system.AndroidExecutor;
-import org.briarproject.briar.android.viewmodel.DbViewModel;
-import org.briarproject.briar.android.viewmodel.LiveEvent;
-import org.briarproject.briar.android.viewmodel.LiveResult;
-import org.briarproject.briar.android.viewmodel.MutableLiveEvent;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.UnsupportedVersionException;
+import org.nodex.core.api.contact.ContactManager;
+import org.nodex.core.api.contact.PendingContact;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.NoSuchPendingContactException;
+import org.nodex.core.api.db.TransactionManager;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.system.AndroidExecutor;
+import org.nodex.android.viewmodel.DbViewModel;
+import org.nodex.android.viewmodel.LiveEvent;
+import org.nodex.android.viewmodel.LiveResult;
+import org.nodex.android.viewmodel.MutableLiveEvent;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.security.GeneralSecurityException;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
@@ -24,8 +24,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.api.contact.HandshakeLinkConstants.LINK_REGEX;
-import static org.briarproject.bramble.util.LogUtils.logException;
+import static org.nodex.core.api.contact.HandshakeLinkConstants.LINK_REGEX;
+import static org.nodex.core.util.LogUtils.logException;
 @NotNullByDefault
 public class AddContactViewModel extends DbViewModel {
 	private final static Logger LOG =

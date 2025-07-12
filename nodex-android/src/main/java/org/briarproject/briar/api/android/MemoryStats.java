@@ -1,4 +1,4 @@
-package org.briarproject.briar.api.android;
+package org.nodex.api.android;
 import java.io.Serializable;
 import javax.annotation.concurrent.Immutable;
 @Immutable

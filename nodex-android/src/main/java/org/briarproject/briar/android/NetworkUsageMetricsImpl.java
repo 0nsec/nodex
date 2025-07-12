@@ -1,11 +1,11 @@
-package org.briarproject.briar.android;
+package org.nodex.android;
 import android.net.TrafficStats;
 import android.os.Process;
-import org.briarproject.briar.api.android.NetworkUsageMetrics;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.api.android.NetworkUsageMetrics;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.logging.Logger;
 import static java.util.logging.Level.INFO;
-import static org.briarproject.bramble.util.LogUtils.now;
+import static org.nodex.core.util.LogUtils.now;
 @NotNullByDefault
 class NetworkUsageMetricsImpl implements NetworkUsageMetrics {
 	private static final Logger LOG =

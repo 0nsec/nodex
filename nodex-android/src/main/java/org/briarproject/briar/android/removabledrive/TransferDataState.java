@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.removabledrive;
-import org.briarproject.bramble.api.plugin.file.RemovableDriveTask;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.removabledrive;
+import org.nodex.core.api.plugin.file.RemovableDriveTask;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 abstract class TransferDataState {
 	static class NoDataToSend extends TransferDataState {

@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.sharing;
+package org.nodex.android.sharing;
 import android.content.Context;
 import android.view.ViewGroup;
-import org.briarproject.briar.api.sharing.SharingInvitationItem;
+import org.nodex.api.sharing.SharingInvitationItem;
 class SharingInvitationAdapter extends
 		InvitationAdapter<SharingInvitationItem, SharingInvitationViewHolder> {
 	SharingInvitationAdapter(Context ctx,

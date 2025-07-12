@@ -1,10 +1,10 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.api.conversation.ConversationRequest;
-import org.briarproject.briar.api.sharing.InvitationResponse;
-import org.briarproject.briar.api.sharing.Shareable;
+package org.nodex.sharing;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.api.conversation.ConversationRequest;
+import org.nodex.api.sharing.InvitationResponse;
+import org.nodex.api.sharing.Shareable;
 public interface InvitationFactory<S extends Shareable, R extends InvitationResponse> {
 	ConversationRequest<S> createInvitationRequest(boolean local, boolean sent,
 			boolean seen, boolean read, InviteMessage<S> m, ContactId c,

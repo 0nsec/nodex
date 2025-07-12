@@ -1,6 +1,6 @@
-package org.briarproject.briar.android.forum;
-import org.briarproject.briar.android.threaded.ThreadItem;
-import org.briarproject.briar.api.forum.ForumPostHeader;
+package org.nodex.android.forum;
+import org.nodex.android.threaded.ThreadItem;
+import org.nodex.api.forum.ForumPostHeader;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 class ForumPostItem extends ThreadItem {

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.conversation;
+package org.nodex.android.conversation;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,22 +7,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import com.google.android.material.textfield.TextInputLayout;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BaseActivity;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BaseActivity;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE;
 import static java.util.Objects.requireNonNull;
-import static org.briarproject.bramble.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
-import static org.briarproject.bramble.util.StringUtils.toUtf8;
-import static org.briarproject.briar.android.util.UiUtils.hideSoftKeyboard;
-import static org.briarproject.briar.android.util.UiUtils.showSoftKeyboard;
+import static org.nodex.core.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
+import static org.nodex.core.util.StringUtils.toUtf8;
+import static org.nodex.android.util.UiUtils.hideSoftKeyboard;
+import static org.nodex.android.util.UiUtils.showSoftKeyboard;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class AliasDialogFragment extends AppCompatDialogFragment {

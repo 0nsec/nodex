@@ -1,8 +1,8 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.content.Context;
 import android.util.AttributeSet;
-import org.briarproject.briar.api.identity.AuthorInfo.Status;
-import org.briarproject.briar.R;
+import org.nodex.api.identity.AuthorInfo.Status;
+import org.nodex.R;
 import androidx.annotation.UiThread;
 import androidx.appcompat.widget.AppCompatImageView;
 @UiThread

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.viewmodel;
+package org.nodex.android.viewmodel;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,7 +1,7 @@
-package org.briarproject.briar.test;
-import static org.briarproject.bramble.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
-import static org.briarproject.bramble.util.StringUtils.getRandomString;
-import static org.briarproject.briar.api.forum.ForumConstants.MAX_FORUM_NAME_LENGTH;
+package org.nodex.test;
+import static org.nodex.core.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
+import static org.nodex.core.util.StringUtils.getRandomString;
+import static org.nodex.api.forum.ForumConstants.MAX_FORUM_NAME_LENGTH;
 public interface TestData {
 	String AUTHOR_NAMES[] = {
 			"Thales",

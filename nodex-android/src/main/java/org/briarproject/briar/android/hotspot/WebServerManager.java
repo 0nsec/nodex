@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.app.Application;
 import android.graphics.Bitmap;
 import android.util.DisplayMetrics;
-import org.briarproject.bramble.api.lifecycle.IoExecutor;
-import org.briarproject.briar.android.hotspot.HotspotState.WebsiteConfig;
-import org.briarproject.briar.android.qrcode.QrCodeUtils;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.lifecycle.IoExecutor;
+import org.nodex.android.hotspot.HotspotState.WebsiteConfig;
+import org.nodex.android.qrcode.QrCodeUtils;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InterfaceAddress;
@@ -18,10 +18,10 @@ import androidx.annotation.UiThread;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.bramble.util.NetworkUtils.getNetworkInterfaces;
-import static org.briarproject.briar.android.hotspot.WebServer.PORT;
-import static org.briarproject.briar.android.qrcode.QrCodeUtils.HOTSPOT_QRCODE_FACTOR;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.core.util.NetworkUtils.getNetworkInterfaces;
+import static org.nodex.android.hotspot.WebServer.PORT;
+import static org.nodex.android.qrcode.QrCodeUtils.HOTSPOT_QRCODE_FACTOR;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 class WebServerManager {

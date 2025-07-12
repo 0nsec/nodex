@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.mailbox;
+package org.nodex.android.mailbox;
 import android.content.Context;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.util.Permission;
+import org.nodex.R;
+import org.nodex.android.util.Permission;
 import java.util.Map;
 import androidx.core.util.Consumer;
 import androidx.fragment.app.FragmentActivity;
@@ -9,8 +9,8 @@ import static android.Manifest.permission.CAMERA;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static androidx.core.app.ActivityCompat.shouldShowRequestPermissionRationale;
 import static androidx.core.content.ContextCompat.checkSelfPermission;
-import static org.briarproject.briar.android.util.PermissionUtils.showDenialDialog;
-import static org.briarproject.briar.android.util.PermissionUtils.showRationale;
+import static org.nodex.android.util.PermissionUtils.showDenialDialog;
+import static org.nodex.android.util.PermissionUtils.showRationale;
 class CameraPermissionManager {
 	private Permission cameraPermission = Permission.UNKNOWN;
 	private final FragmentActivity ctx;

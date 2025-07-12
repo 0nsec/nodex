@@ -1,23 +1,23 @@
-package org.briarproject.briar.introduction;
-import org.briarproject.bramble.api.crypto.PrivateKey;
-import org.briarproject.bramble.api.crypto.PublicKey;
-import org.briarproject.bramble.api.crypto.SecretKey;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.plugin.TransportId;
-import org.briarproject.bramble.api.properties.TransportProperties;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.bramble.api.transport.KeySetId;
-import org.briarproject.briar.api.client.SessionId;
-import org.briarproject.briar.api.introduction.Role;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.introduction;
+import org.nodex.core.api.crypto.PrivateKey;
+import org.nodex.core.api.crypto.PublicKey;
+import org.nodex.core.api.crypto.SecretKey;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.plugin.TransportId;
+import org.nodex.core.api.properties.TransportProperties;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.core.api.transport.KeySetId;
+import org.nodex.api.client.SessionId;
+import org.nodex.api.introduction.Role;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
-import static org.briarproject.briar.api.introduction.Role.INTRODUCEE;
-import static org.briarproject.briar.introduction.IntroduceeState.AWAIT_ACTIVATE;
-import static org.briarproject.briar.introduction.IntroduceeState.START;
+import static org.nodex.api.introduction.Role.INTRODUCEE;
+import static org.nodex.introduction.IntroduceeState.AWAIT_ACTIVATE;
+import static org.nodex.introduction.IntroduceeState.START;
 @Immutable
 @NotNullByDefault
 class IntroduceeSession extends Session<IntroduceeState>

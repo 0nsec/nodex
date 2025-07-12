@@ -1,25 +1,25 @@
-package org.briarproject.briar.client;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfDictionary;
-import org.briarproject.bramble.api.data.BdfEntry;
-import org.briarproject.bramble.api.db.DatabaseComponent;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.Transaction;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.Message;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.bramble.api.system.Clock;
-import org.briarproject.briar.api.client.MessageTracker;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.client;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfDictionary;
+import org.nodex.core.api.data.BdfEntry;
+import org.nodex.core.api.db.DatabaseComponent;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.Transaction;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.Message;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.core.api.system.Clock;
+import org.nodex.api.client.MessageTracker;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_LATEST_MSG;
-import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_MSG_COUNT;
-import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_STORED_MESSAGE_ID;
-import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_UNREAD_COUNT;
-import static org.briarproject.briar.client.MessageTrackerConstants.MSG_KEY_READ;
+import static org.nodex.client.MessageTrackerConstants.GROUP_KEY_LATEST_MSG;
+import static org.nodex.client.MessageTrackerConstants.GROUP_KEY_MSG_COUNT;
+import static org.nodex.client.MessageTrackerConstants.GROUP_KEY_STORED_MESSAGE_ID;
+import static org.nodex.client.MessageTrackerConstants.GROUP_KEY_UNREAD_COUNT;
+import static org.nodex.client.MessageTrackerConstants.MSG_KEY_READ;
 @Immutable
 @NotNullByDefault
 class MessageTrackerImpl implements MessageTracker {

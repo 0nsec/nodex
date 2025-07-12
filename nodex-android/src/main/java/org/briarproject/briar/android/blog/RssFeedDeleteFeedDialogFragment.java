@@ -1,19 +1,19 @@
-package org.briarproject.briar.android.blog;
+package org.nodex.android.blog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.BaseActivity;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.R;
+import org.nodex.android.activity.BaseActivity;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 import static java.util.Objects.requireNonNull;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.BriarActivity.GROUP_ID;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class RssFeedDeleteFeedDialogFragment extends DialogFragment {

@@ -1,6 +1,6 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
+package org.nodex.sharing;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
 import javax.annotation.Nullable;
 abstract class DeletableSharingMessage extends SharingMessage {
 	private final long autoDeleteTimer;

@@ -1,15 +1,15 @@
-package org.briarproject.briar.android.navdrawer;
+package org.nodex.android.navdrawer;
 import android.app.Application;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.db.TransactionManager;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.settings.Settings;
-import org.briarproject.bramble.api.settings.SettingsManager;
-import org.briarproject.bramble.api.system.AndroidExecutor;
-import org.briarproject.briar.android.BriarApplication;
-import org.briarproject.briar.android.viewmodel.DbViewModel;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.db.TransactionManager;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.settings.Settings;
+import org.nodex.core.api.settings.SettingsManager;
+import org.nodex.core.api.system.AndroidExecutor;
+import org.nodex.android.BriarApplication;
+import org.nodex.android.viewmodel.DbViewModel;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -19,11 +19,11 @@ import androidx.lifecycle.MutableLiveData;
 import static java.util.concurrent.TimeUnit.DAYS;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.android.dontkillmelib.DozeUtils.needsDozeWhitelisting;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.briar.android.TestingConstants.EXPIRY_DATE;
-import static org.briarproject.briar.android.controller.BriarControllerImpl.DOZE_ASK_AGAIN;
-import static org.briarproject.briar.android.settings.SettingsFragment.SETTINGS_NAMESPACE;
+import static org.nodex.android.dontkillmelib.DozeUtils.needsDozeWhitelisting;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.android.TestingConstants.EXPIRY_DATE;
+import static org.nodex.android.controller.BriarControllerImpl.DOZE_ASK_AGAIN;
+import static org.nodex.android.settings.SettingsFragment.SETTINGS_NAMESPACE;
 @NotNullByDefault
 public class NavDrawerViewModel extends DbViewModel {
 	private static final Logger LOG =

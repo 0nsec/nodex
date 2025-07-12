@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.blog;
-import org.briarproject.briar.api.blog.Blog;
+package org.nodex.android.blog;
+import org.nodex.api.blog.Blog;
 class BlogItem {
 	private final Blog blog;
 	private final boolean ours, removable;

@@ -1,14 +1,14 @@
-package org.briarproject.briar.android.sharing;
+package org.nodex.android.sharing;
 import android.view.View;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.bramble.util.StringUtils;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.sharing.InvitationAdapter.InvitationClickListener;
-import org.briarproject.briar.api.sharing.SharingInvitationItem;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.core.util.StringUtils;
+import org.nodex.R;
+import org.nodex.android.sharing.InvitationAdapter.InvitationClickListener;
+import org.nodex.api.sharing.SharingInvitationItem;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.annotation.Nullable;
-import static org.briarproject.briar.android.util.UiUtils.getContactDisplayName;
+import static org.nodex.android.util.UiUtils.getContactDisplayName;
 class SharingInvitationViewHolder
 		extends InvitationViewHolder<SharingInvitationItem> {
 	SharingInvitationViewHolder(View v) {

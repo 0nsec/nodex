@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -8,9 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
 import androidx.core.util.Consumer;
@@ -19,9 +19,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 import static android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE;
 import static android.view.View.GONE;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.hotspot.AbstractTabsFragment.ARG_FOR_WIFI_CONNECT;
-import static org.briarproject.briar.android.hotspot.HotspotState.HotspotStarted;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.hotspot.AbstractTabsFragment.ARG_FOR_WIFI_CONNECT;
+import static org.nodex.android.hotspot.HotspotState.HotspotStarted;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ManualHotspotFragment extends Fragment {

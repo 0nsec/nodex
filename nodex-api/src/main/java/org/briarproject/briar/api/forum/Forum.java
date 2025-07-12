@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.forum;
-import org.briarproject.bramble.api.sync.Group;
-import org.briarproject.briar.api.client.NamedGroup;
-import org.briarproject.briar.api.sharing.Shareable;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.forum;
+import org.nodex.core.api.sync.Group;
+import org.nodex.api.client.NamedGroup;
+import org.nodex.api.sharing.Shareable;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

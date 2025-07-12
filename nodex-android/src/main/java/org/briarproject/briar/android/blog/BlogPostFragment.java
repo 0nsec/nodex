@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.blog;
+package org.nodex.android.blog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,14 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.briar.android.widget.LinkDialogFragment;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.android.widget.LinkDialogFragment;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -26,8 +26,8 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static java.util.Objects.requireNonNull;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_ID;
-import static org.briarproject.briar.android.util.UiUtils.MIN_DATE_RESOLUTION;
+import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.util.UiUtils.MIN_DATE_RESOLUTION;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class BlogPostFragment extends BaseFragment

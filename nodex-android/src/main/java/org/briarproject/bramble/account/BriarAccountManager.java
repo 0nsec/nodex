@@ -1,12 +1,12 @@
-package org.briarproject.bramble.account;
+package org.nodex.core.account;
 import android.app.Application;
 import android.content.SharedPreferences;
-import org.briarproject.bramble.api.crypto.CryptoComponent;
-import org.briarproject.bramble.api.db.DatabaseConfig;
-import org.briarproject.bramble.api.identity.IdentityManager;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.Localizer;
-import org.briarproject.briar.android.util.UiUtils;
+import org.nodex.core.api.crypto.CryptoComponent;
+import org.nodex.core.api.db.DatabaseConfig;
+import org.nodex.core.api.identity.IdentityManager;
+import org.nodex.R;
+import org.nodex.android.Localizer;
+import org.nodex.android.util.UiUtils;
 import javax.inject.Inject;
 class BriarAccountManager extends AndroidAccountManager {
 	@Inject

@@ -1,14 +1,14 @@
-package org.briarproject.briar.android.sharing;
+package org.nodex.android.sharing;
 import android.os.Bundle;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.contactselection.ContactSelectorController;
-import org.briarproject.briar.android.contactselection.ContactSelectorFragment;
-import org.briarproject.briar.android.contactselection.SelectableContactItem;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.contactselection.ContactSelectorController;
+import org.nodex.android.contactselection.ContactSelectorFragment;
+import org.nodex.android.contactselection.SelectableContactItem;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.BriarActivity.GROUP_ID;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class ShareForumFragment extends ContactSelectorFragment {

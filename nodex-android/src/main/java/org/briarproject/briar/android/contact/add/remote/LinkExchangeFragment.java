@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.contact.add.remote;
+package org.nodex.android.contact.add.remote;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -11,12 +11,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.briar.android.view.InfoView;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.android.view.InfoView;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import javax.annotation.Nullable;
@@ -28,10 +28,10 @@ import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.bramble.api.contact.HandshakeLinkConstants.LINK_REGEX;
-import static org.briarproject.bramble.util.LogUtils.logException;
-import static org.briarproject.briar.android.util.UiUtils.hideViewOnSmallScreen;
-import static org.briarproject.briar.android.util.UiUtils.observeOnce;
+import static org.nodex.core.api.contact.HandshakeLinkConstants.LINK_REGEX;
+import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.android.util.UiUtils.hideViewOnSmallScreen;
+import static org.nodex.android.util.UiUtils.observeOnce;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class LinkExchangeFragment extends BaseFragment {

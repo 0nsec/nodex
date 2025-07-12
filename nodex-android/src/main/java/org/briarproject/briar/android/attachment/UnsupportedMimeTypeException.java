@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.attachment;
+package org.nodex.android.attachment;
 import android.net.Uri;
 import java.io.IOException;
 public class UnsupportedMimeTypeException extends IOException {

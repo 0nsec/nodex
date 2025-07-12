@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.contact.add.remote;
+package org.nodex.android.contact.add.remote;
 interface PendingContactListener {
 	void onPendingContactItemRemoved(PendingContactItem item);
 }

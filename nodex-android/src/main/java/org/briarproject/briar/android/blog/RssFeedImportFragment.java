@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.blog;
+package org.nodex.android.blog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,14 +12,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.fragment.BaseFragment;
-import org.briarproject.briar.android.fragment.ProgressFragment;
-import org.briarproject.briar.android.util.ActivityLaunchers.GetContentAdvanced;
-import org.briarproject.briar.android.util.ActivityLaunchers.OpenDocumentAdvanced;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.fragment.BaseFragment;
+import org.nodex.android.fragment.ProgressFragment;
+import org.nodex.android.util.ActivityLaunchers.GetContentAdvanced;
+import org.nodex.android.util.ActivityLaunchers.OpenDocumentAdvanced;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import androidx.activity.result.ActivityResultLauncher;
@@ -28,9 +28,9 @@ import androidx.lifecycle.ViewModelProvider;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static android.view.inputmethod.EditorInfo.IME_ACTION_DONE;
-import static org.briarproject.briar.android.util.UiUtils.hideSoftKeyboard;
-import static org.briarproject.briar.android.util.UiUtils.launchActivityToOpenFile;
-import static org.briarproject.briar.android.util.UiUtils.showFragment;
+import static org.nodex.android.util.UiUtils.hideSoftKeyboard;
+import static org.nodex.android.util.UiUtils.launchActivityToOpenFile;
+import static org.nodex.android.util.UiUtils.showFragment;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class RssFeedImportFragment extends BaseFragment {

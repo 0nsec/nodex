@@ -1,8 +1,8 @@
-package org.briarproject.briar.api.privategroup.invitation;
-import org.briarproject.bramble.api.contact.Contact;
-import org.briarproject.briar.api.privategroup.PrivateGroup;
-import org.briarproject.briar.api.sharing.InvitationItem;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.privategroup.invitation;
+import org.nodex.core.api.contact.Contact;
+import org.nodex.api.privategroup.PrivateGroup;
+import org.nodex.api.sharing.InvitationItem;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

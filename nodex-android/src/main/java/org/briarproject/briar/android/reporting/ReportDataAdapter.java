@@ -1,12 +1,12 @@
-package org.briarproject.briar.android.reporting;
+package org.nodex.android.reporting;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.reporting.ReportData.ReportItem;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.reporting.ReportData.ReportItem;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;

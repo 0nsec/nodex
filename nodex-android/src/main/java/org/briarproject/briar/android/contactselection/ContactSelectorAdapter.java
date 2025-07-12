@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.contactselection;
+package org.nodex.android.contactselection;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.contact.OnContactClickListener;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.contact.OnContactClickListener;
+import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 class ContactSelectorAdapter extends
 		BaseContactSelectorAdapter<SelectableContactItem, SelectableContactHolder> {

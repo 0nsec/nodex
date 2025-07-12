@@ -1,15 +1,15 @@
-package org.briarproject.briar.android.privategroup.creation;
+package org.nodex.android.privategroup.creation;
 import android.content.Intent;
 import android.os.Bundle;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.briar.android.controller.handler.UiResultExceptionHandler;
-import org.briarproject.briar.android.privategroup.conversation.GroupActivity;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.controller.handler.UiResultExceptionHandler;
+import org.nodex.android.privategroup.conversation.GroupActivity;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 @MethodsNotNullByDefault

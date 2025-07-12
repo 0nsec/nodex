@@ -1,15 +1,15 @@
-package org.briarproject.briar.sharing;
-import org.briarproject.bramble.api.FormatException;
-import org.briarproject.bramble.api.client.ClientHelper;
-import org.briarproject.bramble.api.data.BdfList;
-import org.briarproject.bramble.api.data.MetadataEncoder;
-import org.briarproject.bramble.api.identity.Author;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.bramble.api.system.Clock;
-import org.briarproject.briar.api.blog.BlogFactory;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.sharing;
+import org.nodex.core.api.FormatException;
+import org.nodex.core.api.client.ClientHelper;
+import org.nodex.core.api.data.BdfList;
+import org.nodex.core.api.data.MetadataEncoder;
+import org.nodex.core.api.identity.Author;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.core.api.system.Clock;
+import org.nodex.api.blog.BlogFactory;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
-import static org.briarproject.bramble.util.ValidationUtils.checkSize;
+import static org.nodex.core.util.ValidationUtils.checkSize;
 @Immutable
 @NotNullByDefault
 class BlogSharingValidator extends SharingValidator {

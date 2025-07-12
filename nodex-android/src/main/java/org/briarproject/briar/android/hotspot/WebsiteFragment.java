@@ -1,8 +1,8 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.os.Bundle;
 import android.view.View;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import static android.view.View.GONE;

@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.privategroup.creation;
-import org.briarproject.briar.android.activity.ActivityScope;
+package org.nodex.android.privategroup.creation;
+import org.nodex.android.activity.ActivityScope;
 import dagger.Module;
 import dagger.Provides;
 @Module

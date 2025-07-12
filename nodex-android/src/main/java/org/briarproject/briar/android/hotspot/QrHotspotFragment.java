@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.hotspot.HotspotState.HotspotStarted;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.hotspot.HotspotState.HotspotStarted;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.hotspot.AbstractTabsFragment.ARG_FOR_WIFI_CONNECT;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.hotspot.AbstractTabsFragment.ARG_FOR_WIFI_CONNECT;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class QrHotspotFragment extends Fragment {

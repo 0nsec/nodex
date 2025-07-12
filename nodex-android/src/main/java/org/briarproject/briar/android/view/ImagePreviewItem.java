@@ -1,7 +1,7 @@
-package org.briarproject.briar.android.view;
+package org.nodex.android.view;
 import android.net.Uri;
-import org.briarproject.briar.android.attachment.AttachmentItem;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.android.attachment.AttachmentItem;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

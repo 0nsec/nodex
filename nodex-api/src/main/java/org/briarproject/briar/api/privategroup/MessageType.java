@@ -1,5 +1,5 @@
-package org.briarproject.briar.api.privategroup;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.api.privategroup;
+import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

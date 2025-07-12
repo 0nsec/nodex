@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.util;
+package org.nodex.android.util;
 import android.content.Context;
 import java.util.Collection;
 import javax.annotation.Nullable;

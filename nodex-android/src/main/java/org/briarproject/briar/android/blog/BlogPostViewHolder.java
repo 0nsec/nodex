@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.blog;
+package org.nodex.android.blog;
 import android.content.Context;
 import android.content.Intent;
 import android.text.Spanned;
@@ -8,26 +8,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import org.briarproject.bramble.api.sync.MessageId;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.view.AuthorView;
-import org.briarproject.briar.api.blog.BlogCommentHeader;
-import org.briarproject.briar.api.blog.BlogPostHeader;
-import org.briarproject.nullsafety.NotNullByDefault;
+import org.nodex.core.api.sync.MessageId;
+import org.nodex.R;
+import org.nodex.android.view.AuthorView;
+import org.nodex.api.blog.BlogCommentHeader;
+import org.nodex.api.blog.BlogPostHeader;
+import org.nodex.nullsafety.NotNullByDefault;
 import androidx.annotation.UiThread;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static org.briarproject.briar.android.activity.BriarActivity.GROUP_ID;
-import static org.briarproject.briar.android.blog.BlogPostFragment.POST_ID;
-import static org.briarproject.briar.android.util.UiUtils.TEASER_LENGTH;
-import static org.briarproject.briar.android.util.UiUtils.getSpanned;
-import static org.briarproject.briar.android.util.UiUtils.getTeaser;
-import static org.briarproject.briar.android.util.UiUtils.makeLinksClickable;
-import static org.briarproject.briar.android.view.AuthorView.COMMENTER;
-import static org.briarproject.briar.android.view.AuthorView.REBLOGGER;
-import static org.briarproject.briar.android.view.AuthorView.RSS_FEED_REBLOGGED;
+import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.blog.BlogPostFragment.POST_ID;
+import static org.nodex.android.util.UiUtils.TEASER_LENGTH;
+import static org.nodex.android.util.UiUtils.getSpanned;
+import static org.nodex.android.util.UiUtils.getTeaser;
+import static org.nodex.android.util.UiUtils.makeLinksClickable;
+import static org.nodex.android.view.AuthorView.COMMENTER;
+import static org.nodex.android.view.AuthorView.REBLOGGER;
+import static org.nodex.android.view.AuthorView.RSS_FEED_REBLOGGED;
 @UiThread
 @NotNullByDefault
 class BlogPostViewHolder extends RecyclerView.ViewHolder {

@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.logging;
+package org.nodex.android.logging;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;

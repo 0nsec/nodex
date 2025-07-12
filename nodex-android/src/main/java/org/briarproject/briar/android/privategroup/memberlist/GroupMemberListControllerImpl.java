@@ -1,21 +1,21 @@
-package org.briarproject.briar.android.privategroup.memberlist;
-import org.briarproject.bramble.api.connection.ConnectionRegistry;
-import org.briarproject.bramble.api.contact.ContactId;
-import org.briarproject.bramble.api.db.DatabaseExecutor;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.bramble.api.lifecycle.LifecycleManager;
-import org.briarproject.bramble.api.sync.GroupId;
-import org.briarproject.briar.android.controller.DbControllerImpl;
-import org.briarproject.briar.android.controller.handler.ResultExceptionHandler;
-import org.briarproject.briar.api.privategroup.GroupMember;
-import org.briarproject.briar.api.privategroup.PrivateGroupManager;
+package org.nodex.android.privategroup.memberlist;
+import org.nodex.core.api.connection.ConnectionRegistry;
+import org.nodex.core.api.contact.ContactId;
+import org.nodex.core.api.db.DatabaseExecutor;
+import org.nodex.core.api.db.DbException;
+import org.nodex.core.api.lifecycle.LifecycleManager;
+import org.nodex.core.api.sync.GroupId;
+import org.nodex.android.controller.DbControllerImpl;
+import org.nodex.android.controller.handler.ResultExceptionHandler;
+import org.nodex.api.privategroup.GroupMember;
+import org.nodex.api.privategroup.PrivateGroupManager;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 import javax.inject.Inject;
 import static java.util.logging.Level.WARNING;
-import static org.briarproject.bramble.util.LogUtils.logException;
+import static org.nodex.core.util.LogUtils.logException;
 class GroupMemberListControllerImpl extends DbControllerImpl
 		implements GroupMemberListController {
 	private static final Logger LOG =

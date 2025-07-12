@@ -1,23 +1,23 @@
-package org.briarproject.briar.android.hotspot;
+package org.nodex.android.hotspot;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import org.briarproject.briar.R;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.briar.android.fragment.BaseFragment.BaseFragmentListener;
-import org.briarproject.briar.android.hotspot.HotspotState.HotspotError;
-import org.briarproject.briar.android.hotspot.HotspotState.HotspotStarted;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.fragment.BaseFragment.BaseFragmentListener;
+import org.nodex.android.hotspot.HotspotState.HotspotError;
+import org.nodex.android.hotspot.HotspotState.HotspotStarted;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
-import static org.briarproject.briar.android.util.UiUtils.showFragment;
-import static org.briarproject.briar.api.android.AndroidNotificationManager.ACTION_STOP_HOTSPOT;
+import static org.nodex.android.util.UiUtils.showFragment;
+import static org.nodex.api.android.AndroidNotificationManager.ACTION_STOP_HOTSPOT;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class HotspotActivity extends BriarActivity

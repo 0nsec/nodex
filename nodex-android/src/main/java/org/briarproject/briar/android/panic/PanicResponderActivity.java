@@ -1,11 +1,11 @@
-package org.briarproject.briar.android.panic;
+package org.nodex.android.panic;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import org.briarproject.briar.android.activity.ActivityComponent;
-import org.briarproject.briar.android.activity.BriarActivity;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.android.activity.ActivityComponent;
+import org.nodex.android.activity.BriarActivity;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
 import androidx.preference.PreferenceManager;
@@ -14,8 +14,8 @@ import info.guardianproject.panic.Panic;
 import info.guardianproject.panic.PanicResponder;
 import info.guardianproject.trustedintents.TrustedIntents;
 import static java.util.logging.Logger.getLogger;
-import static org.briarproject.briar.android.panic.PanicPreferencesFragment.KEY_LOCK;
-import static org.briarproject.briar.android.panic.PanicPreferencesFragment.KEY_PURGE;
+import static org.nodex.android.panic.PanicPreferencesFragment.KEY_LOCK;
+import static org.nodex.android.panic.PanicPreferencesFragment.KEY_PURGE;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class PanicResponderActivity extends BriarActivity {

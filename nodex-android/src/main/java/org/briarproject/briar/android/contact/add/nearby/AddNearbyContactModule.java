@@ -1,5 +1,5 @@
-package org.briarproject.briar.android.contact.add.nearby;
-import org.briarproject.briar.android.viewmodel.ViewModelKey;
+package org.nodex.android.contact.add.nearby;
+import org.nodex.android.viewmodel.ViewModelKey;
 import androidx.lifecycle.ViewModel;
 import dagger.Binds;
 import dagger.Module;

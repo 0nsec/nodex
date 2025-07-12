@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.sharing;
-import org.briarproject.bramble.api.db.DbException;
-import org.briarproject.briar.android.controller.ActivityLifecycleController;
-import org.briarproject.briar.android.controller.handler.ExceptionHandler;
-import org.briarproject.briar.android.controller.handler.ResultExceptionHandler;
-import org.briarproject.briar.api.sharing.InvitationItem;
-import org.briarproject.nullsafety.NotNullByDefault;
+package org.nodex.android.sharing;
+import org.nodex.core.api.db.DbException;
+import org.nodex.android.controller.ActivityLifecycleController;
+import org.nodex.android.controller.handler.ExceptionHandler;
+import org.nodex.android.controller.handler.ResultExceptionHandler;
+import org.nodex.api.sharing.InvitationItem;
+import org.nodex.nullsafety.NotNullByDefault;
 import java.util.Collection;
 @NotNullByDefault
 public interface InvitationController<I extends InvitationItem>

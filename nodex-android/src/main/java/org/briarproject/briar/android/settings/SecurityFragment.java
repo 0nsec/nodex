@@ -1,10 +1,10 @@
-package org.briarproject.briar.android.settings;
+package org.nodex.android.settings;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import org.briarproject.briar.R;
-import org.briarproject.nullsafety.MethodsNotNullByDefault;
-import org.briarproject.nullsafety.ParametersNotNullByDefault;
+import org.nodex.R;
+import org.nodex.nullsafety.MethodsNotNullByDefault;
+import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,9 +14,9 @@ import androidx.preference.ListPreference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
 import static java.util.Objects.requireNonNull;
-import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-import static org.briarproject.briar.android.settings.SettingsActivity.enableAndPersist;
-import static org.briarproject.briar.android.util.UiUtils.hasScreenLock;
+import static org.nodex.android.AppModule.getAndroidComponent;
+import static org.nodex.android.settings.SettingsActivity.enableAndPersist;
+import static org.nodex.android.util.UiUtils.hasScreenLock;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class SecurityFragment extends PreferenceFragmentCompat {

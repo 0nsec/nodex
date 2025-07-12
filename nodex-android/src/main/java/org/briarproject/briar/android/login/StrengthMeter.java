@@ -1,4 +1,4 @@
-package org.briarproject.briar.android.login;
+package org.nodex.android.login;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -15,10 +15,10 @@ import static android.graphics.Paint.Style.STROKE;
 import static android.graphics.drawable.ClipDrawable.HORIZONTAL;
 import static android.view.Gravity.LEFT;
 import static android.view.Gravity.START;
-import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.QUITE_STRONG;
-import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.QUITE_WEAK;
-import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.STRONG;
-import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.WEAK;
+import static org.nodex.core.api.crypto.PasswordStrengthEstimator.QUITE_STRONG;
+import static org.nodex.core.api.crypto.PasswordStrengthEstimator.QUITE_WEAK;
+import static org.nodex.core.api.crypto.PasswordStrengthEstimator.STRONG;
+import static org.nodex.core.api.crypto.PasswordStrengthEstimator.WEAK;
 public class StrengthMeter extends ProgressBar {
 	private static final int MAX = 100;
 	public static final int RED = Color.rgb(255, 0, 0);
