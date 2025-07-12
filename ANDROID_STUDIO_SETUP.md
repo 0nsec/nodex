@@ -43,10 +43,10 @@
 - **Theme**: Material Design 3 (NodexTheme)
 
 ## Build Configuration
-- **Gradle**: 7.3.3
-- **Android Gradle Plugin**: 7.2.2
+- **Gradle**: 8.5 (Java 21 compatible)
+- **Android Gradle Plugin**: 8.2.0
 - **Java**: 11 (compatible with Java 21)
-- **Kotlin**: 1.9.10
+- **Kotlin**: 1.9.21
 
 ## Notes
 - The app has been completely rebranded from Briar to Nodex
@@ -67,6 +67,8 @@ If you see "Incompatible Gradle JVM" errors:
 2. In "Gradle JVM" dropdown, select your Java installation (Java 11 or higher)
 3. Click "Apply" and "OK"
 4. Sync project again
+
+**Note**: The project has been upgraded to Gradle 8.5 for full Java 21 compatibility.
 
 ### Java Version Compatibility
 - The project supports Java 11+ (including Java 21)
