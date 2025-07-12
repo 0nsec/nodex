@@ -4,7 +4,7 @@ import org.nodex.api.sync.MessageId;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.nodex.core.api.data.BdfDictionary.NULL_VALUE;
+import static org.nodex.core.api.data.BdfDictionaryConstants.NULL_VALUE;
 import static org.nodex.sharing.SharingConstants.SESSION_KEY_INVITE_TIMESTAMP;
 import static org.nodex.sharing.SharingConstants.SESSION_KEY_IS_SESSION;
 import static org.nodex.sharing.SharingConstants.SESSION_KEY_LAST_LOCAL_MESSAGE_ID;
