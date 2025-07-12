@@ -53,6 +53,8 @@
 - All comments have been removed from source code
 - Custom app icon has been implemented
 - Themes have been updated to use NodexTheme and NodexDialogTheme
+- GitLab CI configuration removed (GitHub Actions workflow added instead)
+- Gradle deprecated properties updated for compatibility
 
 ## Troubleshooting
 If you encounter build issues:
