@@ -25,6 +25,11 @@ public interface IntroductionManager {
     int MAJOR_VERSION = 1;
 
     /**
+     * Minor version of the introduction protocol.
+     */
+    int MINOR_VERSION = 0;
+
+    /**
      * Sends an introduction request to a contact.
      * 
      * @param contactId The contact to send the request to
