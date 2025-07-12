@@ -383,7 +383,7 @@
 			android:finishOnTaskLaunch="true"
 			android:label="@string/startup_failed_activity_title"
 			android:launchMode="singleInstance"
-			android:process=":briar_startup_failure"
+			android:process=":nodex_startup_failure"
 			android:windowSoftInputMode="adjustResize|stateHidden" />
 
 		<activity
