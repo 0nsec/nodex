@@ -17,6 +17,11 @@ import java.security.GeneralSecurityException;
 public interface GroupInvitationFactory {
 
     /**
+     * Signing label for invitation messages.
+     */
+    String SIGNING_LABEL_INVITE = "org.nodex.privategroup.invitation";
+
+    /**
      * Creates an invitation message for a private group.
      */
     Message createInviteMessage(GroupId groupId, long timestamp,
