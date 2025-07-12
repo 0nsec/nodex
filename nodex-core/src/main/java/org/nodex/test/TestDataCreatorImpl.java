@@ -65,7 +65,7 @@ import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
 import static org.nodex.api.plugin.BluetoothConstants.UUID_BYTES;
 import static org.nodex.api.sync.Group.Visibility.SHARED;
-import static org.nodex.core.util.LogUtils.logException;
+import static org.nodex.api.util.LogUtils.logException;
 import static org.nodex.api.util.StringUtils.getRandomString;
 import static org.nodex.api.autodelete.AutoDeleteConstants.MIN_AUTO_DELETE_TIMER_MS;
 import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
