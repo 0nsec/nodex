@@ -3,9 +3,9 @@ import org.nodex.api.FormatException;
 import org.nodex.api.sync.Group.Visibility;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
-import static org.nodex.core.api.sync.GroupConstantsConstants.Visibility.INVISIBLE;
-import static org.nodex.core.api.sync.GroupConstantsConstants.Visibility.SHARED;
-import static org.nodex.core.api.sync.GroupConstantsConstants.Visibility.VISIBLE;
+import static org.nodex.core.api.sync.GroupConstants.Visibility.INVISIBLE;
+import static org.nodex.core.api.sync.GroupConstants.Visibility.SHARED;
+import static org.nodex.core.api.sync.GroupConstants.Visibility.VISIBLE;
 @Immutable
 @NotNullByDefault
 enum InviteeState implements State {
