@@ -88,7 +88,7 @@ public class PendingContactListActivity extends BriarActivity
 		OnClickListener removeListener = (dialog, which) ->
 				removePendingContact(item.getPendingContact().getId());
 		MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(
-				PendingContactListActivity.this, R.style.BriarDialogTheme);
+				PendingContactListActivity.this, R.style.NodexDialogTheme);
 		builder.setTitle(
 				getString(R.string.dialog_title_remove_pending_contact));
 		builder.setMessage(

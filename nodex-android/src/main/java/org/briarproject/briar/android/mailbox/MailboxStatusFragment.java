@@ -192,7 +192,7 @@ public class MailboxStatusFragment extends Fragment {
 	}
 	private void onUnlinkButtonClicked(boolean showWarning) {
 		MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(
-				requireContext(), R.style.BriarDialogTheme);
+				requireContext(), R.style.NodexDialogTheme);
 		builder.setTitle(R.string.mailbox_status_unlink_dialog_title);
 		String msg = getString(R.string.mailbox_status_unlink_dialog_question);
 		if (showWarning) {

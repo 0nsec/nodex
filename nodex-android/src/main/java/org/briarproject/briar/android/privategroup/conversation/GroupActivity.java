@@ -149,7 +149,7 @@ public class GroupActivity extends
 	}
 	private void showLeaveGroupDialog() {
 		MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(
-				this, R.style.BriarDialogTheme);
+				this, R.style.NodexDialogTheme);
 		builder.setTitle(getString(R.string.groups_leave_dialog_title));
 		builder.setMessage(getString(R.string.groups_leave_dialog_message));
 		builder.setNegativeButton(R.string.dialog_button_leave,
@@ -159,7 +159,7 @@ public class GroupActivity extends
 	}
 	private void showDissolveGroupDialog() {
 		MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(
-				this, R.style.BriarDialogTheme);
+				this, R.style.NodexDialogTheme);
 		builder.setTitle(getString(R.string.groups_dissolve_dialog_title));
 		builder.setMessage(getString(R.string.groups_dissolve_dialog_message));
 		builder.setNegativeButton(R.string.groups_dissolve_button,
@@ -172,7 +172,7 @@ public class GroupActivity extends
 	}
 	private void onGroupDissolved() {
 		MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(
-				this, R.style.BriarDialogTheme);
+				this, R.style.NodexDialogTheme);
 		builder.setTitle(getString(R.string.groups_dissolved_dialog_title));
 		builder.setMessage(getString(R.string.groups_dissolved_dialog_message));
 		builder.setNeutralButton(R.string.ok, null);

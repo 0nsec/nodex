@@ -86,7 +86,7 @@ public class PermissionUtils {
 	}
 	public static void showLocationDialog(Context ctx, boolean forBluetooth) {
 		MaterialAlertDialogBuilder builder =
-				new MaterialAlertDialogBuilder(ctx, R.style.BriarDialogTheme);
+				new MaterialAlertDialogBuilder(ctx, R.style.NodexDialogTheme);
 		builder.setTitle(R.string.permission_location_setting_title);
 		if (forBluetooth) {
 			builder.setMessage(R.string.permission_location_setting_body);
@@ -109,7 +109,7 @@ public class PermissionUtils {
 	public static void showDenialDialog(FragmentActivity ctx,
 			@StringRes int title, @StringRes int body, Runnable onDenied) {
 		MaterialAlertDialogBuilder builder =
-				new MaterialAlertDialogBuilder(ctx, R.style.BriarDialogTheme);
+				new MaterialAlertDialogBuilder(ctx, R.style.NodexDialogTheme);
 		builder.setTitle(title);
 		builder.setMessage(body);
 		builder.setPositiveButton(R.string.ok, getGoToSettingsListener(ctx));
@@ -120,7 +120,7 @@ public class PermissionUtils {
 	public static void showRationale(FragmentActivity ctx, @StringRes int title,
 			@StringRes int body, @Nullable Runnable onOk) {
 		MaterialAlertDialogBuilder builder =
-				new MaterialAlertDialogBuilder(ctx, R.style.BriarDialogTheme);
+				new MaterialAlertDialogBuilder(ctx, R.style.NodexDialogTheme);
 		builder.setTitle(title);
 		builder.setMessage(body);
 		builder.setNeutralButton(R.string.continue_button, (dialog, which) -> {

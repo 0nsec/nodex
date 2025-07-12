@@ -38,7 +38,7 @@ public class RssFeedImportFailedDialogFragment extends DialogFragment {
 	public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 		MaterialAlertDialogBuilder builder =
 				new MaterialAlertDialogBuilder(requireActivity(),
-						R.style.BriarDialogTheme);
+						R.style.NodexDialogTheme);
 		builder.setMessage(R.string.blogs_rss_feeds_import_error);
 		builder.setNegativeButton(R.string.cancel, null);
 		builder.setPositiveButton(R.string.try_again_button, (dialog, which) ->

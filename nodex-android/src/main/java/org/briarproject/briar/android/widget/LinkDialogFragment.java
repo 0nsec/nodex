@@ -37,7 +37,7 @@ public class LinkDialogFragment extends DialogFragment {
 		super.onCreate(savedInstanceState);
 		Bundle args = requireArguments();
 		url = requireNonNull(args.getString("url"));
-		setStyle(STYLE_NO_TITLE, R.style.BriarDialogTheme);
+		setStyle(STYLE_NO_TITLE, R.style.NodexDialogTheme);
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater,

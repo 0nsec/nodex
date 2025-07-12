@@ -204,7 +204,7 @@ public class ImageActivity extends BriarActivity
 				viewModel.onSaveImageError();
 			}
 		};
-		Builder builder = new Builder(this, R.style.BriarDialogTheme);
+		Builder builder = new Builder(this, R.style.NodexDialogTheme);
 		builder.setTitle(getString(R.string.dialog_title_save_image));
 		builder.setMessage(getString(R.string.dialog_message_save_image));
 		builder.setIcon(getDialogIcon(this, R.drawable.ic_security));

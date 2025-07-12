@@ -106,7 +106,7 @@ public class ForumActivity extends
 	private void showUnsubscribeDialog() {
 		OnClickListener okListener = (dialog, which) -> viewModel.deleteForum();
 		MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this,
-				R.style.BriarDialogTheme);
+				R.style.NodexDialogTheme);
 		builder.setTitle(getString(R.string.dialog_title_leave_forum));
 		builder.setMessage(getString(R.string.dialog_message_leave_forum));
 		builder.setNegativeButton(R.string.dialog_button_leave, okListener);

@@ -133,7 +133,7 @@ public abstract class BriarActivity extends BaseActivity {
 	}
 	protected void showDozeDialog(@StringRes int message) {
 		MaterialAlertDialogBuilder b =
-				new MaterialAlertDialogBuilder(this, R.style.BriarDialogTheme);
+				new MaterialAlertDialogBuilder(this, R.style.NodexDialogTheme);
 		b.setMessage(message);
 		b.setView(R.layout.checkbox);
 		b.setPositiveButton(R.string.fix,

@@ -64,7 +64,7 @@ public class ConfirmAvatarDialogFragment extends DialogFragment {
 		viewModel.getOwnIdentityInfo().observe(activity, us ->
 				textViewUserName.setText(us.getLocalAuthor().getName())
 		);
-		int theme = R.style.BriarDialogTheme;
+		int theme = R.style.NodexDialogTheme;
 		return new MaterialAlertDialogBuilder(activity, theme)
 				.setView(view)
 				.setTitle(R.string.dialog_confirm_profile_picture_title)

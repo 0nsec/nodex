@@ -212,7 +212,7 @@ public class MailboxActivity extends BriarActivity {
 			showFragment(getSupportFragmentManager(), new BlankFragment(),
 					BlankFragment.TAG);
 			MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(
-					this, R.style.BriarDialogTheme);
+					this, R.style.NodexDialogTheme);
 			builder.setTitle(R.string.mailbox_status_unlink_no_wipe_title);
 			builder.setMessage(R.string.mailbox_status_unlink_no_wipe_message);
 			builder.setNeutralButton(R.string.got_it,

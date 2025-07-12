@@ -9,7 +9,7 @@ import static org.nodex.android.util.UiUtils.getDialogIcon;
 class LoginUtils {
 	static AlertDialog createKeyStrengthenerErrorDialog(Context ctx) {
 		MaterialAlertDialogBuilder builder =
-				new MaterialAlertDialogBuilder(ctx, R.style.BriarDialogTheme);
+				new MaterialAlertDialogBuilder(ctx, R.style.NodexDialogTheme);
 		builder.setIcon(getDialogIcon(ctx, R.drawable.alerts_and_states_error));
 		builder.setTitle(R.string.dialog_title_cannot_check_password);
 		builder.setMessage(R.string.dialog_message_cannot_check_password);

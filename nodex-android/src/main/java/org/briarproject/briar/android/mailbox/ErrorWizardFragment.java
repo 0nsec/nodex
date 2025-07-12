@@ -125,7 +125,7 @@ public class ErrorWizardFragment extends Fragment {
 	}
 	private void onUnlinkButtonClicked(View v) {
 		MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(
-				requireContext(), R.style.BriarDialogTheme);
+				requireContext(), R.style.NodexDialogTheme);
 		builder.setTitle(R.string.mailbox_status_unlink_dialog_title);
 		builder.setMessage(R.string.mailbox_status_unlink_dialog_question);
 		builder.setPositiveButton(R.string.cancel,

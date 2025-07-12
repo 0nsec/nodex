@@ -158,7 +158,7 @@ public class PanicPreferencesFragment extends PreferenceFragmentCompat
 			getActivity().finish();
 		};
 		MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(
-				requireContext(), R.style.BriarDialogTheme);
+				requireContext(), R.style.NodexDialogTheme);
 		builder.setTitle(getString(R.string.dialog_title_connect_panic_app));
 		CharSequence app = getString(R.string.unknown_app);
 		String packageName = getCallingPackageName();

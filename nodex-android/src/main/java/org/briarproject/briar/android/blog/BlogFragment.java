@@ -191,7 +191,7 @@ public class BlogFragment extends BaseFragment
 	}
 	private void showDeleteDialog() {
 		MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(
-				requireContext(), R.style.BriarDialogTheme);
+				requireContext(), R.style.NodexDialogTheme);
 		builder.setTitle(getString(R.string.blogs_remove_blog));
 		builder.setMessage(
 				getString(R.string.blogs_remove_blog_dialog_message));
