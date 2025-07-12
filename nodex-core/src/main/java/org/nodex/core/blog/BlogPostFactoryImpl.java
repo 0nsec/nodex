@@ -8,7 +8,7 @@ import org.nodex.api.sync.GroupId;
 import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageId;
 import org.nodex.api.system.Clock;
-import org.nodex.api.util.StringUtils;
+import org.nodex.core.util.StringUtils;
 import org.nodex.api.blog.BlogPost;
 import org.nodex.api.blog.BlogPostFactory;
 import org.nodex.api.blog.MessageType;
