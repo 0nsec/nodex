@@ -49,4 +49,24 @@ public class Group {
     public String toString() {
         return "Group{id=" + id + ", version=" + version + '}';
     }
+    
+    /**
+     * Defines the visibility of a group.
+     */
+    public enum Visibility {
+        /**
+         * Group is visible only to the local user.
+         */
+        PRIVATE,
+        
+        /**
+         * Group is shared with contacts.
+         */
+        SHARED,
+        
+        /**
+         * Group is visible to all contacts.
+         */
+        PUBLIC
+    }
 }
