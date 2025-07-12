@@ -215,12 +215,30 @@ public class TestDataCreatorImpl implements TestDataCreator {
 		return contact;
 	}
 	@Override
-	public Contact addContact(String name, boolean alias, boolean avatar)
-			throws DbException {
-		LocalAuthor localAuthor = identityManager.getLocalAuthor();
-		LocalAuthor remote = authorFactory.createLocalAuthor(name);
-		int avatarPercent = avatar ? 100 : 0;
-		return addContact(localAuthor.getId(), remote, alias, avatarPercent);
+	public Contact createContact() {
+		try {
+			return addContact(getRandomAuthorName(), false, false);
+		} catch (DbException e) {
+			logException(LOG, WARNING, e);
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
+	public Contact createContact(ContactId contactId) {
+		// This implementation creates a contact with a random name
+		// In a real implementation, this would use the provided contactId
+		return createContact();
+	}
+
+	@Override
+	public LocalAuthor createLocalAuthor() {
+		return getRandomAuthor();
+	}
+
+	@Override
+	public LocalAuthor createLocalAuthor(String name) {
+		return authorFactory.createLocalAuthor(name);
 	}
 	private String getRandomAuthorName() {
 		int i = random.nextInt(AUTHOR_NAMES.length);
