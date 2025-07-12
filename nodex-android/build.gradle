@@ -101,7 +101,7 @@ android {
 
 dependencies {
 	implementation project(':nodex-api')
-	implementation project(':nodex-core')
+	// implementation project(':nodex-core')
 	implementation 'androidx.fragment:fragment:1.6.2'
 	implementation 'androidx.preference:preference:1.2.1'
 	implementation 'androidx.exifinterface:exifinterface:1.3.7'
