@@ -18,8 +18,8 @@ import java.security.SecureRandom;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
 
-import static org.nodex.core.util.ValidationUtils.checkLength;
-import static org.nodex.core.util.ValidationUtils.checkSize;
+import static org.nodex.api.util.ValidationUtils.checkLength;
+import static org.nodex.api.util.ValidationUtils.checkSize;
 
 @Immutable
 @NotNullByDefault
