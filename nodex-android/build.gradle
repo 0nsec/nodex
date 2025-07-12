@@ -40,7 +40,7 @@ android {
 		def now = (long) (System.currentTimeMillis() / 1000)
 		buildConfigField "Long", "BuildTimestamp",
 			"${getStdout(['git', 'log', '-n', '1', '--format=%ct'], now)}000L"
-		testInstrumentationRunner 'org.nodex.android.NodexTestRunner'
+		testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 		testInstrumentationRunnerArguments disableAnalytics: 'true'
 	}
 
