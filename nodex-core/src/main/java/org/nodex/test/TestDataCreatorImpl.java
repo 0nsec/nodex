@@ -240,6 +240,15 @@ public class TestDataCreatorImpl implements TestDataCreator {
 	public LocalAuthor createLocalAuthor(String name) {
 		return authorFactory.createLocalAuthor(name);
 	}
+
+	@Override
+	public Contact addContact(String name, boolean alias, boolean avatar)
+			throws DbException {
+		LocalAuthor localAuthor = identityManager.getLocalAuthor();
+		LocalAuthor remote = authorFactory.createLocalAuthor(name);
+		int avatarPercent = avatar ? 100 : 0;
+		return addContact(localAuthor.getId(), remote, alias, avatarPercent);
+	}
 	private String getRandomAuthorName() {
 		int i = random.nextInt(AUTHOR_NAMES.length);
 		return AUTHOR_NAMES[i];
