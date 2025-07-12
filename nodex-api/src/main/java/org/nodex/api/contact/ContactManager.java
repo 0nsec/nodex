@@ -30,4 +30,24 @@ public interface ContactManager {
      * Remove a contact.
      */
     void removeContact(AuthorId authorId);
+    
+    /**
+     * Hook interface for contact events.
+     */
+    interface ContactHook {
+        /**
+         * Called when a contact is added.
+         */
+        void onContactAdded(Contact contact);
+        
+        /**
+         * Called when a contact is removed.
+         */
+        void onContactRemoved(Contact contact);
+        
+        /**
+         * Called when a contact is updated.
+         */
+        void onContactUpdated(Contact contact);
+    }
 }
