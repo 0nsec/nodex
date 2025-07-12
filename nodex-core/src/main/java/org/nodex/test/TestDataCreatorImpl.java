@@ -63,7 +63,7 @@ import static java.util.Collections.emptyList;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
-import static org.nodex.core.api.plugin.BluetoothConstants.UUID_BYTES;
+import static org.nodex.api.plugin.BluetoothConstants.UUID_BYTES;
 import static org.nodex.core.api.sync.Group.Visibility.SHARED;
 import static org.nodex.core.util.LogUtils.logException;
 import static org.nodex.core.util.StringUtils.getRandomString;
