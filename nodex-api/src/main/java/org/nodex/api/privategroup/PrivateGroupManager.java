@@ -93,4 +93,34 @@ public interface PrivateGroupManager {
      * Returns all members of a private group.
      */
     Collection<GroupMember> getGroupMembers(Transaction txn, GroupId groupId) throws DbException;
+    
+    /**
+     * Major version of the private group client.
+     */
+    int MAJOR_VERSION = 1;
+    
+    /**
+     * Hook interface for private group events.
+     */
+    interface PrivateGroupHook {
+        /**
+         * Called when a private group is added.
+         */
+        void onPrivateGroupAdded(PrivateGroup privateGroup);
+        
+        /**
+         * Called when a private group is removed.
+         */
+        void onPrivateGroupRemoved(PrivateGroup privateGroup);
+        
+        /**
+         * Called when a member is added to a private group.
+         */
+        void onMemberAdded(GroupId groupId, GroupMember member);
+        
+        /**
+         * Called when a member is removed from a private group.
+         */
+        void onMemberRemoved(GroupId groupId, GroupMember member);
+    }
 }
