@@ -3,8 +3,8 @@ import org.nodex.api.FormatException;
 import org.nodex.api.sync.Group.Visibility;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
-import static org.nodex.core.api.sync.Group.Visibility.INVISIBLE;
-import static org.nodex.core.api.sync.Group.Visibility.SHARED;
+import static org.nodex.core.api.sync.GroupConstantsConstants.Visibility.INVISIBLE;
+import static org.nodex.core.api.sync.GroupConstantsConstants.Visibility.SHARED;
 @Immutable
 @NotNullByDefault
 enum CreatorState implements State {

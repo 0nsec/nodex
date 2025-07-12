@@ -36,7 +36,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.nodex.core.api.sync.validation.IncomingMessageHook.DeliveryAction.ACCEPT_DO_NOT_SHARE;
+import static org.nodex.core.api.sync.validation.IncomingMessageHookConstants.DeliveryAction.ACCEPT_DO_NOT_SHARE;
 import static org.nodex.api.attachment.MediaConstants.MSG_KEY_CONTENT_TYPE;
 import static org.nodex.avatar.AvatarConstants.GROUP_KEY_CONTACT_ID;
 import static org.nodex.avatar.AvatarConstants.MSG_KEY_VERSION;
