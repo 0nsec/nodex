@@ -16,7 +16,7 @@ public interface GroupFactory {
      * @param descriptor The group descriptor
      * @return A new Group instance
      */
-    Group createGroup(String clientId, int majorVersion, byte[] descriptor);
+    Group createGroup(ClientId clientId, int majorVersion, byte[] descriptor);
     
     /**
      * Creates a new group with the specified parameters and visibility.
@@ -27,5 +27,5 @@ public interface GroupFactory {
      * @param visibility The visibility setting for the group
      * @return A new Group instance
      */
-    Group createGroup(String clientId, int majorVersion, byte[] descriptor, Group.Visibility visibility);
+    Group createGroup(ClientId clientId, int majorVersion, byte[] descriptor, Group.Visibility visibility);
 }
