@@ -1,7 +1,8 @@
 package org.nodex.api.introduction;
 
+import org.nodex.api.conversation.ConversationMessageVisitor;
 import org.nodex.api.conversation.ConversationResponse;
-import org.nodex.api.nullsafety.NotNullByDefault;
+import org.nodex.nullsafety.NotNullByDefault;
 
 import javax.annotation.concurrent.Immutable;
 
@@ -11,6 +12,9 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault
 public class IntroductionResponse extends ConversationResponse {
-    // Implementation details would go here
-    // For now, this is a stub to resolve compilation errors
+    
+    @Override
+    public <T> T accept(ConversationMessageVisitor<T> v) {
+        return v.visitIntroductionResponse(this);
+    }
 }
