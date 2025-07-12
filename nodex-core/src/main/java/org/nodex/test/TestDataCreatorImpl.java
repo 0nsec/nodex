@@ -66,7 +66,7 @@ import static java.util.logging.Logger.getLogger;
 import static org.nodex.api.plugin.BluetoothConstants.UUID_BYTES;
 import static org.nodex.api.sync.Group.Visibility.SHARED;
 import static org.nodex.core.util.LogUtils.logException;
-import static org.nodex.core.util.StringUtils.getRandomString;
+import static org.nodex.api.util.StringUtils.getRandomString;
 import static org.nodex.api.autodelete.AutoDeleteConstants.MIN_AUTO_DELETE_TIMER_MS;
 import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 import static org.nodex.test.TestData.AUTHOR_NAMES;
@@ -236,12 +236,16 @@ public class TestDataCreatorImpl implements TestDataCreator {
 	}
 	private Map<TransportId, TransportProperties> getRandomTransportProperties() {
 		Map<TransportId, TransportProperties> props = new HashMap<>();
+		
+		// Bluetooth properties
 		TransportProperties bt = new TransportProperties();
 		String btAddress = getRandomBluetoothAddress();
 		String uuid = getRandomUUID();
 		bt.put(BluetoothConstants.PROP_ADDRESS, btAddress);
 		bt.put(BluetoothConstants.PROP_UUID, uuid);
 		props.put(BluetoothConstants.ID, bt);
+		
+		// LAN properties
 		TransportProperties lan = new TransportProperties();
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < 4; i++) {
@@ -252,10 +256,13 @@ public class TestDataCreatorImpl implements TestDataCreator {
 		String port = String.valueOf(getRandomPortNumber());
 		lan.put(LanTcpConstants.PROP_PORT, port);
 		props.put(LanTcpConstants.ID, lan);
+		
+		// Tor properties
 		TransportProperties tor = new TransportProperties();
 		String torAddress = getRandomTorAddress();
 		tor.put(TorConstants.PROP_ONION_V3, torAddress);
 		props.put(TorConstants.ID, tor);
+		
 		return props;
 	}
 	private String getRandomBluetoothAddress() {

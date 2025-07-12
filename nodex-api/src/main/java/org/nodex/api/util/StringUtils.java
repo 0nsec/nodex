@@ -3,12 +3,16 @@ package org.nodex.api.util;
 import org.nodex.api.nullsafety.NotNullByDefault;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Random;
 
 /**
  * Utility methods for string operations.
  */
 @NotNullByDefault
 public class StringUtils {
+    
+    private static final Random random = new Random();
+    private static final String CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     
     private StringUtils() {
         // Utility class
@@ -41,5 +45,16 @@ public class StringUtils {
     public static String truncate(String s, int maxLength) {
         if (s.length() <= maxLength) return s;
         return s.substring(0, maxLength);
+    }
+    
+    /**
+     * Generates a random string of the specified length.
+     */
+    public static String getRandomString(int length) {
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            sb.append(CHARS.charAt(random.nextInt(CHARS.length())));
+        }
+        return sb.toString();
     }
 }
