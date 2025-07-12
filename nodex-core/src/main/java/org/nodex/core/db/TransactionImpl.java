@@ -15,6 +15,8 @@ public class TransactionImpl implements Transaction {
 
     private final long transactionId;
     private final Connection connection;
+    private boolean committed = false;
+    private boolean aborted = false;
 
     public TransactionImpl(long transactionId, Connection connection) {
         this.transactionId = transactionId;
@@ -27,7 +29,36 @@ public class TransactionImpl implements Transaction {
     }
 
     public Connection getConnection() {
+        if (connection == null) {
+            throw new IllegalStateException("Transaction connection is null");
+        }
         return connection;
+    }
+
+    public void markCommitted() {
+        if (aborted) {
+            throw new IllegalStateException("Transaction already aborted");
+        }
+        committed = true;
+    }
+
+    public void markAborted() {
+        if (committed) {
+            throw new IllegalStateException("Transaction already committed");
+        }
+        aborted = true;
+    }
+
+    public boolean isCommitted() {
+        return committed;
+    }
+
+    public boolean isAborted() {
+        return aborted;
+    }
+
+    public boolean isActive() {
+        return !committed && !aborted;
     }
 
     @Override
