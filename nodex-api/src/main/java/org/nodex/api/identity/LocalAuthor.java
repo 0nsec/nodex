@@ -28,11 +28,6 @@ public class LocalAuthor extends Author {
     public byte[] getPrivateKey() {
         return privateKey.clone();
     }
-}
-
-    public byte[] getPrivateKey() {
-        return privateKey.clone();
-    }
 
     @Override
     public String toString() {
