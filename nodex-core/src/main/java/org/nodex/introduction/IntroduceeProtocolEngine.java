@@ -45,7 +45,7 @@ import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
 import static java.lang.Math.max;
 import static java.util.logging.Level.WARNING;
-import static org.nodex.core.api.system.Clock.MIN_REASONABLE_TIME_MS;
+import static org.nodex.core.api.system.ClockConstants.MIN_REASONABLE_TIME_MS;
 import static org.nodex.core.util.LogUtils.logException;
 import static org.nodex.introduction.IntroduceeState.AWAIT_AUTH;
 import static org.nodex.introduction.IntroduceeState.AWAIT_RESPONSES;
