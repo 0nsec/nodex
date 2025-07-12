@@ -297,9 +297,13 @@ public class TestDataCreatorImpl implements TestDataCreator {
 		return 32768 + random.nextInt(32768);
 	}
 	private String getRandomTorAddress() {
-		byte[] pubkeyBytes =
-				crypto.generateSignatureKeyPair().getPublic().getEncoded();
-		return crypto.encodeOnion(pubkeyBytes);
+		try {
+			byte[] pubkeyBytes = crypto.generateSignatureKeyPair().getPublic().getEncoded();
+			return crypto.encodeOnion(pubkeyBytes);
+		} catch (Exception e) {
+			// Fallback to a random onion address format
+			return getRandomString(16) + ".onion";
+		}
 	}
 	private void addAvatar(Contact c) throws DbException {
 		AuthorId authorId = c.getAuthor().getId();
