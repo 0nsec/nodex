@@ -1,8 +1,6 @@
 package org.briarproject.briar.android.conversation;
-
 import android.app.Application;
 import android.net.Uri;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.contact.Contact;
 import org.briarproject.bramble.api.contact.ContactId;
@@ -47,19 +45,15 @@ import org.briarproject.briar.api.messaging.PrivateMessageFormat;
 import org.briarproject.briar.api.messaging.PrivateMessageHeader;
 import org.briarproject.briar.api.messaging.event.AttachmentReceivedEvent;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static androidx.lifecycle.Transformations.map;
 import static java.util.Objects.requireNonNull;
 import static java.util.logging.Level.INFO;
@@ -77,19 +71,15 @@ import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_
 import static org.briarproject.briar.api.autodelete.AutoDeleteManager.DEFAULT_TIMER_DURATION;
 import static org.briarproject.briar.api.messaging.PrivateMessageFormat.TEXT_IMAGES;
 import static org.briarproject.briar.api.messaging.PrivateMessageFormat.TEXT_ONLY;
-
 @NotNullByDefault
 public class ConversationViewModel extends DbViewModel
 		implements EventListener, AttachmentManager {
-
 	private static final Logger LOG =
 			getLogger(ConversationViewModel.class.getName());
-
 	private static final String SHOW_ONBOARDING_IMAGE =
 			"showOnboardingImage";
 	private static final String SHOW_ONBOARDING_INTRODUCTION =
 			"showOnboardingIntroduction";
-
 	private final TransactionManager db;
 	private final EventBus eventBus;
 	private final MessagingManager messagingManager;
@@ -101,7 +91,6 @@ public class ConversationViewModel extends DbViewModel
 	private final AttachmentCreator attachmentCreator;
 	private final AutoDeleteManager autoDeleteManager;
 	private final ConversationManager conversationManager;
-
 	@Nullable
 	private ContactId contactId = null;
 	private final MutableLiveData<ContactItem> contactItem =
@@ -123,7 +112,6 @@ public class ConversationViewModel extends DbViewModel
 			new MutableLiveData<>(false);
 	private final MutableLiveEvent<PrivateMessageHeader> addedHeader =
 			new MutableLiveEvent<>();
-
 	@Inject
 	ConversationViewModel(Application application,
 			@DatabaseExecutor Executor dbExecutor,
@@ -156,14 +144,12 @@ public class ConversationViewModel extends DbViewModel
 				messagingManager.getContactGroup(c.getContact()).getId());
 		eventBus.addListener(this);
 	}
-
 	@Override
 	protected void onCleared() {
 		super.onCleared();
-		attachmentCreator.cancel();  // also deletes unsent attachments
+		attachmentCreator.cancel();
 		eventBus.removeListener(this);
 	}
-
 	@Override
 	public void eventOccurred(Event e) {
 		if (e instanceof AttachmentReceivedEvent) {
@@ -186,29 +172,18 @@ public class ConversationViewModel extends DbViewModel
 			}
 		}
 	}
-
 	@UiThread
 	private void updateAvatar(AvatarUpdatedEvent a) {
-		// Make sure that contactItem has been set by the task initiated
-		// by loadContact() before we update the avatar.
 		observeForeverOnce(contactItem, oldContactItem -> {
 			requireNonNull(oldContactItem);
-
 			AuthorInfo oldAuthorInfo = oldContactItem.getAuthorInfo();
-
 			AuthorInfo newAuthorInfo = new AuthorInfo(oldAuthorInfo.getStatus(),
 					oldAuthorInfo.getAlias(), a.getAttachmentHeader());
 			ContactItem newContactItem =
 					new ContactItem(oldContactItem.getContact(), newAuthorInfo);
-
 			contactItem.setValue(newContactItem);
 		});
 	}
-
-	/**
-	 * Setting the {@link ContactId} automatically triggers loading of other
-	 * data.
-	 */
 	void setContactId(ContactId contactId) {
 		if (this.contactId == null) {
 			this.contactId = contactId;
@@ -217,7 +192,6 @@ public class ConversationViewModel extends DbViewModel
 			throw new IllegalStateException();
 		}
 	}
-
 	private void loadContact(ContactId contactId) {
 		runOnDbThread(() -> {
 			try {
@@ -241,7 +215,6 @@ public class ConversationViewModel extends DbViewModel
 			}
 		});
 	}
-
 	void markMessageRead(GroupId g, MessageId m) {
 		runOnDbThread(() -> {
 			try {
@@ -253,7 +226,6 @@ public class ConversationViewModel extends DbViewModel
 			}
 		});
 	}
-
 	void setContactAlias(String alias) {
 		runOnDbThread(() -> {
 			try {
@@ -265,7 +237,6 @@ public class ConversationViewModel extends DbViewModel
 			}
 		});
 	}
-
 	@Override
 	@UiThread
 	public LiveData<AttachmentResult> storeAttachments(Collection<Uri> uris,
@@ -273,38 +244,29 @@ public class ConversationViewModel extends DbViewModel
 		if (restart) {
 			return attachmentCreator.getLiveAttachments();
 		} else {
-			// messagingGroupId is loaded with the contact
 			return attachmentCreator.storeAttachments(messagingGroupId, uris);
 		}
 	}
-
 	@Override
 	@UiThread
 	public List<AttachmentHeader> getAttachmentHeadersForSending() {
 		return attachmentCreator.getAttachmentHeadersForSending();
 	}
-
 	@Override
 	@UiThread
 	public void cancel() {
 		attachmentCreator.cancel();
 	}
-
 	@DatabaseExecutor
 	private void checkFeaturesAndOnboarding(ContactId c) throws DbException {
-		// check if images and auto-deletion are supported
 		PrivateMessageFormat format = db.transactionWithResult(true, txn ->
 				messagingManager.getContactMessageFormat(txn, c));
 		if (LOG.isLoggable(INFO))
 			LOG.info("PrivateMessageFormat loaded: " + format.name());
 		privateMessageFormat.postValue(format);
-
-		// check if introductions are supported
 		Collection<Contact> contacts = contactManager.getContacts();
 		boolean introductionSupported = contacts.size() > 1;
 		showIntroductionAction.postValue(introductionSupported);
-
-		// we only show one onboarding dialog at a time
 		Settings settings = settingsManager.getSettings(SETTINGS_NAMESPACE);
 		if (format != TEXT_ONLY &&
 				settings.getBoolean(SHOW_ONBOARDING_IMAGE, true)) {
@@ -316,14 +278,12 @@ public class ConversationViewModel extends DbViewModel
 			showIntroductionOnboarding.postEvent(true);
 		}
 	}
-
 	@DatabaseExecutor
 	private void onOnboardingShown(String key) throws DbException {
 		Settings settings = new Settings();
 		settings.putBoolean(key, false);
 		settingsManager.mergeSettings(settings, SETTINGS_NAMESPACE);
 	}
-
 	@UiThread
 	LiveData<SendState> sendMessage(@Nullable String text,
 			List<AttachmentHeader> headers, long expectedTimer) {
@@ -342,7 +302,6 @@ public class ConversationViewModel extends DbViewModel
 							message.getTimestamp(), true, true, false, false,
 							m.hasText(), m.getAttachmentHeaders(),
 							m.getAutoDeleteTimer());
-					// TODO add text to cache when available here
 					MessageId id = message.getId();
 					txn.attach(() -> {
 						attachmentCreator.onAttachmentsSent(id);
@@ -359,13 +318,9 @@ public class ConversationViewModel extends DbViewModel
 		});
 		return liveData;
 	}
-
 	private PrivateMessage createMessage(Transaction txn, @Nullable String text,
 			List<AttachmentHeader> headers, long expectedTimer)
 			throws DbException {
-		// Sending is only possible (setReady(true)) after loading all messages
-		// which happens after the contact has been loaded.
-		// privateMessageFormat is loaded together with contact
 		Contact contact = requireNonNull(contactItem.getValue()).getContact();
 		GroupId groupId = messagingManager.getContactGroup(contact).getId();
 		PrivateMessageFormat format =
@@ -391,10 +346,8 @@ public class ConversationViewModel extends DbViewModel
 			throw new AssertionError(e);
 		}
 	}
-
 	void setAutoDeleteTimerEnabled(boolean enabled) {
 		long timer = enabled ? DEFAULT_TIMER_DURATION : NO_AUTO_DELETE_TIMER;
-		// ContactId is set before menu gets inflated and UI interaction
 		final ContactId c = requireNonNull(contactId);
 		runOnDbThread(() -> {
 			try {
@@ -406,47 +359,36 @@ public class ConversationViewModel extends DbViewModel
 			}
 		});
 	}
-
 	AttachmentRetriever getAttachmentRetriever() {
 		return attachmentRetriever;
 	}
-
 	LiveData<ContactItem> getContactItem() {
 		return contactItem;
 	}
-
 	LiveData<String> getContactDisplayName() {
 		return contactName;
 	}
-
 	LiveData<PrivateMessageFormat> getPrivateMessageFormat() {
 		return privateMessageFormat;
 	}
-
 	LiveEvent<Boolean> showImageOnboarding() {
 		return showImageOnboarding;
 	}
-
 	LiveEvent<Boolean> showIntroductionOnboarding() {
 		return showIntroductionOnboarding;
 	}
-
 	LiveData<Boolean> showIntroductionAction() {
 		return showIntroductionAction;
 	}
-
 	LiveData<Long> getAutoDeleteTimer() {
 		return autoDeleteTimer;
 	}
-
 	LiveData<Boolean> isContactDeleted() {
 		return contactDeleted;
 	}
-
 	LiveEvent<PrivateMessageHeader> getAddedPrivateMessage() {
 		return addedHeader;
 	}
-
 	@UiThread
 	void recheckFeaturesAndOnboarding(ContactId contactId) {
 		runOnDbThread(() -> {

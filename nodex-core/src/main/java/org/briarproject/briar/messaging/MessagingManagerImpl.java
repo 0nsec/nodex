@@ -1,5 +1,4 @@
 package org.briarproject.briar.messaging;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.cleanup.CleanupHook;
 import org.briarproject.bramble.api.client.ClientHelper;
@@ -44,7 +43,6 @@ import org.briarproject.briar.api.messaging.PrivateMessageHeader;
 import org.briarproject.briar.api.messaging.event.AttachmentReceivedEvent;
 import org.briarproject.briar.api.messaging.event.PrivateMessageReceivedEvent;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -56,10 +54,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.logging.Logger;
-
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 import static java.util.Collections.emptyList;
 import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.api.client.ContactGroupConstants.GROUP_KEY_CONTACT_ID;
@@ -84,16 +80,13 @@ import static org.briarproject.briar.messaging.MessagingConstants.MSG_KEY_HAS_TE
 import static org.briarproject.briar.messaging.MessagingConstants.MSG_KEY_LOCAL;
 import static org.briarproject.briar.messaging.MessagingConstants.MSG_KEY_MSG_TYPE;
 import static org.briarproject.briar.messaging.MessagingConstants.MSG_KEY_TIMESTAMP;
-
 @Immutable
 @NotNullByDefault
 class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		ConversationClient, OpenDatabaseHook, ContactHook,
 		ClientVersioningHook, CleanupHook {
-
 	private static final Logger LOG =
 			getLogger(MessagingManagerImpl.class.getName());
-
 	private final DatabaseComponent db;
 	private final ClientHelper clientHelper;
 	private final MetadataParser metadataParser;
@@ -102,7 +95,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 	private final ClientVersioningManager clientVersioningManager;
 	private final ContactGroupFactory contactGroupFactory;
 	private final AutoDeleteManager autoDeleteManager;
-
 	@Inject
 	MessagingManagerImpl(
 			DatabaseComponent db,
@@ -122,7 +114,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		this.contactGroupFactory = contactGroupFactory;
 		this.autoDeleteManager = autoDeleteManager;
 	}
-
 	@Override
 	public GroupCount getGroupCount(Transaction txn, ContactId contactId)
 			throws DbException {
@@ -130,58 +121,44 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		GroupId groupId = getContactGroup(contact).getId();
 		return messageTracker.getGroupCount(txn, groupId);
 	}
-
 	@Override
 	public void onDatabaseOpened(Transaction txn) throws DbException {
-		// Create a local group to indicate that we've set this client up
 		Group localGroup = contactGroupFactory.createLocalGroup(CLIENT_ID,
 				MAJOR_VERSION);
 		if (db.containsGroup(txn, localGroup.getId())) return;
 		db.addGroup(txn, localGroup);
-		// Set things up for any pre-existing contacts
 		for (Contact c : db.getContacts(txn)) addingContact(txn, c);
 	}
-
 	@Override
 	public void addingContact(Transaction txn, Contact c) throws DbException {
-		// Create a group to share with the contact
 		Group g = getContactGroup(c);
 		db.addGroup(txn, g);
-		// Apply the client's visibility to the contact group
 		Visibility client = clientVersioningManager.getClientVisibility(txn,
 				c.getId(), CLIENT_ID, MAJOR_VERSION);
 		db.setGroupVisibility(txn, c.getId(), g.getId(), client);
-		// Attach the contact ID to the group
 		clientHelper.setContactId(txn, g.getId(), c.getId());
-		// Initialize the group count with current time
 		messageTracker.initializeGroupCount(txn, g.getId());
 	}
-
 	@Override
 	public Group getContactGroup(Contact c) {
 		return contactGroupFactory.createContactGroup(CLIENT_ID,
 				MAJOR_VERSION, c);
 	}
-
 	@Override
 	public void removingContact(Transaction txn, Contact c) throws DbException {
 		db.removeGroup(txn, getContactGroup(c));
 	}
-
 	@Override
 	public void onClientVisibilityChanging(Transaction txn, Contact c,
 			Visibility v) throws DbException {
-		// Apply the client's visibility to the contact group
 		Group g = getContactGroup(c);
 		db.setGroupVisibility(txn, c.getId(), g.getId(), v);
 	}
-
 	@Override
 	public DeliveryAction incomingMessage(Transaction txn, Message m,
 			Metadata meta) throws DbException, InvalidMessageException {
 		try {
 			BdfDictionary metaDict = metadataParser.parse(meta);
-			// Message type is null for version 0.0 private messages
 			Integer messageType = metaDict.getOptionalInt(MSG_KEY_MSG_TYPE);
 			if (messageType == null) {
 				incomingPrivateMessage(txn, m, metaDict, true, emptyList());
@@ -200,7 +177,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		}
 		return ACCEPT_DO_NOT_SHARE;
 	}
-
 	private void incomingPrivateMessage(Transaction txn, Message m,
 			BdfDictionary meta, boolean hasText, List<AttachmentHeader> headers)
 			throws DbException, FormatException {
@@ -227,7 +203,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		if (!headers.isEmpty()) stopAttachmentCleanupTimers(txn, m, headers);
 		logDuration(LOG, "Receiving private message", start);
 	}
-
 	private List<AttachmentHeader> parseAttachmentHeaders(GroupId g,
 			BdfDictionary meta) throws FormatException {
 		BdfList attachmentHeaders = meta.getList(MSG_KEY_ATTACHMENT_HEADERS);
@@ -241,32 +216,24 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		}
 		return headers;
 	}
-
 	private void stopAttachmentCleanupTimers(Transaction txn, Message m,
 			List<AttachmentHeader> headers)
 			throws DbException, FormatException {
-		// Fetch the IDs of all remote attachments
 		BdfDictionary query = BdfDictionary.of(
 				new BdfEntry(MSG_KEY_MSG_TYPE, ATTACHMENT),
 				new BdfEntry(MSG_KEY_LOCAL, false));
 		Collection<MessageId> results =
 				clientHelper.getMessageIds(txn, m.getGroupId(), query);
-		// Stop the cleanup timers of any attachments that have already
-		// been delivered
 		for (AttachmentHeader h : headers) {
 			MessageId id = h.getMessageId();
 			if (results.contains(id)) db.stopCleanupTimer(txn, id);
 		}
 	}
-
 	private void incomingAttachment(Transaction txn, Message m)
 			throws DbException {
 		long start = now();
 		ContactId contactId = getContactId(txn, m.getGroupId());
 		txn.attach(new AttachmentReceivedEvent(m.getId(), contactId));
-		// If no private messages that list this attachment have been
-		// delivered, start the cleanup timer. It will be stopped when a
-		// private message that lists this attachment is delivered
 		BdfDictionary query = BdfDictionary.of(
 				new BdfEntry(MSG_KEY_MSG_TYPE, PRIVATE_MESSAGE),
 				new BdfEntry(MSG_KEY_LOCAL, false));
@@ -280,7 +247,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 					if (h.getMessageId().equals(m.getId())) return;
 				}
 			}
-			// No private messages list this attachment - start the timer
 			db.setCleanupTimerDuration(txn, m.getId(),
 					MISSING_ATTACHMENT_CLEANUP_DURATION_MS);
 			db.startCleanupTimer(txn, m.getId());
@@ -289,12 +255,10 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		}
 		logDuration(LOG, "Receiving attachment", start);
 	}
-
 	@Override
 	public void addLocalMessage(PrivateMessage m) throws DbException {
 		db.transaction(false, txn -> addLocalMessage(txn, m));
 	}
-
 	@Override
 	public void addLocalMessage(Transaction txn, PrivateMessage m)
 			throws DbException {
@@ -318,7 +282,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 					meta.put(MSG_KEY_AUTO_DELETE_TIMER, timer);
 				}
 			}
-			// Mark attachments as shared and permanent now we're ready to send
 			for (AttachmentHeader a : m.getAttachmentHeaders()) {
 				db.setMessageShared(txn, a.getMessageId());
 				db.setMessagePermanent(txn, a.getMessageId());
@@ -333,12 +296,10 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 			throw new AssertionError(e);
 		}
 	}
-
 	@Override
 	public AttachmentHeader addLocalAttachment(GroupId groupId, long timestamp,
 			String contentType, InputStream in)
 			throws DbException, IOException {
-		// TODO: Support large messages
 		ByteArrayOutputStream bodyOut = new ByteArrayOutputStream();
 		byte[] descriptor =
 				clientHelper.toByteArray(BdfList.of(ATTACHMENT, contentType));
@@ -354,18 +315,15 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		meta.put(MSG_KEY_CONTENT_TYPE, contentType);
 		meta.put(MSG_KEY_DESCRIPTOR_LENGTH, descriptor.length);
 		Message m = clientHelper.createMessage(groupId, timestamp, body);
-		// Mark attachments as temporary, not shared until we're ready to send
 		db.transaction(false, txn ->
 				clientHelper.addLocalMessage(txn, m, meta, false, true));
 		return new AttachmentHeader(groupId, m.getId(), contentType);
 	}
-
 	@Override
 	public void removeAttachment(AttachmentHeader header) throws DbException {
 		db.transaction(false,
 				txn -> db.removeMessage(txn, header.getMessageId()));
 	}
-
 	private ContactId getContactId(Transaction txn, GroupId g)
 			throws DbException {
 		try {
@@ -376,7 +334,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public ContactId getContactId(GroupId g) throws DbException {
 		try {
@@ -386,19 +343,16 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public GroupId getConversationId(ContactId c) throws DbException {
 		return db.transactionWithResult(true,
 				txn -> getConversationId(txn, c));
 	}
-
 	@Override
 	public GroupId getConversationId(Transaction txn, ContactId c) throws DbException {
 		Contact contact = db.getContact(txn, c);
 		return getContactGroup(contact).getId();
 	}
-
 	@Override
 	public Collection<ConversationMessageHeader> getMessageHeaders(
 			Transaction txn, ContactId c) throws DbException {
@@ -418,7 +372,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 			BdfDictionary meta = metadata.get(id);
 			if (meta == null) continue;
 			try {
-				// Message type is null for version 0.0 private messages
 				Integer messageType = meta.getOptionalInt(MSG_KEY_MSG_TYPE);
 				if (messageType != null && messageType != PRIVATE_MESSAGE)
 					continue;
@@ -443,7 +396,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		}
 		return headers;
 	}
-
 	@Override
 	public Set<MessageId> getMessageIds(Transaction txn, ContactId c)
 			throws DbException {
@@ -463,24 +415,21 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		}
 		return result;
 	}
-
 	@Override
 	public String getMessageText(MessageId m) throws DbException {
 		return db.transactionWithNullableResult(true, txn ->
 				getMessageText(txn, m));
 	}
-
 	@Override
 	public String getMessageText(Transaction txn, MessageId m) throws DbException {
 		try {
 			BdfList body = clientHelper.getMessageAsList(txn, m);
-			if (body.size() == 1) return body.getString(0); // Legacy format
+			if (body.size() == 1) return body.getString(0);
 			else return body.getOptionalString(1);
 		} catch (FormatException e) {
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public PrivateMessageFormat getContactMessageFormat(Transaction txn,
 			ContactId c) throws DbException {
@@ -490,13 +439,10 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		else if (minorVersion >= 1) return TEXT_IMAGES;
 		else return TEXT_ONLY;
 	}
-
 	@Override
 	public DeletionResult deleteAllMessages(Transaction txn, ContactId c)
 			throws DbException {
 		GroupId g = getContactGroup(db.getContact(txn, c)).getId();
-		// this indiscriminately deletes all raw messages in this group
-		// also attachments
 		for (MessageId messageId : db.getMessageIds(txn, g)) {
 			db.deleteMessage(txn, messageId);
 			db.deleteMessageMetadata(txn, messageId);
@@ -504,7 +450,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		messageTracker.initializeGroupCount(txn, g);
 		return new DeletionResult();
 	}
-
 	@Override
 	public DeletionResult deleteMessages(Transaction txn, ContactId c,
 			Set<MessageId> messageIds) throws DbException {
@@ -513,7 +458,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		recalculateGroupCount(txn, g);
 		return new DeletionResult();
 	}
-
 	@Override
 	public void deleteMessages(Transaction txn, GroupId g,
 			Collection<MessageId> messageIds) throws DbException {
@@ -522,7 +466,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		ContactId c = getContactId(txn, g);
 		txn.attach(new ConversationMessagesDeletedEvent(c, messageIds));
 	}
-
 	private void deleteMessage(Transaction txn, GroupId g, MessageId m)
 			throws DbException {
 		try {
@@ -535,7 +478,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 						db.deleteMessage(txn, h.getMessageId());
 						db.deleteMessageMetadata(txn, h.getMessageId());
 					} catch (NoSuchMessageException e) {
-						// Continue
 					}
 				}
 			}
@@ -545,7 +487,6 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 			throw new DbException(e);
 		}
 	}
-
 	private void recalculateGroupCount(Transaction txn, GroupId g)
 			throws DbException {
 		try {

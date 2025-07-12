@@ -1,19 +1,12 @@
 package org.briarproject.briar.android.login;
-
 import android.content.Context;
-
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
 import org.briarproject.briar.R;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import androidx.appcompat.app.AlertDialog;
-
 import static org.briarproject.briar.android.util.UiUtils.getDialogIcon;
-
 @NotNullByDefault
 class LoginUtils {
-
 	static AlertDialog createKeyStrengthenerErrorDialog(Context ctx) {
 		MaterialAlertDialogBuilder builder =
 				new MaterialAlertDialogBuilder(ctx, R.style.BriarDialogTheme);

@@ -1,7 +1,5 @@
 package org.briarproject.briar.android.sharing;
-
 import android.app.Activity;
-
 import org.briarproject.bramble.api.contact.event.ContactRemovedEvent;
 import org.briarproject.bramble.api.db.DatabaseExecutor;
 import org.briarproject.bramble.api.db.DbException;
@@ -17,59 +15,44 @@ import org.briarproject.briar.android.controller.handler.ResultExceptionHandler;
 import org.briarproject.briar.api.sharing.InvitationItem;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import androidx.annotation.CallSuper;
-
 import static java.util.logging.Level.WARNING;
 import static org.briarproject.bramble.util.LogUtils.logDuration;
 import static org.briarproject.bramble.util.LogUtils.logException;
 import static org.briarproject.bramble.util.LogUtils.now;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class InvitationControllerImpl<I extends InvitationItem>
 		extends DbControllerImpl
 		implements InvitationController<I>, EventListener {
-
 	protected static final Logger LOG =
 			Logger.getLogger(InvitationControllerImpl.class.getName());
-
 	private final EventBus eventBus;
-
-	// UI thread
 	protected InvitationListener listener;
-
 	public InvitationControllerImpl(@DatabaseExecutor Executor dbExecutor,
 			LifecycleManager lifecycleManager, EventBus eventBus) {
 		super(dbExecutor, lifecycleManager);
 		this.eventBus = eventBus;
 	}
-
 	@Override
 	public void onActivityCreate(Activity activity) {
 		listener = (InvitationListener) activity;
 	}
-
 	@Override
 	public void onActivityStart() {
 		eventBus.addListener(this);
 	}
-
 	@Override
 	public void onActivityStop() {
 		eventBus.removeListener(this);
 	}
-
 	@Override
 	public void onActivityDestroy() {
-
 	}
-
 	@CallSuper
 	@Override
 	public void eventOccurred(Event e) {
@@ -92,9 +75,7 @@ public abstract class InvitationControllerImpl<I extends InvitationItem>
 			}
 		}
 	}
-
 	protected abstract ClientId getShareableClientId();
-
 	@Override
 	public void loadInvitations(boolean clear,
 			ResultExceptionHandler<Collection<I>, DbException> handler) {
@@ -110,8 +91,6 @@ public abstract class InvitationControllerImpl<I extends InvitationItem>
 			}
 		});
 	}
-
 	@DatabaseExecutor
 	protected abstract Collection<I> getInvitations() throws DbException;
-
 }

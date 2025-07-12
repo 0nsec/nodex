@@ -1,5 +1,4 @@
 package org.briarproject.briar.messaging;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.UniqueId;
 import org.briarproject.bramble.api.client.BdfMessageContext;
@@ -17,13 +16,10 @@ import org.briarproject.bramble.api.sync.validation.MessageValidator;
 import org.briarproject.bramble.api.system.Clock;
 import org.briarproject.briar.attachment.CountingInputStream;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
 import javax.annotation.concurrent.Immutable;
-
 import static org.briarproject.bramble.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
 import static org.briarproject.bramble.api.transport.TransportConstants.MAX_CLOCK_DIFFERENCE;
 import static org.briarproject.bramble.util.ValidationUtils.checkLength;
@@ -44,33 +40,27 @@ import static org.briarproject.briar.messaging.MessagingConstants.MSG_KEY_LOCAL;
 import static org.briarproject.briar.messaging.MessagingConstants.MSG_KEY_MSG_TYPE;
 import static org.briarproject.briar.messaging.MessagingConstants.MSG_KEY_TIMESTAMP;
 import static org.briarproject.briar.util.ValidationUtils.validateAutoDeleteTimer;
-
 @Immutable
 @NotNullByDefault
 class PrivateMessageValidator implements MessageValidator {
-
 	private final BdfReaderFactory bdfReaderFactory;
 	private final MetadataEncoder metadataEncoder;
 	private final Clock clock;
-
 	PrivateMessageValidator(BdfReaderFactory bdfReaderFactory,
 			MetadataEncoder metadataEncoder, Clock clock) {
 		this.bdfReaderFactory = bdfReaderFactory;
 		this.metadataEncoder = metadataEncoder;
 		this.clock = clock;
 	}
-
 	@Override
 	public MessageContext validateMessage(Message m, Group g)
 			throws InvalidMessageException {
-		// Reject the message if it's too far in the future
 		long now = clock.currentTimeMillis();
 		if (m.getTimestamp() - now > MAX_CLOCK_DIFFERENCE) {
 			throw new InvalidMessageException(
 					"Timestamp is too far in the future");
 		}
 		try {
-			// TODO: Support large messages
 			InputStream in = new ByteArrayInputStream(m.getBody());
 			CountingInputStream countIn =
 					new CountingInputStream(in, MAX_MESSAGE_BODY_LENGTH);
@@ -79,11 +69,9 @@ class PrivateMessageValidator implements MessageValidator {
 			long bytesRead = countIn.getBytesRead();
 			BdfMessageContext context;
 			if (list.size() == 1) {
-				// Legacy private message
 				if (!reader.eof()) throw new FormatException();
 				context = validateLegacyPrivateMessage(m, list);
 			} else {
-				// Private message or attachment
 				int messageType = list.getInt(0);
 				if (messageType == PRIVATE_MESSAGE) {
 					if (!reader.eof()) throw new FormatException();
@@ -100,27 +88,19 @@ class PrivateMessageValidator implements MessageValidator {
 			throw new InvalidMessageException(e);
 		}
 	}
-
 	private BdfMessageContext validateLegacyPrivateMessage(Message m,
 			BdfList body) throws FormatException {
-		// Client version 0.0: Private message text
 		checkSize(body, 1);
 		String text = body.getString(0);
 		checkLength(text, 0, MAX_PRIVATE_MESSAGE_TEXT_LENGTH);
-		// Return the metadata
 		BdfDictionary meta = new BdfDictionary();
 		meta.put(MSG_KEY_TIMESTAMP, m.getTimestamp());
 		meta.put(MSG_KEY_LOCAL, false);
 		meta.put(MSG_KEY_READ, false);
 		return new BdfMessageContext(meta);
 	}
-
 	private BdfMessageContext validatePrivateMessage(Message m, BdfList body)
 			throws FormatException {
-		// Client version 0.1 to 0.2: Message type, optional private message
-		// text, attachment headers.
-		// Client version 0.3: Message type, optional private message text,
-		// attachment headers, optional auto-delete timer.
 		checkSize(body, 3, 4);
 		String text = body.getOptionalString(1);
 		checkLength(text, 0, MAX_PRIVATE_MESSAGE_TEXT_LENGTH);
@@ -129,7 +109,6 @@ class PrivateMessageValidator implements MessageValidator {
 		else checkSize(headers, 0, MAX_ATTACHMENTS_PER_MESSAGE);
 		for (int i = 0; i < headers.size(); i++) {
 			BdfList header = headers.getList(i);
-			// Message ID, content type
 			checkSize(header, 2);
 			byte[] id = header.getRaw(0);
 			checkLength(id, UniqueId.LENGTH);
@@ -140,7 +119,6 @@ class PrivateMessageValidator implements MessageValidator {
 		if (body.size() == 4) {
 			timer = validateAutoDeleteTimer(body.getOptionalLong(3));
 		}
-		// Return the metadata
 		BdfDictionary meta = new BdfDictionary();
 		meta.put(MSG_KEY_TIMESTAMP, m.getTimestamp());
 		meta.put(MSG_KEY_LOCAL, false);
@@ -153,14 +131,11 @@ class PrivateMessageValidator implements MessageValidator {
 		}
 		return new BdfMessageContext(meta);
 	}
-
 	private BdfMessageContext validateAttachment(Message m, BdfList descriptor,
 			long descriptorLength) throws FormatException {
-		// Message type, content type
 		checkSize(descriptor, 2);
 		String contentType = descriptor.getString(1);
 		checkLength(contentType, 1, MAX_CONTENT_TYPE_BYTES);
-		// Return the metadata
 		BdfDictionary meta = new BdfDictionary();
 		meta.put(MSG_KEY_TIMESTAMP, m.getTimestamp());
 		meta.put(MSG_KEY_LOCAL, false);

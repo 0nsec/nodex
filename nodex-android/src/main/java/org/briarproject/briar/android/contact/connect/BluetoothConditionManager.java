@@ -1,18 +1,13 @@
 package org.briarproject.briar.android.contact.connect;
-
 import android.app.Activity;
 import android.widget.Toast;
-
 import org.briarproject.briar.R;
 import org.briarproject.briar.android.util.Permission;
-
 import java.util.Map;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 import androidx.fragment.app.FragmentActivity;
-
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.BLUETOOTH_CONNECT;
 import static android.os.Build.VERSION.SDK_INT;
@@ -29,21 +24,13 @@ import static org.briarproject.briar.android.util.PermissionUtils.showDenialDial
 import static org.briarproject.briar.android.util.PermissionUtils.showLocationDialog;
 import static org.briarproject.briar.android.util.PermissionUtils.showRationale;
 import static org.briarproject.briar.android.util.PermissionUtils.wasGrantedBluetoothPermissions;
-
 class BluetoothConditionManager {
-
 	private Permission locationPermission = SDK_INT < 31 ? UNKNOWN : GRANTED;
 	private Permission bluetoothPermissions = SDK_INT < 31 ? GRANTED : UNKNOWN;
-
-	/**
-	 * Call this when the using activity or fragment starts,
-	 * because permissions might have changed while it was stopped.
-	 */
 	void reset() {
 		locationPermission = SDK_INT < 31 ? UNKNOWN : GRANTED;
 		bluetoothPermissions = SDK_INT < 31 ? GRANTED : UNKNOWN;
 	}
-
 	@UiThread
 	void requestPermissions(ActivityResultLauncher<String[]> launcher) {
 		if (SDK_INT < 31) {
@@ -52,7 +39,6 @@ class BluetoothConditionManager {
 			requestBluetoothPermissions(launcher);
 		}
 	}
-
 	@UiThread
 	void onLocationPermissionResult(Activity activity,
 			@Nullable Map<String, Boolean> result) {
@@ -76,7 +62,6 @@ class BluetoothConditionManager {
 			}
 		}
 	}
-
 	boolean areRequirementsFulfilled(FragmentActivity ctx,
 			ActivityResultLauncher<String[]> permissionRequest,
 			Runnable onLocationDenied) {
@@ -85,7 +70,6 @@ class BluetoothConditionManager {
 						bluetoothPermissions == GRANTED;
 		boolean locationEnabled = isLocationEnabledForBt(ctx);
 		if (permissionGranted && locationEnabled) return true;
-
 		if (locationPermission == PERMANENTLY_DENIED) {
 			showDenialDialog(ctx, R.string.permission_location_title,
 					R.string.permission_location_denied_body, onLocationDenied);
@@ -102,8 +86,6 @@ class BluetoothConditionManager {
 			showDenialDialog(ctx, R.string.permission_bluetooth_title,
 					R.string.permission_bluetooth_denied_body, onDenied);
 		} else if (bluetoothPermissions == SHOW_RATIONALE && SDK_INT >= 31) {
-			// SDK_INT is checked to make linter happy, because
-			// requestBluetoothPermissions() requires SDK_INT 31
 			showRationale(ctx,
 					R.string.permission_bluetooth_title,
 					R.string.permission_bluetooth_body, () ->
@@ -111,10 +93,8 @@ class BluetoothConditionManager {
 		}
 		return false;
 	}
-
 	private void requestLocationPermission(
 			ActivityResultLauncher<String[]> launcher) {
 		launcher.launch(new String[] {ACCESS_FINE_LOCATION});
 	}
-
 }

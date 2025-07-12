@@ -1,5 +1,4 @@
 package org.briarproject.briar.feed;
-
 import org.briarproject.bramble.BrambleCoreIntegrationTestEagerSingletons;
 import org.briarproject.bramble.BrambleCoreModule;
 import org.briarproject.bramble.api.identity.IdentityManager;
@@ -15,11 +14,8 @@ import org.briarproject.briar.avatar.AvatarModule;
 import org.briarproject.briar.blog.BlogModule;
 import org.briarproject.briar.client.BriarClientModule;
 import org.briarproject.briar.identity.IdentityModule;
-
 import javax.inject.Singleton;
-
 import dagger.Component;
-
 @Singleton
 @Component(modules = {
 		BrambleCoreIntegrationTestModule.class,
@@ -36,25 +32,15 @@ import dagger.Component;
 })
 interface FeedManagerIntegrationTestComponent
 		extends BrambleCoreIntegrationTestEagerSingletons {
-
 	void inject(FeedManagerIntegrationTest testCase);
-
 	void inject(AvatarModule.EagerSingletons init);
-
 	void inject(BlogModule.EagerSingletons init);
-
 	void inject(FeedModule.EagerSingletons init);
-
 	IdentityManager getIdentityManager();
-
 	LifecycleManager getLifecycleManager();
-
 	FeedManager getFeedManager();
-
 	BlogManager getBlogManager();
-
 	class Helper {
-
 		public static void injectEagerSingletons(
 				FeedManagerIntegrationTestComponent c) {
 			BrambleCoreIntegrationTestEagerSingletons.Helper

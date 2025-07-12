@@ -1,7 +1,5 @@
 package org.briarproject.briar.android.privategroup.list;
-
 import android.app.Application;
-
 import org.briarproject.bramble.api.db.DatabaseExecutor;
 import org.briarproject.bramble.api.db.DbException;
 import org.briarproject.bramble.api.db.Transaction;
@@ -31,7 +29,6 @@ import org.briarproject.briar.api.privategroup.event.GroupMessageAddedEvent;
 import org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -40,37 +37,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import androidx.annotation.UiThread;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static java.util.Objects.requireNonNull;
 import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.util.LogUtils.logDuration;
 import static org.briarproject.bramble.util.LogUtils.now;
 import static org.briarproject.briar.api.privategroup.PrivateGroupManager.CLIENT_ID;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 class GroupListViewModel extends DbViewModel implements EventListener {
-
 	private static final Logger LOG =
 			getLogger(GroupListViewModel.class.getName());
-
 	private final PrivateGroupManager groupManager;
 	private final GroupInvitationManager groupInvitationManager;
 	private final AuthorManager authorManager;
 	private final AndroidNotificationManager notificationManager;
 	private final EventBus eventBus;
-
 	private final MutableLiveData<LiveResult<List<GroupItem>>> groupItems =
 			new MutableLiveData<>();
 	private final MutableLiveData<Integer> numInvitations =
 			new MutableLiveData<>();
-
 	@Inject
 	GroupListViewModel(Application application,
 			@DatabaseExecutor Executor dbExecutor,
@@ -89,25 +78,20 @@ class GroupListViewModel extends DbViewModel implements EventListener {
 		this.eventBus = eventBus;
 		this.eventBus.addListener(this);
 	}
-
 	@Override
 	protected void onCleared() {
 		super.onCleared();
 		eventBus.removeListener(this);
 	}
-
 	void clearAllGroupMessageNotifications() {
 		notificationManager.clearAllGroupMessageNotifications();
 	}
-
 	void blockAllGroupMessageNotifications() {
 		notificationManager.blockAllGroupMessageNotifications();
 	}
-
 	void unblockAllGroupMessageNotifications() {
 		notificationManager.unblockAllGroupMessageNotifications();
 	}
-
 	@Override
 	public void eventOccurred(Event e) {
 		if (e instanceof GroupMessageAddedEvent) {
@@ -137,11 +121,9 @@ class GroupListViewModel extends DbViewModel implements EventListener {
 			onGroupDissolved(g.getGroupId());
 		}
 	}
-
 	void loadGroups() {
 		loadFromDb(this::loadGroups, groupItems::setValue);
 	}
-
 	@DatabaseExecutor
 	private List<GroupItem> loadGroups(Transaction txn) throws DbException {
 		long start = now();
@@ -166,7 +148,6 @@ class GroupListViewModel extends DbViewModel implements EventListener {
 		logDuration(LOG, "Loading groups", start);
 		return items;
 	}
-
 	@UiThread
 	private void onGroupMessageAdded(GroupMessageHeader header) {
 		GroupId g = header.getGroupId();
@@ -174,11 +155,9 @@ class GroupListViewModel extends DbViewModel implements EventListener {
 				itemToTest -> itemToTest.getId().equals(g),
 				itemToUpdate -> new GroupItem(itemToUpdate, header));
 		if (list == null) return;
-		// re-sort as the order of items may have changed
 		Collections.sort(list);
 		groupItems.setValue(new LiveResult<>(list));
 	}
-
 	@UiThread
 	private void onGroupDissolved(GroupId groupId) {
 		List<GroupItem> list = updateListItems(getList(groupItems),
@@ -187,12 +166,10 @@ class GroupListViewModel extends DbViewModel implements EventListener {
 		if (list == null) return;
 		groupItems.setValue(new LiveResult<>(list));
 	}
-
 	@UiThread
 	private void onGroupRemoved(GroupId groupId) {
 		removeAndUpdateListItems(groupItems, i -> i.getId().equals(groupId));
 	}
-
 	void removeGroup(GroupId g) {
 		runOnDbThread(() -> {
 			try {
@@ -204,7 +181,6 @@ class GroupListViewModel extends DbViewModel implements EventListener {
 			}
 		});
 	}
-
 	void loadNumInvitations() {
 		runOnDbThread(() -> {
 			try {
@@ -215,11 +191,9 @@ class GroupListViewModel extends DbViewModel implements EventListener {
 			}
 		});
 	}
-
 	LiveData<LiveResult<List<GroupItem>>> getGroupItems() {
 		return groupItems;
 	}
-
 	LiveData<Integer> getNumInvitations() {
 		return numInvitations;
 	}

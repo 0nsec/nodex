@@ -1,22 +1,15 @@
 package org.briarproject.briar.android.attachment;
-
 import android.content.res.Resources;
-
 import org.briarproject.briar.R;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.annotation.concurrent.Immutable;
-
 import androidx.annotation.VisibleForTesting;
-
 @Immutable
 @NotNullByDefault
 class AttachmentDimensions {
-
 	final int defaultSize;
 	final int minWidth, maxWidth;
 	final int minHeight, maxHeight;
-
 	@VisibleForTesting
 	AttachmentDimensions(int defaultSize, int minWidth, int maxWidth,
 			int minHeight, int maxHeight) {
@@ -26,7 +19,6 @@ class AttachmentDimensions {
 		this.minHeight = minHeight;
 		this.maxHeight = maxHeight;
 	}
-
 	static AttachmentDimensions getAttachmentDimensions(Resources res) {
 		int defaultSize =
 				res.getDimensionPixelSize(R.dimen.message_bubble_image_default);
@@ -41,5 +33,4 @@ class AttachmentDimensions {
 		return new AttachmentDimensions(defaultSize, minWidth, maxWidth,
 				minHeight, maxHeight);
 	}
-
 }

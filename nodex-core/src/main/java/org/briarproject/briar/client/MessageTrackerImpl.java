@@ -1,5 +1,4 @@
 package org.briarproject.briar.client;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.data.BdfDictionary;
@@ -13,25 +12,20 @@ import org.briarproject.bramble.api.sync.MessageId;
 import org.briarproject.bramble.api.system.Clock;
 import org.briarproject.briar.api.client.MessageTracker;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_LATEST_MSG;
 import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_MSG_COUNT;
 import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_STORED_MESSAGE_ID;
 import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_UNREAD_COUNT;
 import static org.briarproject.briar.client.MessageTrackerConstants.MSG_KEY_READ;
-
 @Immutable
 @NotNullByDefault
 class MessageTrackerImpl implements MessageTracker {
-
 	private final DatabaseComponent db;
 	private final ClientHelper clientHelper;
 	private final Clock clock;
-
 	@Inject
 	MessageTrackerImpl(DatabaseComponent db, ClientHelper clientHelper,
 			Clock clock) {
@@ -39,7 +33,6 @@ class MessageTrackerImpl implements MessageTracker {
 		this.clientHelper = clientHelper;
 		this.clock = clock;
 	}
-
 	@Override
 	public void initializeGroupCount(Transaction txn, GroupId g)
 			throws DbException {
@@ -47,19 +40,16 @@ class MessageTrackerImpl implements MessageTracker {
 		GroupCount groupCount = new GroupCount(0, 0, now);
 		storeGroupCount(txn, g, groupCount);
 	}
-
 	@Override
 	public void trackIncomingMessage(Transaction txn, Message m)
 			throws DbException {
 		trackMessage(txn, m.getGroupId(), m.getTimestamp(), false);
 	}
-
 	@Override
 	public void trackOutgoingMessage(Transaction txn, Message m)
 			throws DbException {
 		trackMessage(txn, m.getGroupId(), m.getTimestamp(), true);
 	}
-
 	@Override
 	public void trackMessage(Transaction txn, GroupId g, long time,
 			boolean read) throws DbException {
@@ -70,7 +60,6 @@ class MessageTrackerImpl implements MessageTracker {
 		storeGroupCount(txn, g, new GroupCount(msgCount, unreadCount,
 				latestMsgTime));
 	}
-
 	@Nullable
 	@Override
 	public MessageId loadStoredMessageId(GroupId g) throws DbException {
@@ -82,7 +71,6 @@ class MessageTrackerImpl implements MessageTracker {
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public void storeMessageId(GroupId g, MessageId m) throws DbException {
 		BdfDictionary d = BdfDictionary.of(
@@ -94,7 +82,6 @@ class MessageTrackerImpl implements MessageTracker {
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public GroupCount getGroupCount(GroupId g) throws DbException {
 		GroupCount count;
@@ -107,7 +94,6 @@ class MessageTrackerImpl implements MessageTracker {
 		}
 		return count;
 	}
-
 	@Override
 	public GroupCount getGroupCount(Transaction txn, GroupId g)
 			throws DbException {
@@ -122,7 +108,6 @@ class MessageTrackerImpl implements MessageTracker {
 			throw new DbException(e);
 		}
 	}
-
 	private void storeGroupCount(Transaction txn, GroupId g, GroupCount c)
 			throws DbException {
 		try {
@@ -136,24 +121,17 @@ class MessageTrackerImpl implements MessageTracker {
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public boolean setReadFlag(Transaction txn, GroupId g, MessageId m,
 			boolean read) throws DbException {
 		try {
-			// check current read status of message
 			BdfDictionary old =
 					clientHelper.getMessageMetadataAsDictionary(txn, m);
 			boolean wasRead = old.getBoolean(MSG_KEY_READ, false);
-
-			// if status changed
 			if (wasRead != read) {
-				// mark individual message as read
 				BdfDictionary meta = new BdfDictionary();
 				meta.put(MSG_KEY_READ, read);
 				clientHelper.mergeMessageMetadata(txn, m, meta);
-
-				// update unread counter in group metadata
 				GroupCount c = getGroupCount(txn, g);
 				int unreadCount = c.getUnreadCount() + (read ? -1 : 1);
 				if (unreadCount < 0) throw new DbException();
@@ -165,7 +143,6 @@ class MessageTrackerImpl implements MessageTracker {
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public void resetGroupCount(Transaction txn, GroupId g, int msgCount,
 			int unreadCount) throws DbException {
@@ -173,5 +150,4 @@ class MessageTrackerImpl implements MessageTracker {
 		GroupCount groupCount = new GroupCount(msgCount, unreadCount, now);
 		storeGroupCount(txn, g, groupCount);
 	}
-
 }

@@ -1,5 +1,4 @@
 package org.briarproject.briar.android.settings;
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
@@ -7,13 +6,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 import org.briarproject.briar.R;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import javax.inject.Inject;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -22,7 +18,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
-
 import static android.app.Activity.RESULT_OK;
 import static android.media.RingtoneManager.ACTION_RINGTONE_PICKER;
 import static android.media.RingtoneManager.EXTRA_RINGTONE_DEFAULT_URI;
@@ -53,28 +48,21 @@ import static org.briarproject.briar.api.android.AndroidNotificationManager.PREF
 import static org.briarproject.briar.api.android.AndroidNotificationManager.PREF_NOTIFY_PRIVATE;
 import static org.briarproject.briar.api.android.AndroidNotificationManager.PREF_NOTIFY_SOUND;
 import static org.briarproject.briar.api.android.AndroidNotificationManager.PREF_NOTIFY_VIBRATION;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class NotificationsFragment extends PreferenceFragmentCompat {
-
 	public static final String PREF_NOTIFY_SIGN_IN = "pref_key_notify_sign_in";
 	private static final int NOTIFICATION_CHANNEL_API = 26;
-
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
-
 	private SettingsViewModel viewModel;
 	private NotificationsManager nm;
-
 	private SwitchPreferenceCompat notifyPrivateMessages;
 	private SwitchPreferenceCompat notifyGroupMessages;
 	private SwitchPreferenceCompat notifyForumPosts;
 	private SwitchPreferenceCompat notifyBlogPosts;
 	private SwitchPreferenceCompat notifyVibration;
-
 	private Preference notifySound;
-
 	@Override
 	public void onAttach(@NonNull Context context) {
 		super.onAttach(context);
@@ -83,27 +71,22 @@ public class NotificationsFragment extends PreferenceFragmentCompat {
 				.get(SettingsViewModel.class);
 		nm = viewModel.notificationsManager;
 	}
-
 	@Override
 	public void onCreatePreferences(Bundle bundle, String s) {
 		addPreferencesFromResource(R.xml.settings_notifications);
-
 		notifyPrivateMessages = findPreference(PREF_NOTIFY_PRIVATE);
 		notifyGroupMessages = findPreference(PREF_NOTIFY_GROUP);
 		notifyForumPosts = findPreference(PREF_NOTIFY_FORUM);
 		notifyBlogPosts = findPreference(PREF_NOTIFY_BLOG);
 		notifyVibration = findPreference(PREF_NOTIFY_VIBRATION);
 		notifySound = findPreference(PREF_NOTIFY_SOUND);
-
 		if (SDK_INT < NOTIFICATION_CHANNEL_API) {
-			// NOTIFY_SIGN_IN gets stored in Android's SharedPreferences
 			notifyPrivateMessages
 					.setPreferenceDataStore(viewModel.settingsStore);
 			notifyGroupMessages.setPreferenceDataStore(viewModel.settingsStore);
 			notifyForumPosts.setPreferenceDataStore(viewModel.settingsStore);
 			notifyBlogPosts.setPreferenceDataStore(viewModel.settingsStore);
 			notifyVibration.setPreferenceDataStore(viewModel.settingsStore);
-
 			notifySound.setOnPreferenceClickListener(pref ->
 					onNotificationSoundClicked()
 			);
@@ -118,16 +101,13 @@ public class NotificationsFragment extends PreferenceFragmentCompat {
 					R.string.notify_forum_posts_setting_summary_26);
 			setupNotificationPreference(notifyBlogPosts, BLOG_CHANNEL_ID,
 					R.string.notify_blog_posts_setting_summary_26);
-
 			notifyVibration.setVisible(false);
 			notifySound.setVisible(false);
 		}
 	}
-
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-
 		if (SDK_INT < NOTIFICATION_CHANNEL_API) {
 			LifecycleOwner lifecycleOwner = getViewLifecycleOwner();
 			nm.getNotifyPrivateMessages().observe(lifecycleOwner, enabled -> {
@@ -167,13 +147,11 @@ public class NotificationsFragment extends PreferenceFragmentCompat {
 			});
 		}
 	}
-
 	@Override
 	public void onStart() {
 		super.onStart();
 		requireActivity().setTitle(R.string.notification_settings_title);
 	}
-
 	@Override
 	public void onActivityResult(int request, int result,
 			@Nullable Intent data) {
@@ -184,7 +162,6 @@ public class NotificationsFragment extends PreferenceFragmentCompat {
 			nm.onRingtoneSet(uri);
 		}
 	}
-
 	@TargetApi(NOTIFICATION_CHANNEL_API)
 	private void setupNotificationPreference(SwitchPreferenceCompat pref,
 			String channelId, @StringRes int summary) {
@@ -206,7 +183,6 @@ public class NotificationsFragment extends PreferenceFragmentCompat {
 			return true;
 		});
 	}
-
 	private boolean onNotificationSoundClicked() {
 		String title = getString(R.string.choose_ringtone_title);
 		Intent i = new Intent(ACTION_RINGTONE_PICKER);
@@ -231,5 +207,4 @@ public class NotificationsFragment extends PreferenceFragmentCompat {
 		}
 		return true;
 	}
-
 }

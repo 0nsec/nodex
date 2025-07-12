@@ -1,7 +1,5 @@
 package org.briarproject.briar.android.contact;
-
 import android.app.Application;
-
 import org.briarproject.bramble.api.connection.ConnectionRegistry;
 import org.briarproject.bramble.api.contact.ContactManager;
 import org.briarproject.bramble.api.contact.event.PendingContactAddedEvent;
@@ -17,22 +15,15 @@ import org.briarproject.briar.api.android.AndroidNotificationManager;
 import org.briarproject.briar.api.conversation.ConversationManager;
 import org.briarproject.briar.api.identity.AuthorManager;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.concurrent.Executor;
-
 import javax.inject.Inject;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 @NotNullByDefault
 class ContactListViewModel extends ContactsViewModel {
-
 	private final AndroidNotificationManager notificationManager;
-
 	private final MutableLiveData<Boolean> hasPendingContacts =
 			new MutableLiveData<>();
-
 	@Inject
 	ContactListViewModel(Application application,
 			@DatabaseExecutor Executor dbExecutor,
@@ -47,7 +38,6 @@ class ContactListViewModel extends ContactsViewModel {
 				connectionRegistry, eventBus);
 		this.notificationManager = notificationManager;
 	}
-
 	@Override
 	public void eventOccurred(Event e) {
 		super.eventOccurred(e);
@@ -56,11 +46,9 @@ class ContactListViewModel extends ContactsViewModel {
 			checkForPendingContacts();
 		}
 	}
-
 	LiveData<Boolean> getHasPendingContacts() {
 		return hasPendingContacts;
 	}
-
 	void checkForPendingContacts() {
 		runOnDbThread(() -> {
 			try {
@@ -72,13 +60,10 @@ class ContactListViewModel extends ContactsViewModel {
 			}
 		});
 	}
-
 	void clearAllContactNotifications() {
 		notificationManager.clearAllContactNotifications();
 	}
-
 	void clearAllContactAddedNotifications() {
 		notificationManager.clearAllContactAddedNotifications();
 	}
-
 }

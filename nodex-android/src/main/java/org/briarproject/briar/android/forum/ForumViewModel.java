@@ -1,8 +1,6 @@
 package org.briarproject.briar.android.forum;
-
 import android.app.Application;
 import android.widget.Toast;
-
 import org.briarproject.bramble.api.contact.Contact;
 import org.briarproject.bramble.api.contact.ContactId;
 import org.briarproject.bramble.api.crypto.CryptoExecutor;
@@ -35,34 +33,26 @@ import org.briarproject.briar.api.forum.event.ForumPostReceivedEvent;
 import org.briarproject.briar.api.sharing.event.ContactLeftShareableEvent;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static android.widget.Toast.LENGTH_SHORT;
 import static java.lang.Math.max;
 import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.util.LogUtils.logDuration;
 import static org.briarproject.bramble.util.LogUtils.now;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
-
 	private static final Logger LOG = getLogger(ForumViewModel.class.getName());
-
 	private final ForumManager forumManager;
 	private final ForumSharingManager forumSharingManager;
-
 	@Inject
 	ForumViewModel(Application application,
 			@DatabaseExecutor Executor dbExecutor,
@@ -84,7 +74,6 @@ class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
 		this.forumManager = forumManager;
 		this.forumSharingManager = forumSharingManager;
 	}
-
 	@Override
 	public void eventOccurred(Event e) {
 		if (e instanceof ForumPostReceivedEvent) {
@@ -113,12 +102,10 @@ class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
 			super.eventOccurred(e);
 		}
 	}
-
 	@Override
 	protected void clearNotifications() {
 		notificationManager.clearForumPostNotification(groupId);
 	}
-
 	LiveData<Forum> loadForum() {
 		MutableLiveData<Forum> forum = new MutableLiveData<>();
 		runOnDbThread(() -> {
@@ -131,7 +118,6 @@ class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
 		});
 		return forum;
 	}
-
 	@Override
 	public void loadItems() {
 		loadFromDb(txn -> {
@@ -148,13 +134,11 @@ class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
 			return items;
 		}, this::setItems);
 	}
-
 	private ForumPostItem loadItem(Transaction txn, ForumPostHeader header)
 			throws DbException {
 		String text = forumManager.getPostText(txn, header.getId());
 		return new ForumPostItem(header, text);
 	}
-
 	@Override
 	public void createAndStoreMessage(String text,
 			@Nullable MessageId parentId) {
@@ -170,7 +154,6 @@ class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
 			}
 		});
 	}
-
 	private void createMessage(String text, long timestamp,
 			@Nullable MessageId parentId, LocalAuthor author) {
 		cryptoExecutor.execute(() -> {
@@ -180,7 +163,6 @@ class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
 			storePost(msg, text);
 		});
 	}
-
 	private void storePost(ForumPost msg, String text) {
 		runOnDbThread(false, txn -> {
 			long start = now();
@@ -192,7 +174,6 @@ class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
 			});
 		}, this::handleException);
 	}
-
 	@Override
 	protected void markItemRead(ForumPostItem item) {
 		runOnDbThread(() -> {
@@ -203,7 +184,6 @@ class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
 			}
 		});
 	}
-
 	@Override
 	public void loadSharingContacts() {
 		runOnDbThread(true, txn -> {
@@ -214,7 +194,6 @@ class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
 			txn.attach(() -> sharingController.addAll(contactIds));
 		}, this::handleException);
 	}
-
 	void deleteForum() {
 		runOnDbThread(() -> {
 			try {
@@ -228,5 +207,4 @@ class ForumViewModel extends ThreadListViewModel<ForumPostItem> {
 			}
 		});
 	}
-
 }

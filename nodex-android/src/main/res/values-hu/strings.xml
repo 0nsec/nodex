@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <!--Setup-->
+
   <string name="setup_title">Köszöntünk a Briar-ban</string>
   <string name="setup_name_explanation">A beceneved fog megjelenni minden tartalom mellett amit megosztottál. Nem tudod megváltoztatni a fiók létrehozása után.</string>
   <string name="setup_next">Következő</string>
@@ -30,7 +30,7 @@
   <string name="dnkm_xiaomi_lock_apps_text">Kérjük, érintse meg az alábbi gombot a biztonsági beállítások megnyitásához. Koppintson a „Sebességnövelésre”, majd az „Alkalmazások zárolása” elemre, és győződjön meg arról, hogy a Briar beállítása „Zárolva”.</string>
   <string name="dnkm_xiaomi_lock_apps_help">Ha a Briar az „Alkalmazások zárolása” képernyőn nincs „Zárolva”, nem tud a háttérben futni.</string>
   <string name="dnkm_warning_dozed_1">A Briar nem tudott a háttérben futni</string>
-  <!--Login-->
+
   <string name="enter_password">Jelszó</string>
   <string name="try_again">Hibás jelszó, próbáld újra</string>
   <string name="dialog_title_cannot_check_password">A jelszót nem sikerült ellenőrizni</string>
@@ -58,19 +58,19 @@
   <string name="startup_open_database">Adatbázis dekódolása...</string>
   <string name="startup_migrate_database">Adatbázis frissítése</string>
   <string name="startup_compact_database">Adatbázis tömörítése...</string>
-  <!--Navigation Drawer-->
+
   <string name="nav_drawer_open_description">Navigációs oldalablak megnyitása</string>
   <string name="nav_drawer_close_description">Navigációs oldalablak bezárása</string>
   <string name="contact_list_button">Kapcsolatok</string>
   <string name="groups_button">Privát csoportok</string>
   <string name="forums_button">Fórumok</string>
   <string name="blogs_button">Blogok</string>
-  <!--This is part of the main menu. The app will be locked when this is tapped.-->
+
   <string name="lock_button">App zárolása</string>
   <string name="settings_button">Beállítások</string>
   <string name="sign_out_button">Kijelentkezés</string>
   <string name="transports_onboarding_text">Koppintson ide, hogy beállíthassa, hogyan csatlakozzon a Tor kapcsolataihoz.</string>
-  <!--Transports: Tor-->
+
   <string name="transport_tor">Internet</string>
   <string name="tor_device_status_online_wifi">A telefonja Internet hozzáféréssel rendelkezik Wi-Fi-n keresztül</string>
   <string name="tor_device_status_online_mobile">A telefonja Internet hozzáféréssel rendelkezik mobil hálózaton keresztül</string>
@@ -82,7 +82,7 @@
   <string name="tor_plugin_status_disabled_mobile_data">A Briar mobil hálózat nélküli használatra van beállítva</string>
   <string name="tor_plugin_status_disabled_battery">A Briar úgy van beállítva, hogy ne használjon Internetet, ha akkumulátorról megy a telefon</string>
   <string name="tor_plugin_status_disabled_country_blocked">A Briar úgy van beállítva, hogy ne használjon Internetet ebben az országban</string>
-  <!--Transports: Wi-Fi-->
+
   <string name="transport_lan">Wi-Fi</string>
   <string name="transport_lan_long">Azonos Wi-Fi hálózat</string>
   <string name="lan_device_status_on">A telefonod Wi-Fi-hez csatlakoztatott.</string>
@@ -91,7 +91,7 @@
   <string name="lan_plugin_status_active">A Briar csatlakoztatva a Wi-Fi hálózathoz</string>
   <string name="lan_plugin_status_inactive">A Briar nem tud csatlakozni a Wi-Fi hálózathoz</string>
   <string name="lan_plugin_status_disabled">A Briar Wi-Fi nélküli használatra van beállítva</string>
-  <!--Transports: Bluetooth-->
+
   <string name="transport_bt">Bluetooth</string>
   <string name="bt_device_status_on">A telefonod Bluetooth-ja bekapcsolva</string>
   <string name="bt_device_status_off">A telefonod Bluetooth-ja kikapcsolva</string>
@@ -99,7 +99,7 @@
   <string name="bt_plugin_status_active">A Briar csatlakoztatva a Bluetooth-hoz</string>
   <string name="bt_plugin_status_inactive">A Briar nem tud csatlakozni a Bluetooth-hoz</string>
   <string name="bt_plugin_status_disabled">A Briar Bluetooth nélküli használatra van beállítva</string>
-  <!--Notifications-->
+
   <string name="reminder_notification_title">Kilépve a Briar-ból</string>
   <string name="reminder_notification_text">Koppints az újra belépéshez.</string>
   <string name="reminder_notification_channel_title">Briar Belépési emlékeztető</string>
@@ -122,7 +122,7 @@
     <item quantity="one">Új blog bejegyzés. </item>
     <item quantity="other">%d új blog bejegyzés. </item>
   </plurals>
-  <!--Misc-->
+
   <string name="now">most</string>
   <string name="show">Megjelenít</string>
   <string name="hide">Elrejt</string>
@@ -151,7 +151,7 @@
   <string name="status_heading">Állapot</string>
   <string name="error">Hiba</string>
   <string name="info">Információk</string>
-  <!--Contacts and Private Conversations-->
+
   <string name="no_contacts">Nincs megjeleníthető kapcsolat</string>
   <string name="no_contacts_action">Koppints a + gombra a kapcsolatok hozzáadásához</string>
   <string name="date_no_private_messages">Nincs üzenet.</string>
@@ -167,11 +167,11 @@
   <string name="set_contact_alias">Kapcsolat nevének megváltoztatása</string>
   <string name="set_contact_alias_hint">Kapcsolat neve</string>
   <string name="menu_item_disappearing_messages">Eltűnő üzenetek</string>
-  <!--The first placeholder will show a duration like "7 days". The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_enabled">Az üzeneteid eltűnnek %1$s. %2$s múlva</string>
-  <!--The placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_disabled">Az üzeneteid nem fognak eltűnni. %1$s</string>
-  <!--The first placeholder will show a contact's name. The second placeholder will show a duration like "7 days". The third placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_enabled">%1$s üzeneteid eltűnnek %2$s. %3$s múlva</string>
   <plurals name="duration_minutes">
     <item quantity="one">%d perc</item>
@@ -185,7 +185,7 @@
     <item quantity="one">%d nap</item>
     <item quantity="other">%d nap</item>
   </plurals>
-  <!--The first placeholder will show a contact's name. The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_disabled">%1$s üzeneteid nem fognak eltűnni. %2$s</string>
   <string name="tap_to_learn_more">Koppints a további információkért.</string>
   <string name="auto_delete_changed_warning_title">Eltűnő üzenetek megváltoztak</string>
@@ -206,7 +206,7 @@
   <string name="dialog_title_delete_contact">Kapcsolat törlésének megerősítése</string>
   <string name="dialog_message_delete_contact">Biztosan eltávolítod ezt a kapcsolatot és minden vele történt üzenetváltásod?</string>
   <string name="contact_deleted_toast">Kapcsolat törölve</string>
-  <!--This is shown in the action bar when opening an image in fullscreen that the user sent-->
+
   <string name="you">Ön</string>
   <string name="save_image">Kép mentése</string>
   <string name="dialog_title_save_image">Kép mentése?</string>
@@ -221,7 +221,7 @@ Biztosan szeretné menteni?</string>
   <string name="dialog_message_image_support">Koppintson az ikonra képek csatolásához.</string>
   <string name="messaging_too_many_attachments_toast">Csak az első %d kép kerül küldésre</string>
   <string name="menu_contact">Kapcsolat</string>
-  <!--Adding Contacts-->
+
   <string name="add_contact_title">Közeli kapcsolat hozzáadása</string>
   <string name="add_contact_error_two_way">Mindketten beolvastátok egymás QR-kódjait?</string>
   <string name="face_to_face">Találkoznia kell a személlyel akit, hozzá szeretne adni a kapcsolatokhoz.\n\nEz megelőzi azt, hogy valaki megszemélyesítse Önt, vagy elolvassa későbbi üzeneteit.</string>
@@ -241,7 +241,7 @@ Biztosan szeretné menteni?</string>
   <string name="connection_error_title">Nem sikerült csatlakozni a kapcsolatához</string>
   <string name="connection_error_feedback">Ha ez a probléma tartósan fennáll, kérjük <a href="feedback">küldjön visszajelzést</a> nekünk, hogy segítsen fejleszteni az appot.</string>
   <string name="info_both_must_scan">Mindketten be kell szkennelniük egymás QR-kódjait</string>
-  <!--Adding Contacts Remotely-->
+
   <string name="add_contact_remotely_title_case">Távoli kapcsolat hozzá adása</string>
   <string name="add_contact_nearby_title">Közeli kapcsolat hozzáadása</string>
   <string name="add_contact_remotely_title">Távoli kapcsolat hozzá adása</string>
@@ -275,9 +275,9 @@ Biztosan szeretné menteni?</string>
 Kérjük frissítsen a legutolsó verzióra és próbálja újra.</string>
   <string name="intent_own_link">A saját linkjét nyitotta meg. Használja a kapcsolatától kapottat a hozzáadáshoz!</string>
   <string name="missing_link">Kérjük adja meg a linket</string>
-  <!--This is a numeral indicating the first step in a series of screens-->
+
   <string name="step_1">1</string>
-  <!--This is a numeral indicating the second step in a series of screens-->
+
   <string name="step_2">2</string>
   <plurals name="contact_added_notification_text">
     <item quantity="one">Új kapcsolat hozzáadva.</item>
@@ -287,25 +287,21 @@ Kérjük frissítsen a legutolsó verzióra és próbálja újra.</string>
   <string name="duplicate_link_dialog_title">Duplikált link</string>
   <string name="duplicate_link_dialog_text_1">Önnek már van várakozó kapcsolata ezzel a linkkel: %s</string>
   <string name="duplicate_link_dialog_text_1_contact">Önnek már van kapcsolata ezzel a linkkel: %s</string>
-  <!--This is a question asking whether two nicknames refer to the same person-->
+
   <string name="duplicate_link_dialog_text_2">%1$s és %2$s ugyanaz a személy?</string>
-  <!--This is a button for answering that two nicknames do indeed refer to the same person. This
-	string will be used in a dialog button, so if the translation of this string is longer than 20
-	characters, please use "Yes" instead, and use "No" for the "Different Person" button-->
+
   <string name="same_person_button">Ugyanaz a személy</string>
-  <!--This is a button for answering that two nicknames refer to different people. This string
-	will be used in a dialog button, so if the translation of this string longer than 20 characters,
-	please use "No" instead, and use "Yes" for the "Same Person" button-->
+
   <string name="different_person_button">Másik személy</string>
   <string name="duplicate_link_dialog_text_3">%1$s és %2$s ugyanazt a linket küldte.\n\nEgyikük lehet, hogy megpróbálja kikutatni, hogy kik a kapcsolatai.\n\nNe árulja el nekik, hogy ugyanazt a linket már megkapta mástól.</string>
   <string name="pending_contact_updated_toast">Várakozó kapcsolat frissítve</string>
   <string name="info_both_must_enter_links">Mindkettőnek hozzá kell adnia egymás linkjét</string>
-  <!--Peer trust levels-->
+
   <string name="peer_trust_level_unverified">Ellenőrizetlen kapcsolat</string>
   <string name="peer_trust_level_verified">Ellenőrzött kapcsolat</string>
   <string name="peer_trust_level_ourselves">Én</string>
   <string name="peer_trust_level_stranger">Idegen</string>
-  <!--Introductions-->
+
   <string name="introduction_onboarding_title">Kapcsolatai bemutatása</string>
   <string name="introduction_onboarding_text">Mutassa be ismerőseit egymásnak, hogy csatlakozhassanak a Briarhez.</string>
   <string name="introduction_menu_item">Bemutatkozás készítése</string>
@@ -327,7 +323,7 @@ Kérjük frissítsen a legutolsó verzióra és próbálja újra.</string>
   <string name="introduction_response_accepted_received">%1$s elfogadta a bemutatkozást %2$s számára.</string>
   <string name="introduction_response_declined_received">%1$s elutasította a bemutatkozást %2$s számára.</string>
   <string name="introduction_response_declined_received_by_introducee">%1$s alapján %2$s elutasította a bemutatkozást.</string>
-  <!--Connect via Bluetooth-->
+
   <string name="menu_item_connect_via_bluetooth">Csatlakozás bluetooth-on keresztül</string>
   <string name="connect_via_bluetooth_title">Csatlakozás bluetooth-on keresztül</string>
   <string name="connect_via_bluetooth_intro">Ha a Bluetooth-kapcsolatok nem működnek automatikusan, ezt a képernyőt használhatja a manuális csatlakozáshoz. A kapcsolathoz a közelben kell lennie. Önnek és ismerősének egyszerre kell megnyomnia a „Start” gombot.</string>
@@ -338,7 +334,7 @@ Kérjük frissítsen a legutolsó verzióra és próbálja újra.</string>
   <string name="connect_via_bluetooth_success">Sikeres csatlakozás Bluetooth-on.</string>
   <string name="connect_via_bluetooth_error">Nem sikerült csatlakozni Bluetooth-on.</string>
   <string name="connect_via_bluetooth_error_not_supported">Az eszköz nem támogatja a Bluetooth-t.</string>
-  <!--Private Groups-->
+
   <string name="groups_list_empty">Nincs megjeleníthető csoport</string>
   <string name="groups_list_empty_action">Koppintson a + ikonra csoport létrehozásához, vagy kérje meg kapcsolatait, hogy osszanak meg csoportokat Önnel</string>
   <string name="groups_created_by">Létrehozta %s</string>
@@ -369,7 +365,7 @@ Kérjük frissítsen a legutolsó verzióra és próbálja újra.</string>
   <string name="groups_dissolve_button">Feloszlatás</string>
   <string name="groups_dissolved_dialog_title">Ez a csoport feloszlatásra került</string>
   <string name="groups_dissolved_dialog_message">A csoport létrehozója felszámolta a csoportot.\n\nTöbbé nem írhat üzenetet a csoportba és lehet nem kapja meg az összes bejegyzést ami a csoportban jelent meg.</string>
-  <!--Private Group Invitations-->
+
   <string name="groups_invitations_title">Csoport meghívások</string>
   <string name="groups_invitations_invitation_sent">Meghívta %1$s személyt, hogy csatlakozzon a(z) \"%2$s\" csoporthoz.</string>
   <string name="groups_invitations_invitation_received">%1$s meghívta Önt, hogy csatlakozzon a(z) \"%2$s\" csoporthoz.</string>
@@ -385,14 +381,14 @@ Kérjük frissítsen a legutolsó verzióra és próbálja újra.</string>
   <string name="groups_invitations_response_accepted_received">%s elfogadta a csoport meghívást.</string>
   <string name="groups_invitations_response_declined_received">%s elutasította a csoport meghívást.</string>
   <string name="sharing_status_groups">Csak a csoport létrehozója hívhat mg új tagokat a csoportba. Alább az összes aktuális tagja a csoportnak.</string>
-  <!--Private Groups Revealing Contacts-->
+
   <string name="groups_reveal_contacts">Kapcsolatok felfedése</string>
   <string name="groups_reveal_dialog_message">Választhat, hogy felfedi-e kapcsolatait a jelenlegi és jövőbeli tagjaival ennek a csoportnak.\n\nA kapcsolatok megosztása a csoportot és hálózati kapcsolatát gyorsabbá és megbízhatóbbá tesz, mert akkor is tud kommunikálni a kapcsolataival, ha a csoport létrehozója nincs a hálózaton.</string>
   <string name="groups_reveal_visible">Kapcsolat viszony látható a csoportnak</string>
   <string name="groups_reveal_visible_revealed_by_us">Kapcsolat viszony látható a csoportnak (Ön által felfedve)</string>
   <string name="groups_reveal_visible_revealed_by_contact">Kapcsolat viszony látható a csoportnak (%s által felfedve)</string>
   <string name="groups_reveal_invisible">Kapcsolat viszony nem látható a csoportnak </string>
-  <!--Forums-->
+
   <string name="no_forums">Nincs megjelenítendő fórum</string>
   <string name="no_forums_action">Koppintson a + ikonra fórum létrehozásához, vagy kérje meg kapcsolatait, hogy osszanak meg fórumokat Önnel</string>
   <string name="create_forum_title">Fórum létrehozása</string>
@@ -413,7 +409,7 @@ Kérjük frissítsen a legutolsó verzióra és próbálja újra.</string>
   <string name="dialog_message_leave_forum">Biztosan elhagyja ezt a fórumot?\n\nKapcsolatai, akivel megosztotta ezt a fórumot, lehet nem kapnak többé frissítést.</string>
   <string name="dialog_button_leave">Elhagyás</string>
   <string name="forum_left_toast">Fórum elhagyás</string>
-  <!--Forum Sharing-->
+
   <string name="forum_share_button">Fórum megosztása</string>
   <string name="contacts_selected">Kiválasztott kapcsolatok</string>
   <string name="activity_share_toolbar_header">Kapcsolatok kiválasztása</string>
@@ -447,7 +443,7 @@ Kérjük frissítsen a legutolsó verzióra és próbálja újra.</string>
     <item quantity="other">%d fórum megosztva a kapcsolatokkal</item>
   </plurals>
   <string name="nobody">Senki</string>
-  <!--Blogs-->
+
   <string name="blogs_other_blog_empty_state">Nincs megjelenítendő bejegyzés</string>
   <string name="read_more">olvasson tovább</string>
   <string name="blogs_write_blog_post">Írja meg blog postját</string>
@@ -468,7 +464,7 @@ Kapcsolataid, akivel megosztottad ezt a blogot, lehet nem kapnak többé frissí
   <string name="blogs_blog_removed">Blog eltávolítva</string>
   <string name="blogs_reblog_comment_hint">Megjegyzés hozzáadása (opcionális)</string>
   <string name="blogs_reblog_button">Reblogolás</string>
-  <!--Blog Sharing-->
+
   <string name="blogs_sharing_share">Blog megosztása</string>
   <string name="blogs_sharing_error">Hiba történt ennek a blognak a megosztásakor.</string>
   <string name="blogs_sharing_button">Blog megosztása</string>
@@ -484,7 +480,7 @@ Kapcsolataid, akivel megosztottad ezt a blogot, lehet nem kapnak többé frissí
   <string name="blogs_sharing_joined_toast">Feliratkozva a blogra</string>
   <string name="blogs_sharing_declined_toast">Meghívás elutasítva</string>
   <string name="sharing_status_blog">Bárki aki feliratkozik egy blogra képes megosztani a blogot a kapcsolataival. Jelenleg megosztani készül a blogot a következő kapcsolatokkal. Lehet, hogy olyan más előfizetők is vannak, akiket nem láthat.</string>
-  <!--RSS Feeds-->
+
   <string name="blogs_rss_feeds_import">RSS feed importálása</string>
   <string name="blogs_rss_feeds_import_button">Importálás</string>
   <string name="blogs_rss_feeds_import_hint">Adja meg az RSS feed URL címét</string>
@@ -501,12 +497,12 @@ Kapcsolataid, akivel megosztottad ezt a blogot, lehet nem kapnak többé frissí
   <string name="blogs_rss_remove_feed_ok">Eltávolít</string>
   <string name="blogs_rss_feeds_manage_empty_state">Nincs megjelenítendő</string>
   <string name="blogs_rss_feeds_manage_error">Hiba történt a feed-jei betöltésével. Kérjük próbálja újra később.</string>
-  <!--Settings Profile Picture-->
+
   <string name="change_profile_picture">Koppintson a profilképe cseréjéhez</string>
   <string name="dialog_confirm_profile_picture_title">Profil kép cseréje</string>
   <string name="dialog_confirm_profile_picture_remark">Csak a kapcsolataid láthatják ezt a képet</string>
   <string name="change_profile_picture_failed_message">Sajnáljuk, de valami hiba történt a profil kép frissítése során</string>
-  <!--Settings Display-->
+
   <string name="pref_language_title">Nyelv és régió</string>
   <string name="pref_language_changed">Ez a beállítás a Briar újraindítása után lép életbe.  Kérjük lépjen ki és indítsa újra a Briar-t.</string>
   <string name="pref_language_default">Rendszer alapértelmezett</string>
@@ -515,7 +511,7 @@ Kapcsolataid, akivel megosztottad ezt a blogot, lehet nem kapnak többé frissí
   <string name="pref_theme_light">Világos</string>
   <string name="pref_theme_dark">Sötét</string>
   <string name="pref_theme_system">Rendszer alapértelmezett</string>
-  <!--Settings Connections-->
+
   <string name="network_settings_title">Kapcsolatok</string>
   <string name="bluetooth_setting">Csatlakozás a kapcsolatokhoz Bluetooth-on</string>
   <string name="wifi_setting">Csatlakozás az egy Wi-Fi hálózaton lévő kapcsolatokhoz</string>
@@ -526,28 +522,28 @@ Kapcsolataid, akivel megosztottad ezt a blogot, lehet nem kapnak többé frissí
   <string name="tor_network_setting_without_bridges">Tor hálózat használata hidak nélkül</string>
   <string name="tor_network_setting_with_bridges">Tor hálózat használata hidakkal</string>
   <string name="tor_network_setting_never">Ne csatlakozzon az internethez</string>
-  <!--How and when Briar will connect to Tor: E.g. "Don't connect to the Internet (in China)" or "Use Tor network with bridges (in Belarus)"-->
+
   <string name="tor_network_setting_summary">Automatikus: %1$s ( %2$s)</string>
   <string name="tor_mobile_data_title">Mobil adat használata</string>
   <string name="tor_only_when_charging_title">Csatlakozás az internethez csak töltés alatt</string>
   <string name="tor_only_when_charging_summary">Letiltja az internet kapcsolatot, amikor elemről fut az eszköz</string>
-  <!--Settings Security and Panic-->
+
   <string name="security_settings_title">Biztonság</string>
   <string name="pref_lock_title">App zár</string>
   <string name="pref_lock_summary">Az eszköz képernyő zárának használata a Briar védelmére, ha be van jelentkezve</string>
   <string name="pref_lock_disabled_summary">Ahhoz, hogy használni tudja ezt az opciót, állítson be zárképernyőt az eszközén</string>
   <string name="pref_lock_timeout_title">App zár inaktivítási idő</string>
-  <!--The %s placeholder is replaced with the following time spans, e.g. 5 Minutes, 1 Hour-->
+
   <string name="pref_lock_timeout_summary">Ha nem használja a Briar-t, automatikusan zárol %s után</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_1">1 perc</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_5">5 perc</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_15">15 perc</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_30">30 perc</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_60">1 óra</string>
   <string name="pref_lock_timeout_never">Soha</string>
   <string name="pref_lock_timeout_never_summary">Soha ne zárja le a Briar-t automatikusan</string>
@@ -571,7 +567,7 @@ Kapcsolataid, akivel megosztottad ezt a blogot, lehet nem kapnak többé frissí
   <string name="purge_setting_title">Fiók törlése</string>
   <string name="purge_setting_summary">A Briar fiók törlése a pánik gomb megnyomásakor.
 Vigyázat: Ez végleg törli az identitásait, kapcsolatait és üzeneteit</string>
-  <!--Settings Notifications-->
+
   <string name="notification_settings_title">Értesítések</string>
   <string name="notify_sign_in_title">Emlékeztessen a bejlentkezésre</string>
   <string name="notify_sign_in_summary">Jelenítsen meg emlékeztetőt, ha a telefon indul vagy ha az alkalmazás frissült</string>
@@ -593,7 +589,7 @@ Vigyázat: Ez végleg törli az identitásait, kapcsolatait és üzeneteit</stri
   <string name="notify_sound_setting_disabled">Egyik sem</string>
   <string name="choose_ringtone_title">Csengőhang választása</string>
   <string name="cannot_load_ringtone">Sikertelen a csengőhang betöltése</string>
-  <!--Mailbox-->
+
   <string name="mailbox_settings_title">Postafiók</string>
   <string name="mailbox_setup_title">Postafiók beàllítàsa</string>
   <string name="mailbox_setup_intro">A postafiók lehetővé teszi a kapcsolatai számára, hogy üzeneteket küldjenek Önnek, miközben Ön offline állapotban van. A postafiók fogadja az üzeneteket, és tárolja őket, amíg az internethez nem kapcsolódik. Telepítheti a Briar postafiók alkalmazást egy tartalék eszközre. Tartsa csatlakoztatva az áramforráshoz és a Wi-Fi-hálózathoz, hogy mindig online legyen.</string>
@@ -601,7 +597,7 @@ Vigyázat: Ez végleg törli az identitásait, kapcsolatait és üzeneteit</stri
   <string name="mailbox_setup_button_scan">Olvassa be a postafiók QR-kódját</string>
   <string name="permission_camera_qr_denied_body">Megtagadta a hozzáférést a kamerához, de a QR-kód beolvasásához a kamera használata szükséges. Kérjük, fontolja meg a hozzáférés megadását.</string>
   <string name="mailbox_setup_connecting">Kapcsolódàs a postafiókhoz...</string>
-  <!--This string is shown when connecting to a Mailbox for the first time. The placeholder will be replaced with a duration, e.g. "2 minutes".-->
+
   <string name="mailbox_setup_connecting_info">Ez akár%1s-ot is igénybe vehet</string>
   <string name="mailbox_qr_code_too_old">A beolvasott QR-kód a Briar postafiók egy régebbi verziójából származik. Kérjük, frissítse a Briar postafiók a legújabb verzióra, majd próbálja újra.</string>
   <string name="mailbox_qr_code_too_new">A beolvasott QR-kód a Briar postafiók újabb verziójából származik. Kérjük, frissítse a Briart a legújabb verzióra, majd próbálja újra.</string>
@@ -626,9 +622,9 @@ Vigyázat: Ez végleg törli az identitásait, kapcsolatait és üzeneteit</stri
   <string name="mailbox_status_mailbox_too_old_title">A Mailbox túl régi</string>
   <string name="mailbox_status_mailbox_too_old_message">Frissítsd a Mailbox-ot a legutolsó app verzióra és próbáld újra.</string>
   <string name="mailbox_status_check_button">Kapcsolat ellenőrzése</string>
-  <!--Example for string substitution: Last connection: 3min ago-->
+
   <string name="mailbox_status_connected_info">Utolsó csatlakozás: %s</string>
-  <!--Indicates that there never was a connection to the mailbox. Last connection: Never-->
+
   <string name="mailbox_status_connected_never">Soha</string>
   <string name="mailbox_status_unlink_button">Leválasztás</string>
   <string name="mailbox_status_unlink_dialog_title">Leválassza a postafiókot?</string>
@@ -656,7 +652,7 @@ Vigyázat: Ez végleg törli az identitásait, kapcsolatait és üzeneteit</stri
   <string name="mailbox_error_wizard_info_1_1_2">Kérjük válaszd le a Mailbox-ot a gombbal alább, aztán olvasd be a QR kódot  az újra csatlakoztatáshoz.</string>
   <string name="mailbox_error_wizard_info1_1_4">Ellenőrizze, hogy a postafiók megfelelően csatlakozik-e az internethez. Ellenőrizze, hogy a postafiók órája a megfelelő időt, dátumot és időzónát mutatja-e. Ellenőrizze, hogy a postafiók és a Briar alkalmazások frissültek-e a legújabb verzióra. Indítsa újra a postafiók és a Briar eszközöket, és próbálja újra.</string>
   <string name="mailbox_error_wizard_info2">Kérjük gyere vissza erre  képernyőre, ha van hozzáférésed az eszközhöz.</string>
-  <!--About-->
+
   <string name="about_title">Névjegy</string>
   <string name="briar_version">Briar verzió: %s</string>
   <string name="tor_version">Tor verzió: %s</string>
@@ -665,9 +661,9 @@ Vigyázat: Ez végleg törli az identitásait, kapcsolatait és üzeneteit</stri
   <string name="briar_source_code">\u2022 <a href="">Forráskód</a> </string>
   <string name="briar_changelog">\u2022 <a href="">Változásnapló</a></string>
   <string name="briar_privacy_policy">\u2022 <a href="">Adatvédelmi irányelvek</a></string>
-  <!--Here translators can add their names or Transifex usernames(eg "Thanks to all the contributors at the Localization Lab, especially Tom, Matthew and Jerry")-->
+
   <string name="translator_thanks">Köszönet minden közreműködőnek a Lokalizációs Laborban</string>
-  <!--Conversation Settings-->
+
   <string name="disappearing_messages_title">Eltűnő üzenetek</string>
   <string name="disappearing_messages_explanation_long">Bekapcsolva ezt  beállítást az új
 		üzenetek ebben a beszélgetésben automatikusan eltűnnek 7\u00A0 nap múlva.
@@ -680,16 +676,16 @@ Vigyázat: Ez végleg törli az identitásait, kapcsolatait és üzeneteit</stri
 		A kapcsolata ugyanúgy meg tudja változtatni ezt a beállítást az Ön és a saját részére.</string>
   <string name="learn_more">További információ</string>
   <string name="disappearing_messages_summary">Make future messages in this conversation automatically disappear after 7\u00A0days.</string>
-  <!--Settings Actions-->
+
   <string name="pref_category_actions">Események</string>
   <string name="share_app_link">Letöltési link megosztása</string>
   <string name="send_feedback">Visszajelzés küldése</string>
-  <!--Link Warning-->
+
   <string name="link_warning_title">Link figyelmeztetés</string>
   <string name="link_warning_intro">Épp megnyit egy linket egy külső alkalmazással.</string>
   <string name="link_warning_text">Ez tudja azonosítani Önt. Gondolkodjon el arról, hogy megbízik-e a személyben, aki a linket küldte és nyissa meg azt a Tor böngészőben.</string>
   <string name="link_warning_open_link">Link megnyitása</string>
-  <!--Crash Reporter-->
+
   <string name="crash_report_title">Briar összeomlási jelentés</string>
   <string name="briar_crashed">Sajnáljuk, a Briar összeomlott</string>
   <string name="not_your_fault">Ez nem az Ön hibája.</string>
@@ -720,15 +716,15 @@ Vigyázat: Ez végleg törli az identitásait, kapcsolatait és üzeneteit</stri
   <string name="dev_report_sent">Visszajelzés elküldve</string>
   <string name="dev_report_saved">A jelentés mentve. Elküldésre kerül akkor, amikor legközelebb bejelentkezik a Briar-ba.</string>
   <string name="dev_report_error">Hiba: Riport küldése sikertelen</string>
-  <!--Sign Out-->
+
   <string name="progress_title_logout">Kilépés a Briar-ból...</string>
-  <!--Screen Filters & Tapjacking-->
+
   <string name="screen_filter_title">Képernyő felülírás észlelve </string>
   <string name="screen_filter_body">Egy másik app a Briar tetejére rajzol. A biztonsága védelme érdekében a Briar nem válaszol az érintésre, ha egy másik app rajzol a tetejére.\n\nA következő app lehet, ami a tetejére rajzol:\n\n%1$s</string>
   <string name="screen_filter_body_api_30">Egy másik app a Briar tetejére rajzol. A biztonsága védelme érdekében a Briar nem válaszol az érintésre, ha egy másik app rajzol a tetejére.\n\nTekintsd át az appokat, hogy megtaláld az ezért felelőst.</string>
   <string name="screen_filter_allow">Az appok engedélyezése a felé rajzolásra</string>
   <string name="screen_filter_review_apps">Appok áttekintése</string>
-  <!--Permission Requests-->
+
   <string name="permission_camera_title">Kamera jogosultságok</string>
   <string name="permission_camera_request_body">A QR kód olvasáshoz a Briar-nak szüksége van kamera hozzáférésre.</string>
   <string name="permission_location_title">Hely engedélyek</string>
@@ -749,16 +745,16 @@ Vigyázat: Ez végleg törli az identitásait, kapcsolatait és üzeneteit</stri
   <string name="permission_bluetooth_denied_body">Megtagadta a hozzáférést a közeli eszközökhöz, de Briarnak szüksége van erre az engedélyre a Bluetooth használatához. Kérjük, fontolja meg a hozzáférés megadását.</string>
   <string name="qr_code">QR kód</string>
   <string name="show_qr_code_fullscreen">A QR kód teljes képernyősen</string>
-  <!--App Locking-->
+
   <string name="lock_unlock">Briar feloldása</string>
   <string name="lock_unlock_verbose">Adja meg az eszköz PIN-t, jelszó mintát vagy jelszót a Briar feloldásához</string>
   <string name="lock_unlock_fingerprint_description">Érintse meg az ujjlenyomat olvasót a regisztrált ujjával a folytatáshoz</string>
   <string name="lock_unlock_password">Jelszó használata</string>
   <string name="lock_is_locked">A Briar zárolt</string>
   <string name="lock_tap_to_unlock">Koppintson a zárolás feloldásához</string>
-  <!--Connections Screen-->
+
   <string name="transports_help_text">A Briar Interneten, Wi-Fi-n vagy Bluetooth-on keresztül csatlakozhat kapcsolataihoz.\n\nAz összes internetkapcsolat a Tor hálózaton megy keresztül megy az adatvédelem érdekében.\n\nHa egy kapcsolatot több módszerrel is el lehet érni, Briar párhuzamosan használja azokat.</string>
-  <!--Share app offline-->
+
   <string name="hotspot_title">Ossza meg ezt az alkalmazást offline</string>
   <string name="hotspot_button_start_sharing">Hotspot indítása</string>
   <string name="hotspot_button_stop_sharing">Hotspot leállítása</string>
@@ -773,35 +769,35 @@ Vigyázat: Ez végleg törli az identitásait, kapcsolatait és üzeneteit</stri
   <string name="wifi_settings_title">Wi-Fi beállítás</string>
   <string name="wifi_settings_request_enable_body">Wi-Fi hotspot létrehozásához Briarnak Wi-Fi-t kell használnia. Kérjük, engedélyezze.</string>
   <string name="hotspot_tab_manual">Kézi</string>
-  <!--The placeholder to be inserted into the string 'hotspot_manual_wifi': People can connect by %s-->
+
   <string name="hotspot_scanning_a_qr_code">QR-kód beolvasása</string>
-  <!--Wi-Fi setup-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_wifi">Telefonja Wi-Fi hotspotot biztosít. Azok az emberek, akik szeretnék letölteni a Briart, csatlakozhatnak a hotspothoz úgy, hogy hozzáadják azt eszközük Wi-Fi beállításaihoz az alábbi adatokkal vagy %s-al. Amikor csatlakoztak a hotspothoz, nyomja meg a „Tovább” gombot.</string>
   <string name="hotspot_manual_wifi_ssid">Hálózat neve</string>
   <string name="hotspot_qr_wifi">Telefonja Wi-Fi hotspotot biztosít. Azok, akik szeretnék letölteni a Briart, ennek a QR-kódnak a beolvasásával csatlakozhatnak a hotspothoz. Amikor csatlakoztak a hotspothoz, nyomja meg a „Tovább” gombot.</string>
   <string name="hotspot_no_peers_connected">Nincsenek csatlakoztatva eszközök</string>
-  <!--Download link-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
-  <!--e.g. Download Briar 1.2.20-->
+
+
+
   <string name="website_troubleshooting_title">Hibaelhárítás</string>
-  <!--error handling-->
-  <!--Transfer Data via Removable Drives-->
+
+
   <string name="removable_drive_menu_title">Csatlakozás eltávolítható adathordozón keresztül</string>
   <string name="removable_drive_receive_button">Válassza ki az importálandó fájlt:</string>
   <string name="removable_drive_success_send_title">Sikeres exportálás</string>
   <string name="removable_drive_success_receive_title">Sikeres importálás</string>
-  <!--Screenshots-->
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
+
   <string name="screenshot_alice">Alíz</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_bob">Bob</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_carol">Carol</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Bob!-->
+
   <string name="screenshot_message_1">Szia Bob!</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Alice!-->
+
   <string name="screenshot_message_2">Szia Alíz! Köszönöm, hogy megemlítetted nekem a Briar-t!</string>
-  <!--This is a message to be used in screenshots.-->
+
   <string name="screenshot_message_3">Szívesen, remélem tetszeni fog 😀</string>
 </resources>

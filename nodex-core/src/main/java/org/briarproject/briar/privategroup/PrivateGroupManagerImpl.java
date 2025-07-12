@@ -1,5 +1,4 @@
 package org.briarproject.briar.privategroup;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.BdfIncomingMessageHook;
 import org.briarproject.bramble.api.client.ClientHelper;
@@ -40,7 +39,6 @@ import org.briarproject.briar.api.privategroup.event.ContactRelationshipRevealed
 import org.briarproject.briar.api.privategroup.event.GroupDissolvedEvent;
 import org.briarproject.briar.api.privategroup.event.GroupMessageAddedEvent;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -51,10 +49,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
-
 import javax.annotation.concurrent.ThreadSafe;
 import javax.inject.Inject;
-
 import static org.briarproject.bramble.api.sync.validation.IncomingMessageHook.DeliveryAction.ACCEPT_SHARE;
 import static org.briarproject.briar.api.identity.AuthorInfo.Status.UNVERIFIED;
 import static org.briarproject.briar.api.identity.AuthorInfo.Status.VERIFIED;
@@ -76,19 +72,16 @@ import static org.briarproject.briar.privategroup.GroupConstants.KEY_PREVIOUS_MS
 import static org.briarproject.briar.privategroup.GroupConstants.KEY_READ;
 import static org.briarproject.briar.privategroup.GroupConstants.KEY_TIMESTAMP;
 import static org.briarproject.briar.privategroup.GroupConstants.KEY_TYPE;
-
 @ThreadSafe
 @NotNullByDefault
 class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		implements PrivateGroupManager {
-
 	private final PrivateGroupFactory privateGroupFactory;
 	private final ContactManager contactManager;
 	private final IdentityManager identityManager;
 	private final AuthorManager authorManager;
 	private final MessageTracker messageTracker;
 	private final List<PrivateGroupHook> hooks;
-
 	@Inject
 	PrivateGroupManagerImpl(ClientHelper clientHelper,
 			MetadataParser metadataParser, DatabaseComponent db,
@@ -103,7 +96,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		this.messageTracker = messageTracker;
 		hooks = new CopyOnWriteArrayList<>();
 	}
-
 	@Override
 	public void addPrivateGroup(PrivateGroup group, GroupMessage joinMsg,
 			boolean creator) throws DbException {
@@ -115,7 +107,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			db.endTransaction(txn);
 		}
 	}
-
 	@Override
 	public void addPrivateGroup(Transaction txn, PrivateGroup group,
 			GroupMessage joinMsg, boolean creator) throws DbException {
@@ -134,7 +125,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			throw new DbException(e);
 		}
 	}
-
 	private void joinPrivateGroup(Transaction txn, GroupMessage m,
 			boolean creator) throws DbException, FormatException {
 		BdfDictionary meta = new BdfDictionary();
@@ -148,7 +138,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 				m.getMessage().getId());
 		attachJoinMessageAddedEvent(txn, m.getMessage(), meta, true);
 	}
-
 	@Override
 	public void removePrivateGroup(Transaction txn, GroupId g)
 			throws DbException {
@@ -158,18 +147,15 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		Group group = db.getGroup(txn, g);
 		db.removeGroup(txn, group);
 	}
-
 	@Override
 	public void removePrivateGroup(GroupId g) throws DbException {
 		db.transaction(false, txn -> removePrivateGroup(txn, g));
 	}
-
 	@Override
 	public MessageId getPreviousMsgId(GroupId g) throws DbException {
 		return db.transactionWithResult(true,
 				txn -> getPreviousMsgId(txn, g));
 	}
-
 	public MessageId getPreviousMsgId(Transaction txn, GroupId g)
 			throws DbException {
 		try {
@@ -180,14 +166,12 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			throw new DbException(e);
 		}
 	}
-
 	private void setPreviousMsgId(Transaction txn, GroupId g,
 			MessageId previousMsgId) throws DbException, FormatException {
 		BdfDictionary d = BdfDictionary
 				.of(new BdfEntry(KEY_PREVIOUS_MSG_ID, previousMsgId));
 		clientHelper.mergeGroupMetadata(txn, g, d);
 	}
-
 	@Override
 	public void markGroupDissolved(Transaction txn, GroupId g)
 			throws DbException {
@@ -202,18 +186,15 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		Event e = new GroupDissolvedEvent(g);
 		txn.attach(e);
 	}
-
 	@Override
 	public GroupMessageHeader addLocalMessage(GroupMessage m)
 			throws DbException {
 		return db.transactionWithResult(false, txn -> addLocalMessage(txn, m));
 	}
-
 	@Override
 	public GroupMessageHeader addLocalMessage(Transaction txn, GroupMessage m)
 			throws DbException {
 		try {
-			// store message and metadata
 			BdfDictionary meta = new BdfDictionary();
 			meta.put(KEY_TYPE, POST.getInt());
 			if (m.getParent() != null)
@@ -222,10 +203,8 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			GroupId g = m.getMessage().getGroupId();
 			clientHelper
 					.addLocalMessage(txn, m.getMessage(), meta, true, false);
-			// track message
 			setPreviousMsgId(txn, g, m.getMessage().getId());
 			messageTracker.trackOutgoingMessage(txn, m.getMessage());
-			// broadcast event
 			attachGroupMessageAddedEvent(txn, m.getMessage(), meta, true);
 			AuthorInfo authorInfo = authorManager.getMyAuthorInfo(txn);
 			return new GroupMessageHeader(m.getMessage().getGroupId(),
@@ -236,13 +215,11 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			throw new DbException(e);
 		}
 	}
-
 	private void addMessageMetadata(BdfDictionary meta, GroupMessage m) {
 		meta.put(KEY_MEMBER, clientHelper.toList(m.getMember()));
 		meta.put(KEY_TIMESTAMP, m.getMessage().getTimestamp());
 		meta.put(KEY_READ, true);
 	}
-
 	@Override
 	public PrivateGroup getPrivateGroup(GroupId g) throws DbException {
 		PrivateGroup privateGroup;
@@ -255,7 +232,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		}
 		return privateGroup;
 	}
-
 	@Override
 	public PrivateGroup getPrivateGroup(Transaction txn, GroupId g)
 			throws DbException {
@@ -266,7 +242,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public Collection<PrivateGroup> getPrivateGroups(Transaction txn)
 			throws DbException {
@@ -281,19 +256,16 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		}
 		return privateGroups;
 	}
-
 	@Override
 	public boolean isOurPrivateGroup(Transaction txn, PrivateGroup g)
 			throws DbException {
 		LocalAuthor localAuthor = identityManager.getLocalAuthor(txn);
 		return localAuthor.getId().equals(g.getCreator().getId());
 	}
-
 	@Override
 	public Collection<PrivateGroup> getPrivateGroups() throws DbException {
 		return db.transactionWithResult(true, this::getPrivateGroups);
 	}
-
 	@Override
 	public boolean isDissolved(Transaction txn, GroupId g) throws DbException {
 		try {
@@ -304,12 +276,10 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public boolean isDissolved(GroupId g) throws DbException {
 		return db.transactionWithResult(true, txn -> isDissolved(txn, g));
 	}
-
 	@Override
 	public String getMessageText(MessageId m) throws DbException {
 		try {
@@ -318,7 +288,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public String getMessageText(Transaction txn, MessageId m)
 			throws DbException {
@@ -328,19 +297,14 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			throw new DbException(e);
 		}
 	}
-
 	private String getMessageText(BdfList body) throws FormatException {
-		// Message type (0), member (1), parent ID (2), previous message ID (3),
-		// text (4), signature (5)
 		return body.getString(4);
 	}
-
 	@Override
 	public Collection<GroupMessageHeader> getHeaders(GroupId g)
 			throws DbException {
 		return db.transactionWithResult(true, txn -> getHeaders(txn, g));
 	}
-
 	@Override
 	public List<GroupMessageHeader> getHeaders(Transaction txn, GroupId g)
 			throws DbException {
@@ -348,17 +312,14 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		try {
 			Map<MessageId, BdfDictionary> metadata =
 					clientHelper.getMessageMetadataAsDictionary(txn, g);
-			// get all authors we need to get the information for
 			Set<AuthorId> authors = new HashSet<>();
 			for (BdfDictionary meta : metadata.values()) {
 				authors.add(getAuthor(meta).getId());
 			}
-			// get information for all authors
 			Map<AuthorId, AuthorInfo> authorInfos = new HashMap<>();
 			for (AuthorId id : authors) {
 				authorInfos.put(id, authorManager.getAuthorInfo(txn, id));
 			}
-			// parse the metadata
 			for (Entry<MessageId, BdfDictionary> entry : metadata.entrySet()) {
 				BdfDictionary meta = entry.getValue();
 				if (meta.getInt(KEY_TYPE) == JOIN.getInt()) {
@@ -374,18 +335,15 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			throw new DbException(e);
 		}
 	}
-
 	private GroupMessageHeader getGroupMessageHeader(Transaction txn, GroupId g,
 			MessageId id, BdfDictionary meta,
 			Map<AuthorId, AuthorInfo> authorInfos)
 			throws DbException, FormatException {
-
 		MessageId parentId = null;
 		if (meta.containsKey(KEY_PARENT_MSG_ID)) {
 			parentId = new MessageId(meta.getRaw(KEY_PARENT_MSG_ID));
 		}
 		long timestamp = meta.getLong(KEY_TIMESTAMP);
-
 		Author member = getAuthor(meta);
 		AuthorInfo authorInfo;
 		if (authorInfos.containsKey(member.getId())) {
@@ -394,27 +352,22 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			authorInfo = authorManager.getAuthorInfo(txn, member.getId());
 		}
 		boolean read = meta.getBoolean(KEY_READ);
-
 		return new GroupMessageHeader(g, id, parentId, timestamp, member,
 				authorInfo, read);
 	}
-
 	private JoinMessageHeader getJoinMessageHeader(Transaction txn, GroupId g,
 			MessageId id, BdfDictionary meta,
 			Map<AuthorId, AuthorInfo> authorInfos)
 			throws DbException, FormatException {
-
 		GroupMessageHeader header =
 				getGroupMessageHeader(txn, g, id, meta, authorInfos);
 		boolean creator = meta.getBoolean(KEY_INITIAL_JOIN_MSG);
 		return new JoinMessageHeader(header, creator);
 	}
-
 	@Override
 	public Collection<GroupMember> getMembers(GroupId g) throws DbException {
 		return db.transactionWithResult(true, txn -> getMembers(txn, g));
 	}
-
 	@Override
 	public Collection<GroupMember> getMembers(Transaction txn, GroupId g)
 			throws DbException {
@@ -438,7 +391,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		}
 		return members;
 	}
-
 	private Map<Author, Visibility> getMemberAuthors(Transaction txn, GroupId g)
 			throws DbException {
 		try {
@@ -457,7 +409,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public boolean isMember(Transaction txn, GroupId g, Author a)
 			throws DbException {
@@ -466,30 +417,25 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		}
 		return false;
 	}
-
 	@Override
 	public GroupCount getGroupCount(Transaction txn, GroupId g)
 			throws DbException {
 		return messageTracker.getGroupCount(txn, g);
 	}
-
 	@Override
 	public GroupCount getGroupCount(GroupId g) throws DbException {
 		return messageTracker.getGroupCount(g);
 	}
-
 	@Override
 	public void setReadFlag(Transaction txn, GroupId g, MessageId m,
 			boolean read) throws DbException {
 		messageTracker.setReadFlag(txn, g, m, read);
 	}
-
 	@Override
 	public void setReadFlag(GroupId g, MessageId m, boolean read)
 			throws DbException {
 		db.transaction(false, txn -> setReadFlag(txn, g, m, read));
 	}
-
 	@Override
 	public void relationshipRevealed(Transaction txn, GroupId g, AuthorId a,
 			boolean byContact) throws FormatException, DbException {
@@ -501,7 +447,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			BdfDictionary d = members.getDictionary(i);
 			if (a.equals(getAuthor(d).getId())) {
 				foundMember = true;
-				// Don't update the visibility if the contact is already visible
 				if (getVisibility(d) == INVISIBLE) {
 					changed = true;
 					v = byContact ? REVEALED_BY_CONTACT : REVEALED_BY_US;
@@ -519,17 +464,14 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			txn.attach(e);
 		}
 	}
-
 	@Override
 	public void registerPrivateGroupHook(PrivateGroupHook hook) {
 		hooks.add(hook);
 	}
-
 	@Override
 	protected DeliveryAction incomingMessage(Transaction txn, Message m,
 			BdfList body, BdfDictionary meta)
 			throws DbException, FormatException {
-
 		MessageType type = MessageType.valueOf(meta.getInt(KEY_TYPE));
 		switch (type) {
 			case JOIN:
@@ -539,14 +481,11 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 				handleGroupMessage(txn, m, meta);
 				return ACCEPT_SHARE;
 			default:
-				// the validator should only let valid types pass
 				throw new RuntimeException("Unknown MessageType");
 		}
 	}
-
 	private void handleJoinMessage(Transaction txn, Message m,
 			BdfDictionary meta) throws FormatException, DbException {
-		// find out if contact relationship is visible and then add new member
 		Author member = getAuthor(meta);
 		BdfDictionary groupMeta = clientHelper
 				.getGroupMetadataAsDictionary(txn, m.getGroupId());
@@ -559,14 +498,11 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 				v = INVISIBLE;
 		}
 		addMember(txn, m.getGroupId(), member, v);
-		// track message and broadcast event
 		messageTracker.trackIncomingMessage(txn, m);
 		attachJoinMessageAddedEvent(txn, m, meta, false);
 	}
-
 	private void handleGroupMessage(Transaction txn, Message m,
 			BdfDictionary meta) throws FormatException, DbException {
-		// timestamp must be greater than the timestamps of parent post
 		long timestamp = meta.getLong(KEY_TIMESTAMP);
 		byte[] parentIdBytes = meta.getOptionalRaw(KEY_PARENT_MSG_ID);
 		if (parentIdBytes != null) {
@@ -580,26 +516,21 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			if (parentType != POST)
 				throw new FormatException();
 		}
-		// and the member's previous message
 		byte[] previousMsgIdBytes = meta.getRaw(KEY_PREVIOUS_MSG_ID);
 		MessageId previousMsgId = new MessageId(previousMsgIdBytes);
 		BdfDictionary previousMeta = clientHelper
 				.getMessageMetadataAsDictionary(txn, previousMsgId);
 		if (timestamp <= previousMeta.getLong(KEY_TIMESTAMP))
 			throw new FormatException();
-		// previous message must be from same member
 		if (!getAuthor(meta).equals(getAuthor(previousMeta)))
 			throw new FormatException();
-		// previous message must be a POST or JOIN
 		MessageType previousType =
 				MessageType.valueOf(previousMeta.getInt(KEY_TYPE));
 		if (previousType != JOIN && previousType != POST)
 			throw new FormatException();
-		// track message and broadcast event
 		messageTracker.trackIncomingMessage(txn, m);
 		attachGroupMessageAddedEvent(txn, m, meta, false);
 	}
-
 	private void attachGroupMessageAddedEvent(Transaction txn, Message m,
 			BdfDictionary meta, boolean local)
 			throws DbException, FormatException {
@@ -609,7 +540,6 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		txn.attach(new GroupMessageAddedEvent(m.getGroupId(), header, text,
 				local));
 	}
-
 	private void attachJoinMessageAddedEvent(Transaction txn, Message m,
 			BdfDictionary meta, boolean local)
 			throws DbException, FormatException {
@@ -618,10 +548,8 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		txn.attach(new GroupMessageAddedEvent(m.getGroupId(), header, "",
 				local));
 	}
-
 	private void addMember(Transaction txn, GroupId g, Author a, Visibility v)
 			throws DbException, FormatException {
-
 		BdfDictionary meta = clientHelper.getGroupMetadataAsDictionary(txn, g);
 		BdfList members = meta.getList(GROUP_KEY_MEMBERS);
 		members.add(BdfDictionary.of(
@@ -633,14 +561,11 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			hook.addingMember(txn, g, a);
 		}
 	}
-
 	private Author getAuthor(BdfDictionary meta) throws FormatException {
 		return clientHelper.parseAndValidateAuthor(meta.getList(KEY_MEMBER));
 	}
-
 	private Visibility getVisibility(BdfDictionary meta)
 			throws FormatException {
 		return Visibility.valueOf(meta.getInt(GROUP_KEY_VISIBILITY));
 	}
-
 }

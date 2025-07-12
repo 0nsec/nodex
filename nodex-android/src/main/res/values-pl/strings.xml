@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <!--Setup-->
+
   <string name="setup_title">Witaj w Briar</string>
   <string name="setup_name_explanation">Twoja nazwa użytkownika będzie wyświetlana przy każdej zamieszczonej przez Ciebie treści. Nie można jej zmienić po tworzeniu konta.</string>
   <string name="setup_next">Dalej</string>
@@ -30,7 +30,7 @@
   <string name="dnkm_xiaomi_lock_apps_text">Naciśnij poniższy przycisk, aby otworzyć ustawienia bezpieczeństwa. Naciśnij \"Zwiększ prędkość\", następnie \"Zablokuj aplikacje\" i upewnij się, że Briar jest ustawiony na \"Zablokowany\".</string>
   <string name="dnkm_xiaomi_lock_apps_help">Jeśli Briar nie jest ustawiony na \"Zablokowany\" na ekranie \"Zablokuj aplikacje\", nie będzie mógł działać w tle.</string>
   <string name="dnkm_warning_dozed_1">Briar nie był wstanie działać w tle</string>
-  <!--Login-->
+
   <string name="enter_password">Hasło</string>
   <string name="try_again">Złe hasło, spróbuj ponownie</string>
   <string name="dialog_title_cannot_check_password">Nie można zweryfikować hasła</string>
@@ -60,19 +60,19 @@
   <string name="startup_open_database">Deszyfruję Bazę Danych...</string>
   <string name="startup_migrate_database">Aktualizuję Bazę Danych...</string>
   <string name="startup_compact_database">Kompaktowanie Bazy Danych…</string>
-  <!--Navigation Drawer-->
+
   <string name="nav_drawer_open_description">Otwórz panel nawigacji</string>
   <string name="nav_drawer_close_description">Zamknij panel nawigacji</string>
   <string name="contact_list_button">Kontakty</string>
   <string name="groups_button">Grupy Prywatne</string>
   <string name="forums_button">Fora</string>
   <string name="blogs_button">Blogi</string>
-  <!--This is part of the main menu. The app will be locked when this is tapped.-->
+
   <string name="lock_button">Zablokuj Aplikację</string>
   <string name="settings_button">Ustawienia</string>
   <string name="sign_out_button">Wyloguj się</string>
   <string name="transports_onboarding_text">Dotknij tutaj aby zmienić w jaki sposób Briar łączy się z twoimi kontaktami.</string>
-  <!--Transports: Tor-->
+
   <string name="transport_tor">Internet</string>
   <string name="tor_device_status_online_wifi">Twój telefon jest połączony z Internetem za pomocą Wi-Fi</string>
   <string name="tor_device_status_online_mobile">Twój telefon jest połączony z Internetem przez dane komórkowe</string>
@@ -84,7 +84,7 @@
   <string name="tor_plugin_status_disabled_mobile_data">Briar został skonfigurowany tak, aby nie używać danych komórkowych</string>
   <string name="tor_plugin_status_disabled_battery"> Briar jest skonfigurowany tak, aby nie korzystał z Internetu podczas pracy na baterii</string>
   <string name="tor_plugin_status_disabled_country_blocked">Briar został skonfigurowany tak, aby nie łączył się z Internetem w tym kraju</string>
-  <!--Transports: Wi-Fi-->
+
   <string name="transport_lan">Wi-Fi</string>
   <string name="transport_lan_long">Ta sama sieć Wi-Fi</string>
   <string name="lan_device_status_on">Twój telefon jest połączoczy z Wi-Fi</string>
@@ -93,7 +93,7 @@
   <string name="lan_plugin_status_active">Briar jest podłączony do sieci Wi-Fi</string>
   <string name="lan_plugin_status_inactive">Briar nie może połączyć się z siecią Wi-Fi</string>
   <string name="lan_plugin_status_disabled">Briar jest skonfigurowany tak, aby nie korzystać z sieci Wi-Fi</string>
-  <!--Transports: Bluetooth-->
+
   <string name="transport_bt">Bluetooth</string>
   <string name="bt_device_status_on">Bluetooth jest włączony</string>
   <string name="bt_device_status_off">Bluetooth jest wyłączony</string>
@@ -101,7 +101,7 @@
   <string name="bt_plugin_status_active">Briar połączył się z Bluetooth</string>
   <string name="bt_plugin_status_inactive">Briar nie może połączyć się z Bluetoothem</string>
   <string name="bt_plugin_status_disabled">Briar został skonfigurowany tak, aby nie używał Bluetooth</string>
-  <!--Notifications-->
+
   <string name="reminder_notification_title">Wylogowano z Briar</string>
   <string name="reminder_notification_text">Dotknij, aby zalogować się ponownie</string>
   <string name="reminder_notification_channel_title">Przypomnienie o zalogowaniu do Briar</string>
@@ -132,7 +132,7 @@
     <item quantity="many">%d nowych postów z bloga. </item>
     <item quantity="other">%d nowych postów z bloga.</item>
   </plurals>
-  <!--Misc-->
+
   <string name="now">teraz</string>
   <string name="show">Pokaż</string>
   <string name="hide">Ukryj</string>
@@ -161,7 +161,7 @@
   <string name="status_heading">Status</string>
   <string name="error">Błąd</string>
   <string name="info">Informacja</string>
-  <!--Contacts and Private Conversations-->
+
   <string name="no_contacts">Brak kontaktów do pokazania</string>
   <string name="no_contacts_action">Dotknij ikonki + aby dodać kontakt</string>
   <string name="date_no_private_messages">Brak wiadomości.</string>
@@ -177,11 +177,11 @@
   <string name="set_contact_alias">Zmień nazwę kontaktu</string>
   <string name="set_contact_alias_hint">Nazwa kontaktu</string>
   <string name="menu_item_disappearing_messages">Znikające wiadomości</string>
-  <!--The first placeholder will show a duration like "7 days". The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_enabled">Twoje wiadomości znikną po %1$s. %2$s</string>
-  <!--The placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_disabled">Twoje wiadomości nie znikną. %1$s</string>
-  <!--The first placeholder will show a contact's name. The second placeholder will show a duration like "7 days". The third placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_enabled">Wiadomości od %1$sznikną po %2$s. %3$s</string>
   <plurals name="duration_minutes">
     <item quantity="one">%d minuta</item>
@@ -201,7 +201,7 @@
     <item quantity="many">%d dni</item>
     <item quantity="other">%d dni</item>
   </plurals>
-  <!--The first placeholder will show a contact's name. The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_disabled">Wiadomości od %1$snie znikną. %2$s</string>
   <string name="tap_to_learn_more">Dotknij tutaj aby dowiedzieć się więcej.</string>
   <string name="auto_delete_changed_warning_title">Znikające wiadomości zmienione</string>
@@ -222,7 +222,7 @@
   <string name="dialog_title_delete_contact">Potwierdź usunięcie kontaktu</string>
   <string name="dialog_message_delete_contact">Czy na pewno chcesz usunąć ten kontakt i wszystkie wymienione z nim wiadomości?</string>
   <string name="contact_deleted_toast">Kontakt usunięty</string>
-  <!--This is shown in the action bar when opening an image in fullscreen that the user sent-->
+
   <string name="you">Ty</string>
   <string name="save_image">Zapisz obraz</string>
   <string name="dialog_title_save_image">Zapisać obraz?</string>
@@ -235,7 +235,7 @@
   <string name="dialog_message_image_support">Kliknij tą ikonę aby dołączyć obrazy</string>
   <string name="messaging_too_many_attachments_toast">Tylko pierwsze%dobrazy (ów) zostanie wysłane.</string>
   <string name="menu_contact">Kontakt</string>
-  <!--Adding Contacts-->
+
   <string name="add_contact_title">Dodaj kontakt w pobliżu</string>
   <string name="add_contact_error_two_way">Czy oboje skanowaliście nawzajem swoje kody QR?</string>
   <string name="face_to_face">Musisz spotkać się z osobą którą chcesz dodać jako kontakt.\n\nTo uniemożliwi komukolwiek udawanie Ciebie lub czytanie Twoich wiadomości w przyszłości.</string>
@@ -257,7 +257,7 @@
   <string name="connection_error_title">Nie udało się połączyć z kontaktem</string>
   <string name="connection_error_feedback">Jeśli problem będzie występować dalej, proszę <a href="feedback">wysłać opinię</a> aby pomóc nam ulepszyć aplikację.</string>
   <string name="info_both_must_scan">Oboje musicie skanować nawzajem swoje kody QR</string>
-  <!--Adding Contacts Remotely-->
+
   <string name="add_contact_remotely_title_case">Dodaj Kontakt na odległość</string>
   <string name="add_contact_nearby_title">Dodaj kontakt w pobliżu</string>
   <string name="add_contact_remotely_title">Dodaj kontakt na odległość</string>
@@ -290,9 +290,9 @@
   <string name="unsupported_link">Ten link pochodzi od nowszej wersji Briara. Wykonaj aktualizację do najnowszej wersji i spróbuj ponownie.</string>
   <string name="intent_own_link">Otworzyłeś swój własny link. Użyj linku od kontaktu, którego chcesz dodać!</string>
   <string name="missing_link">Proszę wprowadź link</string>
-  <!--This is a numeral indicating the first step in a series of screens-->
+
   <string name="step_1">1</string>
-  <!--This is a numeral indicating the second step in a series of screens-->
+
   <string name="step_2">2</string>
   <plurals name="contact_added_notification_text">
     <item quantity="one">Nowy kontakt dodany.</item>
@@ -304,25 +304,21 @@
   <string name="duplicate_link_dialog_title">Duplikat Linku</string>
   <string name="duplicate_link_dialog_text_1">Masz już oczekujący kontakt z tym linkiem: %s</string>
   <string name="duplicate_link_dialog_text_1_contact">Masz już kontakt z tym linkiem: %s</string>
-  <!--This is a question asking whether two nicknames refer to the same person-->
+
   <string name="duplicate_link_dialog_text_2">Czy %1$s i %2$s to ta sama osoba?</string>
-  <!--This is a button for answering that two nicknames do indeed refer to the same person. This
-	string will be used in a dialog button, so if the translation of this string is longer than 20
-	characters, please use "Yes" instead, and use "No" for the "Different Person" button-->
+
   <string name="same_person_button">Ta sama osoba</string>
-  <!--This is a button for answering that two nicknames refer to different people. This string
-	will be used in a dialog button, so if the translation of this string longer than 20 characters,
-	please use "No" instead, and use "Yes" for the "Same Person" button-->
+
   <string name="different_person_button">Inna osoba</string>
   <string name="duplicate_link_dialog_text_3">%1$si  %2$s wysłał ci ten sam link.\n\nJeden z nich może próbować odkryć, kim są twoje kontakty.\n\nNie mów im, że otrzymałeś ten sam link od kogoś innego.</string>
   <string name="pending_contact_updated_toast">Oczekujący kontakt zaktualizowany</string>
   <string name="info_both_must_enter_links">Oboje musicie dodać swoje linki</string>
-  <!--Peer trust levels-->
+
   <string name="peer_trust_level_unverified">Niezweryfikowane kontakty</string>
   <string name="peer_trust_level_verified">Zweryfikowane kontakty</string>
   <string name="peer_trust_level_ourselves">Ja</string>
   <string name="peer_trust_level_stranger">Nieznani</string>
-  <!--Introductions-->
+
   <string name="introduction_onboarding_title">Przedstaw swoje kontakty.</string>
   <string name="introduction_onboarding_text">Przedstaw kontakty sobie nawzajem, aby mogły się połączyć w Briar.</string>
   <string name="introduction_menu_item">Wykonaj przedstawienie</string>
@@ -344,7 +340,7 @@
   <string name="introduction_response_accepted_received">%1$s zaakceptował przedstawienie kontaktowi %2$s</string>
   <string name="introduction_response_declined_received">%1$s odrzucił przedstawienie kontaktowi %2$s</string>
   <string name="introduction_response_declined_received_by_introducee">%1$s mówi, że %2$s odrzucił przedstawienie</string>
-  <!--Connect via Bluetooth-->
+
   <string name="menu_item_connect_via_bluetooth">Połącz przez Bluetooth</string>
   <string name="connect_via_bluetooth_title">Połącz przez Bluetooth</string>
   <string name="connect_via_bluetooth_intro">W przypadku gdy połączenia przez Bluetooth nie działają automatycznie, możesz użyć tego ekranu do połączenia ręcznego.\n\nTwój kontakt musi znajdować się w pobliżu, żeby to zadziałało.\n\nTy i Twój kontakt powinniście jednocześnie wcisnąć \"Start\".</string>
@@ -355,7 +351,7 @@
   <string name="connect_via_bluetooth_success">Udało się połączyć przez Bluetooth.</string>
   <string name="connect_via_bluetooth_error">Nie można się połączyć przez Bluetooth.</string>
   <string name="connect_via_bluetooth_error_not_supported">Bluetooth nie jest obsługiwany przez to urządzenie.</string>
-  <!--Private Groups-->
+
   <string name="groups_list_empty">Brak grup do pokazania</string>
   <string name="groups_list_empty_action">Dotknij ikonkę + aby stworzyć grupę, lub poprosić kontakty o ich udostępnienie</string>
   <string name="groups_created_by">Stworzone przez %s</string>
@@ -388,7 +384,7 @@
   <string name="groups_dissolve_button">Rozwiąż</string>
   <string name="groups_dissolved_dialog_title">Grupa Została Rozwiązana</string>
   <string name="groups_dissolved_dialog_message">Twórca tej grupy rozwiązał ją.\n\nNie możesz już więcej pisać wiadomości do grupy i możesz nie otrzymać wszystkich wiadomości które zostały napisane.</string>
-  <!--Private Group Invitations-->
+
   <string name="groups_invitations_title">Zaproszenia do Grup</string>
   <string name="groups_invitations_invitation_sent">Zaprosiłeś %1$s aby dołączył do grupy \"%2$s\".</string>
   <string name="groups_invitations_invitation_received">%1$s zaprosił cię abyś dołączył do grupy \"%2$s\".</string>
@@ -406,14 +402,14 @@
   <string name="groups_invitations_response_accepted_received">%s przyjął zaproszenie do grupy.</string>
   <string name="groups_invitations_response_declined_received">%s odrzucił zaproszenie do grupy.</string>
   <string name="sharing_status_groups">Tylko osoba która utworzyła grupę może zapraszać nowych użytkowników do grupy. Poniżej są wszyscy aktualni członkowie grupy.</string>
-  <!--Private Groups Revealing Contacts-->
+
   <string name="groups_reveal_contacts">Ujawnij kontakty</string>
   <string name="groups_reveal_dialog_message">Możesz wybrać czy chcesz ujawnić kontakty dla wszystkich aktualnych i przyszłych członków tej grupy.\n\nUjawnienie kontaktów sprawia że połączenie do grupy jest szybsze i bardziej stabilne, ponieważ możesz komunikować się z ujawnionymi kontaktami nawet wtedy kiedy twórca grupy jest offline.</string>
   <string name="groups_reveal_visible">Powiązanie kontaktów jest widoczne dla grupy</string>
   <string name="groups_reveal_visible_revealed_by_us">Relacje kontaktów są widoczne dla grupy (ujawnione przez Ciebie)</string>
   <string name="groups_reveal_visible_revealed_by_contact">Relacje kontaktów są widoczne dla grupy (ujawnione przez %s)</string>
   <string name="groups_reveal_invisible">Relacje kontaktów są niewidoczne dla grupy</string>
-  <!--Forums-->
+
   <string name="no_forums">Brak forów do pokazania</string>
   <string name="no_forums_action">Dotknij ikonkę + aby stworzyć forum, lub poprosić kontakty o ich udostępnienie</string>
   <string name="create_forum_title">Stwórz Forum</string>
@@ -436,7 +432,7 @@
   <string name="dialog_message_leave_forum">Jesteś pewny, że chcesz opuścić to forum?\n\nWszystkie kontakty którym udostępniłeś to forum mogą przestać otrzymywać uaktualnienia postów</string>
   <string name="dialog_button_leave">Opuść</string>
   <string name="forum_left_toast">Opuścił/a Forum</string>
-  <!--Forum Sharing-->
+
   <string name="forum_share_button">Udostępnij Forum</string>
   <string name="contacts_selected">Zaznaczone kontakty</string>
   <string name="activity_share_toolbar_header">Wybierz Kontakty</string>
@@ -472,7 +468,7 @@
     <item quantity="other">%d for udostępnionych przez kontakty</item>
   </plurals>
   <string name="nobody">Nikt</string>
-  <!--Blogs-->
+
   <string name="blogs_other_blog_empty_state">Brak postów do pokazania</string>
   <string name="read_more">czytaj więcej</string>
   <string name="blogs_write_blog_post">Napisz Post Bloga</string>
@@ -489,7 +485,7 @@
   <string name="blogs_blog_removed">Blog usunięty</string>
   <string name="blogs_reblog_comment_hint">Dodaj komentarz (opcjonalne)</string>
   <string name="blogs_reblog_button">Podaj dalej</string>
-  <!--Blog Sharing-->
+
   <string name="blogs_sharing_share">Udostępnij Blog</string>
   <string name="blogs_sharing_error">Wystąpił błąd podczas udostępniania tego bloga.</string>
   <string name="blogs_sharing_button">Udostępnij Blog</string>
@@ -505,7 +501,7 @@
   <string name="blogs_sharing_joined_toast">Zasubskrybowano blog</string>
   <string name="blogs_sharing_declined_toast">Zaproszenie odrzucone</string>
   <string name="sharing_status_blog">Każdy kto subskrybuje blog może go udostępnić swoim kontaktom. Udostępniasz ten blog następującym kontaktom. Mogą być tu także subskrybenci których nie możesz zobaczyć.</string>
-  <!--RSS Feeds-->
+
   <string name="blogs_rss_feeds_import">Zaimportuj kanał RSS</string>
   <string name="blogs_rss_feeds_import_button">Zaimportuj</string>
   <string name="blogs_rss_feeds_import_hint">Wprowadź adres URL do kanału RSS</string>
@@ -521,12 +517,12 @@
   <string name="blogs_rss_remove_feed_ok">Usuń</string>
   <string name="blogs_rss_feeds_manage_empty_state">Brak RSS do wyświetlenia\n\nDotknij ikonki + aby zaimportować kanał.</string>
   <string name="blogs_rss_feeds_manage_error">Wystąpił problem podczas ładowania twoich kanałów RSS. Proszę spróbować ponownie później.</string>
-  <!--Settings Profile Picture-->
+
   <string name="change_profile_picture">Kliknij, aby zmienić swoje zdjęcie profilowe</string>
   <string name="dialog_confirm_profile_picture_title">Zmień zdjęcie profilowe</string>
   <string name="dialog_confirm_profile_picture_remark">Tylko twoje kontakty mogą zobaczyć ten obraz</string>
   <string name="change_profile_picture_failed_message">Przepraszamy, ale coś nie wypaliło przy aktualizacji twojego zdjęcia profilowego.</string>
-  <!--Settings Display-->
+
   <string name="pref_language_title">Język &amp; region</string>
   <string name="pref_language_changed">Te ustawienia zostaną zastosowane gdy zrestartujesz Briar. Proszę się wylogować i zrestartować Briar.</string>
   <string name="pref_language_default">Domyślny systemu</string>
@@ -535,7 +531,7 @@
   <string name="pref_theme_light">Jasny</string>
   <string name="pref_theme_dark">Ciemny</string>
   <string name="pref_theme_system">Domyślny systemu</string>
-  <!--Settings Connections-->
+
   <string name="network_settings_title">Połączenia</string>
   <string name="bluetooth_setting">Połącz się do kontaktów przez Bluetooth</string>
   <string name="wifi_setting">Połącz się do kontaktów w tej samej sieci Wi-Fi</string>
@@ -546,28 +542,28 @@
   <string name="tor_network_setting_without_bridges">Używaj sieci Tor bez mostów</string>
   <string name="tor_network_setting_with_bridges">Używaj sieci Tor z mostami</string>
   <string name="tor_network_setting_never">Nie łącz się z internetem</string>
-  <!--How and when Briar will connect to Tor: E.g. "Don't connect to the Internet (in China)" or "Use Tor network with bridges (in Belarus)"-->
+
   <string name="tor_network_setting_summary">Automatycznie: %1$s (za %2$s)</string>
   <string name="tor_mobile_data_title">Używaj danych komórkowych</string>
   <string name="tor_only_when_charging_title">Podłącz się do internetu tylko w czasie ładowania urządzenia</string>
   <string name="tor_only_when_charging_summary">Wyłącza połączenie Internetowe, gdy urządzenie pracuje na baterii</string>
-  <!--Settings Security and Panic-->
+
   <string name="security_settings_title">Bezpieczeństwo</string>
   <string name="pref_lock_title">Blokada aplikacji</string>
   <string name="pref_lock_summary">Użyj blokady ekranu urządzenia by chronić Briar gdy zalogowany</string>
   <string name="pref_lock_disabled_summary">Aby użyć tej funkcji skonfiguruj blokadę ekranu na swoim urządzeniu</string>
   <string name="pref_lock_timeout_title">Blokada aplikacji po czasie bezczynności</string>
-  <!--The %s placeholder is replaced with the following time spans, e.g. 5 Minutes, 1 Hour-->
+
   <string name="pref_lock_timeout_summary">Gdy nie używam Briar, automatycznie zablokuj po %s</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_1">1 minucie</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_5">5 minutach</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_15">15 minutach</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_30">30 minutach</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_60">1 godzina</string>
   <string name="pref_lock_timeout_never">Nigdy</string>
   <string name="pref_lock_timeout_never_summary">Nigdy nie blokuj Briar automatycznie</string>
@@ -590,7 +586,7 @@
   <string name="panic_setting_signout_summary">Wyloguj się z Briar jeśli przycisk awaryjny zostanie wciśnięty</string>
   <string name="purge_setting_title">Skasuj Konto</string>
   <string name="purge_setting_summary">Skasuj Twoje konto Briar jeśli przycisk wyjścia awaryjnego zostanie wciśnięty. Ostrzeżenie: Ta akcja usunie permanentnie Twoje konto, kontakty i wiadomości</string>
-  <!--Settings Notifications-->
+
   <string name="notification_settings_title">Powiadomienia</string>
   <string name="notify_sign_in_title">Przypomnij mi by się zalogować</string>
   <string name="notify_sign_in_summary">Pokaż przypomnienie gdy telefon się uruchomi lub aplikacja zostanie zaktualizowana</string>
@@ -612,7 +608,7 @@
   <string name="notify_sound_setting_disabled">Brak</string>
   <string name="choose_ringtone_title">Wybierz dzwonek</string>
   <string name="cannot_load_ringtone">Nie mogę załadować dzwonka</string>
-  <!--Mailbox-->
+
   <string name="mailbox_settings_title">Mailbox</string>
   <string name="mailbox_setup_title">Konfiguracja Mailbox</string>
   <string name="mailbox_setup_intro">Mailbox umożliwia Twoim kontaktom wysyłanie Ci wiadomości, gdy jesteś offline. Mailbox odbierze Twoje wiadomości i przechowa je, dopóki nie będziesz online.\n
@@ -623,7 +619,7 @@
   <string name="mailbox_setup_button_scan">Zeskanuj kod QR aplikacji Mailbox</string>
   <string name="permission_camera_qr_denied_body">Odmówiłeś dostępu do aparatu, ale zeskanowanie kodu QR wymaga użycia aparatu.\n\nRozważ przyznanie dostępu.</string>
   <string name="mailbox_setup_connecting">Łączenie się ze Skrzynką odbiorczą…</string>
-  <!--This string is shown when connecting to a Mailbox for the first time. The placeholder will be replaced with a duration, e.g. "2 minutes".-->
+
   <string name="mailbox_setup_connecting_info">Może to potrwać do %1s</string>
   <string name="mailbox_qr_code_too_old">Zeskanowany kod QR pochodzi ze starszej wersji skrzynki odbiorczej Briar.\n\nProszę zaktualizować ją do najnowszej wersji, a następnie spróbować ponownie.</string>
   <string name="mailbox_qr_code_too_new">Zeskanowany kod QR pochodzi z nowszej wersji skrzynki odbiorczej Briar.\n\nProszę zaktualizować ją do najnowszej wersji, a następnie spróbować ponownie.</string>
@@ -635,7 +631,7 @@
   <string name="mailbox_setup_io_error_description">Upewnij się, że oba urządzenia są połączone z internetem i spróbuj ponownie.</string>
   <string name="mailbox_setup_assertion_error_title">Błąd Mailbox</string>
   <string name="mailbox_setup_assertion_error_description">Jeśli problem będzie się powtarzał, prześlij zgłoszenie (z anonimowymi danymi) za pośrednictwem aplikacji Briar.</string>
-  <string name="mailbox_setup_camera_error_description"> 
+  <string name="mailbox_setup_camera_error_description">
 Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urządzenia.</string>
   <string name="mailbox_setup_paired_title">Połączony</string>
   <string name="mailbox_setup_paired_description">Twój Mailbox został pomyślnie połączony z Briar.\n
@@ -653,9 +649,9 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
   <string name="mailbox_status_mailbox_too_old_title">Mailbox jest za stary</string>
   <string name="mailbox_status_mailbox_too_old_message">Zaktualizuj Mailbox do najnowszej wersji aplikacji i spróbuj ponownie.</string>
   <string name="mailbox_status_check_button">Sprawdź połączenie</string>
-  <!--Example for string substitution: Last connection: 3min ago-->
+
   <string name="mailbox_status_connected_info">Ostatnie połączenie: %s</string>
-  <!--Indicates that there never was a connection to the mailbox. Last connection: Never-->
+
   <string name="mailbox_status_connected_never">Nigdy</string>
   <string name="mailbox_status_unlink_button">Odłącz</string>
   <string name="mailbox_status_unlink_dialog_title">Odłączyć skrzynkę odbiorczą?</string>
@@ -688,7 +684,7 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
   <string name="mailbox_error_wizard_info1_1_4">Sprawdź, czy urządzenie Mailbox jest prawidłowo podłączone do Internetu.\n\nSprawdź, czy zegar na urządzeniu Mailbox pokazuje właściwą godzinę, datę i strefę czasową.\n\nSprawdź, czy aplikacje Mailbox i Briar są zaktualizowane do najnowszej wersji.\n\nUruchom ponownie urządzenia Mailbox i Briar i spróbuj ponownie.</string>
   <string name="mailbox_error_wizard_info2">Wróć do tego ekranu, gdy będziesz miał dostęp do urządzenia.</string>
   <string name="mailbox_error_wizard_info3">Proszę odłączyć swój Mailbox za pomocą poniższego przycisku. Po odłączeniu starego Mailbox możesz w każdej chwili uruchomić nowy Mailbox</string>
-  <!--About-->
+
   <string name="about_title">O programie...</string>
   <string name="briar_version">Wersja Briar: %s</string>
   <string name="tor_version">Wersja Tor: %s</string>
@@ -697,9 +693,9 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
   <string name="briar_source_code">\u2022 <a href="">Kod źródłowy</a></string>
   <string name="briar_changelog">\u2022 <a href="">Dziennik zmian</a></string>
   <string name="briar_privacy_policy">\u2022 <a href="">Polityka prywatności</a></string>
-  <!--Here translators can add their names or Transifex usernames(eg "Thanks to all the contributors at the Localization Lab, especially Tom, Matthew and Jerry")-->
+
   <string name="translator_thanks">Dziękujemy wszystkim wspierającym z Localization Lab</string>
-  <!--Conversation Settings-->
+
   <string name="disappearing_messages_title">Znikające wiadomości</string>
   <string name="disappearing_messages_explanation_long">Włączenie tego ustawienia spowoduje, że
 		nowe wiadomości w tej konwersacji automatycznie znikną po 7\u00A0dniach.
@@ -712,15 +708,15 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
 		Twój kontakt może również zmienić to ustawienie dla was obojga.</string>
   <string name="learn_more">Dowiedz się więcej</string>
   <string name="disappearing_messages_summary">Spraw, aby przyszłe wiadomości w tej rozmowie automatycznie znikały po 7\u00A0dniach. </string>
-  <!--Settings Actions-->
+
   <string name="pref_category_actions">Czynności</string>
   <string name="send_feedback">Wyślij opinię</string>
-  <!--Link Warning-->
+
   <string name="link_warning_title">Ostrzeżenie o linku</string>
   <string name="link_warning_intro">Zaraz otworzysz następujący link w zewnętrznej aplikacji.</string>
   <string name="link_warning_text">Może to posłużyć do twojej identyfikacji. Zastanów się czy ufasz osobie która wysłała Ci ten link i rozważ otwarcie go za pomocą Przeglądarki Tor.</string>
   <string name="link_warning_open_link">Otwórz Link</string>
-  <!--Crash Reporter-->
+
   <string name="crash_report_title">Zgłoś awarię w Briar</string>
   <string name="briar_crashed">Przepraszam, Briar uległ awarii</string>
   <string name="not_your_fault">To nie Twoja wina.</string>
@@ -751,15 +747,15 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
   <string name="dev_report_sent">Wysłano opinię</string>
   <string name="dev_report_saved">Raport zapisany. Zostanie wysłany następnym razem kiedy zalogujesz się do Briar.</string>
   <string name="dev_report_error">Błąd: Nie powiodło się wysłanie raportu</string>
-  <!--Sign Out-->
+
   <string name="progress_title_logout">Wylogowywanie z Briar...</string>
-  <!--Screen Filters & Tapjacking-->
+
   <string name="screen_filter_title">Wykryto nakładkę na ekran</string>
   <string name="screen_filter_body">Inna aplikacja jest rysowana nad Briar. Aby bronić Twoje bezpieczeństwo, Briar nie będzie odpowiadał na dotyk gdy inna aplikacja jest rysowana nad nim.\n\nNastępujące aplikacje mogą wyświetlać nad nim:\n\n%1$s</string>
   <string name="screen_filter_body_api_30">Inna aplikacja rysuje na Briar. Aby chronić Twoje bezpieczeństwo, Briar nie reaguje na dotknięcia, gdy inna aplikacja rysuje na wierzchu.\n\nPrzejrzyj aplikacje poniżej, aby znaleźć odpowiedzialną aplikację.</string>
   <string name="screen_filter_allow">Pozwól tym aplikacjom na pozostanie na pierwszym planie</string>
   <string name="screen_filter_review_apps">Przejrzyj aplikacje</string>
-  <!--Permission Requests-->
+
   <string name="permission_camera_title">Dostęp do aparatu</string>
   <string name="permission_camera_request_body">Aby zeskanować kod QR, Briar potrzebuje dostępu do aparatu.</string>
   <string name="permission_location_title">Zezwolenie na lokalizację </string>
@@ -780,16 +776,16 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
   <string name="permission_bluetooth_denied_body">Odmówiono dostępu do pobliskich urządzeń, ale Briar potrzebuje tego uprawnienia, aby korzystać z Bluetooth.\n\nRozważ udzielenie dostępu.</string>
   <string name="qr_code">Kod QR</string>
   <string name="show_qr_code_fullscreen">Pokaż QR na pełnym ekranie</string>
-  <!--App Locking-->
+
   <string name="lock_unlock">Odblokuj Briar</string>
   <string name="lock_unlock_verbose">Wprowadź PIN swojego urządzenia, wzór lub hasło aby odblokować Briar</string>
   <string name="lock_unlock_fingerprint_description">Dotknij czytnika linii papilarnych zarejestrowanym odciskiem palca aby kontynuować. </string>
   <string name="lock_unlock_password">Użyj hasła</string>
   <string name="lock_is_locked">Briar jest zablokowany</string>
   <string name="lock_tap_to_unlock">Dotknij by odblokować</string>
-  <!--Connections Screen-->
+
   <string name="transports_help_text">Briar może łączyć się z Twoimi kontaktami przez Internet, Wi-Fi lub Bluetooth.\n\nWszystkie połączenia internetowe przechodzą przez sieć Tor w celu zachowania prywatności.\n\nJeśli z kontaktem można się połączyć na wiele sposobów, Briar używa ich równolegle. </string>
-  <!--Share app offline-->
+
   <string name="hotspot_title">Udostępnij tą aplikację offline</string>
   <string name="hotspot_intro">Udostępnij tą aplikację komuś w pobliżu bez połączenia internetowego, przez użycie WiFi Twojego  telefonu.
 		\n\n\Twój telefon uruchomi hotspot Wi-Fi. Ludzie w pobliżu będą mogli podłączyć się do hotspotu i pobrać aplikację Briar z twojego telefonu.</string>
@@ -806,10 +802,10 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
   <string name="wifi_settings_title">Ustawienia Wi-Fi</string>
   <string name="wifi_settings_request_enable_body">Aby utworzyć hotspot Wi-Fi, Briar potrzebuje użyć Wi-Fi. Włącz Wi-Fi.</string>
   <string name="hotspot_tab_manual">Manualne</string>
-  <!--The placeholder to be inserted into the string 'hotspot_manual_wifi': People can connect by %s-->
+
   <string name="hotspot_scanning_a_qr_code">skanowanie kodu QR</string>
-  <!--Wi-Fi setup-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_wifi">Twój telefon udostępnia hotspot Wi-Fi. Osoby, które chcą pobrać Briar, mogą połączyć się z hotspotem, dodając go w ustawieniach Wi-Fi urządzenia, korzystając z poniższych informacji lub korzystając z %s. Gdy połączą się z hotspotem, naciśnij „Dalej”.</string>
   <string name="hotspot_manual_wifi_ssid">Nazwa sieci</string>
   <string name="hotspot_qr_wifi">Twój telefon udostępnia hotspot Wi-Fi. Osoby, które chcą pobrać Briar, mogą połączyć się z hotspotem, skanując ten kod QR. Gdy połączą się z hotspotem, naciśnij „Dalej”.</string>
@@ -820,12 +816,12 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
     <item quantity="many">%s połączone urządzenie</item>
     <item quantity="other">%s połączonych urządzeń</item>
   </plurals>
-  <!--Download link-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_site">Twój telefon udostępnia hotspot Wi-Fi. Osoby połączone z hotspotem mogą pobrać Briar, wpisując następujący link w przeglądarce internetowej lub %s.</string>
   <string name="hotspot_manual_site_address">Adres (URL)</string>
   <string name="hotspot_qr_site">Twój telefon udostępnia hotspot Wi-Fi. Osoby połączone z hotspotem mogą pobrać Briar, skanując ten kod QR.</string>
-  <!--e.g. Download Briar 1.2.20-->
+
   <string name="website_download_title_1">Pobierz Briar %s</string>
   <string name="website_download_intro_1">Ktoś w pobliżu udostępnił Ci Briar.</string>
   <string name="website_download_button">Pobierz Briar</string>
@@ -847,7 +843,7 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
   <string name="hotspot_help_fallback_intro">Możesz spróbować zapisać aplikację jako plik .apk, aby udostępnić ją w inny sposób. Po przesłaniu pliku na inne urządzenie można go użyć do zainstalowania Briar.
 		\n\nWskazówka: W przypadku udostępniania przez Bluetooth może być konieczna zmiana nazwy pliku na .zip.</string>
   <string name="hotspot_help_fallback_button">Zapisz aplikację</string>
-  <!--error handling-->
+
   <string name="hotspot_error_intro">Coś poszło nie tak podczas próby udostępnienia aplikacji przez Wi-Fi:</string>
   <string name="hotspot_error_no_wifi_direct">Urządzenie nie obsługuje Wi-Fi Direct </string>
   <string name="hotspot_error_start_callback_failed">Hotspot nie mógł się uruchomić: Błąd %s</string>
@@ -857,7 +853,7 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
   <string name="hotspot_error_web_server_serve">Błąd prezentowania strony internetowej.\n\nJeśli problem będzie się powtarzał, prześlij opinię (z anonimowymi danymi) za pośrednictwem aplikacji Briar.</string>
   <string name="hotspot_flag_test">Uwaga: ta aplikacja została zainstalowana przez Android Studio i NIE MOŻNA jej zainstalować na innym urządzeniu.</string>
   <string name="hotspot_error_framework_busy">Nie można uruchomić hotspotu.\n\nJeśli masz uruchomiony inny hotspot lub udostępniasz połączenie internetowe przez Wi-Fi, spróbuj go zatrzymać i dopiero wtedy spróbuj ponownie.</string>
-  <!--Transfer Data via Removable Drives-->
+
   <string name="removable_drive_menu_title">Połącz przez Dysk Przenośny</string>
   <string name="removable_drive_intro">Jeśli nie możesz połączyć się ze swoim kontaktem przez Internet, Wi-Fi lub Bluetooth, Briar może również przesyłać wiadomości na dysk wymienny, taki jak pamięć USB lub karta SD.</string>
   <string name="removable_drive_explanation">Jeśli nie możesz połączyć się z kontaktem przez Internet, Wi-Fi lub Bluetooth, Briar może również przesyłać wiadomości na dysk wymienny, taki jak pamięć USB lub karta SD.\n\nGdy użyjesz przycisku „Wyślij dane” wszelkie dane oczekujące na wysłanie do kontaktu zostaną zapisane na dysku wymiennym. Obejmuje to prywatne wiadomości, załączniki, blogi, fora i prywatne grupy.\n\nWszystko zostanie zaszyfrowane przed zapisaniem na dysku wymiennym.\n\nGdy Twój kontakt otrzyma dysk wymienny, może użyć przycisku „Odbierz dane” aby zaimportować wiadomości do Briar.</string>
@@ -878,17 +874,17 @@ Brak dostępu do aparatu. Spróbuj ponownie, może po ponownym uruchomieniu urz�
   <string name="removable_drive_error_send_text">Wystąpił błąd podczas zapisywania danych do pliku.\n\nJeżeli używasz dysku wymiennego, upewnij się, że jest on prawidłowo włożony i spróbuj ponownie.\n\nJeśli błąd będzie się powtarzał, prześlij opinię, aby powiadomić zespół Briar o problemie.</string>
   <string name="removable_drive_error_receive_title">Błąd podczas importowania danych</string>
   <string name="removable_drive_error_receive_text">Wybrany plik nie zawierał niczego, co Briar mógłby rozpoznać.\n\nSprawdź, czy wybrałeś właściwy plik.\n\nJeśli Twój kontakt utworzył plik ponad 28 dni temu, Briar nie będzie mógł go rozpoznać.</string>
-  <!--Screenshots-->
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
+
   <string name="screenshot_alice">Alicja</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_bob">Janusz</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_carol">Grażyna</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Bob!-->
+
   <string name="screenshot_message_1">Hej Janusz!</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Alice!-->
+
   <string name="screenshot_message_2">Hej Alicja! Dzięki za opowiedzenie mi o Briarze!</string>
-  <!--This is a message to be used in screenshots.-->
+
   <string name="screenshot_message_3">Nie ma sprawy, mam nadzieję, że ci się podoba 😀</string>
 </resources>

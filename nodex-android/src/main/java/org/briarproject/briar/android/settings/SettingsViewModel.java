@@ -1,10 +1,8 @@
 package org.briarproject.briar.android.settings;
-
 import android.app.Application;
 import android.content.ContentResolver;
 import android.net.Uri;
 import android.widget.Toast;
-
 import org.briarproject.bramble.api.FeatureFlags;
 import org.briarproject.bramble.api.db.DatabaseExecutor;
 import org.briarproject.bramble.api.db.DbException;
@@ -34,18 +32,14 @@ import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
 import org.briarproject.onionwrapper.CircumventionProvider;
 import org.briarproject.onionwrapper.LocationUtils;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import androidx.annotation.AnyThread;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static android.widget.Toast.LENGTH_LONG;
 import static java.util.Arrays.asList;
 import static java.util.logging.Level.WARNING;
@@ -57,19 +51,15 @@ import static org.briarproject.bramble.util.LogUtils.now;
 import static org.briarproject.briar.android.settings.SecurityFragment.PREF_SCREEN_LOCK;
 import static org.briarproject.briar.android.settings.SecurityFragment.PREF_SCREEN_LOCK_TIMEOUT;
 import static org.briarproject.briar.android.settings.SettingsFragment.SETTINGS_NAMESPACE;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 class SettingsViewModel extends DbViewModel implements EventListener {
-
 	private final static Logger LOG =
 			getLogger(SettingsViewModel.class.getName());
-
 	static final String BT_NAMESPACE =
 			BluetoothConstants.ID.getString();
 	static final String WIFI_NAMESPACE = LanTcpConstants.ID.getString();
 	static final String TOR_NAMESPACE = TorConstants.ID.getString();
-
 	private final SettingsManager settingsManager;
 	private final IdentityManager identityManager;
 	private final EventBus eventBus;
@@ -78,21 +68,17 @@ class SettingsViewModel extends DbViewModel implements EventListener {
 	private final ImageCompressor imageCompressor;
 	private final Executor ioExecutor;
 	private final FeatureFlags featureFlags;
-
 	final SettingsStore settingsStore;
 	final TorSummaryProvider torSummaryProvider;
 	final ConnectionsManager connectionsManager;
 	final NotificationsManager notificationsManager;
-
 	private volatile Settings settings;
-
 	private final MutableLiveData<OwnIdentityInfo> ownIdentityInfo =
 			new MutableLiveData<>();
 	private final MutableLiveData<Boolean> screenLockEnabled =
 			new MutableLiveData<>();
 	private final MutableLiveData<String> screenLockTimeout =
 			new MutableLiveData<>();
-
 	@Inject
 	SettingsViewModel(Application application,
 			@DatabaseExecutor Executor dbExecutor,
@@ -126,18 +112,15 @@ class SettingsViewModel extends DbViewModel implements EventListener {
 				new ConnectionsManager(settingsManager, dbExecutor);
 		notificationsManager = new NotificationsManager(getApplication(),
 				settingsManager, dbExecutor);
-
 		eventBus.addListener(this);
 		loadSettings();
 		if (shouldEnableProfilePictures()) loadOwnIdentityInfo();
 	}
-
 	@Override
 	protected void onCleared() {
 		super.onCleared();
 		eventBus.removeListener(this);
 	}
-
 	private void loadSettings() {
 		runOnDbThread(() -> {
 			try {
@@ -156,11 +139,9 @@ class SettingsViewModel extends DbViewModel implements EventListener {
 			}
 		});
 	}
-
 	boolean shouldEnableProfilePictures() {
 		return featureFlags.shouldEnableProfilePictures();
 	}
-
 	private void loadOwnIdentityInfo() {
 		runOnDbThread(() -> {
 			try {
@@ -173,7 +154,6 @@ class SettingsViewModel extends DbViewModel implements EventListener {
 			}
 		});
 	}
-
 	@Override
 	public void eventOccurred(Event e) {
 		if (e instanceof SettingsUpdatedEvent) {
@@ -195,7 +175,6 @@ class SettingsViewModel extends DbViewModel implements EventListener {
 			}
 		}
 	}
-
 	@AnyThread
 	private void updateSettings(Settings settings) {
 		screenLockEnabled.postValue(settings.getBoolean(PREF_SCREEN_LOCK,
@@ -207,7 +186,6 @@ class SettingsViewModel extends DbViewModel implements EventListener {
 		));
 		notificationsManager.updateSettings(settings);
 	}
-
 	void setAvatar(Uri uri) {
 		ioExecutor.execute(() -> {
 			try {
@@ -218,7 +196,6 @@ class SettingsViewModel extends DbViewModel implements EventListener {
 			}
 		});
 	}
-
 	private void trySetAvatar(Uri uri) throws IOException {
 		ContentResolver contentResolver =
 				getApplication().getContentResolver();
@@ -236,7 +213,6 @@ class SettingsViewModel extends DbViewModel implements EventListener {
 			throw new IOException(e);
 		}
 		InputStream compressed = imageCompressor.compressImage(is, contentType);
-
 		runOnDbThread(() -> {
 			try {
 				avatarManager.addAvatar(ImageCompressor.MIME_TYPE, compressed);
@@ -247,24 +223,19 @@ class SettingsViewModel extends DbViewModel implements EventListener {
 			}
 		});
 	}
-
 	@AnyThread
 	private void onSetAvatarFailed() {
 		androidExecutor.runOnUiThread(() -> Toast.makeText(getApplication(),
 				R.string.change_profile_picture_failed_message, LENGTH_LONG)
 				.show());
 	}
-
 	LiveData<OwnIdentityInfo> getOwnIdentityInfo() {
 		return ownIdentityInfo;
 	}
-
 	LiveData<Boolean> getScreenLockEnabled() {
 		return screenLockEnabled;
 	}
-
 	LiveData<String> getScreenLockTimeout() {
 		return screenLockTimeout;
 	}
-
 }

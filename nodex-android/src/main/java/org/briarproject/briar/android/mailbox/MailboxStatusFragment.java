@@ -1,5 +1,4 @@
 package org.briarproject.briar.android.mailbox;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -12,17 +11,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
 import org.briarproject.bramble.api.mailbox.MailboxStatus;
 import org.briarproject.briar.R;
 import org.briarproject.briar.android.view.BriarButton;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import javax.inject.Inject;
-
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
@@ -31,7 +26,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
-
 import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
@@ -44,22 +38,17 @@ import static org.briarproject.briar.android.util.UiUtils.MIN_DATE_RESOLUTION;
 import static org.briarproject.briar.android.util.UiUtils.formatDate;
 import static org.briarproject.briar.android.util.UiUtils.observeOnce;
 import static org.briarproject.briar.android.util.UiUtils.showFragment;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class MailboxStatusFragment extends Fragment {
-
 	static final String TAG = MailboxStatusFragment.class.getName();
-
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
-
 	private MailboxViewModel viewModel;
 	private final Handler handler = new Handler(Looper.getMainLooper());
-	@Nullable // UiThread
+	@Nullable
 	private Runnable refresher = null;
 	private boolean showUnlinkWarning = true;
-
 	private ImageView imageView;
 	private TextView statusTitleView, statusMessageView, statusInfoView;
 	private Button wizardButton;
@@ -67,7 +56,6 @@ public class MailboxStatusFragment extends Fragment {
 	private ProgressBar unlinkProgress;
 	@Nullable
 	private AlertDialog dialog = null;
-
 	@Override
 	public void onAttach(Context context) {
 		super.onAttach(context);
@@ -76,7 +64,6 @@ public class MailboxStatusFragment extends Fragment {
 		viewModel = new ViewModelProvider(activity, viewModelFactory)
 				.get(MailboxViewModel.class);
 	}
-
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater,
@@ -85,38 +72,32 @@ public class MailboxStatusFragment extends Fragment {
 		return inflater.inflate(R.layout.fragment_mailbox_status,
 				container, false);
 	}
-
 	@Override
 	public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(v, savedInstanceState);
-
 		BriarButton checkButton = v.findViewById(R.id.checkButton);
 		checkButton.setOnClickListener(view ->
 				observeOnce(viewModel.checkConnection(), this, result ->
 						checkButton.reset()
 				));
-
 		imageView = v.findViewById(R.id.imageView);
 		statusTitleView = v.findViewById(R.id.statusTitleView);
 		statusMessageView = v.findViewById(R.id.statusMessageView);
 		statusInfoView = v.findViewById(R.id.statusInfoView);
 		viewModel.getStatus()
 				.observe(getViewLifecycleOwner(), this::onMailboxStateChanged);
-
 		wizardButton = v.findViewById(R.id.wizardButton);
 		wizardButton.setOnClickListener(view -> {
 			Fragment f = new ErrorWizardFragment();
 			String tag = ErrorWizardFragment.TAG;
 			showFragment(getParentFragmentManager(), f, tag, false);
 		});
-
 		unlinkButton = v.findViewById(R.id.unlinkButton);
 		unlinkProgress = v.findViewById(R.id.unlinkProgress);
 		unlinkButton.setOnClickListener(view ->
 				onUnlinkButtonClicked(showUnlinkWarning)
 		);
 	}
-
 	@Override
 	public void onStart() {
 		super.onStart();
@@ -125,14 +106,12 @@ public class MailboxStatusFragment extends Fragment {
 		refresher = this::refreshLastConnection;
 		handler.postDelayed(refresher, MIN_DATE_RESOLUTION);
 	}
-
 	@Override
 	public void onStop() {
 		super.onStop();
 		handler.removeCallbacks(refresher);
 		refresher = null;
 	}
-
 	@Override
 	public void onDetach() {
 		super.onDetach();
@@ -141,7 +120,6 @@ public class MailboxStatusFragment extends Fragment {
 			dialog = null;
 		}
 	}
-
 	private void onMailboxStateChanged(MailboxStatus status) {
 		@ColorRes int tintRes;
 		@DrawableRes int iconRes;
@@ -191,7 +169,6 @@ public class MailboxStatusFragment extends Fragment {
 			statusMessageView.setVisibility(VISIBLE);
 			statusMessageView.setText(message);
 		}
-
 		long lastSuccess = status.getTimeOfLastSuccess();
 		String lastConnectionText;
 		if (lastSuccess < 0) {
@@ -205,7 +182,6 @@ public class MailboxStatusFragment extends Fragment {
 						lastConnectionText);
 		statusInfoView.setText(statusInfoText);
 	}
-
 	@UiThread
 	private void refreshLastConnection() {
 		MailboxStatus status = viewModel.getStatus().getValue();
@@ -214,7 +190,6 @@ public class MailboxStatusFragment extends Fragment {
 			handler.postDelayed(refresher, MIN_DATE_RESOLUTION);
 		}
 	}
-
 	private void onUnlinkButtonClicked(boolean showWarning) {
 		MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(
 				requireContext(), R.style.BriarDialogTheme);
@@ -239,5 +214,4 @@ public class MailboxStatusFragment extends Fragment {
 				MailboxStatusFragment.this.dialog = null);
 		dialog = builder.show();
 	}
-
 }

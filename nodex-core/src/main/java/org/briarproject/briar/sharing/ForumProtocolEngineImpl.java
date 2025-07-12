@@ -1,5 +1,4 @@
 package org.briarproject.briar.sharing;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.contact.ContactId;
@@ -21,18 +20,14 @@ import org.briarproject.briar.api.forum.ForumSharingManager;
 import org.briarproject.briar.api.forum.event.ForumInvitationRequestReceivedEvent;
 import org.briarproject.briar.api.forum.event.ForumInvitationResponseReceivedEvent;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 @Immutable
 @NotNullByDefault
 class ForumProtocolEngineImpl extends ProtocolEngineImpl<Forum> {
-
 	private final ForumManager forumManager;
 	private final InvitationFactory<Forum, ForumInvitationResponse>
 			invitationFactory;
-
 	@Inject
 	ForumProtocolEngineImpl(
 			DatabaseComponent db,
@@ -53,7 +48,6 @@ class ForumProtocolEngineImpl extends ProtocolEngineImpl<Forum> {
 		this.forumManager = forumManager;
 		this.invitationFactory = invitationFactory;
 	}
-
 	@Override
 	Event getInvitationRequestReceivedEvent(InviteMessage<Forum> m,
 			ContactId contactId, boolean available, boolean canBeOpened) {
@@ -63,7 +57,6 @@ class ForumProtocolEngineImpl extends ProtocolEngineImpl<Forum> {
 						m.getAutoDeleteTimer());
 		return new ForumInvitationRequestReceivedEvent(request, contactId);
 	}
-
 	@Override
 	Event getInvitationResponseReceivedEvent(AcceptMessage m,
 			ContactId contactId) {
@@ -74,7 +67,6 @@ class ForumProtocolEngineImpl extends ProtocolEngineImpl<Forum> {
 						false);
 		return new ForumInvitationResponseReceivedEvent(response, contactId);
 	}
-
 	@Override
 	Event getInvitationResponseReceivedEvent(DeclineMessage m,
 			ContactId contactId) {
@@ -85,7 +77,6 @@ class ForumProtocolEngineImpl extends ProtocolEngineImpl<Forum> {
 						false);
 		return new ForumInvitationResponseReceivedEvent(response, contactId);
 	}
-
 	@Override
 	Event getAutoDeclineInvitationResponseReceivedEvent(Session s, Message m,
 			ContactId contactId, long timer) {
@@ -95,7 +86,6 @@ class ForumProtocolEngineImpl extends ProtocolEngineImpl<Forum> {
 						false, s.getShareableId(), timer, true);
 		return new ForumInvitationResponseReceivedEvent(response, contactId);
 	}
-
 	@Override
 	protected void addShareable(Transaction txn, MessageId inviteId)
 			throws DbException, FormatException {
@@ -103,5 +93,4 @@ class ForumProtocolEngineImpl extends ProtocolEngineImpl<Forum> {
 				messageParser.getInviteMessage(txn, inviteId);
 		forumManager.addForum(txn, invite.getShareable());
 	}
-
 }

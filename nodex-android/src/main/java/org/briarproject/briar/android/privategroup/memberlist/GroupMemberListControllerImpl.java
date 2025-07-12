@@ -1,5 +1,4 @@
 package org.briarproject.briar.android.privategroup.memberlist;
-
 import org.briarproject.bramble.api.connection.ConnectionRegistry;
 import org.briarproject.bramble.api.contact.ContactId;
 import org.briarproject.bramble.api.db.DatabaseExecutor;
@@ -10,26 +9,19 @@ import org.briarproject.briar.android.controller.DbControllerImpl;
 import org.briarproject.briar.android.controller.handler.ResultExceptionHandler;
 import org.briarproject.briar.api.privategroup.GroupMember;
 import org.briarproject.briar.api.privategroup.PrivateGroupManager;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import static java.util.logging.Level.WARNING;
 import static org.briarproject.bramble.util.LogUtils.logException;
-
 class GroupMemberListControllerImpl extends DbControllerImpl
 		implements GroupMemberListController {
-
 	private static final Logger LOG =
 			Logger.getLogger(GroupMemberListControllerImpl.class.getName());
-
 	private final ConnectionRegistry connectionRegistry;
 	private final PrivateGroupManager privateGroupManager;
-
 	@Inject
 	GroupMemberListControllerImpl(@DatabaseExecutor Executor dbExecutor,
 			LifecycleManager lifecycleManager,
@@ -39,7 +31,6 @@ class GroupMemberListControllerImpl extends DbControllerImpl
 		this.connectionRegistry = connectionRegistry;
 		this.privateGroupManager = privateGroupManager;
 	}
-
 	@Override
 	public void loadMembers(GroupId groupId,
 			ResultExceptionHandler<Collection<MemberListItem>, DbException> handler) {
@@ -62,5 +53,4 @@ class GroupMemberListControllerImpl extends DbControllerImpl
 			}
 		});
 	}
-
 }

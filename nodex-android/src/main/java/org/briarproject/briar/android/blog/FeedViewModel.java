@@ -1,7 +1,5 @@
 package org.briarproject.briar.android.blog;
-
 import android.app.Application;
-
 import org.briarproject.bramble.api.db.DatabaseExecutor;
 import org.briarproject.bramble.api.db.DbException;
 import org.briarproject.bramble.api.db.Transaction;
@@ -20,31 +18,23 @@ import org.briarproject.briar.api.blog.Blog;
 import org.briarproject.briar.api.blog.BlogManager;
 import org.briarproject.briar.api.blog.event.BlogPostAddedEvent;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import androidx.annotation.UiThread;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.util.LogUtils.logDuration;
 import static org.briarproject.bramble.util.LogUtils.now;
 import static org.briarproject.briar.api.blog.BlogManager.CLIENT_ID;
-
 @NotNullByDefault
 class FeedViewModel extends BaseViewModel {
-
 	private static final Logger LOG = getLogger(FeedViewModel.class.getName());
-
 	private final MutableLiveData<Blog> personalBlog = new MutableLiveData<>();
-
 	@Inject
 	FeedViewModel(Application application,
 			@DatabaseExecutor Executor dbExecutor,
@@ -60,7 +50,6 @@ class FeedViewModel extends BaseViewModel {
 		loadPersonalBlog();
 		loadAllBlogPosts();
 	}
-
 	@Override
 	public void eventOccurred(Event e) {
 		if (e instanceof BlogPostAddedEvent) {
@@ -75,16 +64,13 @@ class FeedViewModel extends BaseViewModel {
 			}
 		}
 	}
-
 	void blockAndClearAllBlogPostNotifications() {
 		notificationManager.blockAllBlogPostNotifications();
 		notificationManager.clearAllBlogPostNotifications();
 	}
-
 	void unblockAllBlogPostNotifications() {
 		notificationManager.unblockAllBlogPostNotifications();
 	}
-
 	private void loadPersonalBlog() {
 		runOnDbThread(() -> {
 			try {
@@ -98,15 +84,12 @@ class FeedViewModel extends BaseViewModel {
 			}
 		});
 	}
-
 	LiveData<Blog> getPersonalBlog() {
 		return personalBlog;
 	}
-
 	private void loadAllBlogPosts() {
 		loadFromDb(this::loadAllBlogPosts, blogPosts::setValue);
 	}
-
 	@DatabaseExecutor
 	private ListUpdate loadAllBlogPosts(Transaction txn)
 			throws DbException {
@@ -119,7 +102,6 @@ class FeedViewModel extends BaseViewModel {
 		logDuration(LOG, "Loading all posts", start);
 		return new ListUpdate(null, posts);
 	}
-
 	@UiThread
 	private void onBlogRemoved(GroupId g) {
 		List<BlogPostItem> items = removeListItems(getBlogPostItems(), item ->
@@ -129,5 +111,4 @@ class FeedViewModel extends BaseViewModel {
 			blogPosts.setValue(new LiveResult<>(new ListUpdate(null, items)));
 		}
 	}
-
 }

@@ -1,5 +1,4 @@
 package org.briarproject.briar.android.sharing;
-
 import org.briarproject.bramble.api.contact.Contact;
 import org.briarproject.bramble.api.contact.ContactId;
 import org.briarproject.bramble.api.contact.ContactManager;
@@ -15,29 +14,22 @@ import org.briarproject.briar.api.forum.ForumSharingManager;
 import org.briarproject.briar.api.identity.AuthorManager;
 import org.briarproject.briar.api.sharing.SharingManager.SharingStatus;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.Collection;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.util.LogUtils.logException;
-
 @Immutable
 @NotNullByDefault
 class ShareForumControllerImpl extends ContactSelectorControllerImpl
 		implements ShareForumController {
-
 	private final static Logger LOG =
 			getLogger(ShareForumControllerImpl.class.getName());
-
 	private final ForumSharingManager forumSharingManager;
-
 	@Inject
 	ShareForumControllerImpl(@DatabaseExecutor Executor dbExecutor,
 			LifecycleManager lifecycleManager, ContactManager contactManager,
@@ -46,13 +38,11 @@ class ShareForumControllerImpl extends ContactSelectorControllerImpl
 		super(dbExecutor, lifecycleManager, contactManager, authorManager);
 		this.forumSharingManager = forumSharingManager;
 	}
-
 	@Override
 	protected SharingStatus getSharingStatus(GroupId g, Contact c)
 			throws DbException {
 		return forumSharingManager.getSharingStatus(g, c);
 	}
-
 	@Override
 	public void share(GroupId g, Collection<ContactId> contacts,
 			@Nullable String text, ExceptionHandler<DbException> handler) {
@@ -71,5 +61,4 @@ class ShareForumControllerImpl extends ContactSelectorControllerImpl
 			}
 		});
 	}
-
 }

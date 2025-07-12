@@ -1,12 +1,9 @@
 package org.briarproject.briar.android.hotspot;
-
 import android.content.Context;
-
 import org.briarproject.briar.R;
 import org.briarproject.nullsafety.NotNullByDefault;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,10 +12,8 @@ import java.io.InputStream;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import androidx.annotation.Nullable;
 import fi.iki.elonen.NanoHTTPD;
-
 import static android.util.Xml.Encoding.UTF_8;
 import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 import static fi.iki.elonen.NanoHTTPD.Response.Status.NOT_FOUND;
@@ -29,29 +24,22 @@ import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.util.LogUtils.logException;
 import static org.briarproject.briar.BuildConfig.VERSION_NAME;
 import static org.briarproject.briar.android.hotspot.HotspotViewModel.getApkFileName;
-
 @NotNullByDefault
 class WebServer extends NanoHTTPD {
-
 	final static int PORT = 9999;
-
 	private static final Logger LOG = getLogger(WebServer.class.getName());
 	private static final String FILE_HTML = "hotspot.html";
 	private static final Pattern REGEX_AGENT =
 			Pattern.compile("Android ([0-9]+)");
-
 	private final Context ctx;
-
 	WebServer(Context ctx) {
 		super(PORT);
 		this.ctx = ctx;
 	}
-
 	@Override
 	public void start() throws IOException {
 		start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
 	}
-
 	@Override
 	public Response serve(IHTTPSession session) {
 		if (session.getUri().endsWith("favicon.ico")) {
@@ -72,7 +60,6 @@ class WebServer extends NanoHTTPD {
 		}
 		return res;
 	}
-
 	private String getHtml(@Nullable String userAgent) throws Exception {
 		Document doc;
 		try (InputStream is = ctx.getAssets().open(FILE_HTML)) {
@@ -97,7 +84,6 @@ class WebServer extends NanoHTTPD {
 				.text(getUnknownSourcesString(userAgent));
 		return doc.outerHtml();
 	}
-
 	private String getUnknownSourcesString(@Nullable String userAgent) {
 		boolean is8OrHigher = false;
 		if (userAgent != null) {
@@ -112,13 +98,10 @@ class WebServer extends NanoHTTPD {
 				ctx.getString(R.string.website_troubleshooting_2_new) :
 				ctx.getString(R.string.website_troubleshooting_2_old);
 	}
-
 	private Response serveApk() {
 		String mime = "application/vnd.android.package-archive";
-
 		File file = new File(ctx.getPackageCodePath());
 		long fileLen = file.length();
-
 		Response res;
 		try {
 			FileInputStream fis = new FileInputStream(file);

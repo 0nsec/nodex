@@ -1,5 +1,4 @@
 package org.briarproject.briar.avatar;
-
 import org.briarproject.bramble.api.contact.ContactManager;
 import org.briarproject.bramble.api.data.BdfReaderFactory;
 import org.briarproject.bramble.api.data.MetadataEncoder;
@@ -9,27 +8,21 @@ import org.briarproject.bramble.api.system.Clock;
 import org.briarproject.bramble.api.versioning.ClientVersioningManager;
 import org.briarproject.briar.api.avatar.AvatarManager;
 import org.briarproject.briar.api.avatar.AvatarMessageEncoder;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
-
 import static org.briarproject.briar.api.avatar.AvatarManager.CLIENT_ID;
 import static org.briarproject.briar.api.avatar.AvatarManager.MAJOR_VERSION;
 import static org.briarproject.briar.api.avatar.AvatarManager.MINOR_VERSION;
-
 @Module
 public class AvatarModule {
-
 	public static class EagerSingletons {
 		@Inject
 		AvatarValidator avatarValidator;
 		@Inject
 		AvatarManager avatarManager;
 	}
-
 	@Provides
 	@Singleton
 	AvatarValidator provideAvatarValidator(ValidationManager validationManager,
@@ -41,14 +34,12 @@ public class AvatarModule {
 				avatarValidator);
 		return avatarValidator;
 	}
-
 	@Provides
 	@Singleton
 	AvatarMessageEncoder provideMessageEncoder(
 			AvatarMessageEncoderImpl messageEncoder) {
 		return messageEncoder;
 	}
-
 	@Provides
 	@Singleton
 	AvatarManager provideAvatarManager(
@@ -65,5 +56,4 @@ public class AvatarModule {
 				MAJOR_VERSION, MINOR_VERSION, avatarManager);
 		return avatarManager;
 	}
-
 }

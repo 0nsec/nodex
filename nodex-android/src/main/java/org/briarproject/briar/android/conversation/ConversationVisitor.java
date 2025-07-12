@@ -1,7 +1,5 @@
 package org.briarproject.briar.android.conversation;
-
 import android.content.Context;
-
 import org.briarproject.bramble.api.sync.MessageId;
 import org.briarproject.briar.R;
 import org.briarproject.briar.android.attachment.AttachmentItem;
@@ -16,31 +14,24 @@ import org.briarproject.briar.api.messaging.PrivateMessageHeader;
 import org.briarproject.briar.api.privategroup.invitation.GroupInvitationRequest;
 import org.briarproject.briar.api.privategroup.invitation.GroupInvitationResponse;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.List;
-
 import javax.annotation.Nullable;
-
 import androidx.annotation.UiThread;
 import androidx.lifecycle.LiveData;
-
 import static java.util.Collections.emptyList;
 import static org.briarproject.briar.android.conversation.ConversationRequestItem.RequestType.BLOG;
 import static org.briarproject.briar.android.conversation.ConversationRequestItem.RequestType.FORUM;
 import static org.briarproject.briar.android.conversation.ConversationRequestItem.RequestType.GROUP;
 import static org.briarproject.briar.android.conversation.ConversationRequestItem.RequestType.INTRODUCTION;
 import static org.briarproject.briar.android.util.UiUtils.getContactDisplayName;
-
 @UiThread
 @NotNullByDefault
 class ConversationVisitor implements
 		ConversationMessageVisitor<ConversationItem> {
-
 	private final Context ctx;
 	private final TextCache textCache;
 	private final AttachmentCache attachmentCache;
 	private final LiveData<String> contactName;
-
 	ConversationVisitor(Context ctx, TextCache textCache,
 			AttachmentCache attachmentCache, LiveData<String> contactName) {
 		this.ctx = ctx;
@@ -48,7 +39,6 @@ class ConversationVisitor implements
 		this.attachmentCache = attachmentCache;
 		this.contactName = contactName;
 	}
-
 	@Override
 	public ConversationItem visitPrivateMessageHeader(PrivateMessageHeader h) {
 		ConversationItem item;
@@ -73,7 +63,6 @@ class ConversationVisitor implements
 		}
 		return item;
 	}
-
 	@Override
 	public ConversationItem visitBlogInvitationRequest(
 			BlogInvitationRequest r) {
@@ -92,7 +81,6 @@ class ConversationVisitor implements
 					BLOG, r);
 		}
 	}
-
 	@Override
 	public ConversationItem visitBlogInvitationResponse(
 			BlogInvitationResponse r) {
@@ -130,7 +118,6 @@ class ConversationVisitor implements
 					contactName, r);
 		}
 	}
-
 	@Override
 	public ConversationItem visitForumInvitationRequest(
 			ForumInvitationRequest r) {
@@ -149,7 +136,6 @@ class ConversationVisitor implements
 					FORUM, r);
 		}
 	}
-
 	@Override
 	public ConversationItem visitForumInvitationResponse(
 			ForumInvitationResponse r) {
@@ -187,7 +173,6 @@ class ConversationVisitor implements
 					contactName, r);
 		}
 	}
-
 	@Override
 	public ConversationItem visitGroupInvitationRequest(
 			GroupInvitationRequest r) {
@@ -207,7 +192,6 @@ class ConversationVisitor implements
 					GROUP, r);
 		}
 	}
-
 	@Override
 	public ConversationItem visitGroupInvitationResponse(
 			GroupInvitationResponse r) {
@@ -245,7 +229,6 @@ class ConversationVisitor implements
 					contactName, r);
 		}
 	}
-
 	@Override
 	public ConversationItem visitIntroductionRequest(IntroductionRequest r) {
 		String name = getContactDisplayName(r.getNameable(), r.getAlias());
@@ -274,7 +257,6 @@ class ConversationVisitor implements
 					INTRODUCTION, r);
 		}
 	}
-
 	@Override
 	public ConversationItem visitIntroductionResponse(IntroductionResponse r) {
 		String introducedAuthor =
@@ -324,12 +306,10 @@ class ConversationVisitor implements
 					contactName, r);
 		}
 	}
-
 	interface TextCache {
 		@Nullable
 		String getText(MessageId m);
 	}
-
 	interface AttachmentCache {
 		List<AttachmentItem> getAttachmentItems(PrivateMessageHeader h);
 	}

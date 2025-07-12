@@ -1,5 +1,4 @@
 package org.briarproject.briar.android.privategroup.creation;
-
 import org.briarproject.bramble.api.contact.Contact;
 import org.briarproject.bramble.api.contact.ContactId;
 import org.briarproject.bramble.api.contact.ContactManager;
@@ -28,31 +27,24 @@ import org.briarproject.briar.api.privategroup.invitation.GroupInvitationFactory
 import org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager;
 import org.briarproject.briar.api.sharing.SharingManager.SharingStatus;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 import androidx.annotation.Nullable;
-
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.util.LogUtils.logException;
 import static org.briarproject.nullsafety.NullSafety.requireNonNull;
-
 @Immutable
 @NotNullByDefault
 class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 		implements CreateGroupController {
-
 	private static final Logger LOG =
 			getLogger(CreateGroupControllerImpl.class.getName());
-
 	private final Executor cryptoExecutor;
 	private final TransactionManager db;
 	private final AutoDeleteManager autoDeleteManager;
@@ -65,7 +57,6 @@ class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 	private final GroupInvitationFactory groupInvitationFactory;
 	private final GroupInvitationManager groupInvitationManager;
 	private final Clock clock;
-
 	@Inject
 	CreateGroupControllerImpl(
 			@DatabaseExecutor Executor dbExecutor,
@@ -97,7 +88,6 @@ class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 		this.groupInvitationManager = groupInvitationManager;
 		this.clock = clock;
 	}
-
 	@Override
 	public void createGroup(String name,
 			ResultExceptionHandler<GroupId, DbException> handler) {
@@ -111,7 +101,6 @@ class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 			}
 		});
 	}
-
 	private void createGroupAndMessages(LocalAuthor author, String name,
 			ResultExceptionHandler<GroupId, DbException> handler) {
 		cryptoExecutor.execute(() -> {
@@ -125,7 +114,6 @@ class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 			storeGroup(group, joinMsg, handler);
 		});
 	}
-
 	private void storeGroup(PrivateGroup group, GroupMessage joinMsg,
 			ResultExceptionHandler<GroupId, DbException> handler) {
 		runOnDbThread(() -> {
@@ -139,12 +127,10 @@ class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 			}
 		});
 	}
-
 	@Override
 	protected SharingStatus getSharingStatus(GroupId g, Contact c) throws DbException {
 		return groupInvitationManager.getSharingStatus(c, g);
 	}
-
 	@Override
 	public void sendInvitation(GroupId g, Collection<ContactId> contactIds,
 			@Nullable String text,
@@ -165,7 +151,6 @@ class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 			}
 		});
 	}
-
 	private List<InvitationContext> createInvitationContexts(Transaction txn,
 			Collection<ContactId> contactIds) throws DbException {
 		List<InvitationContext> contexts = new ArrayList<>();
@@ -178,12 +163,10 @@ class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 						timestamp);
 				contexts.add(new InvitationContext(contact, timestamp, timer));
 			} catch (NoSuchContactException e) {
-				// Continue
 			}
 		}
 		return contexts;
 	}
-
 	private void signInvitations(GroupId g, LocalAuthor localAuthor,
 			List<InvitationContext> contexts, @Nullable String text,
 			ResultExceptionHandler<Void, DbException> handler) {
@@ -196,7 +179,6 @@ class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 			sendInvitations(g, contexts, text, handler);
 		});
 	}
-
 	private void sendInvitations(GroupId g,
 			Collection<InvitationContext> contexts, @Nullable String text,
 			ResultExceptionHandler<Void, DbException> handler) {
@@ -209,7 +191,6 @@ class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 								requireNonNull(ctx.signature),
 								ctx.autoDeleteTimer);
 					} catch (NoSuchContactException e) {
-						// Continue
 					}
 				}
 				handler.onResult(null);
@@ -219,14 +200,11 @@ class CreateGroupControllerImpl extends ContactSelectorControllerImpl
 			}
 		});
 	}
-
 	private static class InvitationContext {
-
 		private final Contact contact;
 		private final long timestamp, autoDeleteTimer;
 		@Nullable
 		private byte[] signature = null;
-
 		private InvitationContext(Contact contact, long timestamp,
 				long autoDeleteTimer) {
 			this.contact = contact;

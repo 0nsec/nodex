@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <!--Setup-->
+
   <string name="setup_title">Vitajte v Briar</string>
   <string name="setup_name_explanation">Vaša prezývka sa bude zobrazovať pri každom obsahu, ktorý zverejníte. Po vytvorení účtu ju už nemôžete zmeniť.</string>
   <string name="setup_next">Ďalej</string>
@@ -32,7 +32,7 @@
   <string name="dnkm_xiaomi_lock_apps_text">Ťuknutím na tlačidlo nižšie otvorte nastavenia zabezpečenia. Klepnite na položku \"Zvýšenie rýchlosti\", potom klepnite na položku \"Uzamknúť aplikácie\" a uistite sa, že je Briar nastavený na možnosť \"Uzamknuté\".</string>
   <string name="dnkm_xiaomi_lock_apps_help">Ak Briar nie je na obrazovke \"Uzamknuté aplikácie\" nastavený na možnosť \"Uzamknuté\", nebude môcť byť spustený na pozadí.</string>
   <string name="dnkm_warning_dozed_1">Aplikáciu Briar sa nepodarilo spustiť na pozadí</string>
-  <!--Login-->
+
   <string name="enter_password">Heslo</string>
   <string name="try_again">Nesprávne heslo, skúste to znova</string>
   <string name="dialog_title_cannot_check_password">Nie je možné skontrolovať heslo</string>
@@ -64,19 +64,19 @@
   <string name="startup_open_database">Dešifrovanie databázy...</string>
   <string name="startup_migrate_database">Aktualizácia databázy...</string>
   <string name="startup_compact_database">Komprimovanie databázy...</string>
-  <!--Navigation Drawer-->
+
   <string name="nav_drawer_open_description">Otvoriť navigačnú lištu</string>
   <string name="nav_drawer_close_description">Zavrieť navigačnú lištu</string>
   <string name="contact_list_button">Kontakty</string>
   <string name="groups_button">Súkromné skupiny</string>
   <string name="forums_button">Fóra</string>
   <string name="blogs_button">Blogy</string>
-  <!--This is part of the main menu. The app will be locked when this is tapped.-->
+
   <string name="lock_button">Zamknúť aplikáciu</string>
   <string name="settings_button">Nastavenia</string>
   <string name="sign_out_button">Odhlásiť sa</string>
   <string name="transports_onboarding_text">Ťuknutím sem môžete ovládať, ako sa Briar pripája k vašim kontaktom.</string>
-  <!--Transports: Tor-->
+
   <string name="transport_tor">Internet</string>
   <string name="tor_device_status_online_wifi">Váš telefón má prístup na internet cez Wi-Fi</string>
   <string name="tor_device_status_online_mobile">Váš telefón má prístup na internet cez mobilné dáta</string>
@@ -88,7 +88,7 @@
   <string name="tor_plugin_status_disabled_mobile_data">Briar je nastavený tak, aby nepoužíval mobilné dáta</string>
   <string name="tor_plugin_status_disabled_battery">Briar je nastavený tak, aby nepoužíval internet, keď ide na batériu</string>
   <string name="tor_plugin_status_disabled_country_blocked">Briar je nastavený tak, aby v tejto krajine nepoužíval internet</string>
-  <!--Transports: Wi-Fi-->
+
   <string name="transport_lan">Wi-Fi</string>
   <string name="transport_lan_long">Rovnaká sieť Wi-Fi</string>
   <string name="lan_device_status_on">Váš telefón je pripojený k sieti Wi-Fi</string>
@@ -97,7 +97,7 @@
   <string name="lan_plugin_status_active">Briar je pripojený k sieti Wi-Fi</string>
   <string name="lan_plugin_status_inactive">Briar sa nemôže pripojiť k sieti Wi-Fi</string>
   <string name="lan_plugin_status_disabled">Briar je nastavený tak, aby nepoužíval sieť Wi-Fi</string>
-  <!--Transports: Bluetooth-->
+
   <string name="transport_bt">Bluetooth</string>
   <string name="bt_device_status_on">Váš telefón má zapnuté Bluetooth</string>
   <string name="bt_device_status_off">Váš telefón má vypnuté Bluetooth</string>
@@ -105,7 +105,7 @@
   <string name="bt_plugin_status_active">Briar je pripojený cez Bluetooth</string>
   <string name="bt_plugin_status_inactive">Briar sa nedokáže pripojiť k Bluetooth</string>
   <string name="bt_plugin_status_disabled">Briar je nastavený tak, aby nepoužíval Bluetooth</string>
-  <!--Notifications-->
+
   <string name="reminder_notification_title">Odhlásený z aplikácie Briar</string>
   <string name="reminder_notification_text">Ťuknutím sa prihláste späť.</string>
   <string name="reminder_notification_channel_title">Pripomienka prihlásenia do aplikácie Briar</string>
@@ -136,7 +136,7 @@
     <item quantity="many">%d nových príspevkov na blogu.</item>
     <item quantity="other">%d nových príspevkov na blogu.</item>
   </plurals>
-  <!--Misc-->
+
   <string name="now">teraz</string>
   <string name="show">Zobraziť</string>
   <string name="hide">Skryť</string>
@@ -165,7 +165,7 @@
   <string name="status_heading">Stav:</string>
   <string name="error">Chyba</string>
   <string name="info">Informácie</string>
-  <!--Contacts and Private Conversations-->
+
   <string name="no_contacts">Žiadne kontakty na zobrazenie</string>
   <string name="no_contacts_action">Ťuknutím na ikonu + pridáte kontakt</string>
   <string name="date_no_private_messages">Žiadne správy.</string>
@@ -181,11 +181,11 @@
   <string name="set_contact_alias">Zmeniť meno kontaktu</string>
   <string name="set_contact_alias_hint">Meno kontaktu</string>
   <string name="menu_item_disappearing_messages">Miznúce správy</string>
-  <!--The first placeholder will show a duration like "7 days". The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_enabled">Vaše správy zmiznú po %1$s. %2$s </string>
-  <!--The placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_disabled">Vaše správy nezmiznú. %1$s</string>
-  <!--The first placeholder will show a contact's name. The second placeholder will show a duration like "7 days". The third placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_enabled">Správy používateľa %1$szmiznú po %2$s. %3$s</string>
   <plurals name="duration_minutes">
     <item quantity="one">%d minúta</item>
@@ -205,7 +205,7 @@
     <item quantity="many">%d dní</item>
     <item quantity="other">%d dní</item>
   </plurals>
-  <!--The first placeholder will show a contact's name. The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_disabled">Správy používateľa %1$snezmiznú. %2$s</string>
   <string name="tap_to_learn_more">Ťuknutím sa dozviete viac.</string>
   <string name="auto_delete_changed_warning_title">Miznúce správy sa zmenili</string>
@@ -226,7 +226,7 @@
   <string name="dialog_title_delete_contact">Potvrdiť odstránenie kontaktu</string>
   <string name="dialog_message_delete_contact">Ste si istí, že chcete odstrániť tento kontakt a všetky správy vymenené s týmto kontaktom?</string>
   <string name="contact_deleted_toast">Kontakt bol odstránený</string>
-  <!--This is shown in the action bar when opening an image in fullscreen that the user sent-->
+
   <string name="you">Vy</string>
   <string name="save_image">Uložiť obrázok</string>
   <string name="dialog_title_save_image">Uložiť obrázok?</string>
@@ -239,7 +239,7 @@
   <string name="dialog_message_image_support">Ťuknutím na túto ikonu pripojíte obrázky.</string>
   <string name="messaging_too_many_attachments_toast">Odošle sa len prvých %d obrázkov</string>
   <string name="menu_contact">Kontakt</string>
-  <!--Adding Contacts-->
+
   <string name="add_contact_title">Pridať kontakt v blízkosti</string>
   <string name="add_contact_error_two_way">Naskenovali ste si navzájom QR kódy?</string>
   <string name="face_to_face">S osobou, ktorú chcete pridať ako kontakt sa musíte sa stretnúť osobne.\n\nTým sa zabráni tomu, aby sa niekto za vás vydával alebo čítal vaše správy v budúcnosti.</string>
@@ -261,7 +261,7 @@
   <string name="connection_error_title">Nepodarilo sa pripojiť k vášmu kontaktu</string>
   <string name="connection_error_feedback">Ak tento problém pretrváva, pošlite nám prosím <a href="feedback">spätnú väzbu</a>, ktorá nám pomôže aplikáciu vylepšiť.</string>
   <string name="info_both_must_scan">Obaja si musíte navzájom naskenovať QR kódy.</string>
-  <!--Adding Contacts Remotely-->
+
   <string name="add_contact_remotely_title_case">Pridať vzdialený kontakt</string>
   <string name="add_contact_nearby_title">Pridať kontakt v blízkosti</string>
   <string name="add_contact_remotely_title">Pridať vzdialený kontakt </string>
@@ -294,9 +294,9 @@
   <string name="unsupported_link">Tento odkaz pochádza z novšej verzie aplikácie Briar. Prejdite na najnovšiu verziu a skúste to znova.</string>
   <string name="intent_own_link">Otvorili ste svoj vlastný odkaz. Použite ten odkaz na kontakt, ktorý chcete pridať!</string>
   <string name="missing_link">Prosím, zadajte odkaz</string>
-  <!--This is a numeral indicating the first step in a series of screens-->
+
   <string name="step_1">1</string>
-  <!--This is a numeral indicating the second step in a series of screens-->
+
   <string name="step_2">2</string>
   <plurals name="contact_added_notification_text">
     <item quantity="one">Nový kontakt pridaný.</item>
@@ -308,25 +308,21 @@
   <string name="duplicate_link_dialog_title">Duplicitný odkaz</string>
   <string name="duplicate_link_dialog_text_1">Už máte jeden čakajúci kontakt s týmto odkazom:: %s</string>
   <string name="duplicate_link_dialog_text_1_contact">Už máte kontakt s týmto odkazom: %s</string>
-  <!--This is a question asking whether two nicknames refer to the same person-->
+
   <string name="duplicate_link_dialog_text_2">Je %1$s a %2$stá istá osoba?</string>
-  <!--This is a button for answering that two nicknames do indeed refer to the same person. This
-	string will be used in a dialog button, so if the translation of this string is longer than 20
-	characters, please use "Yes" instead, and use "No" for the "Different Person" button-->
+
   <string name="same_person_button">Tá istá osoba</string>
-  <!--This is a button for answering that two nicknames refer to different people. This string
-	will be used in a dialog button, so if the translation of this string longer than 20 characters,
-	please use "No" instead, and use "Yes" for the "Same Person" button-->
+
   <string name="different_person_button">Iná osoba</string>
   <string name="duplicate_link_dialog_text_3">%1$s a %2$s vám poslali rovnaký odkaz.\n\nJeden z nich sa možno snaží zistiť, kto sú vaše kontakty.\n\nNehovorte im, že ste dostali rovnaký odkaz od niekoho iného.</string>
   <string name="pending_contact_updated_toast">Čakajúci kontakt bol aktualizovaný</string>
   <string name="info_both_must_enter_links">Obaja si musíte navzájom pridať odkazy</string>
-  <!--Peer trust levels-->
+
   <string name="peer_trust_level_unverified">Neoverený kontakt</string>
   <string name="peer_trust_level_verified">Overený kontakt</string>
   <string name="peer_trust_level_ourselves">Ja</string>
   <string name="peer_trust_level_stranger">Cudzinec</string>
-  <!--Introductions-->
+
   <string name="introduction_onboarding_title">Zoznámte svoje kontakty</string>
   <string name="introduction_onboarding_text">Zoznámte svoje kontakty navzájom, aby sa mohli spojiť v aplikácii Briar.</string>
   <string name="introduction_menu_item">Zoznámiť</string>
@@ -348,7 +344,7 @@
   <string name="introduction_response_accepted_received">%1$sprijal/a zoznámenie s %2$s.</string>
   <string name="introduction_response_declined_received">%1$sodmietol/a zoznámenie s %2$s.</string>
   <string name="introduction_response_declined_received_by_introducee">%1$shovorí, že %2$sodmietol zoznámenie.</string>
-  <!--Connect via Bluetooth-->
+
   <string name="menu_item_connect_via_bluetooth">Pripojiť cez Bluetooth</string>
   <string name="connect_via_bluetooth_title">Pripojiť cez Bluetooth</string>
   <string name="connect_via_bluetooth_intro">V prípade, že pripojenie Bluetooth nefunguje automaticky, môžete sa pomocou tejto obrazovky pripojiť manuálne.\n\nAby to fungovalo, váš kontakt musí byť nablízku.\n\nVy a váš kontakt by ste mali stlačiť \"Štart\" súčasne.</string>
@@ -359,7 +355,7 @@
   <string name="connect_via_bluetooth_success">Úspešne pripojené cez Bluetooth</string>
   <string name="connect_via_bluetooth_error">Nepodarilo sa pripojiť cez Bluetooth.</string>
   <string name="connect_via_bluetooth_error_not_supported">Bluetooth nie je podporovaný na tomto zariadením.</string>
-  <!--Private Groups-->
+
   <string name="groups_list_empty">Žiadne skupiny na zobrazenie</string>
   <string name="groups_list_empty_action">Ťuknutím na ikonu + vytvorte skupinu alebo požiadajte svoje kontakty, aby s vami zdieľali skupiny</string>
   <string name="groups_created_by">Vytvoril používateľ %s</string>
@@ -392,7 +388,7 @@
   <string name="groups_dissolve_button">Zrušiť skupinu</string>
   <string name="groups_dissolved_dialog_title">Skupina bola zrušená</string>
   <string name="groups_dissolved_dialog_message">Zakladateľ tejto skupiny ju zrušil.\n\nUž nemôžete písať správy do skupiny a nemusíte dostávať všetky príspevky, ktoré boli napísané.</string>
-  <!--Private Group Invitations-->
+
   <string name="groups_invitations_title">Skupinové pozvánky</string>
   <string name="groups_invitations_invitation_sent">Pozvali ste používateľa %1$s skupiny \"%2$s\".</string>
   <string name="groups_invitations_invitation_received">%1$svás pozval do skupiny \"%2$s\".</string>
@@ -410,14 +406,14 @@
   <string name="groups_invitations_response_accepted_received">%sprijal/a pozvanie do skupiny.</string>
   <string name="groups_invitations_response_declined_received">%s odmietol pozvanie do skupiny.</string>
   <string name="sharing_status_groups">Do skupiny môže pozývať nových členov len jej zakladateľ. Nižšie sú uvedení všetci súčasní členovia skupiny.</string>
-  <!--Private Groups Revealing Contacts-->
+
   <string name="groups_reveal_contacts">Odhaliť kontakty</string>
   <string name="groups_reveal_dialog_message">Môžete si vybrať, či chcete odhaliť kontakty všetkým súčasným a budúcim členom tejto skupiny.\n\nOdhalenie kontaktov urýchľuje a zvyšuje spoľahlivosť vášho pripojenia k skupine, pretože s odhalenými kontaktmi môžete komunikovať, aj keď je tvorca skupiny offline.</string>
   <string name="groups_reveal_visible">Vzťah s kontaktom je viditeľný pre skupinu</string>
   <string name="groups_reveal_visible_revealed_by_us">Vzťah s kontaktom je viditeľný pre skupinu (odhalený vami)</string>
   <string name="groups_reveal_visible_revealed_by_contact">Vzťah s kontaktom je viditeľný pre skupinu (odhalený používateľom %s )</string>
   <string name="groups_reveal_invisible">Vzťah s kontaktom nie je viditeľný pre skupinu</string>
-  <!--Forums-->
+
   <string name="no_forums">Žiadne fóra na zobrazenie</string>
   <string name="no_forums_action">Ťuknutím na ikonu + vytvoríte fórum alebo požiadajte svoje kontakty, aby s vami zdieľali fóra</string>
   <string name="create_forum_title">Vytvoriť fórum</string>
@@ -440,7 +436,7 @@
   <string name="dialog_message_leave_forum">Ste si istí, že chcete opustiť toto fórum?\n\nVšetkým kontaktom, s ktorými ste zdieľali toto fórum, môžu prestať chodiť aktualizácie.</string>
   <string name="dialog_button_leave">Odísť</string>
   <string name="forum_left_toast">Opustené fórum</string>
-  <!--Forum Sharing-->
+
   <string name="forum_share_button">Zdieľať fórum</string>
   <string name="contacts_selected">Vybraté kontakty</string>
   <string name="activity_share_toolbar_header">Vyberte kontakty</string>
@@ -476,7 +472,7 @@
     <item quantity="other">%d fór zdieľaných prostredníctvom kontaktov</item>
   </plurals>
   <string name="nobody">Nikto</string>
-  <!--Blogs-->
+
   <string name="blogs_other_blog_empty_state">Žiadne články na zobrazenie</string>
   <string name="read_more">čítať viac</string>
   <string name="blogs_write_blog_post">Napísať príspevok do blogu</string>
@@ -493,7 +489,7 @@
   <string name="blogs_blog_removed">Blog odstránený</string>
   <string name="blogs_reblog_comment_hint">Pridať komentár (nepovinné)</string>
   <string name="blogs_reblog_button">Zdieľať blog</string>
-  <!--Blog Sharing-->
+
   <string name="blogs_sharing_share">Zdieľať blog</string>
   <string name="blogs_sharing_error">Pri zdieľaní tohto blogu došlo k chybe.</string>
   <string name="blogs_sharing_button">Zdieľať blog</string>
@@ -509,7 +505,7 @@
   <string name="blogs_sharing_joined_toast">Prihlásený na blog</string>
   <string name="blogs_sharing_declined_toast">Pozvánka odmietnutá</string>
   <string name="sharing_status_blog">Ktokoľvek, kto sa prihlási na odber blogu, ho môže zdieľať so svojimi kontaktmi. Tento blog zdieľate s nasledujúcimi kontaktmi. Môžu existovať aj ďalší odberatelia, ktorých nevidíte.</string>
-  <!--RSS Feeds-->
+
   <string name="blogs_rss_feeds_import">Importovať RSS kanál</string>
   <string name="blogs_rss_feeds_import_button">Importovať</string>
   <string name="blogs_rss_feeds_import_hint">Zadajte adresu URL RSS kanálu</string>
@@ -525,12 +521,12 @@
   <string name="blogs_rss_remove_feed_ok">Odstrániť</string>
   <string name="blogs_rss_feeds_manage_empty_state">Žiadne RSS kanály na zobrazenie\n\nŤuknutím na ikonu + naimportujte kanál</string>
   <string name="blogs_rss_feeds_manage_error">Vyskytol sa problém s načítaním vašich kanálov. Skúste to prosím neskôr.</string>
-  <!--Settings Profile Picture-->
+
   <string name="change_profile_picture">Ťuknutím zmeníte svoj profilový obrázok</string>
   <string name="dialog_confirm_profile_picture_title">Zmeniť profilový obrázok</string>
   <string name="dialog_confirm_profile_picture_remark">Iba vaše kontakty môžu vidieť tento obrázok </string>
   <string name="change_profile_picture_failed_message">Je nám ľúto, ale pri aktualizácii vašej profilovej fotografie sa niečo pokazilo</string>
-  <!--Settings Display-->
+
   <string name="pref_language_title">Jazyk a región</string>
   <string name="pref_language_changed">Toto nastavenie sa prejaví po reštartovaní aplikácie Briar. Odhláste sa a reštartujte Briar.</string>
   <string name="pref_language_default">Predvolené systémom</string>
@@ -539,7 +535,7 @@
   <string name="pref_theme_light">Svetlá</string>
   <string name="pref_theme_dark">Tmavá</string>
   <string name="pref_theme_system">Predvolené systémom</string>
-  <!--Settings Connections-->
+
   <string name="network_settings_title">Pripojenia</string>
   <string name="bluetooth_setting">Prepojiť sa s kontaktmi cez Bluetooth</string>
   <string name="wifi_setting">Prepojiť sa s kontaktmi v rovnakej sieti Wi-Fi</string>
@@ -550,28 +546,28 @@
   <string name="tor_network_setting_without_bridges">Použiť sieť Tor bez premostenia</string>
   <string name="tor_network_setting_with_bridges">Použiť sieť Tor s premostením</string>
   <string name="tor_network_setting_never">Nepripájať sa k internetu</string>
-  <!--How and when Briar will connect to Tor: E.g. "Don't connect to the Internet (in China)" or "Use Tor network with bridges (in Belarus)"-->
+
   <string name="tor_network_setting_summary">Automaticky: %1$s (v %2$s)</string>
   <string name="tor_mobile_data_title">Použiť mobilné dáta</string>
   <string name="tor_only_when_charging_title">Pripojiť sa k internetu len počas nabíjania</string>
   <string name="tor_only_when_charging_summary">Zakáže pripojenie k internetu, keď zariadenie beží na batériu</string>
-  <!--Settings Security and Panic-->
+
   <string name="security_settings_title">Bezpečnosť</string>
   <string name="pref_lock_title">Zámok aplikácie</string>
   <string name="pref_lock_summary">Použite zámok obrazovky zariadenia na ochranu aplikácie Briar, keď ste prihlásení</string>
   <string name="pref_lock_disabled_summary">Ak chcete používať túto funkciu, nastavte pre svoje zariadenie zámok obrazovky.</string>
   <string name="pref_lock_timeout_title">Časový limit nečinnosti zámku aplikácie</string>
-  <!--The %s placeholder is replaced with the following time spans, e.g. 5 Minutes, 1 Hour-->
+
   <string name="pref_lock_timeout_summary">Ak nepoužívate program Briar, automaticky sa uzamkne po %s</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_1">1 minúte</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_5">5 minútach</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_15">15 minútach</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_30">30 minútach</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_60">1 hodina</string>
   <string name="pref_lock_timeout_never">Nikdy</string>
   <string name="pref_lock_timeout_never_summary">Nikdy automaticky nezamykať Briar</string>
@@ -594,7 +590,7 @@
   <string name="panic_setting_signout_summary">Odhlásiť sa z Briaru, ak je stlačené tlačidlo pre paniku</string>
   <string name="purge_setting_title">Vymazať účet</string>
   <string name="purge_setting_summary">Vymazať svoje konto Briar pri stlačení tlačidla paniky. Pozor: Týmto sa natrvalo vymažú vaše identity, kontakty a správy</string>
-  <!--Settings Notifications-->
+
   <string name="notification_settings_title">Oznámenia</string>
   <string name="notify_sign_in_title">Pripomenúť mi, aby som sa prihlásil</string>
   <string name="notify_sign_in_summary">Zobraziť pripomienku pri spustení telefónu alebo aktualizácii aplikácie</string>
@@ -616,7 +612,7 @@
   <string name="notify_sound_setting_disabled">Žiadne</string>
   <string name="choose_ringtone_title">Vybrať zvonenie</string>
   <string name="cannot_load_ringtone">Nie je možné načítať zvonenie</string>
-  <!--Mailbox-->
+
   <string name="mailbox_settings_title">Mailbox</string>
   <string name="mailbox_setup_title">Nastavenie Mailbox</string>
   <string name="mailbox_setup_intro">Aplikácia Mailbox umožňuje vašim kontaktom posielať správy, aj keď ste v režime offline. Schránka bude prijímať vaše správy a uchovávať ich, kým sa neobjavíte online.
@@ -627,7 +623,7 @@
   <string name="mailbox_setup_button_scan">Naskenovať kód QR aplikácie Mailbox</string>
   <string name="permission_camera_qr_denied_body">Odmietli ste prístup ku kamere, ale skenovanie QR kódu vyžaduje použitie kamery.\n\nProsím, zvážte udelenie prístupu.</string>
   <string name="mailbox_setup_connecting">Pripájanie na Mailbox...</string>
-  <!--This string is shown when connecting to a Mailbox for the first time. The placeholder will be replaced with a duration, e.g. "2 minutes".-->
+
   <string name="mailbox_setup_connecting_info">Toto môže trvať až %1s</string>
   <string name="mailbox_qr_code_too_old">QR kód, ktorý ste naskenovali, pochádza zo staršej verzie aplikácie Briar Mailbox.\n\nProsím, aktualizujte Briar Mailbox na najnovšiu verziu a potom to skúste znova.</string>
   <string name="mailbox_qr_code_too_new">QR kód, ktorý ste naskenovali, pochádza z novšej verzie aplikácie Briar Mailbox.\n\nProsím, aktualizujte Briar na najnovšiu verziu a potom to skúste znova.</string>
@@ -657,9 +653,9 @@
   <string name="mailbox_status_mailbox_too_old_title">Mailbox je príliš starý</string>
   <string name="mailbox_status_mailbox_too_old_message">Aktualizujte aplikáciu Mailbox na najnovšiu verziu a skúste to znova.</string>
   <string name="mailbox_status_check_button">Skontrolovať pripojenie</string>
-  <!--Example for string substitution: Last connection: 3min ago-->
+
   <string name="mailbox_status_connected_info">Posledné pripojenie: %s</string>
-  <!--Indicates that there never was a connection to the mailbox. Last connection: Never-->
+
   <string name="mailbox_status_connected_never">Nikdy</string>
   <string name="mailbox_status_unlink_button">Odpojiť</string>
   <string name="mailbox_status_unlink_dialog_title">Odpojiť Mailbox?</string>
@@ -692,7 +688,7 @@
   <string name="mailbox_error_wizard_info1_1_4">Skontrolujte, či je zariadenie Mailbox správne pripojené k internetu.\n\nPrekontrolujte, či hodiny na zariadení Mailbox ukazujú správny čas, dátum a časové pásmo.\n\nPrekontrolujte, či sú aplikácie Mailbox a Briar aktualizované na najnovšiu verziu.\n\nReštartujte zariadenia Mailbox a Briar a skúste to znova.</string>
   <string name="mailbox_error_wizard_info2">Vráťte sa prosím späť na túto obrazovku, keď budete mať prístup k zariadeniu.</string>
   <string name="mailbox_error_wizard_info3">Zrušte prosím prepojenie svojej aplikácie Mailbox pomocou tlačidla nižšie.\n\nPo zrušení prepojenia vašej starej aplikácie Mailbox môžete kedykoľvek nastaviť novú aplikáciu Mailbox.</string>
-  <!--About-->
+
   <string name="about_title">O programe</string>
   <string name="briar_version">Briar verzia: %s</string>
   <string name="tor_version">Tor verzia: %s</string>
@@ -701,9 +697,9 @@
   <string name="briar_source_code">\u2022 <a href="">Zdrojový kód</a></string>
   <string name="briar_changelog">\u2022 <a href="">Zoznam zmien</a></string>
   <string name="briar_privacy_policy">\u2022 <a href="">Zásady ochrany súkromia</a></string>
-  <!--Here translators can add their names or Transifex usernames(eg "Thanks to all the contributors at the Localization Lab, especially Tom, Matthew and Jerry")-->
+
   <string name="translator_thanks">Ďakujeme všetkým prispievateľom z Localization Lab, hlavne prekladateľom: Jozef Gaál</string>
-  <!--Conversation Settings-->
+
   <string name="disappearing_messages_title">Miznúce správy</string>
   <string name="disappearing_messages_explanation_long">Zapnutím tohto nastavenia nové
 		správy v tejto konverzácii automaticky zmiznú po 7\u00A0dňoch.
@@ -716,17 +712,17 @@
 		Váš kontakt môže toto nastavenie zmeniť aj pre vás oboch.</string>
   <string name="learn_more">Zisti viac</string>
   <string name="disappearing_messages_summary">Nastaviť, aby budúce správy v tejto konverzácii automaticky zmizli po 7\u00A0dňoch.</string>
-  <!--Settings Actions-->
+
   <string name="pref_category_actions">Akcie</string>
   <string name="share_app_link">Zdieľať odkaz na stiahnutie</string>
   <string name="share_app_link_text">Stiahnuť Briar na %s</string>
   <string name="send_feedback">Odoslať spätnú väzbu</string>
-  <!--Link Warning-->
+
   <string name="link_warning_title">Varovanie o odkaze</string>
   <string name="link_warning_intro">Chystáte sa otvoriť nasledujúci odkaz pomocou externej aplikácie.</string>
   <string name="link_warning_text">Toto môže byť použité na vašu identifikáciu. Premyslite si, či dôverujete osobe, ktorá vám poslala tento odkaz, a zvážte jeho otvorenie pomocou prehliadača Tor.</string>
   <string name="link_warning_open_link">Otvoriť odkaz</string>
-  <!--Crash Reporter-->
+
   <string name="crash_report_title">Briar Hlásenie o chybe</string>
   <string name="briar_crashed">Prepáčte, aplikácia Briar spadla</string>
   <string name="not_your_fault">Toto nie je vaša chyba.</string>
@@ -757,15 +753,15 @@
   <string name="dev_report_sent">Spätná väzba odoslaná</string>
   <string name="dev_report_saved">Hlásenie bolo uložené. Odošle sa pri ďalšom prihlásení do aplikácie Briar.</string>
   <string name="dev_report_error">Chyba: Odoslanie hlásenia zlyhalo</string>
-  <!--Sign Out-->
+
   <string name="progress_title_logout">Odhlasovanie z Briar...</string>
-  <!--Screen Filters & Tapjacking-->
+
   <string name="screen_filter_title">Rozpoznané prekrytie obrazovky</string>
   <string name="screen_filter_body">Ďalšia aplikácia vykresľuje nad aplikáciou Briar. Na ochranu vašej bezpečnosti nebude Briar reagovať na dotyky, keď naň vykresľuje iná aplikácia.\n\nNasledujúce aplikácie môžu vykresľovať nad ňou:\n\n%1$s</string>
   <string name="screen_filter_body_api_30">Iná aplikácia vykresľuje údaje nad aplikáciou Briar. Na ochranu vašej bezpečnosti nebude Briar reagovať na dotyky, keď naň vykresľuje iná aplikácia.\n\nPreskúmajte aplikácie nižšie uvedené a nájdite zodpovednú aplikáciu.</string>
   <string name="screen_filter_allow">Povoliť týmto aplikáciám vykresľovanie nad aplikáciou</string>
   <string name="screen_filter_review_apps">Preskúmať aplikácie</string>
-  <!--Permission Requests-->
+
   <string name="permission_camera_title">Povolenie na používanie kamery</string>
   <string name="permission_camera_request_body">Na naskenovanie QR kódu potrebuje Briar prístup ku kamere.</string>
   <string name="permission_location_title">Povolenie na určenie polohy</string>
@@ -786,16 +782,16 @@
   <string name="permission_bluetooth_denied_body">Odmietli ste prístup k blízkym zariadeniam, ale Briar potrebuje toto povolenie na používanie Bluetooth.\n\nProsím, zvážte udelenie prístupu.</string>
   <string name="qr_code">QR kód</string>
   <string name="show_qr_code_fullscreen">Zobraziť QR kód na celú obrazovku</string>
-  <!--App Locking-->
+
   <string name="lock_unlock">Odomknúť Briar</string>
   <string name="lock_unlock_verbose">Na odomknutie zariadenia Briar zadajte PIN, vzor alebo heslo.</string>
   <string name="lock_unlock_fingerprint_description">Dotknite sa snímača odtlačkov prstov registrovaným prstom a pokračujte</string>
   <string name="lock_unlock_password">Použiť heslo</string>
   <string name="lock_is_locked">Briar je zamknutý</string>
   <string name="lock_tap_to_unlock">Ťuknutím odomknite</string>
-  <!--Connections Screen-->
+
   <string name="transports_help_text">Briar sa môže pripojiť ku kontaktom cez internet, Wi-Fi alebo Bluetooth.\n\nVšetky internetové pripojenia prechádzajú cez sieť Tor kvôli ochrane súkromia.\n\nAk sa kontakt dá dosiahnuť viacerými spôsobmi, Briar ich bude používať paralelne.</string>
-  <!--Share app offline-->
+
   <string name="hotspot_title">Zdieľať túto aplikáciu v režime offline</string>
   <string name="hotspot_intro">Zdieľajte túto aplikáciu s niekým v okolí bez pripojenia na internet pomocou Wi-Fi v telefóne.
 \n\nVáš telefón spustí prístupový bod Wi-Fi. Ľudia v blízkosti sa budú môcť pripojiť k prístupovému bodu a stiahnuť si aplikáciu Briar z vášho telefónu.</string>
@@ -814,10 +810,10 @@
   <string name="wifi_settings_title">Nastavenie Wi-Fi</string>
   <string name="wifi_settings_request_enable_body">Ak chcete vytvoriť prístupový bod Wi-Fi, zariadenie Briar musí používať Wi-Fi. Povoľte ho.</string>
   <string name="hotspot_tab_manual">Manuálne</string>
-  <!--The placeholder to be inserted into the string 'hotspot_manual_wifi': People can connect by %s-->
+
   <string name="hotspot_scanning_a_qr_code">naskenovaním QR kódu</string>
-  <!--Wi-Fi setup-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_wifi">Váš telefón poskytuje prístupový bod Wi-Fi. Ľudia, ktorí si chcú stiahnuť Briar, sa môžu pripojiť k vášmu prístupovému bodu pridaním nižšie uvedených údajov do nastavení Wi-Fi svojho zariadenia alebo pomocou %s. Po ich pripojení k prístupovému bodu stlačte tlačidlo \"Ďalej\".</string>
   <string name="hotspot_manual_wifi_ssid">Názov siete</string>
   <string name="hotspot_qr_wifi">Váš telefón poskytuje prístupový bod Wi-Fi. Ľudia, ktorí si chcú stiahnuť program Briar, sa môžu pripojiť k prístupovému bodu naskenovaním tohto QR kódu. Po ich pripojení k prístupovému bodu stlačte tlačidlo \'Ďalej\'.</string>
@@ -828,12 +824,12 @@
     <item quantity="many">%spripojených zariadení</item>
     <item quantity="other">%spripojených zariadení</item>
   </plurals>
-  <!--Download link-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_site">Váš telefón poskytuje prístupový bod Wi-Fi. Ľudia, ktorí sú pripojení k prístupovému bodu, si môžu stiahnuť aplikáciu Briar zadaním nasledujúceho odkazu do webového prehliadača alebo %s.</string>
   <string name="hotspot_manual_site_address">Adresa (URL)</string>
   <string name="hotspot_qr_site">Váš telefón poskytuje prístupový bod Wi-Fi. Ľudia, ktorí sú pripojení k prístupovému bodu, si môžu stiahnuť Briar naskenovaním tohto QR kódu.</string>
-  <!--e.g. Download Briar 1.2.20-->
+
   <string name="website_download_title_1">Stiahnuť Briar %s</string>
   <string name="website_download_intro_1">Niekto v okolí s vami zdieľa Briar.</string>
   <string name="website_download_button">Stiahnuť Briar</string>
@@ -855,7 +851,7 @@
   <string name="hotspot_help_fallback_intro">Môžete sa pokúsiť uložiť aplikáciu ako súbor .apk a zdieľať ju iným spôsobom. Po prenesení súboru do druhého zariadenia ho môžete použiť na inštaláciu aplikácie Briar.
 \n\nTip: Pri zdieľaní cez Bluetooth bude možno potrebné najprv premenovať súbor tak, aby končil na .zip.</string>
   <string name="hotspot_help_fallback_button">Uložiť aplikáciu</string>
-  <!--error handling-->
+
   <string name="hotspot_error_intro">Pri pokuse o zdieľanie aplikácie cez Wi-Fi sa niečo pokazilo:</string>
   <string name="hotspot_error_no_wifi_direct">Zariadenie nepodporuje funkciu Wi-Fi Direct</string>
   <string name="hotspot_error_start_callback_failed">Prístupový bod sa nepodarilo spustiť: chyba %s</string>
@@ -865,7 +861,7 @@
   <string name="hotspot_error_web_server_serve">Chyba pri zobrazovaní webovej stránky.\n\nProsím, pošlite spätnú väzbu (s anonymnými údajmi) prostredníctvom aplikácie Briar, ak problém pretrváva.</string>
   <string name="hotspot_flag_test">Varovanie: Táto aplikácia bola nainštalovaná pomocou aplikácie Android Studio a NIE je možné ju nainštalovať do iného zariadenia.</string>
   <string name="hotspot_error_framework_busy">Prístupový bod sa nedá spustiť.\n\nAk máte spustený iný prístupový bod alebo zdieľate internetové pripojenie cez Wi-Fi, skúste ho zastaviť a potom to skúste znova.</string>
-  <!--Transfer Data via Removable Drives-->
+
   <string name="removable_drive_menu_title">Pripojiť cez vymeniteľný disk</string>
   <string name="removable_drive_intro">Ak sa nemôžete pripojiť ku kontaktu cez internet, Wi-Fi alebo Bluetooth, Briar dokáže prenášať správy aj na vymeniteľnom disku, ako je USB kľúč alebo SD karta.</string>
   <string name="removable_drive_explanation">Ak sa nemôžete pripojiť ku kontaktu cez internet, Wi-Fi alebo Bluetooth, Briar dokáže prenášať správy aj na vymeniteľnom disku, ako je napríklad USB kľúč alebo SD karta.\n\nPri použití tlačidla \"Odoslať údaje\" sa všetky údaje, ktoré čakajú na odoslanie kontaktu, zapíšu na vymeniteľný disk. Patria sem súkromné správy, prílohy, blogy, fóra a súkromné skupiny.\n\nVšetko bude zašifrované pred zápisom na vymeniteľný disk.\n\nKeď váš kontakt dostane vymeniteľný disk, môže použiť tlačidlo \"Prijať údaje\" na import správ do aplikácie Briar.</string>
@@ -886,17 +882,17 @@
   <string name="removable_drive_error_send_text">Došlo k chybe pri zápise údajov do súboru.\n\nAk používate vymeniteľný disk, uistite sa, že je správne vložený a skúste to znova.\n\nAk chyba pretrváva, pošlite spätnú väzbu a informujte o probléme tím Briar.</string>
   <string name="removable_drive_error_receive_title">Chyba pri importovaní údajov</string>
   <string name="removable_drive_error_receive_text">Vybraný súbor neobsahoval nič, čo by Briar mohol rozpoznať.\n\nProsím, skontrolujte, či ste vybrali správny súbor.\n\nAk váš kontakt vytvoril súbor pred viac ako 28 dňami, Briar ho nebude môcť rozpoznať.</string>
-  <!--Screenshots-->
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
+
   <string name="screenshot_alice">Alica</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_bob">Robo</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_carol">Karolína</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Bob!-->
+
   <string name="screenshot_message_1">Ahoj, Robo!</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Alice!-->
+
   <string name="screenshot_message_2">Ahoj Alica! Vďaka, že si mi povedala o Briar!</string>
-  <!--This is a message to be used in screenshots.-->
+
   <string name="screenshot_message_3">Žiadny problém, dúfam, že sa ti páči 😀</string>
 </resources>

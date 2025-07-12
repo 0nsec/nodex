@@ -1,5 +1,4 @@
 package org.briarproject.briar.introduction;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.client.ContactGroupFactory;
@@ -31,12 +30,9 @@ import org.briarproject.briar.api.identity.AuthorManager;
 import org.briarproject.briar.api.introduction.IntroductionResponse;
 import org.briarproject.briar.api.introduction.event.IntroductionResponseReceivedEvent;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.Map;
-
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
-
 import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 import static org.briarproject.briar.api.introduction.IntroductionManager.CLIENT_ID;
 import static org.briarproject.briar.api.introduction.IntroductionManager.MAJOR_VERSION;
@@ -47,12 +43,10 @@ import static org.briarproject.briar.introduction.MessageType.ACTIVATE;
 import static org.briarproject.briar.introduction.MessageType.AUTH;
 import static org.briarproject.briar.introduction.MessageType.DECLINE;
 import static org.briarproject.briar.introduction.MessageType.REQUEST;
-
 @Immutable
 @NotNullByDefault
 abstract class AbstractProtocolEngine<S extends Session<?>>
 		implements ProtocolEngine<S> {
-
 	protected final DatabaseComponent db;
 	protected final ClientHelper clientHelper;
 	protected final ContactManager contactManager;
@@ -66,7 +60,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 	protected final AutoDeleteManager autoDeleteManager;
 	protected final ConversationManager conversationManager;
 	protected final Clock clock;
-
 	AbstractProtocolEngine(
 			DatabaseComponent db,
 			ClientHelper clientHelper,
@@ -95,7 +88,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 		this.conversationManager = conversationManager;
 		this.clock = clock;
 	}
-
 	Message sendRequestMessage(Transaction txn, PeerSession s,
 			long timestamp, Author author, @Nullable String text)
 			throws DbException {
@@ -107,7 +99,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 			m = messageEncoder.encodeRequestMessage(s.getContactGroupId(),
 					timestamp, s.getLastLocalMessageId(), author, text, timer);
 			sendMessage(txn, REQUEST, s.getSessionId(), m, true, timer);
-			// Set the auto-delete timer duration on the local message
 			if (timer != NO_AUTO_DELETE_TIMER) {
 				db.setCleanupTimerDuration(txn, m.getId(), timer);
 			}
@@ -119,7 +110,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 		}
 		return m;
 	}
-
 	Message sendAcceptMessage(Transaction txn, PeerSession s, long timestamp,
 			PublicKey ephemeralPublicKey, long acceptTimestamp,
 			Map<TransportId, TransportProperties> transportProperties,
@@ -134,7 +124,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 					ephemeralPublicKey, acceptTimestamp, transportProperties,
 					timer);
 			sendMessage(txn, ACCEPT, s.getSessionId(), m, visible, timer);
-			// Set the auto-delete timer duration on the message
 			if (timer != NO_AUTO_DELETE_TIMER) {
 				db.setCleanupTimerDuration(txn, m.getId(), timer);
 			}
@@ -147,7 +136,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 		}
 		return m;
 	}
-
 	Message sendDeclineMessage(Transaction txn, PeerSession s, long timestamp,
 			boolean visible, boolean isAutoDecline) throws DbException {
 		if (!visible && isAutoDecline) throw new IllegalArgumentException();
@@ -161,12 +149,10 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 					timer);
 			sendMessage(txn, DECLINE, s.getSessionId(), m, visible, timer,
 					isAutoDecline);
-			// Set the auto-delete timer duration on the local message
 			if (timer != NO_AUTO_DELETE_TIMER) {
 				db.setCleanupTimerDuration(txn, m.getId(), timer);
 			}
 			if (isAutoDecline) {
-				// Broadcast an event, so the auto-decline becomes visible
 				IntroduceeSession session = (IntroduceeSession) s;
 				Author author = session.getRemote().author;
 				AuthorInfo authorInfo =
@@ -186,7 +172,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 		}
 		return m;
 	}
-
 	Message sendAuthMessage(Transaction txn, PeerSession s, long timestamp,
 			byte[] mac, byte[] signature) throws DbException {
 		Message m = messageEncoder
@@ -197,7 +182,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 				NO_AUTO_DELETE_TIMER);
 		return m;
 	}
-
 	Message sendActivateMessage(Transaction txn, PeerSession s, long timestamp,
 			byte[] mac) throws DbException {
 		Message m = messageEncoder
@@ -207,7 +191,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 				NO_AUTO_DELETE_TIMER);
 		return m;
 	}
-
 	Message sendAbortMessage(Transaction txn, PeerSession s, long timestamp)
 			throws DbException {
 		Message m = messageEncoder
@@ -217,14 +200,12 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 				NO_AUTO_DELETE_TIMER);
 		return m;
 	}
-
 	private void sendMessage(Transaction txn, MessageType type,
 			SessionId sessionId, Message m, boolean visibleInConversation,
 			long autoDeleteTimer) throws DbException {
 		sendMessage(txn, type, sessionId, m, visibleInConversation,
 				autoDeleteTimer, false);
 	}
-
 	private void sendMessage(Transaction txn, MessageType type,
 			SessionId sessionId, Message m, boolean visibleInConversation,
 			long autoDeleteTimer, boolean isAutoDecline) throws DbException {
@@ -237,7 +218,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 			throw new AssertionError(e);
 		}
 	}
-
 	void broadcastIntroductionResponseReceivedEvent(Transaction txn,
 			Session<?> s, AuthorId sender, Author otherAuthor,
 			AbstractIntroductionMessage m, boolean canSucceed)
@@ -256,7 +236,6 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 				new IntroductionResponseReceivedEvent(response, c.getId());
 		txn.attach(e);
 	}
-
 	void markMessageVisibleInUi(Transaction txn, MessageId m)
 			throws DbException {
 		BdfDictionary meta = new BdfDictionary();
@@ -267,31 +246,26 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 			throw new AssertionError(e);
 		}
 	}
-
 	boolean isInvalidDependency(@Nullable MessageId lastRemoteMessageId,
 			@Nullable MessageId dependency) {
 		if (dependency == null) return lastRemoteMessageId != null;
 		return !dependency.equals(lastRemoteMessageId);
 	}
-
 	long getTimestampForOutgoingMessage(Transaction txn, GroupId contactGroupId)
 			throws DbException {
 		ContactId c = clientHelper.getContactId(txn, contactGroupId);
 		return conversationManager.getTimestampForOutgoingMessage(txn, c);
 	}
-
 	void receiveAutoDeleteTimer(Transaction txn, AbstractIntroductionMessage m)
 			throws DbException {
 		ContactId c = clientHelper.getContactId(txn, m.getGroupId());
 		autoDeleteManager.receiveAutoDeleteTimer(txn, c, m.getAutoDeleteTimer(),
 				m.getTimestamp());
 	}
-
 	private boolean contactSupportsAutoDeletion(Transaction txn, ContactId c)
 			throws DbException {
 		int minorVersion = clientVersioningManager.getClientMinorVersion(txn, c,
 				CLIENT_ID, MAJOR_VERSION);
-		// Auto-delete was added in client version 0.1
 		return minorVersion >= 1;
 	}
 }

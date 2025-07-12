@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <!--Setup-->
+
   <string name="setup_title">Mirë se vini në Briar</string>
   <string name="setup_name_explanation">Nofka juaj do të shfaqet në krah të çfarëdo gjëje që postoni. S\’mund ta ndryshoni më, pas krijimit të llogarisë tuaj.</string>
   <string name="setup_next">Pasuesi</string>
@@ -32,7 +32,7 @@
   <string name="dnkm_xiaomi_lock_apps_text">Ju lutemi, prekni butonin më poshtë që të hapen rregullimet e sigurisë. Prekni “Përforcim shpejtësie”, mandej prekni “Kyçje aplikacionesh” dhe sigurohuni se për Briar-in është zgjedhur “I kyçur”.</string>
   <string name="dnkm_xiaomi_lock_apps_help">Nëse për Briar-in s’është zgjedhur “I kyçur” te skena “Kyçje aplikacionesh”, s’do të jetë në gjendje të xhirojë në prapaskenë.</string>
   <string name="dnkm_warning_dozed_1">Briar-i s’qe në gjendje të xhirojë në prapaskenë</string>
-  <!--Login-->
+
   <string name="enter_password">Fjalëkalim</string>
   <string name="try_again">Fjalëkalim i gabuar, riprovoni</string>
   <string name="dialog_title_cannot_check_password">S\’kontrollohet Dot Fjalëkalimi</string>
@@ -46,7 +46,7 @@
   <string name="startup_failed_clock_error">Briar-i s’qe në gjendje të nisej, ngaqë sahati i pajisjes tuaj është gabim.\n\nJu lutemi, vëreni sahatin e pajisjes tuaj në kohën e saktë dhe riprovoni.</string>
   <string name="startup_failed_db_error">Briar-i s’qe në gjendje të hapte bazën e të dhënave që përmban llogarinë tuaj, kontaktet tuaja dhe mesazhet tuaja.\n\nJu lutemi, përmirësojeni me versionin më të ri të aplikacionit dhe riprovoni, ose ujdisni një llogari të re duke zgjedhur “Kam harruar fjalëkalimin tim”, kur ju kërkohet fjalëkalimi.</string>
   <string name="startup_failed_data_too_old_error">Llogaria juaj qe krijuar me një version të vjetër të këtij aplikacioni dhe s’mund të hapet me këtë version.\n\nDuhet ose të riinstaloni versionin e vjetër, ose të ujdisni llogari të re duke zgjedhur “Kam harruar fjalëkalimin tim”, kur ju kërkohet fjalëkalimi.</string>
-  <string name="startup_failed_data_too_new_error">Llogaria juaj qe krijuar me një version më të ri të këtij aplikacioni 
+  <string name="startup_failed_data_too_new_error">Llogaria juaj qe krijuar me një version më të ri të këtij aplikacioni
 dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versionin më të ri dhe riprovoni.</string>
   <string name="startup_failed_service_error">Briar-i nuk arriti të nisë një përbërës të domosdoshëm.\n\nJu lutemi, përmirësojeni me versionin më të ri të aplikacionit dhe riprovoni.</string>
   <plurals name="expiry_warning">
@@ -63,19 +63,19 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="startup_open_database">Po shfshehtëzohet Baza e të Dhënave…</string>
   <string name="startup_migrate_database">Po përditësohet Baza e të dhënave…</string>
   <string name="startup_compact_database">Po kompaktësohet Baza e të Dhënave…</string>
-  <!--Navigation Drawer-->
+
   <string name="nav_drawer_open_description">Hap sirtarin e lëvizjeve</string>
   <string name="nav_drawer_close_description">Mbylle sirtarin e lëvizjeve</string>
   <string name="contact_list_button">Kontakte</string>
   <string name="groups_button">Grupe Private</string>
   <string name="forums_button">Forume</string>
   <string name="blogs_button">Blogje</string>
-  <!--This is part of the main menu. The app will be locked when this is tapped.-->
+
   <string name="lock_button">Kyçe Aplikacionin</string>
   <string name="settings_button">Rregullime</string>
   <string name="sign_out_button">Dilni</string>
   <string name="transports_onboarding_text">Prekkeni këtu që të kontrolloni se si lidhet Briar-i me kontaktet tuaja.</string>
-  <!--Transports: Tor-->
+
   <string name="transport_tor">Internet</string>
   <string name="tor_device_status_online_wifi">Telefoni juaj mund të përdorë Internet përmes Wi-Fi</string>
   <string name="tor_device_status_online_mobile">Telefoni juaj mund të përdorë Internet përmes të dhënash pakete celulari</string>
@@ -87,7 +87,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="tor_plugin_status_disabled_mobile_data">Briar-i është formësuar të mos përdorë të dhëna pakete celulari</string>
   <string name="tor_plugin_status_disabled_battery">Briar-i është formësuar të mos përdorë Internet, kur xhiron me bateri</string>
   <string name="tor_plugin_status_disabled_country_blocked">Briar-i është formësuar të mos përdorë Internet në këtë vend</string>
-  <!--Transports: Wi-Fi-->
+
   <string name="transport_lan">Wi-Fi</string>
   <string name="transport_lan_long">Po atë rrjet Wi-Fi</string>
   <string name="lan_device_status_on">Telefoni juaj është lidhur me Wi-Fi</string>
@@ -96,7 +96,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="lan_plugin_status_active">Briar-i është lidhur me rrjetin Wi-Fi</string>
   <string name="lan_plugin_status_inactive">Briar-i s’mund të lidhet dot me rrjetin Wi-Fi</string>
   <string name="lan_plugin_status_disabled">Briar-i është formësuar të mos përdorë rrjetin Wi-Fi</string>
-  <!--Transports: Bluetooth-->
+
   <string name="transport_bt">Bluetooth</string>
   <string name="bt_device_status_on">Bluetooth-i i telefonit tuaj është i hapur</string>
   <string name="bt_device_status_off">Bluetooth-i i telefonit tuaj është i mbyllur</string>
@@ -104,7 +104,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="bt_plugin_status_active">Briar-i është lidhur me Bluetooth</string>
   <string name="bt_plugin_status_inactive">Briar-i s’mund të lidhet me Bluetooth</string>
   <string name="bt_plugin_status_disabled">Briar-i është formësuar të mos përdorë Bluetooth</string>
-  <!--Notifications-->
+
   <string name="reminder_notification_title">U dol nga Briar-i</string>
   <string name="reminder_notification_text">Prekeni që të ribëhet hyrja.</string>
   <string name="reminder_notification_channel_title">Kujtues Hyrjeje Briar</string>
@@ -127,7 +127,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
     <item quantity="one">Postim i ri blogu.</item>
     <item quantity="other">%d postime të reja blogu.</item>
   </plurals>
-  <!--Misc-->
+
   <string name="now">tani</string>
   <string name="show">Shfaqi</string>
   <string name="hide">Fshihi</string>
@@ -156,7 +156,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="status_heading">Gjendje:</string>
   <string name="error">Gabim</string>
   <string name="info">Informacion</string>
-  <!--Contacts and Private Conversations-->
+
   <string name="no_contacts">S’ka kontakte për shfaqje</string>
   <string name="no_contacts_action">Prekni ikonën + që të shtoni një kontakt</string>
   <string name="date_no_private_messages">S\’ka mesazhe.</string>
@@ -172,11 +172,11 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="set_contact_alias">Ndryshoni emër kontakti</string>
   <string name="set_contact_alias_hint">Emër kontakti</string>
   <string name="menu_item_disappearing_messages">Mesazhe që treten</string>
-  <!--The first placeholder will show a duration like "7 days". The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_enabled">Mesazhet tuaja do të treten pas %1$s. %2$s</string>
-  <!--The placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_disabled">Mesazhet tuaj s’do të treten. %1$s</string>
-  <!--The first placeholder will show a contact's name. The second placeholder will show a duration like "7 days". The third placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_enabled">Mesazhet e %1$s do të treten pas %2$s. %3$s</string>
   <plurals name="duration_minutes">
     <item quantity="one">%d minute</item>
@@ -190,7 +190,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
     <item quantity="one">%d dite</item>
     <item quantity="other">%d ditësh</item>
   </plurals>
-  <!--The first placeholder will show a contact's name. The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_disabled">Mesazhet e %1$s s’do të treten. %2$s</string>
   <string name="tap_to_learn_more">Prekeni për të mësuar më shumë.</string>
   <string name="auto_delete_changed_warning_title">Ndryshuan mesazhe që treten</string>
@@ -211,7 +211,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="dialog_title_delete_contact">Ripohoni Fshirje Kontakti</string>
   <string name="dialog_message_delete_contact">Jeni i sigurt se doni të hiqet ky kontakt dhe krejt mesazhet e shkëmbyer me këtë kontakt?</string>
   <string name="contact_deleted_toast">Kontakti u fshi</string>
-  <!--This is shown in the action bar when opening an image in fullscreen that the user sent-->
+
   <string name="you">Ju</string>
   <string name="save_image">Ruaje figurën</string>
   <string name="dialog_title_save_image">Të ruhet Figura?</string>
@@ -224,7 +224,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="dialog_message_image_support">Prekeni këtë ikonë që të bashkëngjitni figura.</string>
   <string name="messaging_too_many_attachments_toast">Do të dërgohen vetëm %d figurat e para</string>
   <string name="menu_contact">Kontakt</string>
-  <!--Adding Contacts-->
+
   <string name="add_contact_title">Shtoni Kontakt Atypari</string>
   <string name="add_contact_error_two_way">A skanuat, që të dy palët, kodet QR të njëri-tjetrit?</string>
   <string name="face_to_face">Duhet të takoheni me personin që doni ta shtoni si kontakt.\n\nKjo do të pengojë cilindo të hiqet si ju ose të lexojë në të ardhmen mesazhet tuaj.</string>
@@ -246,7 +246,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="connection_error_title">S’u lidh dot te kontakti juaj</string>
   <string name="connection_error_feedback">Nëse problemi vazhdon, ju lutemi, <a href="feedback">na njoftoni</a>, që të mund të përmirësojmë aplikacionin.</string>
   <string name="info_both_must_scan">Duhet të skanoni, të dy palët, kodet QR të njëri-tjetrit</string>
-  <!--Adding Contacts Remotely-->
+
   <string name="add_contact_remotely_title_case">Shtoni Kontakt në Largësi</string>
   <string name="add_contact_nearby_title">Shtoni kontakt atypari</string>
   <string name="add_contact_remotely_title">Shtoni kontakt në largësi</string>
@@ -279,9 +279,9 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="unsupported_link">Kjo lidhje vjen prej një versioni më të ri të Briar-it. Ju lutemi, përmirësojeni me versionin më të ri dhe riprovoni.</string>
   <string name="intent_own_link">Hapët lidhjen tuaj. Përdorni atë të kontaktit që doni të shtoni!</string>
   <string name="missing_link">Ju lutemi, jepni një lidhje</string>
-  <!--This is a numeral indicating the first step in a series of screens-->
+
   <string name="step_1">1</string>
-  <!--This is a numeral indicating the second step in a series of screens-->
+
   <string name="step_2">2</string>
   <plurals name="contact_added_notification_text">
     <item quantity="one">U shtua kontakt i ri.</item>
@@ -291,25 +291,21 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="duplicate_link_dialog_title">Lidhje e Përsëdytur</string>
   <string name="duplicate_link_dialog_text_1">Keni tashmë një kontakt pezull me këtë lidhje: %s</string>
   <string name="duplicate_link_dialog_text_1_contact">Keni tashmë një kontakt me këtë lidhje: %s</string>
-  <!--This is a question asking whether two nicknames refer to the same person-->
+
   <string name="duplicate_link_dialog_text_2">Është %1$s dhe %2$s i njëjti person?</string>
-  <!--This is a button for answering that two nicknames do indeed refer to the same person. This
-	string will be used in a dialog button, so if the translation of this string is longer than 20
-	characters, please use "Yes" instead, and use "No" for the "Different Person" button-->
+
   <string name="same_person_button">I njëjti Person</string>
-  <!--This is a button for answering that two nicknames refer to different people. This string
-	will be used in a dialog button, so if the translation of this string longer than 20 characters,
-	please use "No" instead, and use "Yes" for the "Same Person" button-->
+
   <string name="different_person_button">Person i Ndryshëm</string>
   <string name="duplicate_link_dialog_text_3">%1$s dhe %2$s ju dërguan të njëjtën lidhje.\n\nNjë prej tyre mund të jetë duke u rrekur të zbulojë cilët janë kontaktet tuaja.\n\nMos u thoni se morët të njëjtën lidhje nga dikush tjetër.</string>
   <string name="pending_contact_updated_toast">Kontakti pezull u përditësua</string>
   <string name="info_both_must_enter_links">Duhet të shtoni, të dy palët, lidhjet e njëri tjetrit</string>
-  <!--Peer trust levels-->
+
   <string name="peer_trust_level_unverified">Kontakt i paverifikuar</string>
   <string name="peer_trust_level_verified">Kontakt i verifikuar</string>
   <string name="peer_trust_level_ourselves">Unë</string>
   <string name="peer_trust_level_stranger">I huaj</string>
-  <!--Introductions-->
+
   <string name="introduction_onboarding_title">Prezantoni kontaktet tuaja</string>
   <string name="introduction_onboarding_text">Prezantoni kontaktet tuaj me njëri-tjetrin, që të mund të lidhen me Briar.</string>
   <string name="introduction_menu_item">Bëje prezantimin</string>
@@ -331,7 +327,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="introduction_response_accepted_received">%1$s pranoi prezantimin te %2$s.</string>
   <string name="introduction_response_declined_received">%1$s hodhi poshtë prezantimin te %2$s.</string>
   <string name="introduction_response_declined_received_by_introducee">%1$s thotë se %2$s hodhi poshtë prezantimin.</string>
-  <!--Connect via Bluetooth-->
+
   <string name="menu_item_connect_via_bluetooth">Lidhu përmes Bluetooth-i</string>
   <string name="connect_via_bluetooth_title">Lidhu përmes Bluetooth-i</string>
   <string name="connect_via_bluetooth_intro">Në rast se lidhjet me Bluetooth s’funksionojnë automatikisht, mund të përdorni këtë skenë që të bëni lidhjen dorazi.\n\nQë kjo të funksionojë, kontakti juaj duhet të jetë atypari.\n\nJu dhe kontakti juaj duhet të shtypni që të dy “Fillo” në të njëjtën kohë.</string>
@@ -342,7 +338,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="connect_via_bluetooth_success">U lidh me sukses përmes Bluetooth-i</string>
   <string name="connect_via_bluetooth_error">S’u bë dot lidhja me Bluetooth.</string>
   <string name="connect_via_bluetooth_error_not_supported">Bluetooth-i nuk mbulohet nga pajisja.</string>
-  <!--Private Groups-->
+
   <string name="groups_list_empty">S’ka grupe për shfaqje</string>
   <string name="groups_list_empty_action">Prekni ikonën + që të krijoni një grup, ose kërkojuni kontakteve tuaj të ndajnë grupe me ju</string>
   <string name="groups_created_by">Krijuar nga %s</string>
@@ -373,7 +369,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="groups_dissolve_button">Shkrije</string>
   <string name="groups_dissolved_dialog_title">Grupi u Shkri</string>
   <string name="groups_dissolved_dialog_message">Krijuesi i këtij grupi e ka shkrirë atë.\n\nS\’mund të shkruani më mesazhe për grupin dhe mundet të mos i merrni krejt postimet që janë shkruar.</string>
-  <!--Private Group Invitations-->
+
   <string name="groups_invitations_title">Ftesa Grupi</string>
   <string name="groups_invitations_invitation_sent">Keni ftuar %1$s të bëhet pjesë e grupit \"%2$s\".</string>
   <string name="groups_invitations_invitation_received">%1$s ju ka ftuar të bëheni pjesë e grupit \"%2$s\".</string>
@@ -389,14 +385,14 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="groups_invitations_response_accepted_received">%s e pranoi ftesën e grupit.</string>
   <string name="groups_invitations_response_declined_received">%s e hodhi poshtë ftesën për në grup.</string>
   <string name="sharing_status_groups">Vetëm krijuesi mund të ftojë anëtarë të rinj në grup. Më poshtë gjenden tërë anëtarët e tanishëm të grupit.</string>
-  <!--Private Groups Revealing Contacts-->
+
   <string name="groups_reveal_contacts">Shfaqua Kontaktet</string>
   <string name="groups_reveal_dialog_message">Mund të zgjidhni t\’ua shfaqni ose jo kontaktet krejt anëtarëve të tanishëm dhe të ardhshëm të këtij grupi.\n\nShfaqja e kontakteve e bën lidhjen tuaj me grupin më të shpejtë dhe më të besueshme, ngaqë mund të komunikoni me kontaktet e shfaqura edhe kur krijuesi i grupit s\’është në linjë.</string>
   <string name="groups_reveal_visible">Marrëdhënia e kontaktit është e dukshme për grupin</string>
   <string name="groups_reveal_visible_revealed_by_us">Marrëdhënia e kontaktit është e dukshme për grupin (shfaqur nga ju)</string>
   <string name="groups_reveal_visible_revealed_by_contact">Marrëdhënia e kontaktit është e dukshme për grupin (shfaqur nga %s)</string>
   <string name="groups_reveal_invisible">Marrëdhënia me kontaktin s\’është e dukshme për grupin</string>
-  <!--Forums-->
+
   <string name="no_forums">S\’ka forume për shfaqje</string>
   <string name="no_forums_action">Prekni ikonën + që të krijoni një forum, ose kërkojuni kontakteve tuaj të ndajnë forume me ju</string>
   <string name="create_forum_title">Krijoje Forumin</string>
@@ -417,7 +413,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="dialog_message_leave_forum">Jeni i sigurt se doni ta braktisni këtë forum?\n\nÇfarëdo kontaktesh me të cilët e keni ndarë këtë forum mundet të reshtin së marri përditësime.</string>
   <string name="dialog_button_leave">Braktise</string>
   <string name="forum_left_toast">E braktisët forumin</string>
-  <!--Forum Sharing-->
+
   <string name="forum_share_button">Ndajeni Forumin Me të Tjerë</string>
   <string name="contacts_selected">Kontaktet u përzgjodhën</string>
   <string name="activity_share_toolbar_header">Zgjidhni Kontakte</string>
@@ -451,7 +447,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
     <item quantity="other">%d forum ndarë nga kontakte</item>
   </plurals>
   <string name="nobody">Askush</string>
-  <!--Blogs-->
+
   <string name="blogs_other_blog_empty_state">S\’ka postime për shfaqje</string>
   <string name="read_more">lexoni më tepër</string>
   <string name="blogs_write_blog_post">Shkruani Postim Blogu</string>
@@ -468,7 +464,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="blogs_blog_removed">Blogu u hoq</string>
   <string name="blogs_reblog_comment_hint">Shtoni një koment (në daçi)</string>
   <string name="blogs_reblog_button">Riblogojeni</string>
-  <!--Blog Sharing-->
+
   <string name="blogs_sharing_share">Ndajeni Blogun Me të Tjerë</string>
   <string name="blogs_sharing_error">Pati një gabim në ndarjen e këtij blogu me të tjerë.</string>
   <string name="blogs_sharing_button">Ndaje Blogun Me të Tjerë</string>
@@ -484,7 +480,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="blogs_sharing_joined_toast">U pajtuat te blogu</string>
   <string name="blogs_sharing_declined_toast">Ftesa u hodh poshtë</string>
   <string name="sharing_status_blog">Cilido që pajtohet te një blog mund ta ndajë atë me kontaktet e veta. Këtë blog po e ndani me kontaktet vijuese. Mund të ketë edhe pajtimtarë të tjerë, të cilët s\’mund t\’i shihni.</string>
-  <!--RSS Feeds-->
+
   <string name="blogs_rss_feeds_import">Importoni Prurje RSS</string>
   <string name="blogs_rss_feeds_import_button">Importo</string>
   <string name="blogs_rss_feeds_import_hint">Jepni URL-në e prurjes RSS</string>
@@ -500,12 +496,12 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="blogs_rss_remove_feed_ok">Hiqe</string>
   <string name="blogs_rss_feeds_manage_empty_state">S’ka prurje RSS për shfaqje\n\nPrekni ikonën + që të importohet një prurje</string>
   <string name="blogs_rss_feeds_manage_error">Pati një problem me ngarkimin e prurjeve tuaja. Ju lutemi, riprovoni më vonë.</string>
-  <!--Settings Profile Picture-->
+
   <string name="change_profile_picture">Që të ndryshoni foton e profilit tuaj, prekeni</string>
   <string name="dialog_confirm_profile_picture_title">Ndryshoni foto profili</string>
   <string name="dialog_confirm_profile_picture_remark">Këtë foto mund ta shohin vetëm kontaktet tuaja</string>
   <string name="change_profile_picture_failed_message">Na ndjeni, por diç shkoi ters me përditësimin e fotos së profilit tuaj</string>
-  <!--Settings Display-->
+
   <string name="pref_language_title">Gjuhë &amp; rajon</string>
   <string name="pref_language_changed">Ky rregullim do të hyjë në fuqi kur të rinisni Briar-in. Ju lutemi, bëni daljen nga llogaria dhe rinisni Briar-in.</string>
   <string name="pref_language_default">Parazgjedhje sistemi</string>
@@ -514,7 +510,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="pref_theme_light">E çelët</string>
   <string name="pref_theme_dark">E errët</string>
   <string name="pref_theme_system">Parazgjedhje sistemi</string>
-  <!--Settings Connections-->
+
   <string name="network_settings_title">Lidhje</string>
   <string name="bluetooth_setting">Lidhuni me kontaktet përmes Bluetooth-i</string>
   <string name="wifi_setting">Lidhuni me kontakte në të njëjtin rrjet Wi-Fi</string>
@@ -525,28 +521,28 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="tor_network_setting_without_bridges">Përdor rrjet Tor pa ura</string>
   <string name="tor_network_setting_with_bridges">Përdor rrjet Tor me ura</string>
   <string name="tor_network_setting_never">Mos u lidh në Internet</string>
-  <!--How and when Briar will connect to Tor: E.g. "Don't connect to the Internet (in China)" or "Use Tor network with bridges (in Belarus)"-->
+
   <string name="tor_network_setting_summary">Automatike: %1$s (në %2$s)</string>
   <string name="tor_mobile_data_title">Përdor të dhëna celulare</string>
   <string name="tor_only_when_charging_title">Lidhu në Internet vetëm kur ngarkohet bateria</string>
   <string name="tor_only_when_charging_summary">Çaktivizon lidhjen në Internet, kur pajisja ushqehet nga bateria</string>
-  <!--Settings Security and Panic-->
+
   <string name="security_settings_title">Siguri</string>
   <string name="pref_lock_title">Kyçje aplikacioni</string>
   <string name="pref_lock_summary">Përdorni kyçjen e ekranit të pajisjes që të mbroni Briar-in teksa keni bërë hyrjen në llogari </string>
   <string name="pref_lock_disabled_summary">Që të përdorni këtë veçori, rregulloni kyçje ekrani për pajisjen tuaj</string>
   <string name="pref_lock_timeout_title">Skadim kohe mosveprimtarie për kyçje aplikacioni</string>
-  <!--The %s placeholder is replaced with the following time spans, e.g. 5 Minutes, 1 Hour-->
+
   <string name="pref_lock_timeout_summary">Kur Briar-i s’është në përdorim, kyçe vetvetiu pas %s</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_1">1 minute</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_5">5 minutash</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_15">15 minutash</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_30">30 minutash</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_60">1 orë</string>
   <string name="pref_lock_timeout_never">Kurrë</string>
   <string name="pref_lock_timeout_never_summary">Mos e kyç kurrë Briar-in vetvetiu</string>
@@ -569,7 +565,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="panic_setting_signout_summary">Dil nga Briar-i nëse shtypet një buton paniku</string>
   <string name="purge_setting_title">Fshi Llogarinë</string>
   <string name="purge_setting_summary">Fshijeni llogarinë tuaj Briar, nëse shtypet një buton paniku. Kujdes: Kjo do të shkaktojë fshirjen e identiteteve, kontakteve dhe mesazheve tuaj</string>
-  <!--Settings Notifications-->
+
   <string name="notification_settings_title">Njoftime</string>
   <string name="notify_sign_in_title">Rikujtomë të bëj hyrjen</string>
   <string name="notify_sign_in_summary">Shfaq një kujtues kur niset telefoni ose aplikacioni është përditësuar</string>
@@ -591,7 +587,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="notify_sound_setting_disabled">Asnjë</string>
   <string name="choose_ringtone_title">Zgjidhni zile</string>
   <string name="cannot_load_ringtone">S\’ngarkohet dot zile</string>
-  <!--Mailbox-->
+
   <string name="mailbox_settings_title">Kuti postare</string>
   <string name="mailbox_setup_title">Ujdisje kutie postare</string>
   <string name="mailbox_setup_intro">Një Kuti postare u lejon kontakteve tuaj t’ju dërgojnë mesazhe , kur s’jeni në linjë. Kutia postare do të marrë mesazhet tuaj dhe depozitojë deri sa të jeni në linjë.\n
@@ -602,7 +598,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="mailbox_setup_button_scan">Skanoni kod QR Kutie postare</string>
   <string name="permission_camera_qr_denied_body">Keni mohuar hyrjen te kamera, por skanimi i një kodi QR lyp përdorimin e kamerës.\n\nJu lutemi, shihni mundësinë e dhënies së hyrjes.</string>
   <string name="mailbox_setup_connecting">Po bëhet lidhja me Kutinë postare…</string>
-  <!--This string is shown when connecting to a Mailbox for the first time. The placeholder will be replaced with a duration, e.g. "2 minutes".-->
+
   <string name="mailbox_setup_connecting_info">Kjo mund të dojë deri në %1s</string>
   <string name="mailbox_qr_code_too_old">Kodi QR që keni skanuar vjen prej një versioni të vjetër të Kutisë Postare të Briar-it.\n\nJu lutemi, përditësojeni Kutinë Postare të Briar-it me versionin më të ri dhe mandej riprovoni.</string>
   <string name="mailbox_qr_code_too_new">Kodi QR që keni skanuar vjen prej një versioni më të ri të Kutisë Postare të Briar-it.\n\nJu lutemi, përmirësojeni Briar-in me versionin më të ri dhe mandej riprovoni.</string>
@@ -631,9 +627,9 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="mailbox_status_mailbox_too_old_title">Kutia postare është shumë e vjetër</string>
   <string name="mailbox_status_mailbox_too_old_message">Përditësoni Kutinë tuaj postare me versionin më të ri të aplikacionit dhe riprovoni.</string>
   <string name="mailbox_status_check_button">Kontrolloni Lidhjen</string>
-  <!--Example for string substitution: Last connection: 3min ago-->
+
   <string name="mailbox_status_connected_info">Lidhja e fundit: %s</string>
-  <!--Indicates that there never was a connection to the mailbox. Last connection: Never-->
+
   <string name="mailbox_status_connected_never">Kurrë</string>
   <string name="mailbox_status_unlink_button">Shkëpute</string>
   <string name="mailbox_status_unlink_dialog_title">Të hiqet lidhja për kutinë postare?</string>
@@ -666,7 +662,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="mailbox_error_wizard_info1_1_4">Shihni që pajisja kuti postare të jetë lidhur si duhet në Internet.\n\nKontrolloni që sahati te pajisja Kuti postare shfaq kohën, datën dhe zonën kohore të saktë.\n\nShihni që aplikacionet Kuti postare dhe Briar të jenë të përditësuar me versionin më të ri.\n\nRinisni pajisjet tuaja Kuti postare dhe Briar dhe riprovoni.</string>
   <string name="mailbox_error_wizard_info2">Ju lutemi, rikthejuni kësaj skene kur të keni mundësi të përdorni pajisjen.</string>
   <string name="mailbox_error_wizard_info3">Ju lutemi, shkëputeni kutinë tuaj postare duke përdorur butonin më poshtë.\n\nPasi të shkëputni Kutinë tuaj të vjetër postare, mund të ujdisni kurdo një Kuti të re postare.</string>
-  <!--About-->
+
   <string name="about_title">Mbi</string>
   <string name="briar_version">Version Briar-i: %s</string>
   <string name="tor_version">Version Tor-i: %s</string>
@@ -675,9 +671,9 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="briar_source_code">\u2022 <a href="">Kod burim</a></string>
   <string name="briar_changelog">\u2022 <a href="">Regjistër ndryshimesh</a></string>
   <string name="briar_privacy_policy">\u2022 <a href="">Rregulla Privatësie</a></string>
-  <!--Here translators can add their names or Transifex usernames(eg "Thanks to all the contributors at the Localization Lab, especially Tom, Matthew and Jerry")-->
+
   <string name="translator_thanks">Faleminderit krejt kontribuesve prej Localization Lab</string>
-  <!--Conversation Settings-->
+
   <string name="disappearing_messages_title">Mesazhe që treten</string>
   <string name="disappearing_messages_explanation_long">Aktivizimi i këtij rregullimi do të bëjë që
 mesazhet e reja në këtë bisedë të treten automatikisht pas 7\u00A0ditësh.
@@ -690,17 +686,17 @@ menjëherë dhe mbi mesazhet e kontaktit sapo të marrë mesazhin tuaj të radh�
 Këtë rregullim mund ta ndryshojë edhe kontakti juaj, për të dy ju.</string>
   <string name="learn_more">Mësoni më tepër</string>
   <string name="disappearing_messages_summary">Bëji mesazhet e ardhshëm në këtë bisedë të treten automatikisht pas 7\u00A0ditësh.</string>
-  <!--Settings Actions-->
+
   <string name="pref_category_actions">Veprime</string>
   <string name="share_app_link">Jepuni lidhjen e shkarkimit</string>
   <string name="share_app_link_text">Shkarkojeni Briar-in te %s</string>
   <string name="send_feedback">Dërgoji përshtypjet</string>
-  <!--Link Warning-->
+
   <string name="link_warning_title">Sinjalizim Lidhjeje</string>
   <string name="link_warning_intro">Ju ndan një hap nga hapja e lidhjes vijuese me një aplikacion të jashtëm.</string>
   <string name="link_warning_text">Kjo mund të përdoret për t\’ju identifikuar. Sillni në mend nëse i zini besë personit që ju dërgoi lidhjen dhe shihni mundësinë e hapjes së saj me Shfletuesin Tor.</string>
   <string name="link_warning_open_link">Hape Lidhjen</string>
-  <!--Crash Reporter-->
+
   <string name="crash_report_title">Njoftim Vithisjesh Briar-i</string>
   <string name="briar_crashed">Na ndjeni, Briar-i u vithis</string>
   <string name="not_your_fault">S\’është faji juaj.</string>
@@ -730,15 +726,15 @@ Këtë rregullim mund ta ndryshojë edhe kontakti juaj, për të dy ju.</string>
   <string name="dev_report_sent">Përshtypjet u dërguan</string>
   <string name="dev_report_saved">Njoftimi u ruajt. Do të dërgohet herën tjetër që do të hyni në Briar.</string>
   <string name="dev_report_error">Gabim: Dërgimi i raportit dështoi</string>
-  <!--Sign Out-->
+
   <string name="progress_title_logout">Po dilet nga Briar-i…</string>
-  <!--Screen Filters & Tapjacking-->
+
   <string name="screen_filter_title">U kap dalje jashtë ekrani</string>
   <string name="screen_filter_body">Sipër Briar-it po vizaton një tjetër aplikacion. Për të mbrojtur sigurinë tuaj, Briar-i s\’do t\’u përgjigjet prekjeve kur një tjetër aplikacion vizaton përsipër.\n\nPërsipër mund të jenë duke vizatuar aplikacionet vijues:\n\n%1$s</string>
   <string name="screen_filter_body_api_30">Sipër Briar-it po vizaton një tjetër aplikacion. Për të mbrojtur sigurinë tuaj, Briar-i s\’do t\’u përgjigjet prekjeve kur një tjetër aplikacion vizaton përsipër.\n\nShqyrtoni aplikacionet më poshtë, që të gjeni aplikacionin përgjegjës.</string>
   <string name="screen_filter_allow">Lejoji këto aplikacione të vizatojnë përsipër</string>
   <string name="screen_filter_review_apps">Shqyrtoni aplikacione</string>
-  <!--Permission Requests-->
+
   <string name="permission_camera_title">Leje mbi kamerën</string>
   <string name="permission_camera_request_body">Që të skanojë kodin QR, Briar-i lypset të hyjë te kamera.</string>
   <string name="permission_location_title">Leje vendi</string>
@@ -759,19 +755,19 @@ Këtë rregullim mund ta ndryshojë edhe kontakti juaj, për të dy ju.</string>
   <string name="permission_bluetooth_denied_body">Keni mohuar hyrje te pajisje atyprai, por Briar-i ka nevojë për këtë leje, që të përdorë Bluetooth-in.\n\nJu lutemi, shihni mundësinë e akordimit të hyrjes.</string>
   <string name="qr_code">Kod QR</string>
   <string name="show_qr_code_fullscreen">Shfaqe kodin QR sa tërë ekrani</string>
-  <!--App Locking-->
+
   <string name="lock_unlock">Shkyçe Briar-in</string>
   <string name="lock_unlock_verbose">Që të shkyçet Briar-i, jepni PIN-in, rregullsinë ose fjalëkalimin e pajisjes tuaj</string>
   <string name="lock_unlock_fingerprint_description">Që të vazhdohet, prekni me gishtin e regjistruar ndijuesin e shenjave të gishtave</string>
   <string name="lock_unlock_password">Përdor Fjalëkalim</string>
   <string name="lock_is_locked">Briar-i është i kyçur</string>
   <string name="lock_tap_to_unlock">Prekeni që të shkyçet</string>
-  <!--Connections Screen-->
+
   <string name="transports_help_text">Briar-i mund të lidhet me kontaktet tuaja përmes Interneti, Wi-Fi ose Bluetooth-i.\n\n
 Për privatësi, krejt lidhjet Internet kalojnë përmes rrjetit Tor.\n\n
 Nëse me një kontakt mund të bëhet lidhja përmes metodash të shumta,\n\n
 Briar-i i përdor ato paralelisht.</string>
-  <!--Share app offline-->
+
   <string name="hotspot_title">Ndaje me të tjerë “offline” këtë aplikacion</string>
   <string name="hotspot_intro">Jepeni këtë aplikacion për dikë atypari pa lidhje Internet, duke përdorur Wi-Fi-n e telefonit tuaj.
 		\n\nTelefoni juaj do të nisë një Wi-Fi hotspot. Persona atypari mund të lidhen me hotspot-in dhe të shkarkojnë aplikacionin Briar që nga telefoni juaj.</string>
@@ -790,10 +786,10 @@ Briar-i i përdor ato paralelisht.</string>
   <string name="wifi_settings_title">Rregullim Wi-Fi-i</string>
   <string name="wifi_settings_request_enable_body">Që të krijohet një hotspot Wi-Fi, Briar-it i duhet të përdorë Wi-Fi-n. Ju lutemi, aktivizojeni.</string>
   <string name="hotspot_tab_manual">Dorazi</string>
-  <!--The placeholder to be inserted into the string 'hotspot_manual_wifi': People can connect by %s-->
+
   <string name="hotspot_scanning_a_qr_code">duke skanuar një kod QR</string>
-  <!--Wi-Fi setup-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_wifi">Telefoni juaj po ofron një hotspot Wi-Fi. Personat që duan të shkarkojnë Briar-in, mund të lidhen me hotspot-in duke shtuar te te rregullimet e pajisjeve të tyre për Wi-Fi-n hollësitë më poshtë ose duke %s. Kur të jenë lidhur me hotspot-in, shtypni “Pasuesi”.</string>
   <string name="hotspot_manual_wifi_ssid">Emër rrjet</string>
   <string name="hotspot_qr_wifi">Telefoni juaj po ofron një hotspot Wi-Fi. Persona që duan të shkarkojnë Briar-in mund të lidhen me hotspot-in duke skanuar këtë kod QR. Kur të jenë lidhur me hotspot-in, shtypni “Pasuesi”.</string>
@@ -802,12 +798,12 @@ Briar-i i përdor ato paralelisht.</string>
     <item quantity="one">%s pajisje e lidhur</item>
     <item quantity="other">%s pajisje të lidhura</item>
   </plurals>
-  <!--Download link-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_site">Telefoni juaj po ofron një hotspot Wi-Fi. Persona që duan të shkarkojnë Briar-in mund të lidhen me hotspot-in duke shtypur lidhjen vijuese në një shfletues ose %s.</string>
   <string name="hotspot_manual_site_address">Adresë (URL)</string>
   <string name="hotspot_qr_site">Telefoni juaj po ofron një hotspot Wi-Fi. Persona që janë të lidhur me hotspot-in mund të shkarkojnë Briar-in duke skanuar këtë kod QR.</string>
-  <!--e.g. Download Briar 1.2.20-->
+
   <string name="website_download_title_1">Shkarkoni Briar %s</string>
   <string name="website_download_intro_1">Dikush atyparu ju dha Briar-in</string>
   <string name="website_download_button">Shkarkojeni Briar-in</string>
@@ -829,7 +825,7 @@ Briar-i i përdor ato paralelisht.</string>
   <string name="hotspot_help_fallback_intro">Mund të provoni ta ruani aplikacionin si një kartelë .apk, për ta dhënë me ndonjë rrugë tjetër. Pasi kartela të jetë shpërngulur te pajisja tjetër, mund të përdoret për të instaluar Briar-in.
 		\n\nNdihmëz: Për ta dhënë përmes Bluetooth-i, mund t’ju duhet së pari ta riemërtoni kartelën, në mënyrë që të përfundojë me .zip.</string>
   <string name="hotspot_help_fallback_button">Ruaje aplikacionin</string>
-  <!--error handling-->
+
   <string name="hotspot_error_intro">Diç shkoi ters teksa provohej të jepej aplikacioni përmes Wi-Fi:</string>
   <string name="hotspot_error_no_wifi_direct">Pajisja nuk mbulon Wi-Fi Direct</string>
   <string name="hotspot_error_start_callback_failed">S’u arrit të nisej hotspot-i: gabim %s</string>
@@ -839,7 +835,7 @@ Briar-i i përdor ato paralelisht.</string>
   <string name="hotspot_error_web_server_serve">Gabim në paraqitjen e sajtit.\n\nJu lutemi, nëse problemi vazhdon, dërgoni njoftim (me të dhëna anonime) përmes aplikacionit Briar.</string>
   <string name="hotspot_flag_test">Kujdes: Ky aplikacion qe instaluar me Android Studio dhe NUK mund të instalohet në një pajisje tjetër.</string>
   <string name="hotspot_error_framework_busy">S’arrihet të niset hotspot-i.\n\nNëse keni një tjetër hotspot në punë, ose e jepni lidhjen tuaj Internet përmes Wi-Fi, provoni ta ndalni dhe të riprovoni pas kësaj.</string>
-  <!--Transfer Data via Removable Drives-->
+
   <string name="removable_drive_menu_title">Lidhu përmes Disku të Heqshëm</string>
   <string name="removable_drive_intro">Nëse s’lidheni dot me kontaktin tuaj përmes Interneti, Wi-Fi apo Bluetooth-i, Briar-i mund të shpërngulë mesazhe edhe përmes disqesh të heqshëm, bie fjala një diskth USB, ose një kartë SD.</string>
   <string name="removable_drive_explanation">Nëse s’lidheni dot me kontaktin tuaj përmes Interneti, Wi-Fi apo Bluetooth-i, Briar-i mund të shpërngulë mesazhe edhe përmes disqesh të heqshëm, bie fjala një diskth USB, ose një kartë SD.\n\nKur përdorni butonin “Dërgo të Dhëna”, çfarëdo të dhënash që po presin të dërgohen te kontakti, do të shkruhen te disku i heqshëm. Kjo përfshin mesazhe privates, bashkëngjitje, blogje, forume dhe grupe private.\n\nPara se të shkruhet te disku i heqshëm, gjithçka do të fshehtëzohet.\n\nKur kontakti juaj merr diskun e heqshëm, ai mund të përdorë butonin “Merr të Dhëna” që të importoni mesazhet në Briar.</string>
@@ -860,17 +856,17 @@ Briar-i i përdor ato paralelisht.</string>
   <string name="removable_drive_error_send_text">Pati një gabim gjatë shkrimit të të dhënave te kartela.\n\nNëse po përdorni një disk të heqshëm, sigurohuni se është futur si duhet dhe riprovoni.\n\nNëse gabimi vazhdon, ju lutemi, dërgoni një njoftim për t’ia bërë problemin të ditur ekipit të Briar-it.</string>
   <string name="removable_drive_error_receive_title">Gabim në importim të dhënash</string>
   <string name="removable_drive_error_receive_text">Kartela e përzgjedhur nuk përmbante ndonjë gjë të kuptueshme nga Briar-i.\n\nJu lutemi, kontrolloni se keni zgjedhur kartelën e duhur.\n\nNëse kontakti e krijoi kartelën më herët se 28 ditë më parë, Briar-i s’do të jetë në gjendje ta hapë.</string>
-  <!--Screenshots-->
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
+
   <string name="screenshot_alice">Mira</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_bob">Beni</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_carol">Moza</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Bob!-->
+
   <string name="screenshot_message_1">Njatjeta Beni!</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Alice!-->
+
   <string name="screenshot_message_2">Njatjeta Mira! Faleminderit që më tregove për Briar-in!</string>
-  <!--This is a message to be used in screenshots.-->
+
   <string name="screenshot_message_3">Asgjë, shpresoj të të pëlqejë 😀</string>
 </resources>

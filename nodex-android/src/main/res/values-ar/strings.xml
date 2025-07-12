@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <!--Setup-->
+
   <string name="setup_title">مرحبًا بك في Briar (براير)</string>
   <string name="setup_name_explanation">سيتم إظهار اسمك المستعار بجانب كل ما تنشره من محتوى. لا يمكنك تغيير الاسم بعد إنشاء حسابك.</string>
   <string name="setup_next">التالي</string>
@@ -32,7 +32,7 @@
   <string name="dnkm_xiaomi_lock_apps_text">الرجاء النقر على الزر أدناه لفتح إعدادات الأمان. انقر على \"تعزيز السرعة\"، ثم انقر على \"قفل التطبيقات\"، وتأكد من ضبط براير على \"مقفل\".</string>
   <string name="dnkm_xiaomi_lock_apps_help">إذا لم يُضبط براير على \"مقفل\" في شاشة \"قفل التطبيقات\"، فلن يتمكن من العمل في الخلفية.</string>
   <string name="dnkm_warning_dozed_1">لم يتمكن براير من العمل في الخلفية</string>
-  <!--Login-->
+
   <string name="enter_password">‮كلمة السّر</string>
   <string name="try_again">كلمة السرّ خاطئة, الرجاء المحاولة مجدّدا</string>
   <string name="dialog_title_cannot_check_password">لا يمكن التحقق من كلمة السر</string>
@@ -66,19 +66,19 @@
   <string name="startup_open_database">جارِ فك تشفير قاعدة البيانات...</string>
   <string name="startup_migrate_database">جارِ ترقية قاعدة البيانات...</string>
   <string name="startup_compact_database">جارِ ضغظ قاعدة البيانات…</string>
-  <!--Navigation Drawer-->
+
   <string name="nav_drawer_open_description">فتح راسم التصفح</string>
   <string name="nav_drawer_close_description">غلق راسم التصفح</string>
   <string name="contact_list_button">جهات الاتصال</string>
   <string name="groups_button">المجموعات الخاصة</string>
   <string name="forums_button">المنتديات</string>
   <string name="blogs_button">المدونات</string>
-  <!--This is part of the main menu. The app will be locked when this is tapped.-->
+
   <string name="lock_button">قفل التطبيق</string>
   <string name="settings_button">الإعدادات</string>
   <string name="sign_out_button">تسجيل الخروج</string>
   <string name="transports_onboarding_text">انقر هنا للتحكم في كيفية اتصال براير بجهات اتصالك.</string>
-  <!--Transports: Tor-->
+
   <string name="transport_tor">إنترنت</string>
   <string name="tor_device_status_online_wifi">جهازك لديه ولوج لشبكة الانترنت عبر ال Wi-Fi </string>
   <string name="tor_device_status_online_mobile">جهازك لديه ولوج لشبكة الانترنت عبر بيانات الهاتف</string>
@@ -90,7 +90,7 @@
   <string name="tor_plugin_status_disabled_mobile_data">ضُبط Briar على عدم استخدام بيانات الهاتف المحمول</string>
   <string name="tor_plugin_status_disabled_battery">ضُبط براير على عدم استخدام الإنترنت عند التشغيل على البطارية</string>
   <string name="tor_plugin_status_disabled_country_blocked">ضُبط براير على عدم استخدام الإنترنت في هذا البلد</string>
-  <!--Transports: Wi-Fi-->
+
   <string name="transport_lan">واي-فاي</string>
   <string name="transport_lan_long">نفس شبكة الWi-Fi </string>
   <string name="lan_device_status_on">جهازك متصل بشبكة الWi-Fi</string>
@@ -99,7 +99,7 @@
   <string name="lan_plugin_status_active"> Briar متصل بشبكة الWi-Fi</string>
   <string name="lan_plugin_status_inactive">لم يتمكن Briar من الاتصال بشبكة ال Wi-Fi</string>
   <string name="lan_plugin_status_disabled">إعدادات Briar لاتسمح بالاتصال بشبكة ال Wi-Fi</string>
-  <!--Transports: Bluetooth-->
+
   <string name="transport_bt">بلوتوث</string>
   <string name="bt_device_status_on"> البلوتوث مفعّل  </string>
   <string name="bt_device_status_off">البلوتوث مفعّل</string>
@@ -107,7 +107,7 @@
   <string name="bt_plugin_status_active">Briar متصل بالبلوتوث</string>
   <string name="bt_plugin_status_inactive">لم يتمكن Briar من الاتصال بالبلوتوث</string>
   <string name="bt_plugin_status_disabled">إعدادات Briar لاتسمح بالاتصال بالبلوتوث</string>
-  <!--Notifications-->
+
   <string name="reminder_notification_title">تم تسجيل الخروج من Briar (براير)</string>
   <string name="reminder_notification_text">الرجاء اللمس لإعادة الدخول</string>
   <string name="reminder_notification_channel_title">التذكير بتسجيل الدخول إلى Briar (براير)</string>
@@ -146,7 +146,7 @@
     <item quantity="many">%d تدوينة جديدة.</item>
     <item quantity="other">%d تدوينات جديدة.</item>
   </plurals>
-  <!--Misc-->
+
   <string name="now">الآن</string>
   <string name="show">عرض</string>
   <string name="hide">إخفاء</string>
@@ -175,7 +175,7 @@
   <string name="status_heading">الحالة:</string>
   <string name="error">هناك خطأ</string>
   <string name="info">المعلومات</string>
-  <!--Contacts and Private Conversations-->
+
   <string name="no_contacts">لا جهات اتصال للعرض</string>
   <string name="no_contacts_action">لمس علامة + لإضافة جهة إتصال</string>
   <string name="date_no_private_messages">لا رسائل.</string>
@@ -191,11 +191,11 @@
   <string name="set_contact_alias">تعديل إسم جهة الاتصال</string>
   <string name="set_contact_alias_hint">اسم جهة الاتصال</string>
   <string name="menu_item_disappearing_messages">الرسائل المختفية</string>
-  <!--The first placeholder will show a duration like "7 days". The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_enabled">رسالتك ستختفي بعد%1$s. %2$s</string>
-  <!--The placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_disabled">رسالاتك لن تختفي. %1$s</string>
-  <!--The first placeholder will show a contact's name. The second placeholder will show a duration like "7 days". The third placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_enabled">ستختفي رسالة %1$s بعد %2$s. %3$s</string>
   <plurals name="duration_minutes">
     <item quantity="zero">%d دقيقة</item>
@@ -221,7 +221,7 @@
     <item quantity="many">%d أيام</item>
     <item quantity="other">%d أيام</item>
   </plurals>
-  <!--The first placeholder will show a contact's name. The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_disabled">رسائل %1$s لن تختفي. %2$s</string>
   <string name="tap_to_learn_more">انقر لمعرفة المزيد.</string>
   <string name="auto_delete_changed_warning_title">تغيرت الرسائل المختفية</string>
@@ -242,7 +242,7 @@
   <string name="dialog_title_delete_contact">تأكيد حذف جهة الإتصال</string>
   <string name="dialog_message_delete_contact">هل أنت متأكد/ة من أنك تريد حذف جهة الإتصال هذه وكل الرسائل المتبادلة بينكما؟</string>
   <string name="contact_deleted_toast">تم حذف جهة اتصال</string>
-  <!--This is shown in the action bar when opening an image in fullscreen that the user sent-->
+
   <string name="you">أنتَ/أنتِ</string>
   <string name="save_image">حفظ الصورة</string>
   <string name="dialog_title_save_image">حفظ الصورة؟</string>
@@ -255,7 +255,7 @@
   <string name="dialog_message_image_support">الضغط على هذه الأيقونة لإرفاق الصور.</string>
   <string name="messaging_too_many_attachments_toast">تمكّنا من إرسال %d من الصورة فقط</string>
   <string name="menu_contact">تواصل</string>
-  <!--Adding Contacts-->
+
   <string name="add_contact_title">إضافة جهة اتصال قريبة </string>
   <string name="add_contact_error_two_way">هل قمتما بمسح رموز QR الخاصة ببعضكما البعض؟</string>
   <string name="face_to_face">لا بد من مقابلة الشخص الذي تريد/ين إضافته كجهة اتصال.\n\nهذا سيمنع أي شخص من انتحال شخصيتك أو قراءة رسائلك في المستقبل.</string>
@@ -277,7 +277,7 @@
   <string name="connection_error_title">لم يمكن الإتصال بجهة إتصالك</string>
   <string name="connection_error_feedback">إذا إستمرت المشكلة، رجاءًا <a href="feedback">أرسل تقرير </a> لمساعدتنا على تحسين التطبيق.</string>
   <string name="info_both_must_scan">يجب عليكما مسح رموز QR الخاصة ببعضكما البعض</string>
-  <!--Adding Contacts Remotely-->
+
   <string name="add_contact_remotely_title_case">إضافة جهة اتصال عن بعد </string>
   <string name="add_contact_nearby_title">إضافة جهة اتصال قريبة</string>
   <string name="add_contact_remotely_title">إضافة جهة اتصال عن بعد </string>
@@ -310,9 +310,9 @@
   <string name="unsupported_link">هذا الرّابط قادم من إصدار أحدث من Briar (براير). يرجى التحديث لآخر إصدار والمحاولة من جديد. </string>
   <string name="intent_own_link">لقد فتحتم الرابط الخاص بكم. يرجى استخدام رابط جهة الاتصال التي تودّون إضافتها! </string>
   <string name="missing_link">يرجى إدخال رابط</string>
-  <!--This is a numeral indicating the first step in a series of screens-->
+
   <string name="step_1">١</string>
-  <!--This is a numeral indicating the second step in a series of screens-->
+
   <string name="step_2">٢</string>
   <plurals name="contact_added_notification_text">
     <item quantity="zero">تمّت إضافة %d من جهات الاتصال</item>
@@ -326,25 +326,21 @@
   <string name="duplicate_link_dialog_title">الرّابط مكرّر </string>
   <string name="duplicate_link_dialog_text_1">لديكم جهة اتصال معلّقة تحمل نفس هذا الرّابط: %s</string>
   <string name="duplicate_link_dialog_text_1_contact">لديكم جهة اتصال تحمل نفس هذا الرّابط: %s</string>
-  <!--This is a question asking whether two nicknames refer to the same person-->
+
   <string name="duplicate_link_dialog_text_2">هل %1$s و %2$s نفس الشخص؟</string>
-  <!--This is a button for answering that two nicknames do indeed refer to the same person. This
-	string will be used in a dialog button, so if the translation of this string is longer than 20
-	characters, please use "Yes" instead, and use "No" for the "Different Person" button-->
+
   <string name="same_person_button">الشّخص ذاته</string>
-  <!--This is a button for answering that two nicknames refer to different people. This string
-	will be used in a dialog button, so if the translation of this string longer than 20 characters,
-	please use "No" instead, and use "Yes" for the "Same Person" button-->
+
   <string name="different_person_button">شخص مختلف</string>
   <string name="duplicate_link_dialog_text_3">%1$s و %2$s أرسلوا إليك نفس الرابط.\n\nربما يحاول أحدهم اكتشاف جهات اتصالك.\n\nلا تخبرهم أنك تلقيت نفس الرابط من شخص آخر.</string>
   <string name="pending_contact_updated_toast">تمّ تحديث طلب جهة الاتصال العالق</string>
   <string name="info_both_must_enter_links">يجب عليكما إضافة روابط بعضكما البعض</string>
-  <!--Peer trust levels-->
+
   <string name="peer_trust_level_unverified">جهة اتصال لم يتم التحقق منها</string>
   <string name="peer_trust_level_verified">جهة اتصال تم التحقق منها</string>
   <string name="peer_trust_level_ourselves">أنا</string>
   <string name="peer_trust_level_stranger">غريب</string>
-  <!--Introductions-->
+
   <string name="introduction_onboarding_title">قم بتقديم جهات إتصالك</string>
   <string name="introduction_onboarding_text">قم بتقديم جهات اتصالك لبعضها البعض حتى يتمكنوا من الاتصال على Briar.</string>
   <string name="introduction_menu_item">إعمل تقديم</string>
@@ -366,7 +362,7 @@
   <string name="introduction_response_accepted_received">لقد وافق/ت %1$s على تقديمه/ها إلى %2$s.</string>
   <string name="introduction_response_declined_received">لقد رفض/ت %1$sتقديمه/ا إلى %2$s.</string>
   <string name="introduction_response_declined_received_by_introducee">ي/تقول %1$sأن %2$s قد رفض/ت التقدمة.</string>
-  <!--Connect via Bluetooth-->
+
   <string name="menu_item_connect_via_bluetooth">الاتصال عبر بلوتوث</string>
   <string name="connect_via_bluetooth_title">الاتصال عبر البلوتوث</string>
   <string name="connect_via_bluetooth_intro">في حالة عدم عمل اتصالات البلوتوث تلقائيًا، يمكنك استخدام هذه الشاشة للاتصال يدويًا.\n\nيجب أن تكون جهة اتصالك قريبة حتى تعمل هذه الميزة.\n\nيجب عليك أنت وجهة اتصالك النقر على \"ابدأ\" في نفس الوقت.</string>
@@ -377,7 +373,7 @@
   <string name="connect_via_bluetooth_success">اتصلت بنجاح عبر البلوتوث</string>
   <string name="connect_via_bluetooth_error">لا يمكن الاتصال عبر البلوتوث.</string>
   <string name="connect_via_bluetooth_error_not_supported">البلوتوث غير مدعوم من الجهاز.</string>
-  <!--Private Groups-->
+
   <string name="groups_list_empty">لا مجموعات للعرض</string>
   <string name="groups_list_empty_action">الرجاء لمس علامة + لإنشاء مجموعة، أو اطلب من جهات إتصالك مشاركتك في مجموعاتهم</string>
   <string name="groups_created_by">تم إنشاؤها بواسطة %s</string>
@@ -412,7 +408,7 @@
   <string name="groups_dissolve_button">حلّ</string>
   <string name="groups_dissolved_dialog_title">تم حلّ المجموعة </string>
   <string name="groups_dissolved_dialog_message">منشئ هذه المجموعة قام بحلّها.\n\n لن يمكنك كتابة رسائل إلى المجموعة كما ويحتمل أنك لم تستقبل جميع الرسائل التي تم كتابتها.</string>
-  <!--Private Group Invitations-->
+
   <string name="groups_invitations_title">دعوات المجموعة</string>
   <string name="groups_invitations_invitation_sent">لقد قمت بدعوة %1$s للإنضمام إلى مجموعة \"%2$s\".</string>
   <string name="groups_invitations_invitation_received">قام %1$s بدعوتك للإنضمام لمجموعة \"%2$s\".</string>
@@ -424,7 +420,7 @@
     <item quantity="two">دعوتيْ مجموعة مفتوحتين</item>
     <item quantity="few">%d دعوات مجموعة مفتوحة</item>
     <item quantity="many">%d دعوة مجموعة مفتوحة</item>
-    <item quantity="other">%d 
+    <item quantity="other">%d
 فتح دعوات المجموعات</item>
   </plurals>
   <string name="groups_invitations_response_accepted_sent">قد قبلت دعوة الانضمام للمجموعة من %s.</string>
@@ -433,14 +429,14 @@
   <string name="groups_invitations_response_accepted_received">قبل/ت %s دعوة الانضمام للمجموعة.</string>
   <string name="groups_invitations_response_declined_received">رفض/ت %s دعوة الانضمام للمجموعة.</string>
   <string name="sharing_status_groups">فقط مُنشئ/ة المجموعة يمكنه/ها دعوة أعضاء جدد. في الأسفل جميع الأعضاء الحاليين بالمجموعة.</string>
-  <!--Private Groups Revealing Contacts-->
+
   <string name="groups_reveal_contacts">اظهار الأعضاء</string>
   <string name="groups_reveal_dialog_message">يمكن اختيار إظهار جميع جهات الاتصال الحالية والمستقبلية في هذه المجموعة لبعضهم البعض.\n\nإظهار جهات الاتصال سيجعل اتصالك بالمجموعة أسرع وأفضل اعتمادية، حيث سيمكن التواصل بين جهات الاتصال الظاهرة حتى لو كان منشئ المجموعة غير متصل.</string>
   <string name="groups_reveal_visible">علاقات جهات الاتصال ستكون ظاهرة للمجموعة</string>
   <string name="groups_reveal_visible_revealed_by_us">علاقات جهات الاتصال ظاهرة للمجموعة (قمت/ي أنت بكشفها)</string>
   <string name="groups_reveal_visible_revealed_by_contact">علاقات جهات الاتصال ظاهرة للمجموعة (قام/ت %s بكشفها)</string>
   <string name="groups_reveal_invisible">علاقات جهات الاتصال غير ظاهرة للمجموعة</string>
-  <!--Forums-->
+
   <string name="no_forums">لا منتديات للعرض</string>
   <string name="no_forums_action">الرجاء لمس علامة + لإنشاء منتدى، أو طلب من جهات اتصالك مشاركتك في منتدياتهم</string>
   <string name="create_forum_title">انشاء منتدى</string>
@@ -465,7 +461,7 @@
   <string name="dialog_message_leave_forum">هل أنت متأكد/ة من رغبتك في مغادرة المنتدى؟\n\nأي جهة اتصال قمت/ي بمشاركة هذا المنتدى معها قد يتوقف عنها استلام التحديثات.</string>
   <string name="dialog_button_leave">مغادرة</string>
   <string name="forum_left_toast">تم مغادرة المنتدى</string>
-  <!--Forum Sharing-->
+
   <string name="forum_share_button">مشاركة المنتدى</string>
   <string name="contacts_selected">جهات الاتصال المختارة</string>
   <string name="activity_share_toolbar_header">إختر جهات الاتصال</string>
@@ -503,7 +499,7 @@
     <item quantity="other">%d منتدى مُشارَك من جهات الاتصال</item>
   </plurals>
   <string name="nobody">لا أحد</string>
-  <!--Blogs-->
+
   <string name="blogs_other_blog_empty_state">لا منشورات للعرض</string>
   <string name="read_more">قراءة المزيد</string>
   <string name="blogs_write_blog_post">كتابة تدوينة</string>
@@ -520,7 +516,7 @@
   <string name="blogs_blog_removed">تم حذف المدونة</string>
   <string name="blogs_reblog_comment_hint">اضافة تعليق (إختياري)</string>
   <string name="blogs_reblog_button">اعادة التدوين</string>
-  <!--Blog Sharing-->
+
   <string name="blogs_sharing_share">مشاركة المدونة</string>
   <string name="blogs_sharing_error">حدث خطأ في مشاركة هذه المدونة.</string>
   <string name="blogs_sharing_button">مشاركة المدونة</string>
@@ -536,7 +532,7 @@
   <string name="blogs_sharing_joined_toast">مشترك/ة في المدونة</string>
   <string name="blogs_sharing_declined_toast">تم رفض الدعوة</string>
   <string name="sharing_status_blog">أي شخص أشترك في مدونة يمكنه مشاركتها مع جهات اتصاله. أنت تشارك/ين هذه المدونة مع جهات الإتصال التالية. قد يكون هناك مشتركون آخرون لا يمكن رؤيتهم.</string>
-  <!--RSS Feeds-->
+
   <string name="blogs_rss_feeds_import">إستيراد تحديثات RSS</string>
   <string name="blogs_rss_feeds_import_button">إستيراد</string>
   <string name="blogs_rss_feeds_import_hint">ادخال رابط تحديثات RSS</string>
@@ -552,12 +548,12 @@
   <string name="blogs_rss_remove_feed_ok">حذف</string>
   <string name="blogs_rss_feeds_manage_empty_state">لا خلاصات RSS للعرض\n\nالرجاء لمس علامة + لإستيراد خلاصة.</string>
   <string name="blogs_rss_feeds_manage_error">حدث خطأ في جلب خلاصاتك. الرجاء المحاولة لاحقًا.</string>
-  <!--Settings Profile Picture-->
+
   <string name="change_profile_picture">انقر لتغيير صورة ملفك الشخصي</string>
   <string name="dialog_confirm_profile_picture_title">تغيير الصورة الشخصية</string>
   <string name="dialog_confirm_profile_picture_remark">جهات اتصالك فقط يمكنها رؤية هذه الصورة</string>
   <string name="change_profile_picture_failed_message">عذرًا، ولكن حدث خطأ ما أثناء تحديث صورة ملفك الشخصي</string>
-  <!--Settings Display-->
+
   <string name="pref_language_title">اللغة &amp; المنطقة</string>
   <string name="pref_language_changed">هذا الإعداد سيتفعل بعد إعادة تشغيل Briar (براير). الرجاء تسجيل الخروج ثم اعادة تشغيل Briar (براير).</string>
   <string name="pref_language_default">النظام الإفتراضي</string>
@@ -566,7 +562,7 @@
   <string name="pref_theme_light">نهاري</string>
   <string name="pref_theme_dark">ليلي</string>
   <string name="pref_theme_system">الافتراضي بالنظام</string>
-  <!--Settings Connections-->
+
   <string name="network_settings_title">شبكات الاتصال</string>
   <string name="bluetooth_setting">ربط جهات الاتصال عن طريق بلوتوث</string>
   <string name="wifi_setting">ربط جهات الاتصال عن طريق نفس شبكة الواي فاي</string>
@@ -577,28 +573,28 @@
   <string name="tor_network_setting_without_bridges">استخدام شبكة تور بدون جسور</string>
   <string name="tor_network_setting_with_bridges">استخدام شبكة تور مع جسور</string>
   <string name="tor_network_setting_never">لا يمكن الاتصال بالإنترنت</string>
-  <!--How and when Briar will connect to Tor: E.g. "Don't connect to the Internet (in China)" or "Use Tor network with bridges (in Belarus)"-->
+
   <string name="tor_network_setting_summary">تلقائيا: %1$s (في %2$s)</string>
   <string name="tor_mobile_data_title">إستخدام بيانات الجوال</string>
   <string name="tor_only_when_charging_title">الاتصال بالإنترنت فقط عن الشحن</string>
   <string name="tor_only_when_charging_summary">تعطيل الاتصال بالانترنت عند تشغيل الجهاز على البطارية</string>
-  <!--Settings Security and Panic-->
+
   <string name="security_settings_title">الأمان</string>
   <string name="pref_lock_title">قفل التطبيق</string>
   <string name="pref_lock_summary">الرجاء استخدام قفل شاشة الجهاز لحماية Briar (براير) في حال تسجيل الدخول</string>
   <string name="pref_lock_disabled_summary">لاستخدام هذه الميزة، الرجاء إعداد قفل شاشة لجهازك</string>
   <string name="pref_lock_timeout_title">قفل التطبيق لعدم النّشاط </string>
-  <!--The %s placeholder is replaced with the following time spans, e.g. 5 Minutes, 1 Hour-->
+
   <string name="pref_lock_timeout_summary">في حالة عدم استعمال Briar (براير)، يقفل تلقائيا بعد %s</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_1">1 دقيقة</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_5">5 دقائق</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_15">15 دقيقة</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_30">30 دقيقة</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_60">ساعة</string>
   <string name="pref_lock_timeout_never">أبدًا</string>
   <string name="pref_lock_timeout_never_summary">لا تقم أبدًا بقفل Briar (براير) تلقائيًا</string>
@@ -621,7 +617,7 @@
   <string name="panic_setting_signout_summary">تسجيل الخروج من Briar (براير) عند ضغط زر الذعر</string>
   <string name="purge_setting_title">حذف الحساب</string>
   <string name="purge_setting_summary">احذف حساب Briar (براير) إذا تم ضغط زر الذعر. انتبه: هذا سيسبب حذف دائم لكل معرفات وحساباتك ورسائلك.</string>
-  <!--Settings Notifications-->
+
   <string name="notification_settings_title">الإشعارات</string>
   <string name="notify_sign_in_title">ذكرني لتسجيل الدخول</string>
   <string name="notify_sign_in_summary">أظهر تذكير عند تشغيل الهاتف أو عند تحديث التطبيق</string>
@@ -643,7 +639,7 @@
   <string name="notify_sound_setting_disabled">لا شيء</string>
   <string name="choose_ringtone_title">اختر نغمة</string>
   <string name="cannot_load_ringtone">لا يمكن تشغيل النغمة</string>
-  <!--Mailbox-->
+
   <string name="mailbox_settings_title">صندوق البريد</string>
   <string name="mailbox_setup_title">إعداد صندوق البريد</string>
   <string name="mailbox_setup_intro">يتيح صندوق البريد (Mailbox) لجهات اتصالك إرسال رسائل إليك أثناء عدم الاتصال بالإنترنت. سيتلقى صندوق البريد رسائلك ويخزنها حتى تتصل بالإنترنت.\n
@@ -654,7 +650,7 @@
   <string name="mailbox_setup_button_scan">امسح رمز QR صندوق البريد</string>
   <string name="permission_camera_qr_denied_body">لقد رفضت الوصول إلى الكاميرا، ولكن مسح رمز QR يتطلب استخدام الكاميرا.\n\nيُرجى مراعاة منح حق الوصول.</string>
   <string name="mailbox_setup_connecting">جارِ الاتصال بصندوق البريد…</string>
-  <!--This string is shown when connecting to a Mailbox for the first time. The placeholder will be replaced with a duration, e.g. "2 minutes".-->
+
   <string name="mailbox_setup_connecting_info">قد يستغرق هذا ما يصل إلى %1s</string>
   <string name="mailbox_qr_code_too_old">يأتي رمز QR الذي مسحته ضوئيًا من إصدار أقدم من Briar Mailbox.\n\nيُرجى ترقية Briar Mailbox إلى احدث إصدار ثم حاول مرة أخرى.</string>
   <string name="mailbox_qr_code_too_new">يأتي رمز QR الذي مسحته ضوئيًا من إصدار أحدث من Briar Mailbox.\n\nيُرجى ترقية براير إلى احدث إصدار ثم حاول مرة أخرى.</string>
@@ -682,9 +678,9 @@
   <string name="mailbox_status_mailbox_too_old_title">صندوق البريد قديم جدًا</string>
   <string name="mailbox_status_mailbox_too_old_message">قم بتحديث صندوق البريد  Mailbox الخاص بك إلى أحدث إصدار من التطبيق وحاول مرة أخرى.</string>
   <string name="mailbox_status_check_button">تحقق من اتصال</string>
-  <!--Example for string substitution: Last connection: 3min ago-->
+
   <string name="mailbox_status_connected_info">آخر اتصال: %s</string>
-  <!--Indicates that there never was a connection to the mailbox. Last connection: Never-->
+
   <string name="mailbox_status_connected_never">أبداً</string>
   <string name="mailbox_status_unlink_button">فك الارتباط</string>
   <string name="mailbox_status_unlink_dialog_title">هل تريد إلغاء ارتباط صندوق البريد؟</string>
@@ -717,7 +713,7 @@
   <string name="mailbox_error_wizard_info1_1_4">تأكد من أن جهاز صندوق البريد متصل بالإنترنت بشكل صحيح.\n\nتأكد من أن الساعة الموجودة على جهاز صندوق البريد تعرض الوقت والتاريخ والمنطقة الزمنية الصحيحة.\n\nتأكد من تحديث تطبيقات صندوق البريد و براير إلى الإصدار الأحدث.\ n\nأعِد تشغيل أجهزة صندوق البريد و براير وحاول مرة أخرى.</string>
   <string name="mailbox_error_wizard_info2">يرجى العودة إلى هذه الشاشة عندما يكون لديك حق الوصول إلى الجهاز.</string>
   <string name="mailbox_error_wizard_info3">الرجاء إلغاء ربط صندوق بريك باستخدام الزر أدناه.\n\nبعد إلغاء ربط صندوق البريد القديم، يمكنك إعداد صندوق بريد جديد في أي وقت.</string>
-  <!--About-->
+
   <string name="about_title">عن </string>
   <string name="briar_version">إصدار براير: %s</string>
   <string name="tor_version">إصدار تور: %s</string>
@@ -726,9 +722,9 @@
   <string name="briar_source_code">\u2022 <a href="">الشيفرة المصدرية</a></string>
   <string name="briar_changelog">\u2022 <a href="">سجل التغييرات</a></string>
   <string name="briar_privacy_policy">\u2022 <a href="">سياسة الخصوصية</a></string>
-  <!--Here translators can add their names or Transifex usernames(eg "Thanks to all the contributors at the Localization Lab, especially Tom, Matthew and Jerry")-->
+
   <string name="translator_thanks">شكرا لجميع المساهمين في Localization Lab</string>
-  <!--Conversation Settings-->
+
   <string name="disappearing_messages_title">الرسائل المختفية</string>
   <string name="disappearing_messages_explanation_long">سيؤدي تشغيل هذا الإعداد إلى إنشاء جديد
 تختفي الرسائل في هذه المحادثة تلقائيًا بعد 7\u00A0أيام.
@@ -741,17 +737,17 @@
 يمكن لجهة الاتصال الخاصة بك أيضًا تغيير هذا الإعداد لكما.</string>
   <string name="learn_more">تعرف على المزيد</string>
   <string name="disappearing_messages_summary">جعل الرسائل المستقبلية في هذه المحادثة تختفي تلقائيًا بعد 7\u00A0 أيام.</string>
-  <!--Settings Actions-->
+
   <string name="pref_category_actions">الإجراءات</string>
   <string name="share_app_link">مشاركة رابط التنزيل</string>
   <string name="share_app_link_text">نزّل براير في %s</string>
   <string name="send_feedback">أرسل ملاحظاتك</string>
-  <!--Link Warning-->
+
   <string name="link_warning_title">تنبيه بوجود رابط</string>
   <string name="link_warning_intro">أنت بصدد فتح هذا الرابط في تطبيق خارجي</string>
   <string name="link_warning_text">يمكن لهذا كشف هويّتك. تأكّدوا من ثقتكم بالشخص الذي أرسل لكم هذا الرّابط خذوا بعين الاعتبار فتح الرّابط في متصفّح تور (Tor).</string>
   <string name="link_warning_open_link">افتح الرابط</string>
-  <!--Crash Reporter-->
+
   <string name="crash_report_title">تقرير إنهيار Briar (براير)</string>
   <string name="briar_crashed">آسف، لقد تحطم براير</string>
   <string name="not_your_fault">هذا ليس خطؤك.</string>
@@ -782,15 +778,15 @@
   <string name="dev_report_sent">أرسلت ملاحظات</string>
   <string name="dev_report_saved">تم حفظ التقرير. سيتم إرساله عند تسجيل الدخول إلى Briar (براير) في المرة القادمة.</string>
   <string name="dev_report_error">خطأ: فشل إرسال التقرير</string>
-  <!--Sign Out-->
+
   <string name="progress_title_logout">تسجيل الخروج من Briar (براير)...</string>
-  <!--Screen Filters & Tapjacking-->
+
   <string name="screen_filter_title">تم إكتشاف غلاف شاشة</string>
   <string name="screen_filter_body">تطبيق آخر يعمل كغلاف فوق Briar (براير). لحماية أمنك فإن Briar (براير) لن يستجيب للمس طالما كان تطبيق آخر فوقه.\n\nيحتمل أن تكون أحد هذه التطبيقات التي تعمل بالفوق:\n\n %1$s</string>
   <string name="screen_filter_body_api_30">تطبيق آخر يعمل كغلاف فوق براير. لحماية أمنك فإن براير لن يستجيب للمس طالما كان تطبيق آخر فوقه.\n\nراجع التطبيقات أدناه للعثور على التطبيق المسؤول.</string>
   <string name="screen_filter_allow">السماح لهذه التطبيقات بالعمل فوق غيرها</string>
   <string name="screen_filter_review_apps">راجعْ التطبيقات</string>
-  <!--Permission Requests-->
+
   <string name="permission_camera_title">إذن الكاميرا</string>
   <string name="permission_camera_request_body">للتمكن من مسح رمز QR، يحتاج Briar (براير) إلى إستعمال الكاميرا.</string>
   <string name="permission_location_title">إذن معرفة الموقع </string>
@@ -811,16 +807,16 @@
   <string name="permission_bluetooth_denied_body">لقد رفضت الوصول إلى الأجهزة القريبة، ولكن براير يحتاج إلى هذا الإذن لاستخدام البلوتوث.\n\nيُرجى التفكير في منح حق الوصول.</string>
   <string name="qr_code">رمز QR</string>
   <string name="show_qr_code_fullscreen">اظهار رمز QR بوضع ملء الشاشة</string>
-  <!--App Locking-->
+
   <string name="lock_unlock">فك قفل Briar (براير)</string>
   <string name="lock_unlock_verbose">ادخال رمز، نمط أو كلمة سر جهازك لإلغاء قفل Briar (براير)</string>
   <string name="lock_unlock_fingerprint_description">لمس حساس البصمة ببصمتك المسجلة للإستمرار</string>
   <string name="lock_unlock_password">استخدام كلمة السر</string>
   <string name="lock_is_locked">Briar (براير) مقفل</string>
   <string name="lock_tap_to_unlock">الرجاء اللمس لفك القفل</string>
-  <!--Connections Screen-->
+
   <string name="transports_help_text">يمكن ل Briar التواصل مع جهات الاتصال عن طريق الانترنت, شكبة ال Wi-Fi أو البلوتوث.n\n\كل وسائل الاتصال عن طريق الانترنت تمر عبر شبكة تور من أجل الخصوصية.n\n\إذا كان من الممكن الوصول إلى شبكة إتصال بعدة طرق فإن Briar سوف يستعملهم جميعاً بالتوازي.</string>
-  <!--Share app offline-->
+
   <string name="hotspot_title">مشاركة هذا التطبيق بدون اتصال</string>
   <string name="hotspot_intro">شارك هذا التطبيق مع شخص قريب منك دون اتصال بالإنترنت باستخدام شبكة Wi-Fi بهاتفك.
 \n\nسيبدأ هاتفك في تشغيل نقطة اتصال Wi-Fi. يمكن للأشخاص القريبين الاتصال بنقطة الاتصال وتنزيل تطبيق براير من هاتفك.</string>
@@ -839,10 +835,10 @@
   <string name="wifi_settings_title">إعداد Wi-Fi</string>
   <string name="wifi_settings_request_enable_body">لإنشاء نقطة اتصال Wi-Fi، يحتاج براير إلى استخدام Wi-Fi. يُرجى تفعيله.</string>
   <string name="hotspot_tab_manual">يدويا</string>
-  <!--The placeholder to be inserted into the string 'hotspot_manual_wifi': People can connect by %s-->
+
   <string name="hotspot_scanning_a_qr_code">مسح ضوئي رمز QR</string>
-  <!--Wi-Fi setup-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_wifi">يوفر هاتفك نقطة اتصال Wi-Fi. يمكن للأشخاص الذين يرغبون في تنزيل براير الاتصال بنقطة الاتصال عن طريق إضافتها في إعدادات Wi-Fi على أجهزتهم باستخدام التفاصيل أدناه أو من خلال %s. عندما يتصلون بنقطة الاتصال، اضغط على \"التالي\".</string>
   <string name="hotspot_manual_wifi_ssid">اسم الشبكة</string>
   <string name="hotspot_qr_wifi">يوفر هاتفك نقطة اتصال Wi-Fi. يمكن للأشخاص الذين يرغبون في تنزيل براير الاتصال بنقطة الاتصال عن طريق مسح رمز QR هذا. عندما يتصلون بنقطة الاتصال، اضغط على \"التالي\".</string>
@@ -855,12 +851,12 @@
     <item quantity="many">%s اجهزة متصلة</item>
     <item quantity="other">%s اجهزة متصلة</item>
   </plurals>
-  <!--Download link-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_site">يوفر هاتفك نقطة اتصال Wi-Fi. يمكن للأشخاص المتصلين بنقطة الاتصال تنزيل براير عن طريق كتابة الرابط التالي في متصفح الويب أو%s.</string>
   <string name="hotspot_manual_site_address">عنوان (URL)</string>
   <string name="hotspot_qr_site">يوفر هاتفك نقطة اتصال Wi-Fi. يمكن للأشخاص المتصلين بنقطة الاتصال تنزيل براير عن طريق مسح رمز QR هذا.</string>
-  <!--e.g. Download Briar 1.2.20-->
+
   <string name="website_download_title_1">نزّل براير %s</string>
   <string name="website_download_intro_1">قام أحد الأشخاص القريبين بمشاركة براير معك.</string>
   <string name="website_download_button">نزّل براير</string>
@@ -882,7 +878,7 @@
   <string name="hotspot_help_fallback_intro">يمكنك محاولة حفظ التطبيق كملف apk. لمشاركته بطريقة أخرى. بمجرد نقل الملف إلى الجهاز الآخر، يمكن استخدامه لتثبيت براير.
 \n\nنصيحة: للمشاركة عبر البلوتوث، قد تحتاج إلى إعادة تسمية الملف لينتهي بـ .zip أولاً.</string>
   <string name="hotspot_help_fallback_button">حفظ التطبيق</string>
-  <!--error handling-->
+
   <string name="hotspot_error_intro">حدث خطأ ما أثناء محاولة مشاركة التطبيق عبر شبكة Wi-Fi:</string>
   <string name="hotspot_error_no_wifi_direct">الجهاز لا يدعم خاصية Wi-Fi المباشر</string>
   <string name="hotspot_error_start_callback_failed">فشلت نقطة الاتصال في البدء: الخطأ %s</string>
@@ -892,7 +888,7 @@
   <string name="hotspot_error_web_server_serve">حدث خطأ أثناء عرض موقع الويب.\n\nيُرجى إرسال التعليقات (مع بيانات مجهولة المصدر) عبر تطبيق براير إذا استمرت المشكلة.</string>
   <string name="hotspot_flag_test">تحذير: ثُبّت هذا التطبيق مع Android Studio ولا يمكن تثبيته على جهاز آخر.</string>
   <string name="hotspot_error_framework_busy">غير قادر على بدء نقطة الاتصال.\n\nإذا كانت لديك نقطة اتصال أخرى قيد التشغيل أو كنت تشارك اتصال الإنترنت الخاص بك عبر Wi-Fi، فحاول إيقاف ذلك وحاول مرة أخرى بعد ذلك.</string>
-  <!--Transfer Data via Removable Drives-->
+
   <string name="removable_drive_menu_title">قم بالتوصيل عبر محرك أقراص قابل للإزالة</string>
   <string name="removable_drive_intro">إذا لم تتمكن من الاتصال بجهة اتصالك عبر الإنترنت أو Wi-Fi أو Bluetooth، فيمكن لـبراير أيضًا نقل الرسائل على محرك أقراص قابل للإزالة مثل محرك أقراص USB أو بطاقة SD.</string>
   <string name="removable_drive_explanation">إذا لم تتمكن من الاتصال بجهة اتصالك عبر الإنترنت أو Wi-Fi أو البلوتوث، فيمكن لـبراير أيضًا نقل الرسائل على محرك أقراص قابل للإزالة مثل محرك أقراص USB أو بطاقة SD.\n\nعند استخدام الزر \"إرسال البيانات\" ، سيتم كتابة أي بيانات تنتظر إرسالها إلى جهة الاتصال على محرك الأقراص القابل للإزالة. يتضمن ذلك الرسائل الخاصة والمرفقات والمدونات والمنتديات والمجموعات الخاصة.\n\nسيتم تعمية كل شيء قبل كتابته على محرك الأقراص القابل للإزالة.\n\nعندما تتلقى جهة اتصالك محرك الأقراص القابل للإزالة، يمكنهم استخدام الزر \"استلام البيانات\" لاستيراد الرسائل إلى براير.</string>
@@ -913,17 +909,17 @@
   <string name="removable_drive_error_send_text">حدث خطأ أثناء كتابة البيانات إلى الملف.\n\nإذا كنت تستخدم محرك أقراص قابل للإزالة، فتأكد من إدخاله بشكل صحيح وحاول مرة أخرى.\n\nإذا استمر الخطأ، فيُرجى إرسال ملاحظات لإعلام فريق براير بشأن المشكلة.</string>
   <string name="removable_drive_error_receive_title">حدث خطأ أثناء استيراد البيانات</string>
   <string name="removable_drive_error_receive_text">الملف المحدد لا يحتوي على أي شيء يمكن أن يتعرف عليه براير.\n\nيُرجى التحقق من أنك اخترت الملف الصحيح.\n\nإذا قامت جهة اتصالك بإنشاء الملف منذ أكثر من 28 يومًا، فلن يتمكن براير من التعرف عليه.</string>
-  <!--Screenshots-->
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
+
   <string name="screenshot_alice">آليس</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_bob">بوب</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_carol">كارول</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Bob!-->
+
   <string name="screenshot_message_1">مرحبا بوب! </string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Alice!-->
+
   <string name="screenshot_message_2">مرحبا أليس! شكراً لأنّك أخبرتني عن Briar (براير) !</string>
-  <!--This is a message to be used in screenshots.-->
+
   <string name="screenshot_message_3">أهلاً وسهلاً، أتمنى أن يعجبك 😀</string>
 </resources>

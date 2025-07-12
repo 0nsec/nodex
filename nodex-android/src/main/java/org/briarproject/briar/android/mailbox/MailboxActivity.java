@@ -1,12 +1,9 @@
 package org.briarproject.briar.android.mailbox;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
 import org.briarproject.bramble.api.mailbox.MailboxPairingState;
 import org.briarproject.bramble.api.mailbox.MailboxPairingState.ConnectionError;
 import org.briarproject.bramble.api.mailbox.MailboxPairingState.InvalidQrCode;
@@ -29,14 +26,11 @@ import org.briarproject.briar.android.mailbox.MailboxState.WasUnpaired;
 import org.briarproject.briar.android.view.BlankFragment;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import javax.inject.Inject;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
-
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static android.widget.Toast.LENGTH_LONG;
@@ -44,35 +38,27 @@ import static org.briarproject.bramble.api.mailbox.MailboxConstants.QR_FORMAT_VE
 import static org.briarproject.bramble.api.qrcode.QrCodeClassifier.QrCodeType.BQP;
 import static org.briarproject.bramble.api.qrcode.QrCodeClassifier.QrCodeType.MAILBOX;
 import static org.briarproject.briar.android.util.UiUtils.showFragment;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class MailboxActivity extends BriarActivity {
-
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
-
 	private MailboxViewModel viewModel;
 	private ProgressBar progressBar;
-
 	@Override
 	public void injectActivity(ActivityComponent component) {
 		component.inject(this);
-
 		viewModel = new ViewModelProvider(this, viewModelFactory)
 				.get(MailboxViewModel.class);
 	}
-
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mailbox);
-
 		progressBar = findViewById(R.id.progressBar);
 		if (viewModel.getPairingState().getValue() == null) {
 			progressBar.setVisibility(VISIBLE);
 		}
-
 		viewModel.getPairingState().observeEvent(this, state -> {
 			if (state instanceof NotSetup) {
 				onNotSetup();
@@ -96,10 +82,6 @@ public class MailboxActivity extends BriarActivity {
 				throw new AssertionError("Unknown state: " + state);
 			}
 		});
-
-		// re-show unpaired dialog, if it was previously shown
-		// Attention: When using BlankFragment for something else, this needs to
-		// be adapted.
 		if (savedInstanceState != null) {
 			FragmentManager fm = getSupportFragmentManager();
 			Fragment f = fm.findFragmentByTag(BlankFragment.TAG);
@@ -108,7 +90,6 @@ public class MailboxActivity extends BriarActivity {
 			}
 		}
 	}
-
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == android.R.id.home) {
@@ -117,39 +98,27 @@ public class MailboxActivity extends BriarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
 	@Override
 	public void onBackPressed() {
 		MailboxState s = viewModel.getPairingState().getLastValue();
 		if (s instanceof Pairing) {
-			// don't go back in the flow if we are already pairing
-			// with the mailbox. We provide a try-again button instead.
 			supportFinishAfterTransition();
 		} else {
 			super.onBackPressed();
 		}
 	}
-
 	private void onNotSetup() {
 		progressBar.setVisibility(INVISIBLE);
 		FragmentManager fm = getSupportFragmentManager();
-		// If we already have a back stack, fragment state was restored after
-		// activity got killed, so don't re-add our fragment again.
 		if (fm.getBackStackEntryCount() == 0) {
 			showFragment(fm, new SetupIntroFragment(), SetupIntroFragment.TAG,
 					false);
 		}
 	}
-
 	private void onShowDownload() {
 		boolean needToShow = true;
 		FragmentManager fm = getSupportFragmentManager();
-		// if the fragment is already on the back stack, pop back to it
-		// instead of adding it to the stack again
 		if (fm.findFragmentByTag(SetupDownloadFragment.TAG) != null) {
-			// if the activity was previously destroyed, the fragment is still
-			// found, but popping back to it won't work, so we need to handle
-			// this case and show the fragment again anyway.
 			needToShow =
 					!fm.popBackStackImmediate(SetupDownloadFragment.TAG, 0);
 		}
@@ -158,18 +127,14 @@ public class MailboxActivity extends BriarActivity {
 					SetupDownloadFragment.TAG);
 		}
 	}
-
 	private void onScanningQrCode() {
 		showFragment(getSupportFragmentManager(), new MailboxScanFragment(),
 				MailboxScanFragment.TAG);
 	}
-
 	private void onMailboxPairingStateChanged(MailboxPairingState s) {
 		progressBar.setVisibility(INVISIBLE);
 		FragmentManager fm = getSupportFragmentManager();
 		if (fm.getBackStackEntryCount() == 0) {
-			// We re-launched into an existing state,
-			// need to re-populate the back stack.
 			onNotSetup();
 			onShowDownload();
 		}
@@ -223,19 +188,16 @@ public class MailboxActivity extends BriarActivity {
 		}
 		showFragment(fm, f, tag);
 	}
-
 	private void onOffline() {
 		showFragment(getSupportFragmentManager(), new OfflineFragment(),
 				OfflineFragment.TAG);
 	}
-
 	private void onCameraError() {
 		Fragment f = ErrorFragment.newInstance(
 				R.string.mailbox_setup_camera_error_title,
 				R.string.mailbox_setup_camera_error_description);
 		showFragment(getSupportFragmentManager(), f, ErrorFragment.TAG);
 	}
-
 	private void onIsPaired(boolean isOnline) {
 		progressBar.setVisibility(INVISIBLE);
 		Fragment f = isOnline ?
@@ -244,7 +206,6 @@ public class MailboxActivity extends BriarActivity {
 				MailboxStatusFragment.TAG : OfflineStatusFragment.TAG;
 		showFragment(getSupportFragmentManager(), f, tag, false);
 	}
-
 	private void onUnPaired(boolean tellUserToWipeMailbox) {
 		viewModel.clearProblemNotification();
 		if (tellUserToWipeMailbox) {
@@ -265,5 +226,4 @@ public class MailboxActivity extends BriarActivity {
 			supportFinishAfterTransition();
 		}
 	}
-
 }

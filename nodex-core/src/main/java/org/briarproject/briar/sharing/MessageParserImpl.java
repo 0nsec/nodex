@@ -1,5 +1,4 @@
 package org.briarproject.briar.sharing;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.data.BdfDictionary;
@@ -12,9 +11,7 @@ import org.briarproject.bramble.api.sync.Message;
 import org.briarproject.bramble.api.sync.MessageId;
 import org.briarproject.briar.api.sharing.Shareable;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.annotation.concurrent.Immutable;
-
 import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 import static org.briarproject.briar.sharing.MessageType.INVITE;
 import static org.briarproject.briar.sharing.SharingConstants.MSG_KEY_AUTO_DELETE_TIMER;
@@ -27,23 +24,18 @@ import static org.briarproject.briar.sharing.SharingConstants.MSG_KEY_READ;
 import static org.briarproject.briar.sharing.SharingConstants.MSG_KEY_SHAREABLE_ID;
 import static org.briarproject.briar.sharing.SharingConstants.MSG_KEY_TIMESTAMP;
 import static org.briarproject.briar.sharing.SharingConstants.MSG_KEY_VISIBLE_IN_UI;
-
 @Immutable
 @NotNullByDefault
 abstract class MessageParserImpl<S extends Shareable>
 		implements MessageParser<S> {
-
 	protected final ClientHelper clientHelper;
-
 	MessageParserImpl(ClientHelper clientHelper) {
 		this.clientHelper = clientHelper;
 	}
-
 	@Override
 	public BdfDictionary getMessagesVisibleInUiQuery() {
 		return BdfDictionary.of(new BdfEntry(MSG_KEY_VISIBLE_IN_UI, true));
 	}
-
 	@Override
 	public BdfDictionary getInvitesAvailableToAnswerQuery() {
 		return BdfDictionary.of(
@@ -51,7 +43,6 @@ abstract class MessageParserImpl<S extends Shareable>
 				new BdfEntry(MSG_KEY_MESSAGE_TYPE, INVITE.getValue())
 		);
 	}
-
 	@Override
 	public BdfDictionary getInvitesAvailableToAnswerQuery(GroupId shareableId) {
 		return BdfDictionary.of(
@@ -60,7 +51,6 @@ abstract class MessageParserImpl<S extends Shareable>
 				new BdfEntry(MSG_KEY_SHAREABLE_ID, shareableId)
 		);
 	}
-
 	@Override
 	public MessageMetadata parseMetadata(BdfDictionary meta)
 			throws FormatException {
@@ -79,7 +69,6 @@ abstract class MessageParserImpl<S extends Shareable>
 		return new MessageMetadata(type, shareableId, timestamp, local, read,
 				visible, available, accepted, timer, isAutoDecline);
 	}
-
 	@Override
 	public InviteMessage<S> getInviteMessage(Transaction txn, MessageId m)
 			throws DbException, FormatException {
@@ -87,7 +76,6 @@ abstract class MessageParserImpl<S extends Shareable>
 		BdfList body = clientHelper.toList(message);
 		return parseInviteMessage(message, body);
 	}
-
 	@Override
 	public InviteMessage<S> parseInviteMessage(Message m, BdfList body)
 			throws FormatException {
@@ -101,7 +89,6 @@ abstract class MessageParserImpl<S extends Shareable>
 		return new InviteMessage<>(m.getId(), previousMessageId,
 				m.getGroupId(), shareable, text, m.getTimestamp(), timer);
 	}
-
 	@Override
 	public AcceptMessage parseAcceptMessage(Message m, BdfList body)
 			throws FormatException {
@@ -113,7 +100,6 @@ abstract class MessageParserImpl<S extends Shareable>
 		return new AcceptMessage(m.getId(), previousMessageId, m.getGroupId(),
 				shareableId, m.getTimestamp(), timer);
 	}
-
 	@Override
 	public DeclineMessage parseDeclineMessage(Message m, BdfList body)
 			throws FormatException {
@@ -125,7 +111,6 @@ abstract class MessageParserImpl<S extends Shareable>
 		return new DeclineMessage(m.getId(), m.getGroupId(), shareableId,
 				m.getTimestamp(), previousMessageId, timer);
 	}
-
 	@Override
 	public LeaveMessage parseLeaveMessage(Message m, BdfList body)
 			throws FormatException {
@@ -135,7 +120,6 @@ abstract class MessageParserImpl<S extends Shareable>
 		return new LeaveMessage(m.getId(), m.getGroupId(), shareableId,
 				m.getTimestamp(), previousMessageId);
 	}
-
 	@Override
 	public AbortMessage parseAbortMessage(Message m, BdfList body)
 			throws FormatException {
@@ -145,5 +129,4 @@ abstract class MessageParserImpl<S extends Shareable>
 		return new AbortMessage(m.getId(), m.getGroupId(), shareableId,
 				m.getTimestamp(), previousMessageId);
 	}
-
 }

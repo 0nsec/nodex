@@ -1,25 +1,19 @@
 package org.briarproject.briar.feed;
-
 import org.briarproject.bramble.api.FeatureFlags;
 import org.briarproject.bramble.api.event.EventBus;
 import org.briarproject.bramble.api.lifecycle.LifecycleManager;
 import org.briarproject.briar.api.blog.BlogManager;
 import org.briarproject.briar.api.feed.FeedManager;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
-
 @Module
 public class FeedModule {
-
 	public static class EagerSingletons {
 		@Inject
 		FeedManager feedManager;
 	}
-
 	@Provides
 	@Singleton
 	FeedManager provideFeedManager(FeedManagerImpl feedManager,
@@ -33,12 +27,10 @@ public class FeedModule {
 		blogManager.registerRemoveBlogHook(feedManager);
 		return feedManager;
 	}
-
 	@Provides
 	FeedFactory provideFeedFactory(FeedFactoryImpl feedFactory) {
 		return feedFactory;
 	}
-
 	@Provides
 	FeedMatcher provideFeedMatcher(FeedMatcherImpl feedMatcher) {
 		return feedMatcher;

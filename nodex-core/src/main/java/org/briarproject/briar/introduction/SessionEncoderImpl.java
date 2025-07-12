@@ -1,5 +1,4 @@
 package org.briarproject.briar.introduction;
-
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.data.BdfDictionary;
 import org.briarproject.bramble.api.data.BdfEntry;
@@ -11,14 +10,11 @@ import org.briarproject.briar.introduction.IntroduceeSession.Local;
 import org.briarproject.briar.introduction.IntroduceeSession.Remote;
 import org.briarproject.briar.introduction.IntroducerSession.Introducee;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.Map;
 import java.util.Map.Entry;
-
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 import static org.briarproject.bramble.api.data.BdfDictionary.NULL_VALUE;
 import static org.briarproject.briar.api.introduction.Role.INTRODUCEE;
 import static org.briarproject.briar.api.introduction.Role.INTRODUCER;
@@ -45,18 +41,14 @@ import static org.briarproject.briar.introduction.IntroductionConstants.SESSION_
 import static org.briarproject.briar.introduction.IntroductionConstants.SESSION_KEY_STATE;
 import static org.briarproject.briar.introduction.IntroductionConstants.SESSION_KEY_TRANSPORT_KEYS;
 import static org.briarproject.briar.introduction.IntroductionConstants.SESSION_KEY_TRANSPORT_PROPERTIES;
-
 @Immutable
 @NotNullByDefault
 class SessionEncoderImpl implements SessionEncoder {
-
 	private final ClientHelper clientHelper;
-
 	@Inject
 	SessionEncoderImpl(ClientHelper clientHelper) {
 		this.clientHelper = clientHelper;
 	}
-
 	@Override
 	public BdfDictionary getIntroduceeSessionsByIntroducerQuery(
 			Author introducer) {
@@ -66,14 +58,12 @@ class SessionEncoderImpl implements SessionEncoder {
 						clientHelper.toList(introducer))
 		);
 	}
-
 	@Override
 	public BdfDictionary getIntroducerSessionsQuery() {
 		return BdfDictionary.of(
 				new BdfEntry(SESSION_KEY_ROLE, INTRODUCER.getValue())
 		);
 	}
-
 	@Override
 	public BdfDictionary encodeIntroducerSession(IntroducerSession s) {
 		BdfDictionary d = encodeSession(s);
@@ -81,7 +71,6 @@ class SessionEncoderImpl implements SessionEncoder {
 		d.put(SESSION_KEY_INTRODUCEE_B, encodeIntroducee(s.getIntroduceeB()));
 		return d;
 	}
-
 	private BdfDictionary encodeIntroducee(Introducee i) {
 		BdfDictionary d = new BdfDictionary();
 		putNullable(d, SESSION_KEY_LAST_LOCAL_MESSAGE_ID, i.lastLocalMessageId);
@@ -92,7 +81,6 @@ class SessionEncoderImpl implements SessionEncoder {
 		d.put(SESSION_KEY_AUTHOR, clientHelper.toList(i.author));
 		return d;
 	}
-
 	@Override
 	public BdfDictionary encodeIntroduceeSession(IntroduceeSession s) {
 		BdfDictionary d = encodeSession(s);
@@ -104,7 +92,6 @@ class SessionEncoderImpl implements SessionEncoder {
 				encodeTransportKeys(s.getTransportKeys()));
 		return d;
 	}
-
 	private BdfDictionary encodeCommon(Common s) {
 		BdfDictionary d = new BdfDictionary();
 		d.put(SESSION_KEY_ALICE, s.alice);
@@ -116,7 +103,6 @@ class SessionEncoderImpl implements SessionEncoder {
 		putNullable(d, SESSION_KEY_MAC_KEY, s.macKey);
 		return d;
 	}
-
 	private BdfDictionary encodeLocal(Local s) {
 		BdfDictionary d = encodeCommon(s);
 		d.put(SESSION_KEY_LOCAL_TIMESTAMP, s.lastMessageTimestamp);
@@ -125,14 +111,12 @@ class SessionEncoderImpl implements SessionEncoder {
 				s.ephemeralPrivateKey);
 		return d;
 	}
-
 	private BdfDictionary encodeRemote(Remote s) {
 		BdfDictionary d = encodeCommon(s);
 		d.put(SESSION_KEY_REMOTE_AUTHOR, clientHelper.toList(s.author));
 		putNullable(d, SESSION_KEY_LAST_REMOTE_MESSAGE_ID, s.lastMessageId);
 		return d;
 	}
-
 	private BdfDictionary encodeSession(Session s) {
 		BdfDictionary d = new BdfDictionary();
 		d.put(SESSION_KEY_SESSION_ID, s.getSessionId());
@@ -141,7 +125,6 @@ class SessionEncoderImpl implements SessionEncoder {
 		d.put(SESSION_KEY_REQUEST_TIMESTAMP, s.getRequestTimestamp());
 		return d;
 	}
-
 	@Nullable
 	private BdfDictionary encodeTransportKeys(
 			@Nullable Map<TransportId, KeySetId> keys) {
@@ -152,9 +135,7 @@ class SessionEncoderImpl implements SessionEncoder {
 		}
 		return d;
 	}
-
 	private void putNullable(BdfDictionary d, String key, @Nullable Object o) {
 		d.put(key, o == null ? NULL_VALUE : o);
 	}
-
 }

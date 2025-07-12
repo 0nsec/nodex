@@ -1,23 +1,16 @@
 package org.briarproject.briar.android.conversation;
-
 import android.view.View;
 import android.widget.ImageView;
-
 import org.briarproject.briar.R;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import androidx.annotation.UiThread;
-
 @UiThread
 @NotNullByDefault
 class OutItemViewHolder {
-
 	private final ImageView status;
-
 	OutItemViewHolder(View v) {
 		status = v.findViewById(R.id.status);
 	}
-
 	void bind(ConversationItem item) {
 		int res;
 		if (item.isSeen()) {
@@ -29,5 +22,4 @@ class OutItemViewHolder {
 		}
 		status.setImageResource(res);
 	}
-
 }

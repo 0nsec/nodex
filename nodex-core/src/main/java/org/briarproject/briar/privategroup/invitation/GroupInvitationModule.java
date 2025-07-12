@@ -1,5 +1,4 @@
 package org.briarproject.briar.privategroup.invitation;
-
 import org.briarproject.bramble.api.FeatureFlags;
 import org.briarproject.bramble.api.cleanup.CleanupManager;
 import org.briarproject.bramble.api.client.ClientHelper;
@@ -14,27 +13,21 @@ import org.briarproject.briar.api.privategroup.PrivateGroupFactory;
 import org.briarproject.briar.api.privategroup.PrivateGroupManager;
 import org.briarproject.briar.api.privategroup.invitation.GroupInvitationFactory;
 import org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
-
 import static org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager.CLIENT_ID;
 import static org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager.MAJOR_VERSION;
 import static org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager.MINOR_VERSION;
-
 @Module
 public class GroupInvitationModule {
-
 	public static class EagerSingletons {
 		@Inject
 		GroupInvitationValidator groupInvitationValidator;
 		@Inject
 		GroupInvitationManager groupInvitationManager;
 	}
-
 	@Provides
 	@Singleton
 	GroupInvitationManager provideGroupInvitationManager(
@@ -56,8 +49,6 @@ public class GroupInvitationModule {
 		conversationManager.registerConversationClient(groupInvitationManager);
 		clientVersioningManager.registerClient(CLIENT_ID, MAJOR_VERSION,
 				MINOR_VERSION, groupInvitationManager);
-		// The group invitation manager handles client visibility changes for
-		// the private group manager
 		clientVersioningManager.registerClient(PrivateGroupManager.CLIENT_ID,
 				PrivateGroupManager.MAJOR_VERSION,
 				PrivateGroupManager.MINOR_VERSION,
@@ -66,7 +57,6 @@ public class GroupInvitationModule {
 				groupInvitationManager);
 		return groupInvitationManager;
 	}
-
 	@Provides
 	@Singleton
 	GroupInvitationValidator provideGroupInvitationValidator(
@@ -84,33 +74,27 @@ public class GroupInvitationModule {
 		}
 		return validator;
 	}
-
 	@Provides
 	GroupInvitationFactory provideGroupInvitationFactory(
 			GroupInvitationFactoryImpl groupInvitationFactory) {
 		return groupInvitationFactory;
 	}
-
 	@Provides
 	MessageParser provideMessageParser(MessageParserImpl messageParser) {
 		return messageParser;
 	}
-
 	@Provides
 	MessageEncoder provideMessageEncoder(MessageEncoderImpl messageEncoder) {
 		return messageEncoder;
 	}
-
 	@Provides
 	SessionParser provideSessionParser(SessionParserImpl sessionParser) {
 		return sessionParser;
 	}
-
 	@Provides
 	SessionEncoder provideSessionEncoder(SessionEncoderImpl sessionEncoder) {
 		return sessionEncoder;
 	}
-
 	@Provides
 	ProtocolEngineFactory provideProtocolEngineFactory(
 			ProtocolEngineFactoryImpl protocolEngineFactory) {

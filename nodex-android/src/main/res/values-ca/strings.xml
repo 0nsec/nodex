@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <!--Setup-->
+
   <string name="setup_title">Benvingut a Briar</string>
   <string name="setup_name_explanation">El vostre sobrenom etiquetarà tot el que publiqueu. Després de crear el compte ja no podreu canviar el sobrenom.</string>
   <string name="setup_next">Següent</string>
@@ -30,7 +30,7 @@
   <string name="dnkm_xiaomi_lock_apps_text">Toqueu el botó següent per obrir la configuració de seguretat. Toqueu «Augmenta la velocitat» i, a continuació, toqueu «Bloca aplicacions» i assegureu-vos que el Briar estigui configurat a \"Blocat\".</string>
   <string name="dnkm_xiaomi_lock_apps_help">Si el Briar no està configurat com a «Blocat» a la pantalla «Bloca aplicacions», no es podrà executar en segon pla.</string>
   <string name="dnkm_warning_dozed_1">El Briar no va poder executar-se en segon pla</string>
-  <!--Login-->
+
   <string name="enter_password">Contrasenya</string>
   <string name="try_again">La contrasenya és incorrecta, torneu a escriure-la</string>
   <string name="dialog_title_cannot_check_password">No es pot verificar la contrasenya</string>
@@ -58,19 +58,19 @@
   <string name="startup_open_database">S\'està desxifrant la base de dades...</string>
   <string name="startup_migrate_database">S\'està actualitzant la base de dades...</string>
   <string name="startup_compact_database">S\'està compactant la base de dades...</string>
-  <!--Navigation Drawer-->
+
   <string name="nav_drawer_open_description">Obre el calaix de navegació</string>
   <string name="nav_drawer_close_description">Tanca el calaix de navegació</string>
   <string name="contact_list_button">Contactes</string>
   <string name="groups_button">Grups privats</string>
   <string name="forums_button">Fòrums</string>
   <string name="blogs_button">Blogs</string>
-  <!--This is part of the main menu. The app will be locked when this is tapped.-->
+
   <string name="lock_button">Bloqueja l\'aplicació</string>
   <string name="settings_button">Configuració</string>
   <string name="sign_out_button">Tanca la sessió </string>
   <string name="transports_onboarding_text">Toqueu per decidir com es connecta Briar als vostres contactes.</string>
-  <!--Transports: Tor-->
+
   <string name="transport_tor">Internet</string>
   <string name="tor_device_status_online_wifi">El mòbil té accés a Internet via WiFi</string>
   <string name="tor_device_status_online_mobile">El mòbil té accés a Internet via dades</string>
@@ -82,7 +82,7 @@
   <string name="tor_plugin_status_disabled_mobile_data">Briar està configurat per a no emprar dades mòbils</string>
   <string name="tor_plugin_status_disabled_battery">Briar està configurat per a no usar Internet mentre funciona amb bateria</string>
   <string name="tor_plugin_status_disabled_country_blocked">Briar està configurat per a no emprar Internet en aquest país</string>
-  <!--Transports: Wi-Fi-->
+
   <string name="transport_lan">Wi-Fi</string>
   <string name="transport_lan_long">La mateixa xarxa WiFi</string>
   <string name="lan_device_status_on">El mòbil està connectat a WiFi</string>
@@ -91,7 +91,7 @@
   <string name="lan_plugin_status_active">Briar està connectat a la xarxa WiFi</string>
   <string name="lan_plugin_status_inactive">Briar no pot connectar-se a la xarxa WiFi</string>
   <string name="lan_plugin_status_disabled">Briar està configurat per a no emprar la xarxa WiFi</string>
-  <!--Transports: Bluetooth-->
+
   <string name="transport_bt">Bluetooth</string>
   <string name="bt_device_status_on">El Bluetooth del mòbil està apagat</string>
   <string name="bt_device_status_off">El Bluetooth del mòbil està engegat</string>
@@ -99,7 +99,7 @@
   <string name="bt_plugin_status_active">Briar està connectat a Bluetooth</string>
   <string name="bt_plugin_status_inactive">Briar no pot connectar-se a Bluetooth</string>
   <string name="bt_plugin_status_disabled">Briar està configurat per a no emprar Bluetooth</string>
-  <!--Notifications-->
+
   <string name="reminder_notification_title">Heu sortit de Briar</string>
   <string name="reminder_notification_text">Toqueu per a reiniciar la sessió.</string>
   <string name="reminder_notification_channel_title">Recordatori d\'inici de sessió de Briar</string>
@@ -122,7 +122,7 @@
     <item quantity="one">Una nova publicacions al bloc.</item>
     <item quantity="other">%d apunts nous al blog.</item>
   </plurals>
-  <!--Misc-->
+
   <string name="now">Ara</string>
   <string name="show">Mostra</string>
   <string name="hide">Oculta</string>
@@ -151,7 +151,7 @@
   <string name="status_heading">Estat</string>
   <string name="error">Error</string>
   <string name="info">Informació</string>
-  <!--Contacts and Private Conversations-->
+
   <string name="no_contacts">No hi ha cap contacte per mostrar</string>
   <string name="no_contacts_action">Toqueu la icona + per afegir un contacte</string>
   <string name="date_no_private_messages">Sense missatges.</string>
@@ -167,11 +167,11 @@
   <string name="set_contact_alias">Canvia el nom del contacte</string>
   <string name="set_contact_alias_hint">Nom del contacte</string>
   <string name="menu_item_disappearing_messages">Missatges efímers</string>
-  <!--The first placeholder will show a duration like "7 days". The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_enabled">Els vostres missatges es faran fonedissos en %1$s. %2$s</string>
-  <!--The placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_disabled">Els vostres missatges no desapariexeran. %1$s</string>
-  <!--The first placeholder will show a contact's name. The second placeholder will show a duration like "7 days". The third placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_enabled">Els missatges de %1$s desapareixeran d\'aquí %2$s. %3$s</string>
   <plurals name="duration_minutes">
     <item quantity="one">%d minut</item>
@@ -185,7 +185,7 @@
     <item quantity="one">%d dia</item>
     <item quantity="other">%d dies</item>
   </plurals>
-  <!--The first placeholder will show a contact's name. The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_disabled">Els missatges de %1$s no despareixeran. %2$s</string>
   <string name="tap_to_learn_more">Premeu per saber-ne més.</string>
   <string name="auto_delete_changed_warning_title">Els missatges fonedissos han canviat.</string>
@@ -206,7 +206,7 @@
   <string name="dialog_title_delete_contact">Confirmeu la supressió del contacte</string>
   <string name="dialog_message_delete_contact">Segur que voleu suprimir aquest contacte i tots els missatges que us heu intercanviat?</string>
   <string name="contact_deleted_toast">S\'ha suprimit el contacte</string>
-  <!--This is shown in the action bar when opening an image in fullscreen that the user sent-->
+
   <string name="you">Vós</string>
   <string name="save_image">Desa la imatge</string>
   <string name="dialog_title_save_image">Voleu desar la imatge?</string>
@@ -220,7 +220,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="dialog_message_image_support">Premeu aquesta icona per afegir imatges.</string>
   <string name="messaging_too_many_attachments_toast">Només s\'enviaran les %d primeres imatges</string>
   <string name="menu_contact">Contacte</string>
-  <!--Adding Contacts-->
+
   <string name="add_contact_title">Afegeix un contacte proper</string>
   <string name="add_contact_error_two_way">Tots dos heu escanejat el codi QR de l\'altre?</string>
   <string name="face_to_face">Heu de coincidir en el mateix lloc amb la persona que voleu afegir com a contacte.\n\nD\'aquesta manera evitareu que algú suplanti les vostres identitats o pugui llegir els vostres missatges en el futur.</string>
@@ -242,7 +242,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="connection_error_title">No ha pogut connectar-se al vostre contacte</string>
   <string name="connection_error_feedback">Si aquest problema persisteix, <a href="feedback">envieu-nos un comentari</a> per ajudar-nos a millorar l\'aplicació.</string>
   <string name="info_both_must_scan">Tots dos heu d\'escanejar el codi QR de l\'altre</string>
-  <!--Adding Contacts Remotely-->
+
   <string name="add_contact_remotely_title_case">Afegeix un contacte llunyà</string>
   <string name="add_contact_nearby_title">Afegeix un contacte proper</string>
   <string name="add_contact_remotely_title">Afegeix un contacte llunyà</string>
@@ -275,9 +275,9 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="unsupported_link">Aquest enllaç prové d\'una versió de Biar més nova que la vostra.\n\nActualitzeu la vostra aplicació i torneu a provar-ho.</string>
   <string name="intent_own_link">Heu accedit al vostre propi enllaç. Feu servir el del contacte que voleu afegir!</string>
   <string name="missing_link">Escriviu un enllaç</string>
-  <!--This is a numeral indicating the first step in a series of screens-->
+
   <string name="step_1">1</string>
-  <!--This is a numeral indicating the second step in a series of screens-->
+
   <string name="step_2">2</string>
   <plurals name="contact_added_notification_text">
     <item quantity="one">S\'ha afegit el nou contacte </item>
@@ -287,25 +287,21 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="duplicate_link_dialog_title">Enllaç duplicat</string>
   <string name="duplicate_link_dialog_text_1">Teniu una sol·licitud de contacte pendent amb l\'enllaç %s</string>
   <string name="duplicate_link_dialog_text_1_contact">Ja teniu un contacte amb aquest enllaç: %s</string>
-  <!--This is a question asking whether two nicknames refer to the same person-->
+
   <string name="duplicate_link_dialog_text_2">%1$s i %2$s són la mateixa persona?</string>
-  <!--This is a button for answering that two nicknames do indeed refer to the same person. This
-	string will be used in a dialog button, so if the translation of this string is longer than 20
-	characters, please use "Yes" instead, and use "No" for the "Different Person" button-->
+
   <string name="same_person_button">Mateixa persona</string>
-  <!--This is a button for answering that two nicknames refer to different people. This string
-	will be used in a dialog button, so if the translation of this string longer than 20 characters,
-	please use "No" instead, and use "Yes" for the "Same Person" button-->
+
   <string name="different_person_button">Persones diferents</string>
   <string name="duplicate_link_dialog_text_3">%1$s i %2$s us han enviat el mateix enllaç.\n\nÉs possible que un d\'ells estigui intentant descobrir qui són els teus contactes.\n\nNo els diguis que has rebut el mateix enllaç d\'una altra persona.</string>
   <string name="pending_contact_updated_toast">S\'ha actualitzat la sol·licitud de contacte pendent</string>
   <string name="info_both_must_enter_links">Tots dos heu d\'afegir l\'enllaç de l\'altre</string>
-  <!--Peer trust levels-->
+
   <string name="peer_trust_level_unverified">Contacte no verificat</string>
   <string name="peer_trust_level_verified">Contacte verificat</string>
   <string name="peer_trust_level_ourselves">Jo</string>
   <string name="peer_trust_level_stranger">Estrany</string>
-  <!--Introductions-->
+
   <string name="introduction_onboarding_title">Presenteu als vostres contactes</string>
   <string name="introduction_onboarding_text">Presenteu els vostres contactes entre ells perquè es puguin connectar al Briar.</string>
   <string name="introduction_menu_item">Presenta-li un altre contacte</string>
@@ -327,7 +323,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="introduction_response_accepted_received">%1$s ha acceptat conèixer a %2$s.</string>
   <string name="introduction_response_declined_received">%1$s ha refusat conèixer a %2$s.</string>
   <string name="introduction_response_declined_received_by_introducee">%1$s diu que %2$s ha refusat conèixer-lo.</string>
-  <!--Connect via Bluetooth-->
+
   <string name="menu_item_connect_via_bluetooth">Connecta via bluetooth</string>
   <string name="connect_via_bluetooth_title">Connecta via bluetooth</string>
   <string name="connect_via_bluetooth_intro">En cas que les connexions Bluetooth no funcionin automàticament, podeu utilitzar aquesta pantalla per connectar-vos manualment.\n\nEl vostre contacte ha d\'estar a prop perquè això funcioni.\n\nVós i el vostre contacte hauríeu de prémer «Inicia» alhora.</string>
@@ -338,7 +334,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="connect_via_bluetooth_success">S\'ha connectat via Bluetooth.</string>
   <string name="connect_via_bluetooth_error">No s\'ha pogut connectar mitjançant Bluetooth.</string>
   <string name="connect_via_bluetooth_error_not_supported">El Bluetooth no és compatible amb el dispositiu.</string>
-  <!--Private Groups-->
+
   <string name="groups_list_empty">No hi ha cap grup per mostrar</string>
   <string name="groups_list_empty_action">Toqueu la icona + per crear un grup o demaneu als vostres contactes que us afegeixin als seus grups</string>
   <string name="groups_created_by">Creat per %s</string>
@@ -369,7 +365,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="groups_dissolve_button">Dissol</string>
   <string name="groups_dissolved_dialog_title">S\'ha dissolt el grup</string>
   <string name="groups_dissolved_dialog_message">El creador del grup l\'ha dissolt.\n\nJa no hi podeu escriure més. És possible que no hàgeu rebut algun dels darrers missatges que s\'hi havien escrit.</string>
-  <!--Private Group Invitations-->
+
   <string name="groups_invitations_title">Convideu a formar part del grup</string>
   <string name="groups_invitations_invitation_sent">Heu convidat a %1$s a afegir-se al grup «%2$s».</string>
   <string name="groups_invitations_invitation_received">%1$s us ha convidat a afegir-vos al grup «%2$s».</string>
@@ -385,14 +381,14 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="groups_invitations_response_accepted_received">%s ha decidit afegir-se al grup.</string>
   <string name="groups_invitations_response_declined_received">%s ha refusat afegir-se al grup.</string>
   <string name="sharing_status_groups">Només el creador del grup pot convidar a nous membres. Tot seguit hi ha la llista dels membres del grup.</string>
-  <!--Private Groups Revealing Contacts-->
+
   <string name="groups_reveal_contacts">Revela els contactes</string>
   <string name="groups_reveal_dialog_message">Podeu triar si voleu que es mostrin els contactes a tots els membres actuals i futurs d\'aquest grup.\n\nLa revelació dels contactes fa que la vostra connexió al grup sigui més ràpida i més fiable, ja que podeu comunicar-vos amb els contactes revelats, fins i tot quan el creador del grup està fora de línia.</string>
   <string name="groups_reveal_visible">La relació de contactes és visible pel grup</string>
   <string name="groups_reveal_visible_revealed_by_us">La relació de contactes és visible pel grup (revelada per vós)</string>
   <string name="groups_reveal_visible_revealed_by_contact">La relació de contactes és visible pel grup (revelada per %s)</string>
   <string name="groups_reveal_invisible">La relació de contactes no és visible pel grup</string>
-  <!--Forums-->
+
   <string name="no_forums">No hi ha cap fòrum per mostrar</string>
   <string name="no_forums_action">Toqueu la icona + per crear un fòrum o demaneu als vostres contactes que us afegeixin als seus fòrums</string>
   <string name="create_forum_title">Creeu un fòrum</string>
@@ -413,7 +409,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="dialog_message_leave_forum">Segur que voleu abandonar aquest fòrum?\n\nEls contactes amb els que heu compartit aquest fòrum poden deixar de rebre les actualitzacions.</string>
   <string name="dialog_button_leave">Abandona</string>
   <string name="forum_left_toast">Heu abandonat el fòrum</string>
-  <!--Forum Sharing-->
+
   <string name="forum_share_button">Comparteix el fòrum</string>
   <string name="contacts_selected">Contactes seleccionats</string>
   <string name="activity_share_toolbar_header">Trieu els contactes</string>
@@ -447,7 +443,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
     <item quantity="other">%d fòrums compartits per contactes</item>
   </plurals>
   <string name="nobody">Ningú</string>
-  <!--Blogs-->
+
   <string name="blogs_other_blog_empty_state">No hi ha cap apunt per mostrar</string>
   <string name="read_more">llegeix-ne més</string>
   <string name="blogs_write_blog_post">Escriviu un apunt al blog</string>
@@ -464,7 +460,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="blogs_blog_removed">S\'ha suprimit el blog</string>
   <string name="blogs_reblog_comment_hint">Afegiu una nota (opcional)</string>
   <string name="blogs_reblog_button">Rebloga</string>
-  <!--Blog Sharing-->
+
   <string name="blogs_sharing_share">Compartiu el blog</string>
   <string name="blogs_sharing_error">S\'ha produït un error en compartir aquest blog.</string>
   <string name="blogs_sharing_button">Compartiu el blog</string>
@@ -480,7 +476,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="blogs_sharing_joined_toast">Us heu subscrit al blog</string>
   <string name="blogs_sharing_declined_toast">Heu refusat la invitació</string>
   <string name="sharing_status_blog">Qualsevol membre subscrit a un blog el pot compartir amb els seus contactes. Esteu compartint aquest blog amb els següents contactes. Poden haver-hi altres membres subscrits que no veieu.</string>
-  <!--RSS Feeds-->
+
   <string name="blogs_rss_feeds_import">Subscriure\'s al canal de notícies RSS</string>
   <string name="blogs_rss_feeds_import_button">Subscriu-me</string>
   <string name="blogs_rss_feeds_import_hint">Escriviu l\'URL del canal de notícies RSS</string>
@@ -496,12 +492,12 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="blogs_rss_remove_feed_ok">Suprimeix la subscripció</string>
   <string name="blogs_rss_feeds_manage_empty_state">No hi ha cap notícia per mostrar\n\nFeu un toc sobre la icona + per subscriure-us a un canal de notícies</string>
   <string name="blogs_rss_feeds_manage_error">S\'ha produït un problema en actualitzar els vostres canals de notícies. Torneu-ho a provar més endavant.</string>
-  <!--Settings Profile Picture-->
+
   <string name="change_profile_picture">Feu un toc per modificar la foto del vostre perfil</string>
   <string name="dialog_confirm_profile_picture_title">Modifica la foto de perfil</string>
   <string name="dialog_confirm_profile_picture_remark">Només veuran la foto els vostres contactes</string>
   <string name="change_profile_picture_failed_message">Alguna cosa ha fallat a l\'actualitzar la vostra foto de perfil</string>
-  <!--Settings Display-->
+
   <string name="pref_language_title">Llengua i regió</string>
   <string name="pref_language_changed">L\'efecte d\'aquest canvi només l\'apreciareu després de reiniciar Briar. Si us plau, tanqueu la sessió i reinicieu Briar.</string>
   <string name="pref_language_default">Valor per defecte del sistema</string>
@@ -510,7 +506,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="pref_theme_light">Clar</string>
   <string name="pref_theme_dark">Fosc</string>
   <string name="pref_theme_system">Valor per defecte del sistema</string>
-  <!--Settings Connections-->
+
   <string name="network_settings_title">Connexions</string>
   <string name="bluetooth_setting">Connectat als contactes via Bluetooth</string>
   <string name="wifi_setting">Connectat als contactes en la mateixa xarxa WiFi</string>
@@ -521,28 +517,28 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="tor_network_setting_without_bridges">Usa la xarxa Tor sense ponts</string>
   <string name="tor_network_setting_with_bridges">Usa la xarxa Tor amb ponts</string>
   <string name="tor_network_setting_never">No connectis a Internet</string>
-  <!--How and when Briar will connect to Tor: E.g. "Don't connect to the Internet (in China)" or "Use Tor network with bridges (in Belarus)"-->
+
   <string name="tor_network_setting_summary">Automàtic: %1$s (a %2$s)</string>
   <string name="tor_mobile_data_title">Usa dades mòbils</string>
   <string name="tor_only_when_charging_title">Només connecta\'t a Internet mentre s\'està carregant </string>
   <string name="tor_only_when_charging_summary">Desactiva la connexió a Internet quan el dispositiu estigui funcionant amb la bateria</string>
-  <!--Settings Security and Panic-->
+
   <string name="security_settings_title">Seguretat</string>
   <string name="pref_lock_title">Bloqueig de l\'aplicació</string>
   <string name="pref_lock_summary">Usa el bloqueig de pantalla del dispositiu per protegir Briar mentre inicieu la sessió</string>
   <string name="pref_lock_disabled_summary">Per utilitzar aquesta funció, configureu el bloqueig de pantalla en el vostre dispositiu</string>
   <string name="pref_lock_timeout_title">Temps d\'inactivitat abans de bloquejar-se</string>
-  <!--The %s placeholder is replaced with the following time spans, e.g. 5 Minutes, 1 Hour-->
+
   <string name="pref_lock_timeout_summary">Briar es bloquejarà automàticament després de %s de no usar-se.</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_1">1 minut</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_5">5 minuts</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_15">15 minuts</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_30">30 minuts</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_60">1 hora</string>
   <string name="pref_lock_timeout_never">Mai</string>
   <string name="pref_lock_timeout_never_summary">No bloquegis mai Briar automàticament</string>
@@ -565,7 +561,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="panic_setting_signout_summary">Tanca la sessió de Briar si es prem un botó de pànic</string>
   <string name="purge_setting_title">Esborreu el compte</string>
   <string name="purge_setting_summary">Suprimeix el compte de Briar si es prem el botó de pànic. Atenció: En aquest cas, s\'eliminarien permanentment les vostres identitats, contactes i missatges</string>
-  <!--Settings Notifications-->
+
   <string name="notification_settings_title">Notificacions</string>
   <string name="notify_sign_in_title">Recorda\'m que iniciï la sessió</string>
   <string name="notify_sign_in_summary">Mostra\'m un recordatori quan s\'inicii el telèfon o s\'actualitzi l\'aplicació</string>
@@ -587,7 +583,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="notify_sound_setting_disabled">Cap</string>
   <string name="choose_ringtone_title">Trieu el so d\'avís</string>
   <string name="cannot_load_ringtone">No s\'ha pogut carregar el so d\'avís</string>
-  <!--Mailbox-->
+
   <string name="mailbox_settings_title">Bústia</string>
   <string name="mailbox_setup_title">Configuració de la bústia</string>
   <string name="mailbox_setup_intro">Una bústia permet als vostres contactes enviar-vos missatges mentre esteu fora de línia. La bústia rebrà els vostres missatges i els emmagatzemarà fins que us connecteu.\n
@@ -598,7 +594,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="mailbox_setup_button_scan">Escaneja el codi QR de la bústia</string>
   <string name="permission_camera_qr_denied_body">Heu denegat l\'accés a la càmera, però per escanejar un codi QR cal utilitzar-la.\n\nConsidereu concedir l\'accés.</string>
   <string name="mailbox_setup_connecting">S\'està connectant a la bústia...</string>
-  <!--This string is shown when connecting to a Mailbox for the first time. The placeholder will be replaced with a duration, e.g. "2 minutes".-->
+
   <string name="mailbox_setup_connecting_info">Això pot trigar fins a %1s</string>
   <string name="mailbox_qr_code_too_old">El codi QR que heu escanejat prové d\'una versió anterior del Briar Mailbox.\n\nActualitzeu el Briar Mailbox a la darrera versió i torneu-ho a provar.</string>
   <string name="mailbox_qr_code_too_new">El codi QR que heu escanejat prové d\'una versió més recent de Briar Mailbox.\n\nActualitzeu el Briar a la darrera versió i torneu-ho a provar.</string>
@@ -627,9 +623,9 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="mailbox_status_mailbox_too_old_title">La bústia és massa antiga</string>
   <string name="mailbox_status_mailbox_too_old_message">Actualitza la vostra bústia a la darrera versió i torneu-ho a provar.</string>
   <string name="mailbox_status_check_button">Comprova la connexió</string>
-  <!--Example for string substitution: Last connection: 3min ago-->
+
   <string name="mailbox_status_connected_info">Última connexió: %s</string>
-  <!--Indicates that there never was a connection to the mailbox. Last connection: Never-->
+
   <string name="mailbox_status_connected_never">Mai</string>
   <string name="mailbox_status_unlink_button">Desenllaça</string>
   <string name="mailbox_status_unlink_dialog_title">Voleu desenllaçar la bústia?</string>
@@ -662,7 +658,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="mailbox_error_wizard_info1_1_4">Comproveu que el dispositiu Mailbox estigui connectat correctament a Internet.\n\nComproveu que l\'hora, data i zona horària del dispositiu Mailbox siguin correctes.\n\nComproveu que les aplicacions Mailbox i Briar estiguin actualitzades a la darrera versió.\ n\nReinicieu els vostres dispositius Mailbox i Briar i torneu-ho a provar.</string>
   <string name="mailbox_error_wizard_info2">Torneu a aquesta pantalla quan tingueu accés al dispositiu.</string>
   <string name="mailbox_error_wizard_info3">Desenllaceu la vostra bústia amb el botó següent.\n\nDesprés de desenllaçar la vostra bústia antiga, podeu configurar una bústia nova en qualsevol moment.</string>
-  <!--About-->
+
   <string name="about_title">Quant a</string>
   <string name="briar_version">Versió del Briar: %s</string>
   <string name="tor_version">Versió del Tor: %s</string>
@@ -671,9 +667,9 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="briar_source_code">\u2022 <a href="">Codi font</a></string>
   <string name="briar_changelog">\u2022 <a href="">Registre de canvis</a></string>
   <string name="briar_privacy_policy">\u2022 <a href="">Política de privadesa</a></string>
-  <!--Here translators can add their names or Transifex usernames(eg "Thanks to all the contributors at the Localization Lab, especially Tom, Matthew and Jerry")-->
+
   <string name="translator_thanks">Gràcies a tots els col·laboradors del Localization Lab, especialment a Jaime Muñoz</string>
-  <!--Conversation Settings-->
+
   <string name="disappearing_messages_title">Missatges efímers</string>
   <string name="disappearing_messages_explanation_long">Si activeu aquesta configuració, es crearà un/a nou/va
 		els missatges d\'aquesta conversa desapareixen automàticament al cap de 7\u00A0dies.
@@ -686,15 +682,15 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
 		El vostre contacte també pot canviar aquesta configuració per a tots dos.</string>
   <string name="learn_more">Més informació</string>
   <string name="disappearing_messages_summary">Feu que els missatges futurs d\'aquesta conversa desapareguin automàticament al cap de 7\u00A0dies.</string>
-  <!--Settings Actions-->
+
   <string name="pref_category_actions">Accions</string>
   <string name="send_feedback">Envieu comentaris</string>
-  <!--Link Warning-->
+
   <string name="link_warning_title">Avís d\'enllaç</string>
   <string name="link_warning_intro">L\'enllaç s\'obrirà amb una aplicació externa.</string>
   <string name="link_warning_text">Això podria usar-se per a identificar-vos. Penseu si us en refieu prou de la persona que us ha enviat l\'enllaç. Avalueu si us convindria obrir-lo amb un navegador que faciliti l\'anonimat com Tor Browser.</string>
   <string name="link_warning_open_link">Obre l\'enllaç</string>
-  <!--Crash Reporter-->
+
   <string name="crash_report_title">Informe de fallida de Briar</string>
   <string name="briar_crashed">El Briar ha fallat</string>
   <string name="not_your_fault">Això no és culpa vostra.</string>
@@ -725,15 +721,15 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="dev_report_sent">Comentaris enviats</string>
   <string name="dev_report_saved">S\'ha desat l\'informe. Se us enviarà la propera vegada que inicieu sessió a Briar.</string>
   <string name="dev_report_error">Error: no s\'ha pogut enviar l\'informe</string>
-  <!--Sign Out-->
+
   <string name="progress_title_logout">S\'està tancant la sessió de Briar...</string>
-  <!--Screen Filters & Tapjacking-->
+
   <string name="screen_filter_title">S\'ha detectat superposició de la pantalla</string>
   <string name="screen_filter_body">Una altra aplicació es troba damunt de Briar. Per protegir la vostra seguretat, Briar no respondrà a les pulsacions quan una altra aplicació s\'hi hagi sobreposat.\n\nLes següents aplicacions poden estar sobreposades a Briar:\n\n%1$s</string>
   <string name="screen_filter_body_api_30">Una altra aplicació està dibuixant a sobre del Briar. Per protegir la vostra seguretat, el Briar no respondrà als tocs quan hi hagi una altra aplicació dibuixant a sobre.\n\nReviseu les aplicacions a continuació per trobar l\'aplicació responsable.</string>
   <string name="screen_filter_allow">Permet que aquestes aplicacions se sobreposin a Briar</string>
   <string name="screen_filter_review_apps">Revisa les aplicacions</string>
-  <!--Permission Requests-->
+
   <string name="permission_camera_title">Permís de la càmera</string>
   <string name="permission_camera_request_body">Per escanejar el codi QR, Briar necessita accedir a la càmera.</string>
   <string name="permission_location_title">Permís d\'accés a la posició</string>
@@ -754,16 +750,16 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="permission_bluetooth_denied_body">Heu denegat l\'accés als dispositius propers, però el Briar necessita aquest permís per utilitzar Bluetooth.\n\nPenseu en concedir l\'accés.</string>
   <string name="qr_code">Codi QR</string>
   <string name="show_qr_code_fullscreen">Mostra el codi QR a pantalla completa</string>
-  <!--App Locking-->
+
   <string name="lock_unlock">Desbloqueja Briar</string>
   <string name="lock_unlock_verbose">Introduïu el PIN, el patró o la contrasenya del vostre dispositiu per desbloquejar Briar</string>
   <string name="lock_unlock_fingerprint_description">Toqueu el sensor d\'empremtes amb el dit enregistrat per continuar</string>
   <string name="lock_unlock_password">Usa la contrasenya</string>
   <string name="lock_is_locked">Briar està bloquejat</string>
   <string name="lock_tap_to_unlock">Toqueu per desbloquejar-lo</string>
-  <!--Connections Screen-->
+
   <string name="transports_help_text">Briar pot contactar els vostres contactes via Internet, WiFi o Bluetooth.\n\nTotes les connexions d\'Internet van via la xarxa Tor per privacitat.\n\nSi es pot arribar a un contacte per diversos mètodes, Briar els usa tots simultàniament.</string>
-  <!--Share app offline-->
+
   <string name="hotspot_title">Comparteix aquesta aplicació fora de línia</string>
   <string name="hotspot_intro">Compartiu aquesta aplicació amb algú proper sense connexió a Internet mitjançant la Wi-Fi del telèfon.
 		\n\nEl vostre telèfon iniciarà un punt d\'accés Wi-Fi. Les persones properes poden connectar-se al punt d\'accés i baixar l\'aplicació Briar des del telèfon.</string>
@@ -780,10 +776,10 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="wifi_settings_title">Configuració Wi-Fi</string>
   <string name="wifi_settings_request_enable_body">Per crear un punt d\'accés Wi-Fi, el Briar ha d\'utilitzar Wi-Fi.  Activeu-lo.</string>
   <string name="hotspot_tab_manual">Manual</string>
-  <!--The placeholder to be inserted into the string 'hotspot_manual_wifi': People can connect by %s-->
+
   <string name="hotspot_scanning_a_qr_code">escanejant un codi QR</string>
-  <!--Wi-Fi setup-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_wifi">El vostre telèfon proporciona un punt d\'accés Wi-Fi. Les persones que vulguin baixar el Briar es poden connectar al punt d\'accés afegint-lo a la configuració Wi-Fi del seu dispositiu mitjançant els detalls següents o mitjançant %s. Quan s\'hagin connectat al punt d\'accés, premeu «Següent».</string>
   <string name="hotspot_manual_wifi_ssid">Nom de la xarxa</string>
   <string name="hotspot_qr_wifi">El vostre telèfon proporciona un punt d\'accés Wi-Fi. Les persones que vulguin baixar el Briar poden connectar-se al punt d\'accés escanejant aquest codi QR. Quan s\'hagin connectat al punt d\'accés, premeu «Següent».</string>
@@ -792,12 +788,12 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
     <item quantity="one">%s dispositiu connectat</item>
     <item quantity="other">%s dispositius connectats</item>
   </plurals>
-  <!--Download link-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_site">El vostre telèfon proporciona un punt d\'accés Wi-Fi. Les persones connectades al punt d\'accés poden baixar el Briar escrivint l\'enllaç següent en un navegador web o %s.</string>
   <string name="hotspot_manual_site_address">Adreça (URL)</string>
   <string name="hotspot_qr_site">El vostre telèfon proporciona una punt d\'accés Wi-Fi. Les persones connectades al punt d\'accés poden baixar el Briar escanejant aquest codi QR.</string>
-  <!--e.g. Download Briar 1.2.20-->
+
   <string name="website_download_title_1">Baixa el Briar %s</string>
   <string name="website_download_intro_1">Algú a prop ha compartit el Briar amb vós.</string>
   <string name="website_download_button">Baixa el Briar</string>
@@ -819,7 +815,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="hotspot_help_fallback_intro">Podeu provar de desar l\'aplicació com a fitxer .apk per compartir-la d\'una altra manera. Un cop el fitxer s\'ha transferit a l\'altre dispositiu, es pot utilitzar per instal·lar el Briar.
 		\n\nConsell: per compartir mitjançant Bluetooth, és possible que hàgiu de canviar el nom del fitxer perquè acabi amb .zip.</string>
   <string name="hotspot_help_fallback_button">Desa l\'aplicació</string>
-  <!--error handling-->
+
   <string name="hotspot_error_intro">S\'ha produït un error en intentar compartir l\'aplicació mitjançant Wi-Fi:</string>
   <string name="hotspot_error_no_wifi_direct">El dispositiu no és compatible amb Wi-Fi Direct</string>
   <string name="hotspot_error_start_callback_failed">El punt d\'accés no s\'ha pogut iniciar: error %s</string>
@@ -829,7 +825,7 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="hotspot_error_web_server_serve">S\'ha produït un error en presentar el lloc web.\n\nSi el problema persisteix, envieu comentaris (amb dades anònimes) mitjançant l\'aplicació Briar.</string>
   <string name="hotspot_flag_test">Avís: aquesta aplicació s\'ha instal·lat amb l\'Android Studio i NO es pot instal·lar en un altre dispositiu.</string>
   <string name="hotspot_error_framework_busy">No es pot iniciar el punt d\'accés.\n\nSi teniu un altre punt d\'accés en execució o compartiu la vostra connexió a Internet mitjançant Wi-Fi, proveu d\'aturar-lo i torneu-ho a provar més tard.</string>
-  <!--Transfer Data via Removable Drives-->
+
   <string name="removable_drive_menu_title">Connecta mitjançant una unitat extraïble</string>
   <string name="removable_drive_intro">Si no us podeu connectar al vostre contacte a través d\'Internet, Wi-Fi o Bluetooth, el Briar també pot transferir missatges en una unitat extraïble, com ara un llapis USB o una targeta SD.</string>
   <string name="removable_drive_explanation">Si no podeu connectar-vos al vostre contacte a través d\'Internet, Wi-Fi o Bluetooth, el Briar també pot transferir missatges en una unitat extraïble, com ara un llapis USB o una targeta SD.\n\nQuan feu servir el botó «Envia dades», qualsevol dada que estigui esperant per ser enviada al contacte s\'escriurà a la unitat extraïble. Això inclou missatges privats, fitxers adjunts, blogs, fòrums i grups privats.\n\nTot es xifrarà abans que s\'escrigui a la unitat extraïble.\n\nQuan el vostre contacte rebi la unitat extraïble, pot utilitzar el botó «Rebre dades» per importar els missatges al Briar.</string>
@@ -850,17 +846,17 @@ Així que l\'actualitzi li veureu una icona diferent .</string>
   <string name="removable_drive_error_send_text">S\'ha produït un error escrivint dades al fitxer.\n\nSi utilitzeu una unitat extraïble, assegureu-vos que estigui inserida correctament i torneu-ho a provar.\n\nSi l\'error persisteix, envieu comentaris per informar l\'equip del Briar sobre el assumpte.</string>
   <string name="removable_drive_error_receive_title">S\'ha produït un error en importar les dades</string>
   <string name="removable_drive_error_receive_text">El fitxer seleccionat no contenia res que el Briar pogués reconèixer.\n\nComproveu que heu triat el fitxer correcte.\n\nSi el vostre contacte va crear el fitxer fa més de 28 dies, el Briar no el podrà reconèixer.</string>
-  <!--Screenshots-->
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
+
   <string name="screenshot_alice">Alba</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_bob">Pere</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_carol">Queralt</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Bob!-->
+
   <string name="screenshot_message_1">Hola Pere!</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Alice!-->
+
   <string name="screenshot_message_2">Hola Alba! Gràcies per recomanar-me Briar!</string>
-  <!--This is a message to be used in screenshots.-->
+
   <string name="screenshot_message_3">De res, espero que t\'agradi 😀</string>
 </resources>

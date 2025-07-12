@@ -1,5 +1,4 @@
 package org.briarproject.briar.test;
-
 import org.briarproject.bramble.BrambleCoreIntegrationTestEagerSingletons;
 import org.briarproject.bramble.BrambleCoreModule;
 import org.briarproject.bramble.api.contact.ContactManager;
@@ -44,11 +43,8 @@ import org.briarproject.briar.messaging.MessagingModule;
 import org.briarproject.briar.privategroup.PrivateGroupModule;
 import org.briarproject.briar.privategroup.invitation.GroupInvitationModule;
 import org.briarproject.briar.sharing.SharingModule;
-
 import javax.inject.Singleton;
-
 import dagger.Component;
-
 @Singleton
 @Component(modules = {
 		BrambleCoreIntegrationTestModule.class,
@@ -73,79 +69,42 @@ import dagger.Component;
 })
 public interface BriarIntegrationTestComponent
 		extends BrambleIntegrationTestComponent {
-
 	void inject(BriarIntegrationTest<BriarIntegrationTestComponent> init);
-
 	void inject(AutoDeleteModule.EagerSingletons init);
-
 	void inject(AvatarModule.EagerSingletons init);
-
 	void inject(BlogModule.EagerSingletons init);
-
 	void inject(ConversationModule.EagerSingletons init);
-
 	void inject(ForumModule.EagerSingletons init);
-
 	void inject(GroupInvitationModule.EagerSingletons init);
-
 	void inject(IdentityModule.EagerSingletons init);
-
 	void inject(IntroductionModule.EagerSingletons init);
-
 	void inject(MessagingModule.EagerSingletons init);
-
 	void inject(PrivateGroupModule.EagerSingletons init);
-
 	void inject(SharingModule.EagerSingletons init);
-
 	LifecycleManager getLifecycleManager();
-
 	AttachmentReader getAttachmentReader();
-
 	AvatarManager getAvatarManager();
-
 	ContactManager getContactManager();
-
 	ConversationManager getConversationManager();
-
 	DatabaseComponent getDatabaseComponent();
-
 	BlogManager getBlogManager();
-
 	BlogSharingManager getBlogSharingManager();
-
 	ForumSharingManager getForumSharingManager();
-
 	ForumManager getForumManager();
-
 	GroupInvitationManager getGroupInvitationManager();
-
 	GroupInvitationFactory getGroupInvitationFactory();
-
 	IntroductionManager getIntroductionManager();
-
 	MessageTracker getMessageTracker();
-
 	MessagingManager getMessagingManager();
-
 	PrivateGroupManager getPrivateGroupManager();
-
 	PrivateMessageFactory getPrivateMessageFactory();
-
 	TransportPropertyManager getTransportPropertyManager();
-
 	AuthorFactory getAuthorFactory();
-
 	BlogFactory getBlogFactory();
-
 	AutoDeleteManager getAutoDeleteManager();
-
 	Clock getClock();
-
 	TimeTravel getTimeTravel();
-
 	class Helper {
-
 		public static void injectEagerSingletons(
 				BriarIntegrationTestComponent c) {
 			BrambleCoreIntegrationTestEagerSingletons.Helper

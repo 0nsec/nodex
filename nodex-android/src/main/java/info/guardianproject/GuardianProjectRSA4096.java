@@ -1,20 +1,6 @@
 package info.guardianproject;
-
 import info.guardianproject.trustedintents.ApkSignaturePin;
-
-/**
- * This is the second Guardian Project APK signing key. It was generated since
- * RSA 1024-bit keys are deprecated. So any new Guardian Project app will be
- * signed by this key. It is used to sign these apps:
- * <ul>
- * <li>Checkey</li>
- * <li>Courier</li>
- * </ul>
- *
- * @author hans
- */
 public final class GuardianProjectRSA4096 extends ApkSignaturePin {
-
    public GuardianProjectRSA4096() {
       fingerprints = new String[] {
               "f006a20481c71a690de02e385ab0c9fa4ac1245240f68102682703ba0656867a",

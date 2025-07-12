@@ -1,5 +1,4 @@
 package org.briarproject.briar.privategroup;
-
 import org.briarproject.bramble.api.FeatureFlags;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.data.MetadataEncoder;
@@ -9,26 +8,20 @@ import org.briarproject.briar.api.privategroup.GroupMessageFactory;
 import org.briarproject.briar.api.privategroup.PrivateGroupFactory;
 import org.briarproject.briar.api.privategroup.PrivateGroupManager;
 import org.briarproject.briar.api.privategroup.invitation.GroupInvitationFactory;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
-
 import static org.briarproject.briar.api.privategroup.PrivateGroupManager.CLIENT_ID;
 import static org.briarproject.briar.api.privategroup.PrivateGroupManager.MAJOR_VERSION;
-
 @Module
 public class PrivateGroupModule {
-
 	public static class EagerSingletons {
 		@Inject
 		GroupMessageValidator groupMessageValidator;
 		@Inject
 		PrivateGroupManager groupManager;
 	}
-
 	@Provides
 	@Singleton
 	PrivateGroupManager provideGroupManager(
@@ -42,19 +35,16 @@ public class PrivateGroupModule {
 				groupManager);
 		return groupManager;
 	}
-
 	@Provides
 	PrivateGroupFactory providePrivateGroupFactory(
 			PrivateGroupFactoryImpl privateGroupFactory) {
 		return privateGroupFactory;
 	}
-
 	@Provides
 	GroupMessageFactory provideGroupMessageFactory(
 			GroupMessageFactoryImpl groupMessageFactory) {
 		return groupMessageFactory;
 	}
-
 	@Provides
 	@Singleton
 	GroupMessageValidator provideGroupMessageValidator(
@@ -71,5 +61,4 @@ public class PrivateGroupModule {
 		}
 		return validator;
 	}
-
 }

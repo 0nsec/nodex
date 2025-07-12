@@ -1,7 +1,5 @@
 package org.briarproject.briar.android.contact;
-
 import android.app.Application;
-
 import org.briarproject.bramble.api.connection.ConnectionRegistry;
 import org.briarproject.bramble.api.contact.Contact;
 import org.briarproject.bramble.api.contact.ContactId;
@@ -29,39 +27,30 @@ import org.briarproject.briar.api.conversation.event.ConversationMessageTrackedE
 import org.briarproject.briar.api.identity.AuthorInfo;
 import org.briarproject.briar.api.identity.AuthorManager;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import androidx.annotation.UiThread;
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.util.LogUtils.logDuration;
 import static org.briarproject.bramble.util.LogUtils.now;
-
 @NotNullByDefault
 public class ContactsViewModel extends DbViewModel implements EventListener {
-
 	private static final Logger LOG =
 			getLogger(ContactsViewModel.class.getName());
-
 	protected final ContactManager contactManager;
 	private final AuthorManager authorManager;
 	private final ConversationManager conversationManager;
 	private final ConnectionRegistry connectionRegistry;
 	private final EventBus eventBus;
-
 	private final MutableLiveData<LiveResult<List<ContactListItem>>>
 			contactListItems = new MutableLiveData<>();
-
 	@Inject
 	public ContactsViewModel(Application application,
 			@DatabaseExecutor Executor dbExecutor,
@@ -78,17 +67,14 @@ public class ContactsViewModel extends DbViewModel implements EventListener {
 		this.eventBus = eventBus;
 		this.eventBus.addListener(this);
 	}
-
 	@Override
 	protected void onCleared() {
 		super.onCleared();
 		eventBus.removeListener(this);
 	}
-
 	protected void loadContacts() {
 		loadFromDb(this::loadContacts, contactListItems::setValue);
 	}
-
 	private List<ContactListItem> loadContacts(Transaction txn)
 			throws DbException {
 		long start = now();
@@ -108,14 +94,9 @@ public class ContactsViewModel extends DbViewModel implements EventListener {
 		logDuration(LOG, "Full load", start);
 		return contacts;
 	}
-
-	/**
-	 * Override this method to display only a subset of contacts.
-	 */
 	protected boolean displayContact(ContactId contactId) {
 		return true;
 	}
-
 	@Override
 	public void eventOccurred(Event e) {
 		if (e instanceof ContactAddedEvent) {
@@ -148,11 +129,9 @@ public class ContactsViewModel extends DbViewModel implements EventListener {
 					item -> new ContactListItem(item, c.getAlias()), false);
 		}
 	}
-
 	public LiveData<LiveResult<List<ContactListItem>>> getContactListItems() {
 		return contactListItems;
 	}
-
 	@UiThread
 	private void updateItem(ContactId c,
 			Function<ContactListItem, ContactListItem> replacer, boolean sort) {
@@ -163,11 +142,9 @@ public class ContactsViewModel extends DbViewModel implements EventListener {
 		if (sort) Collections.sort(list);
 		contactListItems.setValue(new LiveResult<>(list));
 	}
-
 	@UiThread
 	private void removeItem(ContactId c) {
 		removeAndUpdateListItems(contactListItems,
 				itemToTest -> itemToTest.getContact().getId().equals(c));
 	}
-
 }

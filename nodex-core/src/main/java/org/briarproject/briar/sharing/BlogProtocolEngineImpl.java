@@ -1,5 +1,4 @@
 package org.briarproject.briar.sharing;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.contact.ContactId;
@@ -21,18 +20,14 @@ import org.briarproject.briar.api.blog.event.BlogInvitationResponseReceivedEvent
 import org.briarproject.briar.api.conversation.ConversationManager;
 import org.briarproject.briar.api.conversation.ConversationRequest;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 @Immutable
 @NotNullByDefault
 class BlogProtocolEngineImpl extends ProtocolEngineImpl<Blog> {
-
 	private final BlogManager blogManager;
 	private final InvitationFactory<Blog, BlogInvitationResponse>
 			invitationFactory;
-
 	@Inject
 	BlogProtocolEngineImpl(
 			DatabaseComponent db,
@@ -53,7 +48,6 @@ class BlogProtocolEngineImpl extends ProtocolEngineImpl<Blog> {
 		this.blogManager = blogManager;
 		this.invitationFactory = invitationFactory;
 	}
-
 	@Override
 	Event getInvitationRequestReceivedEvent(InviteMessage<Blog> m,
 			ContactId contactId, boolean available, boolean canBeOpened) {
@@ -63,7 +57,6 @@ class BlogProtocolEngineImpl extends ProtocolEngineImpl<Blog> {
 						m.getAutoDeleteTimer());
 		return new BlogInvitationRequestReceivedEvent(request, contactId);
 	}
-
 	@Override
 	Event getInvitationResponseReceivedEvent(AcceptMessage m,
 			ContactId contactId) {
@@ -74,7 +67,6 @@ class BlogProtocolEngineImpl extends ProtocolEngineImpl<Blog> {
 						false);
 		return new BlogInvitationResponseReceivedEvent(response, contactId);
 	}
-
 	@Override
 	Event getInvitationResponseReceivedEvent(DeclineMessage m,
 			ContactId contactId) {
@@ -85,7 +77,6 @@ class BlogProtocolEngineImpl extends ProtocolEngineImpl<Blog> {
 						false);
 		return new BlogInvitationResponseReceivedEvent(response, contactId);
 	}
-
 	@Override
 	Event getAutoDeclineInvitationResponseReceivedEvent(Session s, Message m,
 			ContactId contactId, long timer) {
@@ -95,7 +86,6 @@ class BlogProtocolEngineImpl extends ProtocolEngineImpl<Blog> {
 						false, s.getShareableId(), timer, true);
 		return new BlogInvitationResponseReceivedEvent(response, contactId);
 	}
-
 	@Override
 	protected void addShareable(Transaction txn, MessageId inviteId)
 			throws DbException, FormatException {
@@ -103,5 +93,4 @@ class BlogProtocolEngineImpl extends ProtocolEngineImpl<Blog> {
 				messageParser.getInviteMessage(txn, inviteId);
 		blogManager.addBlog(txn, invite.getShareable());
 	}
-
 }

@@ -69,12 +69,12 @@
 		<item name="android:windowExitAnimation">@anim/step_next_out</item>
 	</style>
 
-	<!-- Use this with care. Only used for the screen filter warning dialog -->
+
 	<style name="BriarDialogThemeNoFilter" parent="BriarDialogTheme">
 		<item name="android:filterTouchesWhenObscured">false</item>
 	</style>
 
-	<!-- Uses neutral colors for the buttons -->
+
 	<style name="BriarDialogTheme.Neutral" parent="BriarDialogTheme">
 		<item name="buttonBarPositiveButtonStyle">@style/BriarButtonFlat.Neutral</item>
 		<item name="buttonBarNeutralButtonStyle">@style/BriarButtonFlat.Neutral</item>

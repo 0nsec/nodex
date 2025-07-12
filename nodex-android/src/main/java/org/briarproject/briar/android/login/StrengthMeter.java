@@ -1,5 +1,4 @@
 package org.briarproject.briar.android.login;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -9,9 +8,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
-
 import androidx.annotation.Nullable;
-
 import static android.graphics.Color.BLACK;
 import static android.graphics.Paint.Style.FILL;
 import static android.graphics.Paint.Style.STROKE;
@@ -22,22 +19,17 @@ import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.QUIT
 import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.QUITE_WEAK;
 import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.STRONG;
 import static org.briarproject.bramble.api.crypto.PasswordStrengthEstimator.WEAK;
-
 public class StrengthMeter extends ProgressBar {
-
 	private static final int MAX = 100;
 	public static final int RED = Color.rgb(255, 0, 0);
 	public static final int ORANGE = Color.rgb(255, 160, 0);
 	public static final int YELLOW = Color.rgb(255, 255, 0);
 	public static final int LIME = Color.rgb(180, 255, 0);
 	public static final int GREEN = Color.rgb(0, 255, 0);
-
 	private final ShapeDrawable bar;
-
 	public StrengthMeter(Context context) {
 		this(context, null);
 	}
-
 	public StrengthMeter(Context context, @Nullable AttributeSet attrs) {
 		super(context, attrs, android.R.attr.progressBarStyleHorizontal);
 		bar = new ShapeDrawable();
@@ -55,16 +47,13 @@ public class StrengthMeter extends ProgressBar {
 		setIndeterminate(false);
 		if (isInEditMode()) setStrength(STRONG);
 	}
-
 	@Override
 	public int getMax() {
 		return MAX;
 	}
-
 	public int getColor() {
 		return bar.getPaint().getColor();
 	}
-
 	public void setStrength(float strength) {
 		if (strength < 0 || strength > 1) throw new IllegalArgumentException();
 		int colour;

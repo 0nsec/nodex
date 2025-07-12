@@ -1,5 +1,4 @@
 package org.briarproject.briar.privategroup.invitation;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.data.BdfDictionary;
@@ -10,11 +9,9 @@ import org.briarproject.bramble.api.sync.Message;
 import org.briarproject.bramble.api.sync.MessageFactory;
 import org.briarproject.bramble.api.sync.MessageId;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 import static org.briarproject.briar.client.MessageTrackerConstants.MSG_KEY_READ;
 import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.MSG_KEY_AUTO_DELETE_TIMER;
@@ -30,21 +27,17 @@ import static org.briarproject.briar.privategroup.invitation.MessageType.ABORT;
 import static org.briarproject.briar.privategroup.invitation.MessageType.INVITE;
 import static org.briarproject.briar.privategroup.invitation.MessageType.JOIN;
 import static org.briarproject.briar.privategroup.invitation.MessageType.LEAVE;
-
 @Immutable
 @NotNullByDefault
 class MessageEncoderImpl implements MessageEncoder {
-
 	private final ClientHelper clientHelper;
 	private final MessageFactory messageFactory;
-
 	@Inject
 	MessageEncoderImpl(ClientHelper clientHelper,
 			MessageFactory messageFactory) {
 		this.clientHelper = clientHelper;
 		this.messageFactory = messageFactory;
 	}
-
 	@Override
 	public BdfDictionary encodeMetadata(MessageType type,
 			GroupId privateGroupId, long timestamp, boolean local, boolean read,
@@ -67,29 +60,24 @@ class MessageEncoderImpl implements MessageEncoder {
 		}
 		return meta;
 	}
-
 	@Override
 	public BdfDictionary encodeMetadata(MessageType type,
 			GroupId privateGroupId, long timestamp, long autoDeleteTimer) {
 		return encodeMetadata(type, privateGroupId, timestamp, false, false,
 				false, false, false, autoDeleteTimer, false);
 	}
-
 	@Override
 	public void setVisibleInUi(BdfDictionary meta, boolean visible) {
 		meta.put(MSG_KEY_VISIBLE_IN_UI, visible);
 	}
-
 	@Override
 	public void setAvailableToAnswer(BdfDictionary meta, boolean available) {
 		meta.put(MSG_KEY_AVAILABLE_TO_ANSWER, available);
 	}
-
 	@Override
 	public void setInvitationAccepted(BdfDictionary meta, boolean accepted) {
 		meta.put(MSG_KEY_INVITATION_ACCEPTED, accepted);
 	}
-
 	@Override
 	public Message encodeInviteMessage(GroupId contactGroupId,
 			GroupId privateGroupId, long timestamp, String groupName,
@@ -106,7 +94,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeInviteMessage(GroupId contactGroupId,
 			GroupId privateGroupId, long timestamp, String groupName,
@@ -124,7 +111,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeJoinMessage(GroupId contactGroupId,
 			GroupId privateGroupId, long timestamp,
@@ -136,7 +122,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeJoinMessage(GroupId contactGroupId,
 			GroupId privateGroupId, long timestamp,
@@ -149,7 +134,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeLeaveMessage(GroupId contactGroupId,
 			GroupId privateGroupId, long timestamp,
@@ -161,7 +145,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeLeaveMessage(GroupId contactGroupId,
 			GroupId privateGroupId, long timestamp,
@@ -174,7 +157,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeAbortMessage(GroupId contactGroupId,
 			GroupId privateGroupId, long timestamp) {
@@ -184,7 +166,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	private Message createMessage(GroupId contactGroupId, long timestamp,
 			BdfList body) {
 		try {
@@ -194,7 +175,6 @@ class MessageEncoderImpl implements MessageEncoder {
 			throw new AssertionError(e);
 		}
 	}
-
 	@Nullable
 	private Long encodeTimer(long autoDeleteTimer) {
 		return autoDeleteTimer == NO_AUTO_DELETE_TIMER ? null : autoDeleteTimer;

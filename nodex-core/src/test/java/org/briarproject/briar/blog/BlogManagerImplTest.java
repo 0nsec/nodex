@@ -1,5 +1,4 @@
 package org.briarproject.briar.blog;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.contact.Contact;
@@ -32,7 +31,6 @@ import org.briarproject.briar.api.identity.AuthorInfo;
 import org.briarproject.briar.api.identity.AuthorManager;
 import org.jmock.Expectations;
 import org.junit.Test;
-
 import static org.briarproject.bramble.api.sync.validation.IncomingMessageHook.DeliveryAction.ACCEPT_SHARE;
 import static org.briarproject.bramble.test.TestUtils.getContact;
 import static org.briarproject.bramble.test.TestUtils.getGroup;
@@ -64,9 +62,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-
 public class BlogManagerImplTest extends BrambleMockTestCase {
-
 	private final BlogManagerImpl blogManager;
 	private final DatabaseComponent db = context.mock(DatabaseComponent.class);
 	private final AuthorManager authorManager =
@@ -77,7 +73,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 	private final BlogFactory blogFactory = context.mock(BlogFactory.class);
 	private final BlogPostFactory blogPostFactory =
 			context.mock(BlogPostFactory.class);
-
 	private final LocalAuthor localAuthor1, localAuthor2, rssLocalAuthor;
 	private final AuthorInfo ourselvesInfo = new AuthorInfo(OURSELVES);
 	private final AuthorInfo verifiedInfo = new AuthorInfo(VERIFIED);
@@ -87,12 +82,10 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 	private final MessageId messageId, rssMessageId;
 	private final long timestamp, timeReceived;
 	private final String comment;
-
 	public BlogManagerImplTest() {
 		MetadataParser metadataParser = context.mock(MetadataParser.class);
 		blogManager = new BlogManagerImpl(db, identityManager, authorManager,
 				clientHelper, metadataParser, blogFactory, blogPostFactory);
-
 		localAuthor1 = getLocalAuthor();
 		localAuthor2 = getLocalAuthor();
 		rssLocalAuthor = getLocalAuthor();
@@ -110,11 +103,9 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		timeReceived = timestamp + 1;
 		comment = getRandomString(MAX_BLOG_COMMENT_TEXT_LENGTH);
 	}
-
 	@Test
 	public void testOpenDatabaseHook() throws DbException {
 		Transaction txn = new Transaction(null, false);
-
 		context.checking(new Expectations() {{
 			oneOf(identityManager).getLocalAuthor(txn);
 			will(returnValue(blog1.getAuthor()));
@@ -122,17 +113,14 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(blog1));
 			oneOf(db).addGroup(txn, blog1.getGroup());
 		}});
-
 		blogManager.onDatabaseOpened(txn);
 		context.assertIsSatisfied();
 	}
-
 	@Test
 	public void testRemovingContact() throws DbException {
 		Transaction txn = new Transaction(null, false);
 		Contact contact = getContact(blog2.getAuthor(),
 				blog1.getAuthor().getId(), true);
-
 		context.checking(new Expectations() {{
 			oneOf(blogFactory).createBlog(blog2.getAuthor());
 			will(returnValue(blog2));
@@ -142,28 +130,23 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(blog1.getAuthor()));
 			oneOf(db).removeGroup(txn, blog2.getGroup());
 		}});
-
 		blogManager.removingContact(txn, contact);
 		context.assertIsSatisfied();
 	}
-
 	@Test
 	public void testRemovingContactAfterRemovingBlog() throws DbException {
 		Transaction txn = new Transaction(null, false);
 		Contact contact = getContact(blog2.getAuthor(),
 				blog1.getAuthor().getId(), true);
-
 		context.checking(new Expectations() {{
 			oneOf(blogFactory).createBlog(blog2.getAuthor());
 			will(returnValue(blog2));
 			oneOf(db).containsGroup(txn, blog2.getId());
 			will(returnValue(false));
 		}});
-
 		blogManager.removingContact(txn, contact);
 		context.assertIsSatisfied();
 	}
-
 	@Test
 	public void testIncomingMessage() throws DbException, FormatException {
 		Transaction txn = new Transaction(null, false);
@@ -176,18 +159,15 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 				new BdfEntry(KEY_READ, false),
 				new BdfEntry(KEY_RSS_FEED, false)
 		);
-
 		context.checking(new Expectations() {{
 			oneOf(clientHelper).parseAndValidateAuthor(authorList1);
 			will(returnValue(localAuthor1));
 			oneOf(authorManager).getAuthorInfo(txn, localAuthor1.getId());
 			will(returnValue(verifiedInfo));
 		}});
-
 		assertEquals(ACCEPT_SHARE,
 				blogManager.incomingMessage(txn, message, body, meta));
 		context.assertIsSatisfied();
-
 		assertEquals(1, txn.getActions().size());
 		CommitAction action = txn.getActions().get(0);
 		assertTrue(action instanceof EventAction);
@@ -195,7 +175,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertTrue(event instanceof BlogPostAddedEvent);
 		BlogPostAddedEvent e = (BlogPostAddedEvent) event;
 		assertEquals(blog1.getId(), e.getGroupId());
-
 		BlogPostHeader h = e.getHeader();
 		assertEquals(POST, h.getType());
 		assertFalse(h.isRssFeed());
@@ -207,7 +186,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertEquals(VERIFIED, h.getAuthorStatus());
 		assertEquals(localAuthor1, h.getAuthor());
 	}
-
 	@Test
 	public void testIncomingRssMessage() throws DbException, FormatException {
 		Transaction txn = new Transaction(null, false);
@@ -220,16 +198,13 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 				new BdfEntry(KEY_READ, false),
 				new BdfEntry(KEY_RSS_FEED, true)
 		);
-
 		context.checking(new Expectations() {{
 			oneOf(clientHelper).parseAndValidateAuthor(rssAuthorList);
 			will(returnValue(rssLocalAuthor));
 		}});
-
 		assertEquals(ACCEPT_SHARE,
 				blogManager.incomingMessage(txn, rssMessage, body, meta));
 		context.assertIsSatisfied();
-
 		assertEquals(1, txn.getActions().size());
 		CommitAction action = txn.getActions().get(0);
 		assertTrue(action instanceof EventAction);
@@ -237,7 +212,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertTrue(event instanceof BlogPostAddedEvent);
 		BlogPostAddedEvent e = (BlogPostAddedEvent) event;
 		assertEquals(rssBlog.getId(), e.getGroupId());
-
 		BlogPostHeader h = e.getHeader();
 		assertEquals(POST, h.getType());
 		assertTrue(h.isRssFeed());
@@ -249,11 +223,9 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertEquals(NONE, h.getAuthorStatus());
 		assertEquals(rssLocalAuthor, h.getAuthor());
 	}
-
 	@Test
 	public void testRemoveBlog() throws Exception {
 		Transaction txn = new Transaction(null, false);
-
 		context.checking(new Expectations() {{
 			oneOf(db).startTransaction(false);
 			will(returnValue(txn));
@@ -263,11 +235,9 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			oneOf(db).commitTransaction(txn);
 			oneOf(db).endTransaction(txn);
 		}});
-
 		blogManager.removeBlog(blog1);
 		context.assertIsSatisfied();
 	}
-
 	@Test
 	public void testAddLocalPost() throws DbException, FormatException {
 		Transaction txn = new Transaction(null, false);
@@ -279,7 +249,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 				new BdfEntry(KEY_READ, true),
 				new BdfEntry(KEY_RSS_FEED, false)
 		);
-
 		context.checking(new Expectations() {{
 			oneOf(db).startTransaction(false);
 			will(returnValue(txn));
@@ -298,10 +267,8 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			oneOf(db).commitTransaction(txn);
 			oneOf(db).endTransaction(txn);
 		}});
-
 		blogManager.addLocalPost(post);
 		context.assertIsSatisfied();
-
 		assertEquals(1, txn.getActions().size());
 		CommitAction action = txn.getActions().get(0);
 		assertTrue(action instanceof EventAction);
@@ -310,7 +277,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		BlogPostAddedEvent e = (BlogPostAddedEvent) event;
 		assertEquals(blog1.getId(), e.getGroupId());
 		assertTrue(e.isLocal());
-
 		BlogPostHeader h = e.getHeader();
 		assertEquals(POST, h.getType());
 		assertEquals(timestamp, h.getTimestamp());
@@ -321,7 +287,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertEquals(OURSELVES, h.getAuthorStatus());
 		assertEquals(localAuthor1, h.getAuthor());
 	}
-
 	@Test
 	public void testAddLocalRssPost() throws DbException, FormatException {
 		Transaction txn = new Transaction(null, false);
@@ -333,7 +298,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 				new BdfEntry(KEY_READ, true),
 				new BdfEntry(KEY_RSS_FEED, true)
 		);
-
 		context.checking(new Expectations() {{
 			oneOf(db).startTransaction(false);
 			will(returnValue(txn));
@@ -350,10 +314,8 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			oneOf(db).commitTransaction(txn);
 			oneOf(db).endTransaction(txn);
 		}});
-
 		blogManager.addLocalPost(post);
 		context.assertIsSatisfied();
-
 		assertEquals(1, txn.getActions().size());
 		CommitAction action = txn.getActions().get(0);
 		assertTrue(action instanceof EventAction);
@@ -362,7 +324,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		BlogPostAddedEvent e = (BlogPostAddedEvent) event;
 		assertEquals(rssBlog.getId(), e.getGroupId());
 		assertFalse(e.isLocal());
-
 		BlogPostHeader h = e.getHeader();
 		assertEquals(POST, h.getType());
 		assertTrue(h.isRssFeed());
@@ -374,12 +335,9 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertEquals(NONE, h.getAuthorStatus());
 		assertEquals(rssLocalAuthor, h.getAuthor());
 	}
-
 	@Test
 	public void testAddLocalCommentToLocalPost() throws Exception {
 		Transaction txn = new Transaction(null, false);
-		// The post was originally posted to blog 1, then reblogged to the
-		// same blog (commenting on own post)
 		BdfDictionary postMeta = BdfDictionary.of(
 				new BdfEntry(KEY_TYPE, POST.getInt()),
 				new BdfEntry(KEY_RSS_FEED, false),
@@ -400,19 +358,15 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 				new BdfEntry(KEY_AUTHOR, authorList1),
 				new BdfEntry(KEY_READ, true)
 		);
-
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
-			// Create the comment
 			oneOf(blogPostFactory).createBlogComment(blog1.getId(),
 					localAuthor1, comment, messageId, messageId);
 			will(returnValue(commentMsg));
 			oneOf(clientHelper).toList(localAuthor1);
 			will(returnValue(authorList1));
-			// Store the comment
 			oneOf(clientHelper).addLocalMessage(txn, commentMsg, commentMeta,
 					true, false);
-			// Create the headers for the comment and its parent
 			oneOf(clientHelper).parseAndValidateAuthor(authorList1);
 			will(returnValue(localAuthor1));
 			oneOf(authorManager).getAuthorInfo(txn, localAuthor1.getId());
@@ -424,14 +378,12 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			oneOf(authorManager).getAuthorInfo(txn, localAuthor1.getId());
 			will(returnValue(ourselvesInfo));
 		}});
-
 		BlogPostHeader postHeader = new BlogPostHeader(POST, blog1.getId(),
 				messageId, null, timestamp, timeReceived, localAuthor1,
 				ourselvesInfo, false, true);
 		blogManager.addLocalComment(localAuthor1, blog1.getId(), comment,
 				postHeader);
 		context.assertIsSatisfied();
-
 		assertEquals(1, txn.getActions().size());
 		CommitAction action = txn.getActions().get(0);
 		assertTrue(action instanceof EventAction);
@@ -439,7 +391,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertTrue(event instanceof BlogPostAddedEvent);
 		BlogPostAddedEvent e = (BlogPostAddedEvent) event;
 		assertEquals(blog1.getId(), e.getGroupId());
-
 		BlogPostHeader h = e.getHeader();
 		assertEquals(COMMENT, h.getType());
 		assertFalse(h.isRssFeed());
@@ -450,7 +401,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertEquals(messageId, h.getParentId());
 		assertEquals(OURSELVES, h.getAuthorStatus());
 		assertEquals(localAuthor1, h.getAuthor());
-
 		assertTrue(h instanceof BlogCommentHeader);
 		BlogPostHeader h1 = ((BlogCommentHeader) h).getParent();
 		assertEquals(POST, h1.getType());
@@ -462,15 +412,11 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertNull(h1.getParentId());
 		assertEquals(OURSELVES, h1.getAuthorStatus());
 		assertEquals(localAuthor1, h1.getAuthor());
-
 		assertEquals(h1.getId(), ((BlogCommentHeader) h).getRootPost().getId());
 	}
-
 	@Test
 	public void testAddLocalCommentToRemotePost() throws Exception {
 		Transaction txn = new Transaction(null, false);
-		// The post was originally posted to blog 1, then reblogged to
-		// blog 2 with a comment
 		BdfList originalPostBody = BdfList.of("originalPostBody");
 		Message wrappedPostMsg = getMessage(blog2.getId());
 		MessageId wrappedPostId = wrappedPostMsg.getId();
@@ -494,10 +440,8 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 				new BdfEntry(KEY_AUTHOR, authorList2),
 				new BdfEntry(KEY_READ, true)
 		);
-
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
-			// Wrap the original post for blog 2
 			oneOf(clientHelper).getMessageAsList(txn, messageId);
 			will(returnValue(originalPostBody));
 			oneOf(db).getGroup(txn, blog1.getId());
@@ -508,19 +452,15 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(wrappedPostMsg));
 			oneOf(clientHelper).toList(localAuthor1);
 			will(returnValue(authorList1));
-			// Store the wrapped post
 			oneOf(clientHelper).addLocalMessage(txn, wrappedPostMsg,
 					wrappedPostMeta, true, false);
-			// Create the comment
 			oneOf(blogPostFactory).createBlogComment(blog2.getId(),
 					localAuthor2, comment, messageId, wrappedPostId);
 			will(returnValue(commentMsg));
 			oneOf(clientHelper).toList(localAuthor2);
 			will(returnValue(authorList2));
-			// Store the comment
 			oneOf(clientHelper).addLocalMessage(txn, commentMsg, commentMeta,
 					true, false);
-			// Create the headers for the comment and the wrapped post
 			oneOf(clientHelper).parseAndValidateAuthor(authorList2);
 			will(returnValue(localAuthor2));
 			oneOf(authorManager).getAuthorInfo(txn, localAuthor2.getId());
@@ -533,14 +473,12 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			oneOf(authorManager).getAuthorInfo(txn, localAuthor1.getId());
 			will(returnValue(verifiedInfo));
 		}});
-
 		BlogPostHeader originalPostHeader = new BlogPostHeader(POST,
 				blog1.getId(), messageId, null, timestamp, timeReceived,
 				localAuthor1, verifiedInfo, false, true);
 		blogManager.addLocalComment(localAuthor2, blog2.getId(), comment,
 				originalPostHeader);
 		context.assertIsSatisfied();
-
 		assertEquals(1, txn.getActions().size());
 		CommitAction action = txn.getActions().get(0);
 		assertTrue(action instanceof EventAction);
@@ -548,7 +486,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertTrue(event instanceof BlogPostAddedEvent);
 		BlogPostAddedEvent e = (BlogPostAddedEvent) event;
 		assertEquals(blog2.getId(), e.getGroupId());
-
 		BlogPostHeader h = e.getHeader();
 		assertEquals(COMMENT, h.getType());
 		assertFalse(h.isRssFeed());
@@ -559,7 +496,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertEquals(wrappedPostId, h.getParentId());
 		assertEquals(OURSELVES, h.getAuthorStatus());
 		assertEquals(localAuthor2, h.getAuthor());
-
 		assertTrue(h instanceof BlogCommentHeader);
 		BlogPostHeader h1 = ((BlogCommentHeader) h).getParent();
 		assertEquals(WRAPPED_POST, h1.getType());
@@ -571,15 +507,11 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertNull(h1.getParentId());
 		assertEquals(VERIFIED, h1.getAuthorStatus());
 		assertEquals(localAuthor1, h1.getAuthor());
-
 		assertEquals(h1.getId(), ((BlogCommentHeader) h).getRootPost().getId());
 	}
-
 	@Test
 	public void testAddLocalCommentToRemoteRssPost() throws Exception {
 		Transaction txn = new Transaction(null, false);
-		// The post was originally posted to the RSS blog, then reblogged to
-		// blog 1 with a comment
 		BdfList originalPostBody = BdfList.of("originalPostBody");
 		Message wrappedPostMsg = getMessage(blog1.getId());
 		MessageId wrappedPostId = wrappedPostMsg.getId();
@@ -603,10 +535,8 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 				new BdfEntry(KEY_AUTHOR, authorList1),
 				new BdfEntry(KEY_READ, true)
 		);
-
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
-			// Wrap the original post for blog 1
 			oneOf(clientHelper).getMessageAsList(txn, rssMessageId);
 			will(returnValue(originalPostBody));
 			oneOf(db).getGroup(txn, rssBlog.getId());
@@ -617,19 +547,15 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(wrappedPostMsg));
 			oneOf(clientHelper).toList(rssLocalAuthor);
 			will(returnValue(rssAuthorList));
-			// Store the wrapped post
 			oneOf(clientHelper).addLocalMessage(txn, wrappedPostMsg,
 					wrappedPostMeta, true, false);
-			// Create the comment
 			oneOf(blogPostFactory).createBlogComment(blog1.getId(),
 					localAuthor1, comment, rssMessageId, wrappedPostId);
 			will(returnValue(commentMsg));
 			oneOf(clientHelper).toList(localAuthor1);
 			will(returnValue(authorList1));
-			// Store the comment
 			oneOf(clientHelper).addLocalMessage(txn, commentMsg, commentMeta,
 					true, false);
-			// Create the headers for the comment and the wrapped post
 			oneOf(clientHelper).parseAndValidateAuthor(authorList1);
 			will(returnValue(localAuthor1));
 			oneOf(authorManager).getAuthorInfo(txn, localAuthor1.getId());
@@ -640,14 +566,12 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			oneOf(clientHelper).parseAndValidateAuthor(rssAuthorList);
 			will(returnValue(rssLocalAuthor));
 		}});
-
 		BlogPostHeader originalPostHeader = new BlogPostHeader(POST,
 				rssBlog.getId(), rssMessageId, null, timestamp, timeReceived,
 				rssLocalAuthor, new AuthorInfo(NONE), true, true);
 		blogManager.addLocalComment(localAuthor1, blog1.getId(), comment,
 				originalPostHeader);
 		context.assertIsSatisfied();
-
 		assertEquals(1, txn.getActions().size());
 		CommitAction action = txn.getActions().get(0);
 		assertTrue(action instanceof EventAction);
@@ -655,7 +579,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertTrue(event instanceof BlogPostAddedEvent);
 		BlogPostAddedEvent e = (BlogPostAddedEvent) event;
 		assertEquals(blog1.getId(), e.getGroupId());
-
 		BlogPostHeader h = e.getHeader();
 		assertEquals(COMMENT, h.getType());
 		assertFalse(h.isRssFeed());
@@ -666,7 +589,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertEquals(wrappedPostId, h.getParentId());
 		assertEquals(OURSELVES, h.getAuthorStatus());
 		assertEquals(localAuthor1, h.getAuthor());
-
 		assertTrue(h instanceof BlogCommentHeader);
 		BlogPostHeader h1 = ((BlogCommentHeader) h).getParent();
 		assertEquals(WRAPPED_POST, h1.getType());
@@ -678,20 +600,15 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertNull(h1.getParentId());
 		assertEquals(NONE, h1.getAuthorStatus());
 		assertEquals(rssLocalAuthor, h1.getAuthor());
-
 		assertEquals(h1.getId(), ((BlogCommentHeader) h).getRootPost().getId());
 	}
-
 	@Test
 	public void testAddLocalCommentToRebloggedRemoteRssPost() throws Exception {
 		Transaction txn = new Transaction(null, false);
-		// The post was originally posted to the RSS blog, then reblogged to
-		// blog 1 with a comment
 		MessageId wrappedPostId = new MessageId(getRandomId());
 		BdfList wrappedPostBody = BdfList.of("wrappedPostBody");
 		MessageId originalCommentId = new MessageId(getRandomId());
 		BdfList originalCommentBody = BdfList.of("originalCommentBody");
-		// The post and comment were reblogged to blog 2 with another comment
 		Message rewrappedPostMsg = getMessage(blog2.getId());
 		MessageId rewrappedPostId = rewrappedPostMsg.getId();
 		BdfDictionary rewrappedPostMeta = BdfDictionary.of(
@@ -726,10 +643,8 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 				new BdfEntry(KEY_AUTHOR, authorList2),
 				new BdfEntry(KEY_READ, true)
 		);
-
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
-			// Rewrap the wrapped post for blog 2
 			oneOf(clientHelper).getMessageAsList(txn, wrappedPostId);
 			will(returnValue(wrappedPostBody));
 			oneOf(blogPostFactory).rewrapWrappedPost(blog2.getId(),
@@ -737,10 +652,8 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(rewrappedPostMsg));
 			oneOf(clientHelper).toList(rssLocalAuthor);
 			will(returnValue(rssAuthorList));
-			// Store the rewrapped post
 			oneOf(clientHelper).addLocalMessage(txn, rewrappedPostMsg,
 					rewrappedPostMeta, true, false);
-			// Wrap the original comment for blog 2
 			oneOf(clientHelper).getMessageAsList(txn, originalCommentId);
 			will(returnValue(originalCommentBody));
 			oneOf(clientHelper).getMessageMetadataAsDictionary(txn,
@@ -754,21 +667,16 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(wrappedCommentMsg));
 			oneOf(clientHelper).toList(localAuthor1);
 			will(returnValue(authorList1));
-			// Store the wrapped comment
 			oneOf(clientHelper).addLocalMessage(txn, wrappedCommentMsg,
 					wrappedCommentMeta, true, false);
-			// Create the new comment
 			oneOf(blogPostFactory).createBlogComment(blog2.getId(),
 					localAuthor2, localComment, originalCommentId,
 					wrappedCommentId);
 			will(returnValue(localCommentMsg));
 			oneOf(clientHelper).toList(localAuthor2);
 			will(returnValue(authorList2));
-			// Store the new comment
 			oneOf(clientHelper).addLocalMessage(txn, localCommentMsg,
 					localCommentMeta, true, false);
-			// Create the headers for the new comment, the wrapped comment and
-			// the rewrapped post
 			oneOf(clientHelper).parseAndValidateAuthor(authorList2);
 			will(returnValue(localAuthor2));
 			oneOf(authorManager).getAuthorInfo(txn, localAuthor2.getId());
@@ -786,18 +694,15 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 			oneOf(clientHelper).parseAndValidateAuthor(rssAuthorList);
 			will(returnValue(rssLocalAuthor));
 		}});
-
 		BlogPostHeader wrappedPostHeader = new BlogPostHeader(WRAPPED_POST,
 				blog1.getId(), wrappedPostId, null, timestamp, timeReceived,
 				rssLocalAuthor, new AuthorInfo(NONE), true, true);
 		BlogCommentHeader originalCommentHeader = new BlogCommentHeader(COMMENT,
 				blog1.getId(), comment, wrappedPostHeader, originalCommentId,
 				timestamp, timeReceived, localAuthor1, verifiedInfo, true);
-
 		blogManager.addLocalComment(localAuthor2, blog2.getId(), localComment,
 				originalCommentHeader);
 		context.assertIsSatisfied();
-
 		assertEquals(1, txn.getActions().size());
 		CommitAction action = txn.getActions().get(0);
 		assertTrue(action instanceof EventAction);
@@ -805,7 +710,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertTrue(event instanceof BlogPostAddedEvent);
 		BlogPostAddedEvent e = (BlogPostAddedEvent) event;
 		assertEquals(blog2.getId(), e.getGroupId());
-
 		BlogPostHeader h = e.getHeader();
 		assertEquals(COMMENT, h.getType());
 		assertFalse(h.isRssFeed());
@@ -816,7 +720,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertEquals(wrappedCommentId, h.getParentId());
 		assertEquals(OURSELVES, h.getAuthorStatus());
 		assertEquals(localAuthor2, h.getAuthor());
-
 		assertTrue(h instanceof BlogCommentHeader);
 		BlogPostHeader h1 = ((BlogCommentHeader) h).getParent();
 		assertEquals(WRAPPED_COMMENT, h1.getType());
@@ -828,7 +731,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertEquals(rewrappedPostId, h1.getParentId());
 		assertEquals(VERIFIED, h1.getAuthorStatus());
 		assertEquals(localAuthor1, h1.getAuthor());
-
 		assertTrue(h1 instanceof BlogCommentHeader);
 		BlogPostHeader h2 = ((BlogCommentHeader) h1).getParent();
 		assertEquals(WRAPPED_POST, h2.getType());
@@ -840,15 +742,12 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertNull(h2.getParentId());
 		assertEquals(NONE, h2.getAuthorStatus());
 		assertEquals(rssLocalAuthor, h2.getAuthor());
-
 		assertEquals(h2.getId(), ((BlogCommentHeader) h).getRootPost().getId());
 		assertEquals(h2.getId(),
 				((BlogCommentHeader) h1).getRootPost().getId());
 	}
-
 	@Test
 	public void testBlogCanBeRemoved() throws Exception {
-		// check that own personal blogs can not be removed
 		Transaction txn = new Transaction(null, true);
 		context.checking(new Expectations() {{
 			oneOf(db).startTransaction(true);
@@ -860,8 +759,6 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		}});
 		assertFalse(blogManager.canBeRemoved(blog1));
 		context.assertIsSatisfied();
-
-		// check that blogs of contacts can be removed
 		Transaction txn2 = new Transaction(null, true);
 		context.checking(new Expectations() {{
 			oneOf(db).startTransaction(true);
@@ -874,14 +771,11 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		assertTrue(blogManager.canBeRemoved(blog1));
 		context.assertIsSatisfied();
 	}
-
 	private Blog createBlog(LocalAuthor localAuthor, boolean rssFeed) {
 		Group group = getGroup(CLIENT_ID, MAJOR_VERSION);
 		return new Blog(group, localAuthor, rssFeed);
 	}
-
 	private BdfList authorToBdfList(Author a) {
 		return BdfList.of(a.getFormatVersion(), a.getName(), a.getPublicKey());
 	}
-
 }

@@ -1,12 +1,9 @@
 package org.briarproject.briar.privategroup.invitation;
-
 import org.briarproject.bramble.api.data.BdfDictionary;
 import org.briarproject.bramble.api.sync.MessageId;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 import static org.briarproject.bramble.api.data.BdfDictionary.NULL_VALUE;
 import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_INVITE_TIMESTAMP;
 import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_IS_SESSION;
@@ -17,15 +14,12 @@ import static org.briarproject.briar.privategroup.invitation.GroupInvitationCons
 import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_ROLE;
 import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_SESSION_ID;
 import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.SESSION_KEY_STATE;
-
 @Immutable
 @NotNullByDefault
 class SessionEncoderImpl implements SessionEncoder {
-
 	@Inject
 	SessionEncoderImpl() {
 	}
-
 	@Override
 	public BdfDictionary encodeSession(Session s) {
 		BdfDictionary d = new BdfDictionary();

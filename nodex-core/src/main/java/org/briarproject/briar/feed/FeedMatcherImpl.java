@@ -1,37 +1,25 @@
 package org.briarproject.briar.feed;
-
 import org.briarproject.briar.api.feed.Feed;
 import org.briarproject.briar.api.feed.RssProperties;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.List;
-
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-
 @NotNullByDefault
 class FeedMatcherImpl implements FeedMatcher {
-
 	private static final int MIN_MATCHING_FIELDS = 2;
-
 	@Inject
 	FeedMatcherImpl() {
 	}
-
 	@Nullable
 	@Override
 	public Feed findMatchingFeed(RssProperties candidate, List<Feed> feeds) {
-		// First pass: if the candidate was imported from a URL and we have
-		// a feed that was imported from the same URL then it's a match
 		String url = candidate.getUrl();
 		if (url != null) {
 			for (Feed f : feeds) {
 				if (url.equals(f.getProperties().getUrl())) return f;
 			}
 		}
-		// Second pass: if the candidate matches at least MIN_MATCHING_FIELDS
-		// out of the title, description, author, link and URI, then return the
-		// feed with the highest number of matching fields
 		int bestScore = 0;
 		Feed bestFeed = null;
 		String title = candidate.getTitle();
@@ -63,7 +51,6 @@ class FeedMatcherImpl implements FeedMatcher {
 			}
 		}
 		if (bestScore >= MIN_MATCHING_FIELDS) return bestFeed;
-		// No match
 		return null;
 	}
 }

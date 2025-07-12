@@ -1,5 +1,4 @@
 package org.briarproject.briar.privategroup.invitation;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.data.BdfDictionary;
@@ -14,10 +13,8 @@ import org.briarproject.bramble.api.sync.MessageId;
 import org.briarproject.briar.api.privategroup.PrivateGroup;
 import org.briarproject.briar.api.privategroup.PrivateGroupFactory;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 import static org.briarproject.briar.client.MessageTrackerConstants.MSG_KEY_READ;
 import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.MSG_KEY_AUTO_DELETE_TIMER;
@@ -30,26 +27,21 @@ import static org.briarproject.briar.privategroup.invitation.GroupInvitationCons
 import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.MSG_KEY_TIMESTAMP;
 import static org.briarproject.briar.privategroup.invitation.GroupInvitationConstants.MSG_KEY_VISIBLE_IN_UI;
 import static org.briarproject.briar.privategroup.invitation.MessageType.INVITE;
-
 @Immutable
 @NotNullByDefault
 class MessageParserImpl implements MessageParser {
-
 	private final PrivateGroupFactory privateGroupFactory;
 	private final ClientHelper clientHelper;
-
 	@Inject
 	MessageParserImpl(PrivateGroupFactory privateGroupFactory,
 			ClientHelper clientHelper) {
 		this.privateGroupFactory = privateGroupFactory;
 		this.clientHelper = clientHelper;
 	}
-
 	@Override
 	public BdfDictionary getMessagesVisibleInUiQuery() {
 		return BdfDictionary.of(new BdfEntry(MSG_KEY_VISIBLE_IN_UI, true));
 	}
-
 	@Override
 	public BdfDictionary getInvitesAvailableToAnswerQuery() {
 		return BdfDictionary.of(
@@ -57,7 +49,6 @@ class MessageParserImpl implements MessageParser {
 				new BdfEntry(MSG_KEY_MESSAGE_TYPE, INVITE.getValue())
 		);
 	}
-
 	@Override
 	public BdfDictionary getInvitesAvailableToAnswerQuery(
 			GroupId privateGroupId) {
@@ -67,7 +58,6 @@ class MessageParserImpl implements MessageParser {
 				new BdfEntry(MSG_KEY_PRIVATE_GROUP_ID, privateGroupId)
 		);
 	}
-
 	@Override
 	public MessageMetadata parseMetadata(BdfDictionary meta)
 			throws FormatException {
@@ -87,7 +77,6 @@ class MessageParserImpl implements MessageParser {
 		return new MessageMetadata(type, privateGroupId, timestamp, local, read,
 				visible, available, accepted, timer, isAutoDecline);
 	}
-
 	@Override
 	public InviteMessage getInviteMessage(Transaction txn, MessageId m)
 			throws DbException, FormatException {
@@ -95,14 +84,9 @@ class MessageParserImpl implements MessageParser {
 		BdfList body = clientHelper.toList(message);
 		return parseInviteMessage(message, body);
 	}
-
 	@Override
 	public InviteMessage parseInviteMessage(Message m, BdfList body)
 			throws FormatException {
-		// Client version 0.0: Message type, creator, group name, salt,
-		// optional text, signature.
-		// Client version 0.1: Message type, creator, group name, salt,
-		// optional text, signature, optional auto-delete timer.
 		BdfList creatorList = body.getList(1);
 		String groupName = body.getString(2);
 		byte[] salt = body.getRaw(3);
@@ -110,7 +94,6 @@ class MessageParserImpl implements MessageParser {
 		byte[] signature = body.getRaw(5);
 		long timer = NO_AUTO_DELETE_TIMER;
 		if (body.size() == 7) timer = body.getLong(6, NO_AUTO_DELETE_TIMER);
-
 		Author creator = clientHelper.parseAndValidateAuthor(creatorList);
 		PrivateGroup privateGroup = privateGroupFactory.createPrivateGroup(
 				groupName, creator, salt);
@@ -118,41 +101,28 @@ class MessageParserImpl implements MessageParser {
 				privateGroup.getId(), m.getTimestamp(), groupName, creator,
 				salt, text, signature, timer);
 	}
-
 	@Override
 	public JoinMessage parseJoinMessage(Message m, BdfList body)
 			throws FormatException {
-		// Client version 0.0: Message type, private group ID, optional
-		// previous message ID.
-		// Client version 0.1: Message type, private group ID, optional
-		// previous message ID, optional auto-delete timer.
 		GroupId privateGroupId = new GroupId(body.getRaw(1));
 		byte[] b = body.getOptionalRaw(2);
 		MessageId previousMessageId = b == null ? null : new MessageId(b);
 		long timer = NO_AUTO_DELETE_TIMER;
 		if (body.size() == 4) timer = body.getLong(3, NO_AUTO_DELETE_TIMER);
-
 		return new JoinMessage(m.getId(), m.getGroupId(), privateGroupId,
 				m.getTimestamp(), previousMessageId, timer);
 	}
-
 	@Override
 	public LeaveMessage parseLeaveMessage(Message m, BdfList body)
 			throws FormatException {
-		// Client version 0.0: Message type, private group ID, optional
-		// previous message ID.
-		// Client version 0.1: Message type, private group ID, optional
-		// previous message ID, optional auto-delete timer.
 		GroupId privateGroupId = new GroupId(body.getRaw(1));
 		byte[] b = body.getOptionalRaw(2);
 		MessageId previousMessageId = b == null ? null : new MessageId(b);
 		long timer = NO_AUTO_DELETE_TIMER;
 		if (body.size() == 4) timer = body.getLong(3, NO_AUTO_DELETE_TIMER);
-
 		return new LeaveMessage(m.getId(), m.getGroupId(), privateGroupId,
 				m.getTimestamp(), previousMessageId, timer);
 	}
-
 	@Override
 	public AbortMessage parseAbortMessage(Message m, BdfList body)
 			throws FormatException {
@@ -160,5 +130,4 @@ class MessageParserImpl implements MessageParser {
 		return new AbortMessage(m.getId(), m.getGroupId(), privateGroupId,
 				m.getTimestamp());
 	}
-
 }

@@ -1,9 +1,7 @@
 package org.briarproject.briar.android.reporting;
-
 import android.app.Application;
 import android.os.Handler;
 import android.os.Looper;
-
 import org.briarproject.bramble.api.plugin.Plugin;
 import org.briarproject.bramble.api.plugin.PluginManager;
 import org.briarproject.bramble.api.plugin.TorConstants;
@@ -21,22 +19,18 @@ import org.briarproject.briar.api.android.MemoryStats;
 import org.briarproject.briar.api.android.NetworkUsageMetrics;
 import org.briarproject.nullsafety.NotNullByDefault;
 import org.json.JSONException;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.UUID;
 import java.util.logging.Formatter;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static java.util.Objects.requireNonNull;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
@@ -44,19 +38,15 @@ import static org.briarproject.bramble.api.plugin.Plugin.State.ACTIVE;
 import static org.briarproject.bramble.util.LogUtils.logException;
 import static org.briarproject.bramble.util.StringUtils.isNullOrEmpty;
 import static org.briarproject.briar.android.logging.BriefLogFormatter.formatLog;
-
 @NotNullByDefault
 class ReportViewModel extends AndroidViewModel {
-
 	private static final Logger LOG =
 			getLogger(ReportViewModel.class.getName());
-
 	private final CachingLogHandler logHandler;
 	private final LogDecrypter logDecrypter;
 	private final BriarReportCollector collector;
 	private final DevReporter reporter;
 	private final PluginManager pluginManager;
-
 	private final MutableLiveEvent<Boolean> showReport =
 			new MutableLiveEvent<>();
 	private final MutableLiveData<Boolean> showReportData =
@@ -68,7 +58,6 @@ class ReportViewModel extends AndroidViewModel {
 	private boolean isFeedback;
 	@Nullable
 	private String initialComment;
-
 	@Inject
 	ReportViewModel(@NonNull Application application,
 			NetworkUsageMetrics networkUsageMetrics,
@@ -83,7 +72,6 @@ class ReportViewModel extends AndroidViewModel {
 		this.reporter = reporter;
 		this.pluginManager = pluginManager;
 	}
-
 	void init(@Nullable Throwable t, long appStartTime,
 			@Nullable byte[] logKey, @Nullable String initialComment,
 			MemoryStats memoryStats) {
@@ -98,7 +86,6 @@ class ReportViewModel extends AndroidViewModel {
 			} else {
 				decryptedLogs = logDecrypter.decryptLogs(logKey);
 				if (decryptedLogs == null) {
-					// error decrypting logs, get logs from this process
 					Formatter formatter = new BriefLogFormatter();
 					decryptedLogs = formatLog(formatter,
 							logHandler.getRecentLogRecords());
@@ -109,59 +96,30 @@ class ReportViewModel extends AndroidViewModel {
 			reportData.postValue(data);
 		}).start();
 	}
-
 	@Nullable
 	String getInitialComment() {
 		return initialComment;
 	}
-
 	boolean isFeedback() {
 		return isFeedback;
 	}
-
-	/**
-	 * Call this from the crash screen, if the user wants to report a crash.
-	 */
 	@UiThread
 	void showReport() {
 		showReport.setEvent(true);
 	}
-
-	/**
-	 * Will be set to true when the user wants to report a crash.
-	 */
 	LiveEvent<Boolean> getShowReport() {
 		return showReport;
 	}
-
-	/**
-	 * The report data will be made visible in the UI when visible is true,
-	 * otherwise hidden.
-	 */
 	@UiThread
 	void showReportData(boolean visible) {
 		showReportData.setValue(visible);
 	}
-
-	/**
-	 * Will be set to true when the user wants to see report data.
-	 */
 	LiveData<Boolean> getShowReportData() {
 		return showReportData;
 	}
-
-	/**
-	 * The content of the report that will be loaded after
-	 * {@link #init(Throwable, long, byte[], String, MemoryStats)} was called.
-	 */
 	LiveData<ReportData> getReportData() {
 		return reportData;
 	}
-
-	/**
-	 * Sends reports and returns now if reports are being sent now
-	 * or false, if reports will be sent next time TorPlugin becomes active.
-	 */
 	@UiThread
 	boolean sendReport(String comment, String email, boolean includeReport) {
 		ReportData data = requireNonNull(reportData.getValue());
@@ -172,8 +130,6 @@ class ReportViewModel extends AndroidViewModel {
 			data.add(new ReportItem("UserInfo", R.string.dev_report_user_info,
 					userInfo, false));
 		}
-
-		// check the state of the TorPlugin, if this is feedback
 		boolean sendFeedbackNow;
 		if (isFeedback) {
 			Plugin plugin = pluginManager.getPlugin(TorConstants.ID);
@@ -181,13 +137,11 @@ class ReportViewModel extends AndroidViewModel {
 		} else {
 			sendFeedbackNow = false;
 		}
-
 		Runnable reportSender =
 				getReportSender(includeReport, data, sendFeedbackNow);
 		new SingleShotAndroidExecutor(reportSender).start();
 		return sendFeedbackNow;
 	}
-
 	private Runnable getReportSender(boolean includeReport, ReportData data,
 			boolean sendFeedbackNow) {
 		return () -> {
@@ -201,7 +155,6 @@ class ReportViewModel extends AndroidViewModel {
 				logException(LOG, WARNING, e);
 				error = true;
 			}
-
 			int stringRes;
 			if (error) {
 				stringRes = R.string.dev_report_error;
@@ -215,30 +168,18 @@ class ReportViewModel extends AndroidViewModel {
 			closeReport.postEvent(stringRes);
 		};
 	}
-
 	@UiThread
 	void closeReport() {
 		closeReport.setEvent(0);
 	}
-
-	/**
-	 * An integer representing a string resource
-	 * informing about the outcome of the report
-	 * or 0 if no information is required, such as when back button was pressed.
-	 */
 	LiveEvent<Integer> getCloseReport() {
 		return closeReport;
 	}
-
-	// Used for a new thread as the Android executor thread may have died
 	private static class SingleShotAndroidExecutor extends Thread {
-
 		private final Runnable runnable;
-
 		private SingleShotAndroidExecutor(Runnable runnable) {
 			this.runnable = runnable;
 		}
-
 		@Override
 		public void run() {
 			Looper.prepare();
@@ -251,5 +192,4 @@ class ReportViewModel extends AndroidViewModel {
 			Looper.loop();
 		}
 	}
-
 }

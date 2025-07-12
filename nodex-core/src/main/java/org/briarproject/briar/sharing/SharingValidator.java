@@ -1,5 +1,4 @@
 package org.briarproject.briar.sharing;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.UniqueId;
 import org.briarproject.bramble.api.client.BdfMessageContext;
@@ -14,9 +13,7 @@ import org.briarproject.bramble.api.sync.Message;
 import org.briarproject.bramble.api.sync.MessageId;
 import org.briarproject.bramble.api.system.Clock;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.annotation.concurrent.Immutable;
-
 import static java.util.Collections.singletonList;
 import static org.briarproject.bramble.util.ValidationUtils.checkLength;
 import static org.briarproject.bramble.util.ValidationUtils.checkSize;
@@ -24,19 +21,15 @@ import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_
 import static org.briarproject.briar.api.sharing.SharingConstants.MAX_INVITATION_TEXT_LENGTH;
 import static org.briarproject.briar.sharing.MessageType.INVITE;
 import static org.briarproject.briar.util.ValidationUtils.validateAutoDeleteTimer;
-
 @Immutable
 @NotNullByDefault
 abstract class SharingValidator extends BdfMessageValidator {
-
 	private final MessageEncoder messageEncoder;
-
 	SharingValidator(MessageEncoder messageEncoder, ClientHelper clientHelper,
 			MetadataEncoder metadataEncoder, Clock clock) {
 		super(clientHelper, metadataEncoder, clock);
 		this.messageEncoder = messageEncoder;
 	}
-
 	@Override
 	protected BdfMessageContext validateMessage(Message m, Group g,
 			BdfList body) throws FormatException {
@@ -54,13 +47,8 @@ abstract class SharingValidator extends BdfMessageValidator {
 				throw new FormatException();
 		}
 	}
-
 	private BdfMessageContext validateInviteMessage(Message m, BdfList body)
 			throws FormatException {
-		// Client version 0.0: Message type, optional previous message ID,
-		// descriptor, optional text.
-		// Client version 0.1: Message type, optional previous message ID,
-		// descriptor, optional text, optional auto-delete timer.
 		checkSize(body, 4, 5);
 		byte[] previousMessageId = body.getOptionalRaw(1);
 		checkLength(previousMessageId, UniqueId.LENGTH);
@@ -72,7 +60,6 @@ abstract class SharingValidator extends BdfMessageValidator {
 		if (body.size() == 5) {
 			timer = validateAutoDeleteTimer(body.getOptionalLong(4));
 		}
-
 		BdfDictionary meta = messageEncoder.encodeMetadata(INVITE, shareableId,
 				m.getTimestamp(), false, false, false, false, false, timer,
 				false);
@@ -83,10 +70,8 @@ abstract class SharingValidator extends BdfMessageValidator {
 			return new BdfMessageContext(meta, singletonList(dependency));
 		}
 	}
-
 	protected abstract GroupId validateDescriptor(BdfList descriptor)
 			throws FormatException;
-
 	private BdfMessageContext validateLeaveOrAbortMessage(MessageType type,
 			Message m, BdfList body) throws FormatException {
 		checkSize(body, 3);
@@ -94,7 +79,6 @@ abstract class SharingValidator extends BdfMessageValidator {
 		checkLength(shareableId, UniqueId.LENGTH);
 		byte[] previousMessageId = body.getOptionalRaw(2);
 		checkLength(previousMessageId, UniqueId.LENGTH);
-
 		BdfDictionary meta = messageEncoder.encodeMetadata(type,
 				new GroupId(shareableId), m.getTimestamp(), false, false,
 				false, false, false, NO_AUTO_DELETE_TIMER, false);
@@ -105,13 +89,8 @@ abstract class SharingValidator extends BdfMessageValidator {
 			return new BdfMessageContext(meta, singletonList(dependency));
 		}
 	}
-
 	private BdfMessageContext validateAcceptOrDeclineMessage(MessageType type,
 			Message m, BdfList body) throws FormatException {
-		// Client version 0.0: Message type, shareable ID, optional previous
-		// message ID.
-		// Client version 0.1: Message type, shareable ID, optional previous
-		// message ID, optional auto-delete timer.
 		checkSize(body, 3, 4);
 		byte[] shareableId = body.getRaw(1);
 		checkLength(shareableId, UniqueId.LENGTH);
@@ -121,7 +100,6 @@ abstract class SharingValidator extends BdfMessageValidator {
 		if (body.size() == 4) {
 			timer = validateAutoDeleteTimer(body.getOptionalLong(3));
 		}
-
 		BdfDictionary meta = messageEncoder.encodeMetadata(type,
 				new GroupId(shareableId), m.getTimestamp(), false, false,
 				false, false, false, timer, false);

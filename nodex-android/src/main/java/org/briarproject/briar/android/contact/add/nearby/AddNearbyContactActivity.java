@@ -1,10 +1,8 @@
 package org.briarproject.briar.android.contact.add.nearby;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import org.briarproject.bramble.api.identity.Author;
 import org.briarproject.bramble.api.qrcode.QrCodeClassifier.QrCodeType;
 import org.briarproject.briar.R;
@@ -21,17 +19,13 @@ import org.briarproject.briar.android.fragment.BaseFragment.BaseFragmentListener
 import org.briarproject.briar.android.util.ActivityLaunchers.RequestBluetoothDiscoverable;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import java.util.logging.Logger;
-
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
-
 import static android.bluetooth.BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static android.widget.Toast.LENGTH_LONG;
@@ -40,30 +34,24 @@ import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.api.qrcode.QrCodeClassifier.QrCodeType.MAILBOX;
 import static org.briarproject.briar.android.contact.add.nearby.AddNearbyContactViewModel.BluetoothDecision.ACCEPTED;
 import static org.briarproject.briar.android.contact.add.nearby.AddNearbyContactViewModel.BluetoothDecision.REFUSED;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class AddNearbyContactActivity extends BriarActivity
 		implements BaseFragmentListener {
-
 	private static final Logger LOG =
 			getLogger(AddNearbyContactActivity.class.getName());
-
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
-
 	private AddNearbyContactViewModel viewModel;
 	private final ActivityResultLauncher<Integer> bluetoothLauncher =
 			registerForActivityResult(new RequestBluetoothDiscoverable(),
 					this::onBluetoothDiscoverableResult);
-
 	@Override
 	public void injectActivity(ActivityComponent component) {
 		component.inject(this);
 		viewModel = new ViewModelProvider(this, viewModelFactory)
 				.get(AddNearbyContactViewModel.class);
 	}
-
 	@Override
 	public void onCreate(@Nullable Bundle state) {
 		super.onCreate(state);
@@ -75,7 +63,7 @@ public class AddNearbyContactActivity extends BriarActivity
 			showInitialFragment(AddNearbyContactIntroFragment.newInstance());
 		}
 		viewModel.getRequestBluetoothDiscoverable().observeEvent(this, r ->
-				requestBluetoothDiscoverable()); // never false
+				requestBluetoothDiscoverable());
 		viewModel.getShowQrCodeFragment().observeEvent(this, show -> {
 			if (show) showQrCodeFragment();
 		});
@@ -84,7 +72,6 @@ public class AddNearbyContactActivity extends BriarActivity
 		viewModel.getState()
 				.observe(this, this::onAddContactStateChanged);
 	}
-
 	private void onBluetoothDiscoverableResult(boolean discoverable) {
 		if (discoverable) {
 			LOG.info("Bluetooth discoverability was accepted");
@@ -94,7 +81,6 @@ public class AddNearbyContactActivity extends BriarActivity
 			viewModel.setBluetoothDecision(REFUSED);
 		}
 	}
-
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == android.R.id.home) {
@@ -103,12 +89,9 @@ public class AddNearbyContactActivity extends BriarActivity
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
 	@Override
 	public void onBackPressed() {
 		if (viewModel.getState().getValue() instanceof Failed) {
-			// Re-create this activity when going back in failed state.
-			// This will also re-create the ViewModel, so we start fresh.
 			Intent i = new Intent(this, AddNearbyContactActivity.class);
 			i.setFlags(FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(i);
@@ -116,20 +99,17 @@ public class AddNearbyContactActivity extends BriarActivity
 			super.onBackPressed();
 		}
 	}
-
 	private void requestBluetoothDiscoverable() {
 		Intent i = new Intent(ACTION_REQUEST_DISCOVERABLE);
 		if (i.resolveActivity(getPackageManager()) != null) {
 			LOG.info("Asking for Bluetooth discoverability");
 			viewModel.setBluetoothDecision(BluetoothDecision.WAITING);
-			bluetoothLauncher.launch(120); // 2min discoverable
+			bluetoothLauncher.launch(120);
 		} else {
 			viewModel.setBluetoothDecision(BluetoothDecision.NO_ADAPTER);
 		}
 	}
-
 	private void showQrCodeFragment() {
-		// FIXME #824
 		FragmentManager fm = getSupportFragmentManager();
 		if (fm.findFragmentByTag(AddNearbyContactFragment.TAG) == null) {
 			BaseFragment f = AddNearbyContactFragment.newInstance();
@@ -139,7 +119,6 @@ public class AddNearbyContactActivity extends BriarActivity
 					.commit();
 		}
 	}
-
 	private void onAddContactStateChanged(@Nullable AddContactState state) {
 		if (state instanceof ContactExchangeFinished) {
 			ContactExchangeResult result =
@@ -156,7 +135,6 @@ public class AddNearbyContactActivity extends BriarActivity
 			showErrorFragment();
 		}
 	}
-
 	private void onContactExchangeResult(ContactExchangeResult result) {
 		if (result instanceof ContactExchangeResult.Success) {
 			Author remoteAuthor =
@@ -179,21 +157,18 @@ public class AddNearbyContactActivity extends BriarActivity
 			}
 		} else throw new AssertionError();
 	}
-
 	private void onMailboxQrCodeScanned() {
 		String title = getString(R.string.qr_code_invalid);
 		String msg = getString(R.string.mailbox_qr_code_for_contact);
 		showNextFragment(
 				AddNearbyContactErrorFragment.newInstance(title, msg, false));
 	}
-
 	private void onWrongQrCodeType() {
 		String title = getString(R.string.qr_code_invalid);
 		String msg = getString(R.string.qr_code_format_unknown);
 		showNextFragment(
 				AddNearbyContactErrorFragment.newInstance(title, msg, false));
 	}
-
 	private void onWrongQrCodeVersion(boolean qrCodeTooOld) {
 		String title = getString(R.string.qr_code_invalid);
 		String msg;
@@ -202,9 +177,7 @@ public class AddNearbyContactActivity extends BriarActivity
 		showNextFragment(
 				AddNearbyContactErrorFragment.newInstance(title, msg, false));
 	}
-
 	private void showErrorFragment() {
 		showNextFragment(new AddNearbyContactErrorFragment());
 	}
-
 }

@@ -1,7 +1,5 @@
 package org.briarproject.briar.android.logging;
-
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -9,15 +7,11 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
-
 import javax.annotation.concurrent.ThreadSafe;
-
 import static java.util.Locale.US;
-
 @ThreadSafe
 @NotNullByDefault
 public class BriefLogFormatter extends Formatter {
-
 	public static String formatLog(Formatter formatter,
 			Collection<LogRecord> logRecords) {
 		StringBuilder sb = new StringBuilder();
@@ -27,11 +21,9 @@ public class BriefLogFormatter extends Formatter {
 		}
 		return sb.toString();
 	}
-
 	private final Object lock = new Object();
-	private final DateFormat dateFormat; // Locking: lock
-	private final Date date; // Locking: lock
-
+	private final DateFormat dateFormat;
+	private final Date date;
 	public BriefLogFormatter() {
 		synchronized (lock) {
 			dateFormat = new SimpleDateFormat("MM-dd HH:mm:ss.SSS ", US);
@@ -39,7 +31,6 @@ public class BriefLogFormatter extends Formatter {
 			date = new Date();
 		}
 	}
-
 	@Override
 	public String format(LogRecord record) {
 		String dateString;
@@ -60,7 +51,6 @@ public class BriefLogFormatter extends Formatter {
 		}
 		return sb.toString();
 	}
-
 	private void appendThrowable(StringBuilder sb, Throwable t) {
 		sb.append(t);
 		for (StackTraceElement e : t.getStackTrace())

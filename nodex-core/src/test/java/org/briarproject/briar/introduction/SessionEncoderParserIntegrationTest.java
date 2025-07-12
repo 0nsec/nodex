@@ -1,5 +1,4 @@
 package org.briarproject.briar.introduction;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.crypto.PrivateKey;
@@ -17,12 +16,9 @@ import org.briarproject.bramble.test.BrambleTestCase;
 import org.briarproject.briar.api.client.SessionId;
 import org.briarproject.briar.introduction.IntroducerSession.Introducee;
 import org.junit.Test;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.inject.Inject;
-
 import static org.briarproject.bramble.test.TestUtils.getAgreementPrivateKey;
 import static org.briarproject.bramble.test.TestUtils.getAgreementPublicKey;
 import static org.briarproject.bramble.test.TestUtils.getRandomBytes;
@@ -43,17 +39,13 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-
 public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
-
 	@Inject
 	ClientHelper clientHelper;
 	@Inject
 	AuthorFactory authorFactory;
-
 	private final SessionEncoder sessionEncoder;
 	private final SessionParser sessionParser;
-
 	private final GroupId groupId1 = new GroupId(getRandomId());
 	private final GroupId groupId2 = new GroupId(getRandomId());
 	private final SessionId sessionId = new SessionId(getRandomId());
@@ -79,14 +71,12 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 	private final Map<TransportId, KeySetId> transportKeys = new HashMap<>();
 	private final byte[] localMacKey = getRandomBytes(SecretKey.LENGTH);
 	private final byte[] remoteMacKey = getRandomBytes(SecretKey.LENGTH);
-
 	public SessionEncoderParserIntegrationTest() {
 		IntroductionIntegrationTestComponent component =
 				DaggerIntroductionIntegrationTestComponent.builder().build();
 		IntroductionIntegrationTestComponent.Helper
 				.injectEagerSingletons(component);
 		component.inject(this);
-
 		sessionEncoder = new SessionEncoderImpl(clientHelper);
 		sessionParser = new SessionParserImpl(clientHelper);
 		author1 = getRealAuthor(authorFactory);
@@ -95,14 +85,11 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		transportKeys.put(getTransportId(), new KeySetId(2));
 		transportKeys.put(getTransportId(), new KeySetId(3));
 	}
-
 	@Test
 	public void testIntroducerSession() throws FormatException {
 		IntroducerSession s1 = getIntroducerSession();
-
 		BdfDictionary d = sessionEncoder.encodeIntroducerSession(s1);
 		IntroducerSession s2 = sessionParser.parseIntroducerSession(d);
-
 		assertEquals(INTRODUCER, s1.getRole());
 		assertEquals(s1.getRole(), s2.getRole());
 		assertEquals(sessionId, s1.getSessionId());
@@ -112,7 +99,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		assertIntroduceeEquals(s1.getIntroduceeA(), s2.getIntroduceeA());
 		assertIntroduceeEquals(s1.getIntroduceeB(), s2.getIntroduceeB());
 	}
-
 	@Test
 	public void testIntroducerSessionWithNulls() throws FormatException {
 		Introducee introducee1 =
@@ -124,17 +110,14 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		IntroducerSession s1 = new IntroducerSession(sessionId,
 				AWAIT_AUTHS, requestTimestamp, introducee1,
 				introducee2);
-
 		BdfDictionary d = sessionEncoder.encodeIntroducerSession(s1);
 		IntroducerSession s2 = sessionParser.parseIntroducerSession(d);
-
 		assertNull(s1.getIntroduceeA().lastLocalMessageId);
 		assertEquals(s1.getIntroduceeA().lastLocalMessageId,
 				s2.getIntroduceeA().lastLocalMessageId);
 		assertNull(s1.getIntroduceeA().lastRemoteMessageId);
 		assertEquals(s1.getIntroduceeA().lastRemoteMessageId,
 				s2.getIntroduceeA().lastRemoteMessageId);
-
 		assertNull(s1.getIntroduceeB().lastLocalMessageId);
 		assertEquals(s1.getIntroduceeB().lastLocalMessageId,
 				s2.getIntroduceeB().lastLocalMessageId);
@@ -142,7 +125,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		assertEquals(s1.getIntroduceeB().lastRemoteMessageId,
 				s2.getIntroduceeB().lastRemoteMessageId);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testIntroducerSessionUnknownRole() throws FormatException {
 		IntroducerSession s = getIntroducerSession();
@@ -150,7 +132,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		d.put(SESSION_KEY_ROLE, 1337);
 		sessionParser.parseIntroducerSession(d);
 	}
-
 	@Test(expected = IllegalArgumentException.class)
 	public void testIntroducerSessionWrongRole() throws FormatException {
 		IntroducerSession s = getIntroducerSession();
@@ -158,14 +139,12 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		d.put(SESSION_KEY_ROLE, INTRODUCEE.getValue());
 		sessionParser.parseIntroducerSession(d);
 	}
-
 	@Test
 	public void testIntroduceeSession() throws FormatException {
 		IntroduceeSession s1 = getIntroduceeSession();
 		BdfDictionary d = sessionEncoder.encodeIntroduceeSession(s1);
 		IntroduceeSession s2 =
 				sessionParser.parseIntroduceeSession(groupId1, d);
-
 		assertEquals(LOCAL_ACCEPTED, s1.getState());
 		assertEquals(s1.getState(), s2.getState());
 		assertEquals(INTRODUCEE, s1.getRole());
@@ -186,8 +165,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		assertEquals(s1.getLastLocalMessageId(), s2.getLastLocalMessageId());
 		assertEquals(lastRemoteMessageId, s1.getLastRemoteMessageId());
 		assertEquals(s1.getLastRemoteMessageId(), s2.getLastRemoteMessageId());
-
-		// check local
 		assertTrue(s1.getLocal().alice);
 		assertEquals(s1.getLocal().alice, s2.getLocal().alice);
 		assertEquals(lastLocalMessageId, s1.getLocal().lastMessageId);
@@ -219,8 +196,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 				s2.getLocal().acceptTimestamp);
 		assertArrayEquals(localMacKey, s1.getLocal().macKey);
 		assertArrayEquals(s1.getLocal().macKey, s2.getLocal().macKey);
-
-		// check remote
 		assertFalse(s1.getRemote().alice);
 		assertEquals(s1.getRemote().alice, s2.getRemote().alice);
 		assertEquals(author2, s1.getRemote().author);
@@ -246,16 +221,13 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		assertArrayEquals(remoteMacKey, s1.getRemote().macKey);
 		assertArrayEquals(s1.getRemote().macKey, s2.getRemote().macKey);
 	}
-
 	@Test
 	public void testIntroduceeSessionWithNulls() throws FormatException {
 		IntroduceeSession s1 = IntroduceeSession
 				.getInitial(groupId1, sessionId, author1, false, author2);
-
 		BdfDictionary d = sessionEncoder.encodeIntroduceeSession(s1);
 		IntroduceeSession s2 =
 				sessionParser.parseIntroduceeSession(groupId1, d);
-
 		assertNull(s1.getLastLocalMessageId());
 		assertEquals(s1.getLastLocalMessageId(), s2.getLastLocalMessageId());
 		assertNull(s1.getLastRemoteMessageId());
@@ -264,8 +236,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		assertEquals(s1.getMasterKey(), s2.getMasterKey());
 		assertNull(s1.getTransportKeys());
 		assertEquals(s1.getTransportKeys(), s2.getTransportKeys());
-
-		// check local
 		assertNull(s1.getLocal().lastMessageId);
 		assertEquals(s1.getLocal().lastMessageId, s2.getLocal().lastMessageId);
 		assertNull(s1.getLocal().ephemeralPublicKey);
@@ -279,8 +249,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 				s2.getLocal().transportProperties);
 		assertNull(s1.getLocal().macKey);
 		assertEquals(s1.getLocal().macKey, s2.getLocal().macKey);
-
-		// check remote
 		assertNull(s1.getRemote().lastMessageId);
 		assertEquals(s1.getRemote().lastMessageId,
 				s2.getRemote().lastMessageId);
@@ -293,7 +261,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		assertNull(s1.getRemote().macKey);
 		assertEquals(s1.getRemote().macKey, s2.getRemote().macKey);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testIntroduceeSessionUnknownRole() throws FormatException {
 		IntroduceeSession s = getIntroduceeSession();
@@ -301,7 +268,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		d.put(SESSION_KEY_ROLE, 1337);
 		sessionParser.parseIntroduceeSession(groupId1, d);
 	}
-
 	@Test(expected = IllegalArgumentException.class)
 	public void testIntroduceeSessionWrongRole() throws FormatException {
 		IntroduceeSession s = getIntroduceeSession();
@@ -309,7 +275,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		d.put(SESSION_KEY_ROLE, INTRODUCER.getValue());
 		sessionParser.parseIntroduceeSession(groupId1, d);
 	}
-
 	private IntroducerSession getIntroducerSession() {
 		Introducee introducee1 =
 				new Introducee(sessionId, groupId1, author1, localTimestamp,
@@ -320,7 +285,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 		return new IntroducerSession(sessionId, AWAIT_AUTHS,
 				requestTimestamp, introducee1, introducee2);
 	}
-
 	private IntroduceeSession getIntroduceeSession() {
 		Local local = new Local(true, lastLocalMessageId, localTimestamp,
 				ephemeralPublicKey, ephemeralPrivateKey, transportProperties,
@@ -332,7 +296,6 @@ public class SessionEncoderParserIntegrationTest extends BrambleTestCase {
 				requestTimestamp, groupId1, author1, local, remote,
 				masterKey, transportKeys);
 	}
-
 	private void assertIntroduceeEquals(Introducee i1, Introducee i2) {
 		assertEquals(i1.author, i2.author);
 		assertEquals(i1.groupId, i2.groupId);

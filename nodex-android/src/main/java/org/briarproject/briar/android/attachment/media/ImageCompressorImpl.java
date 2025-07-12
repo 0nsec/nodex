@@ -1,17 +1,13 @@
 package org.briarproject.briar.android.attachment.media;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import static android.graphics.Bitmap.CompressFormat.JPEG;
 import static android.graphics.BitmapFactory.decodeStream;
 import static java.util.logging.Level.INFO;
@@ -19,21 +15,15 @@ import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.util.IoUtils.tryToClose;
 import static org.briarproject.briar.api.attachment.MediaConstants.MAX_IMAGE_SIZE;
-
 class ImageCompressorImpl implements ImageCompressor {
-
 	private static final Logger LOG =
 			getLogger(ImageCompressorImpl.class.getName());
-
 	private static final int MAX_ATTACHMENT_DIMENSION = 1000;
-
 	private final ImageSizeCalculator imageSizeCalculator;
-
 	@Inject
 	ImageCompressorImpl(ImageSizeCalculator imageSizeCalculator) {
 		this.imageSizeCalculator = imageSizeCalculator;
 	}
-
 	@Override
 	public InputStream compressImage(InputStream is, String contentType)
 			throws IOException {
@@ -45,7 +35,6 @@ class ImageCompressorImpl implements ImageCompressor {
 			tryToClose(is, LOG, WARNING);
 		}
 	}
-
 	@Override
 	public InputStream compressImage(Bitmap bitmap) throws IOException {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -63,7 +52,6 @@ class ImageCompressorImpl implements ImageCompressor {
 		}
 		throw new IOException();
 	}
-
 	private Bitmap createBitmap(InputStream is, String contentType, int maxSize)
 			throws IOException {
 		is = new BufferedInputStream(is);
@@ -88,5 +76,4 @@ class ImageCompressorImpl implements ImageCompressor {
 		if (bitmap == null) throw new IOException();
 		return bitmap;
 	}
-
 }

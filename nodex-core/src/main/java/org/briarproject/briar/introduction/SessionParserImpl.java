@@ -1,5 +1,4 @@
 package org.briarproject.briar.introduction;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.crypto.AgreementPrivateKey;
@@ -20,14 +19,11 @@ import org.briarproject.briar.introduction.IntroduceeSession.Local;
 import org.briarproject.briar.introduction.IntroduceeSession.Remote;
 import org.briarproject.briar.introduction.IntroducerSession.Introducee;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 import static org.briarproject.briar.api.introduction.Role.INTRODUCEE;
 import static org.briarproject.briar.api.introduction.Role.INTRODUCER;
 import static org.briarproject.briar.introduction.IntroductionConstants.SESSION_KEY_ACCEPT_TIMESTAMP;
@@ -53,28 +49,22 @@ import static org.briarproject.briar.introduction.IntroductionConstants.SESSION_
 import static org.briarproject.briar.introduction.IntroductionConstants.SESSION_KEY_STATE;
 import static org.briarproject.briar.introduction.IntroductionConstants.SESSION_KEY_TRANSPORT_KEYS;
 import static org.briarproject.briar.introduction.IntroductionConstants.SESSION_KEY_TRANSPORT_PROPERTIES;
-
 @Immutable
 @NotNullByDefault
 class SessionParserImpl implements SessionParser {
-
 	private final ClientHelper clientHelper;
-
 	@Inject
 	SessionParserImpl(ClientHelper clientHelper) {
 		this.clientHelper = clientHelper;
 	}
-
 	@Override
 	public BdfDictionary getSessionQuery(SessionId s) {
 		return BdfDictionary.of(new BdfEntry(SESSION_KEY_SESSION_ID, s));
 	}
-
 	@Override
 	public Role getRole(BdfDictionary d) throws FormatException {
 		return Role.fromValue(d.getInt(SESSION_KEY_ROLE));
 	}
-
 	@Override
 	public IntroducerSession parseIntroducerSession(BdfDictionary d)
 			throws FormatException {
@@ -89,7 +79,6 @@ class SessionParserImpl implements SessionParser {
 		return new IntroducerSession(sessionId, state, requestTimestamp,
 				introduceeA, introduceeB);
 	}
-
 	private Introducee parseIntroducee(SessionId sessionId, BdfDictionary d)
 			throws FormatException {
 		MessageId lastLocalMessageId =
@@ -102,7 +91,6 @@ class SessionParserImpl implements SessionParser {
 		return new Introducee(sessionId, groupId, author, localTimestamp,
 				lastLocalMessageId, lastRemoteMessageId);
 	}
-
 	@Override
 	public IntroduceeSession parseIntroduceeSession(GroupId introducerGroupId,
 			BdfDictionary d) throws FormatException {
@@ -120,7 +108,6 @@ class SessionParserImpl implements SessionParser {
 				introducerGroupId, introducer, local, remote,
 				masterKey, transportKeys);
 	}
-
 	private Local parseLocal(BdfDictionary d) throws FormatException {
 		boolean alice = d.getBoolean(SESSION_KEY_ALICE);
 		MessageId lastLocalMessageId =
@@ -139,7 +126,6 @@ class SessionParserImpl implements SessionParser {
 				ephemeralPublicKey, ephemeralPrivateKey, transportProperties,
 				acceptTimestamp, macKey);
 	}
-
 	private Remote parseRemote(BdfDictionary d) throws FormatException {
 		boolean alice = d.getBoolean(SESSION_KEY_ALICE);
 		Author remoteAuthor = getAuthor(d, SESSION_KEY_REMOTE_AUTHOR);
@@ -157,32 +143,26 @@ class SessionParserImpl implements SessionParser {
 				ephemeralPublicKey, transportProperties, acceptTimestamp,
 				macKey);
 	}
-
 	private int getState(BdfDictionary d) throws FormatException {
 		return d.getInt(SESSION_KEY_STATE);
 	}
-
 	private SessionId getSessionId(BdfDictionary d) throws FormatException {
 		byte[] b = d.getRaw(SESSION_KEY_SESSION_ID);
 		return new SessionId(b);
 	}
-
 	@Nullable
 	private MessageId getMessageId(BdfDictionary d, String key)
 			throws FormatException {
 		byte[] b = d.getOptionalRaw(key);
 		return b == null ? null : new MessageId(b);
 	}
-
 	private GroupId getGroupId(BdfDictionary d) throws FormatException {
 		return new GroupId(d.getRaw(SESSION_KEY_GROUP_ID));
 	}
-
 	private Author getAuthor(BdfDictionary d, String key)
 			throws FormatException {
 		return clientHelper.parseAndValidateAuthor(d.getList(key));
 	}
-
 	@Nullable
 	private Map<TransportId, KeySetId> parseTransportKeys(
 			@Nullable BdfDictionary d) throws FormatException {
@@ -193,14 +173,12 @@ class SessionParserImpl implements SessionParser {
 		}
 		return map;
 	}
-
 	@Nullable
 	private PublicKey getEphemeralPublicKey(BdfDictionary d)
 			throws FormatException {
 		byte[] keyBytes = d.getOptionalRaw(SESSION_KEY_EPHEMERAL_PUBLIC_KEY);
 		return keyBytes == null ? null : new AgreementPublicKey(keyBytes);
 	}
-
 	@Nullable
 	private PrivateKey getEphemeralPrivateKey(BdfDictionary d)
 			throws FormatException {

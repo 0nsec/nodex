@@ -1,5 +1,4 @@
 package org.briarproject.briar.introduction;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.crypto.AgreementPublicKey;
@@ -14,11 +13,8 @@ import org.briarproject.bramble.api.sync.Message;
 import org.briarproject.bramble.api.sync.MessageId;
 import org.briarproject.briar.api.client.SessionId;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.Map;
-
 import javax.inject.Inject;
-
 import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 import static org.briarproject.briar.client.MessageTrackerConstants.MSG_KEY_READ;
 import static org.briarproject.briar.introduction.IntroductionConstants.MSG_KEY_AUTO_DELETE_TIMER;
@@ -30,22 +26,17 @@ import static org.briarproject.briar.introduction.IntroductionConstants.MSG_KEY_
 import static org.briarproject.briar.introduction.IntroductionConstants.MSG_KEY_TIMESTAMP;
 import static org.briarproject.briar.introduction.IntroductionConstants.MSG_KEY_VISIBLE_IN_UI;
 import static org.briarproject.briar.introduction.MessageType.REQUEST;
-
 @NotNullByDefault
 class MessageParserImpl implements MessageParser {
-
 	private final ClientHelper clientHelper;
-
 	@Inject
 	MessageParserImpl(ClientHelper clientHelper) {
 		this.clientHelper = clientHelper;
 	}
-
 	@Override
 	public BdfDictionary getMessagesVisibleInUiQuery() {
 		return BdfDictionary.of(new BdfEntry(MSG_KEY_VISIBLE_IN_UI, true));
 	}
-
 	@Override
 	public BdfDictionary getRequestsAvailableToAnswerQuery(
 			SessionId sessionId) {
@@ -55,7 +46,6 @@ class MessageParserImpl implements MessageParser {
 				new BdfEntry(MSG_KEY_SESSION_ID, sessionId)
 		);
 	}
-
 	@Override
 	public MessageMetadata parseMetadata(BdfDictionary d)
 			throws FormatException {
@@ -74,7 +64,6 @@ class MessageParserImpl implements MessageParser {
 		return new MessageMetadata(type, sessionId, timestamp, local, read,
 				visible, available, timer, isAutoDecline);
 	}
-
 	@Override
 	public RequestMessage parseRequestMessage(Message m, BdfList body)
 			throws FormatException {
@@ -88,7 +77,6 @@ class MessageParserImpl implements MessageParser {
 		return new RequestMessage(m.getId(), m.getGroupId(),
 				m.getTimestamp(), previousMessageId, author, text, timer);
 	}
-
 	@Override
 	public AcceptMessage parseAcceptMessage(Message m, BdfList body)
 			throws FormatException {
@@ -106,7 +94,6 @@ class MessageParserImpl implements MessageParser {
 				previousMessageId, sessionId, ephemeralPublicKey,
 				acceptTimestamp, transportProperties, timer);
 	}
-
 	@Override
 	public DeclineMessage parseDeclineMessage(Message m, BdfList body)
 			throws FormatException {
@@ -119,7 +106,6 @@ class MessageParserImpl implements MessageParser {
 		return new DeclineMessage(m.getId(), m.getGroupId(), m.getTimestamp(),
 				previousMessageId, sessionId, timer);
 	}
-
 	@Override
 	public AuthMessage parseAuthMessage(Message m, BdfList body)
 			throws FormatException {
@@ -131,7 +117,6 @@ class MessageParserImpl implements MessageParser {
 		return new AuthMessage(m.getId(), m.getGroupId(), m.getTimestamp(),
 				previousMessageId, sessionId, mac, signature);
 	}
-
 	@Override
 	public ActivateMessage parseActivateMessage(Message m, BdfList body)
 			throws FormatException {
@@ -142,7 +127,6 @@ class MessageParserImpl implements MessageParser {
 		return new ActivateMessage(m.getId(), m.getGroupId(), m.getTimestamp(),
 				previousMessageId, sessionId, mac);
 	}
-
 	@Override
 	public AbortMessage parseAbortMessage(Message m, BdfList body)
 			throws FormatException {
@@ -153,5 +137,4 @@ class MessageParserImpl implements MessageParser {
 		return new AbortMessage(m.getId(), m.getGroupId(), m.getTimestamp(),
 				previousMessageId, sessionId);
 	}
-
 }

@@ -1,5 +1,4 @@
 package org.briarproject.briar.android.attachment;
-
 import org.briarproject.bramble.api.db.DatabaseExecutor;
 import org.briarproject.bramble.api.db.DbException;
 import org.briarproject.bramble.api.db.NoSuchMessageException;
@@ -13,7 +12,6 @@ import org.briarproject.briar.api.attachment.AttachmentHeader;
 import org.briarproject.briar.api.attachment.AttachmentReader;
 import org.briarproject.briar.api.messaging.PrivateMessageHeader;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -22,12 +20,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static java.util.Arrays.asList;
 import static java.util.Objects.requireNonNull;
 import static java.util.logging.Level.INFO;
@@ -40,13 +35,10 @@ import static org.briarproject.briar.android.attachment.AttachmentItem.State.AVA
 import static org.briarproject.briar.android.attachment.AttachmentItem.State.ERROR;
 import static org.briarproject.briar.android.attachment.AttachmentItem.State.LOADING;
 import static org.briarproject.briar.android.attachment.AttachmentItem.State.MISSING;
-
 @NotNullByDefault
 class AttachmentRetrieverImpl implements AttachmentRetriever {
-
 	private static final Logger LOG =
 			getLogger(AttachmentRetrieverImpl.class.getName());
-
 	@DatabaseExecutor
 	private final Executor dbExecutor;
 	private final AttachmentReader attachmentReader;
@@ -55,12 +47,10 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 	private final int defaultSize;
 	private final int minWidth, maxWidth;
 	private final int minHeight, maxHeight;
-
 	private final ConcurrentMap<MessageId, MutableLiveData<AttachmentItem>>
 			itemsWithSize = new ConcurrentHashMap<>();
 	private final ConcurrentMap<MessageId, MutableLiveData<AttachmentItem>>
 			itemsWithoutSize = new ConcurrentHashMap<>();
-
 	@Inject
 	AttachmentRetrieverImpl(@DatabaseExecutor Executor dbExecutor,
 			AttachmentReader attachmentReader, AttachmentDimensions dimensions,
@@ -75,14 +65,12 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 		minHeight = dimensions.minHeight;
 		maxHeight = dimensions.maxHeight;
 	}
-
 	@Override
 	@DatabaseExecutor
 	public Attachment getMessageAttachment(AttachmentHeader h)
 			throws DbException {
 		return attachmentReader.getAttachment(h);
 	}
-
 	@Override
 	public List<LiveData<AttachmentItem>> getAttachmentItems(
 			PrivateMessageHeader messageHeader) {
@@ -91,7 +79,6 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 		boolean needsSize = headers.size() == 1;
 		List<String> supported = asList(getSupportedImageContentTypes());
 		for (AttachmentHeader h : headers) {
-			// Fail early if we don't support the content type
 			if (!supported.contains(h.getContentType())) {
 				if (LOG.isLoggable(INFO)) {
 					LOG.info("Unsupported content type " + h.getContentType());
@@ -100,20 +87,15 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 				items.add(new MutableLiveData<>(item));
 				continue;
 			}
-			// try cache for existing item live data
 			MutableLiveData<AttachmentItem> liveData =
 					itemsWithSize.get(h.getMessageId());
 			if (!needsSize && liveData == null) {
-				// check cache for items that don't need the size
 				liveData = itemsWithoutSize.get(h.getMessageId());
 			}
-
-			// create new live data with LOADING item if cache miss
 			if (liveData == null) {
 				AttachmentItem item = new AttachmentItem(h,
 						defaultSize, defaultSize, LOADING);
 				liveData = new MutableLiveData<>(item);
-				// add new LiveData to cache, checking for concurrent updates
 				MutableLiveData<AttachmentItem> oldLiveData;
 				if (needsSize) {
 					oldLiveData = itemsWithSize.putIfAbsent(h.getMessageId(),
@@ -123,12 +105,10 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 							liveData);
 				}
 				if (oldLiveData == null) {
-					// kick-off loading of attachment, will post to live data
 					MutableLiveData<AttachmentItem> finalLiveData = liveData;
 					dbExecutor.execute(() ->
 							loadAttachmentItem(h, needsSize, finalLiveData));
 				} else {
-					// Concurrent cache update - use the existing live data
 					liveData = oldLiveData;
 				}
 			}
@@ -136,29 +116,24 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 		}
 		return items;
 	}
-
 	@Override
 	@DatabaseExecutor
 	public void cacheAttachmentItemWithSize(MessageId conversationMessageId,
 			AttachmentHeader h) throws DbException {
-		// If a live data is already cached we don't need to do anything
 		if (itemsWithSize.containsKey(h.getMessageId())) return;
 		try {
 			Attachment a = attachmentReader.getAttachment(h);
 			AttachmentItem item = createAttachmentItem(a, true);
 			MutableLiveData<AttachmentItem> liveData =
 					new MutableLiveData<>(item);
-			// If a live data was concurrently cached, don't replace it
 			itemsWithSize.putIfAbsent(h.getMessageId(), liveData);
 		} catch (NoSuchMessageException e) {
 			LOG.info("Attachment not received yet");
 		}
 	}
-
 	@Override
 	@DatabaseExecutor
 	public void loadAttachmentItem(MessageId attachmentId) {
-		// try to find LiveData for attachment in both caches
 		MutableLiveData<AttachmentItem> liveData;
 		boolean needsSize = true;
 		liveData = itemsWithSize.get(attachmentId);
@@ -166,20 +141,10 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 			needsSize = false;
 			liveData = itemsWithoutSize.get(attachmentId);
 		}
-
-		// If no LiveData for the attachment exists,
-		// its message did not yet arrive and we can ignore it for now.
 		if (liveData == null) return;
-
-		// actually load the attachment item
 		AttachmentHeader h = requireNonNull(liveData.getValue()).getHeader();
 		loadAttachmentItem(h, needsSize, liveData);
 	}
-
-	/**
-	 * Loads an {@link AttachmentItem} from the database
-	 * and notifies the given {@link LiveData}.
-	 */
 	@DatabaseExecutor
 	private void loadAttachmentItem(AttachmentHeader h, boolean needsSize,
 			MutableLiveData<AttachmentItem> liveData) {
@@ -197,7 +162,6 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 		}
 		liveData.postValue(item);
 	}
-
 	@Override
 	public AttachmentItem createAttachmentItem(Attachment a,
 			boolean needsSize) {
@@ -220,9 +184,7 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 		}
 		return item;
 	}
-
 	private AttachmentItem createAttachmentItem(AttachmentHeader h, Size size) {
-		// calculate thumbnail size
 		Size thumbnailSize =
 				new Size(defaultSize, defaultSize, size.getMimeType());
 		if (!size.hasError()) {
@@ -230,7 +192,6 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 					getThumbnailSize(size.getWidth(), size.getHeight(),
 							size.getMimeType());
 		}
-		// get file extension
 		String extension =
 				imageHelper.getExtensionFromMimeType(size.getMimeType());
 		boolean hasError = extension == null || size.hasError();
@@ -248,7 +209,6 @@ class AttachmentRetrieverImpl implements AttachmentRetriever {
 				extension, thumbnailSize.getWidth(), thumbnailSize.getHeight(),
 				state);
 	}
-
 	private Size getThumbnailSize(int width, int height, String mimeType) {
 		float widthPercentage = maxWidth / (float) width;
 		float heightPercentage = maxHeight / (float) height;

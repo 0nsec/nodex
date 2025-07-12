@@ -1,29 +1,22 @@
 package org.briarproject.briar.android.contact.add.remote;
-
 import android.view.View;
 import android.widget.TextView;
-
 import org.briarproject.bramble.api.contact.PendingContact;
 import org.briarproject.briar.R;
 import org.briarproject.briar.android.view.TextAvatarView;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
-
 import static org.briarproject.briar.android.util.UiUtils.formatDate;
-
 @NotNullByDefault
 class PendingContactViewHolder extends ViewHolder {
-
 	private final PendingContactListener listener;
 	private final TextAvatarView avatar;
 	private final TextView name;
 	private final TextView time;
 	private final TextView status;
 	private final AppCompatImageButton removeButton;
-
 	PendingContactViewHolder(View v, PendingContactListener listener) {
 		super(v);
 		avatar = v.findViewById(R.id.avatar);
@@ -33,7 +26,6 @@ class PendingContactViewHolder extends ViewHolder {
 		removeButton = v.findViewById(R.id.removeButton);
 		this.listener = listener;
 	}
-
 	public void bind(PendingContactItem item) {
 		PendingContact p = item.getPendingContact();
 		avatar.setText(p.getAlias());
@@ -44,7 +36,6 @@ class PendingContactViewHolder extends ViewHolder {
 			listener.onPendingContactItemRemoved(item);
 			removeButton.setEnabled(false);
 		});
-
 		int color = ContextCompat
 				.getColor(status.getContext(), R.color.briar_lime_600);
 		switch (item.getState()) {
@@ -73,5 +64,4 @@ class PendingContactViewHolder extends ViewHolder {
 		status.setTextColor(color);
 		removeButton.setEnabled(true);
 	}
-
 }

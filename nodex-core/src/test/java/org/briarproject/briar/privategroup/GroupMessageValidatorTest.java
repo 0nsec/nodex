@@ -1,5 +1,4 @@
 package org.briarproject.briar.privategroup;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.BdfMessageContext;
 import org.briarproject.bramble.api.data.BdfDictionary;
@@ -14,12 +13,10 @@ import org.briarproject.briar.api.privategroup.PrivateGroupFactory;
 import org.briarproject.briar.api.privategroup.invitation.GroupInvitationFactory;
 import org.jmock.Expectations;
 import org.junit.Test;
-
 import java.security.GeneralSecurityException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-
 import static org.briarproject.bramble.api.identity.AuthorConstants.MAX_SIGNATURE_LENGTH;
 import static org.briarproject.bramble.test.TestUtils.getAuthor;
 import static org.briarproject.bramble.test.TestUtils.getRandomBytes;
@@ -44,14 +41,11 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
 public class GroupMessageValidatorTest extends ValidatorTestCase {
-
 	private final PrivateGroupFactory privateGroupFactory =
 			context.mock(PrivateGroupFactory.class);
 	private final GroupInvitationFactory groupInvitationFactory =
 			context.mock(GroupInvitationFactory.class);
-
 	private final Author member = getAuthor();
 	private final BdfList memberList = BdfList.of(
 			member.getFormatVersion(),
@@ -77,19 +71,14 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 	private final MessageId parentId = new MessageId(getRandomId());
 	private final MessageId previousMsgId = new MessageId(getRandomId());
 	private final String text = getRandomString(MAX_GROUP_POST_TEXT_LENGTH);
-
 	private final GroupMessageValidator validator =
 			new GroupMessageValidator(privateGroupFactory, clientHelper,
 					metadataEncoder, clock, groupInvitationFactory);
-
-	// JOIN message
-
 	@Test(expected = FormatException.class)
 	public void testRejectsTooShortJoinMessage() throws Exception {
 		BdfList body = BdfList.of(JOIN.getInt(), memberList, invite);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsTooLongJoinMessage() throws Exception {
 		expectParseAuthor(memberList, member);
@@ -97,19 +86,16 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature, "");
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsJoinWithNullAuthor() throws Exception {
 		BdfList body = BdfList.of(JOIN.getInt(), null, invite, memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsJoinWithNonListAuthor() throws Exception {
 		BdfList body = BdfList.of(JOIN.getInt(), 123, invite, memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsJoinWithInvalidAuthor() throws Exception {
 		expectRejectAuthor(memberList);
@@ -117,7 +103,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsJoinWithNonListInvitation() throws Exception {
 		expectParseAuthor(memberList, member);
@@ -125,7 +110,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsCreatorJoinWithTooShortMemberSignature()
 			throws Exception {
@@ -134,7 +118,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				new byte[0]);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsCreatorJoinWithTooLongMemberSignature()
 			throws Exception {
@@ -143,7 +126,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				getRandomBytes(MAX_SIGNATURE_LENGTH + 1));
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsCreatorJoinWithNullMemberSignature()
 			throws Exception {
@@ -151,7 +133,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		BdfList body = BdfList.of(JOIN.getInt(), creatorList, invite, null);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsCreatorJoinWithNonRawMemberSignature()
 			throws Exception {
@@ -160,7 +141,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				"not raw");
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsCreatorJoinWithInvalidMemberSignature()
 			throws Exception {
@@ -169,7 +149,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test
 	public void testAcceptsCreatorJoin() throws Exception {
 		expectCreatorJoinMessage(true);
@@ -182,7 +161,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		assertTrue(messageContext.getDictionary()
 				.getBoolean(KEY_INITIAL_JOIN_MSG));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithNullInvitation() throws Exception {
 		expectParseAuthor(memberList, member);
@@ -191,7 +169,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithTooShortInvitation() throws Exception {
 		BdfList invalidInvite = BdfList.of(inviteTimestamp);
@@ -201,7 +178,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithTooLongInvitation() throws Exception {
 		BdfList invalidInvite =
@@ -212,7 +188,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithEqualInvitationTime()
 			throws Exception {
@@ -224,7 +199,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithLaterInvitationTime()
 			throws Exception {
@@ -236,7 +210,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithNullInvitationTime() throws Exception {
 		BdfList invalidInvite = BdfList.of(null, creatorSignature);
@@ -246,7 +219,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithNonLongInvitationTime()
 			throws Exception {
@@ -257,7 +229,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithTooShortCreatorSignature()
 			throws Exception {
@@ -268,7 +239,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithTooLongCreatorSignature()
 			throws Exception {
@@ -280,7 +250,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithNullCreatorSignature()
 			throws Exception {
@@ -291,7 +260,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithNonRawCreatorSignature()
 			throws Exception {
@@ -302,7 +270,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithInvalidCreatorSignature()
 			throws Exception {
@@ -311,7 +278,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithTooShortMemberSignature()
 			throws Exception {
@@ -320,7 +286,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				new byte[0]);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithTooLongMemberSignature()
 			throws Exception {
@@ -329,7 +294,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				getRandomBytes(MAX_SIGNATURE_LENGTH + 1));
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithNullMemberSignature()
 			throws Exception {
@@ -337,7 +301,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		BdfList body = BdfList.of(JOIN.getInt(), memberList, invite, null);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithNonRawMemberSignature()
 			throws Exception {
@@ -345,7 +308,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		BdfList body = BdfList.of(JOIN.getInt(), memberList, invite, "not raw");
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsMemberJoinWithInvalidMemberSignature()
 			throws Exception {
@@ -354,7 +316,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test
 	public void testAcceptsMemberJoin() throws Exception {
 		expectMemberJoinMessage(true, true);
@@ -367,21 +328,18 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		assertFalse(messageContext.getDictionary()
 				.getBoolean(KEY_INITIAL_JOIN_MSG));
 	}
-
 	private void expectRejectAuthor(BdfList authorList) throws Exception {
 		context.checking(new Expectations() {{
 			oneOf(clientHelper).parseAndValidateAuthor(authorList);
 			will(throwException(new FormatException()));
 		}});
 	}
-
 	private void expectParsePrivateGroup() throws Exception {
 		context.checking(new Expectations() {{
 			oneOf(privateGroupFactory).parsePrivateGroup(group);
 			will(returnValue(privateGroup));
 		}});
 	}
-
 	private void expectCreatorJoinMessage(boolean memberSigValid)
 			throws Exception {
 		BdfList signed = BdfList.of(
@@ -399,7 +357,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				will(throwException(new GeneralSecurityException()));
 		}});
 	}
-
 	private void expectMemberJoinMessage(boolean creatorSigValid,
 			boolean memberSigValid) throws Exception {
 		BdfList signed = BdfList.of(
@@ -426,9 +383,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 			}
 		}});
 	}
-
-	// POST Message
-
 	@Test(expected = FormatException.class)
 	public void testRejectsTooShortPost() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -436,28 +390,24 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsTooLongPost() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
 				previousMsgId, text, memberSignature, "");
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithNullAuthor() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), null, parentId, previousMsgId,
 				text, memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithNonListAuthor() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), 123, parentId, previousMsgId,
 				text, memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithInvalidAuthor() throws Exception {
 		expectRejectAuthor(memberList);
@@ -465,7 +415,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				previousMsgId, text, memberSignature);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithTooShortParentId() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList,
@@ -474,7 +423,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithTooLongParentId() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList,
@@ -483,7 +431,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithNonRawParentId() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, "not raw",
@@ -491,7 +438,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithTooShortPreviousMsgId() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -499,7 +445,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithTooLongPreviousMsgId() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -507,7 +452,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithNullPreviousMsgId() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId, null,
@@ -515,7 +459,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithNonRawPreviousMsgId() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -523,7 +466,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithTooShortText() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -531,7 +473,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithTooLongText() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -540,7 +481,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithNullText() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -548,7 +488,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithNonStringText() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -556,7 +495,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithTooShortSignature() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -564,7 +502,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithTooLongSignature() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -573,7 +510,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithNullSignature() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -581,7 +517,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithNonRawSignature() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -589,7 +524,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectParseAuthor(memberList, member);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsPostWithInvalidSignature() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -597,7 +531,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		expectPostMessage(parentId, false);
 		validator.validateMessage(message, group, body);
 	}
-
 	@Test
 	public void testAcceptsPost() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, parentId,
@@ -612,7 +545,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		assertArrayEquals(parentId.getBytes(),
 				messageContext.getDictionary().getRaw(KEY_PARENT_MSG_ID));
 	}
-
 	@Test
 	public void testAcceptsTopLevelPost() throws Exception {
 		BdfList body = BdfList.of(POST.getInt(), memberList, null,
@@ -627,7 +559,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		assertFalse(
 				messageContext.getDictionary().containsKey(KEY_PARENT_MSG_ID));
 	}
-
 	private void expectPostMessage(MessageId parentId, boolean sigValid)
 			throws Exception {
 		BdfList signed = BdfList.of(
@@ -646,7 +577,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 				will(throwException(new GeneralSecurityException()));
 		}});
 	}
-
 	private void assertExpectedMessageContext(BdfMessageContext c,
 			MessageType type, BdfList member,
 			Collection<MessageId> dependencies) throws FormatException {
@@ -658,7 +588,6 @@ public class GroupMessageValidatorTest extends ValidatorTestCase {
 		assertEquals(member, d.getList(KEY_MEMBER));
 		assertEquals(dependencies, c.getDependencies());
 	}
-
 	@Test(expected = InvalidMessageException.class)
 	public void testRejectsMessageWithUnknownType() throws Exception {
 		BdfList body = BdfList.of(POST.getInt() + 1, memberList,

@@ -1,5 +1,4 @@
 package org.briarproject.briar.introduction;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.crypto.PublicKey;
@@ -14,12 +13,9 @@ import org.briarproject.bramble.api.sync.MessageFactory;
 import org.briarproject.bramble.api.sync.MessageId;
 import org.briarproject.briar.api.client.SessionId;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.Map;
-
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-
 import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 import static org.briarproject.briar.client.MessageTrackerConstants.MSG_KEY_READ;
 import static org.briarproject.briar.introduction.IntroductionConstants.MSG_KEY_AUTO_DELETE_TIMER;
@@ -36,20 +32,16 @@ import static org.briarproject.briar.introduction.MessageType.ACTIVATE;
 import static org.briarproject.briar.introduction.MessageType.AUTH;
 import static org.briarproject.briar.introduction.MessageType.DECLINE;
 import static org.briarproject.briar.introduction.MessageType.REQUEST;
-
 @NotNullByDefault
 class MessageEncoderImpl implements MessageEncoder {
-
 	private final ClientHelper clientHelper;
 	private final MessageFactory messageFactory;
-
 	@Inject
 	MessageEncoderImpl(ClientHelper clientHelper,
 			MessageFactory messageFactory) {
 		this.clientHelper = clientHelper;
 		this.messageFactory = messageFactory;
 	}
-
 	@Override
 	public BdfDictionary encodeRequestMetadata(long timestamp,
 			long autoDeleteTimer) {
@@ -58,7 +50,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		meta.put(MSG_KEY_AVAILABLE_TO_ANSWER, false);
 		return meta;
 	}
-
 	@Override
 	public BdfDictionary encodeMetadata(MessageType type,
 			@Nullable SessionId sessionId, long timestamp,
@@ -66,7 +57,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		return encodeMetadata(type, sessionId, timestamp, false, false, false,
 				autoDeleteTimer, false);
 	}
-
 	@Override
 	public BdfDictionary encodeMetadata(MessageType type,
 			@Nullable SessionId sessionId, long timestamp, boolean local,
@@ -90,22 +80,18 @@ class MessageEncoderImpl implements MessageEncoder {
 		}
 		return meta;
 	}
-
 	@Override
 	public void addSessionId(BdfDictionary meta, SessionId sessionId) {
 		meta.put(MSG_KEY_SESSION_ID, sessionId);
 	}
-
 	@Override
 	public void setVisibleInUi(BdfDictionary meta, boolean visible) {
 		meta.put(MSG_KEY_VISIBLE_IN_UI, visible);
 	}
-
 	@Override
 	public void setAvailableToAnswer(BdfDictionary meta, boolean available) {
 		meta.put(MSG_KEY_AVAILABLE_TO_ANSWER, available);
 	}
-
 	@Override
 	public Message encodeRequestMessage(GroupId contactGroupId, long timestamp,
 			@Nullable MessageId previousMessageId, Author author,
@@ -121,7 +107,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeRequestMessage(GroupId contactGroupId, long timestamp,
 			@Nullable MessageId previousMessageId, Author author,
@@ -138,7 +123,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeAcceptMessage(GroupId contactGroupId, long timestamp,
 			@Nullable MessageId previousMessageId, SessionId sessionId,
@@ -154,7 +138,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeAcceptMessage(GroupId contactGroupId, long timestamp,
 			@Nullable MessageId previousMessageId, SessionId sessionId,
@@ -172,7 +155,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeDeclineMessage(GroupId contactGroupId, long timestamp,
 			@Nullable MessageId previousMessageId, SessionId sessionId) {
@@ -183,7 +165,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeDeclineMessage(GroupId contactGroupId, long timestamp,
 			@Nullable MessageId previousMessageId, SessionId sessionId,
@@ -196,7 +177,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeAuthMessage(GroupId contactGroupId, long timestamp,
 			@Nullable MessageId previousMessageId, SessionId sessionId,
@@ -210,7 +190,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeActivateMessage(GroupId contactGroupId, long timestamp,
 			@Nullable MessageId previousMessageId, SessionId sessionId,
@@ -223,7 +202,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	@Override
 	public Message encodeAbortMessage(GroupId contactGroupId, long timestamp,
 			@Nullable MessageId previousMessageId, SessionId sessionId) {
@@ -234,7 +212,6 @@ class MessageEncoderImpl implements MessageEncoder {
 		);
 		return createMessage(contactGroupId, timestamp, body);
 	}
-
 	private Message createMessage(GroupId contactGroupId, long timestamp,
 			BdfList body) {
 		try {
@@ -244,7 +221,6 @@ class MessageEncoderImpl implements MessageEncoder {
 			throw new AssertionError(e);
 		}
 	}
-
 	@Nullable
 	private Long encodeTimer(long autoDeleteTimer) {
 		return autoDeleteTimer == NO_AUTO_DELETE_TIMER ? null : autoDeleteTimer;

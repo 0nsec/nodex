@@ -1,16 +1,10 @@
 package org.briarproject.briar.android.privategroup;
-
 import android.content.Context;
-
 import org.briarproject.briar.R;
 import org.briarproject.briar.api.privategroup.Visibility;
-
 import androidx.annotation.DrawableRes;
-
 import static org.briarproject.briar.api.privategroup.Visibility.INVISIBLE;
-
 public class VisibilityHelper {
-
 	public static String getVisibilityString(Context ctx, Visibility v,
 			String contact) {
 		switch (v) {
@@ -29,7 +23,6 @@ public class VisibilityHelper {
 				throw new IllegalArgumentException("Unknown visibility");
 		}
 	}
-
 	@DrawableRes
 	public static int getVisibilityIcon(Visibility v) {
 		if (v == INVISIBLE) {
@@ -37,5 +30,4 @@ public class VisibilityHelper {
 		}
 		return R.drawable.ic_visibility;
 	}
-
 }

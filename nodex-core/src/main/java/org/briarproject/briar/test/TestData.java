@@ -1,11 +1,8 @@
 package org.briarproject.briar.test;
-
 import static org.briarproject.bramble.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
 import static org.briarproject.bramble.util.StringUtils.getRandomString;
 import static org.briarproject.briar.api.forum.ForumConstants.MAX_FORUM_NAME_LENGTH;
-
 public interface TestData {
-
 	String AUTHOR_NAMES[] = {
 			"Thales",
 			"Pythagoras",
@@ -49,7 +46,6 @@ public interface TestData {
 			getRandomString(MAX_AUTHOR_NAME_LENGTH),
 			getRandomString(MAX_AUTHOR_NAME_LENGTH),
 	};
-
 	String GROUP_NAMES[] = {
 			"Private Messengers",
 			"The Darknet",
@@ -64,5 +60,4 @@ public interface TestData {
 			getRandomString(MAX_FORUM_NAME_LENGTH),
 			getRandomString(MAX_FORUM_NAME_LENGTH),
 	};
-
 }

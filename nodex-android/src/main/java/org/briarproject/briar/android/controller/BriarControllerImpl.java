@@ -1,9 +1,7 @@
 package org.briarproject.briar.android.controller;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.IBinder;
-
 import org.briarproject.android.dontkillmelib.wakelock.AndroidWakeLockManager;
 import org.briarproject.bramble.api.account.AccountManager;
 import org.briarproject.bramble.api.db.DatabaseExecutor;
@@ -17,29 +15,21 @@ import org.briarproject.briar.android.BriarService.BriarServiceConnection;
 import org.briarproject.briar.android.controller.handler.ResultHandler;
 import org.briarproject.briar.api.android.DozeWatchdog;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import androidx.annotation.CallSuper;
-
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Logger.getLogger;
 import static org.briarproject.android.dontkillmelib.DozeUtils.needsDozeWhitelisting;
 import static org.briarproject.bramble.api.lifecycle.LifecycleManager.LifecycleState.STARTING_SERVICES;
 import static org.briarproject.bramble.util.LogUtils.logException;
 import static org.briarproject.briar.android.settings.SettingsFragment.SETTINGS_NAMESPACE;
-
 @NotNullByDefault
 public class BriarControllerImpl implements BriarController {
-
 	private static final Logger LOG =
 			getLogger(BriarControllerImpl.class.getName());
-
 	public static final String DOZE_ASK_AGAIN = "dozeAskAgain";
-
 	private final BriarServiceConnection serviceConnection;
 	private final AccountManager accountManager;
 	private final LifecycleManager lifecycleManager;
@@ -48,9 +38,7 @@ public class BriarControllerImpl implements BriarController {
 	private final DozeWatchdog dozeWatchdog;
 	private final AndroidWakeLockManager wakeLockManager;
 	private final Activity activity;
-
 	private boolean bound = false;
-
 	@Inject
 	BriarControllerImpl(BriarServiceConnection serviceConnection,
 			AccountManager accountManager,
@@ -69,40 +57,33 @@ public class BriarControllerImpl implements BriarController {
 		this.wakeLockManager = wakeLockManager;
 		this.activity = activity;
 	}
-
 	@Override
 	@CallSuper
 	public void onActivityCreate(Activity activity) {
 		if (accountManager.hasDatabaseKey()) startAndBindService();
 	}
-
 	@Override
 	public void onActivityStart() {
 	}
-
 	@Override
 	public void onActivityStop() {
 	}
-
 	@Override
 	@CallSuper
 	public void onActivityDestroy() {
 		unbindService();
 	}
-
 	@Override
 	public void startAndBindService() {
 		activity.startService(new Intent(activity, BriarService.class));
 		bound = activity.bindService(new Intent(activity, BriarService.class),
 				serviceConnection, 0);
 	}
-
 	@Override
 	public boolean accountSignedIn() {
 		return accountManager.hasDatabaseKey() &&
 				lifecycleManager.getLifecycleState().isAfter(STARTING_SERVICES);
 	}
-
 	@Override
 	public void hasDozed(ResultHandler<Boolean> handler) {
 		BriarApplication app = (BriarApplication) activity.getApplication();
@@ -122,7 +103,6 @@ public class BriarControllerImpl implements BriarController {
 			}
 		});
 	}
-
 	@Override
 	public void doNotAskAgainForDozeWhiteListing() {
 		databaseExecutor.execute(() -> {
@@ -135,17 +115,14 @@ public class BriarControllerImpl implements BriarController {
 			}
 		});
 	}
-
 	@Override
 	public void signOut(ResultHandler<Void> handler, boolean deleteAccount) {
 		wakeLockManager.executeWakefully(() -> {
 			try {
-				// Wait for the service to finish starting up
 				IBinder binder = serviceConnection.waitForBinder();
 				BriarService service =
 						((BriarService.BriarBinder) binder).getService();
 				service.waitForStartup();
-				// Shut down the service and wait for it to shut down
 				LOG.info("Shutting down service");
 				service.shutdown(true);
 				service.waitForShutdown();
@@ -157,14 +134,11 @@ public class BriarControllerImpl implements BriarController {
 			handler.onResult(null);
 		}, "SignOut");
 	}
-
 	@Override
 	public void deleteAccount() {
 		accountManager.deleteAccount();
 	}
-
 	private void unbindService() {
 		if (bound) activity.unbindService(serviceConnection);
 	}
-
 }

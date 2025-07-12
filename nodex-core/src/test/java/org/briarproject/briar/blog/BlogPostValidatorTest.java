@@ -1,5 +1,4 @@
 package org.briarproject.briar.blog;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.data.BdfDictionary;
@@ -18,10 +17,8 @@ import org.briarproject.briar.api.blog.Blog;
 import org.briarproject.briar.api.blog.BlogFactory;
 import org.jmock.Expectations;
 import org.junit.Test;
-
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-
 import static org.briarproject.bramble.test.TestUtils.getAuthor;
 import static org.briarproject.bramble.test.TestUtils.getGroup;
 import static org.briarproject.bramble.test.TestUtils.getMessage;
@@ -45,9 +42,7 @@ import static org.briarproject.briar.api.blog.MessageType.WRAPPED_COMMENT;
 import static org.briarproject.briar.api.blog.MessageType.WRAPPED_POST;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-
 public class BlogPostValidatorTest extends BrambleMockTestCase {
-
 	private final Blog blog, rssBlog;
 	private final BdfList authorList;
 	private final byte[] descriptor;
@@ -61,7 +56,6 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 	private final ClientHelper clientHelper = context.mock(ClientHelper.class);
 	private final Author author;
 	private final String text = getRandomString(42);
-
 	public BlogPostValidatorTest() {
 		group = getGroup(CLIENT_ID, MAJOR_VERSION);
 		descriptor = group.getDescriptor();
@@ -74,75 +68,61 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 		blog = new Blog(group, author, false);
 		rssBlog = new Blog(group, author, true);
 		message = getMessage(group.getId());
-
 		MetadataEncoder metadataEncoder = context.mock(MetadataEncoder.class);
 		Clock clock = new SystemClock();
 		validator = new BlogPostValidator(groupFactory, messageFactory,
 				blogFactory, clientHelper, metadataEncoder, clock);
 		context.assertIsSatisfied();
 	}
-
 	@Test
 	public void testValidateProperBlogPost()
 			throws IOException, GeneralSecurityException {
 		testValidateProperBlogPost(blog, false);
 	}
-
 	@Test
 	public void testValidateProperRssBlogPost()
 			throws IOException, GeneralSecurityException {
 		testValidateProperBlogPost(rssBlog, true);
 	}
-
 	private void testValidateProperBlogPost(Blog b, boolean rssFeed)
 			throws IOException, GeneralSecurityException {
 		byte[] sigBytes = getRandomBytes(42);
 		BdfList m = BdfList.of(POST.getInt(), text, sigBytes);
-
 		BdfList signed = BdfList.of(b.getId(), message.getTimestamp(), text);
 		expectCrypto(b, SIGNING_LABEL_POST, signed, sigBytes);
 		BdfDictionary result =
 				validator.validateMessage(message, group, m).getDictionary();
-
 		assertEquals(authorList, result.getList(KEY_AUTHOR));
 		assertFalse(result.getBoolean(KEY_READ));
 		assertEquals(rssFeed, result.getBoolean(KEY_RSS_FEED));
 		context.assertIsSatisfied();
 	}
-
 	@Test(expected = FormatException.class)
 	public void testValidateBlogPostWithoutAttachments() throws IOException {
 		BdfList content = BdfList.of(null, null, text);
 		BdfList m = BdfList.of(POST.getInt(), content, null);
-
 		validator.validateMessage(message, group, m);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testValidateBlogPostWithoutSignature() throws IOException {
 		BdfList content = BdfList.of(null, null, text, null);
 		BdfList m = BdfList.of(POST.getInt(), content, null);
-
 		validator.validateMessage(message, group, m);
 	}
-
 	@Test
 	public void testValidateProperBlogComment()
 			throws IOException, GeneralSecurityException {
-		// comment, parent_original_id, parent_id, signature
 		String comment = "This is a blog comment";
 		MessageId pOriginalId = new MessageId(getRandomId());
 		MessageId currentId = new MessageId(getRandomId());
 		byte[] sigBytes = getRandomBytes(42);
 		BdfList m = BdfList.of(COMMENT.getInt(), comment, pOriginalId,
 				currentId, sigBytes);
-
 		BdfList signed = BdfList.of(blog.getId(), message.getTimestamp(),
 				comment, pOriginalId, currentId);
 		expectCrypto(blog, SIGNING_LABEL_COMMENT, signed, sigBytes);
 		BdfDictionary result =
 				validator.validateMessage(message, group, m).getDictionary();
-
 		assertEquals(comment, result.getString(KEY_COMMENT));
 		assertEquals(authorList, result.getList(KEY_AUTHOR));
 		assertEquals(pOriginalId.getBytes(),
@@ -151,52 +131,41 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 		assertFalse(result.getBoolean(KEY_READ));
 		context.assertIsSatisfied();
 	}
-
 	@Test
 	public void testValidateProperEmptyBlogComment()
 			throws IOException, GeneralSecurityException {
-		// comment, parent_original_id, signature, parent_current_id
 		MessageId originalId = new MessageId(getRandomId());
 		MessageId currentId = new MessageId(getRandomId());
 		byte[] sigBytes = getRandomBytes(42);
 		BdfList m = BdfList.of(COMMENT.getInt(), null, originalId, currentId,
 				sigBytes);
-
 		BdfList signed = BdfList.of(blog.getId(), message.getTimestamp(), null,
 				originalId, currentId);
 		expectCrypto(blog, SIGNING_LABEL_COMMENT, signed, sigBytes);
 		BdfDictionary result =
 				validator.validateMessage(message, group, m).getDictionary();
-
 		assertFalse(result.containsKey(KEY_COMMENT));
 		context.assertIsSatisfied();
 	}
-
 	@Test
 	public void testValidateProperWrappedPost()
 			throws IOException, GeneralSecurityException {
 		testValidateProperWrappedPost(blog, false);
 	}
-
 	@Test
 	public void testValidateProperWrappedRssPost()
 			throws IOException, GeneralSecurityException {
 		testValidateProperWrappedPost(rssBlog, true);
 	}
-
 	private void testValidateProperWrappedPost(Blog b, boolean rssFeed)
 			throws IOException, GeneralSecurityException {
-		// group descriptor, timestamp, content, signature
 		byte[] sigBytes = getRandomBytes(42);
 		BdfList m = BdfList.of(WRAPPED_POST.getInt(), descriptor,
 				message.getTimestamp(), text, sigBytes);
-
 		BdfList signed = BdfList.of(b.getId(), message.getTimestamp(), text);
 		expectCrypto(b, SIGNING_LABEL_POST, signed, sigBytes);
-
 		BdfList originalList = BdfList.of(POST.getInt(), text, sigBytes);
 		byte[] originalBody = getRandomBytes(42);
-
 		context.checking(new Expectations() {{
 			oneOf(groupFactory).createGroup(CLIENT_ID, MAJOR_VERSION,
 					descriptor);
@@ -210,20 +179,15 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 							originalBody);
 			will(returnValue(message));
 		}});
-
 		BdfDictionary result =
 				validator.validateMessage(message, group, m).getDictionary();
-
 		assertEquals(authorList, result.getList(KEY_AUTHOR));
 		assertEquals(rssFeed, result.getBoolean(KEY_RSS_FEED));
 		context.assertIsSatisfied();
 	}
-
 	@Test
 	public void testValidateProperWrappedComment()
 			throws IOException, GeneralSecurityException {
-		// group descriptor, timestamp, comment, parent_original_id, signature,
-		// parent_current_id
 		String comment = "This is another comment";
 		MessageId originalId = new MessageId(getRandomId());
 		MessageId oldId = new MessageId(getRandomId());
@@ -232,15 +196,12 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 		BdfList m = BdfList.of(WRAPPED_COMMENT.getInt(), descriptor,
 				message.getTimestamp(), comment, originalId, oldId, sigBytes,
 				currentId);
-
 		BdfList signed = BdfList.of(blog.getId(), message.getTimestamp(),
 				comment, originalId, oldId);
 		expectCrypto(blog, SIGNING_LABEL_COMMENT, signed, sigBytes);
-
 		BdfList originalList = BdfList.of(COMMENT.getInt(), comment,
 				originalId, oldId, sigBytes);
 		byte[] originalBody = getRandomBytes(42);
-
 		context.checking(new Expectations() {{
 			oneOf(groupFactory).createGroup(CLIENT_ID, MAJOR_VERSION,
 					descriptor);
@@ -252,10 +213,8 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 							originalBody);
 			will(returnValue(message));
 		}});
-
 		BdfDictionary result =
 				validator.validateMessage(message, group, m).getDictionary();
-
 		assertEquals(comment, result.getString(KEY_COMMENT));
 		assertEquals(authorList, result.getList(KEY_AUTHOR));
 		assertEquals(
@@ -263,7 +222,6 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 		assertEquals(currentId.getBytes(), result.getRaw(KEY_PARENT_MSG_ID));
 		context.assertIsSatisfied();
 	}
-
 	private void expectCrypto(Blog b, String label, BdfList signed, byte[] sig)
 			throws IOException, GeneralSecurityException {
 		context.checking(new Expectations() {{
@@ -275,5 +233,4 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 					.verifySignature(sig, label, signed, author.getPublicKey());
 		}});
 	}
-
 }

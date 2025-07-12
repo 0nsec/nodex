@@ -1,5 +1,4 @@
 package org.briarproject.briar.privategroup.invitation;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.client.ContactGroupFactory;
@@ -37,14 +36,11 @@ import org.jmock.AbstractExpectations;
 import org.jmock.Expectations;
 import org.jmock.imposters.ByteBuddyClassImposteriser;
 import org.junit.Test;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.annotation.Nullable;
-
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
@@ -73,9 +69,7 @@ import static org.briarproject.briar.privategroup.invitation.MessageType.JOIN;
 import static org.briarproject.briar.privategroup.invitation.MessageType.LEAVE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
 public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
-
 	private final DatabaseComponent db = context.mock(DatabaseComponent.class);
 	private final ClientHelper clientHelper = context.mock(ClientHelper.class);
 	private final ClientVersioningManager clientVersioningManager =
@@ -94,7 +88,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			context.mock(SessionEncoder.class);
 	private final ProtocolEngineFactory engineFactory =
 			context.mock(ProtocolEngineFactory.class);
-
 	private final CreatorProtocolEngine creatorEngine;
 	private final InviteeProtocolEngine inviteeEngine;
 	private final PeerProtocolEngine peerEngine;
@@ -102,9 +95,7 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 	private final InviteeSession inviteeSession;
 	private final PeerSession peerSession;
 	private final MessageMetadata messageMetadata;
-
 	private final GroupInvitationManagerImpl groupInvitationManager;
-
 	private final Transaction txn = new Transaction(null, false);
 	private final Author author = getAuthor();
 	private final Contact contact = getContact(author,
@@ -127,20 +118,15 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			Collections.singletonMap(storageMessage.getId(), bdfSession);
 	private final Map<MessageId, BdfDictionary> noResults =
 			Collections.emptyMap();
-
-
 	public GroupInvitationManagerImplTest() {
 		context.setImposteriser(ByteBuddyClassImposteriser.INSTANCE);
 		creatorEngine = context.mock(CreatorProtocolEngine.class);
 		inviteeEngine = context.mock(InviteeProtocolEngine.class);
 		peerEngine = context.mock(PeerProtocolEngine.class);
-
 		creatorSession = context.mock(CreatorSession.class);
 		inviteeSession = context.mock(InviteeSession.class);
 		peerSession = context.mock(PeerSession.class);
-
 		messageMetadata = context.mock(MessageMetadata.class);
-
 		context.checking(new Expectations() {{
 			oneOf(engineFactory).createCreatorEngine();
 			will(returnValue(creatorEngine));
@@ -157,7 +143,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 				privateGroupManager, messageParser, sessionParser,
 				sessionEncoder, engineFactory);
 	}
-
 	@Test
 	public void testDatabaseOpenHookFirstTime() throws Exception {
 		context.checking(new Expectations() {{
@@ -173,7 +158,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		expectAddingContact(contact, emptyList());
 		groupInvitationManager.onDatabaseOpened(txn);
 	}
-
 	@Test
 	public void testOpenDatabaseHookSubsequentTime() throws Exception {
 		context.checking(new Expectations() {{
@@ -185,7 +169,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		}});
 		groupInvitationManager.onDatabaseOpened(txn);
 	}
-
 	private void expectAddingContact(Contact c, Collection<Group> groups)
 			throws Exception {
 		context.checking(new Expectations() {{
@@ -205,7 +188,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(groups));
 		}});
 	}
-
 	private void expectAddingMember(GroupId g, Contact c) throws Exception {
 		context.checking(new Expectations() {{
 			oneOf(contactGroupFactory).createContactGroup(CLIENT_ID,
@@ -214,7 +196,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		}});
 		expectGetSession(noResults, new SessionId(g.getBytes()),
 				contactGroup.getId());
-
 		context.checking(new Expectations() {{
 			oneOf(peerEngine).onMemberAddedAction(with(txn),
 					with(any(PeerSession.class)));
@@ -223,7 +204,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		expectStoreSession(peerSession, storageMessage.getId());
 		expectCreateStorageId();
 	}
-
 	private void expectCreateStorageId() throws DbException {
 		context.checking(new Expectations() {{
 			oneOf(clientHelper)
@@ -233,7 +213,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 					false, false);
 		}});
 	}
-
 	private void expectStoreSession(Session<?> session, MessageId storageId)
 			throws Exception {
 		context.checking(new Expectations() {{
@@ -242,7 +221,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			oneOf(clientHelper).mergeMessageMetadata(txn, storageId, meta);
 		}});
 	}
-
 	private void expectGetSession(Map<MessageId, BdfDictionary> results,
 			SessionId sessionId, GroupId contactGroupId) throws Exception {
 		BdfDictionary query = BdfDictionary.of(new BdfEntry("q", "u"));
@@ -254,11 +232,9 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(results));
 		}});
 	}
-
 	@Test
 	public void testAddingContact() throws Exception {
 		expectAddingContact(contact, singletonList(group));
-
 		context.checking(new Expectations() {{
 			oneOf(privateGroupManager)
 					.isMember(txn, privateGroup.getId(), contact.getAuthor());
@@ -269,19 +245,14 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			oneOf(privateGroupManager).isOurPrivateGroup(txn, privateGroup);
 			will(returnValue(false));
 		}});
-		// creates PEER session
 		expectAddingMember(privateGroup.getId(), contact);
-
 		groupInvitationManager.addingContact(txn, contact);
 	}
-
 	@Test
 	public void testAddingContactWhoCreatedGroup() throws Exception {
 		PrivateGroup privateGroup = new PrivateGroup(group,
 				getRandomString(5), contact.getAuthor(), getRandomBytes(32));
-
 		expectAddingContact(contact, singletonList(group));
-
 		context.checking(new Expectations() {{
 			oneOf(privateGroupManager)
 					.isMember(txn, privateGroup.getId(), contact.getAuthor());
@@ -300,10 +271,8 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			oneOf(clientHelper)
 					.mergeMessageMetadata(txn, storageMessage.getId(), meta);
 		}});
-
 		groupInvitationManager.addingContact(txn, contact);
 	}
-
 	@Test
 	public void testRemovingContactWithoutCommonGroups() throws Exception {
 		context.checking(new Expectations() {{
@@ -317,7 +286,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		}});
 		groupInvitationManager.removingContact(txn, contact);
 	}
-
 	@Test
 	public void testRemovingContactWithCommonGroups() throws Exception {
 		context.checking(new Expectations() {{
@@ -335,7 +303,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		}});
 		groupInvitationManager.removingContact(txn, contact);
 	}
-
 	@Test
 	public void testRemovingContactWhoIsCreatorOfCommonGroup()
 			throws Exception {
@@ -357,62 +324,53 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		}});
 		groupInvitationManager.removingContact(txn, contact);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testIncomingUnknownMessage() throws Exception {
 		expectFirstIncomingMessage(Role.INVITEE, ABORT);
 		groupInvitationManager.incomingMessage(txn, message, body, meta);
 	}
-
 	@Test
 	public void testIncomingFirstInviteMessage() throws Exception {
 		expectFirstIncomingMessage(Role.INVITEE, INVITE);
 		assertEquals(ACCEPT_DO_NOT_SHARE, groupInvitationManager
 				.incomingMessage(txn, message, body, meta));
 	}
-
 	@Test
 	public void testIncomingFirstJoinMessage() throws Exception {
 		expectFirstIncomingMessage(Role.PEER, JOIN);
 		assertEquals(ACCEPT_DO_NOT_SHARE, groupInvitationManager
 				.incomingMessage(txn, message, body, meta));
 	}
-
 	@Test
 	public void testIncomingInviteMessage() throws Exception {
 		expectIncomingMessage(Role.INVITEE, INVITE);
 		assertEquals(ACCEPT_DO_NOT_SHARE, groupInvitationManager
 				.incomingMessage(txn, message, body, meta));
 	}
-
 	@Test
 	public void testIncomingJoinMessage() throws Exception {
 		expectIncomingMessage(Role.INVITEE, JOIN);
 		assertEquals(ACCEPT_DO_NOT_SHARE, groupInvitationManager
 				.incomingMessage(txn, message, body, meta));
 	}
-
 	@Test
 	public void testIncomingJoinMessageForCreator() throws Exception {
 		expectIncomingMessage(Role.CREATOR, JOIN);
 		assertEquals(ACCEPT_DO_NOT_SHARE, groupInvitationManager
 				.incomingMessage(txn, message, body, meta));
 	}
-
 	@Test
 	public void testIncomingLeaveMessage() throws Exception {
 		expectIncomingMessage(Role.INVITEE, LEAVE);
 		assertEquals(ACCEPT_DO_NOT_SHARE, groupInvitationManager
 				.incomingMessage(txn, message, body, meta));
 	}
-
 	@Test
 	public void testIncomingAbortMessage() throws Exception {
 		expectIncomingMessage(Role.INVITEE, ABORT);
 		assertEquals(ACCEPT_DO_NOT_SHARE, groupInvitationManager
 				.incomingMessage(txn, message, body, meta));
 	}
-
 	private void expectFirstIncomingMessage(Role role, MessageType type)
 			throws Exception {
 		expectParseMessageMetadata();
@@ -424,7 +382,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			expectStoreSession(session, storageMessage.getId());
 		}
 	}
-
 	private void expectParseMessageMetadata() throws Exception {
 		context.checking(new Expectations() {{
 			oneOf(messageParser).parseMetadata(meta);
@@ -435,13 +392,11 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(privateGroup.getId()));
 		}});
 	}
-
 	private void expectIncomingMessage(Role role, MessageType type)
 			throws Exception {
 		BdfDictionary bdfSession = BdfDictionary.of(new BdfEntry("f", "o"));
 		expectIncomingMessageWithSession(role, type, bdfSession);
 	}
-
 	private void expectIncomingMessageWithSession(Role role, MessageType type,
 			BdfDictionary bdfSession) throws Exception {
 		expectParseMessageMetadata();
@@ -450,7 +405,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 				bdfSession, type);
 		expectStoreSession(session, storageMessage.getId());
 	}
-
 	@Nullable
 	private Session<?> expectHandleFirstMessage(Role role,
 			MessageMetadata messageMetadata, MessageType type)
@@ -462,7 +416,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(type));
 		}});
 		if (type == ABORT || type == LEAVE) return null;
-
 		AbstractProtocolEngine engine;
 		Session session;
 		if (type == INVITE) {
@@ -479,7 +432,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		expectIndividualMessage(type, engine, session);
 		return session;
 	}
-
 	@Nullable
 	private Session<?> expectHandleMessage(Role role,
 			MessageMetadata messageMetadata, BdfDictionary state,
@@ -518,7 +470,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			throw new AssertionError();
 		}
 	}
-
 	private <S extends Session<?>> void expectIndividualMessage(
 			MessageType type, ProtocolEngine<S> engine, S session)
 			throws Exception {
@@ -562,13 +513,11 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			fail();
 		}
 	}
-
 	@Test
 	public void testSendFirstInvitation() throws Exception {
 		String text = "Invitation text for first invitation";
 		long time = 42L;
 		byte[] signature = getRandomBytes(42);
-
 		expectGetSession(noResults, sessionId, contactGroup.getId());
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
@@ -589,13 +538,11 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		groupInvitationManager.sendInvitation(privateGroup.getId(), contactId,
 				text, time, signature, NO_AUTO_DELETE_TIMER);
 	}
-
 	@Test
 	public void testSendSubsequentInvitation() throws Exception {
 		String text = "Invitation text for subsequent invitation";
 		long time = 43L;
 		byte[] signature = getRandomBytes(43);
-
 		expectGetSession(oneResult, sessionId, contactGroup.getId());
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
@@ -616,11 +563,9 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		groupInvitationManager.sendInvitation(privateGroup.getId(), contactId,
 				text, time, signature, NO_AUTO_DELETE_TIMER);
 	}
-
 	@Test(expected = IllegalArgumentException.class)
 	public void testRespondToInvitationWithoutSession() throws Exception {
 		SessionId sessionId = new SessionId(getRandomId());
-
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
 			oneOf(db).getContact(txn, contactId);
@@ -630,44 +575,36 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(contactGroup));
 		}});
 		expectGetSession(noResults, sessionId, contactGroup.getId());
-
 		groupInvitationManager.respondToInvitation(contactId, sessionId, true);
 	}
-
 	@Test
 	public void testAcceptInvitationWithSession() throws Exception {
 		expectRespondToInvitation(sessionId, true);
 		groupInvitationManager
 				.respondToInvitation(contactId, sessionId, true);
 	}
-
 	@Test
 	public void testDeclineInvitationWithSession() throws Exception {
 		expectRespondToInvitation(sessionId, false);
 		groupInvitationManager
 				.respondToInvitation(contactId, sessionId, false);
 	}
-
 	@Test
 	public void testAcceptInvitationWithGroupId() throws Exception {
 		PrivateGroup pg = new PrivateGroup(group,
 				getRandomString(MAX_GROUP_NAME_LENGTH), author,
 				getRandomBytes(GROUP_SALT_LENGTH));
-
 		expectRespondToInvitation(sessionId, true);
 		groupInvitationManager.respondToInvitation(contactId, pg, true);
 	}
-
 	@Test
 	public void testDeclineInvitationWithGroupId() throws Exception {
 		PrivateGroup pg = new PrivateGroup(group,
 				getRandomString(MAX_GROUP_NAME_LENGTH), author,
 				getRandomBytes(GROUP_SALT_LENGTH));
-
 		expectRespondToInvitation(sessionId, false);
 		groupInvitationManager.respondToInvitation(contactId, pg, false);
 	}
-
 	private void expectRespondToInvitation(SessionId sessionId, boolean accept)
 			throws Exception {
 		expectGetSession(oneResult, sessionId, contactGroup.getId());
@@ -687,7 +624,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		}});
 		expectStoreSession(inviteeSession, storageMessage.getId());
 	}
-
 	@Test
 	public void testRevealRelationship() throws Exception {
 		context.checking(new DbExpectations() {{
@@ -705,11 +641,9 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		}});
 		expectGetSession(oneResult, sessionId, contactGroup.getId());
 		expectStoreSession(peerSession, storageMessage.getId());
-
 		groupInvitationManager
 				.revealRelationship(contactId, privateGroup.getId());
 	}
-
 	@Test(expected = IllegalArgumentException.class)
 	public void testRevealRelationshipWithoutSession() throws Exception {
 		context.checking(new DbExpectations() {{
@@ -721,11 +655,9 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(contactGroup));
 		}});
 		expectGetSession(noResults, sessionId, contactGroup.getId());
-
 		groupInvitationManager
 				.revealRelationship(contactId, privateGroup.getId());
 	}
-
 	@Test
 	public void testGetInvitationMessages() throws Exception {
 		BdfDictionary query = BdfDictionary.of(new BdfEntry("q", "u"));
@@ -748,7 +680,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		PrivateGroup pg =
 				new PrivateGroup(group, invite.getGroupName(),
 						invite.getCreator(), invite.getSalt());
-
 		context.checking(new Expectations() {{
 			oneOf(db).getContact(txn, contactId);
 			will(returnValue(contact));
@@ -760,7 +691,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			oneOf(clientHelper).getMessageMetadataAsDictionary(txn,
 					contactGroup.getId(), query);
 			will(returnValue(results));
-			// first message
 			oneOf(messageParser).parseMetadata(meta);
 			will(returnValue(messageMetadata1));
 			oneOf(db).getMessageStatus(txn, contactId, message.getId());
@@ -771,12 +701,10 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(pg));
 			oneOf(db).containsGroup(txn, privateGroup.getId());
 			will(returnValue(true));
-			// second message
 			oneOf(messageParser).parseMetadata(meta2);
 			will(returnValue(messageMetadata2));
 			oneOf(db).getMessageStatus(txn, contactId, messageId2);
 		}});
-
 		Collection<ConversationMessageHeader> messages =
 				groupInvitationManager.getMessageHeaders(txn, contactId);
 		assertEquals(2, messages.size());
@@ -796,7 +724,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			}
 		}
 	}
-
 	@Test
 	public void testGetInvitations() throws Exception {
 		BdfDictionary query = BdfDictionary.of(new BdfEntry("q", "u"));
@@ -816,7 +743,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 						null, getRandomBytes(5), NO_AUTO_DELETE_TIMER);
 		PrivateGroup pg = new PrivateGroup(group, groupName,
 				author, salt);
-
 		context.checking(new DbExpectations() {{
 			oneOf(messageParser).getInvitesAvailableToAnswerQuery();
 			will(returnValue(query));
@@ -828,20 +754,17 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(contactGroup));
 			oneOf(clientHelper).getMessageIds(txn, contactGroup.getId(), query);
 			will(returnValue(results));
-			// message 1
 			oneOf(messageParser).getInviteMessage(txn, message.getId());
 			will(returnValue(inviteMessage1));
 			oneOf(privateGroupFactory).createPrivateGroup(groupName, author,
 					salt);
 			will(returnValue(pg));
-			// message 2
 			oneOf(messageParser).getInviteMessage(txn, message2.getId());
 			will(returnValue(inviteMessage2));
 			oneOf(privateGroupFactory).createPrivateGroup(groupName, author,
 					salt);
 			will(returnValue(pg));
 		}});
-
 		Collection<GroupInvitationItem> items =
 				groupInvitationManager.getInvitations();
 		assertEquals(2, items.size());
@@ -852,14 +775,12 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			assertEquals(groupName, i.getName());
 		}
 	}
-
 	@Test
 	public void testIsInvitationAllowed() throws Exception {
 		expectIsInvitationAllowed(CreatorState.START);
 		assertEquals(SHAREABLE, groupInvitationManager
 				.getSharingStatus(contact, privateGroup.getId()));
 	}
-
 	@Test
 	public void testIsNotInvitationAllowed() throws Exception {
 		expectIsInvitationAllowed(CreatorState.DISSOLVED);
@@ -868,26 +789,20 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 					.getSharingStatus(contact, privateGroup.getId());
 			fail();
 		} catch (ProtocolStateException e) {
-			// expected
 		}
-
 		expectIsInvitationAllowed(CreatorState.ERROR);
 		assertEquals(ERROR, groupInvitationManager
 				.getSharingStatus(contact, privateGroup.getId()));
-
 		expectIsInvitationAllowed(CreatorState.INVITED);
 		assertEquals(INVITE_SENT, groupInvitationManager
 				.getSharingStatus(contact, privateGroup.getId()));
-
 		expectIsInvitationAllowed(CreatorState.JOINED);
 		assertEquals(SHARING, groupInvitationManager
 				.getSharingStatus(contact, privateGroup.getId()));
-
 		expectIsInvitationAllowed(CreatorState.LEFT);
 		assertEquals(SHARING, groupInvitationManager
 				.getSharingStatus(contact, privateGroup.getId()));
 	}
-
 	private void expectIsInvitationAllowed(CreatorState state)
 			throws Exception {
 		expectGetSession(oneResult, sessionId, contactGroup.getId());
@@ -907,7 +822,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(state));
 		}});
 	}
-
 	@Test
 	public void testAddingMember() throws Exception {
 		expectAddingMember(privateGroup.getId(), contact);
@@ -917,29 +831,24 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		}});
 		groupInvitationManager.addingMember(txn, privateGroup.getId(), author);
 	}
-
 	@Test
 	public void testRemovingGroupEndsSessions() throws Exception {
 		Contact contact2 = getContact();
 		Contact contact3 = getContact();
 		Collection<Contact> contacts = asList(contact, contact2, contact3);
-
 		Group contactGroup2 = getGroup(CLIENT_ID, MAJOR_VERSION);
 		Group contactGroup3 = getGroup(CLIENT_ID, MAJOR_VERSION);
-
 		MessageId storageId2 = new MessageId(getRandomId());
 		MessageId storageId3 = new MessageId(getRandomId());
 		BdfDictionary bdfSession2 =
 				BdfDictionary.of(new BdfEntry("f2", "o"));
 		BdfDictionary bdfSession3 =
 				BdfDictionary.of(new BdfEntry("f3", "o"));
-
 		expectGetSession(oneResult, sessionId, contactGroup.getId());
 		expectGetSession(Collections.singletonMap(storageId2, bdfSession2),
 				sessionId, contactGroup2.getId());
 		expectGetSession(Collections.singletonMap(storageId3, bdfSession3),
 				sessionId, contactGroup3.getId());
-
 		context.checking(new Expectations() {{
 			oneOf(db).getContacts(txn);
 			will(returnValue(contacts));
@@ -952,7 +861,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			oneOf(contactGroupFactory).createContactGroup(CLIENT_ID,
 					MAJOR_VERSION, contact3);
 			will(returnValue(contactGroup3));
-			// session 1
 			oneOf(sessionParser).getRole(bdfSession);
 			will(returnValue(Role.CREATOR));
 			oneOf(sessionParser)
@@ -960,7 +868,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(creatorSession));
 			oneOf(creatorEngine).onLeaveAction(txn, creatorSession, false);
 			will(returnValue(creatorSession));
-			// session 2
 			oneOf(sessionParser).getRole(bdfSession2);
 			will(returnValue(Role.INVITEE));
 			oneOf(sessionParser)
@@ -968,7 +875,6 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(inviteeSession));
 			oneOf(inviteeEngine).onLeaveAction(txn, inviteeSession, false);
 			will(returnValue(inviteeSession));
-			// session 3
 			oneOf(sessionParser).getRole(bdfSession3);
 			will(returnValue(Role.PEER));
 			oneOf(sessionParser)
@@ -977,12 +883,9 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			oneOf(peerEngine).onLeaveAction(txn, peerSession, false);
 			will(returnValue(peerSession));
 		}});
-
 		expectStoreSession(creatorSession, storageMessage.getId());
 		expectStoreSession(inviteeSession, storageId2);
 		expectStoreSession(peerSession, storageId3);
-
 		groupInvitationManager.removingGroup(txn, privateGroup.getId());
 	}
-
 }

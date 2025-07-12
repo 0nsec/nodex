@@ -1,5 +1,4 @@
 package org.briarproject.briar.introduction;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.cleanup.CleanupHook;
 import org.briarproject.bramble.api.client.ClientHelper;
@@ -42,7 +41,6 @@ import org.briarproject.briar.api.introduction.Role;
 import org.briarproject.briar.client.ConversationClientImpl;
 import org.briarproject.briar.introduction.IntroducerSession.Introducee;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -51,11 +49,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 import static org.briarproject.bramble.api.sync.validation.IncomingMessageHook.DeliveryAction.ACCEPT_DO_NOT_SHARE;
 import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 import static org.briarproject.briar.api.introduction.Role.INTRODUCEE;
@@ -72,13 +68,11 @@ import static org.briarproject.briar.introduction.MessageType.ACTIVATE;
 import static org.briarproject.briar.introduction.MessageType.AUTH;
 import static org.briarproject.briar.introduction.MessageType.DECLINE;
 import static org.briarproject.briar.introduction.MessageType.REQUEST;
-
 @Immutable
 @NotNullByDefault
 class IntroductionManagerImpl extends ConversationClientImpl
 		implements IntroductionManager, OpenDatabaseHook, ContactHook,
 		ClientVersioningHook, CleanupHook {
-
 	private final ClientVersioningManager clientVersioningManager;
 	private final ContactGroupFactory contactGroupFactory;
 	private final ContactManager contactManager;
@@ -90,9 +84,7 @@ class IntroductionManagerImpl extends ConversationClientImpl
 	private final IntroductionCrypto crypto;
 	private final IdentityManager identityManager;
 	private final AuthorManager authorManager;
-
 	private final Group localGroup;
-
 	@Inject
 	IntroductionManagerImpl(
 			DatabaseComponent db,
@@ -125,64 +117,47 @@ class IntroductionManagerImpl extends ConversationClientImpl
 		this.localGroup =
 				contactGroupFactory.createLocalGroup(CLIENT_ID, MAJOR_VERSION);
 	}
-
 	@Override
 	public void onDatabaseOpened(Transaction txn) throws DbException {
-		// Create a local group to store protocol sessions
 		if (db.containsGroup(txn, localGroup.getId())) return;
 		db.addGroup(txn, localGroup);
-		// Set up groups for communication with any pre-existing contacts
 		for (Contact c : db.getContacts(txn)) addingContact(txn, c);
 	}
-
 	@Override
 	public void addingContact(Transaction txn, Contact c) throws DbException {
-		// Create a group to share with the contact
 		Group g = getContactGroup(c);
 		db.addGroup(txn, g);
-		// Apply the client's visibility to the contact group
 		Visibility client = clientVersioningManager.getClientVisibility(txn,
 				c.getId(), CLIENT_ID, MAJOR_VERSION);
 		db.setGroupVisibility(txn, c.getId(), g.getId(), client);
-		// Attach the contact ID to the group
 		clientHelper.setContactId(txn, g.getId(), c.getId());
 	}
-
 	@Override
 	public void removingContact(Transaction txn, Contact c) throws DbException {
 		removeSessionWithIntroducer(txn, c);
 		abortOrRemoveSessionWithIntroducee(txn, c);
-
-		// Remove the contact group (all messages will be removed with it)
 		db.removeGroup(txn, getContactGroup(c));
 	}
-
 	@Override
 	public void onClientVisibilityChanging(Transaction txn, Contact c,
 			Visibility v) throws DbException {
-		// Apply the client's visibility to the contact group
 		Group g = getContactGroup(c);
 		db.setGroupVisibility(txn, c.getId(), g.getId(), v);
 	}
-
 	@Override
 	public Group getContactGroup(Contact c) {
 		return contactGroupFactory
 				.createContactGroup(CLIENT_ID, MAJOR_VERSION, c);
 	}
-
 	@Override
 	protected DeliveryAction incomingMessage(Transaction txn, Message m,
 			BdfList body, BdfDictionary bdfMeta)
 			throws DbException, FormatException {
-		// Parse the metadata
 		MessageMetadata meta = messageParser.parseMetadata(bdfMeta);
-		// set the clean-up timer that will be started when message gets read
 		long timer = meta.getAutoDeleteTimer();
 		if (timer != NO_AUTO_DELETE_TIMER) {
 			db.setCleanupTimerDuration(txn, m.getId(), timer);
 		}
-		// Look up the session, if there is one
 		SessionId sessionId = meta.getSessionId();
 		IntroduceeSession newIntroduceeSession = null;
 		if (sessionId == null) {
@@ -191,7 +166,6 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			sessionId = newIntroduceeSession.getSessionId();
 		}
 		StoredSession ss = getSession(txn, sessionId);
-		// Handle the message
 		Session<?> session;
 		MessageId storageId;
 		if (ss == null) {
@@ -213,11 +187,9 @@ class IntroductionManagerImpl extends ConversationClientImpl
 								ss.bdfSession), introduceeEngine);
 			} else throw new AssertionError();
 		}
-		// Store the updated session
 		storeSession(txn, storageId, session);
 		return ACCEPT_DO_NOT_SHARE;
 	}
-
 	private IntroduceeSession createNewIntroduceeSession(Transaction txn,
 			Message m, BdfList body) throws DbException, FormatException {
 		ContactId introducerId = clientHelper.getContactId(txn, m.getGroupId());
@@ -231,7 +203,6 @@ class IntroductionManagerImpl extends ConversationClientImpl
 				.getInitial(m.getGroupId(), sessionId, introducer, alice,
 						remote);
 	}
-
 	private <S extends Session<?>> S handleMessage(Transaction txn, Message m,
 			BdfList body, MessageType type, S session, ProtocolEngine<S> engine)
 			throws DbException, FormatException {
@@ -258,7 +229,6 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			throw new AssertionError();
 		}
 	}
-
 	@Nullable
 	private StoredSession getSession(Transaction txn,
 			@Nullable SessionId sessionId) throws DbException, FormatException {
@@ -271,14 +241,12 @@ class IntroductionManagerImpl extends ConversationClientImpl
 		return new StoredSession(results.keySet().iterator().next(),
 				results.values().iterator().next());
 	}
-
 	private MessageId createStorageId(Transaction txn) throws DbException {
 		Message m = clientHelper
 				.createMessageForStoringMetadata(localGroup.getId());
 		db.addLocalMessage(txn, m, new Metadata(), false, false);
 		return m.getId();
 	}
-
 	private void storeSession(Transaction txn, MessageId storageId,
 			Session<?> session) throws DbException {
 		BdfDictionary d;
@@ -297,17 +265,14 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			throw new AssertionError();
 		}
 	}
-
 	@Override
 	public boolean canIntroduce(Contact c1, Contact c2) throws DbException {
 		return db.transactionWithResult(true,
 				txn -> canIntroduce(txn, c1, c2));
 	}
-
 	public boolean canIntroduce(Transaction txn, Contact c1, Contact c2)
 			throws DbException {
 		try {
-			// Look up the session, if there is one
 			Author introducer = identityManager.getLocalAuthor(txn);
 			SessionId sessionId =
 					crypto.getSessionId(introducer, c1.getAuthor(),
@@ -321,33 +286,27 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			throw new DbException(e);
 		}
 	}
-
 	public void makeIntroduction(Contact c1, Contact c2, @Nullable String text)
 			throws DbException {
 		db.transaction(false,
 				txn -> makeIntroduction(txn, c1, c2, text));
 	}
-
 	@Override
 	public void makeIntroduction(Transaction txn, Contact c1, Contact c2,
 			@Nullable String text) throws DbException {
 		try {
-			// Look up the session, if there is one
 			Author introducer = identityManager.getLocalAuthor(txn);
 			SessionId sessionId =
 					crypto.getSessionId(introducer, c1.getAuthor(),
 							c2.getAuthor());
 			StoredSession ss = getSession(txn, sessionId);
-			// Create or parse the session
 			IntroducerSession session;
 			MessageId storageId;
 			if (ss == null) {
-				// This is the first request - create a new session
 				GroupId groupId1 = getContactGroup(c1).getId();
 				GroupId groupId2 = getContactGroup(c2).getId();
 				boolean alice = crypto.isAlice(c1.getAuthor().getId(),
 						c2.getAuthor().getId());
-				// use fixed deterministic roles for the introducees
 				session = new IntroducerSession(sessionId,
 						alice ? groupId1 : groupId2,
 						alice ? c1.getAuthor() : c2.getAuthor(),
@@ -356,69 +315,54 @@ class IntroductionManagerImpl extends ConversationClientImpl
 				);
 				storageId = createStorageId(txn);
 			} else {
-				// An earlier request exists, so we already have a session
 				session = sessionParser.parseIntroducerSession(ss.bdfSession);
 				storageId = ss.storageId;
 			}
-			// Handle the request action
 			session = introducerEngine.onRequestAction(txn, session, text);
-			// Store the updated session
 			storeSession(txn, storageId, session);
 		} catch (FormatException e) {
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public void respondToIntroduction(ContactId contactId, SessionId sessionId,
 			boolean accept) throws DbException {
 		respondToIntroduction(contactId, sessionId, accept, false);
 	}
-
 	@Override
 	public void respondToIntroduction(Transaction txn, ContactId contactId,
 			SessionId sessionId, boolean accept) throws DbException {
 		respondToIntroduction(txn, contactId, sessionId, accept, false);
 	}
-
 	private void respondToIntroduction(ContactId contactId, SessionId sessionId,
 			boolean accept, boolean isAutoDecline) throws DbException {
 		db.transaction(false,
 				txn -> respondToIntroduction(txn, contactId, sessionId, accept,
 						isAutoDecline));
 	}
-
 	private void respondToIntroduction(Transaction txn, ContactId contactId,
 			SessionId sessionId, boolean accept, boolean isAutoDecline)
 			throws DbException {
 		try {
-			// Look up the session
 			StoredSession ss = getSession(txn, sessionId);
 			if (ss == null) {
-				// Actions from the UI may be based on stale information.
-				// The contact might just have been deleted, for example.
-				// Throwing a DbException here aborts gracefully.
 				throw new DbException();
 			}
-			// Parse the session
 			Contact contact = db.getContact(txn, contactId);
 			GroupId contactGroupId = getContactGroup(contact).getId();
 			IntroduceeSession session = sessionParser
 					.parseIntroduceeSession(contactGroupId, ss.bdfSession);
-			// Handle the join or leave action
 			if (accept) {
 				session = introduceeEngine.onAcceptAction(txn, session);
 			} else {
 				session = introduceeEngine
 						.onDeclineAction(txn, session, isAutoDecline);
 			}
-			// Store the updated session
 			storeSession(txn, ss.storageId, session);
 		} catch (FormatException e) {
 			throw new DbException(e);
 		}
 	}
-
 	@Override
 	public Collection<ConversationMessageHeader> getMessageHeaders(
 			Transaction txn, ContactId c) throws DbException {
@@ -455,7 +399,6 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			throw new DbException(e);
 		}
 	}
-
 	private IntroductionRequest parseInvitationRequest(Transaction txn,
 			GroupId contactGroupId, MessageId m, MessageMetadata meta,
 			MessageStatus status, SessionId sessionId,
@@ -476,7 +419,6 @@ class IntroductionManagerImpl extends ConversationClientImpl
 				sessionId, author, text, !meta.isAvailableToAnswer(),
 				authorInfo, rm.getAutoDeleteTimer());
 	}
-
 	private IntroductionResponse parseInvitationResponse(Transaction txn,
 			GroupId contactGroupId, MessageId m, MessageMetadata meta,
 			MessageStatus status, BdfDictionary bdfSession,
@@ -515,7 +457,6 @@ class IntroductionManagerImpl extends ConversationClientImpl
 				sessionId, accept, author, authorInfo, role, canSucceed,
 				meta.getAutoDeleteTimer(), meta.isAutoDecline());
 	}
-
 	private void removeSessionWithIntroducer(Transaction txn,
 			Contact introducer) throws DbException {
 		BdfDictionary query = sessionEncoder
@@ -531,7 +472,6 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			db.removeMessage(txn, id);
 		}
 	}
-
 	private void abortOrRemoveSessionWithIntroducee(Transaction txn,
 			Contact c) throws DbException {
 		BdfDictionary query = sessionEncoder.getIntroducerSessionsQuery();
@@ -560,7 +500,6 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			}
 		}
 	}
-
 	private void abortOrRemoveSessionWithIntroducee(Transaction txn,
 			IntroducerSession s, MessageId storageId, Introducee i,
 			LocalAuthor localAuthor) throws DbException {
@@ -572,16 +511,13 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			db.removeMessage(txn, storageId);
 		}
 	}
-
 	@Override
 	public void deleteMessages(Transaction txn, GroupId g,
 			Collection<MessageId> messageIds) throws DbException {
 		ContactId c;
 		Map<SessionId, DeletableSession> sessions = new HashMap<>();
 		try {
-			// get the ContactId from the given GroupId
 			c = clientHelper.getContactId(txn, g);
-			// get sessions for all messages to be deleted
 			for (MessageId messageId : messageIds) {
 				BdfDictionary d = clientHelper
 						.getMessageMetadataAsDictionary(txn, messageId);
@@ -610,11 +546,8 @@ class IntroductionManagerImpl extends ConversationClientImpl
 		} catch (FormatException e) {
 			throw new DbException(e);
 		}
-
-		// delete given visible messages in sessions and auto-respond before
 		for (Entry<SessionId, DeletableSession> entry : sessions.entrySet()) {
 			DeletableSession session = entry.getValue();
-			// decline invitee sessions waiting for a response before
 			if (session.state instanceof IntroduceeState) {
 				IntroduceeState introduceeState =
 						(IntroduceeState) session.state;
@@ -630,52 +563,36 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			}
 		}
 		recalculateGroupCount(txn, g);
-
 		txn.attach(new ConversationMessagesDeletedEvent(c, messageIds));
 	}
-
 	@FunctionalInterface
 	private interface MessageRetriever {
-		/**
-		 * Returns a set of messages that should be deleted.
-		 * These must be a subset of the given set of all messages.
-		 */
 		Set<MessageId> getMessages(Set<MessageId> allMessages);
 	}
-
 	@Override
 	public DeletionResult deleteAllMessages(Transaction txn, ContactId c)
 			throws DbException {
 		return deleteMessages(txn, c, allMessages -> allMessages);
 	}
-
 	@Override
 	public DeletionResult deleteMessages(Transaction txn, ContactId c,
 			Set<MessageId> messageIds) throws DbException {
 		return deleteMessages(txn, c, allMessages -> messageIds);
 	}
-
 	private DeletionResult deleteMessages(Transaction txn, ContactId c,
 			MessageRetriever retriever) throws DbException {
-		// get ID of the contact group
 		GroupId g = getContactGroup(db.getContact(txn, c)).getId();
-
-		// get metadata for all messages in the group
 		Map<MessageId, BdfDictionary> messages;
 		try {
 			messages = clientHelper.getMessageMetadataAsDictionary(txn, g);
 		} catch (FormatException e) {
 			throw new DbException(e);
 		}
-
-		// get messages to be deleted
 		Set<MessageId> selected = retriever.getMessages(messages.keySet());
-
-		// get sessions for selected messages
 		Map<SessionId, DeletableSession> sessions = new HashMap<>();
 		for (MessageId id : selected) {
 			BdfDictionary d = messages.get(id);
-			if (d == null) continue;  // throw new NoSuchMessageException()
+			if (d == null) continue;
 			MessageMetadata m;
 			try {
 				m = messageParser.parseMetadata(d);
@@ -683,13 +600,8 @@ class IntroductionManagerImpl extends ConversationClientImpl
 				throw new DbException(e);
 			}
 			if (m.getSessionId() == null) {
-				// This can only be an unhandled REQUEST message.
-				// Its session is created and stored in incomingMessage(),
-				// and getMessageMetadata() only returns delivered messages,
-				// so the session ID should have been assigned.
 				throw new AssertionError("missing session ID");
 			}
-			// get session from map or database
 			DeletableSession session = sessions.get(m.getSessionId());
 			if (session == null) {
 				session = getDeletableSession(txn, g, m.getSessionId());
@@ -697,12 +609,8 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			}
 			session.messages.add(id);
 		}
-
-		// assign other protocol messages to their sessions
 		for (Entry<MessageId, BdfDictionary> entry : messages.entrySet()) {
-			// we handled selected messages above
 			if (selected.contains(entry.getKey())) continue;
-
 			MessageMetadata m;
 			try {
 				m = messageParser.parseMetadata(entry.getValue());
@@ -711,19 +619,12 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			}
 			if (!m.isVisibleInConversation()) continue;
 			if (m.getSessionId() == null) {
-				// This can only be an unhandled REQUEST message.
-				// Its session is created and stored in incomingMessage(),
-				// and getMessageMetadata() only returns delivered messages,
-				// so the session ID should have been assigned.
 				throw new AssertionError("missing session ID");
 			}
-			// get session from map or database
 			DeletableSession session = sessions.get(m.getSessionId());
-			if (session == null) continue;  // not a session of a selected msg
+			if (session == null) continue;
 			session.messages.add(entry.getKey());
 		}
-
-		// get a set of all messages which were not ACKed by the contact
 		Set<MessageId> notAcked = new HashSet<>();
 		for (MessageStatus status : db.getMessageStatus(txn, c, g)) {
 			if (!status.isSeen()) notAcked.add(status.getMessageId());
@@ -733,7 +634,6 @@ class IntroductionManagerImpl extends ConversationClientImpl
 		recalculateGroupCount(txn, g);
 		return result;
 	}
-
 	private DeletableSession getDeletableSession(Transaction txn,
 			GroupId introducerGroupId, SessionId sessionId) throws DbException {
 		try {
@@ -752,19 +652,15 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			throw new DbException(e);
 		}
 	}
-
 	private DeletionResult deleteCompletedSessions(Transaction txn,
 			Map<SessionId, DeletableSession> sessions, Set<MessageId> notAcked,
 			Set<MessageId> selected) throws DbException {
-		// find completed sessions to delete
 		DeletionResult result = new DeletionResult();
 		for (DeletableSession session : sessions.values()) {
 			if (!session.state.isComplete()) {
 				result.addIntroductionSessionInProgress();
 				continue;
 			}
-			// we can only delete sessions
-			// where delivery of all messages was confirmed (aka ACKed)
 			boolean sessionDeletable = true;
 			for (MessageId m : session.messages) {
 				if (notAcked.contains(m) || !selected.contains(m)) {
@@ -775,19 +671,15 @@ class IntroductionManagerImpl extends ConversationClientImpl
 						result.addIntroductionNotAllSelected();
 				}
 			}
-			// delete messages of session, if all were ACKed
 			if (sessionDeletable) {
 				for (MessageId m : session.messages) {
 					db.deleteMessage(txn, m);
 					db.deleteMessageMetadata(txn, m);
 				}
-				// we can not delete the session as it might get restarted
-				// and then needs the previous MessageIds
 			}
 		}
 		return result;
 	}
-
 	@Override
 	public Set<MessageId> getMessageIds(Transaction txn, ContactId c)
 			throws DbException {
@@ -799,7 +691,6 @@ class IntroductionManagerImpl extends ConversationClientImpl
 			throw new DbException(e);
 		}
 	}
-
 	private void recalculateGroupCount(Transaction txn, GroupId g)
 			throws DbException {
 		BdfDictionary query = messageParser.getMessagesVisibleInUiQuery();
@@ -824,26 +715,19 @@ class IntroductionManagerImpl extends ConversationClientImpl
 		}
 		messageTracker.resetGroupCount(txn, g, msgCount, unreadCount);
 	}
-
 	private static class StoredSession {
-
 		private final MessageId storageId;
 		private final BdfDictionary bdfSession;
-
 		private StoredSession(MessageId storageId, BdfDictionary bdfSession) {
 			this.storageId = storageId;
 			this.bdfSession = bdfSession;
 		}
 	}
-
 	private static class DeletableSession {
-
 		private final State state;
 		private final List<MessageId> messages = new ArrayList<>();
-
 		private DeletableSession(State state) {
 			this.state = state;
 		}
 	}
-
 }

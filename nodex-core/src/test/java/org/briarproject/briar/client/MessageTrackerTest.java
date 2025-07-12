@@ -1,5 +1,4 @@
 package org.briarproject.briar.client;
-
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.data.BdfDictionary;
 import org.briarproject.bramble.api.data.BdfEntry;
@@ -13,16 +12,13 @@ import org.briarproject.bramble.test.TestUtils;
 import org.briarproject.briar.api.client.MessageTracker;
 import org.jmock.Expectations;
 import org.junit.Test;
-
 import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_LATEST_MSG;
 import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_MSG_COUNT;
 import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_STORED_MESSAGE_ID;
 import static org.briarproject.briar.client.MessageTrackerConstants.GROUP_KEY_UNREAD_COUNT;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-
 public class MessageTrackerTest extends BrambleMockTestCase {
-
 	protected final GroupId groupId = new GroupId(TestUtils.getRandomId());
 	protected final ClientHelper clientHelper =
 			context.mock(ClientHelper.class);
@@ -34,7 +30,6 @@ public class MessageTrackerTest extends BrambleMockTestCase {
 	private final BdfDictionary dictionary = BdfDictionary.of(
 			new BdfEntry(GROUP_KEY_STORED_MESSAGE_ID, messageId)
 	);
-
 	@Test
 	public void testInitializeGroupCount() throws Exception {
 		Transaction txn = new Transaction(null, false);
@@ -51,7 +46,6 @@ public class MessageTrackerTest extends BrambleMockTestCase {
 		}});
 		messageTracker.initializeGroupCount(txn, groupId);
 	}
-
 	@Test
 	public void testMessageStore() throws Exception {
 		context.checking(new Expectations() {{
@@ -59,7 +53,6 @@ public class MessageTrackerTest extends BrambleMockTestCase {
 		}});
 		messageTracker.storeMessageId(groupId, messageId);
 	}
-
 	@Test
 	public void testMessageLoad() throws Exception {
 		context.checking(new Expectations() {{
@@ -70,5 +63,4 @@ public class MessageTrackerTest extends BrambleMockTestCase {
 		assertNotNull(loadedId);
 		assertEquals(messageId, loadedId);
 	}
-
 }

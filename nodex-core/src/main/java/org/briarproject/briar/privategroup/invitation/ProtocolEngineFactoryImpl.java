@@ -1,5 +1,4 @@
 package org.briarproject.briar.privategroup.invitation;
-
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.db.DatabaseComponent;
 import org.briarproject.bramble.api.identity.IdentityManager;
@@ -11,14 +10,11 @@ import org.briarproject.briar.api.privategroup.GroupMessageFactory;
 import org.briarproject.briar.api.privategroup.PrivateGroupFactory;
 import org.briarproject.briar.api.privategroup.PrivateGroupManager;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-
 @Immutable
 @NotNullByDefault
 class ProtocolEngineFactoryImpl implements ProtocolEngineFactory {
-
 	private final DatabaseComponent db;
 	private final ClientHelper clientHelper;
 	private final ClientVersioningManager clientVersioningManager;
@@ -31,7 +27,6 @@ class ProtocolEngineFactoryImpl implements ProtocolEngineFactory {
 	private final AutoDeleteManager autoDeleteManager;
 	private final ConversationManager conversationManager;
 	private final Clock clock;
-
 	@Inject
 	ProtocolEngineFactoryImpl(
 			DatabaseComponent db,
@@ -59,7 +54,6 @@ class ProtocolEngineFactoryImpl implements ProtocolEngineFactory {
 		this.conversationManager = conversationManager;
 		this.clock = clock;
 	}
-
 	@Override
 	public ProtocolEngine<CreatorSession> createCreatorEngine() {
 		return new CreatorProtocolEngine(db, clientHelper,
@@ -68,7 +62,6 @@ class ProtocolEngineFactoryImpl implements ProtocolEngineFactory {
 				messageParser, messageEncoder,
 				autoDeleteManager, conversationManager, clock);
 	}
-
 	@Override
 	public ProtocolEngine<InviteeSession> createInviteeEngine() {
 		return new InviteeProtocolEngine(db, clientHelper,
@@ -77,7 +70,6 @@ class ProtocolEngineFactoryImpl implements ProtocolEngineFactory {
 				messageParser, messageEncoder,
 				autoDeleteManager, conversationManager, clock);
 	}
-
 	@Override
 	public ProtocolEngine<PeerSession> createPeerEngine() {
 		return new PeerProtocolEngine(db, clientHelper,

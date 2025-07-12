@@ -1,5 +1,4 @@
 package org.briarproject.briar.android.qrcode;
-
 import android.content.Context;
 import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
@@ -13,17 +12,13 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
-
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
-
 import static android.content.Context.WINDOW_SERVICE;
 import static android.hardware.Camera.CameraInfo.CAMERA_FACING_BACK;
 import static android.hardware.Camera.CameraInfo.CAMERA_FACING_FRONT;
@@ -39,23 +34,15 @@ import static android.hardware.Camera.Parameters.SCENE_MODE_BARCODE;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.WARNING;
 import static org.briarproject.bramble.util.LogUtils.logException;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		AutoFocusCallback, View.OnClickListener {
-
-	// Heuristic for the ideal preview size - small previews don't have enough
-	// detail, large previews are slow to decode
 	private static final int IDEAL_PIXELS = 500 * 1000;
-
-	private static final int AUTO_FOCUS_RETRY_DELAY = 5000; // Milliseconds
-
+	private static final int AUTO_FOCUS_RETRY_DELAY = 5000;
 	private static final Logger LOG =
 			Logger.getLogger(CameraView.class.getName());
-
 	private final Runnable autoFocusRetry = this::retryAutoFocus;
-
 	@Nullable
 	private Camera camera = null;
 	private int cameraIndex = 0;
@@ -64,25 +51,20 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 	private int displayOrientation = 0, surfaceWidth = 0, surfaceHeight = 0;
 	private boolean previewStarted = false;
 	private boolean autoFocusSupported = false, autoFocusRunning = false;
-
 	public CameraView(Context context) {
 		super(context);
 	}
-
 	public CameraView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
-
 	public CameraView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 	}
-
 	@UiThread
 	public void setPreviewConsumer(PreviewConsumer previewConsumer) {
 		LOG.info("Setting preview consumer");
 		this.previewConsumer = previewConsumer;
 	}
-
 	@Override
 	protected void onAttachedToWindow() {
 		super.onAttachedToWindow();
@@ -90,21 +72,18 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		getHolder().addCallback(this);
 		setOnClickListener(this);
 	}
-
 	@Override
 	protected void onDetachedFromWindow() {
 		super.onDetachedFromWindow();
 		setKeepScreenOn(false);
 		getHolder().removeCallback(this);
 	}
-
 	@UiThread
 	public void start() throws CameraException {
 		LOG.info("Opening camera");
 		try {
 			int cameras = Camera.getNumberOfCameras();
 			if (cameras == 0) throw new CameraException("No camera");
-			// Try to find a back-facing camera
 			for (int i = 0; i < cameras; i++) {
 				CameraInfo info = new CameraInfo();
 				Camera.getCameraInfo(i, info);
@@ -115,7 +94,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 					break;
 				}
 			}
-			// If we can't find a back-facing camera, use a front-facing one
 			if (camera == null) {
 				LOG.info("Using front-facing camera");
 				camera = Camera.open(0);
@@ -126,7 +104,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		}
 		setDisplayOrientation(getScreenRotationDegrees());
 		if (camera == null) throw new CameraException("No camera found");
-		// Use barcode scene mode if it's available
 		Parameters params;
 		try {
 			params = camera.getParameters();
@@ -135,23 +112,16 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		}
 		params = setSceneMode(camera, params);
 		if (SCENE_MODE_BARCODE.equals(params.getSceneMode())) {
-			// If the scene mode enabled the flash, try to disable it
 			if (!FLASH_MODE_OFF.equals(params.getFlashMode()))
 				params = disableFlash(camera, params);
-			// If the flash is still enabled, disable the scene mode
 			if (!FLASH_MODE_OFF.equals(params.getFlashMode()))
 				params = disableSceneMode(camera, params);
 		}
-		// Use the best available focus mode, preview size and other options
 		params = setBestParameters(camera, params);
-		// Enable auto focus if the selected focus mode uses it
 		enableAutoFocus(params.getFocusMode());
-		// Log the parameters that are being used (maybe not what we asked for)
 		logCameraParameters();
-		// Start the preview when the camera and the surface are both ready
 		if (surface != null && !previewStarted) startPreview(getHolder());
 	}
-
 	@UiThread
 	public void stop() throws CameraException {
 		if (camera == null) return;
@@ -164,10 +134,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		}
 		camera = null;
 	}
-
-	/**
-	 * See {@link Camera#setDisplayOrientation(int)}.
-	 */
 	private int getScreenRotationDegrees() {
 		WindowManager wm =
 				(WindowManager) getContext().getSystemService(WINDOW_SERVICE);
@@ -185,7 +151,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 				throw new AssertionError();
 		}
 	}
-
 	@UiThread
 	private void startPreview(SurfaceHolder holder) throws CameraException {
 		LOG.info("Starting preview");
@@ -199,7 +164,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			throw new CameraException(e);
 		}
 	}
-
 	@UiThread
 	private void stopPreview() throws CameraException {
 		LOG.info("Stopping preview");
@@ -212,14 +176,12 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		}
 		previewStarted = false;
 	}
-
 	@UiThread
 	private void startConsumer() throws CameraException {
 		if (camera == null) throw new CameraException("Camera is null");
 		startAutoFocus();
 		previewConsumer.start(camera, cameraIndex);
 	}
-
 	@UiThread
 	private void startAutoFocus() throws CameraException {
 		if (camera != null && autoFocusSupported && !autoFocusRunning) {
@@ -232,14 +194,12 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			}
 		}
 	}
-
 	@UiThread
 	private void stopConsumer() throws CameraException {
 		if (camera == null) throw new CameraException("Camera is null");
 		cancelAutoFocus();
 		previewConsumer.stop();
 	}
-
 	@UiThread
 	private void cancelAutoFocus() throws CameraException {
 		if (camera != null && autoFocusSupported && autoFocusRunning) {
@@ -252,10 +212,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			}
 		}
 	}
-
-	/**
-	 * See {@link Camera#setDisplayOrientation(int)}.
-	 */
 	@UiThread
 	private void setDisplayOrientation(int rotationDegrees)
 			throws CameraException {
@@ -285,7 +241,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		}
 		displayOrientation = orientation;
 	}
-
 	@UiThread
 	private Parameters setSceneMode(Camera camera, Parameters params)
 			throws CameraException {
@@ -303,7 +258,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		}
 		return params;
 	}
-
 	@UiThread
 	private Parameters disableFlash(Camera camera, Parameters params)
 			throws CameraException {
@@ -315,7 +269,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			throw new CameraException(e);
 		}
 	}
-
 	@UiThread
 	private Parameters disableSceneMode(Camera camera, Parameters params)
 			throws CameraException {
@@ -327,7 +280,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			throw new CameraException(e);
 		}
 	}
-
 	@UiThread
 	private Parameters setBestParameters(Camera camera, Parameters params)
 			throws CameraException {
@@ -342,14 +294,12 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			throw new CameraException(e);
 		}
 	}
-
 	@UiThread
 	private void setVideoStabilisation(Parameters params) {
 		if (params.isVideoStabilizationSupported()) {
 			params.setVideoStabilization(true);
 		}
 	}
-
 	@UiThread
 	private void setFocusMode(Parameters params) {
 		List<String> focusModes = params.getSupportedFocusModes();
@@ -368,12 +318,9 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			params.setFocusMode(FOCUS_MODE_FIXED);
 		}
 	}
-
 	@UiThread
 	private void setPreviewSize(Parameters params) {
 		if (surfaceWidth == 0 || surfaceHeight == 0) return;
-		// Choose a preview size that's close to the aspect ratio of the
-		// surface and close to the ideal size for decoding
 		float idealRatio = (float) surfaceWidth / surfaceHeight;
 		boolean rotatePreview = displayOrientation % 180 == 90;
 		List<Size> sizes = params.getSupportedPreviewSizes();
@@ -403,13 +350,11 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			params.setPreviewSize(bestSize.width, bestSize.height);
 		}
 	}
-
 	@UiThread
 	private void enableAutoFocus(String focusMode) {
 		autoFocusSupported = FOCUS_MODE_AUTO.equals(focusMode) ||
 				FOCUS_MODE_MACRO.equals(focusMode);
 	}
-
 	@UiThread
 	private void logCameraParameters() throws CameraException {
 		if (camera == null) throw new AssertionError();
@@ -429,7 +374,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			LOG.info("Preview size: " + size.width + "x" + size.height);
 		}
 	}
-
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
 		post(() -> {
@@ -440,7 +384,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			}
 		});
 	}
-
 	@UiThread
 	private void surfaceCreatedUi(SurfaceHolder holder) throws CameraException {
 		LOG.info("Surface created");
@@ -449,9 +392,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			surface.release();
 		}
 		surface = holder.getSurface();
-		// We'll start the preview when surfaceChanged() is called
 	}
-
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
 		post(() -> {
@@ -462,7 +403,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			}
 		});
 	}
-
 	@UiThread
 	private void surfaceChangedUi(SurfaceHolder holder, int w, int h)
 			throws CameraException {
@@ -474,7 +414,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		surface = holder.getSurface();
 		surfaceWidth = w;
 		surfaceHeight = h;
-		if (camera == null) return; // We are stopped
+		if (camera == null) return;
 		if (previewStarted) stopPreview();
 		try {
 			Parameters params = camera.getParameters();
@@ -486,12 +426,10 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		}
 		startPreview(holder);
 	}
-
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		post(() -> surfaceDestroyedUi(holder));
 	}
-
 	@UiThread
 	private void surfaceDestroyedUi(SurfaceHolder holder) {
 		LOG.info("Surface destroyed");
@@ -502,7 +440,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		surface = null;
 		holder.getSurface().release();
 	}
-
 	@Override
 	public void onAutoFocus(boolean success, Camera camera) {
 		if (LOG.isLoggable(INFO))
@@ -510,7 +447,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 		autoFocusRunning = false;
 		postDelayed(autoFocusRetry, AUTO_FOCUS_RETRY_DELAY);
 	}
-
 	@UiThread
 	private void retryAutoFocus() {
 		try {
@@ -519,7 +455,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback,
 			logException(LOG, WARNING, e);
 		}
 	}
-
 	@Override
 	public void onClick(View v) {
 		retryAutoFocus();

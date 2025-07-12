@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <!--Setup-->
+
   <string name="setup_title">Briarへようこそ</string>
   <string name="setup_name_explanation">あなたのニックネームは、常に、あなたが投稿するコンテンツとともに表示されます。プロフィール作成後、編集はできません。</string>
   <string name="setup_next">次へ</string>
@@ -28,7 +28,7 @@
   <string name="dnkm_xiaomi_dialog_body_old">1. 最近使ったアプリの一覧（アプリスイッチャーともいう）を開いて下さい。\n\n2. Briarの画像を下にスワイプすると、南京錠のアイコンが表示されます。\n\n3. 南京錠がロックされていない場合は、タップしてロックします。</string>
   <string name="dnkm_xiaomi_dialog_body_new">1. 最近使ったアプリの一覧（アプリスイッチャーともいう）を開いて下さい。\n\n2. Briarの名前の隣に南京錠の小さな画像があれば、何もする必要がありません。\n\n3. そこに南京錠がなければ、南京錠ボタンが現れるまでBriarの画像を押し続け、そしてBriarをタップしてください。</string>
   <string name="dnkm_warning_dozed_1">Briarはバックグラウンドで実行できませんでした</string>
-  <!--Login-->
+
   <string name="enter_password">パスワード</string>
   <string name="try_again">パスワードが間違っています。もう一度入力してください。</string>
   <string name="dialog_title_cannot_check_password">パスワードを確認できません</string>
@@ -55,19 +55,19 @@
   <string name="startup_open_database">データベースを復号中…</string>
   <string name="startup_migrate_database">データベースをアップグレード中…</string>
   <string name="startup_compact_database">データベースを圧縮中…</string>
-  <!--Navigation Drawer-->
+
   <string name="nav_drawer_open_description">ナビゲーションドロワーを開く</string>
   <string name="nav_drawer_close_description">ナビゲーションドロワーを閉じる</string>
   <string name="contact_list_button">連絡先</string>
   <string name="groups_button">非公開グループ</string>
   <string name="forums_button">フォーラム</string>
   <string name="blogs_button">ブログ</string>
-  <!--This is part of the main menu. The app will be locked when this is tapped.-->
+
   <string name="lock_button">アプリをロック</string>
   <string name="settings_button">設定</string>
   <string name="sign_out_button">サインアウト</string>
   <string name="transports_onboarding_text">ここにタップすると、Briarがあなたの連絡先に接続する方法を制御できます。</string>
-  <!--Transports: Tor-->
+
   <string name="transport_tor">インターネット</string>
   <string name="tor_device_status_online_wifi">電話機はWi-Fiでインターネットにアクセスできます</string>
   <string name="tor_device_status_online_mobile">電話機は携帯電話回線でインターネットにアクセスできます</string>
@@ -79,7 +79,7 @@
   <string name="tor_plugin_status_disabled_mobile_data">Briarは携帯電話回線を使用しないように設定されています</string>
   <string name="tor_plugin_status_disabled_battery">Briarは電池で動作する時に、インターネットを使用しないように設定されています</string>
   <string name="tor_plugin_status_disabled_country_blocked">Briarはこの国でインターネットを使用しないように設定されています</string>
-  <!--Transports: Wi-Fi-->
+
   <string name="transport_lan">Wi-Fi</string>
   <string name="transport_lan_long">同じWi-Fiネットワーク</string>
   <string name="lan_device_status_on">電話機はWi-Fiに接続されました</string>
@@ -88,7 +88,7 @@
   <string name="lan_plugin_status_active">BriarはWi-Fiネットワークに接続されました</string>
   <string name="lan_plugin_status_inactive">BriarはWi-Fiネットワークに接続できません</string>
   <string name="lan_plugin_status_disabled">BriarはWi-Fiネットワークを使用しないように設定されています</string>
-  <!--Transports: Bluetooth-->
+
   <string name="transport_bt">Bluetooth</string>
   <string name="bt_device_status_on">電話機のBluetoothはオンにされました</string>
   <string name="bt_device_status_off">電話機のBluetoothはオフにされました</string>
@@ -96,7 +96,7 @@
   <string name="bt_plugin_status_active">BriarはBluetoothに接続されました</string>
   <string name="bt_plugin_status_inactive">BriarはBluetoothに接続できません</string>
   <string name="bt_plugin_status_disabled">BriarはBluetoothを使用しないように設定されています</string>
-  <!--Notifications-->
+
   <string name="reminder_notification_title">Briarからサインアウト</string>
   <string name="reminder_notification_text">タップして再ログインします。</string>
   <string name="reminder_notification_channel_title">Briarサインインリマインダー</string>
@@ -115,7 +115,7 @@
   <plurals name="blog_post_notification_text">
     <item quantity="other">%d件の新規ブログ投稿</item>
   </plurals>
-  <!--Misc-->
+
   <string name="now">たった今</string>
   <string name="show">表示</string>
   <string name="hide">隠す</string>
@@ -144,7 +144,7 @@
   <string name="status_heading">状態: </string>
   <string name="error">エラー</string>
   <string name="info">情報</string>
-  <!--Contacts and Private Conversations-->
+
   <string name="no_contacts">表示する連絡先がありません</string>
   <string name="no_contacts_action">「＋」アイコンをタップして連絡先を追加</string>
   <string name="date_no_private_messages">メッセージがありません。</string>
@@ -160,11 +160,11 @@
   <string name="set_contact_alias">連絡先名を変更</string>
   <string name="set_contact_alias_hint">連絡先名</string>
   <string name="menu_item_disappearing_messages">消えるメッセージ</string>
-  <!--The first placeholder will show a duration like "7 days". The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_enabled">あなたのメッセージは%1$s後に消えます。%2$s</string>
-  <!--The placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_you_disabled">あなたのメッセージは消えません。%1$s</string>
-  <!--The first placeholder will show a contact's name. The second placeholder will show a duration like "7 days". The third placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_enabled">%1$sのメッセージは%2$s後に消えます。%3$s</string>
   <plurals name="duration_minutes">
     <item quantity="other">%d分</item>
@@ -175,7 +175,7 @@
   <plurals name="duration_days">
     <item quantity="other">%d日</item>
   </plurals>
-  <!--The first placeholder will show a contact's name. The second placeholder at the end will add "Tap to learn more."-->
+
   <string name="auto_delete_msg_contact_disabled">%1$sのメッセージは消えません。%2$s</string>
   <string name="tap_to_learn_more">タップして詳しく。</string>
   <string name="auto_delete_changed_warning_title">消えるメッセージを変更しました</string>
@@ -196,7 +196,7 @@
   <string name="dialog_title_delete_contact">連絡先の削除時に確認</string>
   <string name="dialog_message_delete_contact">この連絡先と、この連絡先と交わした全てのメッセージを削除してもよろしいですか？</string>
   <string name="contact_deleted_toast">連絡先を削除しました</string>
-  <!--This is shown in the action bar when opening an image in fullscreen that the user sent-->
+
   <string name="you">あなた</string>
   <string name="save_image">画像を保存</string>
   <string name="dialog_title_save_image">画像を保存しますか？</string>
@@ -209,7 +209,7 @@
   <string name="dialog_message_image_support">このアイコンをタップして画像を添付します。</string>
   <string name="messaging_too_many_attachments_toast">最初の%d個の画像のみが送信されます。</string>
   <string name="menu_contact">連絡先</string>
-  <!--Adding Contacts-->
+
   <string name="add_contact_title">近くにいる人を連絡先に追加</string>
   <string name="add_contact_error_two_way">お互いのQRコードを読み取りましたか？</string>
   <string name="face_to_face">連絡先として追加したい人と会う必要があります。\n\nこれにより、だれかがあなたになりすましたり、メッセージを読んだりするのを防ぐことができます。</string>
@@ -231,7 +231,7 @@
   <string name="connection_error_title">連絡先に接続できませんでした</string>
   <string name="connection_error_feedback">この問題が解決しない場合、アプリを改善するために<a href="feedback">フィードバックを送信</a>してください。</string>
   <string name="info_both_must_scan">お互いのQRコードを読み取る必要があります</string>
-  <!--Adding Contacts Remotely-->
+
   <string name="add_contact_remotely_title_case">離れた場所にいる人を連絡先に追加</string>
   <string name="add_contact_nearby_title">近くにいる人を連絡先に追加</string>
   <string name="add_contact_remotely_title">離れた場所にいる人を連絡先に追加</string>
@@ -264,9 +264,9 @@
   <string name="unsupported_link">このリンクはBriarの新しいバージョンからのものです。 最新版にアップグレードしてから、もう一度試してください。</string>
   <string name="intent_own_link">あなた自身のリンクを開きました。追加したい連絡先のリンクを使用してください！</string>
   <string name="missing_link">リンクを入力してください</string>
-  <!--This is a numeral indicating the first step in a series of screens-->
+
   <string name="step_1">1</string>
-  <!--This is a numeral indicating the second step in a series of screens-->
+
   <string name="step_2">2</string>
   <plurals name="contact_added_notification_text">
     <item quantity="other">%d件の新規連絡先が追加されました。</item>
@@ -275,25 +275,21 @@
   <string name="duplicate_link_dialog_title">重複リンク</string>
   <string name="duplicate_link_dialog_text_1">既に保留中の連絡先があります。リンク：%s</string>
   <string name="duplicate_link_dialog_text_1_contact">既に連絡先があります。リンク：%s</string>
-  <!--This is a question asking whether two nicknames refer to the same person-->
+
   <string name="duplicate_link_dialog_text_2">%1$sと%2$sは同じ人ですか？</string>
-  <!--This is a button for answering that two nicknames do indeed refer to the same person. This
-	string will be used in a dialog button, so if the translation of this string is longer than 20
-	characters, please use "Yes" instead, and use "No" for the "Different Person" button-->
+
   <string name="same_person_button">同じ人</string>
-  <!--This is a button for answering that two nicknames refer to different people. This string
-	will be used in a dialog button, so if the translation of this string longer than 20 characters,
-	please use "No" instead, and use "Yes" for the "Same Person" button-->
+
   <string name="different_person_button">別人</string>
   <string name="duplicate_link_dialog_text_3">%1$sと%2$sがあなたに同じリンクを送信しました。\n\nどちらかがあなたの連絡先が誰であるかを探ろうとしている可能性があります。\n\n同じリンクを他の人から受信したとは言わないでください。</string>
   <string name="pending_contact_updated_toast">保留中の連絡先が更新されました</string>
   <string name="info_both_must_enter_links">お互いのリンクを追加する必要があります</string>
-  <!--Peer trust levels-->
+
   <string name="peer_trust_level_unverified">検証されてない連絡先</string>
   <string name="peer_trust_level_verified">検証された連絡先</string>
   <string name="peer_trust_level_ourselves">私</string>
   <string name="peer_trust_level_stranger">見知らぬ人</string>
-  <!--Introductions-->
+
   <string name="introduction_onboarding_title">連絡先を紹介</string>
   <string name="introduction_onboarding_text">連絡先をお互いに紹介することで、Briarで繋がることができます。</string>
   <string name="introduction_menu_item">紹介する</string>
@@ -315,7 +311,7 @@
   <string name="introduction_response_accepted_received">%1$sは%2$sへの紹介を受諾しました。</string>
   <string name="introduction_response_declined_received">%1$sは%2$sへの紹介を辞退しました。</string>
   <string name="introduction_response_declined_received_by_introducee">%1$sによると、%2$sが紹介を辞退しました。</string>
-  <!--Connect via Bluetooth-->
+
   <string name="menu_item_connect_via_bluetooth">Bluetooth経由で接続する</string>
   <string name="connect_via_bluetooth_title">Bluetooth経由で接続する</string>
   <string name="connect_via_bluetooth_intro">Bluetooth接続が自動的に行われない場合は、この画面を使って手動で接続することができます。\n\nこの機能を使用するには、あなたの連絡先が近くにある必要があります。\n\nあなたと連絡先が同時に「開始」を押してください。</string>
@@ -326,7 +322,7 @@
   <string name="connect_via_bluetooth_success">Bluetooth経由での接続に成功</string>
   <string name="connect_via_bluetooth_error">Bluetooth経由での接続が不可能。</string>
   <string name="connect_via_bluetooth_error_not_supported">Bluetoothは端末によってサポートされていません。</string>
-  <!--Private Groups-->
+
   <string name="groups_list_empty">表示するグループがありません</string>
   <string name="groups_list_empty_action">「＋」アイコンをタップしてグループを作成するか、連絡先に登録している誰かにグループを共有してもらう</string>
   <string name="groups_created_by">%sが作成</string>
@@ -356,7 +352,7 @@
   <string name="groups_dissolve_button">解散</string>
   <string name="groups_dissolved_dialog_title">グループは解散されました</string>
   <string name="groups_dissolved_dialog_message">このグループの作成者はグループを解散しました。\n\nもうグループにはメッセージを書けなくなり、過去に書かれた全ての投稿は受信できなくなる可能があります。</string>
-  <!--Private Group Invitations-->
+
   <string name="groups_invitations_title">グループ招待</string>
   <string name="groups_invitations_invitation_sent">%1$sをグループ\"%2$s\"に招待しています。</string>
   <string name="groups_invitations_invitation_received">%1$sがあなたをグループ\"%2$s\"に招待しています。</string>
@@ -371,14 +367,14 @@
   <string name="groups_invitations_response_accepted_received">%sはグループへの招待を受諾しました。</string>
   <string name="groups_invitations_response_declined_received">%sはグループへの招待を辞退しました。</string>
   <string name="sharing_status_groups">グループに新規人員を招待できるのは作成者のみです。 以下は、グループの現在の全人員です。</string>
-  <!--Private Groups Revealing Contacts-->
+
   <string name="groups_reveal_contacts">連絡先を明かす</string>
   <string name="groups_reveal_dialog_message">このグループの現在および将来の全人員に連絡先を明かすかどうかを選択できます。\n\n連絡先を明かすと、グループの作成者がオフラインの場合でも明かされた連絡先と通信できるため、グループへの接続がより高速で信頼性が高くなります。</string>
   <string name="groups_reveal_visible">連絡先の関係はグループに表示されます</string>
   <string name="groups_reveal_visible_revealed_by_us">連絡先の関係はグループに表示されます（あなたによって明かされました）</string>
   <string name="groups_reveal_visible_revealed_by_contact">連絡先の関係はグループに表示されます（%sによって明かされました）</string>
   <string name="groups_reveal_invisible">連絡先の関係はグループには表示されません</string>
-  <!--Forums-->
+
   <string name="no_forums">表示するフォーラムがありません</string>
   <string name="no_forums_action">「＋」アイコンをタップしてフォーラムを作成するか、連絡先に登録している誰かにフォーラムを共有してもらいます</string>
   <string name="create_forum_title">フォーラム作成</string>
@@ -398,7 +394,7 @@
   <string name="dialog_message_leave_forum">このフォーラムを脱退してもよろしいですか？\n\nこのフォーラムで共有した連絡先は、更新の受信を停止します。</string>
   <string name="dialog_button_leave">脱退</string>
   <string name="forum_left_toast">フォーラムを脱退しました</string>
-  <!--Forum Sharing-->
+
   <string name="forum_share_button">フォーラムを共有</string>
   <string name="contacts_selected">選択した連絡先</string>
   <string name="activity_share_toolbar_header">連絡先を選択</string>
@@ -431,7 +427,7 @@
     <item quantity="other">連絡先に登録している人が共有している%dフォーラム</item>
   </plurals>
   <string name="nobody">誰もいません</string>
-  <!--Blogs-->
+
   <string name="blogs_other_blog_empty_state">表示する投稿がありません</string>
   <string name="read_more">続きを読む</string>
   <string name="blogs_write_blog_post">ブログに投稿する</string>
@@ -448,7 +444,7 @@
   <string name="blogs_blog_removed">ブログを削除しました</string>
   <string name="blogs_reblog_comment_hint">意見や補足を追加する（任意）</string>
   <string name="blogs_reblog_button">ブログ再掲</string>
-  <!--Blog Sharing-->
+
   <string name="blogs_sharing_share">ブログを共有</string>
   <string name="blogs_sharing_error">このブログを共有中にエラーが発生しました。</string>
   <string name="blogs_sharing_button">ブログを共有</string>
@@ -464,7 +460,7 @@
   <string name="blogs_sharing_joined_toast">ブログを購読</string>
   <string name="blogs_sharing_declined_toast">招待を辞退しました</string>
   <string name="sharing_status_blog">ブログを購読している人は誰でも、ブログを連絡先と共有できます。 このブログを次の連絡先と共有しています。 表示できない他の購読者もいる可能性があります。</string>
-  <!--RSS Feeds-->
+
   <string name="blogs_rss_feeds_import">RSSフィードをインポート</string>
   <string name="blogs_rss_feeds_import_button">インポート</string>
   <string name="blogs_rss_feeds_import_hint">RSSフィードのURLを入力してください</string>
@@ -480,12 +476,12 @@
   <string name="blogs_rss_remove_feed_ok">削除</string>
   <string name="blogs_rss_feeds_manage_empty_state">表示するRSSフィードはありません\n\n「＋」アイコンをタップしてフィードをインポートします</string>
   <string name="blogs_rss_feeds_manage_error">フィードの読み込み中に問題が発生しました。 後でもう一度やり直してください。</string>
-  <!--Settings Profile Picture-->
+
   <string name="change_profile_picture">タップしてプロフィールの画像を変更</string>
   <string name="dialog_confirm_profile_picture_title">プロフィールの画像を変更</string>
   <string name="dialog_confirm_profile_picture_remark">連絡先のみがこの画像を閲覧可能</string>
   <string name="change_profile_picture_failed_message">申し訳ありませんが、あなたのプロフィール画像の更新中に何か過ちが発生しました</string>
-  <!--Settings Display-->
+
   <string name="pref_language_title">言語 &amp; 地域</string>
   <string name="pref_language_changed">この設定は、Briarを再起動すると有効になります。 サインアウトしてBriarを再起動してください。</string>
   <string name="pref_language_default">システムのデフォルト</string>
@@ -494,7 +490,7 @@
   <string name="pref_theme_light">明</string>
   <string name="pref_theme_dark">暗</string>
   <string name="pref_theme_system">システムのデフォルト</string>
-  <!--Settings Connections-->
+
   <string name="network_settings_title">接続</string>
   <string name="bluetooth_setting">Bluetooth経由で連絡先に接続</string>
   <string name="wifi_setting">同じWi-Fiネットワークで連絡先に接続</string>
@@ -505,28 +501,28 @@
   <string name="tor_network_setting_without_bridges">ブリッジなしでTorネットワークを使用する</string>
   <string name="tor_network_setting_with_bridges">ブリッジを通してTorネットワークを使用する</string>
   <string name="tor_network_setting_never">インターネットに接続しない</string>
-  <!--How and when Briar will connect to Tor: E.g. "Don't connect to the Internet (in China)" or "Use Tor network with bridges (in Belarus)"-->
+
   <string name="tor_network_setting_summary">自動：%1$s（%2$s内）</string>
   <string name="tor_mobile_data_title">携帯電話回線を使用する</string>
   <string name="tor_only_when_charging_title">充電時にのみインターネットに接続する</string>
   <string name="tor_only_when_charging_summary">端末が電池で動作する時に、インターネット接続を無効にする</string>
-  <!--Settings Security and Panic-->
+
   <string name="security_settings_title">安全</string>
   <string name="pref_lock_title">アプリロック</string>
   <string name="pref_lock_summary">ログイン中に端末の画面ロックを使用して、Briarを保護します</string>
   <string name="pref_lock_disabled_summary">この機能を使用するには、端末の画面ロックを設定します</string>
   <string name="pref_lock_timeout_title">操作がない場合に時間切れになり、アプリロックをロックする</string>
-  <!--The %s placeholder is replaced with the following time spans, e.g. 5 Minutes, 1 Hour-->
+
   <string name="pref_lock_timeout_summary">Briarを使用しない場合、%s後に自動的にロックします</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_1">1分</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_5">5分</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_15">15分</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_30">30分</string>
-  <!--Will be shown in a list of lock times. Should fit into the %s of "automatically lock it after %s"-->
+
   <string name="pref_lock_timeout_60">1時間</string>
   <string name="pref_lock_timeout_never">行わない</string>
   <string name="pref_lock_timeout_never_summary">Briarを自動的にロックしない</string>
@@ -549,7 +545,7 @@
   <string name="panic_setting_signout_summary">パニックボタンが押された場合、Briarからログアウトする</string>
   <string name="purge_setting_title">アカウントを削除</string>
   <string name="purge_setting_summary">パニックボタンが押された場合は、Briarアカウントを削除します。 注意：これにより、ID、連絡先、メッセージが完全に削除されます</string>
-  <!--Settings Notifications-->
+
   <string name="notification_settings_title">通知</string>
   <string name="notify_sign_in_title">サインインするように通知する</string>
   <string name="notify_sign_in_summary">電話機の起動時またはアプリの更新時にリマインダーを表示する</string>
@@ -571,7 +567,7 @@
   <string name="notify_sound_setting_disabled">なし</string>
   <string name="choose_ringtone_title">着信音を選択</string>
   <string name="cannot_load_ringtone">着信音を読み込めません</string>
-  <!--Mailbox-->
+
   <string name="mailbox_settings_title">メールボックス</string>
   <string name="mailbox_setup_title">メールボックスをセットアップ</string>
   <string name="mailbox_setup_intro">メールボックスはあなたがオフラインの間、連絡先があなたにメッセージを送信することを有効にします。メールボックスはあなたがオンラインになるまで、メッセージを受信し保管します。\n
@@ -582,7 +578,7 @@
   <string name="mailbox_setup_button_scan">メールボックスのQRコードを読み取る</string>
   <string name="permission_camera_qr_denied_body">あなたはカメラにアクセスすることを拒否しましたが、QRコードを読み取るには、カメラを使用する必要があります。\n\nアクセス権を付与することを考慮願います。</string>
   <string name="mailbox_setup_connecting">メールボックスへ接続中…</string>
-  <!--This string is shown when connecting to a Mailbox for the first time. The placeholder will be replaced with a duration, e.g. "2 minutes".-->
+
   <string name="mailbox_setup_connecting_info">%1sまでかかる場合があります</string>
   <string name="mailbox_qr_code_too_old">読み取ったQRコードは、古いバージョンのBriarメールボックスから生じました。\n\nBriarメールボックスを最新版にアップグレードしてから、もう一度お試しください。</string>
   <string name="mailbox_qr_code_too_new">読み取ったQRコードは、新しいバージョンのBriarメールボックスから生じました。\n\nBriarを最新版にアップグレードしてから、もう一度お試しください。</string>
@@ -611,9 +607,9 @@
   <string name="mailbox_status_mailbox_too_old_title">メールボックスは古すぎます</string>
   <string name="mailbox_status_mailbox_too_old_message">メールボックスをアプリの最新版に更新し、再度お試しください。</string>
   <string name="mailbox_status_check_button">接続を確認</string>
-  <!--Example for string substitution: Last connection: 3min ago-->
+
   <string name="mailbox_status_connected_info">最終接続: %s</string>
-  <!--Indicates that there never was a connection to the mailbox. Last connection: Never-->
+
   <string name="mailbox_status_connected_never">一度もない</string>
   <string name="mailbox_status_unlink_button">リンク解除</string>
   <string name="mailbox_status_unlink_dialog_title">メールボックスをリンク解除しますか？</string>
@@ -646,7 +642,7 @@
   <string name="mailbox_error_wizard_info1_1_4">メールボックス端末がインターネットに適切に接続されているか、確認してください。\n\nメールボックス端末の時計が正しい時刻、日付、時間帯を表示しているか、確認してください。\n\nメールボックスとBriarアプリが最新版に更新されているか、確認してください。\n\nメールボックスとBriarの端末を再起動し、再度お試しください。</string>
   <string name="mailbox_error_wizard_info2">端末にアクセスしたら、この画面に戻って来てください。</string>
   <string name="mailbox_error_wizard_info3">以下のボタンを使用してメールボックスをリンク解除してください。\n\n古いメールボックスをリンク解除した後、いつでも新しいメールボックスをセットアップできます。</string>
-  <!--About-->
+
   <string name="about_title">バージョン情報</string>
   <string name="briar_version">Briarバージョン: %s</string>
   <string name="tor_version">Torバージョン: %s</string>
@@ -655,9 +651,9 @@
   <string name="briar_source_code">\u2022 <a href="">ソースコード</a></string>
   <string name="briar_changelog">\u2022 <a href="">変更履歴</a></string>
   <string name="briar_privacy_policy">\u2022 <a href="">プライバシーポリシー</a></string>
-  <!--Here translators can add their names or Transifex usernames(eg "Thanks to all the contributors at the Localization Lab, especially Tom, Matthew and Jerry")-->
+
   <string name="translator_thanks">Localization Labの全貢献者へ感謝</string>
-  <!--Conversation Settings-->
+
   <string name="disappearing_messages_title">消えるメッセージ</string>
   <string name="disappearing_messages_explanation_long">この設定を有効にすると、
 		この会話内での新規メッセージは、自動的に7\u00A0日後に消えます。
@@ -670,17 +666,17 @@
 		連絡先もあなたと二人に、この設定を変更できます。</string>
   <string name="learn_more">詳細情報</string>
   <string name="disappearing_messages_summary">この会話の今後のメッセージは、自動的に7\u00A0日後に消えます。</string>
-  <!--Settings Actions-->
+
   <string name="pref_category_actions">操作</string>
   <string name="share_app_link">ダウンロードリンクを共有</string>
   <string name="share_app_link_text">%s でBriarをダウンロード</string>
   <string name="send_feedback">フィードバックを送信</string>
-  <!--Link Warning-->
+
   <string name="link_warning_title">リンクの警告</string>
   <string name="link_warning_intro">外部アプリで次のリンクを開こうとしています。</string>
   <string name="link_warning_text">これはあなたを識別するために使用できます。 このリンクを送ってきた人を信頼していいのどうか考えてください。リンクを開く場合は、Tor Browserで開いてください。</string>
   <string name="link_warning_open_link">リンクを開く</string>
-  <!--Crash Reporter-->
+
   <string name="crash_report_title">Briarのクラッシュレポート</string>
   <string name="briar_crashed">申し訳ありませんが、Briarはクラッシュしました</string>
   <string name="not_your_fault">これはあなたのせいではありません。</string>
@@ -711,15 +707,15 @@
   <string name="dev_report_sent">フィードバックを送信しました</string>
   <string name="dev_report_saved">レポートを保存しました。 次回、Briarにログインしたときに送信されます。</string>
   <string name="dev_report_error">エラー：レポート送信に失敗</string>
-  <!--Sign Out-->
+
   <string name="progress_title_logout">Briarからサインアウト中…</string>
-  <!--Screen Filters & Tapjacking-->
+
   <string name="screen_filter_title">画面オーバーレイが検出されました</string>
   <string name="screen_filter_body">他のアプリがBriarの上に描画されています。セキュリティ保護のため、他のアプリが上に描画しているときは、Briarに触れても反応しません。\n\n以下のアプリが上に描画されている可能性があります:\n\n%1$s</string>
   <string name="screen_filter_body_api_30">他のアプリがBriarの上に描画されています。セキュリティ保護のため、他のアプリが上に描画しているときは、Briarに触れても反応しません。\n\n以下のアプリを確認して、原因のアプリを見つけてください。</string>
   <string name="screen_filter_allow">これらのアプリがBriarの画面上に描画できるようにする</string>
   <string name="screen_filter_review_apps">アプリを確認</string>
-  <!--Permission Requests-->
+
   <string name="permission_camera_title">カメラの権限</string>
   <string name="permission_camera_request_body">QRコードを読み取るには、Briarはカメラにアクセスする必要があります。</string>
   <string name="permission_location_title">位置情報の権限</string>
@@ -740,16 +736,16 @@
   <string name="permission_bluetooth_denied_body">あなたは付近の端末にアクセスすることを拒否しましたが、BriarはBluetoothを使用するのに、この権限が必要です。\n\nアクセス権を付与することを考慮願います。</string>
   <string name="qr_code">QRコード</string>
   <string name="show_qr_code_fullscreen">QRコードを全画面表示する</string>
-  <!--App Locking-->
+
   <string name="lock_unlock">Briarのロックを解除</string>
   <string name="lock_unlock_verbose">Briarのロックを解除するには、端末のPIN、パターン、またはパスワードを入力してください</string>
   <string name="lock_unlock_fingerprint_description">登録した指で指紋センサーに触れて続行します</string>
   <string name="lock_unlock_password">パスワードを使用</string>
   <string name="lock_is_locked">Briarはロックされています</string>
   <string name="lock_tap_to_unlock">タップしてロック解除</string>
-  <!--Connections Screen-->
+
   <string name="transports_help_text">Briarは、インターネット、Wi-Fi、Bluetoothを介して連絡先に接続することができます。\n\n全てのインターネット接続は、プライバシー保護のためにTorネットワークを経由します。\n\n複数の方法で連絡が取れる場合、Briarはそれらを並行して使用します。</string>
-  <!--Share app offline-->
+
   <string name="hotspot_title">このアプリをオフラインで共有</string>
   <string name="hotspot_intro">あなたの電話機のWi-Fiを使用して、インターネット接続なしで、近くの誰かとこのアプリを共有します。
 		\n\nあなたの電話機はWi-Fiホットスポットになります。近くの人はホットスポットへ接続し、あなたの電話機からBriarアプリをダウンロードできます。</string>
@@ -768,10 +764,10 @@
   <string name="wifi_settings_title">Wi-Fi設定</string>
   <string name="wifi_settings_request_enable_body">Wi-Fiホットスポットを作るには、BriarはWi-Fiの使用が必要です。有効にしてください。</string>
   <string name="hotspot_tab_manual">手動</string>
-  <!--The placeholder to be inserted into the string 'hotspot_manual_wifi': People can connect by %s-->
+
   <string name="hotspot_scanning_a_qr_code">QRコードを読み取る</string>
-  <!--Wi-Fi setup-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_wifi">あなたの電話機はWi-Fiホットスポットを提供しています。Briarのダウンロードを希望する人は、以下の方法で端末のWi-Fi設定に追加するか、または %s によるホットスポットに接続してください。そのホットスポットに接続されたら、「次へ」を押してください。</string>
   <string name="hotspot_manual_wifi_ssid">ネットワーク名</string>
   <string name="hotspot_qr_wifi">あなたの電話機はWi-Fiホットスポットを提供しています。Briarのダウンロードを希望する人は、このQRコードを読み取ってホットスポットに接続してください。そのホットスポットに接続されたら、「次へ」を押してください。</string>
@@ -779,12 +775,12 @@
   <plurals name="hotspot_peers_connected">
     <item quantity="other">%s機の接続された端末</item>
   </plurals>
-  <!--Download link-->
-  <!--The %s placeholder will be replaced with the translation of 'hotspot_scanning_a_qr_code'-->
+
+
   <string name="hotspot_manual_site">あなたの電話機はWi-Fiホットスポットを提供しています。ホットスポットに接続された人は、ウェブブラウザまたは %s 内で以下のリンクを入力して、Briarをダウンロードできます。</string>
   <string name="hotspot_manual_site_address">アドレス（URL）</string>
   <string name="hotspot_qr_site">あなたの電話機はWi-Fiホットスポットを提供しています。ホットスポットに接続された人は、このQRコードを読み取って、Briarをダウンロードできます。</string>
-  <!--e.g. Download Briar 1.2.20-->
+
   <string name="website_download_title_1">Briar%sをダウンロード</string>
   <string name="website_download_intro_1">近くの誰かが、あなたとBriarを共有しました。</string>
   <string name="website_download_button">Briarをダウンロード</string>
@@ -806,7 +802,7 @@
   <string name="hotspot_help_fallback_intro">他の方法で共有するために、アプリを.apkファイルとして保存してみてください。そのファイルをもう一方の端末に転送すると、Briarをインストールすることができます。
 		\n\nヒント: Bluetoothで共有する場合は、まずファイル名を.zipで終わるように名前変更する必要があるかもしれません。</string>
   <string name="hotspot_help_fallback_button">アプリを保存する</string>
-  <!--error handling-->
+
   <string name="hotspot_error_intro">Wi-Fiでアプリを共有しようとしたときに、何か問題が発生しました。</string>
   <string name="hotspot_error_no_wifi_direct">端末はWi-Fiダイレクトをサポートしていません</string>
   <string name="hotspot_error_start_callback_failed">ホットスポットの開始に失敗しました: エラー %s</string>
@@ -816,7 +812,7 @@
   <string name="hotspot_error_web_server_serve">ウェブサイトの表示にエラーが発生しました。\n\n問題が解決しない場合は、Briarアプリから（匿名のデータで）フィードバックを送ってください。</string>
   <string name="hotspot_flag_test">警告: このアプリはAndroid Studioでインストールされたものであり、他の端末にインストールすることはできません。</string>
   <string name="hotspot_error_framework_busy">ホットスポットの起動ができません。\n\n他のホットスポットを起動している場合や、Wi-Fiでインターネット接続を共有している場合は、そのホットスポットを停止してから再度試してみてください。</string>
-  <!--Transfer Data via Removable Drives-->
+
   <string name="removable_drive_menu_title">リムーバブルドライブ経由で接続する</string>
   <string name="removable_drive_intro">インターネット、Wi-FiまたはBluetooth経由であなたの連絡先と接続できない場合、Briarは例えばUSBメモリーまたはSDカードのような、リムーバルドライブ上でメッセージを転送することもできます。</string>
   <string name="removable_drive_explanation">インターネット、Wi-FiまたはBluetooth経由であなたの連絡先と接続できない場合、Briarは例えばUSBメモリーまたはSDカードのような、リムーバルドライブ上でメッセージを転送することもできます。\n\n「データ送信」ボタンを使用したとき、連絡先への送信を待っているデータは、リムーバブルドライブに書き込まれます。これは非公開メッセージ、添付、ブログ、フォーラムと非公開グループを含みます。\n\n連絡先はリムーバルドライブを受け取ったときに、Briar内にメッセージをインポートするため、「データ受信」ボタンを使用できます。</string>
@@ -837,17 +833,17 @@
   <string name="removable_drive_error_send_text">ファイルへデータを書き込み中にエラーが発生しました。\n\nリムーバブルドライブを使用している場合、適切に挿入されていることを確かにして、再度お試しください。\n\nエラーが持続する場合、経験している問題について、Briarチームにフィードバックを送信してください。</string>
   <string name="removable_drive_error_receive_title">データインポート中にエラー</string>
   <string name="removable_drive_error_receive_text">選択されたファイルは、Briarが正しく認識するものが含まれていません。\n\n正しいファイルが選択されていることを確認してください。\n\n連絡先が28日より前にファイルを作成した場合、Briarは正しく認識することができません。</string>
-  <!--Screenshots-->
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
+
   <string name="screenshot_alice">アリス</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_bob">ボブ</string>
-  <!--This is a name to be used in screenshots. Feel free to change it to a local name.-->
+
   <string name="screenshot_carol">キャロル</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Bob!-->
+
   <string name="screenshot_message_1">こんにちは、ボブ！</string>
-  <!--This is a message to be used in screenshots. Please use the same translation for Alice!-->
+
   <string name="screenshot_message_2">やあ、アリス！ Briarを教えてくれてありがとう！</string>
-  <!--This is a message to be used in screenshots.-->
+
   <string name="screenshot_message_3">どういたしまして！気に入ってくれるといいな😀</string>
 </resources>

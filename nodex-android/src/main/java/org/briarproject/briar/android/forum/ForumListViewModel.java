@@ -1,8 +1,6 @@
 package org.briarproject.briar.android.forum;
-
 import android.app.Application;
 import android.widget.Toast;
-
 import org.briarproject.bramble.api.contact.event.ContactRemovedEvent;
 import org.briarproject.bramble.api.db.DatabaseExecutor;
 import org.briarproject.bramble.api.db.DbException;
@@ -29,42 +27,33 @@ import org.briarproject.briar.api.forum.event.ForumInvitationRequestReceivedEven
 import org.briarproject.briar.api.forum.event.ForumPostReceivedEvent;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.inject.Inject;
-
 import androidx.annotation.UiThread;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static android.widget.Toast.LENGTH_SHORT;
 import static java.util.logging.Logger.getLogger;
 import static org.briarproject.bramble.util.LogUtils.logDuration;
 import static org.briarproject.bramble.util.LogUtils.now;
 import static org.briarproject.briar.api.forum.ForumManager.CLIENT_ID;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 class ForumListViewModel extends DbViewModel implements EventListener {
-
 	private static final Logger LOG =
 			getLogger(ForumListViewModel.class.getName());
-
 	private final ForumManager forumManager;
 	private final ForumSharingManager forumSharingManager;
 	private final AndroidNotificationManager notificationManager;
 	private final EventBus eventBus;
-
 	private final MutableLiveData<LiveResult<List<ForumListItem>>> forumItems =
 			new MutableLiveData<>();
 	private final MutableLiveData<Integer> numInvitations =
 			new MutableLiveData<>();
-
 	@Inject
 	ForumListViewModel(Application application,
 			@DatabaseExecutor Executor dbExecutor,
@@ -81,25 +70,20 @@ class ForumListViewModel extends DbViewModel implements EventListener {
 		this.eventBus = eventBus;
 		this.eventBus.addListener(this);
 	}
-
 	@Override
 	protected void onCleared() {
 		super.onCleared();
 		eventBus.removeListener(this);
 	}
-
 	void clearAllForumPostNotifications() {
 		notificationManager.clearAllForumPostNotifications();
 	}
-
 	void blockAllForumPostNotifications() {
 		notificationManager.blockAllForumPostNotifications();
 	}
-
 	void unblockAllForumPostNotifications() {
 		notificationManager.unblockAllForumPostNotifications();
 	}
-
 	@Override
 	public void eventOccurred(Event e) {
 		if (e instanceof ContactRemovedEvent) {
@@ -126,11 +110,9 @@ class ForumListViewModel extends DbViewModel implements EventListener {
 			onForumPostReceived(f.getGroupId(), f.getHeader());
 		}
 	}
-
 	void loadForums() {
 		loadFromDb(this::loadForums, forumItems::setValue);
 	}
-
 	@DatabaseExecutor
 	private List<ForumListItem> loadForums(Transaction txn) throws DbException {
 		long start = now();
@@ -143,25 +125,21 @@ class ForumListViewModel extends DbViewModel implements EventListener {
 		logDuration(LOG, "Loading forums", start);
 		return forums;
 	}
-
 	@UiThread
 	private void onForumPostReceived(GroupId g, ForumPostHeader header) {
 		List<ForumListItem> list = updateListItems(getList(forumItems),
 				itemToTest -> itemToTest.getForum().getId().equals(g),
 				itemToUpdate -> new ForumListItem(itemToUpdate, header));
 		if (list == null) return;
-		// re-sort as the order of items may have changed
 		Collections.sort(list);
 		forumItems.setValue(new LiveResult<>(list));
 	}
-
 	@UiThread
 	private void onGroupRemoved(GroupId groupId) {
 		removeAndUpdateListItems(forumItems, i ->
 				i.getForum().getId().equals(groupId)
 		);
 	}
-
 	void loadForumInvitations() {
 		runOnDbThread(() -> {
 			try {
@@ -174,15 +152,12 @@ class ForumListViewModel extends DbViewModel implements EventListener {
 			}
 		});
 	}
-
 	LiveData<LiveResult<List<ForumListItem>>> getForumListItems() {
 		return forumItems;
 	}
-
 	LiveData<Integer> getNumInvitations() {
 		return numInvitations;
 	}
-
 	void deleteForum(GroupId groupId) {
 		runOnDbThread(() -> {
 			try {

@@ -1,5 +1,4 @@
 package org.briarproject.briar.android;
-
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.BroadcastReceiver;
@@ -11,13 +10,11 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.Signature;
-
 import org.briarproject.bramble.api.lifecycle.Service;
 import org.briarproject.bramble.api.system.AndroidExecutor;
 import org.briarproject.bramble.util.StringUtils;
 import org.briarproject.briar.api.android.ScreenFilterMonitor;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.security.cert.CertificateException;
@@ -31,12 +28,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Logger;
-
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-
 import androidx.annotation.UiThread;
-
 import static android.Manifest.permission.SYSTEM_ALERT_WINDOW;
 import static android.content.Intent.ACTION_PACKAGE_ADDED;
 import static android.content.Intent.ACTION_PACKAGE_CHANGED;
@@ -51,17 +45,10 @@ import static android.os.Build.VERSION.SDK_INT;
 import static java.util.logging.Level.WARNING;
 import static org.briarproject.bramble.util.AndroidUtils.registerReceiver;
 import static org.briarproject.bramble.util.LogUtils.logException;
-
 @NotNullByDefault
 class ScreenFilterMonitorImpl implements ScreenFilterMonitor, Service {
-
 	private static final Logger LOG =
 			Logger.getLogger(ScreenFilterMonitorImpl.class.getName());
-
-	/*
-	 * Ignore Play Services if it uses this package name and public key - it's
-	 * effectively a system app, but not flagged as such on older systems
-	 */
 	private static final String PLAY_SERVICES_PACKAGE =
 			"com.google.android.gms";
 	private static final String PLAY_SERVICES_PUBLIC_KEY =
@@ -76,23 +63,16 @@ class ScreenFilterMonitorImpl implements ScreenFilterMonitor, Service {
 					"CC2979C70E18AB93866B3BD5DB8999552A0E3B4C99DF58FB918BEDC1" +
 					"82BA35E003C1B4B10DD244A8EE24FFFD333872AB5221985EDAB0FC0D" +
 					"0B145B6AA192858E79020103";
-
 	private static final String PREF_KEY_ALLOWED = "allowedOverlayApps";
-
 	private final PackageManager pm;
 	private final Application app;
 	private final AndroidExecutor androidExecutor;
 	private final SharedPreferences prefs;
 	private final AtomicBoolean used = new AtomicBoolean(false);
-
-	// UiThread
 	@Nullable
 	private BroadcastReceiver receiver = null;
-
-	// UiThread
 	@Nullable
 	private Collection<AppDetails> cachedApps = null;
-
 	@Inject
 	ScreenFilterMonitorImpl(Application app, AndroidExecutor androidExecutor,
 			SharedPreferences prefs) {
@@ -101,7 +81,6 @@ class ScreenFilterMonitorImpl implements ScreenFilterMonitor, Service {
 		this.androidExecutor = androidExecutor;
 		this.prefs = prefs;
 	}
-
 	@Override
 	@UiThread
 	public Collection<AppDetails> getApps() {
@@ -123,7 +102,6 @@ class ScreenFilterMonitorImpl implements ScreenFilterMonitor, Service {
 		cachedApps = apps;
 		return apps;
 	}
-
 	@Override
 	@UiThread
 	public void allowApps(Collection<String> packageNames) {
@@ -134,36 +112,25 @@ class ScreenFilterMonitorImpl implements ScreenFilterMonitor, Service {
 		merged.addAll(packageNames);
 		prefs.edit().putStringSet(PREF_KEY_ALLOWED, merged).apply();
 	}
-
-	// Returns the application name for a given package, or the package name
-	// if no application name is available
 	private String getAppName(PackageInfo pkgInfo) {
 		CharSequence seq = pm.getApplicationLabel(pkgInfo.applicationInfo);
 		return seq == null ? pkgInfo.packageName : seq.toString();
 	}
-
-	// Checks if an installed package is a user app using the permission.
 	private boolean isOverlayApp(PackageInfo packageInfo) {
 		int mask = FLAG_SYSTEM | FLAG_UPDATED_SYSTEM_APP;
-		// Ignore system apps
 		if ((packageInfo.applicationInfo.flags & mask) != 0) return false;
-		// Ignore Play Services, it's effectively a system app
 		if (isPlayServices(packageInfo.packageName)) return false;
-		// Get permissions
 		String[] requestedPermissions = packageInfo.requestedPermissions;
 		if (requestedPermissions == null) return false;
 		if (SDK_INT < 23) {
-			// Check whether the permission has been requested and granted
 			int[] flags = packageInfo.requestedPermissionsFlags;
 			for (int i = 0; i < requestedPermissions.length; i++) {
 				if (requestedPermissions[i].equals(SYSTEM_ALERT_WINDOW)) {
-					// 'flags' may be null on Robolectric
 					return flags == null ||
 							(flags[i] & REQUESTED_PERMISSION_GRANTED) != 0;
 				}
 			}
 		} else {
-			// Check whether the permission has been requested
 			for (String requestedPermission : requestedPermissions) {
 				if (requestedPermission.equals(SYSTEM_ALERT_WINDOW)) {
 					return true;
@@ -172,16 +139,13 @@ class ScreenFilterMonitorImpl implements ScreenFilterMonitor, Service {
 		}
 		return false;
 	}
-
 	@SuppressLint("PackageManagerGetSignatures")
 	private boolean isPlayServices(String pkg) {
 		if (!PLAY_SERVICES_PACKAGE.equals(pkg)) return false;
 		try {
 			PackageInfo sigs = pm.getPackageInfo(pkg, GET_SIGNATURES);
-			// The genuine Play Services app should have a single signature
 			Signature[] signatures = sigs.signatures;
 			if (signatures == null || signatures.length != 1) return false;
-			// Extract the public key from the signature
 			CertificateFactory certFactory =
 					CertificateFactory.getInstance("X509");
 			byte[] signatureBytes = signatures[0].toByteArray();
@@ -196,7 +160,6 @@ class ScreenFilterMonitorImpl implements ScreenFilterMonitor, Service {
 			return false;
 		}
 	}
-
 	@Override
 	public void startService() {
 		if (used.getAndSet(true)) throw new IllegalStateException();
@@ -212,16 +175,13 @@ class ScreenFilterMonitorImpl implements ScreenFilterMonitor, Service {
 			cachedApps = null;
 		});
 	}
-
 	@Override
 	public void stopService() {
 		androidExecutor.runOnUiThread(() -> {
 			if (receiver != null) app.unregisterReceiver(receiver);
 		});
 	}
-
 	private class PackageBroadcastReceiver extends BroadcastReceiver {
-
 		@Override
 		@UiThread
 		public void onReceive(Context context, Intent intent) {

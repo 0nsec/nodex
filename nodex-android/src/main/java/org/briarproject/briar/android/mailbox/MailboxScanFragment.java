@@ -1,48 +1,35 @@
 package org.briarproject.briar.android.mailbox;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import org.briarproject.briar.R;
 import org.briarproject.briar.android.qrcode.CameraException;
 import org.briarproject.briar.android.qrcode.CameraView;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import java.util.logging.Logger;
-
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-
 import androidx.annotation.UiThread;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
-
 import static android.widget.Toast.LENGTH_LONG;
 import static java.util.logging.Level.WARNING;
 import static org.briarproject.bramble.util.LogUtils.logException;
 import static org.briarproject.briar.android.AppModule.getAndroidComponent;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class MailboxScanFragment extends Fragment {
-
 	static final String TAG = MailboxScanFragment.class.getName();
-
 	private static final Logger LOG = Logger.getLogger(TAG);
-
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
-
 	private MailboxViewModel viewModel;
-
 	private CameraView cameraView;
-
 	@Override
 	public void onAttach(Context context) {
 		super.onAttach(context);
@@ -51,7 +38,6 @@ public class MailboxScanFragment extends Fragment {
 		viewModel = new ViewModelProvider(activity, viewModelFactory)
 				.get(MailboxViewModel.class);
 	}
-
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater,
@@ -60,14 +46,12 @@ public class MailboxScanFragment extends Fragment {
 		return inflater.inflate(R.layout.fragment_mailbox_scan, container,
 				false);
 	}
-
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 		cameraView = view.findViewById(R.id.camera_view);
 		cameraView.setPreviewConsumer(viewModel.getQrCodeDecoder());
 	}
-
 	@Override
 	public void onStart() {
 		super.onStart();
@@ -78,7 +62,6 @@ public class MailboxScanFragment extends Fragment {
 			logCameraExceptionAndFinish(e);
 		}
 	}
-
 	@Override
 	public void onStop() {
 		super.onStop();
@@ -88,7 +71,6 @@ public class MailboxScanFragment extends Fragment {
 			logCameraExceptionAndFinish(e);
 		}
 	}
-
 	@UiThread
 	private void logCameraExceptionAndFinish(CameraException e) {
 		logException(LOG, WARNING, e);
@@ -96,5 +78,4 @@ public class MailboxScanFragment extends Fragment {
 				LENGTH_LONG).show();
 		viewModel.onCameraError();
 	}
-
 }

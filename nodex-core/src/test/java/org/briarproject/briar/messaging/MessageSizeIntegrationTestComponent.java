@@ -1,5 +1,4 @@
 package org.briarproject.briar.messaging;
-
 import org.briarproject.bramble.BrambleCoreIntegrationTestEagerSingletons;
 import org.briarproject.bramble.BrambleCoreModule;
 import org.briarproject.bramble.mailbox.ModularMailboxModule;
@@ -13,11 +12,8 @@ import org.briarproject.briar.client.BriarClientModule;
 import org.briarproject.briar.conversation.ConversationModule;
 import org.briarproject.briar.forum.ForumModule;
 import org.briarproject.briar.identity.IdentityModule;
-
 import javax.inject.Singleton;
-
 import dagger.Component;
-
 @Singleton
 @Component(modules = {
 		BrambleCoreIntegrationTestModule.class,
@@ -36,17 +32,11 @@ import dagger.Component;
 })
 interface MessageSizeIntegrationTestComponent
 		extends BrambleCoreIntegrationTestEagerSingletons {
-
 	void inject(MessageSizeIntegrationTest testCase);
-
 	void inject(AvatarModule.EagerSingletons init);
-
 	void inject(ForumModule.EagerSingletons init);
-
 	void inject(MessagingModule.EagerSingletons init);
-
 	class Helper {
-
 		public static void injectEagerSingletons(
 				MessageSizeIntegrationTestComponent c) {
 			BrambleCoreIntegrationTestEagerSingletons.Helper

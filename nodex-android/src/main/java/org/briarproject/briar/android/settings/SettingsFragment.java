@@ -1,20 +1,16 @@
 package org.briarproject.briar.android.settings;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-
 import org.briarproject.briar.R;
 import org.briarproject.briar.android.mailbox.MailboxActivity;
 import org.briarproject.briar.android.util.ActivityLaunchers.GetImageAdvanced;
 import org.briarproject.briar.android.util.ActivityLaunchers.OpenImageDocumentAdvanced;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import javax.inject.Inject;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,7 +19,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceGroup;
-
 import static android.content.Intent.ACTION_SEND;
 import static android.content.Intent.EXTRA_TEXT;
 import static java.util.Objects.requireNonNull;
@@ -32,35 +27,27 @@ import static org.briarproject.briar.android.TestingConstants.IS_DEBUG_BUILD;
 import static org.briarproject.briar.android.util.UiUtils.launchActivityToOpenFile;
 import static org.briarproject.briar.android.util.UiUtils.triggerFeedback;
 import static org.briarproject.briar.android.util.UiUtils.tryToStartActivity;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class SettingsFragment extends PreferenceFragmentCompat {
-
 	public static final String SETTINGS_NAMESPACE = "android-ui";
-
 	private static final String PREF_KEY_AVATAR = "pref_key_avatar";
 	private static final String PREF_KEY_SHARE_LINK = "pref_key_share_app_link";
 	private static final String PREF_KEY_FEEDBACK = "pref_key_send_feedback";
 	private static final String PREF_KEY_DEV = "pref_key_dev";
 	private static final String PREF_KEY_EXPLODE = "pref_key_explode";
 	private static final String PREF_KEY_MAILBOX = "pref_key_mailbox";
-
-	private static final String DOWNLOAD_URL = "https://briarproject.org/download/";
-
+	private static final String DOWNLOAD_URL = "https:
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
-
 	private SettingsViewModel viewModel;
 	private AvatarPreference prefAvatar;
-
 	private final ActivityResultLauncher<String[]> docLauncher =
 			registerForActivityResult(new OpenImageDocumentAdvanced(),
 					this::onImageSelected);
 	private final ActivityResultLauncher<String> contentLauncher =
 			registerForActivityResult(new GetImageAdvanced(),
 					this::onImageSelected);
-
 	@Override
 	public void onAttach(@NonNull Context context) {
 		super.onAttach(context);
@@ -68,11 +55,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 		viewModel = new ViewModelProvider(requireActivity(), viewModelFactory)
 				.get(SettingsViewModel.class);
 	}
-
 	@Override
 	public void onCreatePreferences(Bundle bundle, String s) {
 		addPreferencesFromResource(R.xml.settings);
-
 		prefAvatar = requireNonNull(findPreference(PREF_KEY_AVATAR));
 		if (viewModel.shouldEnableProfilePictures()) {
 			prefAvatar.setOnPreferenceClickListener(preference -> {
@@ -83,7 +68,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 		} else {
 			prefAvatar.setVisible(false);
 		}
-
 		Preference prefMailbox =
 				requireNonNull(findPreference(PREF_KEY_MAILBOX));
 		prefMailbox.setOnPreferenceClickListener(preference -> {
@@ -91,7 +75,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 			startActivity(i);
 			return true;
 		});
-
 		Preference prefShareLink =
 				requireNonNull(findPreference(PREF_KEY_SHARE_LINK));
 		prefShareLink.setOnPreferenceClickListener(preference -> {
@@ -109,7 +92,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 			triggerFeedback(requireContext());
 			return true;
 		});
-
 		Preference explode = requireNonNull(findPreference(PREF_KEY_EXPLODE));
 		if (IS_DEBUG_BUILD) {
 			explode.setOnPreferenceClickListener(preference -> {
@@ -120,28 +102,23 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 			dev.setVisible(false);
 		}
 	}
-
 	@Override
 	public void onViewCreated(@NonNull View view,
 			@Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-
 		viewModel.getOwnIdentityInfo().observe(getViewLifecycleOwner(), us ->
 				prefAvatar.setOwnIdentityInfo(us)
 		);
 	}
-
 	@Override
 	public void onStart() {
 		super.onStart();
 		requireActivity().setTitle(R.string.settings_button);
 	}
-
 	private void onImageSelected(@Nullable Uri uri) {
 		if (uri == null) return;
 		DialogFragment dialog = ConfirmAvatarDialogFragment.newInstance(uri);
 		dialog.show(getParentFragmentManager(),
 				ConfirmAvatarDialogFragment.TAG);
 	}
-
 }

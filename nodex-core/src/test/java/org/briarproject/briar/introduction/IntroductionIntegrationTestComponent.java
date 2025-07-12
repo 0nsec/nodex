@@ -1,5 +1,4 @@
 package org.briarproject.briar.introduction;
-
 import org.briarproject.bramble.BrambleCoreModule;
 import org.briarproject.bramble.mailbox.ModularMailboxModule;
 import org.briarproject.bramble.test.BrambleCoreIntegrationTestModule;
@@ -19,11 +18,8 @@ import org.briarproject.briar.privategroup.PrivateGroupModule;
 import org.briarproject.briar.privategroup.invitation.GroupInvitationModule;
 import org.briarproject.briar.sharing.SharingModule;
 import org.briarproject.briar.test.BriarIntegrationTestComponent;
-
 import javax.inject.Singleton;
-
 import dagger.Component;
-
 @Singleton
 @Component(modules = {
 		BrambleCoreIntegrationTestModule.class,
@@ -48,23 +44,13 @@ import dagger.Component;
 })
 interface IntroductionIntegrationTestComponent
 		extends BriarIntegrationTestComponent {
-
 	void inject(IntroductionIntegrationTest init);
-
 	void inject(MessageEncoderParserIntegrationTest init);
-
 	void inject(SessionEncoderParserIntegrationTest init);
-
 	void inject(IntroductionCryptoIntegrationTest init);
-
 	void inject(AutoDeleteIntegrationTest init);
-
 	MessageEncoder getMessageEncoder();
-
 	MessageParser getMessageParser();
-
 	SessionParser getSessionParser();
-
 	IntroductionCrypto getIntroductionCrypto();
-
 }

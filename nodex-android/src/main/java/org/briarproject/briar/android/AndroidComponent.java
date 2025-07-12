@@ -1,5 +1,4 @@
 package org.briarproject.briar.android;
-
 import org.briarproject.android.dontkillmelib.wakelock.AndroidWakeLockManager;
 import org.briarproject.bramble.BrambleAndroidEagerSingletons;
 import org.briarproject.bramble.BrambleAndroidModule;
@@ -84,14 +83,10 @@ import org.briarproject.briar.api.privategroup.invitation.GroupInvitationManager
 import org.briarproject.briar.api.test.TestDataCreator;
 import org.briarproject.onionwrapper.CircumventionProvider;
 import org.briarproject.onionwrapper.LocationUtils;
-
 import java.util.concurrent.Executor;
-
 import javax.inject.Singleton;
-
 import androidx.lifecycle.ViewModelProvider;
 import dagger.Component;
-
 @Singleton
 @Component(modules = {
 		BrambleCoreModule.class,
@@ -108,158 +103,82 @@ import dagger.Component;
 public interface AndroidComponent
 		extends BrambleCoreEagerSingletons, BrambleAndroidEagerSingletons,
 		BriarCoreEagerSingletons, AndroidEagerSingletons, BrambleAppComponent {
-
-	// Exposed objects
 	@CryptoExecutor
 	Executor cryptoExecutor();
-
 	PasswordStrengthEstimator passwordStrengthIndicator();
-
 	@DatabaseExecutor
 	Executor databaseExecutor();
-
 	TransactionManager transactionManager();
-
 	MessageTracker messageTracker();
-
 	LifecycleManager lifecycleManager();
-
 	IdentityManager identityManager();
-
 	AttachmentReader attachmentReader();
-
 	AuthorManager authorManager();
-
 	PluginManager pluginManager();
-
 	EventBus eventBus();
-
 	AndroidNotificationManager androidNotificationManager();
-
 	ScreenFilterMonitor screenFilterMonitor();
-
 	ConnectionRegistry connectionRegistry();
-
 	ContactManager contactManager();
-
 	ConversationManager conversationManager();
-
 	MessagingManager messagingManager();
-
 	PrivateMessageFactory privateMessageFactory();
-
 	PrivateGroupManager privateGroupManager();
-
 	GroupInvitationFactory groupInvitationFactory();
-
 	GroupInvitationManager groupInvitationManager();
-
 	PrivateGroupFactory privateGroupFactory();
-
 	GroupMessageFactory groupMessageFactory();
-
 	ForumManager forumManager();
-
 	ForumSharingManager forumSharingManager();
-
 	BlogSharingManager blogSharingManager();
-
 	BlogManager blogManager();
-
 	BlogPostFactory blogPostFactory();
-
 	SettingsManager settingsManager();
-
 	ContactExchangeManager contactExchangeManager();
-
 	KeyAgreementTask keyAgreementTask();
-
 	PayloadEncoder payloadEncoder();
-
 	PayloadParser payloadParser();
-
 	IntroductionManager introductionManager();
-
 	AndroidExecutor androidExecutor();
-
 	FeedManager feedManager();
-
 	Clock clock();
-
 	TestDataCreator testDataCreator();
-
 	DozeWatchdog dozeWatchdog();
-
 	@IoExecutor
 	Executor ioExecutor();
-
 	AccountManager accountManager();
-
 	LockManager lockManager();
-
 	LocationUtils locationUtils();
-
 	CircumventionProvider circumventionProvider();
-
 	ViewModelProvider.Factory viewModelFactory();
-
 	FeatureFlags featureFlags();
-
 	AndroidWakeLockManager wakeLockManager();
-
 	CachingLogHandler logHandler();
-
 	Thread.UncaughtExceptionHandler exceptionHandler();
-
 	AutoDeleteManager autoDeleteManager();
-
 	void inject(SignInReminderReceiver briarService);
-
 	void inject(BriarService briarService);
-
 	void inject(NotificationCleanupService notificationCleanupService);
-
 	void inject(EmojiTextInputView textInputView);
-
 	void inject(BriarModelLoader briarModelLoader);
-
 	void inject(SettingsFragment settingsFragment);
-
 	void inject(ConnectionsFragment connectionsFragment);
-
 	void inject(SecurityFragment securityFragment);
-
 	void inject(NotificationsFragment notificationsFragment);
-
 	void inject(HotspotIntroFragment hotspotIntroFragment);
-
 	void inject(AbstractTabsFragment abstractTabsFragment);
-
 	void inject(QrHotspotFragment qrHotspotFragment);
-
 	void inject(ManualHotspotFragment manualHotspotFragment);
-
 	void inject(FallbackFragment fallbackFragment);
-
 	void inject(ChooserFragment chooserFragment);
-
 	void inject(SendFragment sendFragment);
-
 	void inject(ReceiveFragment receiveFragment);
-
 	void inject(BluetoothIntroFragment bluetoothIntroFragment);
-
 	void inject(SetupIntroFragment setupIntroFragment);
-
 	void inject(SetupDownloadFragment setupDownloadFragment);
-
 	void inject(MailboxScanFragment mailboxScanFragment);
-
 	void inject(OfflineFragment offlineFragment);
-
 	void inject(ErrorFragment errorFragment);
-
 	void inject(MailboxStatusFragment mailboxStatusFragment);
-
 	void inject(ErrorWizardFragment errorWizardFragment);
 }

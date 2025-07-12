@@ -1,5 +1,4 @@
 package org.briarproject.briar.test;
-
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.client.ContactGroupFactory;
 import org.briarproject.bramble.api.contact.Contact;
@@ -30,21 +29,16 @@ import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
 import org.junit.After;
 import org.junit.Before;
-
 import java.io.File;
-
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-
 import static junit.framework.Assert.assertNotNull;
 import static org.briarproject.bramble.test.TestUtils.getSecretKey;
 import static org.junit.Assert.assertEquals;
-
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class BriarIntegrationTest<C extends BriarIntegrationTestComponent>
 		extends BrambleIntegrationTest<C> {
-
 	@Nullable
 	protected ContactId contactId1From2, contactId2From1;
 	protected ContactId contactId0From1, contactId0From2, contactId1From0,
@@ -57,10 +51,8 @@ public abstract class BriarIntegrationTest<C extends BriarIntegrationTestCompone
 			identityManager2;
 	protected DatabaseComponent db0, db1, db2;
 	protected MessageTracker messageTracker0, messageTracker1, messageTracker2;
-
 	private LifecycleManager lifecycleManager0, lifecycleManager1,
 			lifecycleManager2;
-
 	@Inject
 	protected CryptoComponent crypto;
 	@Inject
@@ -81,9 +73,7 @@ public abstract class BriarIntegrationTest<C extends BriarIntegrationTestCompone
 	protected BlogPostFactory blogPostFactory;
 	@Inject
 	protected ForumPostFactory forumPostFactory;
-
 	protected C c0, c1, c2;
-
 	private final File testDir = TestUtils.getTestDirectory();
 	private final String AUTHOR0 = "Author 0";
 	private final String AUTHOR1 = "Author 1";
@@ -91,17 +81,14 @@ public abstract class BriarIntegrationTest<C extends BriarIntegrationTestCompone
 	private final SecretKey rootKey0_1 = getSecretKey();
 	private final SecretKey rootKey0_2 = getSecretKey();
 	private final SecretKey rootKey1_2 = getSecretKey();
-
 	protected final File t0Dir = new File(testDir, AUTHOR0);
 	protected final File t1Dir = new File(testDir, AUTHOR1);
 	protected final File t2Dir = new File(testDir, AUTHOR2);
-
 	@Before
 	@Override
 	public void setUp() throws Exception {
 		super.setUp();
 		createComponents();
-
 		identityManager0 = c0.getIdentityManager();
 		identityManager1 = c1.getIdentityManager();
 		identityManager2 = c2.getIdentityManager();
@@ -114,17 +101,13 @@ public abstract class BriarIntegrationTest<C extends BriarIntegrationTestCompone
 		db0 = c0.getDatabaseComponent();
 		db1 = c1.getDatabaseComponent();
 		db2 = c2.getDatabaseComponent();
-
 		createAndRegisterIdentities();
 		startLifecycles();
 		listenToEvents();
 		addDefaultContacts();
 	}
-
 	abstract protected void createComponents();
-
 	private void startLifecycles() throws InterruptedException {
-		// Start the lifecycle manager and wait for it to finish starting
 		lifecycleManager0 = c0.getLifecycleManager();
 		lifecycleManager1 = c1.getLifecycleManager();
 		lifecycleManager2 = c2.getLifecycleManager();
@@ -135,13 +118,11 @@ public abstract class BriarIntegrationTest<C extends BriarIntegrationTestCompone
 		lifecycleManager1.waitForStartup();
 		lifecycleManager2.waitForStartup();
 	}
-
 	private void listenToEvents() {
 		addEventListener(c0);
 		addEventListener(c1);
 		addEventListener(c2);
 	}
-
 	private void createAndRegisterIdentities() {
 		Identity identity0 = identityManager0.createIdentity(AUTHOR0);
 		identityManager0.registerIdentity(identity0);
@@ -153,7 +134,6 @@ public abstract class BriarIntegrationTest<C extends BriarIntegrationTestCompone
 		identityManager2.registerIdentity(identity2);
 		author2 = identity2.getLocalAuthor();
 	}
-
 	protected void addDefaultContacts() throws Exception {
 		contactId1From0 = contactManager0.addContact(author1, author0.getId(),
 				rootKey0_1, c0.getClock().currentTimeMillis(), true, true,
@@ -171,36 +151,20 @@ public abstract class BriarIntegrationTest<C extends BriarIntegrationTestCompone
 				rootKey0_2, c2.getClock().currentTimeMillis(), false, true,
 				true);
 		contact0From2 = contactManager2.getContact(contactId0From2);
-
-		// Sync client versioning update from 0 to 1
 		sync0To1(1, true);
-		// Sync client versioning update and ack from 1 to 0
 		sync1To0(1, true);
-		// Sync second client versioning update, mailbox properties and ack
-		// from 0 to 1
 		sync0To1(2, true);
-		// Sync mailbox properties and ack from 1 to 0
 		sync1To0(1, true);
-		// Sync final ack from 0 to 1
 		ack0To1(1);
-
-		// Sync client versioning update from 0 to 2
 		sync0To2(1, true);
-		// Sync client versioning update and ack from 2 to 0
 		sync2To0(1, true);
-		// Sync second client versioning update, mailbox properties and ack
-		// from 0 to 2
 		sync0To2(2, true);
-		// Sync mailbox properties and ack from 2 to 0
 		sync2To0(1, true);
-		// Sync final ack from 0 to 2
 		ack0To2(1);
 	}
-
 	protected void addContacts1And2() throws Exception {
 		addContacts1And2(false);
 	}
-
 	protected void addContacts1And2(boolean haveTransportProperties)
 			throws Exception {
 		contactId2From1 = contactManager1.addContact(author2, author1.getId(),
@@ -209,47 +173,31 @@ public abstract class BriarIntegrationTest<C extends BriarIntegrationTestCompone
 		contactId1From2 = contactManager2.addContact(author1, author2.getId(),
 				rootKey1_2, c2.getClock().currentTimeMillis(), false, true,
 				true);
-
-		// Sync initial client versioning update from 1 to 2
 		sync1To2(1, true);
-		// Sync initial client versioning update and ack from 2 to 1
 		sync2To1(1, true);
 		if (haveTransportProperties) {
-			// Sync second client versioning update, mailbox properties,
-			// transport properties and ack from 1 to 2
 			sync1To2(3, true);
-			// Sync mailbox properties, transport properties and acks
-			// from 2 to 1
 			sync2To1(2, true);
-			// Sync final acks from 1 to 2
 			ack1To2(2);
 		} else {
-			// Sync second client versioning update, mailbox properties
-			// and ack from 1 to 2
 			sync1To2(2, true);
-			// Sync mailbox properties and acks from 2 to 1
 			sync2To1(1, true);
-			// Sync final ack from 1 to 2
 			ack1To2(1);
 		}
 	}
-
 	protected void assertMessageState(ConversationMessageHeader h, boolean read,
 			boolean sent, boolean seen) {
 		assertEquals("read", read, h.isRead());
 		assertEquals("sent", sent, h.isSent());
 		assertEquals("seen", seen, h.isSeen());
 	}
-
 	@After
 	@Override
 	public void tearDown() throws Exception {
 		stopLifecycles();
 		super.tearDown();
 	}
-
 	private void stopLifecycles() throws InterruptedException {
-		// Clean up
 		lifecycleManager0.stopServices();
 		lifecycleManager1.stopServices();
 		lifecycleManager2.stopServices();
@@ -257,59 +205,46 @@ public abstract class BriarIntegrationTest<C extends BriarIntegrationTestCompone
 		lifecycleManager1.waitForShutdown();
 		lifecycleManager2.waitForShutdown();
 	}
-
 	protected void sync0To1(int num, boolean valid) throws Exception {
 		syncMessage(c0, c1, contactId1From0, num, valid);
 	}
-
 	protected void sync0To2(int num, boolean valid) throws Exception {
 		syncMessage(c0, c2, contactId2From0, num, valid);
 	}
-
 	protected void sync1To0(int num, boolean valid) throws Exception {
 		syncMessage(c1, c0, contactId0From1, num, valid);
 	}
-
 	protected void sync2To0(int num, boolean valid) throws Exception {
 		syncMessage(c2, c0, contactId0From2, num, valid);
 	}
-
 	protected void sync2To1(int num, boolean valid) throws Exception {
 		assertNotNull(contactId1From2);
 		syncMessage(c2, c1, contactId1From2, num, valid);
 	}
-
 	protected void sync1To2(int num, boolean valid) throws Exception {
 		assertNotNull(contactId2From1);
 		syncMessage(c1, c2, contactId2From1, num, valid);
 	}
-
 	protected void ack0To1(int num) throws Exception {
 		sendAcks(c0, c1, contactId1From0, num);
 	}
-
 	protected void ack0To2(int num) throws Exception {
 		sendAcks(c0, c2, contactId2From0, num);
 	}
-
 	protected void ack1To0(int num) throws Exception {
 		sendAcks(c1, c0, contactId0From1, num);
 	}
-
 	protected void ack2To0(int num) throws Exception {
 		sendAcks(c2, c0, contactId0From2, num);
 	}
-
 	protected void ack2To1(int num) throws Exception {
 		assertNotNull(contactId1From2);
 		sendAcks(c2, c1, contactId1From2, num);
 	}
-
 	protected void ack1To2(int num) throws Exception {
 		assertNotNull(contactId2From1);
 		sendAcks(c1, c2, contactId2From1, num);
 	}
-
 	protected void removeAllContacts() throws DbException {
 		contactManager0.removeContact(contactId1From0);
 		contactManager0.removeContact(contactId2From0);
@@ -320,38 +255,29 @@ public abstract class BriarIntegrationTest<C extends BriarIntegrationTestCompone
 		if (contactId1From2 != null)
 			contactManager2.removeContact(contactId1From2);
 	}
-
 	protected void setAutoDeleteTimer(BriarIntegrationTestComponent component,
 			ContactId contactId, long timer) throws DbException {
 		DatabaseComponent db = component.getDatabaseComponent();
 		AutoDeleteManager autoDeleteManager = component.getAutoDeleteManager();
-
 		db.transaction(false, txn ->
 				autoDeleteManager.setAutoDeleteTimer(txn, contactId, timer));
 	}
-
 	protected long getAutoDeleteTimer(BriarIntegrationTestComponent component,
 			ContactId contactId, long timestamp) throws DbException {
 		DatabaseComponent db = component.getDatabaseComponent();
 		AutoDeleteManager autoDeleteManager = component.getAutoDeleteManager();
-
 		return db.transactionWithResult(false,
 				txn -> autoDeleteManager.getAutoDeleteTimer(txn, contactId,
 						timestamp));
 	}
-
 	protected void setMessageNotShared(BriarIntegrationTestComponent component,
 			MessageId messageId) throws Exception {
 		DatabaseComponent db = component.getDatabaseComponent();
-
 		db.transaction(false, txn -> db.setMessageNotShared(txn, messageId));
 	}
-
 	protected void setMessageShared(BriarIntegrationTestComponent component,
 			MessageId messageId) throws Exception {
 		DatabaseComponent db = component.getDatabaseComponent();
-
 		db.transaction(false, txn -> db.setMessageShared(txn, messageId));
 	}
-
 }

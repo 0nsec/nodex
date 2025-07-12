@@ -1,5 +1,4 @@
 package org.briarproject.briar.sharing;
-
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.client.ContactGroupFactory;
 import org.briarproject.bramble.api.contact.Contact;
@@ -25,12 +24,10 @@ import org.briarproject.briar.api.client.MessageTracker;
 import org.briarproject.briar.api.client.SessionId;
 import org.jmock.Expectations;
 import org.junit.Test;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
 import static org.briarproject.bramble.api.sync.Group.Visibility.SHARED;
 import static org.briarproject.bramble.test.TestUtils.getAuthor;
 import static org.briarproject.bramble.test.TestUtils.getContact;
@@ -40,9 +37,7 @@ import static org.briarproject.bramble.test.TestUtils.getMessage;
 import static org.briarproject.bramble.test.TestUtils.getRandomId;
 import static org.briarproject.briar.api.blog.BlogSharingManager.CLIENT_ID;
 import static org.briarproject.briar.api.blog.BlogSharingManager.MAJOR_VERSION;
-
 public class BlogSharingManagerImplTest extends BrambleMockTestCase {
-
 	private final BlogSharingManagerImpl blogSharingManager;
 	private final DatabaseComponent db = context.mock(DatabaseComponent.class);
 	private final IdentityManager identityManager =
@@ -57,7 +52,6 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 	private final ContactGroupFactory contactGroupFactory =
 			context.mock(ContactGroupFactory.class);
 	private final BlogManager blogManager = context.mock(BlogManager.class);
-
 	private final LocalAuthor localAuthor = getLocalAuthor();
 	private final Author author = getAuthor();
 	private final Contact contact =
@@ -76,7 +70,6 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 	@SuppressWarnings("unchecked")
 	private final ProtocolEngine<Blog> engine =
 			context.mock(ProtocolEngine.class);
-
 	@SuppressWarnings("unchecked")
 	public BlogSharingManagerImplTest() {
 		MetadataParser metadataParser = context.mock(MetadataParser.class);
@@ -90,35 +83,26 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 				contactGroupFactory, engine, invitationFactory, identityManager,
 				blogManager);
 	}
-
 	@Test
 	public void testOpenDatabaseHookFirstTimeWithExistingContact()
 			throws Exception {
 		Transaction txn = new Transaction(null, false);
-
 		context.checking(new Expectations() {{
-			// The local group doesn't exist - we need to set things up
 			oneOf(contactGroupFactory).createLocalGroup(CLIENT_ID,
 					MAJOR_VERSION);
 			will(returnValue(localGroup));
 			oneOf(db).containsGroup(txn, localGroup.getId());
 			will(returnValue(false));
 			oneOf(db).addGroup(txn, localGroup);
-			// Get contacts
 			oneOf(db).getContacts(txn);
 			will(returnValue(contacts));
 		}});
-		// Set things up for the contact
 		expectAddingContact(txn);
-
 		blogSharingManager.onDatabaseOpened(txn);
 	}
-
 	private void expectAddingContact(Transaction txn) throws Exception {
 		Map<MessageId, BdfDictionary> sessions = Collections.emptyMap();
-
 		context.checking(new Expectations() {{
-			// Create the contact group and share it with the contact
 			oneOf(contactGroupFactory).createContactGroup(CLIENT_ID,
 					MAJOR_VERSION, contact);
 			will(returnValue(contactGroup));
@@ -128,10 +112,8 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(SHARED));
 			oneOf(db).setGroupVisibility(txn, contactId, contactGroup.getId(),
 					SHARED);
-			// Attach the contact ID to the group
 			oneOf(clientHelper)
 					.setContactId(txn, contactGroup.getId(), contactId);
-			// Get our blog and the contact's blog
 			oneOf(identityManager).getLocalAuthor(txn);
 			will(returnValue(localAuthor));
 			oneOf(blogManager).getPersonalBlog(localAuthor);
@@ -139,49 +121,38 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 			oneOf(blogManager).getPersonalBlog(author);
 			will(returnValue(blog));
 		}});
-		// Pre-share our blog with the contact and vice versa
 		expectPreShareShareable(txn, contact, localBlog, sessions);
 		expectPreShareShareable(txn, contact, blog, sessions);
 	}
-
 	@Test
 	public void testOpenDatabaseHookSubsequentTime() throws Exception {
 		Transaction txn = new Transaction(null, false);
-
 		context.checking(new Expectations() {{
-			// The local group exists - everything has been set up
 			oneOf(contactGroupFactory).createLocalGroup(CLIENT_ID,
 					MAJOR_VERSION);
 			will(returnValue(localGroup));
 			oneOf(db).containsGroup(txn, localGroup.getId());
 			will(returnValue(true));
 		}});
-
 		blogSharingManager.onDatabaseOpened(txn);
 	}
-
 	@Test
 	public void testAddingContact() throws Exception {
 		Transaction txn = new Transaction(null, false);
-
 		expectAddingContact(txn);
-
 		blogSharingManager.addingContact(txn, contact);
 	}
-
 	@Test
 	public void testRemovingBlogFreshState() throws Exception {
 		Map<MessageId, BdfDictionary> sessions = new HashMap<>(0);
 		testRemovingBlog(sessions);
 	}
-
 	@Test
 	public void testRemovingBlogExistingState() throws Exception {
 		Map<MessageId, BdfDictionary> sessions = new HashMap<>(1);
 		sessions.put(new MessageId(getRandomId()), new BdfDictionary());
 		testRemovingBlog(sessions);
 	}
-
 	@Test(expected = DbException.class)
 	public void testRemovingBlogMultipleSessions() throws Exception {
 		Map<MessageId, BdfDictionary> sessions = new HashMap<>(2);
@@ -189,7 +160,6 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 		sessions.put(new MessageId(getRandomId()), new BdfDictionary());
 		testRemovingBlog(sessions);
 	}
-
 	private void expectPreShareShareable(Transaction txn, Contact contact,
 			Blog blog, Map<MessageId, BdfDictionary> sessions)
 			throws Exception {
@@ -226,13 +196,11 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 			}
 		}});
 	}
-
 	private void testRemovingBlog(Map<MessageId, BdfDictionary> sessions)
 			throws Exception {
 		Transaction txn = new Transaction(null, false);
 		BdfDictionary sessionDict = new BdfDictionary();
 		Session session = new Session(contactGroup.getId(), blog.getId());
-
 		context.checking(new Expectations() {{
 			oneOf(db).getContacts(txn);
 			will(returnValue(contacts));
@@ -259,5 +227,4 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 		}});
 		blogSharingManager.removingBlog(txn, blog);
 	}
-
 }

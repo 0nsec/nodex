@@ -9,8 +9,7 @@
 		android:descendantFocusability="beforeDescendants"
 		android:focusable="true"
 		android:focusableInTouchMode="true">
-		<!-- Above focusability attributes prevent automatic scroll-down,
-		     because body text is selectable -->
+
 
 		<include
 			android:id="@+id/postLayout"

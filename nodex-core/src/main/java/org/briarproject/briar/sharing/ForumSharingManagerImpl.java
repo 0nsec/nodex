@@ -1,5 +1,4 @@
 package org.briarproject.briar.sharing;
-
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.client.ContactGroupFactory;
 import org.briarproject.bramble.api.data.MetadataParser;
@@ -15,13 +14,10 @@ import org.briarproject.briar.api.forum.ForumManager;
 import org.briarproject.briar.api.forum.ForumManager.RemoveForumHook;
 import org.briarproject.briar.api.forum.ForumSharingManager;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import javax.inject.Inject;
-
 @NotNullByDefault
 class ForumSharingManagerImpl extends SharingManagerImpl<Forum>
 		implements ForumSharingManager, RemoveForumHook {
-
 	@Inject
 	ForumSharingManagerImpl(DatabaseComponent db, ClientHelper clientHelper,
 			ClientVersioningManager clientVersioningManager,
@@ -35,30 +31,24 @@ class ForumSharingManagerImpl extends SharingManagerImpl<Forum>
 				messageParser, sessionEncoder, sessionParser, messageTracker,
 				contactGroupFactory, engine, invitationFactory);
 	}
-
 	@Override
 	protected ClientId getClientId() {
 		return CLIENT_ID;
 	}
-
 	@Override
 	protected int getMajorVersion() {
 		return MAJOR_VERSION;
 	}
-
 	@Override
 	protected ClientId getShareableClientId() {
 		return ForumManager.CLIENT_ID;
 	}
-
 	@Override
 	protected int getShareableMajorVersion() {
 		return ForumManager.MAJOR_VERSION;
 	}
-
 	@Override
 	public void removingForum(Transaction txn, Forum f) throws DbException {
 		removingShareable(txn, f);
 	}
-
 }

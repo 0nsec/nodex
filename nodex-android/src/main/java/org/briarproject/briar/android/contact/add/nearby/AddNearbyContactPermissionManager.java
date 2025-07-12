@@ -1,15 +1,10 @@
 package org.briarproject.briar.android.contact.add.nearby;
-
 import android.content.Context;
-
 import org.briarproject.briar.R;
 import org.briarproject.briar.android.util.Permission;
-
 import java.util.Map;
-
 import androidx.core.util.Consumer;
 import androidx.fragment.app.FragmentActivity;
-
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.BLUETOOTH_ADVERTISE;
 import static android.Manifest.permission.BLUETOOTH_CONNECT;
@@ -30,17 +25,13 @@ import static org.briarproject.briar.android.util.PermissionUtils.showDenialDial
 import static org.briarproject.briar.android.util.PermissionUtils.showLocationDialog;
 import static org.briarproject.briar.android.util.PermissionUtils.showRationale;
 import static org.briarproject.briar.android.util.PermissionUtils.wasGrantedBluetoothPermissions;
-
 class AddNearbyContactPermissionManager {
-
 	private Permission cameraPermission = UNKNOWN;
 	private Permission locationPermission = SDK_INT < 31 ? UNKNOWN : GRANTED;
 	private Permission bluetoothPermissions = SDK_INT < 31 ? GRANTED : UNKNOWN;
-
 	private final FragmentActivity ctx;
 	private final Consumer<String[]> requestPermissions;
 	private final boolean isBluetoothSupported;
-
 	AddNearbyContactPermissionManager(FragmentActivity ctx,
 			Consumer<String[]> requestPermissions,
 			boolean isBluetoothSupported) {
@@ -48,13 +39,11 @@ class AddNearbyContactPermissionManager {
 		this.requestPermissions = requestPermissions;
 		this.isBluetoothSupported = isBluetoothSupported;
 	}
-
 	void resetPermissions() {
 		cameraPermission = UNKNOWN;
 		locationPermission = SDK_INT < 31 ? UNKNOWN : GRANTED;
 		bluetoothPermissions = SDK_INT < 31 ? GRANTED : UNKNOWN;
 	}
-
 	static boolean areEssentialPermissionsGranted(Context ctx,
 			boolean isBluetoothSupported) {
 		int ok = PERMISSION_GRANTED;
@@ -68,19 +57,15 @@ class AddNearbyContactPermissionManager {
 		}
 		return bluetoothOk && checkSelfPermission(ctx, CAMERA) == ok;
 	}
-
 	private boolean areEssentialPermissionsGranted() {
 		boolean bluetoothGranted = locationPermission == GRANTED &&
 				bluetoothPermissions == GRANTED;
 		return cameraPermission == GRANTED &&
 				(SDK_INT < 23 || !isBluetoothSupported || bluetoothGranted);
 	}
-
 	boolean checkPermissions() {
 		boolean locationEnabled = isLocationEnabledForBt(ctx);
 		if (locationEnabled && areEssentialPermissionsGranted()) return true;
-		// If an essential permission has been permanently denied, ask the
-		// user to change the setting
 		if (cameraPermission == PERMANENTLY_DENIED) {
 			showDenialDialog(ctx, R.string.permission_camera_title,
 					R.string.permission_camera_denied_body);
@@ -97,7 +82,6 @@ class AddNearbyContactPermissionManager {
 					R.string.permission_bluetooth_denied_body);
 			return false;
 		}
-		// Should we show the rationale for one or both permissions?
 		if (cameraPermission == SHOW_RATIONALE &&
 				locationPermission == SHOW_RATIONALE) {
 			showRationale(ctx, R.string.permission_camera_location_title,
@@ -127,7 +111,6 @@ class AddNearbyContactPermissionManager {
 		}
 		return false;
 	}
-
 	private void requestPermissions() {
 		String[] permissions;
 		if (isBluetoothSupported) {
@@ -142,7 +125,6 @@ class AddNearbyContactPermissionManager {
 		}
 		requestPermissions.accept(permissions);
 	}
-
 	void onRequestPermissionResult(Map<String, Boolean> result) {
 		if (gotPermission(ctx, result, CAMERA)) {
 			cameraPermission = GRANTED;
@@ -171,9 +153,7 @@ class AddNearbyContactPermissionManager {
 			}
 		}
 	}
-
 	private boolean shouldShowRationale(String permission) {
 		return shouldShowRequestPermissionRationale(ctx, permission);
 	}
-
 }

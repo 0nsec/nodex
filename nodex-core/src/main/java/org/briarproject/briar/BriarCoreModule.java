@@ -1,5 +1,4 @@
 package org.briarproject.briar;
-
 import org.briarproject.briar.attachment.AttachmentModule;
 import org.briarproject.briar.autodelete.AutoDeleteModule;
 import org.briarproject.briar.avatar.AvatarModule;
@@ -15,9 +14,7 @@ import org.briarproject.briar.privategroup.PrivateGroupModule;
 import org.briarproject.briar.privategroup.invitation.GroupInvitationModule;
 import org.briarproject.briar.sharing.SharingModule;
 import org.briarproject.briar.test.TestModule;
-
 import dagger.Module;
-
 @Module(includes = {
 		AttachmentModule.class,
 		AutoDeleteModule.class,

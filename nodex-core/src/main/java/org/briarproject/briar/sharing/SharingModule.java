@@ -1,5 +1,4 @@
 package org.briarproject.briar.sharing;
-
 import org.briarproject.bramble.api.FeatureFlags;
 import org.briarproject.bramble.api.cleanup.CleanupManager;
 import org.briarproject.bramble.api.client.ClientHelper;
@@ -20,16 +19,12 @@ import org.briarproject.briar.api.forum.ForumFactory;
 import org.briarproject.briar.api.forum.ForumInvitationResponse;
 import org.briarproject.briar.api.forum.ForumManager;
 import org.briarproject.briar.api.forum.ForumSharingManager;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
-
 @Module
 public class SharingModule {
-
 	public static class EagerSingletons {
 		@Inject
 		BlogSharingValidator blogSharingValidator;
@@ -40,22 +35,18 @@ public class SharingModule {
 		@Inject
 		BlogSharingManager blogSharingManager;
 	}
-
 	@Provides
 	MessageEncoder provideMessageEncoder(MessageEncoderImpl messageEncoder) {
 		return messageEncoder;
 	}
-
 	@Provides
 	SessionEncoder provideSessionEncoder(SessionEncoderImpl sessionEncoder) {
 		return sessionEncoder;
 	}
-
 	@Provides
 	SessionParser provideSessionParser(SessionParserImpl sessionParser) {
 		return sessionParser;
 	}
-
 	@Provides
 	@Singleton
 	BlogSharingValidator provideBlogSharingValidator(
@@ -72,7 +63,6 @@ public class SharingModule {
 		}
 		return validator;
 	}
-
 	@Provides
 	@Singleton
 	BlogSharingManager provideBlogSharingManager(
@@ -95,8 +85,6 @@ public class SharingModule {
 		clientVersioningManager.registerClient(BlogSharingManager.CLIENT_ID,
 				BlogSharingManager.MAJOR_VERSION,
 				BlogSharingManager.MINOR_VERSION, blogSharingManager);
-		// The blog sharing manager handles client visibility changes for the
-		// blog manager
 		clientVersioningManager.registerClient(BlogManager.CLIENT_ID,
 				BlogManager.MAJOR_VERSION, BlogManager.MINOR_VERSION,
 				blogSharingManager.getShareableClientVersioningHook());
@@ -105,25 +93,21 @@ public class SharingModule {
 				blogSharingManager);
 		return blogSharingManager;
 	}
-
 	@Provides
 	MessageParser<Blog> provideBlogMessageParser(
 			BlogMessageParserImpl blogMessageParser) {
 		return blogMessageParser;
 	}
-
 	@Provides
 	ProtocolEngine<Blog> provideBlogProtocolEngine(
 			BlogProtocolEngineImpl blogProtocolEngine) {
 		return blogProtocolEngine;
 	}
-
 	@Provides
 	InvitationFactory<Blog, BlogInvitationResponse> provideBlogInvitationFactory(
 			BlogInvitationFactoryImpl blogInvitationFactory) {
 		return blogInvitationFactory;
 	}
-
 	@Provides
 	@Singleton
 	ForumSharingValidator provideForumSharingValidator(
@@ -140,7 +124,6 @@ public class SharingModule {
 		}
 		return validator;
 	}
-
 	@Provides
 	@Singleton
 	ForumSharingManager provideForumSharingManager(
@@ -163,8 +146,6 @@ public class SharingModule {
 		clientVersioningManager.registerClient(ForumSharingManager.CLIENT_ID,
 				ForumSharingManager.MAJOR_VERSION,
 				ForumSharingManager.MINOR_VERSION, forumSharingManager);
-		// The forum sharing manager handles client visibility changes for the
-		// forum manager
 		clientVersioningManager.registerClient(ForumManager.CLIENT_ID,
 				ForumManager.MAJOR_VERSION, ForumManager.MINOR_VERSION,
 				forumSharingManager.getShareableClientVersioningHook());
@@ -173,23 +154,19 @@ public class SharingModule {
 				forumSharingManager);
 		return forumSharingManager;
 	}
-
 	@Provides
 	MessageParser<Forum> provideForumMessageParser(
 			ForumMessageParserImpl forumMessageParser) {
 		return forumMessageParser;
 	}
-
 	@Provides
 	ProtocolEngine<Forum> provideForumProtocolEngine(
 			ForumProtocolEngineImpl forumProtocolEngine) {
 		return forumProtocolEngine;
 	}
-
 	@Provides
 	InvitationFactory<Forum, ForumInvitationResponse> provideForumInvitationFactory(
 			ForumInvitationFactoryImpl forumInvitationFactory) {
 		return forumInvitationFactory;
 	}
-
 }

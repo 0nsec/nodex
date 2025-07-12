@@ -1,11 +1,9 @@
 package org.briarproject.briar.android.account;
-
 import android.app.AlarmManager;
 import android.app.Application;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-
 import org.briarproject.bramble.api.db.DatabaseExecutor;
 import org.briarproject.bramble.api.db.DbException;
 import org.briarproject.bramble.api.event.Event;
@@ -20,17 +18,13 @@ import org.briarproject.briar.api.android.AndroidNotificationManager;
 import org.briarproject.briar.api.android.LockManager;
 import org.briarproject.nullsafety.MethodsNotNullByDefault;
 import org.briarproject.nullsafety.ParametersNotNullByDefault;
-
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
-
 import javax.annotation.concurrent.ThreadSafe;
 import javax.inject.Inject;
-
 import androidx.annotation.UiThread;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static android.app.AlarmManager.ELAPSED_REALTIME;
 import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 import static android.app.PendingIntent.getService;
@@ -45,15 +39,12 @@ import static org.briarproject.briar.android.settings.SecurityFragment.PREF_SCRE
 import static org.briarproject.briar.android.settings.SecurityFragment.PREF_SCREEN_LOCK_TIMEOUT;
 import static org.briarproject.briar.android.settings.SettingsFragment.SETTINGS_NAMESPACE;
 import static org.briarproject.briar.android.util.UiUtils.hasScreenLock;
-
 @ThreadSafe
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class LockManagerImpl implements LockManager, Service, EventListener {
-
 	private static final Logger LOG =
 			Logger.getLogger(LockManagerImpl.class.getName());
-
 	private final Context appContext;
 	private final SettingsManager settingsManager;
 	private final AndroidNotificationManager notificationManager;
@@ -62,18 +53,13 @@ public class LockManagerImpl implements LockManager, Service, EventListener {
 	private final AlarmManager alarmManager;
 	private final PendingIntent lockIntent;
 	private final int timeoutNever, timeoutDefault;
-
 	private volatile boolean locked = false;
 	private volatile boolean lockableSetting = false;
 	private volatile int timeoutMinutes;
 	private int activitiesRunning = 0;
 	private boolean alarmSet = false;
-	// This is to ensure that we don't start unlocked after a timeout and thus
-	// is set to the elapsed real time when no more activities are running.
-	// Its value is only relevant as long as no activity is running.
 	private long idleTime;
 	private final MutableLiveData<Boolean> lockable = new MutableLiveData<>();
-
 	@Inject
 	LockManagerImpl(Application app, SettingsManager settingsManager,
 			AndroidNotificationManager notificationManager,
@@ -87,7 +73,6 @@ public class LockManagerImpl implements LockManager, Service, EventListener {
 		Intent i =
 				new Intent(ACTION_LOCK, null, appContext, BriarService.class);
 		i.putExtra(EXTRA_PID, myPid());
-		// When not using FLAG_UPDATE_CURRENT, the intent might have no extras
 		lockIntent = getService(appContext, 0, i,
 				getImmutableFlags(FLAG_UPDATE_CURRENT));
 		timeoutNever = Integer.parseInt(
@@ -95,29 +80,22 @@ public class LockManagerImpl implements LockManager, Service, EventListener {
 		timeoutDefault = Integer.parseInt(
 				appContext.getString(R.string.pref_lock_timeout_value_default));
 		timeoutMinutes = timeoutNever;
-
-		// setting this in the constructor makes #getValue() @NonNull
 		lockable.setValue(false);
 	}
-
 	@Override
 	public void startService() {
-		// only load the setting here, because database isn't open before
 		loadSettings();
 	}
-
 	@Override
 	public void stopService() {
 		timeoutMinutes = timeoutNever;
 		if (alarmSet) alarmManager.cancel(lockIntent);
 	}
-
 	@UiThread
 	@Override
 	public void onActivityStart() {
 		if (!locked && activitiesRunning == 0 && timeoutEnabled() &&
 				timedOut()) {
-			// lock the app in case the alarm wasn't run during sleep
 			setLocked(true);
 		}
 		activitiesRunning++;
@@ -126,7 +104,6 @@ public class LockManagerImpl implements LockManager, Service, EventListener {
 			alarmSet = false;
 		}
 	}
-
 	@UiThread
 	@Override
 	public void onActivityStop() {
@@ -142,12 +119,10 @@ public class LockManagerImpl implements LockManager, Service, EventListener {
 			}
 		}
 	}
-
 	@Override
 	public LiveData<Boolean> isLockable() {
 		return lockable;
 	}
-
 	@UiThread
 	@Override
 	public void checkIfLockable() {
@@ -157,7 +132,6 @@ public class LockManagerImpl implements LockManager, Service, EventListener {
 			lockable.setValue(newValue);
 		}
 	}
-
 	@Override
 	public boolean isLocked() {
 		if (locked && !hasScreenLock(appContext)) {
@@ -169,13 +143,11 @@ public class LockManagerImpl implements LockManager, Service, EventListener {
 		}
 		return locked;
 	}
-
 	@Override
 	public void setLocked(boolean locked) {
 		this.locked = locked;
 		notificationManager.updateForegroundNotification(locked);
 	}
-
 	@Override
 	public void eventOccurred(Event event) {
 		if (event instanceof SettingsUpdatedEvent) {
@@ -185,7 +157,6 @@ public class LockManagerImpl implements LockManager, Service, EventListener {
 			}
 		}
 	}
-
 	private void loadSettings() {
 		dbExecutor.execute(() -> {
 			try {
@@ -195,23 +166,17 @@ public class LockManagerImpl implements LockManager, Service, EventListener {
 			}
 		});
 	}
-
 	private void applySettings(Settings settings) {
-		// is the app lockable?
 		lockableSetting = settings.getBoolean(PREF_SCREEN_LOCK, false);
 		boolean newValue = hasScreenLock(appContext) && lockableSetting;
 		lockable.postValue(newValue);
-		// what is the timeout in minutes?
 		timeoutMinutes = settings.getInt(PREF_SCREEN_LOCK_TIMEOUT,
 				timeoutDefault);
 	}
-
 	private boolean timeoutEnabled() {
 		return timeoutMinutes != timeoutNever && lockable.getValue();
 	}
-
 	private boolean timedOut() {
 		return elapsedRealtime() - idleTime > MINUTES.toMillis(timeoutMinutes);
 	}
-
 }

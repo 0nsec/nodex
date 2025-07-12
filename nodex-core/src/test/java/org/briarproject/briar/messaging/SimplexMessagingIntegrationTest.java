@@ -1,5 +1,4 @@
 package org.briarproject.briar.messaging;
-
 import org.briarproject.bramble.api.contact.ContactId;
 import org.briarproject.bramble.api.contact.ContactManager;
 import org.briarproject.bramble.api.crypto.SecretKey;
@@ -27,13 +26,11 @@ import org.briarproject.nullsafety.NotNullByDefault;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.util.concurrent.CountDownLatch;
-
 import static java.util.Collections.singletonList;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.briarproject.bramble.api.sync.validation.MessageState.DELIVERED;
@@ -43,20 +40,14 @@ import static org.briarproject.bramble.test.TestUtils.getSecretKey;
 import static org.briarproject.bramble.test.TestUtils.getTestDirectory;
 import static org.briarproject.briar.api.autodelete.AutoDeleteConstants.MIN_AUTO_DELETE_TIMER_MS;
 import static org.junit.Assert.assertTrue;
-
 public class SimplexMessagingIntegrationTest extends BrambleTestCase {
-
 	private static final int TIMEOUT_MS = 5_000;
-
 	private final File testDir = getTestDirectory();
 	private final File aliceDir = new File(testDir, "alice");
 	private final File bobDir = new File(testDir, "bob");
-
 	private final SecretKey rootKey = getSecretKey();
 	private final long timestamp = System.currentTimeMillis();
-
 	private SimplexMessagingIntegrationTestComponent alice, bob;
-
 	@Before
 	public void setUp() {
 		assertTrue(testDir.mkdirs());
@@ -71,64 +62,43 @@ public class SimplexMessagingIntegrationTest extends BrambleTestCase {
 		SimplexMessagingIntegrationTestComponent.Helper
 				.injectEagerSingletons(bob);
 	}
-
 	@Test
 	public void testWriteAndReadWithLazyRetransmission() throws Exception {
 		testWriteAndRead(false);
 	}
-
 	@Test
 	public void testWriteAndReadWithEagerRetransmission() throws Exception {
 		testWriteAndRead(true);
 	}
-
 	private void testWriteAndRead(boolean eager) throws Exception {
-		// Create the identities
 		Identity aliceIdentity =
 				alice.getIdentityManager().createIdentity("Alice");
 		Identity bobIdentity = bob.getIdentityManager().createIdentity("Bob");
-		// Set up the devices and get the contact IDs
 		ContactId bobId = setUp(alice, aliceIdentity,
 				bobIdentity.getLocalAuthor(), true);
 		ContactId aliceId = setUp(bob, bobIdentity,
 				aliceIdentity.getLocalAuthor(), false);
-		// Add a private message listener
 		PrivateMessageListener listener = new PrivateMessageListener();
 		bob.getEventBus().addListener(listener);
-		// Alice sends a private message to Bob
 		sendMessage(alice, bobId);
-		// Sync Alice's client versions
 		read(bob, write(alice, bobId, eager, 1), 1);
-		// Sync Bob's client versions
 		read(alice, write(bob, aliceId, eager, 1), 1);
-		// Sync Alice's second client versioning update (with the active flag
-		// raised), the private message and the attachment
 		read(bob, write(alice, bobId, eager, 3), 3);
-		// Bob should have received the private message
 		assertTrue(listener.messageAdded);
-		// Bob should have received the attachment
 		assertTrue(listener.attachmentAdded);
-		// Sync messages from Alice to Bob again. If using eager
-		// retransmission, the three unacked messages should be sent again.
-		// They're all duplicates, so no further deliveries should occur
 		read(bob, write(alice, bobId, eager, eager ? 3 : 0), 0);
 	}
-
 	private ContactId setUp(SimplexMessagingIntegrationTestComponent device,
 			Identity local, Author remote, boolean alice) throws Exception {
-		// Add an identity for the user
 		IdentityManager identityManager = device.getIdentityManager();
 		identityManager.registerIdentity(local);
-		// Start the lifecycle manager
 		LifecycleManager lifecycleManager = device.getLifecycleManager();
 		lifecycleManager.startServices(getSecretKey());
 		lifecycleManager.waitForStartup();
-		// Add the other user as a contact
 		ContactManager contactManager = device.getContactManager();
 		return contactManager.addContact(remote, local.getId(), rootKey,
 				timestamp, alice, true, true);
 	}
-
 	private void sendMessage(SimplexMessagingIntegrationTestComponent device,
 			ContactId contactId) throws Exception {
 		MessagingManager messagingManager = device.getMessagingManager();
@@ -144,74 +114,54 @@ public class SimplexMessagingIntegrationTest extends BrambleTestCase {
 				MIN_AUTO_DELETE_TIMER_MS);
 		messagingManager.addLocalMessage(message);
 	}
-
 	@SuppressWarnings("SameParameterValue")
 	private void read(SimplexMessagingIntegrationTestComponent device,
 			byte[] stream, int deliveries) throws Exception {
-		// Listen for message deliveries
 		MessageDeliveryListener listener =
 				new MessageDeliveryListener(deliveries);
 		device.getEventBus().addListener(listener);
-		// Read the incoming stream
 		ByteArrayInputStream in = new ByteArrayInputStream(stream);
 		TestTransportConnectionReader reader =
 				new TestTransportConnectionReader(in);
 		device.getConnectionManager().manageIncomingConnection(
 				SIMPLEX_TRANSPORT_ID, reader);
-		// Wait for the messages to be delivered
 		assertTrue(listener.delivered.await(TIMEOUT_MS, MILLISECONDS));
-		// Clean up the listener
 		device.getEventBus().removeListener(listener);
 	}
-
 	private byte[] write(SimplexMessagingIntegrationTestComponent device,
 			ContactId contactId, boolean eager, int transmissions)
 			throws Exception {
-		// Listen for message transmissions
 		MessageTransmissionListener listener =
 				new MessageTransmissionListener(transmissions);
 		device.getEventBus().addListener(listener);
-		// Write the outgoing stream
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		TestTransportConnectionWriter writer =
 				new TestTransportConnectionWriter(out, eager);
 		device.getConnectionManager().manageOutgoingConnection(contactId,
 				SIMPLEX_TRANSPORT_ID, writer);
-		// Wait for the writer to be disposed
 		writer.getDisposedLatch().await(TIMEOUT_MS, MILLISECONDS);
-		// Check that the expected number of messages were sent
 		assertTrue(listener.sent.await(TIMEOUT_MS, MILLISECONDS));
-		// Clean up the listener
 		device.getEventBus().removeListener(listener);
-		// Return the contents of the stream
 		return out.toByteArray();
 	}
-
 	private void tearDown(SimplexMessagingIntegrationTestComponent device)
 			throws Exception {
-		// Stop the lifecycle manager
 		LifecycleManager lifecycleManager = device.getLifecycleManager();
 		lifecycleManager.stopServices();
 		lifecycleManager.waitForShutdown();
 	}
-
 	@After
 	public void tearDown() throws Exception {
-		// Tear down the devices
 		tearDown(alice);
 		tearDown(bob);
 		deleteTestDirectory(testDir);
 	}
-
 	@NotNullByDefault
 	private static class MessageTransmissionListener implements EventListener {
-
 		private final CountDownLatch sent;
-
 		private MessageTransmissionListener(int transmissions) {
 			sent = new CountDownLatch(transmissions);
 		}
-
 		@Override
 		public void eventOccurred(Event e) {
 			if (e instanceof MessagesSentEvent) {
@@ -220,16 +170,12 @@ public class SimplexMessagingIntegrationTest extends BrambleTestCase {
 			}
 		}
 	}
-
 	@NotNullByDefault
 	private static class MessageDeliveryListener implements EventListener {
-
 		private final CountDownLatch delivered;
-
 		private MessageDeliveryListener(int deliveries) {
 			delivered = new CountDownLatch(deliveries);
 		}
-
 		@Override
 		public void eventOccurred(Event e) {
 			if (e instanceof MessageStateChangedEvent) {
@@ -240,13 +186,10 @@ public class SimplexMessagingIntegrationTest extends BrambleTestCase {
 			}
 		}
 	}
-
 	@NotNullByDefault
 	private static class PrivateMessageListener implements EventListener {
-
 		private volatile boolean messageAdded = false;
 		private volatile boolean attachmentAdded = false;
-
 		@Override
 		public void eventOccurred(Event e) {
 			if (e instanceof PrivateMessageReceivedEvent) {

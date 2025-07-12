@@ -1,5 +1,4 @@
 package org.briarproject.briar.sharing;
-
 import org.briarproject.bramble.api.contact.ContactId;
 import org.briarproject.bramble.api.sync.GroupId;
 import org.briarproject.bramble.api.sync.MessageId;
@@ -7,16 +6,12 @@ import org.briarproject.briar.api.blog.Blog;
 import org.briarproject.briar.api.blog.BlogInvitationRequest;
 import org.briarproject.briar.api.blog.BlogInvitationResponse;
 import org.briarproject.briar.api.client.SessionId;
-
 import javax.inject.Inject;
-
 public class BlogInvitationFactoryImpl
 		implements InvitationFactory<Blog, BlogInvitationResponse> {
-
 	@Inject
 	BlogInvitationFactoryImpl() {
 	}
-
 	@Override
 	public BlogInvitationRequest createInvitationRequest(boolean local,
 			boolean sent, boolean seen, boolean read, InviteMessage<Blog> m,
@@ -28,7 +23,6 @@ public class BlogInvitationFactoryImpl
 				m.getShareable(), m.getText(), available, canBeOpened,
 				autoDeleteTimer);
 	}
-
 	@Override
 	public BlogInvitationResponse createInvitationResponse(MessageId id,
 			GroupId contactGroupId, long time, boolean local, boolean sent,
@@ -39,5 +33,4 @@ public class BlogInvitationFactoryImpl
 				sent, seen, sessionId, accept, shareableId,
 				autoDeleteTimer, isAutoDecline);
 	}
-
 }

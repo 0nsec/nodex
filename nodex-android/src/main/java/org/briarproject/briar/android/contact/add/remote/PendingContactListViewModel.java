@@ -1,7 +1,5 @@
 package org.briarproject.briar.android.contact.add.remote;
-
 import android.app.Application;
-
 import org.briarproject.bramble.api.Pair;
 import org.briarproject.bramble.api.contact.ContactManager;
 import org.briarproject.bramble.api.contact.PendingContact;
@@ -21,32 +19,24 @@ import org.briarproject.bramble.api.rendezvous.event.RendezvousPollEvent;
 import org.briarproject.bramble.api.system.AndroidExecutor;
 import org.briarproject.briar.android.viewmodel.DbViewModel;
 import org.briarproject.nullsafety.NotNullByDefault;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Executor;
-
 import javax.inject.Inject;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import static org.briarproject.bramble.api.contact.PendingContactState.OFFLINE;
-
 @NotNullByDefault
 public class PendingContactListViewModel extends DbViewModel
 		implements EventListener {
-
 	private final ContactManager contactManager;
 	private final RendezvousPoller rendezvousPoller;
 	private final EventBus eventBus;
-
 	private final MutableLiveData<Collection<PendingContactItem>>
 			pendingContacts = new MutableLiveData<>();
 	private final MutableLiveData<Boolean> hasInternetConnection =
 			new MutableLiveData<>();
-
 	@Inject
 	PendingContactListViewModel(Application application,
 			@DatabaseExecutor Executor dbExecutor,
@@ -62,17 +52,14 @@ public class PendingContactListViewModel extends DbViewModel
 		this.eventBus = eventBus;
 		this.eventBus.addListener(this);
 	}
-
 	void onCreate() {
 		if (pendingContacts.getValue() == null) loadPendingContacts();
 	}
-
 	@Override
 	protected void onCleared() {
 		super.onCleared();
 		eventBus.removeListener(this);
 	}
-
 	@Override
 	public void eventOccurred(Event e) {
 		if (e instanceof PendingContactStateChangedEvent ||
@@ -81,7 +68,6 @@ public class PendingContactListViewModel extends DbViewModel
 			loadPendingContacts();
 		}
 	}
-
 	private void loadPendingContacts() {
 		runOnDbThread(() -> {
 			try {
@@ -103,11 +89,9 @@ public class PendingContactListViewModel extends DbViewModel
 			}
 		});
 	}
-
 	LiveData<Collection<PendingContactItem>> getPendingContacts() {
 		return pendingContacts;
 	}
-
 	void removePendingContact(PendingContactId id) {
 		runOnDbThread(() -> {
 			try {
@@ -117,9 +101,7 @@ public class PendingContactListViewModel extends DbViewModel
 			}
 		});
 	}
-
 	LiveData<Boolean> getHasInternetConnection() {
 		return hasInternetConnection;
 	}
-
 }

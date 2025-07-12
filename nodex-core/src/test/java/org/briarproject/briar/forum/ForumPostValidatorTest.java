@@ -1,5 +1,4 @@
 package org.briarproject.briar.forum;
-
 import org.briarproject.bramble.api.FormatException;
 import org.briarproject.bramble.api.UniqueId;
 import org.briarproject.bramble.api.client.BdfMessageContext;
@@ -12,10 +11,8 @@ import org.briarproject.bramble.api.sync.MessageId;
 import org.briarproject.bramble.test.ValidatorTestCase;
 import org.jmock.Expectations;
 import org.junit.Test;
-
 import java.security.GeneralSecurityException;
 import java.util.Collection;
-
 import static org.briarproject.bramble.api.identity.AuthorConstants.MAX_SIGNATURE_LENGTH;
 import static org.briarproject.bramble.test.TestUtils.getAuthor;
 import static org.briarproject.bramble.test.TestUtils.getRandomBytes;
@@ -30,9 +27,7 @@ import static org.briarproject.briar.api.forum.ForumPostFactory.SIGNING_LABEL_PO
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-
 public class ForumPostValidatorTest extends ValidatorTestCase {
-
 	private final MessageId parentId = new MessageId(getRandomId());
 	private final String text = getRandomString(MAX_FORUM_POST_TEXT_LENGTH);
 	private final byte[] signature = getRandomBytes(MAX_SIGNATURE_LENGTH);
@@ -45,22 +40,18 @@ public class ForumPostValidatorTest extends ValidatorTestCase {
 			parentId.getBytes(), authorList, text);
 	private final BdfList signedWithoutParent = BdfList.of(groupId, timestamp,
 			null, authorList, text);
-
 	private final ForumPostValidator v = new ForumPostValidator(clientHelper,
 			metadataEncoder, clock);
-
 	@Test(expected = FormatException.class)
 	public void testRejectsTooShortBody() throws Exception {
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, text));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsTooLongBody() throws Exception {
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, text, signature, 123));
 	}
-
 	@Test
 	public void testAcceptsNullParentId() throws Exception {
 		expectCreateAuthor();
@@ -68,44 +59,37 @@ public class ForumPostValidatorTest extends ValidatorTestCase {
 			oneOf(clientHelper).verifySignature(signature, SIGNING_LABEL_POST,
 					signedWithoutParent, authorPublicKey);
 		}});
-
 		BdfMessageContext messageContext = v.validateMessage(message, group,
 				BdfList.of(null, authorList, text, signature));
 		assertExpectedContext(messageContext, false);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsNonRawParentId() throws Exception {
 		v.validateMessage(message, group,
 				BdfList.of(123, authorList, text, signature));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsTooShortParentId() throws Exception {
 		byte[] invalidParentId = getRandomBytes(UniqueId.LENGTH - 1);
 		v.validateMessage(message, group,
 				BdfList.of(invalidParentId, authorList, text, signature));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsTooLongParentId() throws Exception {
 		byte[] invalidParentId = getRandomBytes(UniqueId.LENGTH + 1);
 		v.validateMessage(message, group,
 				BdfList.of(invalidParentId, authorList, text, signature));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsNullAuthorList() throws Exception {
 		v.validateMessage(message, group,
 				BdfList.of(parentId, null, text, signature));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsNonListAuthorList() throws Exception {
 		v.validateMessage(message, group,
 				BdfList.of(parentId, 123, text, signature));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsInvalidAuthor() throws Exception {
 		context.checking(new Expectations() {{
@@ -115,76 +99,58 @@ public class ForumPostValidatorTest extends ValidatorTestCase {
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, text, signature));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsNullText() throws Exception {
 		expectCreateAuthor();
-
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, null, signature));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsNonStringText() throws Exception {
 		expectCreateAuthor();
-
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, 123, signature));
 	}
-
 	@Test
 	public void testAcceptsMinLengthText() throws Exception {
 		String shortText = "";
 		BdfList signedWithShortText = BdfList.of(groupId, timestamp,
 				parentId.getBytes(), authorList, shortText);
-
 		expectCreateAuthor();
 		context.checking(new Expectations() {{
 			oneOf(clientHelper).verifySignature(signature, SIGNING_LABEL_POST,
 					signedWithShortText, authorPublicKey);
 		}});
-
 		BdfMessageContext messageContext = v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, shortText, signature));
 		assertExpectedContext(messageContext, true);
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsTooLongText() throws Exception {
 		String invalidText = getRandomString(MAX_FORUM_POST_TEXT_LENGTH + 1);
-
 		expectCreateAuthor();
-
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, invalidText, signature));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsNullSignature() throws Exception {
 		expectCreateAuthor();
-
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, text, null));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsNonRawSignature() throws Exception {
 		expectCreateAuthor();
-
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, text, 123));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsTooLongSignature() throws Exception {
 		byte[] invalidSignature = getRandomBytes(MAX_SIGNATURE_LENGTH + 1);
-
 		expectCreateAuthor();
-
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, text, invalidSignature));
 	}
-
 	@Test(expected = FormatException.class)
 	public void testRejectsIfVerifyingSignatureThrowsFormatException()
 			throws Exception {
@@ -194,11 +160,9 @@ public class ForumPostValidatorTest extends ValidatorTestCase {
 					signedWithParent, authorPublicKey);
 			will(throwException(new FormatException()));
 		}});
-
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, text, signature));
 	}
-
 	@Test(expected = InvalidMessageException.class)
 	public void testRejectsIfVerifyingSignatureThrowsGeneralSecurityException()
 			throws Exception {
@@ -208,18 +172,15 @@ public class ForumPostValidatorTest extends ValidatorTestCase {
 					signedWithParent, authorPublicKey);
 			will(throwException(new GeneralSecurityException()));
 		}});
-
 		v.validateMessage(message, group,
 				BdfList.of(parentId, authorList, text, signature));
 	}
-
 	private void expectCreateAuthor() throws Exception {
 		context.checking(new Expectations() {{
 			oneOf(clientHelper).parseAndValidateAuthor(authorList);
 			will(returnValue(author));
 		}});
 	}
-
 	private void assertExpectedContext(BdfMessageContext messageContext,
 			boolean hasParent) throws FormatException {
 		BdfDictionary meta = messageContext.getDictionary();

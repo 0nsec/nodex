@@ -1,10 +1,6 @@
 package org.briarproject.briar.android.panic;
-
 import info.guardianproject.trustedintents.ApkSignaturePin;
-
-// needs to be public, because TrustedIntents will instantiate
 public final class FDroidSignaturePin extends ApkSignaturePin {
-
 	public FDroidSignaturePin() {
 		this.fingerprints = new String[] {
 				"927f7e38b6acbecd84e02dace33efa9a7a2f0979750f28f585688ee38b3a4e28"};
@@ -79,6 +75,4 @@ public final class FDroidSignaturePin extends ApkSignaturePin {
 						44, 109, 119, -116, -62, -77, -74, -88, 41, 57, -65,
 						-71, -115, -67, 23, 66, -21, 56, 51, -91, 109}};
 	}
-
-
 }

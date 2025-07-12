@@ -1,5 +1,4 @@
 package org.briarproject.briar.introduction;
-
 import org.briarproject.bramble.api.client.ClientHelper;
 import org.briarproject.bramble.api.client.ContactGroupFactory;
 import org.briarproject.bramble.api.contact.ContactId;
@@ -30,10 +29,8 @@ import org.briarproject.briar.api.conversation.ConversationManager;
 import org.briarproject.briar.api.identity.AuthorManager;
 import org.jmock.Expectations;
 import org.junit.Test;
-
 import java.util.Collections;
 import java.util.Random;
-
 import static java.util.Collections.emptyList;
 import static java.util.Collections.emptyMap;
 import static org.briarproject.bramble.api.crypto.CryptoConstants.MAC_BYTES;
@@ -57,9 +54,7 @@ import static org.briarproject.briar.introduction.MessageType.ACTIVATE;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-
 public class IntroduceeProtocolEngineTest extends BrambleMockTestCase {
-
 	private final DatabaseComponent db = context.mock(DatabaseComponent.class);
 	private final ClientHelper clientHelper = context.mock(ClientHelper.class);
 	private final ContactManager contactManager =
@@ -88,7 +83,6 @@ public class IntroduceeProtocolEngineTest extends BrambleMockTestCase {
 	private final ConversationManager conversationManager =
 			context.mock(ConversationManager.class);
 	private final Clock clock = context.mock(Clock.class);
-
 	private final Author introducer = getAuthor();
 	private final Author remoteIntroducee = getAuthor();
 	private final LocalAuthor localIntroducee = getLocalAuthor();
@@ -111,7 +105,6 @@ public class IntroduceeProtocolEngineTest extends BrambleMockTestCase {
 	private final byte[] remoteMac = getRandomBytes(MAC_BYTES);
 	private final byte[] localMac = getRandomBytes(MAC_BYTES);
 	private final byte[] remoteSignature = getRandomBytes(MAX_SIGNATURE_BYTES);
-
 	private final IntroduceeProtocolEngine engine =
 			new IntroduceeProtocolEngine(db, clientHelper, contactManager,
 					contactGroupFactory, messageTracker, identityManager,
@@ -119,30 +112,23 @@ public class IntroduceeProtocolEngineTest extends BrambleMockTestCase {
 					keyManager, transportPropertyManager,
 					clientVersioningManager, autoDeleteManager,
 					conversationManager, clock);
-
 	@Test
 	public void testDoesNotAbortSessionIfTimestampIsMaxAge() throws Exception {
 		Transaction txn = new Transaction(null, false);
-
 		long remoteAcceptTimestamp = MIN_REASONABLE_TIME_MS;
 		IntroduceeSession session =
 				createAwaitAuthSession(remoteAcceptTimestamp);
-
 		AuthMessage authMessage = new AuthMessage(new MessageId(getRandomId()),
 				contactGroupId, remoteAuthTimestamp, lastRemoteMessageId,
 				sessionId, remoteMac, remoteSignature);
-
 		Message activateMessage = getMessage(contactGroupId, 1234, now);
 		BdfDictionary activateMeta = new BdfDictionary();
-
 		context.checking(new Expectations() {{
-			// Verify the auth message
 			oneOf(identityManager).getLocalAuthor(txn);
 			will(returnValue(localIntroducee));
 			oneOf(crypto).verifyAuthMac(remoteMac, session,
 					localIntroducee.getId());
 			oneOf(crypto).verifySignature(remoteSignature, session);
-			// Add the contact
 			oneOf(contactManager).addContact(txn, remoteIntroducee,
 					localIntroducee.getId(), false);
 			will(returnValue(contactId));
@@ -151,7 +137,6 @@ public class IntroduceeProtocolEngineTest extends BrambleMockTestCase {
 			will(returnValue(emptyMap()));
 			oneOf(transportPropertyManager).addRemoteProperties(txn, contactId,
 					emptyMap());
-			// Send the activate message
 			oneOf(crypto).activateMac(session);
 			will(returnValue(localMac));
 			oneOf(clock).currentTimeMillis();
@@ -165,52 +150,41 @@ public class IntroduceeProtocolEngineTest extends BrambleMockTestCase {
 			oneOf(clientHelper).addLocalMessage(txn, activateMessage,
 					activateMeta, true, false);
 		}});
-
 		IntroduceeSession after =
 				engine.onAuthMessage(txn, session, authMessage);
-
 		assertEquals(AWAIT_ACTIVATE, after.getState());
 		assertNull(after.getMasterKey());
 		assertEquals(Collections.<TransportId, KeySetId>emptyMap(),
 				after.getTransportKeys());
-
 		IntroduceeSession.Local afterLocal = after.getLocal();
 		assertEquals(activateMessage.getId(), afterLocal.lastMessageId);
 		assertEquals(now, afterLocal.lastMessageTimestamp);
 		assertNull(afterLocal.ephemeralPublicKey);
 		assertNull(afterLocal.ephemeralPrivateKey);
 		assertArrayEquals(localMacKey.getBytes(), afterLocal.macKey);
-
 		IntroduceeSession.Remote afterRemote = after.getRemote();
 		assertEquals(authMessage.getMessageId(), afterRemote.lastMessageId);
 		assertNull(afterRemote.ephemeralPublicKey);
 		assertArrayEquals(remoteMacKey.getBytes(), afterRemote.macKey);
 	}
-
 	@Test
 	public void testAbortsSessionIfTimestampIsTooOld() throws Exception {
 		Transaction txn = new Transaction(null, false);
-
 		long remoteAcceptTimestamp = MIN_REASONABLE_TIME_MS - 1;
 		IntroduceeSession session =
 				createAwaitAuthSession(remoteAcceptTimestamp);
-
 		AuthMessage authMessage = new AuthMessage(new MessageId(getRandomId()),
 				contactGroupId, remoteAuthTimestamp, lastRemoteMessageId,
 				sessionId, remoteMac, remoteSignature);
-
 		BdfDictionary query = new BdfDictionary();
 		Message abortMessage = getMessage(contactGroupId, 123, now);
 		BdfDictionary abortMeta = new BdfDictionary();
-
 		context.checking(new Expectations() {{
-			// Verify the auth message
 			oneOf(identityManager).getLocalAuthor(txn);
 			will(returnValue(localIntroducee));
 			oneOf(crypto).verifyAuthMac(remoteMac, session,
 					localIntroducee.getId());
 			oneOf(crypto).verifySignature(remoteSignature, session);
-			// Abort the session
 			oneOf(messageParser).getRequestsAvailableToAnswerQuery(sessionId);
 			will(returnValue(query));
 			oneOf(clientHelper).getMessageIds(txn, contactGroupId, query);
@@ -226,27 +200,22 @@ public class IntroduceeProtocolEngineTest extends BrambleMockTestCase {
 			oneOf(clientHelper).addLocalMessage(txn, abortMessage, abortMeta,
 					true, false);
 		}});
-
 		IntroduceeSession after =
 				engine.onAuthMessage(txn, session, authMessage);
-
 		assertEquals(START, after.getState());
 		assertNull(after.getMasterKey());
 		assertNull(after.getTransportKeys());
-
 		IntroduceeSession.Local afterLocal = after.getLocal();
 		assertEquals(abortMessage.getId(), afterLocal.lastMessageId);
 		assertEquals(now, afterLocal.lastMessageTimestamp);
 		assertNull(afterLocal.ephemeralPublicKey);
 		assertNull(afterLocal.ephemeralPrivateKey);
 		assertNull(afterLocal.macKey);
-
 		IntroduceeSession.Remote afterRemote = after.getRemote();
 		assertEquals(authMessage.getMessageId(), afterRemote.lastMessageId);
 		assertNull(afterRemote.ephemeralPublicKey);
 		assertNull(afterRemote.macKey);
 	}
-
 	private IntroduceeSession createAwaitAuthSession(
 			long remoteAcceptTimestamp) {
 		IntroduceeSession.Local local = new IntroduceeSession.Local(alice,
