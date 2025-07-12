@@ -6,6 +6,8 @@ import org.nodex.api.sync.ClientId;
 import org.nodex.api.sync.Group;
 import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageId;
+import org.nodex.api.sync.MessageContext;
+import org.nodex.api.sync.InvalidMessageException;
 import org.nodex.api.db.DbException;
 import org.nodex.api.db.Transaction;
 import org.nodex.api.nullsafety.NotNullByDefault;
@@ -29,16 +31,16 @@ public abstract class BdfMessageValidator implements MessageValidator {
     }
 
     @Override
-    public boolean validateMessage(Message message, Group group) throws DbException {
+    public MessageContext validateMessage(Message message, Group group) throws InvalidMessageException {
         try {
             BdfList messageList = parseMessage(message);
             return validateMessage(messageList, group);
         } catch (Exception e) {
-            return false;
+            throw new InvalidMessageException("Invalid BDF message", e);
         }
     }
 
-    protected abstract boolean validateMessage(BdfList messageList, Group group) throws DbException;
+    protected abstract MessageContext validateMessage(BdfList messageList, Group group) throws InvalidMessageException;
 
     protected abstract BdfList parseMessage(Message message) throws Exception;
 
