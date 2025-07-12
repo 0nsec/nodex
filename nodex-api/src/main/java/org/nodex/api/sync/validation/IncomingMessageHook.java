@@ -1,5 +1,6 @@
 package org.nodex.api.sync.validation;
 
+import org.nodex.api.data.BdfDictionary;
 import org.nodex.api.db.DbException;
 import org.nodex.api.db.Metadata;
 import org.nodex.api.db.Transaction;
@@ -26,6 +27,20 @@ public interface IncomingMessageHook {
      */
     DeliveryAction incomingMessage(Transaction txn, Message message, Metadata metadata) 
             throws DbException, InvalidMessageException;
+    
+    /**
+     * Called when a message is received with BDF metadata.
+     * 
+     * @param txn The database transaction
+     * @param message The received message
+     * @param metadata The BDF message metadata
+     * @return The delivery action to take
+     * @throws DbException if a database error occurs
+     */
+    default DeliveryAction incomingMessage(Transaction txn, Message message, BdfDictionary metadata) 
+            throws DbException {
+        return DeliveryAction.ACCEPT_DO_NOT_SHARE;
+    }
     
     /**
      * Defines the action to take for an incoming message.
