@@ -47,7 +47,7 @@
 		tools:targetApi="31" />
 
 	<application
-		android:name="org.nodex.android.BriarApplicationImpl"
+		android:label="@string/app_name"
 		android:allowBackup="false"
 		android:dataExtractionRules="@xml/backup_extraction_rules"
 		android:fullBackupContent="@xml/backup_rules"
@@ -120,10 +120,9 @@
 			android:theme="@style/BriarTheme.NoActionBar" />
 
 		<activity
-			android:name="org.nodex.android.splash.SplashScreenActivity"
+			android:name="org.nodex.android.MainActivity"
 			android:exported="true"
-			android:label="@string/app_name"
-			android:theme="@style/BriarTheme.NoActionBar">
+			android:label="@string/app_name">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 
