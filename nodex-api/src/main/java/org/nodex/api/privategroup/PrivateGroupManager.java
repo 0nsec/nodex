@@ -13,6 +13,37 @@ import javax.annotation.Nullable;
 import java.util.Collection;
 
 /**
+ * Constants for private group functionality.
+ */
+@NotNullByDefault
+class PrivateGroupConstants {
+
+    /**
+     * Maximum length for group invitation text.
+     */
+    static final int MAX_GROUP_INVITATION_TEXT_LENGTH = 500;
+
+    /**
+     * Maximum length for group name.
+     */
+    static final int MAX_GROUP_NAME_LENGTH = 100;
+
+    /**
+     * Maximum length for group description.
+     */
+    static final int MAX_GROUP_DESCRIPTION_LENGTH = 500;
+
+    /**
+     * Maximum number of members in a private group.
+     */
+    static final int MAX_GROUP_MEMBERS = 100;
+
+    private PrivateGroupConstants() {
+        // Prevent instantiation
+    }
+}
+
+/**
  * Manager for private groups.
  */
 @NotNullByDefault

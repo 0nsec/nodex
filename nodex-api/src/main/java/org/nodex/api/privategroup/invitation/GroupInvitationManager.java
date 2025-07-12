@@ -15,7 +15,20 @@ import java.util.Collection;
 @NotNullByDefault
 public interface GroupInvitationManager {
 
+    /**
+     * Client ID for the group invitation protocol.
+     */
     ClientId CLIENT_ID = new ClientId("org.nodex.privategroup.invitation");
+
+    /**
+     * Major version of the group invitation protocol.
+     */
+    int MAJOR_VERSION = 1;
+
+    /**
+     * Minor version of the group invitation protocol.
+     */
+    int MINOR_VERSION = 0;
 
     /**
      * Sends an invitation to join a private group.

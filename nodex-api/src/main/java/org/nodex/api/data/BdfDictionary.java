@@ -11,6 +11,11 @@ import java.util.Map;
 @NotNullByDefault
 public class BdfDictionary extends HashMap<String, Object> {
     
+    /**
+     * Null value constant for BDF dictionaries.
+     */
+    public static final Object NULL_VALUE = new Object();
+
     public BdfDictionary() {
         super();
     }

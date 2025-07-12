@@ -2,9 +2,12 @@ package org.nodex.api.sync;
 
 import org.nodex.api.nullsafety.NotNullByDefault;
 
+import javax.annotation.concurrent.Immutable;
+
 /**
  * A group represents a collection of messages and contacts
  */
+@Immutable
 @NotNullByDefault
 public class Group {
     
@@ -18,6 +21,26 @@ public class Group {
      */
     public static final int FORMAT_VERSION = 1;
     
+    /**
+     * Group visibility levels.
+     */
+    public enum Visibility {
+        /**
+         * The group is invisible to contacts.
+         */
+        INVISIBLE,
+        
+        /**
+         * The group is visible to contacts but not shared.
+         */
+        VISIBLE,
+        
+        /**
+         * The group is shared with contacts.
+         */
+        SHARED
+    }
+
     private final GroupId id;
     private final ClientId clientId;
     private final int majorVersion;
@@ -65,39 +88,5 @@ public class Group {
     @Override
     public String toString() {
         return "Group{id=" + id + ", clientId=" + clientId + ", majorVersion=" + majorVersion + '}';
-    }
-    
-    /**
-     * Defines the visibility of a group.
-     */
-    public enum Visibility {
-        /**
-         * The group is not visible.
-         */
-        INVISIBLE(0),
-        
-        /**
-         * The group is visible, messages are accepted but not sent.
-         */
-        VISIBLE(1), 
-        
-        /**
-         * The group is visible, messages are accepted and sent.
-         */
-        SHARED(2);
-
-        private final int value;
-
-        Visibility(int value) {
-            this.value = value;
-        }
-
-        public int getValue() {
-            return value;
-        }
-
-        public static Visibility min(Visibility a, Visibility b) {
-            return a.getValue() < b.getValue() ? a : b;
-        }
     }
 }

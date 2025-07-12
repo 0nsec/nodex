@@ -20,4 +20,34 @@ public interface SharingManager<T extends Shareable> {
     Collection<T> getSharedItems() throws DbException;
     
     Collection<T> getSharedItems(Transaction txn) throws DbException;
+
+    /**
+     * Status of sharing between contacts.
+     */
+    enum SharingStatus {
+        /**
+         * Content is shareable with the contact.
+         */
+        SHAREABLE,
+        
+        /**
+         * Content is being shared with the contact.
+         */
+        SHARING,
+        
+        /**
+         * Content has been shared with the contact.
+         */
+        SHARED,
+        
+        /**
+         * Content sharing was rejected by the contact.
+         */
+        REJECTED,
+        
+        /**
+         * Content cannot be shared with the contact.
+         */
+        NOT_SHAREABLE
+    }
 }
