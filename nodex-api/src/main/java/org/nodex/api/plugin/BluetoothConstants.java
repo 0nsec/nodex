@@ -8,6 +8,11 @@ import org.nodex.api.nullsafety.NotNullByDefault;
 @NotNullByDefault
 public class BluetoothConstants {
     
+    public static final TransportId ID = new TransportId("org.nodex.bluetooth");
+    
+    public static final String PROP_ADDRESS = "address";
+    public static final String PROP_UUID = "uuid";
+    
     public static final int UUID_BYTES = 16;
     public static final String BLUETOOTH_SERVICE_NAME = "NodeX";
     public static final int MAX_CONNECTIONS = 3;
