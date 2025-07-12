@@ -2,31 +2,55 @@ package org.nodex.api.properties;
 
 import org.nodex.api.nullsafety.NotNullByDefault;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Properties for transport plugins.
+ * Properties for a transport plugin.
  */
 @NotNullByDefault
-public interface TransportProperties {
+public class TransportProperties {
     
-    /**
-     * Returns the transport properties as a map.
-     */
-    Map<String, String> getProperties();
+    private final Map<String, String> properties;
     
-    /**
-     * Returns the value of a specific property.
-     */
-    String getProperty(String key);
+    public TransportProperties() {
+        this.properties = new HashMap<>();
+    }
     
-    /**
-     * Sets a property value.
-     */
-    void setProperty(String key, String value);
+    public TransportProperties(Map<String, String> properties) {
+        this.properties = new HashMap<>(properties);
+    }
     
-    /**
-     * Removes a property.
-     */
-    void removeProperty(String key);
+    public void put(String key, String value) {
+        properties.put(key, value);
+    }
+    
+    public String get(String key) {
+        return properties.get(key);
+    }
+    
+    public boolean containsKey(String key) {
+        return properties.containsKey(key);
+    }
+    
+    public Map<String, String> getAll() {
+        return new HashMap<>(properties);
+    }
+    
+    public void putAll(Map<String, String> props) {
+        properties.putAll(props);
+    }
+    
+    public void remove(String key) {
+        properties.remove(key);
+    }
+    
+    public boolean isEmpty() {
+        return properties.isEmpty();
+    }
+    
+    @Override
+    public String toString() {
+        return properties.toString();
+    }
 }
