@@ -4,10 +4,6 @@ package org.nodex.api.db;
  * Exception thrown when a database operation fails unexpectedly.
  */
 public class UnexpectedTimerException extends DbException {
-    public UnexpectedTimerException() {
-        super();
-    }
-
     public UnexpectedTimerException(String message) {
         super(message);
     }
