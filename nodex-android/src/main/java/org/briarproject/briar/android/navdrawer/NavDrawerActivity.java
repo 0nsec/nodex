@@ -81,17 +81,17 @@ public class NavDrawerActivity extends BriarActivity implements
 	private static final Logger LOG =
 			getLogger(NavDrawerActivity.class.getName());
 	public static Uri CONTACT_URI =
-			Uri.parse("briar-content:
+			Uri.parse("nodex-content:
 	public static Uri GROUP_URI =
-			Uri.parse("briar-content:
+			Uri.parse("nodex-content:
 	public static Uri FORUM_URI =
-			Uri.parse("briar-content:
+			Uri.parse("nodex-content:
 	public static Uri BLOG_URI =
-			Uri.parse("briar-content:
+			Uri.parse("nodex-content:
 	public static Uri CONTACT_ADDED_URI =
-			Uri.parse("briar-content:
+			Uri.parse("nodex-content:
 	public static Uri SIGN_OUT_URI =
-			Uri.parse("briar-content:
+			Uri.parse("nodex-content:
 	private final List<Transport> transports = new ArrayList<>(3);
 	private final MutableLiveData<ImageView> torIcon = new MutableLiveData<>();
 	private NavDrawerViewModel navDrawerViewModel;
@@ -193,7 +193,7 @@ public class NavDrawerActivity extends BriarActivity implements
 	protected void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
 		exitIfStartupFailed(intent);
-		if ("briar-content".equals(intent.getScheme())) {
+		if ("nodex-content".equals(intent.getScheme())) {
 			handleContentIntent(intent);
 		} else {
 			handleExternalIntent(this, intent);

@@ -5,7 +5,7 @@
 	<string name="setup_name_explanation">별명은 게시한 모든 컨텐츠 옆에 보여지게 됩니다. 별명은 계정을 만든 후에는 바꿀 수 없습니다.</string>
 	<string name="setup_next">다음</string>
 	<string name="setup_password_intro">비밀번호를 정해주세요.</string>
-	<string name="setup_password_explanation">Briar 계정은 암호화되어 기기에 저장되기 때문에 클라우드에 저장되지 않습니다. 비밀번호를 잊어버리셨거나 Briar를 삭제하셨었다면 계정을 복구할 방법이 없습니다.\n\n연관성 없는 네 단어, 혹은 완전히 무작위적인 글자, 숫자, 그리고 기호의 조합과 같은 길고 알아맞추기 어려운 비밀번호로 정해주세요.</string>
+	<string name="setup_password_explanation">Nodex 계정은 암호화되어 기기에 저장되기 때문에 클라우드에 저장되지 않습니다. 비밀번호를 잊어버리셨거나 Briar를 삭제하셨었다면 계정을 복구할 방법이 없습니다.\n\n연관성 없는 네 단어, 혹은 완전히 무작위적인 글자, 숫자, 그리고 기호의 조합과 같은 길고 알아맞추기 어려운 비밀번호로 정해주세요.</string>
 	<string name="dnkm_doze_title">백그라운드 연결</string>
 	<string name="dnkm_doze_intro">메시지를 받기 위해서는 Briar가 백그라운드에서 연결된 상태를 유지해야 합니다.</string>
 	<string name="dnkm_doze_explanation">메시지를 받기 위해서는 Briar가 백그라운드에서 연결된 상태를 유지해야 합니다. Briar가 백그라운드에서 연결된 상태를 유지할 수 있게 배터리 최적화를 비활성화해 주세요.</string>
@@ -20,9 +20,9 @@
 	<string name="more_info">추가 정보</string>
 	<string name="don_t_ask_again">다시는 물어보지 않기</string>
 	<string name="dnkm_huawei_protected_text">밑의 버튼을 눌러 Briar를 \"보호된 앱\" 스크린에서 보호되게 해 주세요.</string>
-	<string name="dnkm_huawei_protected_button">Briar 보호하기</string>
+	<string name="dnkm_huawei_protected_button">Nodex 보호하기</string>
 	<string name="dnkm_huawei_protected_help">Briar를 보호된 앱 목록에 추가하지 않는다면, 백그라운드에서 실행될 수 없습니다.</string>
-	<string name="dnkm_xiaomi_button">Briar 보호하기</string>
+	<string name="dnkm_xiaomi_button">Nodex 보호하기</string>
 	<string name="dnkm_warning_dozed">%s가 백그라운드에서 실행될 수 없었습니다</string>
 
 	<string name="enter_password">비밀번호</string>
@@ -32,11 +32,11 @@
 	<string name="sign_in_button">로그인</string>
 	<string name="forgotten_password">비밀번호를 잊어버렸습니다</string>
   <string name="dialog_title_lost_password">비밀번호 분실</string>
-  <string name="dialog_message_lost_password">Briar 계정은 클라우드가 아니라 기기에서 암호화돼 저장되므로 비밀번호를 재설정 할 수 없습니다. 계정을 삭제하고 다시 시작하시겠습니까? \n\n주의 : 신원, 연락처 및 메시지는 영구적으로 손실됩니다.</string>
+  <string name="dialog_message_lost_password">Nodex 계정은 클라우드가 아니라 기기에서 암호화돼 저장되므로 비밀번호를 재설정 할 수 없습니다. 계정을 삭제하고 다시 시작하시겠습니까? \n\n주의 : 신원, 연락처 및 메시지는 영구적으로 손실됩니다.</string>
   <string name="startup_failed_notification_title">Briar가 켜질 수 없습니다</string>
   <string name="startup_failed_notification_text">눌러서 추가 정보 확인.</string>
-  <string name="startup_failed_activity_title">Briar 시작 실패</string>
-  <string name="startup_failed_db_error">어떤 이유에선지, Briar 데이터베이스가 복구될 수 없을 정도로 손상됐습니다. 데이터와 모든 연락처 정보가 사라졌습니다. 안타깝게도, Briar를 다시 설치하거나 비밀번호를 입력하는 화면에서 \"비밀번호를 잊어버렸습니다\"를 눌러 새로운 계정을 설정해야 합니다.</string>
+  <string name="startup_failed_activity_title">Nodex 시작 실패</string>
+  <string name="startup_failed_db_error">어떤 이유에선지, Nodex 데이터베이스가 복구될 수 없을 정도로 손상됐습니다. 데이터와 모든 연락처 정보가 사라졌습니다. 안타깝게도, Briar를 다시 설치하거나 비밀번호를 입력하는 화면에서 \"비밀번호를 잊어버렸습니다\"를 눌러 새로운 계정을 설정해야 합니다.</string>
   <string name="startup_failed_data_too_old_error">너무 오래된 버전의 Briar를 이용해 만든 계정이라 이 버전으로는 사용할 수 없습니다. 이전 버전을 다시 설치하거나 비밀번호를 입력하는 창에서 \'비밀번호를 잊어버렸습니다\'를 선택해 새로운 계정을 설정하세요.</string>
   <string name="startup_failed_data_too_new_error">이 버전의 앱은 너무 오래됐습니다. 최신 버전으로 업그레이드하고 다시 시도해 주세요.</string>
   <string name="startup_failed_service_error">Briar에서 필요한 플러그인을 시작하지 못했습니다. Briar를 다시 설치하면 대개 이 문제가 해결됩니다. 그렇지만 Briar에서는 데이터를 저장하기 위해 중앙 서버를 사용하고 있지 않기 때문에 계정과 관련된 모든 데이터를 잃게 됩니다.</string>
@@ -94,7 +94,7 @@
 
   <string name="reminder_notification_title">Briar에서 로그아웃 됨</string>
   <string name="reminder_notification_text">눌러서 다시 로그인하세요.</string>
-  <string name="reminder_notification_channel_title">Briar 로그인 알림</string>
+  <string name="reminder_notification_channel_title">Nodex 로그인 알림</string>
   <string name="reminder_notification_dismiss">그만 보기</string>
   <string name="ongoing_notification_title">Briar에 로그인 됨</string>
   <string name="ongoing_notification_text">Briar를 열려면 만지세요.</string>
@@ -213,7 +213,7 @@
   <string name="add_contact_choose_a_nickname">별명을 입력하세요</string>
   <string name="nickname_intro">연락처에 별명을 붙이세요. 다른 사람에게는 보여지지 않습니다.</string>
   <string name="your_link">추가하고 싶은 지인에게 이 링크를 보내세요</string>
-  <string name="link_clip_label">Briar 링크</string>
+  <string name="link_clip_label">Nodex 링크</string>
   <string name="link_copied_toast">링크가 복사됐습니다</string>
   <string name="adding_contact_error">연락처를 추가하는 과정에서 문제가 있었습니다.</string>
   <string name="pending_contact_requests_snackbar">기다리고 있는 연락 요청이 있습니다</string>
@@ -445,7 +445,7 @@
 
   <string name="security_settings_title"> 보안</string>
   <string name="pref_lock_title">앱 잠금</string>
-  <string name="pref_lock_summary">로그인한 동안 기기의 화면 잠금을 사용해서 Briar 보호하기</string>
+  <string name="pref_lock_summary">로그인한 동안 기기의 화면 잠금을 사용해서 Nodex 보호하기</string>
   <string name="pref_lock_disabled_summary">이 기능을 이용하려면 기기에 화면 잠금을 설정하세요</string>
   <string name="pref_lock_timeout_title">앱 잠금까지의 대기시간</string>
 
@@ -461,7 +461,7 @@
 
   <string name="pref_lock_timeout_60">1시간</string>
   <string name="pref_lock_timeout_never">사용하지 않기</string>
-  <string name="pref_lock_timeout_never_summary">절대 자동으로 Briar 잠그지 않기</string>
+  <string name="pref_lock_timeout_never_summary">절대 자동으로 Nodex 잠그지 않기</string>
   <string name="change_password">비밀번호 바꾸기</string>
   <string name="current_password">현재 비밀번호</string>
   <string name="choose_new_password">새 비밀번호</string>
@@ -480,7 +480,7 @@
   <string name="panic_setting_signout_title">로그아웃</string>
   <string name="panic_setting_signout_summary">패닉 버튼이 눌리면 Briar에서 로그아웃하기</string>
   <string name="purge_setting_title">계정 삭제하기</string>
-  <string name="purge_setting_summary">패닉 버튼이 눌리면 Briar 계정을 삭제하기. 주의: 계정, 연락처와 메시지가 영구적으로 지워집니다</string>
+  <string name="purge_setting_summary">패닉 버튼이 눌리면 Nodex 계정을 삭제하기. 주의: 계정, 연락처와 메시지가 영구적으로 지워집니다</string>
 
   <string name="notification_settings_title">알림</string>
   <string name="notify_sign_in_title">로그인 알려주기</string>
@@ -513,7 +513,7 @@
   <string name="link_warning_text">당신이 추적당할 수 있습니다. 이 링크를 보낸 사람을 믿을 수 있는지 생각해보고 Tor 브라우저로 여는 것을 고려하세요.</string>
   <string name="link_warning_open_link">링크 열기</string>
 
-  <string name="crash_report_title">Briar 사고 리포트</string>
+  <string name="crash_report_title">Nodex 사고 리포트</string>
   <string name="briar_crashed">죄송해요, Briar가 꺼졌어요.</string>
   <string name="not_your_fault">당신 탓이 아니에요.</string>
   <string name="please_send_report">부디 사고 리포트를 저희에게 보내서 더 나은 Briar를 만드는 것을 도와주세요.</string>
@@ -534,7 +534,7 @@
   <string name="progress_title_logout">Briar에서 로그아웃하고 있습니다...</string>
 
   <string name="screen_filter_title">화면 위 발견</string>
-  <string name="screen_filter_body">다른 앱이 Briar 화면 위에 있습니다. 보안을 위해 Briar는 다른 앱이 위에 있을 때는 만져도 반응하지 않습니다.\n\n다음 앱이 화면 위에 있을 수 있습니다.\n\n%1$s</string>
+  <string name="screen_filter_body">다른 앱이 Nodex 화면 위에 있습니다. 보안을 위해 Briar는 다른 앱이 위에 있을 때는 만져도 반응하지 않습니다.\n\n다음 앱이 화면 위에 있을 수 있습니다.\n\n%1$s</string>
   <string name="screen_filter_allow">이 앱이 위에 있는 것을 허용하기</string>
 
   <string name="permission_camera_title">카메라 권한</string>
@@ -547,7 +547,7 @@
   <string name="qr_code">QR 코드</string>
   <string name="show_qr_code_fullscreen">QR 코드를 큰 화면으로 보이기</string>
 
-  <string name="lock_unlock">Briar 잠금 해제</string>
+  <string name="lock_unlock">Nodex 잠금 해제</string>
   <string name="lock_unlock_verbose">기기의 PIN, 패턴이나 비밀번호를 입력해 Briar를 잠금 해제하세요</string>
   <string name="lock_unlock_fingerprint_description">계속하시려면 등록된 손가락으로 지문인식 센서를 만져주세요</string>
   <string name="lock_unlock_password">비밀번호 사용하기</string>

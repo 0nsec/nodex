@@ -127,7 +127,7 @@ public class LinkExchangeFragment extends BaseFragment {
 		Matcher matcher = LINK_REGEX.matcher(link);
 		if (matcher.find()) {
 			String linkWithoutSchema = matcher.group(2);
-			if (("briar:
+			if (("nodex:
 					.equals(viewModel.getHandshakeLink().getValue())) {
 				linkInputLayout.setError(getString(R.string.own_link_error));
 				linkInput.requestFocus();

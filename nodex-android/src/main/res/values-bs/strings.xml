@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
-	<string name="setup_title">Dobrodošli u Briar</string>
+	<string name="setup_title">Dobrodošli u Nodex</string>
 	<string name="setup_name_explanation">Vaše korisničko ime će biti prikazano pored sadržaja posta. Nemožete ga mijenjati nakon kreiranje računa.</string>
 	<string name="setup_next">Dalje</string>
 	<string name="setup_password_intro">Izaberite lozinku</string>
-	<string name="setup_password_explanation">Vaš Briar račun je kriptovan i sačuvan na vašem uređaju, ne na serveru ili oblaku. Ako zaboravite šifru ili deinstalirate Briar, ne postoji način da povratite vaš račun.\n\nIzaberite dugačku lozinku koju je teško pogoditi, kao četiri nasumične riječi ili deset nasumičnih slova, brojeva i simbola.</string>
+	<string name="setup_password_explanation">Vaš Nodex račun je kriptovan i sačuvan na vašem uređaju, ne na serveru ili oblaku. Ako zaboravite šifru ili deinstalirate Nodex, ne postoji način da povratite vaš račun.\n\nIzaberite dugačku lozinku koju je teško pogoditi, kao četiri nasumične riječi ili deset nasumičnih slova, brojeva i simbola.</string>
 	<string name="dnkm_doze_title">Konekcije u pozadinskom modu</string>
-	<string name="dnkm_doze_intro">Da bi primao poruke, Briar mora da ostane konektovan u pozadinskom modu.</string>
-	<string name="dnkm_doze_explanation">Da bi primao poruke, Briar mora da ostane konektovan u pozadinskom modu. Molim vas da isključite optimizacije baterije kako bi Briar ostao konektovan.</string>
+	<string name="dnkm_doze_intro">Da bi primao poruke, Nodex mora da ostane konektovan u pozadinskom modu.</string>
+	<string name="dnkm_doze_explanation">Da bi primao poruke, Nodex mora da ostane konektovan u pozadinskom modu. Molim vas da isključite optimizacije baterije kako bi Nodex ostao konektovan.</string>
 	<string name="dnkm_doze_button">Dozvolite konekcije</string>
 	<string name="choose_nickname">Izaberite vaše korisničko ime</string>
 	<string name="choose_password">Izaberite vašu lozinku</string>
@@ -19,9 +19,9 @@
 	<string name="create_account_button">Kreirajte korisnički račun</string>
 	<string name="more_info">Više informacija</string>
 	<string name="don_t_ask_again">Ne pitaj ponovo</string>
-	<string name="dnkm_huawei_protected_text">Molim dotaknite dugme ispod i provjerite da je Briar zaštićen na \"Protected Apps\" listi.</string>
-	<string name="dnkm_huawei_protected_button">Zaštiti Briar</string>
-	<string name="dnkm_huawei_protected_help">Ako Briar nije dodat u listu zaštićenih aplikacija - protected apps, neće moći da radi u pozadinskom modu.</string>
+	<string name="dnkm_huawei_protected_text">Molim dotaknite dugme ispod i provjerite da je Nodex zaštićen na \"Protected Apps\" listi.</string>
+	<string name="dnkm_huawei_protected_button">Zaštiti Nodex</string>
+	<string name="dnkm_huawei_protected_help">Ako Nodex nije dodat u listu zaštićenih aplikacija - protected apps, neće moći da radi u pozadinskom modu.</string>
 	<string name="dnkm_warning_dozed">%s nije mogao da se pokrene u pozadinskom modu</string>
 
 	<string name="enter_password">Lozinka</string>
@@ -29,14 +29,14 @@
 	<string name="sign_in_button">Prijavite se</string>
 	<string name="forgotten_password">Zaboravio/la sam lozinku</string>
 	<string name="dialog_title_lost_password">Izgubljena Lozinka</string>
-	<string name="dialog_message_lost_password">Vaš Briar račun je kriptovan i sačuvan na vašem uređaju, ne na serveru ili oblaku, pa nemožemo resetovati vašu lozinku. Želite li da izbrišete račun i počnete iz početka?\n\nPažnja: Vaši identiteti, kontakti i poruke će biti premanentno izgubljene.</string>
+	<string name="dialog_message_lost_password">Vaš Nodex račun je kriptovan i sačuvan na vašem uređaju, ne na serveru ili oblaku, pa nemožemo resetovati vašu lozinku. Želite li da izbrišete račun i počnete iz početka?\n\nPažnja: Vaši identiteti, kontakti i poruke će biti premanentno izgubljene.</string>
 	<string name="startup_failed_notification_title">Brirar nije mogao da se pokrene</string>
   <string name="startup_failed_notification_text">Dotaknite za više informacija.</string>
-  <string name="startup_failed_activity_title">Briar neuspješno pokretanje</string>
-  <string name="startup_failed_db_error">Iz nekog razloga, Briar baza podataka je nepovratno oštećena. Vaš račun, vaši podaci i svi kontakti su izgubljeni. Nažalost, morate reinstalirati Briar ili podesiti novi račun tako što ćete izabrati  opciju \'ZaboraviIi ste lozinku?\' .</string>
+  <string name="startup_failed_activity_title">Nodex neuspješno pokretanje</string>
+  <string name="startup_failed_db_error">Iz nekog razloga, Nodex baza podataka je nepovratno oštećena. Vaš račun, vaši podaci i svi kontakti su izgubljeni. Nažalost, morate reinstalirati Nodex ili podesiti novi račun tako što ćete izabrati  opciju \'ZaboraviIi ste lozinku?\' .</string>
   <string name="startup_failed_data_too_old_error">Vaš račun je napravljen sa starom verzijom aplikacije i nemože se otvoriti novom verzijom. Morate reinstalirati staru verziju ili podesiti novi račun tako što ćete izabrati opciju  \'ZaboraviIi ste lozinku?\' kod unosa lozinke.</string>
   <string name="startup_failed_data_too_new_error">Ova verzija aplikacije je stara. Molim vas da aplikaciju ažurirate na posljednju verziju a zatim pokušate ponovo.</string>
-  <string name="startup_failed_service_error">Briar nije mogao da pokrene potreban plugin-dodatak. Reinstaliranje Briara obično riješi problem. Međutim, imajte na umu da ćete izgubiti vaš račun i sve podatke vezane za njega pošto Briar ne koristi centralne servere da sačuva vaše podatke.</string>
+  <string name="startup_failed_service_error">Nodex nije mogao da pokrene potreban plugin-dodatak. Reinstaliranje Briara obično riješi problem. Međutim, imajte na umu da ćete izgubiti vaš račun i sve podatke vezane za njega pošto Nodex ne koristi centralne servere da sačuva vaše podatke.</string>
   <string name="expiry_date_reached">Ovaj softver nije više aktuelan.\nHvala na testiranju!</string>
   <string name="create_new_account">Morate kreirati novi račun, ali možete koristiti isto korisničko ime.</string>
   <string name="startup_open_database">Dekriptujem bazu...</string>
@@ -64,8 +64,8 @@
   <string name="reminder_notification_text">Dotaknite da se prijavite nazad.</string>
   <string name="reminder_notification_channel_title">Briarov podsjetnik za prijavu</string>
   <string name="reminder_notification_dismiss">Obustavi</string>
-  <string name="ongoing_notification_title">Prijavljeni ste u Briar</string>
-  <string name="ongoing_notification_text">Dodirnite da otvorite Briar.</string>
+  <string name="ongoing_notification_title">Prijavljeni ste u Nodex</string>
+  <string name="ongoing_notification_text">Dodirnite da otvorite Nodex.</string>
 
   <string name="now">sada</string>
   <string name="show">Prikaži</string>
@@ -115,7 +115,7 @@
   <string name="save_image_success">Fotografija je sačuvana</string>
   <string name="save_image_error">Nije moguće sačuvati fotografiju</string>
   <string name="dialog_title_no_image_support">Slike nisu dostupne</string>
-  <string name="dialog_message_no_image_support">Briar ne podržava prložene fotografije. Nakon nadogradnje vidjet ćete drugu ikonu.</string>
+  <string name="dialog_message_no_image_support">Nodex ne podržava prložene fotografije. Nakon nadogradnje vidjet ćete drugu ikonu.</string>
   <string name="dialog_title_image_support">Sada možete slati fotografije ovom kontaktu</string>
   <string name="dialog_message_image_support">Dodirni ovu ikonu da priložiš fotografije</string>
 
@@ -150,7 +150,7 @@
   <string name="add_contact_choose_a_nickname">Unesi korisničko ime</string>
   <string name="nickname_intro">Dodjeli vašem kontaktu nadimak. Samo vi možete vidjeti dodjeljeni nadimak.</string>
   <string name="your_link">Dodjeli link kontaktu kojeg želite dodati</string>
-  <string name="link_clip_label">Briar link</string>
+  <string name="link_clip_label">Nodex link</string>
   <string name="link_copied_toast">Link je kopiran</string>
   <string name="adding_contact_error">Došlo je do greške tokom dodavanja kontakta.</string>
   <string name="pending_contact_requests_snackbar">Postoje zahtjevi za kontaktima koji čekanju</string>
@@ -165,7 +165,7 @@
   <string name="own_link_error">Unesite link vašeg kontakta, a ne vaš vlastiti link.</string>
   <string name="nickname_missing">Molim vas unesite korisničko ime</string>
   <string name="invalid_link">Neispravan link</string>
-  <string name="unsupported_link">Ovaj link dolazi sa nove verzije Briar-a. Molim vas ažurirajte aplikaciju na posljednju verziju, a zatim pokušajte ponovo.</string>
+  <string name="unsupported_link">Ovaj link dolazi sa nove verzije Nodex-a. Molim vas ažurirajte aplikaciju na posljednju verziju, a zatim pokušajte ponovo.</string>
   <string name="intent_own_link">Otvorili ste vaš vlastiti link. Koristite link od kontakta kojeg želite dodati.</string>
   <string name="missing_link">Molim vas unesite link</string>
 
@@ -185,7 +185,7 @@
   <string name="pending_contact_updated_toast">Ažuriranje kontakta je na čekanju</string>
 
   <string name="introduction_onboarding_title">Upoznajte vaše kontakte</string>
-  <string name="introduction_onboarding_text">Vi možete da upoznate vaše kontakte međusobno, nije potrebno da se oni sreću licem u lice kako bi se povezali na Briar-u.</string>
+  <string name="introduction_onboarding_text">Vi možete da upoznate vaše kontakte međusobno, nije potrebno da se oni sreću licem u lice kako bi se povezali na Nodex-u.</string>
   <string name="introduction_menu_item">Izvršite upoznavanje</string>
   <string name="introduction_activity_title">Izaberite kontakt</string>
   <string name="introduction_not_possible">Vi već imate započeto jedno upoznavanje ovim kontaktom. Molimo vas dozvolite da ono prvo završi. Ako ste vi ili vaš kontakt rijetko na vezi, ovo može da potraje.</string>
@@ -339,7 +339,7 @@
 
 
   <string name="pref_language_title">Jezik i regija</string>
-  <string name="pref_language_changed">Ovo podešavanje će stupiti na snagu kada restartujete Briar. Molim vas da se odjavite i restartujete Briar.</string>
+  <string name="pref_language_changed">Ovo podešavanje će stupiti na snagu kada restartujete Nodex. Molim vas da se odjavite i restartujete Nodex.</string>
   <string name="pref_language_default">Podrazumjevane postavke sistema</string>
   <string name="display_settings_title">Ekran</string>
   <string name="pref_theme_title">Tema</string>
@@ -356,11 +356,11 @@
 
   <string name="security_settings_title">Sigurnost</string>
   <string name="pref_lock_title">Zaključavanje applikacije</string>
-  <string name="pref_lock_summary">Koristi zaključavanje ekrana uređaja da bi zaštitili Briar dok ste prijavljeni</string>
+  <string name="pref_lock_summary">Koristi zaključavanje ekrana uređaja da bi zaštitili Nodex dok ste prijavljeni</string>
   <string name="pref_lock_disabled_summary">Da bi koristili ovu mogućnost, podesite zaključavanje ekrana za vašem uređaju</string>
   <string name="pref_lock_timeout_title">Zaključavanje aplikacije zbog neaktivnosti</string>
 
-  <string name="pref_lock_timeout_summary">Kada se ne koristi Briar, automatski zaključaj poslije %s</string>
+  <string name="pref_lock_timeout_summary">Kada se ne koristi Nodex, automatski zaključaj poslije %s</string>
 
   <string name="pref_lock_timeout_1">1 minute</string>
 
@@ -372,7 +372,7 @@
 
   <string name="pref_lock_timeout_60">1 sata</string>
   <string name="pref_lock_timeout_never">Nikad</string>
-  <string name="pref_lock_timeout_never_summary">Ne zaključavaj Briar automatski</string>
+  <string name="pref_lock_timeout_never_summary">Ne zaključavaj Nodex automatski</string>
   <string name="change_password">Promijeni lozinku</string>
   <string name="current_password">Trenutna lozinka</string>
   <string name="choose_new_password">Nova lozinka</string>
@@ -380,7 +380,7 @@
   <string name="password_changed">Lozinka je promijenjena</string>
   <string name="panic_setting">Podešavanje Panik dugmeta</string>
   <string name="panic_setting_title">Panik dugme</string>
-  <string name="panic_setting_hint">Podesite kako Briar reaguje kad koristite Panik dugme app</string>
+  <string name="panic_setting_hint">Podesite kako Nodex reaguje kad koristite Panik dugme app</string>
   <string name="panic_app_setting_title">Panik Dugne App</string>
   <string name="unknown_app">nepoznata aplikacija</string>
   <string name="panic_app_setting_summary">Nema postavljene aplikacije</string>
@@ -389,9 +389,9 @@
   <string name="dialog_message_connect_panic_app">Jeste li sigurni da želite da dozvolite %1$s da pokrene destruktivne akcije panik dugmeta?</string>
   <string name="panic_setting_destructive_action">Destruktivne akcije</string>
   <string name="panic_setting_signout_title">Odjava</string>
-  <string name="panic_setting_signout_summary">Izloguj se iz Briar-a ako je pritisnuto panik dugme</string>
+  <string name="panic_setting_signout_summary">Izloguj se iz Nodex-a ako je pritisnuto panik dugme</string>
   <string name="purge_setting_title">Izbriši račun</string>
-  <string name="purge_setting_summary">Izbriši Briar račun ako je panik dugme pritisnuto. Pažnja: Ovo će trajno izbrisati vaše identitete, kontakte i poruke</string>
+  <string name="purge_setting_summary">Izbriši Nodex račun ako je panik dugme pritisnuto. Pažnja: Ovo će trajno izbrisati vaše identitete, kontakte i poruke</string>
 
   <string name="notification_settings_title">Obavještenja</string>
   <string name="notify_sign_in_title">Podsjeti me da se prijavim</string>
@@ -423,10 +423,10 @@
   <string name="link_warning_text">Ovo se može koristiti da se otkrije vaš identitet. Razmislite o tome vjerujete li osobi koja vam je poslala ovaj link i razmislite o otvaranju s Tor Browser-om.</string>
   <string name="link_warning_open_link">Otvori link</string>
 
-  <string name="crash_report_title">Briar izvještaj o rušenju aplikacije</string>
-  <string name="briar_crashed">Izvinite, Briar aplikacija se srušila.</string>
+  <string name="crash_report_title">Nodex izvještaj o rušenju aplikacije</string>
+  <string name="briar_crashed">Izvinite, Nodex aplikacija se srušila.</string>
   <string name="not_your_fault">Greška nije do vas.</string>
-  <string name="please_send_report">Molimo pomozite nam da napravimo bolji Briar tako što ćete nam poslati izvještaj o rušenju aplikacije.</string>
+  <string name="please_send_report">Molimo pomozite nam da napravimo bolji Nodex tako što ćete nam poslati izvještaj o rušenju aplikacije.</string>
   <string name="report_is_encrypted">Obećavamo da je izvještaj kriptovan i sigurno poslat.</string>
   <string name="feedback_title">Povratne informacije</string>
   <string name="describe_crash">Opišite šta se desilo (opciono)</string>
@@ -436,12 +436,12 @@
   <string name="include_debug_report_feedback">Uključite anonimne podatke o ovom uređaju</string>
   <string name="send_report">Pošalji izvještaj</string>
   <string name="close">Zatvori</string>
-  <string name="dev_report_saved">Izvještaj je sačuvan. Biće poslat slijedeći put kada se ulogujete u Briar.</string>
+  <string name="dev_report_saved">Izvještaj je sačuvan. Biće poslat slijedeći put kada se ulogujete u Nodex.</string>
 
   <string name="progress_title_logout">Odjavite se iz Briara...</string>
 
   <string name="screen_filter_title">Detektovano je prekrivanje ekrana</string>
-  <string name="screen_filter_body">Druga aplikacija precrtava preko Briara. Da bi vas zaštitio, Briar neće reagovati na dodir dok druga aplikacija precrtava preko ekrana.\n\nSlijedeće aplikacije mogu precrtavati preko:\n\n%1$s</string>
+  <string name="screen_filter_body">Druga aplikacija precrtava preko Briara. Da bi vas zaštitio, Nodex neće reagovati na dodir dok druga aplikacija precrtava preko ekrana.\n\nSlijedeće aplikacije mogu precrtavati preko:\n\n%1$s</string>
   <string name="screen_filter_allow">Dozvoli ovim aplikacijama da precrtavaju ekran</string>
 
   <string name="permission_camera_title">Dozvole kamere</string>
@@ -449,16 +449,16 @@
   <string name="permission_location_title">Dozvole lokacije</string>
   <string name="permission_location_request_body">Da bi otkrio Bluetooth uređaj, Brair treba douzvolu za pristup vašoj lokaciji.\n\nBriar neće snimati vašu lokaciju ili je dijeliti sa bilo kime.</string>
   <string name="permission_camera_location_title">Kamera i locationkacija</string>
-  <string name="permission_camera_location_request_body">Da bi skenirao QR kod, Briar treba pristup vašoj kameri.\n\nDa bi otkrio Bluetooth uređaj, Brair treba douzvolu za pristup vašoj lokaciji.\n\nBriar neće snimati vašu lokaciju ili je dijeliti sa bilo kime.</string>
+  <string name="permission_camera_location_request_body">Da bi skenirao QR kod, Nodex treba pristup vašoj kameri.\n\nDa bi otkrio Bluetooth uređaj, Brair treba douzvolu za pristup vašoj lokaciji.\n\nBriar neće snimati vašu lokaciju ili je dijeliti sa bilo kime.</string>
   <string name="permission_camera_denied_body">Uskratili ste pristup kameri, ali dodavanje kontakata zahtijeva pristup kameri.\n\nMolim vas da uzmete u obzir odobravanja pristupa.</string>
   <string name="qr_code">QR kod</string>
   <string name="show_qr_code_fullscreen">Prikazi QR kod na puni ekran</string>
 
-  <string name="lock_unlock">Otključaj Briar</string>
+  <string name="lock_unlock">Otključaj Nodex</string>
   <string name="lock_unlock_verbose">Unesite PIN uređaja, figuru ili lozinku</string>
   <string name="lock_unlock_fingerprint_description">Dodirnite senzor otiska sa registrovanim prstom da bi nastavili</string>
   <string name="lock_unlock_password">Koristi lozinku</string>
-  <string name="lock_is_locked">Briar je zaključan</string>
+  <string name="lock_is_locked">Nodex je zaključan</string>
   <string name="lock_tap_to_unlock">Dotakni da otključaš</string>
 
 
@@ -471,7 +471,7 @@
 
   <string name="screenshot_message_1">Zdravo Mujo!</string>
 
-  <string name="screenshot_message_2">Zdravo Fato! Hvala što mi govoriš o Briar-u!</string>
+  <string name="screenshot_message_2">Zdravo Fato! Hvala što mi govoriš o Nodex-u!</string>
 
   <string name="screenshot_message_3">Nema problema, nadam se da ti se sviđa 😀</string>
 </resources>

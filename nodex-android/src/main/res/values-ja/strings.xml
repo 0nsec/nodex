@@ -781,7 +781,7 @@
   <string name="hotspot_manual_site_address">アドレス（URL）</string>
   <string name="hotspot_qr_site">あなたの電話機はWi-Fiホットスポットを提供しています。ホットスポットに接続された人は、このQRコードを読み取って、Briarをダウンロードできます。</string>
 
-  <string name="website_download_title_1">Briar%sをダウンロード</string>
+  <string name="website_download_title_1">Nodex%sをダウンロード</string>
   <string name="website_download_intro_1">近くの誰かが、あなたとBriarを共有しました。</string>
   <string name="website_download_button">Briarをダウンロード</string>
   <string name="website_download_outro">ダウンロードが完了した後に、ダウンロードしたファイルを開いて、インストールしてください。</string>

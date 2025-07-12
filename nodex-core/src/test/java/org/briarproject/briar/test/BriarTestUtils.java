@@ -45,6 +45,6 @@ public class BriarTestUtils {
 		byte[] publicKey = keyPair.getPublic().getEncoded();
 		linkBytes[0] = FORMAT_VERSION;
 		arraycopy(publicKey, 0, linkBytes, 1, RAW_LINK_BYTES - 1);
-		return ("briar:
+		return ("nodex:
 	}
 }

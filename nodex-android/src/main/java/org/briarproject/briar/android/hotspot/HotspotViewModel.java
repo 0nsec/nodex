@@ -145,7 +145,7 @@ class HotspotViewModel extends DbViewModel
 		}
 	}
 	static String getApkFileName() {
-		return "briar" + (DEBUG ? "-debug-" : "-") + VERSION_NAME + ".apk";
+		return "nodex" + (DEBUG ? "-debug-" : "-") + VERSION_NAME + ".apk";
 	}
 	private void writeApk(OutputStream out, Uri uriToShare) {
 		File apk = new File(getApplication().getPackageCodePath());

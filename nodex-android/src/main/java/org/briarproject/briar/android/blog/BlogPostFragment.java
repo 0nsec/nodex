@@ -34,7 +34,7 @@ public class BlogPostFragment extends BaseFragment
 		implements OnBlogPostClickListener {
 	private static final String TAG = BlogPostFragment.class.getName();
 	private static final Logger LOG = getLogger(TAG);
-	static final String POST_ID = "briar.POST_ID";
+	static final String POST_ID = "nodex.POST_ID";
 	protected BlogViewModel viewModel;
 	private final Handler handler = new Handler(Looper.getMainLooper());
 	private ProgressBar progressBar;

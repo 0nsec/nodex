@@ -148,7 +148,7 @@ import static org.nodex.api.messaging.PrivateMessageFormat.TEXT_ONLY;
 public class ConversationActivity extends BriarActivity
 		implements BaseFragmentListener, EventListener, ConversationListener,
 		TextCache, AttachmentCache, AttachmentListener, ActionMode.Callback {
-	public static final String CONTACT_ID = "briar.CONTACT_ID";
+	public static final String CONTACT_ID = "nodex.CONTACT_ID";
 	private static final Logger LOG =
 			getLogger(ConversationActivity.class.getName());
 	private static final int TRANSITION_DURATION_MS = 500;

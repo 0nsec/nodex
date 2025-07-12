@@ -45,8 +45,8 @@ import static org.nodex.android.util.UiUtils.isSamsung7;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class BriarActivity extends BaseActivity {
-	public static final String GROUP_ID = "briar.GROUP_ID";
-	public static final String GROUP_NAME = "briar.GROUP_NAME";
+	public static final String GROUP_ID = "nodex.GROUP_ID";
+	public static final String GROUP_NAME = "nodex.GROUP_NAME";
 	private static final Logger LOG =
 			getLogger(BriarActivity.class.getName());
 	@Inject

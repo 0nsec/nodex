@@ -11,7 +11,7 @@ import static org.nodex.core.api.contact.HandshakeLinkConstants.LINK_REGEX;
 class IntentRouter {
 	static void handleExternalIntent(Context ctx, Intent i) {
 		String action = i.getAction();
-		if (ACTION_VIEW.equals(action) && "briar".equals(i.getScheme())) {
+		if (ACTION_VIEW.equals(action) && "nodex".equals(i.getScheme())) {
 			redirect(ctx, i, AddContactActivity.class);
 		}
 		else if (ACTION_SEND.equals(action) &&

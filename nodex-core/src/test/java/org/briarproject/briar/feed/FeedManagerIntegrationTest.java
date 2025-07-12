@@ -30,7 +30,7 @@ public class FeedManagerIntegrationTest extends BrambleTestCase {
 			"src/test/resources/nodex.org_news_index.xml";
 	private static final String FEED_URL =
 			"https:
-	private static final String FEED_TITLE = "News - Briar";
+	private static final String FEED_TITLE = "News - Nodex";
 	private LifecycleManager lifecycleManager;
 	private FeedManager feedManager;
 	private BlogManager blogManager;

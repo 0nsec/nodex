@@ -142,7 +142,7 @@
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
 
-				<data android:scheme="briar" />
+				<data android:scheme="nodex" />
 			</intent-filter>
 			<intent-filter android:label="@string/add_contact_remotely_title_case">
 				<action android:name="android.intent.action.SEND" />

@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-  <string name="setup_title">Velkomin í Briar</string>
+  <string name="setup_title">Velkomin í Nodex</string>
   <string name="setup_name_explanation">Stuttnefnið þitt birtist við hlið alls þess efnis sem þú sendir inn. Þú getur ekki breytt því eftir að þú hefur skráð notandaaðganginn þinn.</string>
   <string name="setup_next">Næsta</string>
   <string name="setup_password_intro">Veldu lykilorð</string>
-  <string name="setup_password_explanation">Notandaaðgangur þinn í Briar er geymdur dulritaður á tækinu þínu, ekki í tölvuskýi. Ef þú gleymir lykilorðinu þínu eða fjarlægir Briar, þá er engin leið til að endurheimta notandaaðganginn þinn.\n\nVeldu langt lykilorð sem erfitt er að giska á, svo sem eins og fjögur orð af handahófi, eða slembna samsetningu tíu bósktafa, tölustafa og tákna.</string>
-  <string name="dnkm_doze_intro">Til að taka á móti skilaboðum þarf Briar að haldast tengt í bakgrunni.</string>
-  <string name="dnkm_doze_explanation">Til að taka á móti skilaboðum þarf Briar að haldast tengt í bakgrunni. Gerðu orkusparnaðarferli óvirk svo Briar geti haldið tengingum.</string>
+  <string name="setup_password_explanation">Notandaaðgangur þinn í Nodex er geymdur dulritaður á tækinu þínu, ekki í tölvuskýi. Ef þú gleymir lykilorðinu þínu eða fjarlægir Nodex, þá er engin leið til að endurheimta notandaaðganginn þinn.\n\nVeldu langt lykilorð sem erfitt er að giska á, svo sem eins og fjögur orð af handahófi, eða slembna samsetningu tíu bósktafa, tölustafa og tákna.</string>
+  <string name="dnkm_doze_intro">Til að taka á móti skilaboðum þarf Nodex að haldast tengt í bakgrunni.</string>
+  <string name="dnkm_doze_explanation">Til að taka á móti skilaboðum þarf Nodex að haldast tengt í bakgrunni. Gerðu orkusparnaðarferli óvirk svo Nodex geti haldið tengingum.</string>
   <string name="choose_nickname">Veldu þér stuttnefni</string>
   <string name="choose_password">Veldu þér lykilorð</string>
   <string name="confirm_password">Staðfestu lykilorðið</string>
@@ -17,38 +17,38 @@
   <string name="create_account_button">Búa til notandaaðgang</string>
   <string name="more_info">Nánari upplýsingar</string>
   <string name="don_t_ask_again">Ekki spyrja aftur</string>
-  <string name="dnkm_huawei_protected_text">Ýttu á hnappinn hér fyrir neðan og gakktu úr skugga um að Briar sé varið á skjánum \"Varin forrit\".</string>
-  <string name="dnkm_huawei_protected_button">Vernda Briar</string>
-  <string name="dnkm_huawei_protected_help">Ef Briar er ekki bætt á listann yfir varin forrit, getur það ekki keyrt í bakgrunni.</string>
-  <string name="dnkm_huawei_app_launch_text">Ýttu á hnappinn hér fyrir neðan, opnaðu \"Ræsing forrits\" skjáinn og gakktu úr skugga um að Briar sé stillt á \"Stýra handvirkt\".</string>
-  <string name="dnkm_huawei_app_launch_help">Ef Briar er ekki stillt á \"Stýra handvirkt\" í \"Ræsing forrits\" skjánum, mun það ekki geta keyrt í bakgrunni.</string>
-  <string name="dnkm_xiaomi_text">Til að keyra í bakgrunni þarf Briar að vera læst við listann yfir nýleg forrit.</string>
-  <string name="dnkm_xiaomi_button">Vernda Briar</string>
-  <string name="dnkm_xiaomi_help">Ef Briar er ekki læst við listann yfir nýleg forrit, mun það ekki geta keyrt í bakgrunni.</string>
-  <string name="dnkm_xiaomi_dialog_body_old">1. Opnaðu listann yfir nýleg forrit (einnig kallað forritaskiptir)\n\n2. Strjúktu niður myndina af Briar til að birta hengilástáknið\n\n3. Ef hengilásinn er ekki læstur, ýttu á hann til að læsa</string>
+  <string name="dnkm_huawei_protected_text">Ýttu á hnappinn hér fyrir neðan og gakktu úr skugga um að Nodex sé varið á skjánum \"Varin forrit\".</string>
+  <string name="dnkm_huawei_protected_button">Vernda Nodex</string>
+  <string name="dnkm_huawei_protected_help">Ef Nodex er ekki bætt á listann yfir varin forrit, getur það ekki keyrt í bakgrunni.</string>
+  <string name="dnkm_huawei_app_launch_text">Ýttu á hnappinn hér fyrir neðan, opnaðu \"Ræsing forrits\" skjáinn og gakktu úr skugga um að Nodex sé stillt á \"Stýra handvirkt\".</string>
+  <string name="dnkm_huawei_app_launch_help">Ef Nodex er ekki stillt á \"Stýra handvirkt\" í \"Ræsing forrits\" skjánum, mun það ekki geta keyrt í bakgrunni.</string>
+  <string name="dnkm_xiaomi_text">Til að keyra í bakgrunni þarf Nodex að vera læst við listann yfir nýleg forrit.</string>
+  <string name="dnkm_xiaomi_button">Vernda Nodex</string>
+  <string name="dnkm_xiaomi_help">Ef Nodex er ekki læst við listann yfir nýleg forrit, mun það ekki geta keyrt í bakgrunni.</string>
+  <string name="dnkm_xiaomi_dialog_body_old">1. Opnaðu listann yfir nýleg forrit (einnig kallað forritaskiptir)\n\n2. Strjúktu niður myndina af Nodex til að birta hengilástáknið\n\n3. Ef hengilásinn er ekki læstur, ýttu á hann til að læsa</string>
 
   <string name="enter_password">Lykilorð</string>
   <string name="try_again">Rangt lykilorð, reyndu aftur</string>
   <string name="dialog_title_cannot_check_password">Get ekki yfirfarið lykilorð</string>
-  <string name="dialog_message_cannot_check_password">Briar getur ekki yfirfarið lykilorðið þitt. Prófaðu að endurræsa tækið þitt til að reyna að leysa þetta vandamál.</string>
+  <string name="dialog_message_cannot_check_password">Nodex getur ekki yfirfarið lykilorðið þitt. Prófaðu að endurræsa tækið þitt til að reyna að leysa þetta vandamál.</string>
   <string name="sign_in_button">Skrá inn</string>
   <string name="dialog_title_lost_password">Týnt lykilorð</string>
-  <string name="dialog_message_lost_password">Notandaaðgangur þinn í Briar er geymdur dulritaður á tækinu þínu, ekki í tölvuskýi, þannig að við getum ekki endurstillt lykilorðið þitt. Myndirðu vilja eyða notandaaðgangnum þínum og byrja aftur?\n\nVarúð: Auðkennin þín, tengiliðir og skilaboð munu tapast óendurkræft.</string>
-  <string name="startup_failed_activity_title">Bilun í ræsingu Briar</string>
-  <string name="startup_failed_clock_error">Briar gat ekki farið af stað því klukka tækisins þíns er ekki rétt stillt.\n\nLeiðréttu klukku tækisins og prófaðu síðan aftur.</string>
-  <string name="startup_failed_db_error">Briar tókst ekki að opna gagnagrunninn sem inniheldur aðganginn þinn, tengiliðina þína og skilaboð.\n\nAthugaðu hvort Briar sé þegar keyrandi á þessu tæki. Annars skaltu uppfæra í nýjustu útgáfuna og prófa síðan aftur, eða setja upp nýjan aðgang með því að velja \'Ég hef gleymt lykilorðinu mínu\' þar sem spurt er um lykilorð.</string>
+  <string name="dialog_message_lost_password">Notandaaðgangur þinn í Nodex er geymdur dulritaður á tækinu þínu, ekki í tölvuskýi, þannig að við getum ekki endurstillt lykilorðið þitt. Myndirðu vilja eyða notandaaðgangnum þínum og byrja aftur?\n\nVarúð: Auðkennin þín, tengiliðir og skilaboð munu tapast óendurkræft.</string>
+  <string name="startup_failed_activity_title">Bilun í ræsingu Nodex</string>
+  <string name="startup_failed_clock_error">Nodex gat ekki farið af stað því klukka tækisins þíns er ekki rétt stillt.\n\nLeiðréttu klukku tækisins og prófaðu síðan aftur.</string>
+  <string name="startup_failed_db_error">Nodex tókst ekki að opna gagnagrunninn sem inniheldur aðganginn þinn, tengiliðina þína og skilaboð.\n\nAthugaðu hvort Nodex sé þegar keyrandi á þessu tæki. Annars skaltu uppfæra í nýjustu útgáfuna og prófa síðan aftur, eða setja upp nýjan aðgang með því að velja \'Ég hef gleymt lykilorðinu mínu\' þar sem spurt er um lykilorð.</string>
   <string name="startup_failed_data_too_old_error">Notandaaðgangurinn þinn var útbúinn með eldri útgáfu forritsins og er ekki hægt að opna hann með þessari útgáfu.\n\Þú þarft annað hvort að setja gömlu útgáfuna upp aftur, eða setja upp nýjan notandaaðgang með því að velja \'Ég hef gleymt lykilorðinu mínu\' þegar beðið er um lykilorð.</string>
   <string name="startup_failed_data_too_new_error">Notandaaðgangurinn þinn var útbúinn með nýrri útgáfu forritsins og er ekki hægt að opna hann með þessari útgáfu.\n\Þú þarft að setja upp nýjustu útgáfuna og prófa svo aftur.</string>
-  <string name="startup_failed_service_error">Briar tókst ekki að ræsa nauðsynlega einingu.\n\nUppfærðu í nýjustu útgáfuna og prófaðu síðan aftur.</string>
+  <string name="startup_failed_service_error">Nodex tókst ekki að ræsa nauðsynlega einingu.\n\nUppfærðu í nýjustu útgáfuna og prófaðu síðan aftur.</string>
   <plurals name="expiry_warning">
-    <item quantity="one">Þetta er prufuútgáfa af Briar. Notandaaðgangurinn þinn mun renna út eftir %d dag og er ekki hægt að endurnýja hann.</item>
-    <item quantity="other">Þetta er prufuútgáfa af Briar. Notandaaðgangurinn þinn mun renna út eftir %d daga og er ekki hægt að endurnýja hann.</item>
+    <item quantity="one">Þetta er prufuútgáfa af Nodex. Notandaaðgangurinn þinn mun renna út eftir %d dag og er ekki hægt að endurnýja hann.</item>
+    <item quantity="other">Þetta er prufuútgáfa af Nodex. Notandaaðgangurinn þinn mun renna út eftir %d daga og er ekki hægt að endurnýja hann.</item>
   </plurals>
   <string name="expiry_date_reached">Þessi hugbúnaður er úreltur.\nTakk fyrir að hafa tekið þátt í prófunum!</string>
-  <string name="download_briar">Til að halda áfram að nota Briar, ættirðu að sækja nýjustu útgáfuna.</string>
+  <string name="download_briar">Til að halda áfram að nota Nodex, ættirðu að sækja nýjustu útgáfuna.</string>
   <string name="create_new_account">Þú þarft að búa til nýjan notandaaðgang, en þú getur notað áfram sama stuttnefni.</string>
   <string name="download_briar_button">Ná í nýjustu útgáfu</string>
-  <string name="old_android_expiry_date_reached">Briar keyrir ekki lengur á Android 4.\nSettu Briar upp á nýrra tæki.</string>
+  <string name="old_android_expiry_date_reached">Nodex keyrir ekki lengur á Android 4.\nSettu Nodex upp á nýrra tæki.</string>
   <string name="old_android_delete_account">Þú getur ýtt á hnappinn hér fyrir neðan til að eyða aðgangnum þínum af þessu tæki.</string>
   <string name="delete_account_button">Eyða notandaaðgangi</string>
   <string name="startup_open_database">Afkóða gagnagrunn…</string>
@@ -65,43 +65,43 @@
   <string name="lock_button">Læsa forriti</string>
   <string name="settings_button">Stillingar</string>
   <string name="sign_out_button">Skrá út</string>
-  <string name="transports_onboarding_text">Ýttu hér til að stýra hvernig Briar tengist tengiliðunum þínum.</string>
+  <string name="transports_onboarding_text">Ýttu hér til að stýra hvernig Nodex tengist tengiliðunum þínum.</string>
 
   <string name="transport_tor">Internet</string>
   <string name="tor_device_status_online_wifi">Síminn þinn er með aðgang að internetinu í gegnum Wi-Fi</string>
   <string name="tor_device_status_online_mobile">Síminn þinn er með aðgang að internetinu í gegnum farsímagögn</string>
   <string name="tor_device_status_offline">Síminn þinn er ekki með aðgang að internetinu</string>
-  <string name="tor_plugin_status_enabling">Briar er að tengjast við internetið</string>
-  <string name="tor_plugin_status_active">Briar er tengt við internetið</string>
-  <string name="tor_plugin_status_inactive">Briar getur ekki tengst við internetið</string>
-  <string name="tor_plugin_status_disabled">Briar er sett upp til að nota ekki internetið</string>
-  <string name="tor_plugin_status_disabled_mobile_data">Briar er sett upp til að nota ekki farsímagögn</string>
-  <string name="tor_plugin_status_disabled_battery">Briar er sett upp til að nota ekki internetið þegar keyrt er á rafhlöðu</string>
-  <string name="tor_plugin_status_disabled_country_blocked">Briar er sett upp til að nota ekki internetið í þessu landi</string>
+  <string name="tor_plugin_status_enabling">Nodex er að tengjast við internetið</string>
+  <string name="tor_plugin_status_active">Nodex er tengt við internetið</string>
+  <string name="tor_plugin_status_inactive">Nodex getur ekki tengst við internetið</string>
+  <string name="tor_plugin_status_disabled">Nodex er sett upp til að nota ekki internetið</string>
+  <string name="tor_plugin_status_disabled_mobile_data">Nodex er sett upp til að nota ekki farsímagögn</string>
+  <string name="tor_plugin_status_disabled_battery">Nodex er sett upp til að nota ekki internetið þegar keyrt er á rafhlöðu</string>
+  <string name="tor_plugin_status_disabled_country_blocked">Nodex er sett upp til að nota ekki internetið í þessu landi</string>
 
   <string name="transport_lan">Þráðlaust Wi-Fi net</string>
   <string name="transport_lan_long">Sama þráðlausa Wi-Fi netkerfið</string>
   <string name="lan_device_status_on">Síminn þinn er tengdur við Wi-Fi</string>
   <string name="lan_device_status_off">Síminn þinn er ekki tengdur við Wi-Fi</string>
-  <string name="lan_plugin_status_enabling">Briar er að tengjast við Wi-Fi-netið</string>
-  <string name="lan_plugin_status_active">Briar er tengt við við Wi-Fi-netið</string>
-  <string name="lan_plugin_status_inactive">Briar getur ekki tengst við Wi-Fi-netið</string>
-  <string name="lan_plugin_status_disabled">Briar er sett upp til að nota ekki Wi-Fi-netið</string>
+  <string name="lan_plugin_status_enabling">Nodex er að tengjast við Wi-Fi-netið</string>
+  <string name="lan_plugin_status_active">Nodex er tengt við við Wi-Fi-netið</string>
+  <string name="lan_plugin_status_inactive">Nodex getur ekki tengst við Wi-Fi-netið</string>
+  <string name="lan_plugin_status_disabled">Nodex er sett upp til að nota ekki Wi-Fi-netið</string>
 
   <string name="transport_bt">Bluetooth</string>
   <string name="bt_device_status_on">Kveikt er á Bluetooth-kerfi símans</string>
   <string name="bt_device_status_off">Slökkt er á Bluetooth-kerfi símans</string>
-  <string name="bt_plugin_status_enabling">Briar er að tengjast við Bluetooth</string>
-  <string name="bt_plugin_status_active">Briar er tengt við Bluetooth</string>
-  <string name="bt_plugin_status_inactive">Briar getur ekki tengst við Bluetooth</string>
-  <string name="bt_plugin_status_disabled">Briar er sett upp til að nota ekki Bluetooth</string>
+  <string name="bt_plugin_status_enabling">Nodex er að tengjast við Bluetooth</string>
+  <string name="bt_plugin_status_active">Nodex er tengt við Bluetooth</string>
+  <string name="bt_plugin_status_inactive">Nodex getur ekki tengst við Bluetooth</string>
+  <string name="bt_plugin_status_disabled">Nodex er sett upp til að nota ekki Bluetooth</string>
 
-  <string name="reminder_notification_title">Skráð út úr Briar</string>
+  <string name="reminder_notification_title">Skráð út úr Nodex</string>
   <string name="reminder_notification_text">Ýttu til að skrá þig aftur inn.</string>
-  <string name="reminder_notification_channel_title">Áminning um innskráningu í Briar</string>
+  <string name="reminder_notification_channel_title">Áminning um innskráningu í Nodex</string>
   <string name="reminder_notification_dismiss">Hafna</string>
-  <string name="ongoing_notification_title">Skráð inn í Briar</string>
-  <string name="ongoing_notification_text">Snertu til að opna Briar.</string>
+  <string name="ongoing_notification_title">Skráð inn í Nodex</string>
+  <string name="ongoing_notification_text">Snertu til að opna Nodex.</string>
   <plurals name="private_message_notification_text">
     <item quantity="one"> Ný einkaskilaboð.</item>
     <item quantity="other">%d ný einkaskilaboð.</item>
@@ -209,7 +209,7 @@
   <string name="save_image_success">Mynd var vistuð</string>
   <string name="save_image_error">Gat ekki vistað mynd</string>
   <string name="dialog_title_no_image_support">Myndir ekki tiltækar</string>
-  <string name="dialog_message_no_image_support">Briar-útgáfa tengiliðarins þíns styður ekki ennþá myndaviðhengi. Þegar þeir verða búnir að uppgæra hugbúnaðinn muntu sjá öðruvísi tákn.</string>
+  <string name="dialog_message_no_image_support">Nodex-útgáfa tengiliðarins þíns styður ekki ennþá myndaviðhengi. Þegar þeir verða búnir að uppgæra hugbúnaðinn muntu sjá öðruvísi tákn.</string>
   <string name="dialog_title_image_support">Þú getur núna sent myndir til þessa tengiliðar</string>
   <string name="dialog_message_image_support">Ýttu á þessa táknmynd til að hengja við myndir.</string>
   <string name="messaging_too_many_attachments_toast">Einungis fyrstu %d myndirnar verða sendar</string>
@@ -244,7 +244,7 @@
   <string name="add_contact_choose_a_nickname">Settu inn stuttnefni</string>
   <string name="nickname_intro">Gefðu tengiliðnum þínum stuttnefni/gælunafn. Einungis þú getur séð það.</string>
   <string name="your_link">Gefðu þennan tengil til tengiliðarins sem þú ætlar að bæta við</string>
-  <string name="link_clip_label">Briar tengill</string>
+  <string name="link_clip_label">Nodex tengill</string>
   <string name="link_copied_toast">Tengill afritaður</string>
   <string name="adding_contact_error">Villa kom upp við að bæta við tengiliðnum.</string>
   <string name="pending_contact_requests_snackbar">Það eru nokkrar tengiliðabeiðnir sem bíða</string>
@@ -259,7 +259,7 @@
   <string name="own_link_error">Settu inn tengilinn frá tengiliðnum þínum, ekki þinn eigin</string>
   <string name="nickname_missing">Settu inn stuttnefni</string>
   <string name="invalid_link">Ógildur tengill</string>
-  <string name="unsupported_link">Þessi tengill kemur frá nýrri útgáfu af Briar.\n\nUppfærðu í nýjustu útgáfuna og prófaðu síðan aftur.</string>
+  <string name="unsupported_link">Þessi tengill kemur frá nýrri útgáfu af Nodex.\n\nUppfærðu í nýjustu útgáfuna og prófaðu síðan aftur.</string>
   <string name="intent_own_link">Þú opnaðir þinn eigin tengil. Notaðu tengilinn frá tengiliðnum sem þú ætlar að bæta við!</string>
   <string name="missing_link">Settu inn tengil</string>
 
@@ -473,7 +473,7 @@
   <string name="change_profile_picture_failed_message">Því miður, eitthvað fór úrskeiðis við að uppfæra auðkennismyndina þína.</string>
 
   <string name="pref_language_title">Tungumál og landsvæði</string>
-  <string name="pref_language_changed">Þessi stilling tekur gildi í næst þegar þú skráir þig inn í Briar. Skráðu þig út og endurræstu Briar.</string>
+  <string name="pref_language_changed">Þessi stilling tekur gildi í næst þegar þú skráir þig inn í Nodex. Skráðu þig út og endurræstu Nodex.</string>
   <string name="pref_language_default">Sjálfgefið í kerfinu</string>
   <string name="display_settings_title">Birting</string>
   <string name="pref_theme_title">Þema</string>
@@ -499,11 +499,11 @@
 
   <string name="security_settings_title">Öryggi</string>
   <string name="pref_lock_title">Forritslæsing</string>
-  <string name="pref_lock_summary">Notaðu skjálæsingu tækisins til að vernda Briar á meðan þú ert skráð/ur inn</string>
+  <string name="pref_lock_summary">Notaðu skjálæsingu tækisins til að vernda Nodex á meðan þú ert skráð/ur inn</string>
   <string name="pref_lock_disabled_summary">Til að nota þetta þarftu að setja upp skjálæsingu fyrir tækið þitt</string>
   <string name="pref_lock_timeout_title">Tímamörk læsingar forrits við aðgerðaleysi</string>
 
-  <string name="pref_lock_timeout_summary">Þegar ekki er verið að nota Briar, læsa því sjálfvirkt eftir %s</string>
+  <string name="pref_lock_timeout_summary">Þegar ekki er verið að nota Nodex, læsa því sjálfvirkt eftir %s</string>
 
   <string name="pref_lock_timeout_1">1 mínúta</string>
 
@@ -515,7 +515,7 @@
 
   <string name="pref_lock_timeout_60">1 klukkustund</string>
   <string name="pref_lock_timeout_never">Aldrei</string>
-  <string name="pref_lock_timeout_never_summary">Aldrei læsa Briar sjálfvirkt</string>
+  <string name="pref_lock_timeout_never_summary">Aldrei læsa Nodex sjálfvirkt</string>
   <string name="change_password">Breyta lykilorði</string>
   <string name="current_password">Núverandi lykilorð</string>
   <string name="choose_new_password">Nýtt lykilorð</string>
@@ -523,7 +523,7 @@
   <string name="password_changed">Lykilorðinu hefur verið breytt</string>
   <string name="panic_setting">Uppsetning neyðarhnapps</string>
   <string name="panic_setting_title">Neyðarhnappur</string>
-  <string name="panic_setting_hint">Stilltu hvernig Briar mun bregðast við ef þú notar neyðarhnappsforrit</string>
+  <string name="panic_setting_hint">Stilltu hvernig Nodex mun bregðast við ef þú notar neyðarhnappsforrit</string>
   <string name="panic_app_setting_title">Forrit fyrir neyðarhnapp</string>
   <string name="unknown_app">óþekkt forrit</string>
   <string name="panic_app_setting_summary">Ekkert forrit hefur verið stillt</string>
@@ -532,9 +532,9 @@
   <string name="dialog_message_connect_panic_app">Ertu viss um að þú viljir leyfa %1$s að setja í gang eyðileggjandi neyðarhnappsaðgerðir?</string>
   <string name="panic_setting_destructive_action">Óafturkræfar aðgerðir</string>
   <string name="panic_setting_signout_title">Skrá út</string>
-  <string name="panic_setting_signout_summary">Skrá út úr Briar ef ýtt er á neyðarhnapp</string>
+  <string name="panic_setting_signout_summary">Skrá út úr Nodex ef ýtt er á neyðarhnapp</string>
   <string name="purge_setting_title">Eyða notandaaðgangi</string>
-  <string name="purge_setting_summary">Eyða Briar-aðgangnum þínum ef ýtt er á neyðarhnapp. Varúð: Þetta mun eyða endanlega auðkennunum þínum, tengiliðum og skilaboðum</string>
+  <string name="purge_setting_summary">Eyða Nodex-aðgangnum þínum ef ýtt er á neyðarhnapp. Varúð: Þetta mun eyða endanlega auðkennunum þínum, tengiliðum og skilaboðum</string>
 
   <string name="notification_settings_title">Tilkynningar</string>
   <string name="notify_sign_in_title">Minna mig á að skrá inn</string>
@@ -561,9 +561,9 @@
   <string name="mailbox_settings_title">Pósthólf</string>
   <string name="mailbox_setup_title">Uppsetning pósthólfs</string>
   <string name="mailbox_setup_intro">Pósthólf gerir tengiliðunum þínum kleift að senda þér skilaboð á meðan þú ert ekki á netinu. Pósthólfið tekur við skilaboðum og geymir þau þar til þú kemst í samband.\n
-		\nÞú getur sett upp Briar Mailbox pósthólfsforritið á aukatæki. Haltu því tengdu við rafmagn og Wi-Fi þannig að það verði alltaf til taks á netinu.</string>
-  <string name="mailbox_setup_download">Fyrst skaltu setja upp pósthólfsforritið á öðru tæki með því að leita að \"Briar Mailbox\" á Google Play eða hvar sem það var sem þú náðir í Briar.\n
-		\nTengdu síðan pósthólfið við Briar með því að skanna QR-kóðann sem birtist í pósthólfsforritinu.</string>
+		\nÞú getur sett upp Nodex Mailbox pósthólfsforritið á aukatæki. Haltu því tengdu við rafmagn og Wi-Fi þannig að það verði alltaf til taks á netinu.</string>
+  <string name="mailbox_setup_download">Fyrst skaltu setja upp pósthólfsforritið á öðru tæki með því að leita að \"Nodex Mailbox\" á Google Play eða hvar sem það var sem þú náðir í Nodex.\n
+		\nTengdu síðan pósthólfið við Nodex með því að skanna QR-kóðann sem birtist í pósthólfsforritinu.</string>
   <string name="mailbox_setup_download_link">Deila niðurhalstengli</string>
   <string name="mailbox_setup_button_scan">Skanna QR-kóða pósthólfs</string>
   <string name="permission_camera_qr_denied_body">Þú hefur hafnað aðgangi að myndavélinni, en það að skanna QR-kóða krefst notkun hennar.\n\nÍhugaðu að veita þennan aðgang.</string>
@@ -573,10 +573,10 @@
   <string name="mailbox_setup_io_error_title">Mistókst að tengjast</string>
   <string name="mailbox_setup_io_error_description">Gakktu úr skugga um að bæði tækin séu tengd við internetið og prófaðu svo aftur.</string>
   <string name="mailbox_setup_assertion_error_title">Villa í pósthólfi</string>
-  <string name="mailbox_setup_assertion_error_description">Sendu umsögn (með naflausum gögnum) í gegnum Briar forritið ef vandamálið er viðvarandi.</string>
+  <string name="mailbox_setup_assertion_error_description">Sendu umsögn (með naflausum gögnum) í gegnum Nodex forritið ef vandamálið er viðvarandi.</string>
   <string name="mailbox_setup_camera_error_description">Náði ekki sambandi við myndavél. Prófaðu aftur, kannski eftir að hafa endurræst tækið.</string>
   <string name="mailbox_setup_paired_title">Tengt</string>
-  <string name="mailbox_setup_paired_description">Tekist hefur að tengja pósthólfið þitt við Briar.\n
+  <string name="mailbox_setup_paired_description">Tekist hefur að tengja pósthólfið þitt við Nodex.\n
 		\nHaltu pósthólfinu þínu tengdu við rafmagn og Wi-Fi þannig að það sé alltaf á netinu.</string>
   <string name="tor_offline_title">Ónettengt</string>
   <string name="tor_offline_description">Gakktu úr skugga um að þetta tæki sé tengt við netið og að tengingar við internetið séu leyfðar.\n
@@ -617,10 +617,10 @@
   <string name="link_warning_text">Þetta er hægt að nota til að auðkenna þig. Hugsaðu þig vel um hvort þú treystir þeim sem sendi þér þennan tengil og íhugaðu hvort þú ættir frekar að opna hann með Tor-vafranum.</string>
   <string name="link_warning_open_link">Opna tengil</string>
 
-  <string name="crash_report_title">Hrunskýrsla fyrir Briar</string>
-  <string name="briar_crashed">Því miður, Briar hefur hrunið</string>
+  <string name="crash_report_title">Hrunskýrsla fyrir Nodex</string>
+  <string name="briar_crashed">Því miður, Nodex hefur hrunið</string>
   <string name="not_your_fault">Það er ekki þér að kenna.</string>
-  <string name="please_send_report">Hjálpaðu okkur við að bæta Briar með því að senda okkur hrunskýrslu.</string>
+  <string name="please_send_report">Hjálpaðu okkur við að bæta Nodex með því að senda okkur hrunskýrslu.</string>
   <string name="report_is_encrypted">Við lofum að skýrslan sé dulrituð og send á öruggan máta.</string>
   <string name="feedback_title">Umsagnir</string>
   <string name="describe_crash">Lýstu því hvað gerðist (valfrjálst)</string>
@@ -644,61 +644,61 @@
   <string name="close">Loka</string>
   <string name="dev_report_sending">Sendi umsögn…</string>
   <string name="dev_report_sent">Umsögn send</string>
-  <string name="dev_report_saved">Skýrsla vistuð. Hún verður send næst þegar þú skráir þig inn í Briar.</string>
+  <string name="dev_report_saved">Skýrsla vistuð. Hún verður send næst þegar þú skráir þig inn í Nodex.</string>
   <string name="dev_report_error">Villa: Sending skýrslu mistókst</string>
 
-  <string name="progress_title_logout">Skrái út úr Briar…</string>
+  <string name="progress_title_logout">Skrái út úr Nodex…</string>
 
   <string name="screen_filter_title">Skjáyfirlag fannst</string>
-  <string name="screen_filter_body">Annað forrit er að birta upplýsingar ofan á Briar. Í öryggisskyni mun Briar ekki bregðast við snertingum þegar annað forrit teiknar ofaná það.\n\nEftirfarandi forrit gætu verið að birta upplýsingar ofan á:\n\n%1$s</string>
-  <string name="screen_filter_body_api_30">Annað forrit er að birta upplýsingar ofan á Briar. Í öryggisskyni mun Briar ekki bregðast við snertingum þegar annað forrit teiknar ofaná það.\n\nSkoðaðu eftirfarandi forrit til að finna það þeirra sem gæti valdið þessu.</string>
+  <string name="screen_filter_body">Annað forrit er að birta upplýsingar ofan á Nodex. Í öryggisskyni mun Nodex ekki bregðast við snertingum þegar annað forrit teiknar ofaná það.\n\nEftirfarandi forrit gætu verið að birta upplýsingar ofan á:\n\n%1$s</string>
+  <string name="screen_filter_body_api_30">Annað forrit er að birta upplýsingar ofan á Nodex. Í öryggisskyni mun Nodex ekki bregðast við snertingum þegar annað forrit teiknar ofaná það.\n\nSkoðaðu eftirfarandi forrit til að finna það þeirra sem gæti valdið þessu.</string>
   <string name="screen_filter_allow">Leyfa þessum forritum að birta upplýsingar efst</string>
   <string name="screen_filter_review_apps">Yfirfara forrit</string>
 
   <string name="permission_camera_title">Heimildir á myndavél</string>
-  <string name="permission_camera_request_body">Til að skanna QR-kóðann þarf Briar heimild til að nota myndavélina.</string>
+  <string name="permission_camera_request_body">Til að skanna QR-kóðann þarf Nodex heimild til að nota myndavélina.</string>
   <string name="permission_location_title">Heimild fyrir staðsetningu</string>
-  <string name="permission_location_request_body">Til að finna Bluetooth-tæki, þarf Briar heimild til að nota staðsetningu þína.\n\nBriar geymir ekki staðsetningar eða deilir þeim með neinum.</string>
+  <string name="permission_location_request_body">Til að finna Bluetooth-tæki, þarf Nodex heimild til að nota staðsetningu þína.\n\nBriar geymir ekki staðsetningar eða deilir þeim með neinum.</string>
   <string name="permission_camera_location_title">Myndavél og staðsetning</string>
-  <string name="permission_camera_location_request_body">Til að skanna QR-kóðann, þarf Briar aðgang að myndavélinni.\n\nTil að finna Bluetooth-tæki, þarf Briar heimild til að nota staðsetningu þína.\n\nBriar geymir ekki staðsetningar eða deilir þeim með neinum.</string>
+  <string name="permission_camera_location_request_body">Til að skanna QR-kóðann, þarf Nodex aðgang að myndavélinni.\n\nTil að finna Bluetooth-tæki, þarf Nodex heimild til að nota staðsetningu þína.\n\nBriar geymir ekki staðsetningar eða deilir þeim með neinum.</string>
   <string name="permission_camera_denied_body">Þú hefur hafnað aðgangi að myndavélinni, en það að bæta við tengiliðum krefst notkun hennar.\n\nÍhugaðu að veita þennan aðgang.</string>
-  <string name="permission_location_denied_body">Þú hefur hafnað aðgangi að staðsetningu, en Briar þarf þessa heimild til að geta fundið Bluetooth-tæki.\n\nÍhugaðu að veita þennan aðgang.</string>
+  <string name="permission_location_denied_body">Þú hefur hafnað aðgangi að staðsetningu, en Nodex þarf þessa heimild til að geta fundið Bluetooth-tæki.\n\nÍhugaðu að veita þennan aðgang.</string>
   <string name="permission_location_setting_title">Stilling staðsetningar</string>
   <string name="permission_location_setting_body">Kveikt þarf að vera á staðsetningu tækisins þíns til að geta fundið önnur tæki með Bluetooth. Virkjaðu staðsetningu til að halda áfram. Þú getur svo gert hana óvirka aftur á eftir.</string>
   <string name="permission_location_setting_button">Virkja staðsetningu</string>
   <string name="qr_code">QR-kóði</string>
   <string name="show_qr_code_fullscreen">Birta QR-kóða á öllum skjánum</string>
 
-  <string name="lock_unlock">Aflæsa Briar</string>
-  <string name="lock_unlock_verbose">Settu inn PIN-númer tækisins, mynstur eða lykilorðið þitt til að aflæsa Briar</string>
+  <string name="lock_unlock">Aflæsa Nodex</string>
+  <string name="lock_unlock_verbose">Settu inn PIN-númer tækisins, mynstur eða lykilorðið þitt til að aflæsa Nodex</string>
   <string name="lock_unlock_fingerprint_description">Snertu fingrafaraskynjarann með viðeigandi fingri til að halda áfram</string>
   <string name="lock_unlock_password">Nota lykilorð</string>
-  <string name="lock_is_locked">Briar er læst</string>
+  <string name="lock_is_locked">Nodex er læst</string>
   <string name="lock_tap_to_unlock">Ýttu til að aflæsa</string>
 
-  <string name="transports_help_text">Briar getur tengst við tengiliðina þína í gegnum internet, Wi-Fi eða Bluetooth.\n\nAllar internettengingar fara í gegnum Tor-netkerfið til að gæta gagnaleyndar.\n\nEf hægt er að nálgast tengilið með mörgum leiðum, notar Briar þær samhliða.</string>
+  <string name="transports_help_text">Nodex getur tengst við tengiliðina þína í gegnum internet, Wi-Fi eða Bluetooth.\n\nAllar internettengingar fara í gegnum Tor-netkerfið til að gæta gagnaleyndar.\n\nEf hægt er að nálgast tengilið með mörgum leiðum, notar Nodex þær samhliða.</string>
 
   <string name="hotspot_title">Deila þessu forriti án nettengingar</string>
   <string name="hotspot_intro">Deildu þessu forriti til einhvers í næsta nágrenni án internet-tengingar með því að nota Wi-Fi kerfi símans.
-		\n\nSnjallsíminn þinn mun setja í gang Wi-Fi aðgangsstað. Fólk í nágrenninu getur tengst aðgangsstaðnum og sótt Briar-forritið frá símanum þínum.</string>
+		\n\nSnjallsíminn þinn mun setja í gang Wi-Fi aðgangsstað. Fólk í nágrenninu getur tengst aðgangsstaðnum og sótt Nodex-forritið frá símanum þínum.</string>
   <string name="hotspot_button_start_sharing">Ræsa aðgangsstað</string>
   <string name="hotspot_button_stop_sharing">Stöðva aðgangsstað</string>
   <string name="hotspot_progress_text_start">Set upp aðgangsstað…</string>
   <string name="hotspot_notification_channel_title">Þráðlaus Wi-Fi aðgangsstaður</string>
-  <string name="hotspot_notification_title">Deiling Briar án nettengingar</string>
+  <string name="hotspot_notification_title">Deiling Nodex án nettengingar</string>
   <string name="hotspot_button_connected">Næsta</string>
-  <string name="permission_hotspot_location_request_body">Til að útbúa Wi-Fi aðgangsstað, þarf Briar heimild til að nota staðsetningu þína.\n\nBriar geymir ekki staðsetningar eða deilir þeim með neinum.</string>
-  <string name="permission_hotspot_location_denied_body">Þú hefur hafnað aðgangi að staðsetningu, en Briar þarf þessa heimild til að geta útbúið Wi-Fi-aðgangsstað.\n\nÍhugaðu að veita þennan aðgang.</string>
+  <string name="permission_hotspot_location_request_body">Til að útbúa Wi-Fi aðgangsstað, þarf Nodex heimild til að nota staðsetningu þína.\n\nBriar geymir ekki staðsetningar eða deilir þeim með neinum.</string>
+  <string name="permission_hotspot_location_denied_body">Þú hefur hafnað aðgangi að staðsetningu, en Nodex þarf þessa heimild til að geta útbúið Wi-Fi-aðgangsstað.\n\nÍhugaðu að veita þennan aðgang.</string>
   <string name="wifi_settings_title">Wi-Fi-stillingar</string>
-  <string name="wifi_settings_request_enable_body">Til að útbúa Wi-Fi aðgangsstað þarf Briar að nota Wi-Fi. Virkjaðu það.</string>
+  <string name="wifi_settings_request_enable_body">Til að útbúa Wi-Fi aðgangsstað þarf Nodex að nota Wi-Fi. Virkjaðu það.</string>
   <string name="hotspot_tab_manual">Handvirkt</string>
 
   <string name="hotspot_scanning_a_qr_code">skanna QR-kóða</string>
 
 
-  <string name="hotspot_manual_wifi">Síminn þinn er að reka Wi-Fi aðgangsstað. Fólk sem vill sækja Briar getur tengst aðgangsstaðnum með því að bæta honum við í Wi-Fi stillingum tækisins síns með upplýsingunum hér fyrir neðan eða með því að %s. Þegar þau hafa tengst aðgangsstaðnum er ýtt á \'Næsta\'.</string>
+  <string name="hotspot_manual_wifi">Síminn þinn er að reka Wi-Fi aðgangsstað. Fólk sem vill sækja Nodex getur tengst aðgangsstaðnum með því að bæta honum við í Wi-Fi stillingum tækisins síns með upplýsingunum hér fyrir neðan eða með því að %s. Þegar þau hafa tengst aðgangsstaðnum er ýtt á \'Næsta\'.</string>
   <string name="hotspot_manual_wifi_ssid">Heiti netkerfis</string>
-  <string name="hotspot_qr_wifi">Síminn þinn er að reka Wi-Fi aðgangsstað. Fólk sem vill sækja Briar getur tengst aðgangsstaðnum með því að skanna þennan QR-kóða. Þegar þau hafa tengst aðgangsstaðnum er ýtt á \'Næsta\'.</string>
+  <string name="hotspot_qr_wifi">Síminn þinn er að reka Wi-Fi aðgangsstað. Fólk sem vill sækja Nodex getur tengst aðgangsstaðnum með því að skanna þennan QR-kóða. Þegar þau hafa tengst aðgangsstaðnum er ýtt á \'Næsta\'.</string>
   <string name="hotspot_no_peers_connected">Engin tæki tengd</string>
   <plurals name="hotspot_peers_connected">
     <item quantity="one">%s tæki tengt</item>
@@ -706,9 +706,9 @@
   </plurals>
 
 
-  <string name="hotspot_manual_site">Síminn þinn er að reka Wi-Fi aðgangsstað. Fólk sem er tengt aðgangsstaðnum getur sótt Briar með því að skrifa eftirfarandi slóð inn í vafra eða %s.</string>
+  <string name="hotspot_manual_site">Síminn þinn er að reka Wi-Fi aðgangsstað. Fólk sem er tengt aðgangsstaðnum getur sótt Nodex með því að skrifa eftirfarandi slóð inn í vafra eða %s.</string>
   <string name="hotspot_manual_site_address">Vistfang (URL)</string>
-  <string name="hotspot_qr_site">Síminn þinn er að reka Wi-Fi aðgangsstað. Fólk sem er tengt aðgangsstaðnum getur sótt Briar með því að skanna þennan QR-kóða.</string>
+  <string name="hotspot_qr_site">Síminn þinn er að reka Wi-Fi aðgangsstað. Fólk sem er tengt aðgangsstaðnum getur sótt Nodex með því að skanna þennan QR-kóða.</string>
 
   <string name="website_download_outro">Eftir að niðurhalinu er lokið, skaltu opna sóttu skrána og setja hana upp.</string>
   <string name="website_troubleshooting_title">Lausn á vandamálum</string>
@@ -718,14 +718,14 @@
   <string name="hotspot_help_wifi_title">Vandamál við að tengjast við Wi-Fi:</string>
   <string name="hotspot_help_wifi_1">Prófaðu að gera Wi-Fi óvirkt og virkja það aftur á báðum símunum og reyndu svo aftur.</string>
   <string name="hotspot_help_wifi_2">Ef síminn þinn kvartar yfir að Wi-Fi kerfið sé ekki með neina internettengingu, skaltu segjast vilja samt halda tengingunni.</string>
-  <string name="hotspot_help_wifi_3">Endurræstu símann sem er að keyra Wi-Fi aðgangsstaðinn, ræstu síðan Briar og prófaðu aftur að deila.</string>
+  <string name="hotspot_help_wifi_3">Endurræstu símann sem er að keyra Wi-Fi aðgangsstaðinn, ræstu síðan Nodex og prófaðu aftur að deila.</string>
   <string name="hotspot_help_site_title">Vandamál við að skoða staðvært vefsvæði:</string>
   <string name="hotspot_help_site_1">Gakktu úr skugga um að þú hafir sett vistfangið inn nákvæmlega eins og sýnt er. Smávægileg frávik valta því að þetta virkar ekki.</string>
   <string name="hotspot_help_site_2">Gakktu úr skugga um að síminn þinn sé ennþá tengdur við rétta Wi-Fi netið (sjá fyrir ofan) þegar þú reynir að tengjast vefsvæðinu.</string>
   <string name="hotspot_help_site_3">Ef þú ert með eldveggjarhugbúnað í gangi, skaltu vera viss um að það sé ekki að loka fyrir aðgang.</string>
-  <string name="hotspot_help_site_4">Ef þú getur skoðað vefsvæðið en ekki sótt Briar-forritið, ættirðu að prófa það með öðrum vafra.</string>
+  <string name="hotspot_help_site_4">Ef þú getur skoðað vefsvæðið en ekki sótt Nodex-forritið, ættirðu að prófa það með öðrum vafra.</string>
   <string name="hotspot_help_fallback_title">Virkar ekkert?</string>
-  <string name="hotspot_help_fallback_intro">Þú getur reynt að vista forritið sem .apk skrá til að deila því á einhvern annan máta. Þegar skráin hefur verið færð yfir á hitt tækið, má nota hana til að setja upp Briar.
+  <string name="hotspot_help_fallback_intro">Þú getur reynt að vista forritið sem .apk skrá til að deila því á einhvern annan máta. Þegar skráin hefur verið færð yfir á hitt tækið, má nota hana til að setja upp Nodex.
 		\n\nÁbending: Til að deila í gegnum Bluetooth, gætirðu fyrst þurft að endurnefna hana þannig að nafnið endi á .zip.</string>
   <string name="hotspot_help_fallback_button">Vista forrit</string>
 
@@ -735,18 +735,18 @@
   <string name="hotspot_error_start_callback_failed_unknown">Aðgangsstaður ræstist ekki vegna óþekktrar villu, ástæðan er %d</string>
   <string name="hotspot_error_start_callback_no_group_info">Aðgangsstaður ræstist ekki: engar hópupplýsingar</string>
   <string name="hotspot_error_web_server_start">Villa við að ræsa vefþjón</string>
-  <string name="hotspot_error_web_server_serve">Villa við að birta vefsvæði.\n\nSendu umsögn (með naflausum gögnum) í gegnum Briar forritið ef vandamálið er viðvarandi.</string>
+  <string name="hotspot_error_web_server_serve">Villa við að birta vefsvæði.\n\nSendu umsögn (með naflausum gögnum) í gegnum Nodex forritið ef vandamálið er viðvarandi.</string>
   <string name="hotspot_flag_test">Aðvörun: Þetta forrit var sett upp með Android Studio og er EKKI hægt að setja upp á öðru tæki.</string>
   <string name="hotspot_error_framework_busy">Tekst ekki að ræsa aðgangsstaðinn.\n\nEf þú ert að keyra annan aðgangsstað eða ert að deila internettengingunni þinni í gegnum Wi-Fi, skaltu slökkva á því og prófa síðan aftur.</string>
 
   <string name="removable_drive_menu_title">Tengjast í gegnum útskiptanlegt drif</string>
-  <string name="removable_drive_intro">Ef þú nærð ekki að tengjast tengiliðnum þínum í gegnum internet, Wi-Fi eða Bluetooth, getur Briar einnig flutt skilaboð á útskiptanleg drif á borð við USB-minnislykil eða SD-minniskort.</string>
-  <string name="removable_drive_explanation">Ef þú nærð ekki að tengjast tengiliðnum þínum í gegnum internet, Wi-Fi eða Bluetooth, getur Briar einnig flutt skilaboð á útskiptanleg drif á borð við USB-minnislykil eða SD-minniskort.\n\nÞegar þú sérð hnappinn \"Senda gögn\", verða öll gögn sem bíða eftir að verða send til tengiliðarins skrifuð á útskiptanlega drifið. Þar má telja einkaskilaboð, viðhengi, blogg, spjallsvæði og einkahópar.\n\nAlltsaman verður dulritað áður en það er skrifað á útskiptanlega drifið.\n\nÞegar tengiliðurinn fær svo útskiptanlega drifið í hendurnar, getur hann notað hnappinn \"Taka við gögnum\" til að flytja öll skilaboðin inn í Briar.</string>
+  <string name="removable_drive_intro">Ef þú nærð ekki að tengjast tengiliðnum þínum í gegnum internet, Wi-Fi eða Bluetooth, getur Nodex einnig flutt skilaboð á útskiptanleg drif á borð við USB-minnislykil eða SD-minniskort.</string>
+  <string name="removable_drive_explanation">Ef þú nærð ekki að tengjast tengiliðnum þínum í gegnum internet, Wi-Fi eða Bluetooth, getur Nodex einnig flutt skilaboð á útskiptanleg drif á borð við USB-minnislykil eða SD-minniskort.\n\nÞegar þú sérð hnappinn \"Senda gögn\", verða öll gögn sem bíða eftir að verða send til tengiliðarins skrifuð á útskiptanlega drifið. Þar má telja einkaskilaboð, viðhengi, blogg, spjallsvæði og einkahópar.\n\nAlltsaman verður dulritað áður en það er skrifað á útskiptanlega drifið.\n\nÞegar tengiliðurinn fær svo útskiptanlega drifið í hendurnar, getur hann notað hnappinn \"Taka við gögnum\" til að flytja öll skilaboðin inn í Nodex.</string>
   <string name="removable_drive_title_send">Senda gögn</string>
   <string name="removable_drive_title_receive">Taka við gögnum</string>
   <string name="removable_drive_send_intro">Ýttu á hnappinn hér fyrir neðan til að útbúa nýja skrá sem inniheldur dulrituðu skilaboðin. Þú getur valið hvar skráin verður vistuð.\n\nEf þú ætlar að vista skrána á útskiptanlegt drif, skaltu setja það í samband núna.</string>
   <string name="removable_drive_send_no_data">Það eru engin skilaboð sem bíða eftir að vera send til þessa tengiliðar.</string>
-  <string name="removable_drive_send_not_supported">Þessi tengiliður er að nota gamla útgáfu af Briar eða gamalt tæki sem styður ekki þennan eiginleika.</string>
+  <string name="removable_drive_send_not_supported">Þessi tengiliður er að nota gamla útgáfu af Nodex eða gamalt tæki sem styður ekki þennan eiginleika.</string>
   <string name="removable_drive_send_button">Veldu skrá til að flytja út</string>
   <string name="removable_drive_ongoing">Bíddu eftir að verk sem er í gangi klárist</string>
   <string name="removable_drive_receive_intro">Ýttu á hnappinn hér fyrir neðan til að velja skrána sem tengiliðurinn sendi þér.\n\nEf skráin er á útskiptanlegu drifi, skaltu tengja það núna.</string>
@@ -756,9 +756,9 @@
   <string name="removable_drive_success_receive_title">Innflutningur tókst</string>
   <string name="removable_drive_success_receive_text">Öll dulrituð skilaboð inni í þessari skrá hafa verið móttekin.</string>
   <string name="removable_drive_error_send_title">Villa við útflutning gagna</string>
-  <string name="removable_drive_error_send_text">Villa kom upp við að skrifa gögn í skrána.\n\nEf þú ert að nota útskiptanlegt drif, gakkti þá úr skugga um að það sé rétt tengt og prófaðu svo aftur.\n\nEf villan heldur áfram að birtast, skaltu endilega senda Briar-teyminu línu og láta þau vita af vandamálinu.</string>
+  <string name="removable_drive_error_send_text">Villa kom upp við að skrifa gögn í skrána.\n\nEf þú ert að nota útskiptanlegt drif, gakkti þá úr skugga um að það sé rétt tengt og prófaðu svo aftur.\n\nEf villan heldur áfram að birtast, skaltu endilega senda Nodex-teyminu línu og láta þau vita af vandamálinu.</string>
   <string name="removable_drive_error_receive_title">Villa í innflutningi gagna</string>
-  <string name="removable_drive_error_receive_text">Valda skráin innihélt ekkert sem Briar gat lagt kennsl á.\n\nVertu viss um að þú hafir valið rétta skrá.\n\nEf tengiliðurinn þinn útbjó skrána fyrir meira en 28 dögum síðan, mun Briar ekki geta þekkt hana.</string>
+  <string name="removable_drive_error_receive_text">Valda skráin innihélt ekkert sem Nodex gat lagt kennsl á.\n\nVertu viss um að þú hafir valið rétta skrá.\n\nEf tengiliðurinn þinn útbjó skrána fyrir meira en 28 dögum síðan, mun Nodex ekki geta þekkt hana.</string>
 
 
   <string name="screenshot_alice">Lísa</string>
@@ -769,7 +769,7 @@
 
   <string name="screenshot_message_1">Hæ Bjössi!</string>
 
-  <string name="screenshot_message_2">Hæ Lísa! Takk fyrir að segja mér frá Briar!</string>
+  <string name="screenshot_message_2">Hæ Lísa! Takk fyrir að segja mér frá Nodex!</string>
 
   <string name="screenshot_message_3">Ekki málið, vona að þér líki það 😀</string>
 </resources>

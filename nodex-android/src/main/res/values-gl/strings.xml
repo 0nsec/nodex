@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
-	<string name="setup_title">Benvida a Briar</string>
+	<string name="setup_title">Benvida a Nodex</string>
 	<string name="setup_name_explanation">O teu alcume mostrarase xunto a todas as mensaxes que publiques. Podes cambialo tras crear a túa conta.</string>
 	<string name="setup_next">Seguinte</string>
 	<string name="setup_password_intro">Elixe un Contrasinal</string>
-	<string name="setup_password_explanation">A túa conta en Briar gárdase cifrada no teu dispositivo, non na nube. Se esqueces o contrasinal ou desinstalas Briar, non haberá xeito de recuperar a túa conta.\n\nEscolle un contrasinal longo que sexa difícil de adiviñar, algo como catro palabras ao chou, ou dez letras aleatorias, números e símbolos.</string>
+	<string name="setup_password_explanation">A túa conta en Nodex gárdase cifrada no teu dispositivo, non na nube. Se esqueces o contrasinal ou desinstalas Nodex, non haberá xeito de recuperar a túa conta.\n\nEscolle un contrasinal longo que sexa difícil de adiviñar, algo como catro palabras ao chou, ou dez letras aleatorias, números e símbolos.</string>
 	<string name="dnkm_doze_title">Conexións en segundo plano</string>
-	<string name="dnkm_doze_intro">Para recibir mensaxes, Briar precisa estar conectada en segundo plano.</string>
-	<string name="dnkm_doze_explanation">Para recibir mensaxes, Briar precisa estar conectada en segundo plano. Por favor desactiva as optimizacións de batería para que Briar poida permanecer conectada.</string>
+	<string name="dnkm_doze_intro">Para recibir mensaxes, Nodex precisa estar conectada en segundo plano.</string>
+	<string name="dnkm_doze_explanation">Para recibir mensaxes, Nodex precisa estar conectada en segundo plano. Por favor desactiva as optimizacións de batería para que Nodex poida permanecer conectada.</string>
 	<string name="dnkm_doze_button">Permitir conexións</string>
 	<string name="choose_nickname">Escolle o teu alcume</string>
 	<string name="choose_password">Elixe o teu contrasinal</string>
@@ -19,27 +19,27 @@
 	<string name="create_account_button">Crea unha conta</string>
 	<string name="more_info">Máis información</string>
 	<string name="don_t_ask_again">Non preguntar de novo</string>
-	<string name="dnkm_huawei_protected_text">Por favor toca o botón inferior e asegúrate de que Briar está protexida na pantalla \"Apps Protexidas\"</string>
-	<string name="dnkm_huawei_protected_button">Protexer Briar</string>
-	<string name="dnkm_huawei_protected_help">Se Briar non se engade ao listado de apps protexidas, non poderá funcionar en segundo plano.</string>
-	<string name="dnkm_xiaomi_button">Protexer Briar</string>
+	<string name="dnkm_huawei_protected_text">Por favor toca o botón inferior e asegúrate de que Nodex está protexida na pantalla \"Apps Protexidas\"</string>
+	<string name="dnkm_huawei_protected_button">Protexer Nodex</string>
+	<string name="dnkm_huawei_protected_help">Se Nodex non se engade ao listado de apps protexidas, non poderá funcionar en segundo plano.</string>
+	<string name="dnkm_xiaomi_button">Protexer Nodex</string>
 	<string name="dnkm_warning_dozed">%s non foi quen de funcionar en segundo plano</string>
 
 	<string name="enter_password">Contrasinal</string>
 	<string name="try_again">Contrasinal incorrecto, tenteo de novo</string>
 	<string name="dialog_title_cannot_check_password">Non se comprobou o contrasinal</string>
-	<string name="dialog_message_cannot_check_password">Briar non pode comprobar o contrasinal. Intenta reiniciar o dispositivo para solucionar o problema.</string>
+	<string name="dialog_message_cannot_check_password">Nodex non pode comprobar o contrasinal. Intenta reiniciar o dispositivo para solucionar o problema.</string>
 	<string name="sign_in_button">Iniciar sesión</string>
 	<string name="forgotten_password">Esquecín a miña clave</string>
   <string name="dialog_title_lost_password">Contrasinal perdido</string>
-  <string name="dialog_message_lost_password">Briar almacena a túa configuración cifrada no dispositivo, non na nube, así que non podemos restabelecer o teu contrasinal. Quererías borrar a túa conta e empezar de novo?\n\nPrecaución: As túas identidades, contactos e mensaxes serán eliminadas de forma permanente.</string>
-  <string name="startup_failed_activity_title">Fallo de Inicio de Briar</string>
+  <string name="dialog_message_lost_password">Nodex almacena a túa configuración cifrada no dispositivo, non na nube, así que non podemos restabelecer o teu contrasinal. Quererías borrar a túa conta e empezar de novo?\n\nPrecaución: As túas identidades, contactos e mensaxes serán eliminadas de forma permanente.</string>
+  <string name="startup_failed_activity_title">Fallo de Inicio de Nodex</string>
   <plurals name="expiry_warning">
-    <item quantity="one">Esta versión de Briar é para probas. A conta caducará en %d día e non se pode anovar.</item>
-    <item quantity="other">Esta é unha versión de proba de Briar. A conta caducará en %d días e non se pode anovar.</item>
+    <item quantity="one">Esta versión de Nodex é para probas. A conta caducará en %d día e non se pode anovar.</item>
+    <item quantity="other">Esta é unha versión de proba de Nodex. A conta caducará en %d días e non se pode anovar.</item>
   </plurals>
   <string name="expiry_date_reached">Este software caducou.\nGrazas por probalo!</string>
-  <string name="download_briar">Para seguir utilizando Briar, descarga por favor a última versión.</string>
+  <string name="download_briar">Para seguir utilizando Nodex, descarga por favor a última versión.</string>
   <string name="create_new_account">Precisas crear unha nova conta, pero podes utilizar o mesmo alcume.</string>
   <string name="download_briar_button">Descargar Última Versión</string>
   <string name="delete_account_button">Eliminar conta</string>
@@ -57,43 +57,43 @@
   <string name="lock_button">Bloquear App</string>
   <string name="settings_button">Axustes</string>
   <string name="sign_out_button">Finalizar sesión</string>
-  <string name="transports_onboarding_text">Toca aquí para controlar o xeito en que Briar conecta cos teus contactos.</string>
+  <string name="transports_onboarding_text">Toca aquí para controlar o xeito en que Nodex conecta cos teus contactos.</string>
 
   <string name="transport_tor">Internet</string>
   <string name="tor_device_status_online_wifi">O teu móbil ten acceso a internet por Wi-Fi</string>
   <string name="tor_device_status_online_mobile">O teu móbil ten acceso a internet por datos móbiles</string>
   <string name="tor_device_status_offline">O teu móbil non ten acceso a internet</string>
-  <string name="tor_plugin_status_enabling">Briar estase conectando a internet</string>
-  <string name="tor_plugin_status_active">Briar está conectada a internet</string>
-  <string name="tor_plugin_status_inactive">Briar non pode conectarse a internet</string>
-  <string name="tor_plugin_status_disabled">Briar está configurada para non usar internet</string>
-  <string name="tor_plugin_status_disabled_mobile_data">Briar está configurada para non usar datos móbilies</string>
-  <string name="tor_plugin_status_disabled_battery">Briar está configurada para non usar internet se está usando batería</string>
-  <string name="tor_plugin_status_disabled_country_blocked">Briar está configurada para non usar internet neste país</string>
+  <string name="tor_plugin_status_enabling">Nodex estase conectando a internet</string>
+  <string name="tor_plugin_status_active">Nodex está conectada a internet</string>
+  <string name="tor_plugin_status_inactive">Nodex non pode conectarse a internet</string>
+  <string name="tor_plugin_status_disabled">Nodex está configurada para non usar internet</string>
+  <string name="tor_plugin_status_disabled_mobile_data">Nodex está configurada para non usar datos móbilies</string>
+  <string name="tor_plugin_status_disabled_battery">Nodex está configurada para non usar internet se está usando batería</string>
+  <string name="tor_plugin_status_disabled_country_blocked">Nodex está configurada para non usar internet neste país</string>
 
   <string name="transport_lan">Wi-Fi</string>
   <string name="transport_lan_long">Mesma rede Wi-Fi</string>
   <string name="lan_device_status_on">O móbil está conectado á Wi-Fi</string>
   <string name="lan_device_status_off">O móbil non está conectado á Wi-Fi</string>
-  <string name="lan_plugin_status_enabling">Briar está conectando á rede Wi-Fi</string>
-  <string name="lan_plugin_status_active">Briar está conectada á rede Wi-Fi</string>
-  <string name="lan_plugin_status_inactive">Briar non pode conectar coa rede Wi-Fi</string>
-  <string name="lan_plugin_status_disabled">Briar está configurada para non usar a rede Wi-Fi</string>
+  <string name="lan_plugin_status_enabling">Nodex está conectando á rede Wi-Fi</string>
+  <string name="lan_plugin_status_active">Nodex está conectada á rede Wi-Fi</string>
+  <string name="lan_plugin_status_inactive">Nodex non pode conectar coa rede Wi-Fi</string>
+  <string name="lan_plugin_status_disabled">Nodex está configurada para non usar a rede Wi-Fi</string>
 
   <string name="transport_bt">Bluetooth</string>
   <string name="bt_device_status_on">O móbil ten o Bluetooth activado</string>
   <string name="bt_device_status_off">O móbil ten o Bluetooth desactivado</string>
-  <string name="bt_plugin_status_enabling">Briar está conectando por Bluetooth</string>
-  <string name="bt_plugin_status_active">Briar está conectada ó Bluetooth</string>
-  <string name="bt_plugin_status_inactive">Briar non pode conectar por Bluetooth</string>
-  <string name="bt_plugin_status_disabled">Briar está configurada para non usar Bluetooth</string>
+  <string name="bt_plugin_status_enabling">Nodex está conectando por Bluetooth</string>
+  <string name="bt_plugin_status_active">Nodex está conectada ó Bluetooth</string>
+  <string name="bt_plugin_status_inactive">Nodex non pode conectar por Bluetooth</string>
+  <string name="bt_plugin_status_disabled">Nodex está configurada para non usar Bluetooth</string>
 
-  <string name="reminder_notification_title">Desconectaches de Briar</string>
+  <string name="reminder_notification_title">Desconectaches de Nodex</string>
   <string name="reminder_notification_text">Toca para volver a conectar</string>
-  <string name="reminder_notification_channel_title">Recordatorio para conectar a Briar</string>
+  <string name="reminder_notification_channel_title">Recordatorio para conectar a Nodex</string>
   <string name="reminder_notification_dismiss">Desbotar</string>
-  <string name="ongoing_notification_title">Conectada a Briar</string>
-  <string name="ongoing_notification_text">Toca para abrir Briar</string>
+  <string name="ongoing_notification_title">Conectada a Nodex</string>
+  <string name="ongoing_notification_text">Toca para abrir Nodex</string>
   <plurals name="private_message_notification_text">
     <item quantity="one">Nova mensaxe privada.</item>
     <item quantity="other">%d novas mensaxes privadas.</item>
@@ -201,7 +201,7 @@
   <string name="save_image_success">Gardouse a imaxe</string>
   <string name="save_image_error">Non se gardou a imaxe</string>
   <string name="dialog_title_no_image_support">Imaxes non dispoñibles</string>
-  <string name="dialog_message_no_image_support">O cliente do teu contacto Briar non admite anexos de imaxes. Unha vez actualice verá unha icona diferente.</string>
+  <string name="dialog_message_no_image_support">O cliente do teu contacto Nodex non admite anexos de imaxes. Unha vez actualice verá unha icona diferente.</string>
   <string name="dialog_title_image_support">Xa podes enviar imaxes a este contacto</string>
   <string name="dialog_message_image_support">Toque nesta icona para anexar imaxes.</string>
   <string name="messaging_too_many_attachments_toast">Só se enviarán as primeiras %d imaxes</string>
@@ -238,7 +238,7 @@
   <string name="add_contact_choose_a_nickname">Escribe un alcume</string>
   <string name="nickname_intro">Dálle un alcume ao contacto. Só ti pode velo.</string>
   <string name="your_link">Envía esta ligazón ao contacto que queres engadir</string>
-  <string name="link_clip_label">Ligazón Briar</string>
+  <string name="link_clip_label">Ligazón Nodex</string>
   <string name="link_copied_toast">Ligazón copiada</string>
   <string name="adding_contact_error">Algo fallou ao engadir o contacto.</string>
   <string name="pending_contact_requests_snackbar">Existen solicitudes de contactos pendentes</string>
@@ -253,7 +253,7 @@
   <string name="own_link_error">Introduza a ligazón do contacto, non o propio</string>
   <string name="nickname_missing">Por favor escribe un alcume</string>
   <string name="invalid_link">Ligazón non válida</string>
-  <string name="unsupported_link">Esta ligazón chega desde unha versión nova de Briar. Por favor, actualiza a nova versión e inténtao de novo.</string>
+  <string name="unsupported_link">Esta ligazón chega desde unha versión nova de Nodex. Por favor, actualiza a nova versión e inténtao de novo.</string>
   <string name="intent_own_link">Abreu a súa propia ligazón. Utilice a do contacto que quere engadir!</string>
   <string name="missing_link">Por favor escribe unha ligazón</string>
 
@@ -276,7 +276,7 @@
   <string name="pending_contact_updated_toast">Contacto pendente actualizado</string>
 
   <string name="introduction_onboarding_title">Presenta aos seus contactos</string>
-  <string name="introduction_onboarding_text">Podes presentar aos teus contactos, así non precisan encontrarse en persoa para conectar a través de Briar.</string>
+  <string name="introduction_onboarding_text">Podes presentar aos teus contactos, así non precisan encontrarse en persoa para conectar a través de Nodex.</string>
   <string name="introduction_menu_item">Preséntate</string>
   <string name="introduction_activity_title">Elixe Contacto</string>
   <string name="introduction_not_possible">Xa tes unha presentación en progreso con estes contactos. Por favor, deixa que remate o proceso. Isto podería levar algún tempo se ti ou os contactos raramente se conectan.</string>
@@ -461,7 +461,7 @@
   <string name="change_profile_picture_failed_message">Lamentámolo, pero algo fallou cando intentamos actualizar a túa imaxe de pefil</string>
 
   <string name="pref_language_title">Idioma  &amp; rexión</string>
-  <string name="pref_language_changed">Este axuste terá efecto cando reinicies Briar. Pecha e reinicia Briar.</string>
+  <string name="pref_language_changed">Este axuste terá efecto cando reinicies Nodex. Pecha e reinicia Nodex.</string>
   <string name="pref_language_default">Por defecto no sistema</string>
   <string name="display_settings_title">Pantalla</string>
   <string name="pref_theme_title">Decorado</string>
@@ -488,11 +488,11 @@
 
   <string name="security_settings_title">Seguridade</string>
   <string name="pref_lock_title">Bloquear app</string>
-  <string name="pref_lock_summary">Utilizar o bloqueo de pantalla do dispositio para protexer Briar mentras estás conectada</string>
+  <string name="pref_lock_summary">Utilizar o bloqueo de pantalla do dispositio para protexer Nodex mentras estás conectada</string>
   <string name="pref_lock_disabled_summary">Para utilizar esta función, axusta o bloqueo de pantalla do dispositivo</string>
   <string name="pref_lock_timeout_title">Tempo de espera en inactividade para o bloqueo</string>
 
-  <string name="pref_lock_timeout_summary">Cando non uses Briar, bloquea automáticamente tras %s</string>
+  <string name="pref_lock_timeout_summary">Cando non uses Nodex, bloquea automáticamente tras %s</string>
 
   <string name="pref_lock_timeout_1">1 minuto</string>
 
@@ -504,7 +504,7 @@
 
   <string name="pref_lock_timeout_60">1 hora</string>
   <string name="pref_lock_timeout_never">Nunca</string>
-  <string name="pref_lock_timeout_never_summary">Nunca bloquear Briar automáticamente</string>
+  <string name="pref_lock_timeout_never_summary">Nunca bloquear Nodex automáticamente</string>
   <string name="change_password">Trocar o contrasinal</string>
   <string name="current_password">Contrasinal actual</string>
   <string name="choose_new_password">Novo contrasinal</string>
@@ -512,7 +512,7 @@
   <string name="password_changed">Cambiaches o contrasinal</string>
   <string name="panic_setting">Axustes do botón do pánico</string>
   <string name="panic_setting_title">Botón do pánico</string>
-  <string name="panic_setting_hint">Axuste como debe reaccionar Briar cando utilices a app botón do pánico</string>
+  <string name="panic_setting_hint">Axuste como debe reaccionar Nodex cando utilices a app botón do pánico</string>
   <string name="panic_app_setting_title">App Botón do pánico</string>
   <string name="unknown_app">unha aplicación descoñecida</string>
   <string name="panic_app_setting_summary">Non se estableceu unha app</string>
@@ -521,9 +521,9 @@
   <string name="dialog_message_connect_panic_app">Tes a certeza de querer permitir a %1$s activar accións destrutivas do botón do pánico?</string>
   <string name="panic_setting_destructive_action">Accións destrutivas</string>
   <string name="panic_setting_signout_title">Pechar sesión</string>
-  <string name="panic_setting_signout_summary">Desconecta de Briar se o botón do pánico se preme</string>
+  <string name="panic_setting_signout_summary">Desconecta de Nodex se o botón do pánico se preme</string>
   <string name="purge_setting_title">Eliminar conta</string>
-  <string name="purge_setting_summary">Elimina a túa conta en Briar se se preme o botón do pánico. Coidado: Isto eliminará permanentemente as túas identidades, contactos e mensaxes</string>
+  <string name="purge_setting_summary">Elimina a túa conta en Nodex se se preme o botón do pánico. Coidado: Isto eliminará permanentemente as túas identidades, contactos e mensaxes</string>
 
   <string name="notification_settings_title">Notificacións</string>
   <string name="notify_sign_in_title">Lembrarme conectar</string>
@@ -571,9 +571,9 @@
   <string name="link_warning_text">Esto pódese utilizar para identificarte. Pensa ben se confías na persoa que che envía a ligazón e considera abrila co Navegador Tor.</string>
   <string name="link_warning_open_link">Abrir ligazón</string>
 
-  <string name="crash_report_title">Informe de fallo de Briar</string>
+  <string name="crash_report_title">Informe de fallo de Nodex</string>
   <string name="not_your_fault">Non é culpa túa.</string>
-  <string name="please_send_report">Axúdanos por favor a mellorar Briar enviándonos un informe do fallo.</string>
+  <string name="please_send_report">Axúdanos por favor a mellorar Nodex enviándonos un informe do fallo.</string>
   <string name="report_is_encrypted">Prometemos que o informe está cifrado e enviado con seguridade.</string>
   <string name="feedback_title">Avaliación</string>
   <string name="describe_crash">Describe que aconteceu (optativo)</string>
@@ -596,39 +596,39 @@
   <string name="close">Pechar</string>
   <string name="dev_report_sending">Enviando comentarios...</string>
   <string name="dev_report_sent">Comentarios enviados</string>
-  <string name="dev_report_saved">Informe gardado. Enviarase a seguinte vez que te conectes con Briar.</string>
+  <string name="dev_report_saved">Informe gardado. Enviarase a seguinte vez que te conectes con Nodex.</string>
   <string name="dev_report_error">Erro: fallou o envío do informe</string>
 
-  <string name="progress_title_logout">Desconectando de Briar...</string>
+  <string name="progress_title_logout">Desconectando de Nodex...</string>
 
   <string name="screen_filter_title">Detectouse unha sobreescrita da pantalla</string>
-  <string name="screen_filter_body">Outra aplicación estase a amosar enriba de Briar. Para protexer a túa seguridade, Briar non responderá a toques cando outra aplicación está debuxando enriba.\n\nAs seguintes aplicacións poderían estar debuxando enriba:\n\n%1$s</string>
-  <string name="screen_filter_body_api_30">Outra app ten acceso a ver a pantalla enriba de Briar. Para protexer a túa seguridade, Briar non vai responder aos toques cando outra app ten acceso a pantalla.\n\nRevisa as app de abaixo para atopara a resposable.</string>
+  <string name="screen_filter_body">Outra aplicación estase a amosar enriba de Nodex. Para protexer a túa seguridade, Nodex non responderá a toques cando outra aplicación está debuxando enriba.\n\nAs seguintes aplicacións poderían estar debuxando enriba:\n\n%1$s</string>
+  <string name="screen_filter_body_api_30">Outra app ten acceso a ver a pantalla enriba de Nodex. Para protexer a túa seguridade, Nodex non vai responder aos toques cando outra app ten acceso a pantalla.\n\nRevisa as app de abaixo para atopara a resposable.</string>
   <string name="screen_filter_allow">Permitir a estas aplicación amosarse enriba</string>
   <string name="screen_filter_review_apps">Revisar apps</string>
 
   <string name="permission_camera_title">Permiso da cámara</string>
-  <string name="permission_camera_request_body">Para escanear códigos QR, Briar precisa acceso a cámara.</string>
+  <string name="permission_camera_request_body">Para escanear códigos QR, Nodex precisa acceso a cámara.</string>
   <string name="permission_location_title">Permiso de localización</string>
-  <string name="permission_location_request_body">Para descubrir dispositivos Bluetooth, Briar precisa permiso para acceder a túa localización.\n\nBriar non garda a túa localización nin a comparte con ninguén.</string>
+  <string name="permission_location_request_body">Para descubrir dispositivos Bluetooth, Nodex precisa permiso para acceder a túa localización.\n\nBriar non garda a túa localización nin a comparte con ninguén.</string>
   <string name="permission_camera_location_title">Cámara e localización</string>
-  <string name="permission_camera_location_request_body">Para escanear o código QR, Briar precisa acceso a cámara.\n\nPara descubrir dispositivos Bluetooth, Briar precisa permiso a túa localización.\n\nBriar non garda a túa localización nin a comparte con ninguén.</string>
+  <string name="permission_camera_location_request_body">Para escanear o código QR, Nodex precisa acceso a cámara.\n\nPara descubrir dispositivos Bluetooth, Nodex precisa permiso a túa localización.\n\nBriar non garda a túa localización nin a comparte con ninguén.</string>
   <string name="permission_camera_denied_body">Denegaches o permiso de acceso a cámara, pero é necesario para engadir contactos.\n\nPor favor, considera conceder o permiso.</string>
-  <string name="permission_location_denied_body">Denegache o acceso á localización, mais Briar precisa este permiso para descubrir dispositivos Bluetooth.\n\nConsidera conceder o permiso.</string>
+  <string name="permission_location_denied_body">Denegache o acceso á localización, mais Nodex precisa este permiso para descubrir dispositivos Bluetooth.\n\nConsidera conceder o permiso.</string>
   <string name="permission_location_setting_title">Axuste da localización</string>
   <string name="permission_location_setting_body">O axuste de localización do teu dispositivo ten que activarse para atopar outros dispositivos vía Bluetooth. Activa este axuste para continuar. Podes desactivala tras finalizar.</string>
   <string name="permission_location_setting_button">Activar localización</string>
   <string name="qr_code">Código QR</string>
   <string name="show_qr_code_fullscreen">Amosar o código QR a pantalla completa</string>
 
-  <string name="lock_unlock">Desbloquear Briar</string>
-  <string name="lock_unlock_verbose">Escribe o PIN do dispositivo, patrón ou contrasinal para desbloquear Briar</string>
+  <string name="lock_unlock">Desbloquear Nodex</string>
+  <string name="lock_unlock_verbose">Escribe o PIN do dispositivo, patrón ou contrasinal para desbloquear Nodex</string>
   <string name="lock_unlock_fingerprint_description">Toca o sensor de impresións dixitais co dedo rexistrado para continuar</string>
   <string name="lock_unlock_password">Utilizar contrasinal</string>
-  <string name="lock_is_locked">Briar está bloqueada</string>
+  <string name="lock_is_locked">Nodex está bloqueada</string>
   <string name="lock_tap_to_unlock">Toca para desbloquear</string>
 
-  <string name="transports_help_text">Briar pode conectar cos teus contactos a través de Internet, Wi-Fi ou Bluetooth.\n\nTodas as conexións a internet pasan a través da rede Tor para máis privacidade.\n\nSe un contacto é accesible de múltiples xeitos, Briar usaráos en paralelo.</string>
+  <string name="transports_help_text">Nodex pode conectar cos teus contactos a través de Internet, Wi-Fi ou Bluetooth.\n\nTodas as conexións a internet pasan a través da rede Tor para máis privacidade.\n\nSe un contacto é accesible de múltiples xeitos, Nodex usaráos en paralelo.</string>
 
   <string name="hotspot_notification_channel_title">Punto de acceso Wi-Fi</string>
   <string name="hotspot_button_connected">Seguinte</string>
@@ -653,7 +653,7 @@
 
   <string name="screenshot_message_1">Ola Bob!</string>
 
-  <string name="screenshot_message_2">Ola Alice! Grazas por falarme de Briar!</string>
+  <string name="screenshot_message_2">Ola Alice! Grazas por falarme de Nodex!</string>
 
   <string name="screenshot_message_3">Sen problema, agardo sexa do teu gusto 😀</string>
 </resources>
