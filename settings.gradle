@@ -1,3 +1,3 @@
 include ':nodex-api'
-//include ':nodex-core'
+include ':nodex-core'
 include ':nodex-android'

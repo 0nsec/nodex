@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
 
 def getStdout = { command, defaultValue ->
-	def stdout = new ByteArrayOutputStream()
+	def stdout = newdependencies {
+	implementation project(':nodex-api')
+	implementation 'androidx.fragment:fragment:1.6.2'eArrayOutputStream()
 	try {
 		exec {
 			commandLine = command
