@@ -9,7 +9,7 @@ import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageId;
 import org.nodex.api.client.MessageTracker.GroupCount;
 import org.nodex.api.messaging.MessagingManager;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import java.util.Set;
 @NotNullByDefault
