@@ -15,7 +15,7 @@ import javax.annotation.meta.TypeQualifierDefault;
  */
 @Documented
 @Nonnull
-@TypeQualifierDefault({ElementType.PARAMETER, ElementType.RETURN_TYPE, ElementType.FIELD})
+@TypeQualifierDefault({ElementType.PARAMETER, ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.PACKAGE, ElementType.TYPE})
 public @interface NotNullByDefault {
