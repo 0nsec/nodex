@@ -17,6 +17,16 @@ import java.security.GeneralSecurityException;
 public interface GroupMessageFactory {
 
     /**
+     * Signing label for join messages.
+     */
+    String SIGNING_LABEL_JOIN = "org.nodex.privategroup.join";
+    
+    /**
+     * Signing label for post messages.
+     */
+    String SIGNING_LABEL_POST = "org.nodex.privategroup.post";
+
+    /**
      * Creates a message for a private group.
      */
     Message createGroupMessage(GroupId groupId, long timestamp, 
