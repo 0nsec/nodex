@@ -1,5 +1,5 @@
 package org.nodex.api.attachment;
-import static org.nodex.core.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
+import static org.nodex.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
 public interface MediaConstants {
 	String MSG_KEY_CONTENT_TYPE = "contentType";
 	String MSG_KEY_DESCRIPTOR_LENGTH = "descriptorLength";
