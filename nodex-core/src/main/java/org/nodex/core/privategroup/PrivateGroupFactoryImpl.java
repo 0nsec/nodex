@@ -6,7 +6,7 @@ import org.nodex.api.data.BdfList;
 import org.nodex.api.identity.Author;
 import org.nodex.api.sync.Group;
 import org.nodex.api.sync.GroupFactory;
-import org.nodex.core.util.StringUtils;
+import org.nodex.api.util.StringUtils;
 import org.nodex.api.privategroup.PrivateGroup;
 import org.nodex.api.privategroup.PrivateGroupFactory;
 import org.nodex.api.privategroup.PrivateGroupConstants;
