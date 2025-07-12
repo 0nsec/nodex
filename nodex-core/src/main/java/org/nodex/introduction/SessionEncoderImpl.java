@@ -15,7 +15,7 @@ import java.util.Map.Entry;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.nodex.core.api.data.BdfDictionary.NULL_VALUE;
+import static org.nodex.core.api.data.BdfDictionaryConstants.NULL_VALUE;
 import static org.nodex.api.introduction.Role.INTRODUCEE;
 import static org.nodex.api.introduction.Role.INTRODUCER;
 import static org.nodex.introduction.IntroductionConstants.SESSION_KEY_ACCEPT_TIMESTAMP;
