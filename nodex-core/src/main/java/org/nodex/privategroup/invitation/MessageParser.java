@@ -7,7 +7,7 @@ import org.nodex.api.db.Transaction;
 import org.nodex.api.sync.GroupId;
 import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageId;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 @NotNullByDefault
 interface MessageParser {
 	BdfDictionary getMessagesVisibleInUiQuery();

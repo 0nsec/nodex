@@ -12,7 +12,7 @@ import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageId;
 import org.nodex.api.privategroup.PrivateGroup;
 import org.nodex.api.privategroup.PrivateGroupFactory;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
 import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;

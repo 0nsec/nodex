@@ -27,7 +27,7 @@ import org.nodex.api.privategroup.PrivateGroupManager;
 import org.nodex.api.privategroup.event.GroupInvitationResponseReceivedEvent;
 import org.nodex.api.privategroup.invitation.GroupInvitationManager;
 import org.nodex.api.privategroup.invitation.GroupInvitationResponse;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import java.util.Collection;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;

@@ -9,7 +9,7 @@ import org.nodex.api.identity.AuthorId;
 import org.nodex.api.sync.Group;
 import org.nodex.api.sync.GroupId;
 import org.nodex.api.privategroup.invitation.GroupInvitationFactory;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import java.security.GeneralSecurityException;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;

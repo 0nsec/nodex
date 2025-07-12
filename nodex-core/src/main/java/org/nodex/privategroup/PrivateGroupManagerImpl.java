@@ -38,7 +38,7 @@ import org.nodex.api.privategroup.Visibility;
 import org.nodex.api.privategroup.event.ContactRelationshipRevealedEvent;
 import org.nodex.api.privategroup.event.GroupDissolvedEvent;
 import org.nodex.api.privategroup.event.GroupMessageAddedEvent;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;

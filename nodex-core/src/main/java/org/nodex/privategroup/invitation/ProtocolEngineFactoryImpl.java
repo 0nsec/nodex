@@ -9,7 +9,7 @@ import org.nodex.api.conversation.ConversationManager;
 import org.nodex.api.privategroup.GroupMessageFactory;
 import org.nodex.api.privategroup.PrivateGroupFactory;
 import org.nodex.api.privategroup.PrivateGroupManager;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
 @Immutable

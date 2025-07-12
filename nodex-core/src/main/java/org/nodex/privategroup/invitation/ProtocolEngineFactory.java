@@ -1,5 +1,5 @@
 package org.nodex.privategroup.invitation;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 @NotNullByDefault
 interface ProtocolEngineFactory {
 	ProtocolEngine<CreatorSession> createCreatorEngine();

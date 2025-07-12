@@ -1,7 +1,7 @@
 package org.nodex.privategroup.invitation;
 import org.nodex.api.data.BdfDictionary;
 import org.nodex.api.sync.MessageId;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
 import static org.nodex.core.api.data.BdfDictionaryConstants.NULL_VALUE;

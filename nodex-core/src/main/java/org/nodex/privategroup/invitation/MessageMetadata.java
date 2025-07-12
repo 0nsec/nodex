@@ -1,6 +1,6 @@
 package org.nodex.privategroup.invitation;
 import org.nodex.api.sync.GroupId;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
 @Immutable
 @NotNullByDefault

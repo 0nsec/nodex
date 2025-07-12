@@ -1,11 +1,14 @@
 package org.nodex.privategroup.invitation;
+
 import org.nodex.api.FormatException;
 import org.nodex.api.sync.Group.Visibility;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
+
 import javax.annotation.concurrent.Immutable;
-import static org.nodex.core.api.sync.GroupConstants.Visibility.INVISIBLE;
-import static org.nodex.core.api.sync.GroupConstants.Visibility.SHARED;
-import static org.nodex.core.api.sync.GroupConstants.Visibility.VISIBLE;
+
+import static org.nodex.api.sync.Group.Visibility.INVISIBLE;
+import static org.nodex.api.sync.Group.Visibility.SHARED;
+import static org.nodex.api.sync.Group.Visibility.VISIBLE;
 @Immutable
 @NotNullByDefault
 enum InviteeState implements State {

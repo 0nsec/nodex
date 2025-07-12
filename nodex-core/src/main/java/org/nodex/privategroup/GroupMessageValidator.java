@@ -15,7 +15,7 @@ import org.nodex.api.system.Clock;
 import org.nodex.api.privategroup.PrivateGroup;
 import org.nodex.api.privategroup.PrivateGroupFactory;
 import org.nodex.api.privategroup.invitation.GroupInvitationFactory;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Collection;

@@ -2,7 +2,7 @@ package org.nodex.privategroup.invitation;
 import org.nodex.api.FormatException;
 import org.nodex.api.db.DbException;
 import org.nodex.api.db.Transaction;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 @NotNullByDefault
 interface ProtocolEngine<S extends Session<?>> {

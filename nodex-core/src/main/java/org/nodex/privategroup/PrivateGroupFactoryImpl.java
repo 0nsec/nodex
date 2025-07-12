@@ -8,7 +8,7 @@ import org.nodex.api.sync.GroupFactory;
 import org.nodex.core.util.StringUtils;
 import org.nodex.api.privategroup.PrivateGroup;
 import org.nodex.api.privategroup.PrivateGroupFactory;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import java.security.SecureRandom;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;

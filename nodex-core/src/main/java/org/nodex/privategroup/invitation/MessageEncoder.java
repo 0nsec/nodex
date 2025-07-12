@@ -4,7 +4,7 @@ import org.nodex.api.identity.Author;
 import org.nodex.api.sync.GroupId;
 import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageId;
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 import javax.annotation.Nullable;
 @NotNullByDefault
 interface MessageEncoder {
