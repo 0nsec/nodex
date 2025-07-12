@@ -13,7 +13,7 @@ import org.nodex.core.api.mailbox.MailboxPairingState.Pending;
 import org.nodex.core.api.mailbox.MailboxPairingState.UnexpectedError;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.fragment.FinalFragment;
 import org.nodex.android.mailbox.MailboxState.CameraError;
 import org.nodex.android.mailbox.MailboxState.IsPaired;
@@ -40,7 +40,7 @@ import static org.nodex.core.api.qrcode.QrCodeClassifier.QrCodeType.MAILBOX;
 import static org.nodex.android.util.UiUtils.showFragment;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class MailboxActivity extends BriarActivity {
+public class MailboxActivity extends NodexActivity {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
 	private MailboxViewModel viewModel;

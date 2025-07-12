@@ -4,13 +4,13 @@ import android.os.Bundle;
 import org.nodex.core.api.contact.ContactId;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.fragment.BaseFragment.BaseFragmentListener;
 import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import static org.nodex.android.conversation.ConversationActivity.CONTACT_ID;
-public class IntroductionActivity extends BriarActivity
+public class IntroductionActivity extends NodexActivity
 		implements BaseFragmentListener {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;

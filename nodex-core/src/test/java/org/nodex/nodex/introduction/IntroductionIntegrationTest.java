@@ -30,7 +30,7 @@ import org.nodex.api.introduction.IntroductionResponse;
 import org.nodex.api.introduction.event.IntroductionAbortedEvent;
 import org.nodex.api.introduction.event.IntroductionRequestReceivedEvent;
 import org.nodex.api.introduction.event.IntroductionResponseReceivedEvent;
-import org.nodex.test.BriarIntegrationTest;
+import org.nodex.test.NodexIntegrationTest;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.NotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
@@ -64,14 +64,14 @@ import static org.nodex.introduction.IntroductionConstants.SESSION_KEY_SESSION_I
 import static org.nodex.introduction.MessageType.ACCEPT;
 import static org.nodex.introduction.MessageType.AUTH;
 import static org.nodex.introduction.MessageType.DECLINE;
-import static org.nodex.test.BriarTestUtils.assertGroupCount;
+import static org.nodex.test.NodexTestUtils.assertGroupCount;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 public class IntroductionIntegrationTest
-		extends BriarIntegrationTest<IntroductionIntegrationTestComponent> {
+		extends NodexIntegrationTest<IntroductionIntegrationTestComponent> {
 	private volatile IntroductionManager introductionManager0;
 	private volatile IntroductionManager introductionManager1;
 	private volatile IntroductionManager introductionManager2;

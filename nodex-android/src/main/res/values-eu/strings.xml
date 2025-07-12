@@ -47,7 +47,7 @@
   <string name="expiry_date_reached">Programa hau iraungitu da.\nEskerrik asko probatzeagatik!</string>
   <string name="download_briar">Nodex erabiltzen jarraitzeko, deskargatu azken bertsioa.</string>
   <string name="create_new_account">Kontu berri bat sortu beharko duzu, baina erabiltzaile-izen bera erabili dezakezu.</string>
-  <string name="download_briar_button">Deskargatu azken bertsioa</string>
+  <string name="download_nodex_button">Deskargatu azken bertsioa</string>
   <string name="startup_open_database">Datu-basea deszifratzen...</string>
   <string name="startup_migrate_database">Datu-basea eguneratzen...</string>
   <string name="startup_compact_database">Datu-basea trinkotzen…</string>

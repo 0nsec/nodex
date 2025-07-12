@@ -12,7 +12,7 @@ import org.nodex.core.api.db.DbException;
 import org.nodex.core.util.StringUtils;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.api.forum.Forum;
 import org.nodex.api.forum.ForumManager;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
@@ -33,7 +33,7 @@ import static org.nodex.android.util.UiUtils.hideSoftKeyboard;
 import static org.nodex.api.forum.ForumConstants.MAX_FORUM_NAME_LENGTH;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class CreateForumActivity extends BriarActivity {
+public class CreateForumActivity extends NodexActivity {
 	private static final Logger LOG =
 			Logger.getLogger(CreateForumActivity.class.getName());
 	private TextInputLayout nameEntryLayout;

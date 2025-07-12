@@ -16,8 +16,8 @@ import org.nodex.android.blog.BaseViewModel.ListUpdate;
 import org.nodex.android.fragment.BaseFragment;
 import org.nodex.android.sharing.BlogSharingStatusActivity;
 import org.nodex.android.sharing.ShareBlogActivity;
-import org.nodex.android.util.BriarSnackbarBuilder;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.util.NodexSnackbarBuilder;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.android.widget.LinkDialogFragment;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
@@ -31,7 +31,7 @@ import static android.app.Activity.RESULT_OK;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static android.widget.Toast.LENGTH_SHORT;
 import static com.google.android.material.snackbar.Snackbar.LENGTH_LONG;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
 import static org.nodex.android.activity.RequestCodes.REQUEST_SHARE_BLOG;
 @UiThread
 @MethodsNotNullByDefault
@@ -44,7 +44,7 @@ public class BlogFragment extends BaseFragment
 	private GroupId groupId;
 	private BlogViewModel viewModel;
 	private final BlogPostAdapter adapter = new BlogPostAdapter(false, this);
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	static BlogFragment newInstance(GroupId groupId) {
 		BlogFragment f = new BlogFragment();
 		Bundle bundle = new Bundle();
@@ -182,7 +182,7 @@ public class BlogFragment extends BaseFragment
 		f.show(getParentFragmentManager(), f.getUniqueTag());
 	}
 	private void displaySnackbar(int stringId, boolean scroll) {
-		BriarSnackbarBuilder sb = new BriarSnackbarBuilder();
+		NodexSnackbarBuilder sb = new NodexSnackbarBuilder();
 		if (scroll) {
 			sb.setAction(R.string.blogs_blog_post_scroll_to,
 					v -> list.smoothScrollToPosition(0));

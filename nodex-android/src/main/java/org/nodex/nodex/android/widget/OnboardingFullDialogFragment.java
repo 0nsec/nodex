@@ -30,7 +30,7 @@ public class OnboardingFullDialogFragment extends DialogFragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setStyle(DialogFragment.STYLE_NORMAL,
-				R.style.BriarFullScreenDialogTheme);
+				R.style.NodexFullScreenDialogTheme);
 	}
 	@Nullable
 	@Override

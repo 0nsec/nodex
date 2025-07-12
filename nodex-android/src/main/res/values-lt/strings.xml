@@ -57,7 +57,7 @@
   <string name="expiry_date_reached">Programinės įrangos galiojimas pasibaigė.\nDėkojame, kad išbandėte!</string>
   <string name="download_briar">Norėdami ir toliau naudotis Nodex, atsisiųskite naujausią programos laidą.</string>
   <string name="create_new_account">Jūs turėsite susikurti paskyrą, tačiau galėsite naudoti tą patį slapyvardį.</string>
-  <string name="download_briar_button">Atsisiųsti naujausią laidą</string>
+  <string name="download_nodex_button">Atsisiųsti naujausią laidą</string>
   <string name="old_android_expiry_date_reached">Nodex daugiau nebeveikia įrenginiuose su „Android“ 4.\nĮsidiekite Nodex naujesniame įrenginyje.</string>
   <string name="old_android_delete_account">Galite bakstelėti ant žemiau esančio mygtuko, norėdami ištrinti paskyrą iš šio įrenginio.</string>
   <string name="delete_account_button">Ištrinti paskyrą</string>

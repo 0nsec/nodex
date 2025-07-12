@@ -5,7 +5,7 @@ import org.nodex.core.BrambleAndroidModule;
 import org.nodex.core.BrambleAppComponent;
 import org.nodex.core.BrambleCoreEagerSingletons;
 import org.nodex.core.BrambleCoreModule;
-import org.nodex.core.account.BriarAccountModule;
+import org.nodex.core.account.NodexAccountModule;
 import org.nodex.core.api.FeatureFlags;
 import org.nodex.core.api.account.AccountManager;
 import org.nodex.core.api.connection.ConnectionRegistry;
@@ -29,12 +29,12 @@ import org.nodex.core.api.system.Clock;
 import org.nodex.core.mailbox.ModularMailboxModule;
 import org.nodex.core.plugin.file.RemovableDriveModule;
 import org.nodex.core.system.ClockModule;
-import org.nodex.BriarCoreEagerSingletons;
-import org.nodex.BriarCoreModule;
+import org.nodex.NodexCoreEagerSingletons;
+import org.nodex.NodexCoreModule;
 import org.nodex.android.attachment.AttachmentModule;
 import org.nodex.android.attachment.media.MediaModule;
 import org.nodex.android.contact.connect.BluetoothIntroFragment;
-import org.nodex.android.conversation.glide.BriarModelLoader;
+import org.nodex.android.conversation.glide.NodexModelLoader;
 import org.nodex.android.hotspot.AbstractTabsFragment;
 import org.nodex.android.hotspot.FallbackFragment;
 import org.nodex.android.hotspot.HotspotIntroFragment;
@@ -90,9 +90,9 @@ import dagger.Component;
 @Singleton
 @Component(modules = {
 		BrambleCoreModule.class,
-		BriarCoreModule.class,
+		NodexCoreModule.class,
 		BrambleAndroidModule.class,
-		BriarAccountModule.class,
+		NodexAccountModule.class,
 		AppModule.class,
 		AttachmentModule.class,
 		ClockModule.class,
@@ -102,7 +102,7 @@ import dagger.Component;
 })
 public interface AndroidComponent
 		extends BrambleCoreEagerSingletons, BrambleAndroidEagerSingletons,
-		BriarCoreEagerSingletons, AndroidEagerSingletons, BrambleAppComponent {
+		NodexCoreEagerSingletons, AndroidEagerSingletons, BrambleAppComponent {
 	@CryptoExecutor
 	Executor cryptoExecutor();
 	PasswordStrengthEstimator passwordStrengthIndicator();
@@ -157,10 +157,10 @@ public interface AndroidComponent
 	Thread.UncaughtExceptionHandler exceptionHandler();
 	AutoDeleteManager autoDeleteManager();
 	void inject(SignInReminderReceiver briarService);
-	void inject(BriarService briarService);
+	void inject(NodexService briarService);
 	void inject(NotificationCleanupService notificationCleanupService);
 	void inject(EmojiTextInputView textInputView);
-	void inject(BriarModelLoader briarModelLoader);
+	void inject(NodexModelLoader briarModelLoader);
 	void inject(SettingsFragment settingsFragment);
 	void inject(ConnectionsFragment connectionsFragment);
 	void inject(SecurityFragment securityFragment);

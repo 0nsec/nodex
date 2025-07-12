@@ -4,8 +4,8 @@ import org.nodex.api.attachment.Attachment;
 import org.nodex.api.attachment.AttachmentHeader;
 import org.nodex.api.attachment.AttachmentReader;
 import org.nodex.api.avatar.AvatarManager;
-import org.nodex.test.BriarIntegrationTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTest;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.nodex.test.DaggerBriarIntegrationTestComponent;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 public class AvatarManagerIntegrationTest
-		extends BriarIntegrationTest<BriarIntegrationTestComponent> {
+		extends NodexIntegrationTest<NodexIntegrationTestComponent> {
 	private AvatarManager avatarManager0, avatarManager1;
 	private AttachmentReader attachmentReader0, attachmentReader1;
 	private final String contentType = getRandomString(MAX_CONTENT_TYPE_BYTES);
@@ -36,22 +36,22 @@ public class AvatarManagerIntegrationTest
 	}
 	@Override
 	protected void createComponents() {
-		BriarIntegrationTestComponent component =
+		NodexIntegrationTestComponent component =
 				DaggerBriarIntegrationTestComponent.builder().build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(component);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
 		c0 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c0);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
 		c1 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c1);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
 		c2 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c2);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);
 	}
 	@Test
 	public void testAddingAndSyncAvatars() throws Exception {

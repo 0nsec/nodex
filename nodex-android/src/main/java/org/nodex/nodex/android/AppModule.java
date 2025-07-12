@@ -121,7 +121,7 @@ public class AppModule {
 		this.application = application;
 	}
 	public static AndroidComponent getAndroidComponent(Context ctx) {
-		BriarApplication app = (BriarApplication) ctx.getApplicationContext();
+		NodexApplication app = (NodexApplication) ctx.getApplicationContext();
 		return app.getApplicationComponent();
 	}
 	@Provides

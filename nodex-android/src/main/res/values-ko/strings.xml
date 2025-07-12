@@ -46,7 +46,7 @@
   <string name="expiry_date_reached">이 소프트웨어는 만료되었습니다. \ n 테스트 해 주셔서 감사합니다!</string>
   <string name="download_briar">Briar를 계속 이용하기 위해서는 최신 버전을 다운로드 해 주세요.</string>
   <string name="create_new_account">새로운 계정을 만들어야 하지만, 같은 별명을 사용할 수 있습니다.</string>
-  <string name="download_briar_button">최신 버전 다운로드 받기</string>
+  <string name="download_nodex_button">최신 버전 다운로드 받기</string>
   <string name="startup_open_database">데이터베이스를 복호화하고 있습니다....</string>
   <string name="startup_migrate_database">데이터베이스를 업그레이드 하고 있습니다...</string>
   <string name="startup_compact_database">데이터베이스를 작게 만들고 있습니다...</string>

@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.RecentEmoji;
 import org.nodex.R;
-import org.nodex.android.BriarApplication;
+import org.nodex.android.NodexApplication;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -92,8 +92,8 @@ public class EmojiTextInputView extends LinearLayout implements
 		}
 		Object o = getContext().getSystemService(INPUT_METHOD_SERVICE);
 		imm = (InputMethodManager) requireNonNull(o);
-		BriarApplication app =
-				(BriarApplication) context.getApplicationContext();
+		NodexApplication app =
+				(NodexApplication) context.getApplicationContext();
 		app.getApplicationComponent().inject(this);
 		emojiPopup = EmojiPopup.Builder
 				.fromRootView(getRootView())

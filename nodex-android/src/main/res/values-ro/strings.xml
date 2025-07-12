@@ -56,7 +56,7 @@
   <string name="expiry_date_reached">Acest program software a expirat.\nVă mulțumim că l-ați testat!</string>
   <string name="download_briar">Pentru a putea să utilizați Nodex în continuare, descărcați cea mai recentă versiune.</string>
   <string name="create_new_account">Va trebui să creați un cont nou, dar puteți să folosiți același pseudonim.</string>
-  <string name="download_briar_button">Descărcați cea mai recentă versiune</string>
+  <string name="download_nodex_button">Descărcați cea mai recentă versiune</string>
   <string name="old_android_expiry_date_reached">Nodex nu mai funcționează pe Android 4.\nInstalați Nodex pe un dispozitiv mai nou.</string>
   <string name="old_android_delete_account">Puteți atinge butonul de mai jos pentru a șterge contul dvs. de pe acest dispozitiv.</string>
   <string name="delete_account_button">Ștergeți contul</string>

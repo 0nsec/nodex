@@ -13,7 +13,7 @@ import org.nodex.api.privategroup.invitation.GroupInvitationManager;
 import org.nodex.api.privategroup.invitation.GroupInvitationRequest;
 import org.nodex.api.privategroup.invitation.GroupInvitationResponse;
 import org.nodex.autodelete.AbstractAutoDeleteTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.junit.Before;
 import org.junit.Test;
 import javax.annotation.Nullable;
@@ -44,7 +44,7 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 	}
 	@Override
 	protected ConversationClient getConversationClient(
-			BriarIntegrationTestComponent component) {
+			NodexIntegrationTestComponent component) {
 		return component.getGroupInvitationManager();
 	}
 	@Test

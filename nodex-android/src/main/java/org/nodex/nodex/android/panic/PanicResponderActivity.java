@@ -3,7 +3,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.logging.Logger;
@@ -18,7 +18,7 @@ import static org.nodex.android.panic.PanicPreferencesFragment.KEY_LOCK;
 import static org.nodex.android.panic.PanicPreferencesFragment.KEY_PURGE;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class PanicResponderActivity extends BriarActivity {
+public class PanicResponderActivity extends NodexActivity {
 	private static final Logger LOG =
 			getLogger(PanicResponderActivity.class.getName());
 	@Override

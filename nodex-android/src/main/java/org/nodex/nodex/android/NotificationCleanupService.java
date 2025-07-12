@@ -22,7 +22,7 @@ public class NotificationCleanupService extends IntentService {
 	public void onCreate() {
 		super.onCreate();
 		AndroidComponent applicationComponent =
-				((BriarApplication) getApplication()).getApplicationComponent();
+				((NodexApplication) getApplication()).getApplicationComponent();
 		applicationComponent.inject(this);
 	}
 	@Override

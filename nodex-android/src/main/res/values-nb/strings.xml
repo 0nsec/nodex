@@ -52,7 +52,7 @@
   <string name="expiry_date_reached">Denne programvaren har utløpt.\nTakk for at du testet den.</string>
   <string name="download_briar">For å fortsette å bruke Nodex, vennligst laste ned nyeste utgave.</string>
   <string name="create_new_account">Du trenger å lage en ny konto, men du kan benytte samme kallenavn.</string>
-  <string name="download_briar_button">Laste ned nyeste utgave</string>
+  <string name="download_nodex_button">Laste ned nyeste utgave</string>
   <string name="old_android_expiry_date_reached">Nodex kan ikke lenger kjøre i Android 4.\nVennligst installere Nodex på en nyere enhet.</string>
   <string name="old_android_delete_account">Du kan trykke på knappen under for å slette kontoen din fra denne enheten.</string>
   <string name="delete_account_button">Slett konto</string>

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import androidx.annotation.Nullable;
@@ -18,7 +18,7 @@ import androidx.preference.PreferenceFragmentCompat.OnPreferenceStartFragmentCal
 import static android.content.Intent.ACTION_MANAGE_NETWORK_USAGE;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class SettingsActivity extends BriarActivity
+public class SettingsActivity extends NodexActivity
 		implements OnPreferenceStartFragmentCallback {
 	static final String EXTRA_THEME_CHANGE = "themeChange";
 	@Override

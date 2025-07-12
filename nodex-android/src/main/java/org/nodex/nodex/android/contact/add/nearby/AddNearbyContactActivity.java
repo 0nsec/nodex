@@ -7,7 +7,7 @@ import org.nodex.core.api.identity.Author;
 import org.nodex.core.api.qrcode.QrCodeClassifier.QrCodeType;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.contact.add.nearby.AddContactState.ContactExchangeFinished;
 import org.nodex.android.contact.add.nearby.AddContactState.ContactExchangeResult;
 import org.nodex.android.contact.add.nearby.AddContactState.Failed;
@@ -36,7 +36,7 @@ import static org.nodex.android.contact.add.nearby.AddNearbyContactViewModel.Blu
 import static org.nodex.android.contact.add.nearby.AddNearbyContactViewModel.BluetoothDecision.REFUSED;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class AddNearbyContactActivity extends BriarActivity
+public class AddNearbyContactActivity extends NodexActivity
 		implements BaseFragmentListener {
 	private static final Logger LOG =
 			getLogger(AddNearbyContactActivity.class.getName());

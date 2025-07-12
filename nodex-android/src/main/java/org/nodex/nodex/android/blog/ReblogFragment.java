@@ -29,7 +29,7 @@ import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static java.util.Objects.requireNonNull;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
 import static org.nodex.android.blog.BlogPostFragment.POST_ID;
 import static org.nodex.android.view.TextSendController.SendState.SENT;
 import static org.nodex.api.blog.BlogConstants.MAX_BLOG_POST_TEXT_LENGTH;

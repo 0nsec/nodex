@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import org.nodex.core.api.Pair;
 import org.nodex.core.api.sync.MessageId;
 import org.nodex.R;
-import org.nodex.android.util.BriarAdapter;
+import org.nodex.android.util.NodexAdapter;
 import org.nodex.android.util.ItemReturningAdapter;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 @NotNullByDefault
 class ConversationAdapter
-		extends BriarAdapter<ConversationItem, ConversationItemViewHolder>
+		extends NodexAdapter<ConversationItem, ConversationItemViewHolder>
 		implements ItemReturningAdapter<ConversationItem> {
 	private final ConversationListener listener;
 	private final RecycledViewPool imageViewPool;

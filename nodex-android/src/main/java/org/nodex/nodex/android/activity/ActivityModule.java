@@ -1,12 +1,12 @@
 package org.nodex.android.activity;
 import android.app.Activity;
-import org.nodex.android.controller.BriarController;
-import org.nodex.android.controller.BriarControllerImpl;
+import org.nodex.android.controller.NodexController;
+import org.nodex.android.controller.NodexControllerImpl;
 import org.nodex.android.controller.DbController;
 import org.nodex.android.controller.DbControllerImpl;
 import dagger.Module;
 import dagger.Provides;
-import static org.nodex.android.BriarService.BriarServiceConnection;
+import static org.nodex.android.NodexService.NodexServiceConnection;
 @Module
 public class ActivityModule {
 	private final BaseActivity activity;
@@ -25,8 +25,8 @@ public class ActivityModule {
 	}
 	@ActivityScope
 	@Provides
-	protected BriarController provideBriarController(
-			BriarControllerImpl briarController) {
+	protected NodexController provideBriarController(
+			NodexControllerImpl briarController) {
 		activity.addLifecycleController(briarController);
 		return briarController;
 	}
@@ -37,7 +37,7 @@ public class ActivityModule {
 	}
 	@ActivityScope
 	@Provides
-	BriarServiceConnection provideBriarServiceConnection() {
-		return new BriarServiceConnection();
+	NodexServiceConnection provideBriarServiceConnection() {
+		return new NodexServiceConnection();
 	}
 }

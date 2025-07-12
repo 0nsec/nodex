@@ -3,7 +3,7 @@ import org.nodex.core.api.event.Event;
 import org.nodex.core.api.event.EventListener;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.util.concurrent.atomic.AtomicReference;
-import static org.nodex.test.BriarIntegrationTest.waitForEvents;
+import static org.nodex.test.NodexIntegrationTest.waitForEvents;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 @NotNullByDefault
@@ -13,7 +13,7 @@ public class TestEventListener<T extends Event> implements EventListener {
 		void run() throws Exception;
 	}
 	public static <T extends Event> T assertEvent(
-			BriarIntegrationTestComponent c, Class<T> clazz, EventRunnable r)
+			NodexIntegrationTestComponent c, Class<T> clazz, EventRunnable r)
 			throws Exception {
 		TestEventListener<T> listener = new TestEventListener<>(clazz);
 		c.getEventBus().addListener(listener);

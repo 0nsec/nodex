@@ -1,9 +1,9 @@
 package org.nodex.android.conversation;
-import org.nodex.android.view.BriarRecyclerViewScrollListener;
+import org.nodex.android.view.NodexRecyclerViewScrollListener;
 import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 class ConversationScrollListener extends
-		BriarRecyclerViewScrollListener<ConversationAdapter, ConversationItem> {
+		NodexRecyclerViewScrollListener<ConversationAdapter, ConversationItem> {
 	private final ConversationViewModel viewModel;
 	protected ConversationScrollListener(ConversationAdapter adapter,
 			ConversationViewModel viewModel) {

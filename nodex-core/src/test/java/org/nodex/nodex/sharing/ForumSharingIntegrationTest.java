@@ -25,8 +25,8 @@ import org.nodex.api.forum.ForumSharingManager;
 import org.nodex.api.forum.event.ForumInvitationRequestReceivedEvent;
 import org.nodex.api.forum.event.ForumInvitationResponseReceivedEvent;
 import org.nodex.api.sharing.SharingInvitationItem;
-import org.nodex.test.BriarIntegrationTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTest;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.nodex.test.DaggerBriarIntegrationTestComponent;
 import org.nodex.nullsafety.NotNullByDefault;
 import org.junit.Before;
@@ -46,13 +46,13 @@ import static org.nodex.api.forum.ForumSharingManager.CLIENT_ID;
 import static org.nodex.api.forum.ForumSharingManager.MAJOR_VERSION;
 import static org.nodex.api.sharing.SharingManager.SharingStatus.SHAREABLE;
 import static org.nodex.api.sharing.SharingManager.SharingStatus.SHARING;
-import static org.nodex.test.BriarTestUtils.assertGroupCount;
+import static org.nodex.test.NodexTestUtils.assertGroupCount;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 public class ForumSharingIntegrationTest
-		extends BriarIntegrationTest<BriarIntegrationTestComponent> {
+		extends NodexIntegrationTest<NodexIntegrationTestComponent> {
 	private ForumManager forumManager0, forumManager1;
 	private MessageEncoder messageEncoder;
 	private Listener listener0, listener2, listener1;
@@ -85,22 +85,22 @@ public class ForumSharingIntegrationTest
 	}
 	@Override
 	protected void createComponents() {
-		BriarIntegrationTestComponent component =
+		NodexIntegrationTestComponent component =
 				DaggerBriarIntegrationTestComponent.builder().build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(component);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
 		c0 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c0);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
 		c1 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c1);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
 		c2 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c2);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);
 	}
 	private void addForumForSharer() throws DbException {
 		forum = forumManager0.addForum("Test Forum");

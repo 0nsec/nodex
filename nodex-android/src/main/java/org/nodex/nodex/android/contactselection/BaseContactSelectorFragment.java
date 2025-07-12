@@ -12,7 +12,7 @@ import org.nodex.android.contact.ContactItemViewHolder;
 import org.nodex.android.contact.OnContactClickListener;
 import org.nodex.android.controller.handler.UiResultExceptionHandler;
 import org.nodex.android.fragment.BaseFragment;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.Collection;
 import javax.annotation.Nullable;
 import androidx.annotation.CallSuper;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
 import static org.nodex.android.contactselection.ContactSelectorActivity.CONTACTS;
 import static org.nodex.android.contactselection.ContactSelectorActivity.getContactsFromIds;
 import static org.nodex.android.contactselection.ContactSelectorActivity.getContactsFromIntegers;
@@ -29,7 +29,7 @@ import static org.nodex.android.contactselection.ContactSelectorActivity.getCont
 public abstract class BaseContactSelectorFragment<I extends BaseSelectableContactItem, A extends BaseContactSelectorAdapter<I, ? extends ContactItemViewHolder<I>>>
 		extends BaseFragment
 		implements OnContactClickListener<I> {
-	protected BriarRecyclerView list;
+	protected NodexRecyclerView list;
 	protected A adapter;
 	protected Collection<ContactId> selectedContacts = new ArrayList<>();
 	protected ContactSelectorListener listener;

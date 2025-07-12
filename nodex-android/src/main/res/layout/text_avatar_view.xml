@@ -9,7 +9,7 @@
 		android:layout_width="@dimen/avatar_forum_size"
 		android:layout_height="@dimen/avatar_forum_size"
 		android:layout_gravity="bottom|left|start"
-		tools:src="@color/briar_button_text_positive" />
+		tools:src="@color/nodex_button_text_positive" />
 
 	<androidx.appcompat.widget.AppCompatTextView
 		android:id="@+id/textAvatarView"

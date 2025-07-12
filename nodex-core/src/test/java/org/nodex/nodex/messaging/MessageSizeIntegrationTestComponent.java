@@ -8,7 +8,7 @@ import org.nodex.core.test.TestPluginConfigModule;
 import org.nodex.core.test.TestSocksModule;
 import org.nodex.autodelete.AutoDeleteModule;
 import org.nodex.avatar.AvatarModule;
-import org.nodex.client.BriarClientModule;
+import org.nodex.client.NodexClientModule;
 import org.nodex.conversation.ConversationModule;
 import org.nodex.forum.ForumModule;
 import org.nodex.identity.IdentityModule;
@@ -18,7 +18,7 @@ import dagger.Component;
 @Component(modules = {
 		BrambleCoreIntegrationTestModule.class,
 		BrambleCoreModule.class,
-		BriarClientModule.class,
+		NodexClientModule.class,
 		AutoDeleteModule.class,
 		AvatarModule.class,
 		ConversationModule.class,

@@ -4,11 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import org.nodex.R;
-import org.nodex.android.util.BriarAdapter;
+import org.nodex.android.util.NodexAdapter;
 import androidx.annotation.NonNull;
 import static org.nodex.android.util.UiUtils.getContactDisplayName;
 class MemberListAdapter extends
-		BriarAdapter<MemberListItem, MemberListItemHolder> {
+		NodexAdapter<MemberListItem, MemberListItemHolder> {
 	MemberListAdapter(Context context) {
 		super(context, MemberListItem.class);
 	}

@@ -17,8 +17,8 @@
 	<color name="card_background">@color/briar_night_800</color>
 	<color name="item_background_highlight">@color/briar_night_700</color>
 
-	<color name="briar_button_text_neutral">@color/briar_blue_400</color>
-	<color name="briar_button_text_disabled">#23cccccc</color>
+	<color name="nodex_button_text_neutral">@color/briar_blue_400</color>
+	<color name="nodex_button_text_disabled">#23cccccc</color>
 
 	<color name="thread_indicator">@color/briar_night_700</color>
 	<color name="thread_item_highlight">@android:color/black</color>

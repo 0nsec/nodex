@@ -56,7 +56,7 @@
   <string name="expiry_date_reached">Este software expirou.\nObrigado por testar!</string>
   <string name="download_briar">Para continuar usando o Nodex, por favor baixe a versão mais recente.</string>
   <string name="create_new_account">Você precisará criar uma nova conta, mas poderá usar o mesmo apelido.</string>
-  <string name="download_briar_button">Baixar a versão mais recente</string>
+  <string name="download_nodex_button">Baixar a versão mais recente</string>
   <string name="old_android_expiry_date_reached">Nodex já não é mais compatível com a versão 4 do Android.\nPor favor, instale Nodex em um dispositivo com uma versão mais recente do Android. </string>
   <string name="old_android_delete_account">Você pode tocar no botão abaixo para deletar sua conta desse dispositivo.</string>
   <string name="delete_account_button">Apagar a Conta</string>

@@ -18,7 +18,7 @@ import org.nodex.core.api.identity.Author;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
 import org.nodex.android.fragment.BaseFragment;
-import org.nodex.android.view.BriarButton;
+import org.nodex.android.view.NodexButton;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
@@ -44,7 +44,7 @@ public class NicknameFragment extends BaseFragment {
 	private AddContactViewModel viewModel;
 	private TextInputLayout contactNameLayout;
 	private TextInputEditText contactNameInput;
-	private BriarButton addButton;
+	private NodexButton addButton;
 	@Override
 	public String getUniqueTag() {
 		return TAG;

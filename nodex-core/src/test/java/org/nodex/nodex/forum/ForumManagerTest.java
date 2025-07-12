@@ -6,20 +6,20 @@ import org.nodex.api.forum.ForumManager;
 import org.nodex.api.forum.ForumPost;
 import org.nodex.api.forum.ForumPostHeader;
 import org.nodex.api.forum.ForumSharingManager;
-import org.nodex.test.BriarIntegrationTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTest;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.nodex.test.DaggerBriarIntegrationTestComponent;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.Collection;
 import javax.annotation.Nullable;
-import static org.nodex.test.BriarTestUtils.assertGroupCount;
+import static org.nodex.test.NodexTestUtils.assertGroupCount;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 public class ForumManagerTest
-		extends BriarIntegrationTest<BriarIntegrationTestComponent> {
+		extends NodexIntegrationTest<NodexIntegrationTestComponent> {
 	private ForumManager forumManager0, forumManager1;
 	private ForumSharingManager forumSharingManager0, forumSharingManager1;
 	private Forum forum0;
@@ -41,22 +41,22 @@ public class ForumManagerTest
 	}
 	@Override
 	protected void createComponents() {
-		BriarIntegrationTestComponent component =
+		NodexIntegrationTestComponent component =
 				DaggerBriarIntegrationTestComponent.builder().build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(component);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
 		c0 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c0);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
 		c1 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c1);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
 		c2 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c2);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);
 	}
 	private ForumPost createForumPost(GroupId groupId,
 			@Nullable ForumPost parent, String text, long ms) throws Exception {

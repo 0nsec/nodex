@@ -47,7 +47,7 @@
   <string name="expiry_date_reached">Софтверот истече.\nВи благодариме за тестирањето!</string>
   <string name="download_briar">За да продолжите со користење на Nodex, ве молиме преземете го најновото издание.</string>
   <string name="create_new_account">Ќе треба да создадете нова сметка, но можете да го користите истото корисничко име.</string>
-  <string name="download_briar_button">Преземи најново издание</string>
+  <string name="download_nodex_button">Преземи најново издание</string>
   <string name="startup_open_database">Декриптирање на базата на податоци...</string>
   <string name="startup_migrate_database">Ажурирање на базата на податоци...</string>
   <string name="startup_compact_database">Пакување на базата на податоци</string>

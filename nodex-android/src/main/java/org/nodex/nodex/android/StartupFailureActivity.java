@@ -11,7 +11,7 @@ import org.nodex.nullsafety.ParametersNotNullByDefault;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import static org.nodex.core.api.lifecycle.LifecycleManager.StartResult;
-import static org.nodex.android.BriarService.EXTRA_START_RESULT;
+import static org.nodex.android.NodexService.EXTRA_START_RESULT;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class StartupFailureActivity extends BaseActivity implements

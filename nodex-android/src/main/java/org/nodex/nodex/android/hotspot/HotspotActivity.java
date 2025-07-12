@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.fragment.BaseFragment.BaseFragmentListener;
 import org.nodex.android.hotspot.HotspotState.HotspotError;
 import org.nodex.android.hotspot.HotspotState.HotspotStarted;
@@ -20,7 +20,7 @@ import static org.nodex.android.util.UiUtils.showFragment;
 import static org.nodex.api.android.AndroidNotificationManager.ACTION_STOP_HOTSPOT;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class HotspotActivity extends BriarActivity
+public class HotspotActivity extends NodexActivity
 		implements BaseFragmentListener {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;

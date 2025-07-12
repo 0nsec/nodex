@@ -13,7 +13,7 @@ import org.nodex.core.api.settings.Settings;
 import org.nodex.core.api.settings.SettingsManager;
 import org.nodex.core.api.settings.event.SettingsUpdatedEvent;
 import org.nodex.R;
-import org.nodex.android.BriarService;
+import org.nodex.android.NodexService;
 import org.nodex.api.android.AndroidNotificationManager;
 import org.nodex.api.android.LockManager;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
@@ -71,7 +71,7 @@ public class LockManagerImpl implements LockManager, Service, EventListener {
 		alarmManager =
 				(AlarmManager) appContext.getSystemService(ALARM_SERVICE);
 		Intent i =
-				new Intent(ACTION_LOCK, null, appContext, BriarService.class);
+				new Intent(ACTION_LOCK, null, appContext, NodexService.class);
 		i.putExtra(EXTRA_PID, myPid());
 		lockIntent = getService(appContext, 0, i,
 				getImmutableFlags(FLAG_UPDATE_CURRENT));

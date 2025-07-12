@@ -13,8 +13,8 @@ import org.nodex.api.privategroup.JoinMessageHeader;
 import org.nodex.api.privategroup.PrivateGroup;
 import org.nodex.api.privategroup.PrivateGroupManager;
 import org.nodex.api.privategroup.invitation.GroupInvitationManager;
-import org.nodex.test.BriarIntegrationTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTest;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.nodex.test.DaggerBriarIntegrationTestComponent;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +29,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 public class PrivateGroupIntegrationTest
-		extends BriarIntegrationTest<BriarIntegrationTestComponent> {
+		extends NodexIntegrationTest<NodexIntegrationTestComponent> {
 	private GroupId groupId0;
 	private PrivateGroup privateGroup0;
 	private PrivateGroupManager groupManager0, groupManager1, groupManager2;
@@ -55,22 +55,22 @@ public class PrivateGroupIntegrationTest
 	}
 	@Override
 	protected void createComponents() {
-		BriarIntegrationTestComponent component =
+		NodexIntegrationTestComponent component =
 				DaggerBriarIntegrationTestComponent.builder().build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(component);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
 		c0 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c0);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
 		c1 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c1);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
 		c2 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c2);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);
 	}
 	@Test
 	public void testMembership() throws Exception {

@@ -53,7 +53,7 @@
   <string name="expiry_date_reached">Софтуерът е с изтекъл срок.\nБлагодарим за изпитването!</string>
   <string name="download_briar">За да продължите да използвате Nodex изтеглете последното издание.</string>
   <string name="create_new_account">Ще трябва да създадете нов профил, но ще можете да използвате същия прякор.</string>
-  <string name="download_briar_button">Изтегляне</string>
+  <string name="download_nodex_button">Изтегляне</string>
   <string name="old_android_expiry_date_reached">Nodex не работи на Android 4.\nИнсталирайте Nodex на друго устройство.</string>
   <string name="old_android_delete_account">За да премахнете профила от устройството докоснете бутона отдолу.</string>
   <string name="delete_account_button">Премахване на профил</string>

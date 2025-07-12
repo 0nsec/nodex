@@ -7,9 +7,9 @@ import com.google.android.material.snackbar.Snackbar;
 import org.nodex.core.api.contact.PendingContactId;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
-import org.nodex.android.util.BriarSnackbarBuilder;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.activity.NodexActivity;
+import org.nodex.android.util.NodexSnackbarBuilder;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.Collection;
@@ -23,13 +23,13 @@ import static org.nodex.core.api.contact.PendingContactState.FAILED;
 import static org.nodex.android.contact.add.remote.PendingContactItem.POLL_DURATION_MS;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class PendingContactListActivity extends BriarActivity
+public class PendingContactListActivity extends NodexActivity
 		implements PendingContactListener {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
 	private PendingContactListViewModel viewModel;
 	private PendingContactListAdapter adapter;
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	private Snackbar offlineSnackbar;
 	@Override
 	public void injectActivity(ActivityComponent component) {
@@ -57,7 +57,7 @@ public class PendingContactListActivity extends BriarActivity
 		list.setLayoutManager(new LinearLayoutManager(this));
 		list.setAdapter(adapter);
 		list.showProgressBar();
-		offlineSnackbar = new BriarSnackbarBuilder()
+		offlineSnackbar = new NodexSnackbarBuilder()
 				.setBackgroundColor(R.color.briar_red_500)
 				.make(list, R.string.offline_state, LENGTH_INDEFINITE);
 	}

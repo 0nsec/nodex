@@ -6,11 +6,11 @@ import com.google.android.material.snackbar.Snackbar;
 import org.nodex.core.api.sync.GroupId;
 import org.nodex.core.api.sync.MessageId;
 import org.nodex.R;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.sharing.SharingController.SharingInfo;
 import org.nodex.android.threaded.ThreadItemAdapter.ThreadItemListener;
-import org.nodex.android.util.BriarSnackbarBuilder;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.util.NodexSnackbarBuilder;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.android.view.TextInputView;
 import org.nodex.android.view.TextSendController;
 import org.nodex.android.view.TextSendController.SendListener;
@@ -34,11 +34,11 @@ import static org.nodex.android.view.TextSendController.SendState.SENT;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class ThreadListActivity<I extends ThreadItem, A extends ThreadItemAdapter<I>>
-		extends BriarActivity implements SendListener, ThreadItemListener<I> {
+		extends NodexActivity implements SendListener, ThreadItemListener<I> {
 	protected final A adapter = createAdapter();
 	protected abstract ThreadListViewModel<I> getViewModel();
 	protected abstract A createAdapter();
-	protected BriarRecyclerView list;
+	protected NodexRecyclerView list;
 	protected TextInputView textInput;
 	protected TextSendController sendController;
 	protected GroupId groupId;
@@ -184,7 +184,7 @@ public abstract class ThreadListActivity<I extends ThreadItem, A extends ThreadI
 		}
 	}
 	protected void displaySnackbar(@StringRes int stringId) {
-		new BriarSnackbarBuilder()
+		new NodexSnackbarBuilder()
 				.make(list, stringId, Snackbar.LENGTH_SHORT)
 				.show();
 	}

@@ -7,8 +7,8 @@ import org.nodex.api.blog.BlogCommentHeader;
 import org.nodex.api.blog.BlogManager;
 import org.nodex.api.blog.BlogPost;
 import org.nodex.api.blog.BlogPostHeader;
-import org.nodex.test.BriarIntegrationTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTest;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.nodex.test.DaggerBriarIntegrationTestComponent;
 import org.junit.Before;
 import org.junit.Rule;
@@ -28,7 +28,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 public class BlogManagerIntegrationTest
-		extends BriarIntegrationTest<BriarIntegrationTestComponent> {
+		extends NodexIntegrationTest<NodexIntegrationTestComponent> {
 	private BlogManager blogManager0, blogManager1;
 	private Blog blog0, blog1, rssBlog;
 	private LocalAuthor rssAuthor;
@@ -49,22 +49,22 @@ public class BlogManagerIntegrationTest
 	}
 	@Override
 	protected void createComponents() {
-		BriarIntegrationTestComponent component =
+		NodexIntegrationTestComponent component =
 				DaggerBriarIntegrationTestComponent.builder().build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(component);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
 		c0 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c0);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
 		c1 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c1);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
 		c2 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c2);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);
 	}
 	@Test
 	public void testPersonalBlogInitialisation() throws Exception {

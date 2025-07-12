@@ -44,7 +44,7 @@
   <string name="expiry_date_reached">Bu proqram sona çatdı. Test üçün təşəkkür edirik!</string>
   <string name="download_briar">Nodex-dan istifadə etməyə davam etmək üçün ən son versiyanı yükləyin.</string>
   <string name="create_new_account">Yeni bir hesab yaratmaq lazımdır, lakin eyni ləqəbi istifadə edə bilərsiniz.</string>
-  <string name="download_briar_button">Son versiyasını yükləyin </string>
+  <string name="download_nodex_button">Son versiyasını yükləyin </string>
   <string name="startup_open_database">Məlumatlar şifrədən açılması...</string>
   <string name="startup_migrate_database">Məlumatların təzələnməsi...</string>
   <string name="startup_compact_database">Məlumatın sıxılması...</string>

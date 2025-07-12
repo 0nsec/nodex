@@ -4,11 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import org.nodex.R;
-import org.nodex.android.util.BriarAdapter;
+import org.nodex.android.util.NodexAdapter;
 import org.nodex.api.sharing.InvitationItem;
 import androidx.annotation.NonNull;
 public abstract class InvitationAdapter<I extends InvitationItem, VH extends InvitationViewHolder<I>>
-		extends BriarAdapter<I, VH> {
+		extends NodexAdapter<I, VH> {
 	private final InvitationClickListener<I> listener;
 	public InvitationAdapter(Context ctx, Class<I> c,
 			InvitationClickListener<I> listener) {

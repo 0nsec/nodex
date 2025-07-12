@@ -1,5 +1,5 @@
 package org.nodex.android.threaded;
-import org.nodex.android.view.BriarRecyclerViewScrollListener;
+import org.nodex.android.view.NodexRecyclerViewScrollListener;
 import org.nodex.android.view.UnreadMessageButton;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.util.logging.Logger;
@@ -10,7 +10,7 @@ import static java.util.logging.Level.INFO;
 import static java.util.logging.Logger.getLogger;
 @NotNullByDefault
 class ThreadScrollListener<I extends ThreadItem>
-		extends BriarRecyclerViewScrollListener<ThreadItemAdapter<I>, I> {
+		extends NodexRecyclerViewScrollListener<ThreadItemAdapter<I>, I> {
 	private static final Logger LOG =
 			getLogger(ThreadScrollListener.class.getName());
 	private final ThreadListViewModel<I> viewModel;

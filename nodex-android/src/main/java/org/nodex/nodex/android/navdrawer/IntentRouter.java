@@ -1,7 +1,7 @@
 package org.nodex.android.navdrawer;
 import android.content.Context;
 import android.content.Intent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.contact.add.remote.AddContactActivity;
 import static android.content.Intent.ACTION_SEND;
 import static android.content.Intent.ACTION_VIEW;
@@ -22,7 +22,7 @@ class IntentRouter {
 		}
 	}
 	private static void redirect(Context ctx, Intent i,
-			Class<? extends BriarActivity> activityClass) {
+			Class<? extends NodexActivity> activityClass) {
 		i.setClass(ctx, activityClass);
 		i.addFlags(FLAG_ACTIVITY_CLEAR_TOP);
 		ctx.startActivity(i);

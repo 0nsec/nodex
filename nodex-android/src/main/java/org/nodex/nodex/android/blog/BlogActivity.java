@@ -5,7 +5,7 @@ import org.nodex.core.api.sync.GroupId;
 import org.nodex.core.api.sync.MessageId;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.fragment.BaseFragment;
 import org.nodex.android.fragment.BaseFragment.BaseFragmentListener;
 import org.nodex.android.sharing.BlogSharingStatusActivity;
@@ -19,7 +19,7 @@ import static java.util.Objects.requireNonNull;
 import static org.nodex.android.blog.BlogPostFragment.POST_ID;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class BlogActivity extends BriarActivity
+public class BlogActivity extends NodexActivity
 		implements BaseFragmentListener {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;

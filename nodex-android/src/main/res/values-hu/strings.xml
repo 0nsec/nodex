@@ -51,7 +51,7 @@
   <string name="expiry_date_reached">Ez a szoftver lejárt.\nKöszönjük a tesztelését!</string>
   <string name="download_briar">A Nodex használatának folytatásához kérjük töltsd le a legújabb verziót.</string>
   <string name="create_new_account">Új fiókot kell létrehoznod, de használhatod ugyanazt a becenevet.</string>
-  <string name="download_briar_button">Legújabb verzió letöltése</string>
+  <string name="download_nodex_button">Legújabb verzió letöltése</string>
   <string name="old_android_expiry_date_reached">A Nodex már nem fut Android 4 rendszeren. Kérjük, telepítse a Briart egy újabb eszközre.</string>
   <string name="old_android_delete_account">Az alábbi gombra koppintva törölheti fiókját erről az eszközről.</string>
   <string name="delete_account_button">Fiók törlése</string>

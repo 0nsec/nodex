@@ -2,7 +2,7 @@ package org.nodex.android.blog;
 import android.os.Bundle;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.blog.RssImportResult.FileImportError;
 import org.nodex.android.blog.RssImportResult.FileImportSuccess;
 import org.nodex.android.blog.RssImportResult.UrlImportError;
@@ -20,7 +20,7 @@ import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 import static org.nodex.android.util.UiUtils.showFragment;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class RssFeedActivity extends BriarActivity
+public class RssFeedActivity extends NodexActivity
 		implements BaseFragmentListener {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;

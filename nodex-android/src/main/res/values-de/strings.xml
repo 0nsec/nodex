@@ -55,7 +55,7 @@
   <string name="expiry_date_reached">Diese Software ist abgelaufen.\nDanke, dass du Nodex getestet hast!</string>
   <string name="download_briar">Bitte lade die aktuelle Version von Nodex herunter, um es weiter zu benutzen.</string>
   <string name="create_new_account">Du wirst ein neues Konto erstellen müssen, wobei du jedoch wieder denselben Spitznamen verwenden kannst.</string>
-  <string name="download_briar_button">Aktuelle Version herunterladen</string>
+  <string name="download_nodex_button">Aktuelle Version herunterladen</string>
   <string name="old_android_expiry_date_reached">Nodex wird auf Android 4 nicht mehr unterstützt.\nBitte installiere Nodex auf einem neueren Gerät.</string>
   <string name="old_android_delete_account">Du kannst auf die Schaltfläche unten tippen, um dein Konto von diesem Gerät zu löschen.</string>
   <string name="delete_account_button">Konto löschen</string>

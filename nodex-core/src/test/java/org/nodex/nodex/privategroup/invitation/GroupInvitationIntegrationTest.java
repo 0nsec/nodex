@@ -14,8 +14,8 @@ import org.nodex.api.privategroup.invitation.GroupInvitationItem;
 import org.nodex.api.privategroup.invitation.GroupInvitationManager;
 import org.nodex.api.privategroup.invitation.GroupInvitationRequest;
 import org.nodex.api.privategroup.invitation.GroupInvitationResponse;
-import org.nodex.test.BriarIntegrationTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTest;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.nodex.test.DaggerBriarIntegrationTestComponent;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,13 +28,13 @@ import static org.nodex.api.autodelete.AutoDeleteConstants.MIN_AUTO_DELETE_TIMER
 import static org.nodex.api.sharing.SharingManager.SharingStatus.INVITE_SENT;
 import static org.nodex.api.sharing.SharingManager.SharingStatus.SHAREABLE;
 import static org.nodex.api.sharing.SharingManager.SharingStatus.SHARING;
-import static org.nodex.test.BriarTestUtils.assertGroupCount;
+import static org.nodex.test.NodexTestUtils.assertGroupCount;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 public class GroupInvitationIntegrationTest
-		extends BriarIntegrationTest<BriarIntegrationTestComponent> {
+		extends NodexIntegrationTest<NodexIntegrationTestComponent> {
 	private PrivateGroup privateGroup;
 	private PrivateGroupManager groupManager0, groupManager1;
 	private GroupInvitationManager groupInvitationManager0,
@@ -61,22 +61,22 @@ public class GroupInvitationIntegrationTest
 	}
 	@Override
 	protected void createComponents() {
-		BriarIntegrationTestComponent component =
+		NodexIntegrationTestComponent component =
 				DaggerBriarIntegrationTestComponent.builder().build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(component);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
 		c0 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c0);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
 		c1 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c1);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
 		c2 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c2);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);
 	}
 	@Test
 	public void testSendInvitation() throws Exception {

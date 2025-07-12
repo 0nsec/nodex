@@ -12,5 +12,5 @@ public abstract class DevReportModule {
 	abstract ViewModel bindReportViewModel(ReportViewModel reportViewModel);
 	@Binds
 	abstract Thread.UncaughtExceptionHandler bindUncaughtExceptionHandler(
-			BriarExceptionHandler handler);
+			NodexExceptionHandler handler);
 }

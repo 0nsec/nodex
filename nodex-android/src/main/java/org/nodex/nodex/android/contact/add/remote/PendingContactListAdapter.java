@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import org.nodex.core.api.contact.PendingContact;
 import org.nodex.R;
-import org.nodex.android.util.BriarAdapter;
+import org.nodex.android.util.NodexAdapter;
 import org.nodex.nullsafety.NotNullByDefault;
 @NotNullByDefault
 class PendingContactListAdapter extends
-		BriarAdapter<PendingContactItem, PendingContactViewHolder> {
+		NodexAdapter<PendingContactItem, PendingContactViewHolder> {
 	private final PendingContactListener listener;
 	PendingContactListAdapter(Context ctx, PendingContactListener listener,
 			Class<PendingContactItem> c) {

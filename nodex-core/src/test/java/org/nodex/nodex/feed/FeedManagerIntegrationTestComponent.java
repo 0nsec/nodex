@@ -12,7 +12,7 @@ import org.nodex.api.blog.BlogManager;
 import org.nodex.api.feed.FeedManager;
 import org.nodex.avatar.AvatarModule;
 import org.nodex.blog.BlogModule;
-import org.nodex.client.BriarClientModule;
+import org.nodex.client.NodexClientModule;
 import org.nodex.identity.IdentityModule;
 import javax.inject.Singleton;
 import dagger.Component;
@@ -22,7 +22,7 @@ import dagger.Component;
 		BrambleCoreModule.class,
 		AvatarModule.class,
 		BlogModule.class,
-		BriarClientModule.class,
+		NodexClientModule.class,
 		FeedModule.class,
 		IdentityModule.class,
 		ModularMailboxModule.class,

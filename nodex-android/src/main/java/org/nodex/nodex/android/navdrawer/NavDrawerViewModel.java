@@ -7,7 +7,7 @@ import org.nodex.core.api.lifecycle.LifecycleManager;
 import org.nodex.core.api.settings.Settings;
 import org.nodex.core.api.settings.SettingsManager;
 import org.nodex.core.api.system.AndroidExecutor;
-import org.nodex.android.BriarApplication;
+import org.nodex.android.NodexApplication;
 import org.nodex.android.viewmodel.DbViewModel;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.util.concurrent.Executor;
@@ -22,7 +22,7 @@ import static java.util.logging.Logger.getLogger;
 import static org.nodex.android.dontkillmelib.DozeUtils.needsDozeWhitelisting;
 import static org.nodex.core.util.LogUtils.logException;
 import static org.nodex.android.TestingConstants.EXPIRY_DATE;
-import static org.nodex.android.controller.BriarControllerImpl.DOZE_ASK_AGAIN;
+import static org.nodex.android.controller.NodexControllerImpl.DOZE_ASK_AGAIN;
 import static org.nodex.android.settings.SettingsFragment.SETTINGS_NAMESPACE;
 @NotNullByDefault
 public class NavDrawerViewModel extends DbViewModel {
@@ -100,7 +100,7 @@ public class NavDrawerViewModel extends DbViewModel {
 	}
 	@UiThread
 	void checkDozeWhitelisting() {
-		BriarApplication app = getApplication();
+		NodexApplication app = getApplication();
 		if (app.isInstrumentationTest() ||
 				!needsDozeWhitelisting(getApplication())) {
 			shouldAskForDozeWhitelisting.setValue(false);

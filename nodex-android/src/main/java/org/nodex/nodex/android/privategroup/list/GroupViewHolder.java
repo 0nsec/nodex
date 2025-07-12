@@ -15,8 +15,8 @@ import org.nodex.nullsafety.ParametersNotNullByDefault;
 import androidx.recyclerview.widget.RecyclerView;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
-import static org.nodex.android.activity.BriarActivity.GROUP_NAME;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_NAME;
 import static org.nodex.android.util.UiUtils.getContactDisplayName;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault

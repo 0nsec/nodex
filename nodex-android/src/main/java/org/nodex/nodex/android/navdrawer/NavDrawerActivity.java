@@ -23,10 +23,10 @@ import org.nodex.core.api.plugin.Plugin.State;
 import org.nodex.core.api.plugin.TorConstants;
 import org.nodex.core.api.plugin.TransportId;
 import org.nodex.R;
-import org.nodex.android.BriarApplication;
+import org.nodex.android.NodexApplication;
 import org.nodex.android.StartupFailureActivity;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.blog.FeedFragment;
 import org.nodex.android.contact.ContactListFragment;
 import org.nodex.android.forum.ForumListFragment;
@@ -66,8 +66,8 @@ import static org.nodex.core.api.lifecycle.LifecycleManager.LifecycleState.RUNNI
 import static org.nodex.core.api.plugin.Plugin.State.ACTIVE;
 import static org.nodex.core.api.plugin.Plugin.State.ENABLING;
 import static org.nodex.core.api.plugin.Plugin.State.STARTING_STOPPING;
-import static org.nodex.android.BriarService.EXTRA_STARTUP_FAILED;
-import static org.nodex.android.BriarService.EXTRA_START_RESULT;
+import static org.nodex.android.NodexService.EXTRA_STARTUP_FAILED;
+import static org.nodex.android.NodexService.EXTRA_START_RESULT;
 import static org.nodex.android.TestingConstants.IS_DEBUG_BUILD;
 import static org.nodex.android.activity.RequestCodes.REQUEST_PASSWORD;
 import static org.nodex.android.navdrawer.IntentRouter.handleExternalIntent;
@@ -76,7 +76,7 @@ import static org.nodex.android.util.UiUtils.observeOnce;
 import static org.nodex.android.util.UiUtils.resolveColorAttribute;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class NavDrawerActivity extends BriarActivity implements
+public class NavDrawerActivity extends NodexActivity implements
 		BaseFragmentListener, OnNavigationItemSelectedListener {
 	private static final Logger LOG =
 			getLogger(NavDrawerActivity.class.getName());
@@ -117,7 +117,7 @@ public class NavDrawerActivity extends BriarActivity implements
 		super.onCreate(state);
 		exitIfStartupFailed(getIntent());
 		setContentView(R.layout.activity_nav_drawer);
-		BriarApplication app = (BriarApplication) getApplication();
+		NodexApplication app = (NodexApplication) getApplication();
 		if (IS_DEBUG_BUILD && !app.isInstrumentationTest()) {
 			navDrawerViewModel.showExpiryWarning()
 					.observe(this, this::showExpiryWarning);

@@ -35,7 +35,7 @@ import org.nodex.android.mailbox.MailboxActivity;
 import org.nodex.android.navdrawer.NavDrawerActivity;
 import org.nodex.android.privategroup.conversation.GroupActivity;
 import org.nodex.android.splash.SplashScreenActivity;
-import org.nodex.android.util.BriarNotificationBuilder;
+import org.nodex.android.util.NodexNotificationBuilder;
 import org.nodex.api.android.AndroidNotificationManager;
 import org.nodex.api.blog.event.BlogPostAddedEvent;
 import org.nodex.api.conversation.ConversationResponse;
@@ -79,7 +79,7 @@ import static androidx.core.app.NotificationCompat.PRIORITY_MIN;
 import static androidx.core.app.NotificationCompat.VISIBILITY_SECRET;
 import static androidx.core.content.ContextCompat.getColor;
 import static org.nodex.core.util.AndroidUtils.getImmutableFlags;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
 import static org.nodex.android.conversation.ConversationActivity.CONTACT_ID;
 import static org.nodex.android.navdrawer.NavDrawerActivity.BLOG_URI;
 import static org.nodex.android.navdrawer.NavDrawerActivity.CONTACT_ADDED_URI;
@@ -294,7 +294,7 @@ class AndroidNotificationManagerImpl implements AndroidNotificationManager,
 		if (contactTotal == 0) {
 			clearContactNotification();
 		} else if (settings.getBoolean(PREF_NOTIFY_PRIVATE, true)) {
-			BriarNotificationBuilder b = new BriarNotificationBuilder(
+			NodexNotificationBuilder b = new NodexNotificationBuilder(
 					appContext, CONTACT_CHANNEL_ID);
 			b.setSmallIcon(R.drawable.notification_private_message);
 			b.setColorRes(R.color.briar_primary);
@@ -333,7 +333,7 @@ class AndroidNotificationManagerImpl implements AndroidNotificationManager,
 		}
 	}
 	@UiThread
-	private void setAlertProperties(BriarNotificationBuilder b) {
+	private void setAlertProperties(NodexNotificationBuilder b) {
 		long currentTime = clock.currentTimeMillis();
 		if (currentTime - lastSound > SOUND_DELAY) {
 			boolean sound = settings.getBoolean(PREF_NOTIFY_SOUND, true);
@@ -358,7 +358,7 @@ class AndroidNotificationManagerImpl implements AndroidNotificationManager,
 			defaults |= DEFAULT_VIBRATE;
 		return defaults;
 	}
-	private void setDeleteIntent(BriarNotificationBuilder b, Uri uri) {
+	private void setDeleteIntent(NodexNotificationBuilder b, Uri uri) {
 		Intent i = new Intent(appContext, NotificationCleanupService.class);
 		i.setData(uri);
 		b.setDeleteIntent(PendingIntent.getService(appContext, nextRequestId++,
@@ -389,8 +389,8 @@ class AndroidNotificationManagerImpl implements AndroidNotificationManager,
 		if (groupTotal == 0) {
 			clearGroupMessageNotification();
 		} else if (settings.getBoolean(PREF_NOTIFY_GROUP, true)) {
-			BriarNotificationBuilder b =
-					new BriarNotificationBuilder(appContext, GROUP_CHANNEL_ID);
+			NodexNotificationBuilder b =
+					new NodexNotificationBuilder(appContext, GROUP_CHANNEL_ID);
 			b.setSmallIcon(R.drawable.notification_private_group);
 			b.setColorRes(R.color.briar_primary);
 			b.setContentTitle(appContext.getText(R.string.app_name));
@@ -453,8 +453,8 @@ class AndroidNotificationManagerImpl implements AndroidNotificationManager,
 		if (forumTotal == 0) {
 			clearForumPostNotification();
 		} else if (settings.getBoolean(PREF_NOTIFY_FORUM, true)) {
-			BriarNotificationBuilder b =
-					new BriarNotificationBuilder(appContext, FORUM_CHANNEL_ID);
+			NodexNotificationBuilder b =
+					new NodexNotificationBuilder(appContext, FORUM_CHANNEL_ID);
 			b.setSmallIcon(R.drawable.notification_forum);
 			b.setColorRes(R.color.briar_primary);
 			b.setContentTitle(appContext.getText(R.string.app_name));
@@ -515,8 +515,8 @@ class AndroidNotificationManagerImpl implements AndroidNotificationManager,
 		if (blogTotal == 0) {
 			clearBlogPostNotification();
 		} else if (settings.getBoolean(PREF_NOTIFY_BLOG, true)) {
-			BriarNotificationBuilder b =
-					new BriarNotificationBuilder(appContext, BLOG_CHANNEL_ID);
+			NodexNotificationBuilder b =
+					new NodexNotificationBuilder(appContext, BLOG_CHANNEL_ID);
 			b.setSmallIcon(R.drawable.notification_blog);
 			b.setColorRes(R.color.briar_primary);
 			b.setContentTitle(appContext.getText(R.string.app_name));
@@ -550,8 +550,8 @@ class AndroidNotificationManagerImpl implements AndroidNotificationManager,
 	}
 	@UiThread
 	private void updateContactAddedNotification() {
-		BriarNotificationBuilder b =
-				new BriarNotificationBuilder(appContext, CONTACT_CHANNEL_ID);
+		NodexNotificationBuilder b =
+				new NodexNotificationBuilder(appContext, CONTACT_CHANNEL_ID);
 		b.setSmallIcon(R.drawable.notification_contact_added);
 		b.setColorRes(R.color.briar_primary);
 		b.setContentTitle(appContext.getText(R.string.app_name));
@@ -672,8 +672,8 @@ class AndroidNotificationManagerImpl implements AndroidNotificationManager,
 			channel.setLockscreenVisibility(VISIBILITY_SECRET);
 			notificationManager.createNotificationChannel(channel);
 		}
-		BriarNotificationBuilder b =
-				new BriarNotificationBuilder(appContext, HOTSPOT_CHANNEL_ID);
+		NodexNotificationBuilder b =
+				new NodexNotificationBuilder(appContext, HOTSPOT_CHANNEL_ID);
 		b.setSmallIcon(R.drawable.notification_hotspot);
 		b.setColorRes(R.color.briar_brand_green);
 		b.setContentTitle(

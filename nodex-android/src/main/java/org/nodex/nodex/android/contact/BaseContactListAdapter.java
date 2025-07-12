@@ -1,11 +1,11 @@
 package org.nodex.android.contact;
 import android.content.Context;
-import org.nodex.android.util.BriarAdapter;
+import org.nodex.android.util.NodexAdapter;
 import javax.annotation.Nullable;
 import androidx.annotation.NonNull;
 import static org.nodex.android.util.UiUtils.getContactDisplayName;
 public abstract class BaseContactListAdapter<I extends ContactItem, VH extends ContactItemViewHolder<I>>
-		extends BriarAdapter<I, VH> {
+		extends NodexAdapter<I, VH> {
 	@Nullable
 	protected final OnContactClickListener<I> listener;
 	public BaseContactListAdapter(Context ctx, Class<I> c,

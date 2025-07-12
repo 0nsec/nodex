@@ -32,7 +32,7 @@ import static org.nodex.introduction.IntroduceeSession.Remote;
 import static org.nodex.introduction.IntroduceeState.LOCAL_ACCEPTED;
 import static org.nodex.introduction.IntroducerState.AWAIT_AUTHS;
 import static org.nodex.introduction.IntroductionConstants.SESSION_KEY_ROLE;
-import static org.nodex.test.BriarTestUtils.getRealAuthor;
+import static org.nodex.test.NodexTestUtils.getRealAuthor;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

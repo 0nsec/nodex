@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 import static java.util.Objects.requireNonNull;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class RssFeedDeleteFeedDialogFragment extends DialogFragment {

@@ -5,7 +5,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.fragment.BaseFragment.BaseFragmentListener;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
@@ -19,7 +19,7 @@ import static android.content.Intent.EXTRA_TEXT;
 import static android.widget.Toast.LENGTH_LONG;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class AddContactActivity extends BriarActivity implements
+public class AddContactActivity extends NodexActivity implements
 		BaseFragmentListener {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;

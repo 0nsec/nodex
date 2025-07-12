@@ -61,7 +61,7 @@
 	<string name="expiry_date_reached">This software has expired.\nThank you for testing!</string>
 	<string name="download_briar">To continue using Nodex, please download the latest release.</string>
 	<string name="create_new_account">You will need to create a new account, but you can use the same nickname.</string>
-	<string name="download_briar_button">Download Latest Release</string>
+	<string name="download_nodex_button">Download Latest Release</string>
 	<string name="old_android_expiry_date_reached">Nodex no longer runs on Android 4.\nPlease install Nodex on a newer device.</string>
 	<string name="old_android_delete_account">You can tap the button below to delete your account from this device.</string>
 	<string name="delete_account_button">Delete Account</string>

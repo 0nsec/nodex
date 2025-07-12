@@ -35,7 +35,7 @@ import static org.nodex.api.introduction.IntroductionManager.CLIENT_ID;
 import static org.nodex.api.introduction.IntroductionManager.MAJOR_VERSION;
 import static org.nodex.introduction.MessageType.ABORT;
 import static org.nodex.introduction.MessageType.REQUEST;
-import static org.nodex.test.BriarTestUtils.getRealAuthor;
+import static org.nodex.test.NodexTestUtils.getRealAuthor;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

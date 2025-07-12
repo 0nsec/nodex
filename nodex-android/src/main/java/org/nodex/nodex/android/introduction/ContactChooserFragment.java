@@ -9,7 +9,7 @@ import org.nodex.android.contact.ContactListAdapter;
 import org.nodex.android.contact.ContactListItem;
 import org.nodex.android.contact.OnContactClickListener;
 import org.nodex.android.fragment.BaseFragment;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
@@ -25,7 +25,7 @@ public class ContactChooserFragment extends BaseFragment
 	ViewModelProvider.Factory viewModelFactory;
 	private IntroductionViewModel viewModel;
 	private final ContactListAdapter adapter = new ContactListAdapter(this);
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	@Override
 	public void injectFragment(ActivityComponent component) {
 		component.inject(this);

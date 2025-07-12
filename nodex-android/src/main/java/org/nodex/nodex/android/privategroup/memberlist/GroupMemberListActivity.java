@@ -11,9 +11,9 @@ import org.nodex.core.api.sync.GroupId;
 import org.nodex.core.api.sync.event.GroupRemovedEvent;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.controller.handler.UiResultExceptionHandler;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.api.privategroup.JoinMessageHeader;
 import org.nodex.api.privategroup.event.GroupMessageAddedEvent;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
@@ -24,14 +24,14 @@ import javax.inject.Inject;
 import androidx.recyclerview.widget.LinearLayoutManager;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class GroupMemberListActivity extends BriarActivity
+public class GroupMemberListActivity extends NodexActivity
 		implements EventListener {
 	@Inject
 	GroupMemberListController controller;
 	@Inject
 	EventBus eventBus;
 	private MemberListAdapter adapter;
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	private GroupId groupId;
 	@Override
 	public void injectActivity(ActivityComponent component) {

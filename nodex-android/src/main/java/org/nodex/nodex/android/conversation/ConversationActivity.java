@@ -41,7 +41,7 @@ import org.nodex.core.api.sync.event.MessagesSentEvent;
 import org.nodex.core.api.versioning.event.ClientVersionUpdatedEvent;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.attachment.AttachmentItem;
 import org.nodex.android.attachment.AttachmentRetriever;
 import org.nodex.android.blog.BlogActivity;
@@ -55,8 +55,8 @@ import org.nodex.android.privategroup.conversation.GroupActivity;
 import org.nodex.android.removabledrive.RemovableDriveActivity;
 import org.nodex.android.util.ActivityLaunchers.GetMultipleImagesAdvanced;
 import org.nodex.android.util.ActivityLaunchers.OpenMultipleImageDocumentsAdvanced;
-import org.nodex.android.util.BriarSnackbarBuilder;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.util.NodexSnackbarBuilder;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.android.view.ImagePreview;
 import org.nodex.android.view.TextAttachmentController;
 import org.nodex.android.view.TextAttachmentController.AttachmentListener;
@@ -145,7 +145,7 @@ import static org.nodex.api.messaging.PrivateMessageFormat.TEXT_IMAGES_AUTO_DELE
 import static org.nodex.api.messaging.PrivateMessageFormat.TEXT_ONLY;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class ConversationActivity extends BriarActivity
+public class ConversationActivity extends NodexActivity
 		implements BaseFragmentListener, EventListener, ConversationListener,
 		TextCache, AttachmentCache, AttachmentListener, ActionMode.Callback {
 	public static final String CONTACT_ID = "nodex.CONTACT_ID";
@@ -196,7 +196,7 @@ public class ConversationActivity extends BriarActivity
 	private CircleImageView toolbarAvatar;
 	private ImageView toolbarStatus;
 	private TextView toolbarTitle;
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	private LinearLayoutManager layoutManager;
 	private TextInputView textInputView;
 	private TextSendController sendController;
@@ -286,7 +286,7 @@ public class ConversationActivity extends BriarActivity
 			@Nullable Intent data) {
 		super.onActivityResult(request, result, data);
 		if (request == REQUEST_INTRODUCTION && result == RESULT_OK) {
-			new BriarSnackbarBuilder()
+			new NodexSnackbarBuilder()
 					.make(list, R.string.introduction_sent,
 							Snackbar.LENGTH_SHORT)
 					.show();

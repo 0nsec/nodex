@@ -48,7 +48,7 @@
   <string name="expiry_date_reached">このソフトウェアの有効期限が切れました。試験に参加してくださりありがとうございます！</string>
   <string name="download_briar">Briarを使用し続けるには、最新のリリースをダウンロードしてください。</string>
   <string name="create_new_account">新規アカウントを作成する必要があります。同じニックネームも使用できます。</string>
-  <string name="download_briar_button">最新リリースをダウンロード</string>
+  <string name="download_nodex_button">最新リリースをダウンロード</string>
   <string name="old_android_expiry_date_reached">BriarはAndroid 4では動作しなくなりました。\n新しい端末にBriarをインストールしてください。</string>
   <string name="old_android_delete_account">下のボタンをタップして、この端末からあなたのアカウントを削除できます。</string>
   <string name="delete_account_button">アカウントを削除</string>

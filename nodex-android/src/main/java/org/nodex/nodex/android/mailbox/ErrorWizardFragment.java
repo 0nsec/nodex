@@ -11,7 +11,7 @@ import android.widget.ScrollView;
 import com.google.android.material.animation.ArgbEvaluatorCompat;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import org.nodex.R;
-import org.nodex.android.view.BriarButton;
+import org.nodex.android.view.NodexButton;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.ArrayList;
@@ -90,13 +90,13 @@ public class ErrorWizardFragment extends Fragment {
 		views1_1.add(info1.findViewById(R.id.info1_1_3));
 		views1_1.add(info1.findViewById(R.id.info1_1_4));
 		setUpRadioGroup(radioGroup1_1, radioButtons1_1, views1_1);
-		BriarButton button3 = info3.findViewById(R.id.button3);
-		BriarButton button1_1_1 = info1.findViewById(R.id.button1_1_1);
-		BriarButton button1_1_2 = info1.findViewById(R.id.button1_1_2);
+		NodexButton button3 = info3.findViewById(R.id.button3);
+		NodexButton button1_1_1 = info1.findViewById(R.id.button1_1_1);
+		NodexButton button1_1_2 = info1.findViewById(R.id.button1_1_2);
 		button3.setOnClickListener(this::onUnlinkButtonClicked);
 		button1_1_1.setOnClickListener(this::onUnlinkButtonClicked);
 		button1_1_2.setOnClickListener(this::onUnlinkButtonClicked);
-		BriarButton button1_1_3 = info1.findViewById(R.id.button1_1_3);
+		NodexButton button1_1_3 = info1.findViewById(R.id.button1_1_3);
 		button1_1_3.setOnClickListener(this::onCheckConnectionButtonClicked);
 	}
 	@Override
@@ -132,7 +132,7 @@ public class ErrorWizardFragment extends Fragment {
 				(dialog, which) -> dialog.cancel());
 		builder.setNegativeButton(R.string.mailbox_status_unlink_button,
 				(dialog, which) -> viewModel.unlink());
-		builder.setOnCancelListener(dialog -> ((BriarButton) v).reset());
+		builder.setOnCancelListener(dialog -> ((NodexButton) v).reset());
 		builder.show();
 	}
 	private void onCheckConnectionButtonClicked(View v) {

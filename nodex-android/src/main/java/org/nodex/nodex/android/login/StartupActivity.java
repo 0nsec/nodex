@@ -3,7 +3,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import org.nodex.R;
-import org.nodex.android.BriarService;
+import org.nodex.android.NodexService;
 import org.nodex.android.account.SetupActivity;
 import org.nodex.android.activity.ActivityComponent;
 import org.nodex.android.activity.BaseActivity;
@@ -64,7 +64,7 @@ public class StartupActivity extends BaseActivity implements
 		if (state == SIGNED_OUT) {
 			showInitialFragment(new PasswordFragment());
 		} else if (state == SIGNED_IN || state == STARTING) {
-			startService(new Intent(this, BriarService.class));
+			startService(new Intent(this, NodexService.class));
 			showNextFragment(new OpenDatabaseFragment());
 		} else if (state == STARTED) {
 			setResult(RESULT_OK);

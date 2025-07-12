@@ -8,7 +8,7 @@ import org.nodex.api.forum.event.ForumInvitationResponseReceivedEvent;
 import org.nodex.api.sharing.InvitationResponse;
 import org.nodex.api.sharing.Shareable;
 import org.nodex.api.sharing.SharingManager;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.junit.Before;
 import java.util.Collection;
 public class AutoDeleteForumIntegrationTest
@@ -33,7 +33,7 @@ public class AutoDeleteForumIntegrationTest
 	}
 	@Override
 	protected ConversationClient getConversationClient(
-			BriarIntegrationTestComponent component) {
+			NodexIntegrationTestComponent component) {
 		return component.getForumSharingManager();
 	}
 	@Override

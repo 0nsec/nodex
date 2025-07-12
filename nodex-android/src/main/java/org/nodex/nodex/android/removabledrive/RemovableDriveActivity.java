@@ -6,7 +6,7 @@ import org.nodex.core.api.contact.ContactId;
 import org.nodex.core.api.plugin.file.RemovableDriveTask;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.fragment.FinalFragment;
 import org.nodex.android.removabledrive.RemovableDriveViewModel.Action;
 import org.nodex.android.removabledrive.TransferDataState.TaskAvailable;
@@ -24,7 +24,7 @@ import static org.nodex.android.conversation.ConversationActivity.CONTACT_ID;
 import static org.nodex.android.util.UiUtils.showFragment;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class RemovableDriveActivity extends BriarActivity {
+public class RemovableDriveActivity extends NodexActivity {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
 	private RemovableDriveViewModel viewModel;

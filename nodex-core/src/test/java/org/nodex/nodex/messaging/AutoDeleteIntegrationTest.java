@@ -14,7 +14,7 @@ import org.nodex.api.messaging.MessagingManager;
 import org.nodex.api.messaging.PrivateMessage;
 import org.nodex.api.messaging.PrivateMessageFactory;
 import org.nodex.autodelete.AbstractAutoDeleteTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.junit.Test;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -32,7 +32,7 @@ import static org.junit.Assert.assertTrue;
 public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 	@Override
 	protected ConversationClient getConversationClient(
-			BriarIntegrationTestComponent component) {
+			NodexIntegrationTestComponent component) {
 		return component.getMessagingManager();
 	}
 	@Test
@@ -510,7 +510,7 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 		assertTrue(messageIsDeleted(c1, attachmentHeader.getMessageId()));
 	}
 	private MessageId createMessageWithoutTimer(
-			BriarIntegrationTestComponent component, ContactId contactId)
+			NodexIntegrationTestComponent component, ContactId contactId)
 			throws Exception {
 		DatabaseComponent db = component.getDatabaseComponent();
 		ConversationManager conversationManager =
@@ -528,12 +528,12 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 		});
 	}
 	private MessageId createMessageWithTimer(
-			BriarIntegrationTestComponent component, ContactId contactId)
+			NodexIntegrationTestComponent component, ContactId contactId)
 			throws Exception {
 		return createMessageWithTimer(component, contactId, emptyList());
 	}
 	private MessageId createMessageWithTimer(
-			BriarIntegrationTestComponent component, ContactId contactId,
+			NodexIntegrationTestComponent component, ContactId contactId,
 			List<AttachmentHeader> attachmentHeaders) throws Exception {
 		DatabaseComponent db = component.getDatabaseComponent();
 		ConversationManager conversationManager =
@@ -554,7 +554,7 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 		});
 	}
 	private AttachmentHeader createAttachment(
-			BriarIntegrationTestComponent component, ContactId contactId)
+			NodexIntegrationTestComponent component, ContactId contactId)
 			throws Exception {
 		MessagingManager messagingManager = component.getMessagingManager();
 		GroupId groupId = messagingManager.getConversationId(contactId);
@@ -562,7 +562,7 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 		return messagingManager.addLocalAttachment(groupId,
 				component.getClock().currentTimeMillis(), "image/jpeg", in);
 	}
-	private boolean messageIsDeleted(BriarIntegrationTestComponent component,
+	private boolean messageIsDeleted(NodexIntegrationTestComponent component,
 			MessageId messageId) throws DbException {
 		DatabaseComponent db = component.getDatabaseComponent();
 		try {

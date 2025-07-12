@@ -31,7 +31,7 @@
   <string name="expiry_date_reached">Esti software caducó.\n¡Gracies por probalu!</string>
   <string name="download_briar">Pa siguir usando Nodex, descarga la versión 1.0.</string>
   <string name="create_new_account">Tendrás de crear una cuenta nueva, pero puedes usar el mesmu alcuñu.</string>
-  <string name="download_briar_button">Descargar Nodex 1.0</string>
+  <string name="download_nodex_button">Descargar Nodex 1.0</string>
 
   <string name="nav_drawer_open_description">Abrir el caxón de navegación</string>
   <string name="nav_drawer_close_description">Zarrar el caxón de navegación</string>

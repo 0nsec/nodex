@@ -7,7 +7,7 @@
 
 
 	<com.google.android.material.progressindicator.CircularProgressIndicator
-		android:id="@+id/briar_button_progress_bar"
+		android:id="@+id/nodex_button_progress_bar"
 		style="@style/CircularProgress"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"

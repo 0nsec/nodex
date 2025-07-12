@@ -54,7 +54,7 @@
   <string name="expiry_date_reached">У цієї програми закінчився термін дії\nДякуємо, що тестували її!</string>
   <string name="download_briar">Щоб далі користуватися Nodex, будь ласка, завантажте найновіший випуск.</string>
   <string name="create_new_account">Вам знадобиться створити новий обліковий запис, але ви можете використовувати те саме ім\'я користувача.</string>
-  <string name="download_briar_button">Завантажити найновіший випуск</string>
+  <string name="download_nodex_button">Завантажити найновіший випуск</string>
   <string name="old_android_expiry_date_reached">Nodex більше не працює на Android 4.\nБудь ласка, встановіть Nodex на новіший пристрій.</string>
   <string name="old_android_delete_account">Можете видалити обліковий запис із цього пристрою кнопкою внизу.</string>
   <string name="delete_account_button">Видалити обліковий запис</string>

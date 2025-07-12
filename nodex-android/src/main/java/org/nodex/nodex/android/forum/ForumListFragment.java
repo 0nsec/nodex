@@ -13,8 +13,8 @@ import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
 import org.nodex.android.fragment.BaseFragment;
 import org.nodex.android.sharing.ForumInvitationActivity;
-import org.nodex.android.util.BriarSnackbarBuilder;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.util.NodexSnackbarBuilder;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
@@ -29,7 +29,7 @@ public class ForumListFragment extends BaseFragment implements
 		OnClickListener {
 	public final static String TAG = ForumListFragment.class.getName();
 	private ForumListViewModel viewModel;
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	private Snackbar snackbar;
 	private ForumListAdapter adapter;
 	@Inject
@@ -61,7 +61,7 @@ public class ForumListFragment extends BaseFragment implements
 					if (requireNonNull(items).size() == 0) list.showData();
 				})
 		);
-		snackbar = new BriarSnackbarBuilder()
+		snackbar = new NodexSnackbarBuilder()
 				.setAction(R.string.show, this)
 				.make(list, "", LENGTH_INDEFINITE);
 		viewModel.getNumInvitations().observe(getViewLifecycleOwner(), num -> {

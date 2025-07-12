@@ -55,7 +55,7 @@ Umepoteza nenosiri.</string>
   <string name="expiry_date_reached">Hii programu imemaliza muda wake.\nAsante kwa kujaribu </string>
   <string name="download_briar">Ili kuendelea kutumia Nodex, tafadhali pakua toleo la hivi karibuni.</string>
   <string name="create_new_account">Unahitajika  kutenege Akaunti Mpaya , ila unaweza endelea kutumia lakabu yako .</string>
-  <string name="download_briar_button">Pakua Kupaata toleo la hivi Karibuni</string>
+  <string name="download_nodex_button">Pakua Kupaata toleo la hivi Karibuni</string>
   <string name="startup_open_database">Kupunguka Hifadhidata</string>
   <string name="startup_migrate_database">Boresha Hifadhidata</string>
   <string name="startup_compact_database">Kuingiliana Hifadhi data rununu</string>

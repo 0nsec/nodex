@@ -51,7 +51,7 @@
   <string name="expiry_date_reached">პროგრამული უზრუნველყოფის ვადა ამოიწურა.\nგმადლობთ ტესტირებისთვის!</string>
   <string name="download_briar">თუ გსურთ, კვლავ გამოიყენოთ Nodex, ჩამოტვირთეთ ბოლო გამოშვება.</string>
   <string name="create_new_account">დაგჭირდებათ ახალი ანგარიშის შექმნა, თუმცა იმავე მეტსახელის გამოყენება შეგეძლებათ.</string>
-  <string name="download_briar_button">ბოლო გამოშვების ჩამოტვირთვა</string>
+  <string name="download_nodex_button">ბოლო გამოშვების ჩამოტვირთვა</string>
   <string name="old_android_expiry_date_reached">Nodex აღარ გაეშვება Android 4 ვერსიაზე.\nგთხოვთ, დააყენოთ Nodex უფრო ახალ მოწყობილობაზე.</string>
   <string name="old_android_delete_account">ამ მოწყობილობიდან თქვენი ანგარიშის წასაშლელად, შეგიძლიათ შეეხოთ ღილაკს ქვემოთ.</string>
   <string name="delete_account_button">ანგარიშის წაშლა</string>

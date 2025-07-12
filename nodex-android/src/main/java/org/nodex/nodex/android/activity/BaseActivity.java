@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import org.nodex.R;
 import org.nodex.android.AndroidComponent;
-import org.nodex.android.BriarApplication;
+import org.nodex.android.NodexApplication;
 import org.nodex.android.DestroyableContext;
 import org.nodex.android.Localizer;
 import org.nodex.android.controller.ActivityLifecycleController;
@@ -62,7 +62,7 @@ public abstract class BaseActivity extends AppCompatActivity
 	@Override
 	public void onCreate(@Nullable Bundle state) {
 		AndroidComponent applicationComponent =
-				((BriarApplication) getApplication()).getApplicationComponent();
+				((NodexApplication) getApplication()).getApplicationComponent();
 		activityComponent = DaggerActivityComponent.builder()
 				.androidComponent(applicationComponent)
 				.activityModule(getActivityModule())
@@ -143,7 +143,7 @@ public abstract class BaseActivity extends AppCompatActivity
 		showFragment(getSupportFragmentManager(), f, f.getUniqueTag());
 	}
 	private boolean showScreenFilterWarning() {
-		if (((BriarApplication) getApplication()).isInstrumentationTest()) {
+		if (((NodexApplication) getApplication()).isInstrumentationTest()) {
 			return false;
 		}
 		ScreenFilterDialogFragment f = findDialogFragment();

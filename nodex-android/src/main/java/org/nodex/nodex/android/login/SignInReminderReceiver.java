@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import org.nodex.core.api.account.AccountManager;
 import org.nodex.android.AndroidComponent;
-import org.nodex.android.BriarApplication;
+import org.nodex.android.NodexApplication;
 import org.nodex.api.android.AndroidNotificationManager;
 import javax.inject.Inject;
 import static android.content.Intent.ACTION_BOOT_COMPLETED;
@@ -19,7 +19,7 @@ public class SignInReminderReceiver extends BroadcastReceiver {
 	AndroidNotificationManager notificationManager;
 	@Override
 	public void onReceive(Context ctx, Intent intent) {
-		BriarApplication app = (BriarApplication) ctx.getApplicationContext();
+		NodexApplication app = (NodexApplication) ctx.getApplicationContext();
 		AndroidComponent applicationComponent = app.getApplicationComponent();
 		applicationComponent.inject(this);
 		String action = intent.getAction();

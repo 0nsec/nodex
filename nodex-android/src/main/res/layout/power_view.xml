@@ -56,6 +56,6 @@
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintTop_toTopOf="@+id/button"
 		app:srcCompat="@drawable/ic_info_white"
-		app:tint="@color/briar_button_text_positive" />
+		app:tint="@color/nodex_button_text_positive" />
 
 </merge>

@@ -26,7 +26,7 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static java.util.Objects.requireNonNull;
 import static java.util.logging.Logger.getLogger;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
 import static org.nodex.android.util.UiUtils.MIN_DATE_RESOLUTION;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault

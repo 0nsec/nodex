@@ -12,8 +12,8 @@ import org.nodex.api.client.MessageTracker.GroupCount;
 import org.nodex.api.conversation.ConversationManager;
 import org.nodex.api.conversation.ConversationManager.ConversationClient;
 import org.nodex.api.conversation.ConversationMessageHeader;
-import org.nodex.test.BriarIntegrationTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTest;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.nodex.test.DaggerBriarIntegrationTestComponent;
 import org.junit.Before;
 import java.util.ArrayList;
@@ -24,31 +24,31 @@ import static org.nodex.core.api.cleanup.CleanupManager.BATCH_DELAY_MS;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 public abstract class AbstractAutoDeleteTest extends
-		BriarIntegrationTest<BriarIntegrationTestComponent> {
+		NodexIntegrationTest<NodexIntegrationTestComponent> {
 	protected final long startTime = System.currentTimeMillis();
 	protected abstract ConversationClient getConversationClient(
-			BriarIntegrationTestComponent component);
+			NodexIntegrationTestComponent component);
 	@Override
 	protected void createComponents() {
-		BriarIntegrationTestComponent component =
+		NodexIntegrationTestComponent component =
 				DaggerBriarIntegrationTestComponent.builder().build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(component);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
 		c0 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.timeTravelModule(new TimeTravelModule(true))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c0);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
 		c1 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.timeTravelModule(new TimeTravelModule(true))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c1);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
 		c2 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.timeTravelModule(new TimeTravelModule(true))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c2);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);
 		try {
 			c0.getTimeTravel().setCurrentTimeMillis(startTime);
 			c1.getTimeTravel().setCurrentTimeMillis(startTime + 1);
@@ -66,7 +66,7 @@ public abstract class AbstractAutoDeleteTest extends
 		c2.getTimeTravel().addCurrentTimeMillis(BATCH_DELAY_MS);
 	}
 	protected List<ConversationMessageHeader> getMessageHeaders(
-			BriarIntegrationTestComponent component, ContactId contactId)
+			NodexIntegrationTestComponent component, ContactId contactId)
 			throws Exception {
 		DatabaseComponent db = component.getDatabaseComponent();
 		ConversationClient conversationClient =
@@ -86,7 +86,7 @@ public abstract class AbstractAutoDeleteTest extends
 	protected interface HeaderConsumer {
 		void accept(ConversationMessageHeader header) throws DbException;
 	}
-	protected void forEachHeader(BriarIntegrationTestComponent component,
+	protected void forEachHeader(NodexIntegrationTestComponent component,
 			ContactId contactId, int size, HeaderConsumer consumer)
 			throws Exception {
 		List<ConversationMessageHeader> headers =
@@ -94,14 +94,14 @@ public abstract class AbstractAutoDeleteTest extends
 		assertEquals(size, headers.size());
 		for (ConversationMessageHeader h : headers) consumer.accept(h);
 	}
-	protected long getAutoDeleteTimer(BriarIntegrationTestComponent component,
+	protected long getAutoDeleteTimer(NodexIntegrationTestComponent component,
 			ContactId contactId) throws DbException {
 		DatabaseComponent db = component.getDatabaseComponent();
 		AutoDeleteManager autoDeleteManager = component.getAutoDeleteManager();
 		return db.transactionWithResult(false,
 				txn -> autoDeleteManager.getAutoDeleteTimer(txn, contactId));
 	}
-	protected void markMessageRead(BriarIntegrationTestComponent component,
+	protected void markMessageRead(NodexIntegrationTestComponent component,
 			Contact contact, MessageId messageId) throws Exception {
 		ConversationManager conversationManager =
 				component.getConversationManager();
@@ -111,7 +111,7 @@ public abstract class AbstractAutoDeleteTest extends
 		conversationManager.setReadFlag(groupId, messageId, true);
 		waitForEvents(component);
 	}
-	protected void assertGroupCount(BriarIntegrationTestComponent component,
+	protected void assertGroupCount(NodexIntegrationTestComponent component,
 			ContactId contactId, int messageCount, int unreadCount)
 			throws DbException {
 		DatabaseComponent db = component.getDatabaseComponent();

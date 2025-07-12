@@ -53,7 +53,7 @@
   <string name="expiry_date_reached">ဤဆော့ဖ်ဝဲသည် သက်တမ်းကုန်သွားပါပြီ။ \nစမ်းသပ်အသုံးပြုခြင်းအတွက် ကျေးဇူးတင်ပါသည်။</string>
   <string name="download_briar">Nodex ကို ဆက်လက်အသုံးပြုရန် နောက်ဆုံးထွက်ထားသည်ကို ဒေါင်းလုဒ်လုပ်ပါ။</string>
   <string name="create_new_account">အကောင့်အသစ်ဖွင့်ရန် လိုအပ်သော်လည်း သုံးလက်စနာမည်ပြောင်ကို ဆက်သုံးနိုင်ပါသည်။</string>
-  <string name="download_briar_button">နောက်ဆုံးထွက်ထားသည့်ကို ဒေါင်းလုဒ်လုပ်ပါ</string>
+  <string name="download_nodex_button">နောက်ဆုံးထွက်ထားသည့်ကို ဒေါင်းလုဒ်လုပ်ပါ</string>
   <string name="old_android_expiry_date_reached">Nodex သည် အန်းဒရိုက် ၄ တွင် အလုပ်လုပ်တော့မည် မဟုတ်ပါ။ \nကျေးဇူးပြု၍ Nodex ကို ပိုသစ်သော စက်ပေါ်တွင် ထည့်သွင်းပါ။</string>
   <string name="old_android_delete_account">သင့်အကောင့်ကို ဤစက်ပစ္စည်းမှ ဖျက်ရန် အောက်ပါ ခလုတ်ကို သင်နှိပ်နိုင်သည်။</string>
   <string name="delete_account_button">အကောင့် ဖျက်သိမ်းမည်</string>

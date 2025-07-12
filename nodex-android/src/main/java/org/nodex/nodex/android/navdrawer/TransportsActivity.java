@@ -18,7 +18,7 @@ import org.nodex.core.api.plugin.TorConstants;
 import org.nodex.core.api.plugin.TransportId;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ import static org.nodex.android.util.PermissionUtils.wasGrantedBluetoothPermissi
 import static org.nodex.android.util.UiUtils.showOnboardingDialog;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class TransportsActivity extends BriarActivity {
+public class TransportsActivity extends NodexActivity {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
 	private final List<Transport> transports = new ArrayList<>(3);

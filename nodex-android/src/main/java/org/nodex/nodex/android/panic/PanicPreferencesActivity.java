@@ -3,9 +3,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import androidx.appcompat.app.ActionBar;
-public class PanicPreferencesActivity extends BriarActivity {
+public class PanicPreferencesActivity extends NodexActivity {
 	@Override
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);

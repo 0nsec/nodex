@@ -10,7 +10,7 @@ import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
 import androidx.annotation.Nullable;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public class GroupInviteFragment extends ContactSelectorFragment {

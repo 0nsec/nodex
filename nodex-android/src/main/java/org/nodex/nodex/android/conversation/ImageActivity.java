@@ -16,10 +16,10 @@ import com.google.android.material.appbar.AppBarLayout;
 import org.nodex.core.api.sync.MessageId;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.attachment.AttachmentItem;
 import org.nodex.android.util.ActivityLaunchers.CreateDocumentAdvanced;
-import org.nodex.android.util.BriarSnackbarBuilder;
+import org.nodex.android.util.NodexSnackbarBuilder;
 import org.nodex.android.view.PullDownLayout;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
@@ -46,7 +46,7 @@ import static org.nodex.android.util.UiUtils.formatDateAbsolute;
 import static org.nodex.android.util.UiUtils.getDialogIcon;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class ImageActivity extends BriarActivity
+public class ImageActivity extends NodexActivity
 		implements PullDownLayout.Callback, OnGlobalLayoutListener {
 	final static String ATTACHMENTS = "attachments";
 	final static String ATTACHMENT_POSITION = "position";
@@ -222,7 +222,7 @@ public class ImageActivity extends BriarActivity
 				R.string.save_image_error : R.string.save_image_success;
 		int colorRes = error ?
 				R.color.briar_red_500 : R.color.briar_primary;
-		new BriarSnackbarBuilder()
+		new NodexSnackbarBuilder()
 				.setBackgroundColor(colorRes)
 				.make(layout, stringRes, LENGTH_LONG)
 				.show();

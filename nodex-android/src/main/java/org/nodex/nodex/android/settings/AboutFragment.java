@@ -40,17 +40,17 @@ public class AboutFragment extends Fragment {
 	public void onStart() {
 		super.onStart();
 		requireActivity().setTitle(R.string.about_title);
-		briarVersion = requireActivity().findViewById(R.id.BriarVersion);
+		briarVersion = requireActivity().findViewById(R.id.NodexVersion);
 		briarVersion.setText(
 				getString(R.string.briar_version, BuildConfig.VERSION_NAME));
 		torVersion = requireActivity().findViewById(R.id.TorVersion);
 		torVersion.setText(
 				getString(R.string.tor_version, BuildConfig.TorVersion));
-		briarWebsite = requireActivity().findViewById(R.id.BriarWebsite);
-		briarSourceCode = requireActivity().findViewById(R.id.BriarSourceCode);
-		briarChangelog = requireActivity().findViewById(R.id.BriarChangelog);
+		briarWebsite = requireActivity().findViewById(R.id.NodexWebsite);
+		briarSourceCode = requireActivity().findViewById(R.id.NodexSourceCode);
+		briarChangelog = requireActivity().findViewById(R.id.NodexChangelog);
 		briarPrivacyPolicy =
-				requireActivity().findViewById(R.id.BriarPrivacyPolicy);
+				requireActivity().findViewById(R.id.NodexPrivacyPolicy);
 		briarWebsite.setOnClickListener(View -> {
 			String url = "https:
 			goToUrl(url);

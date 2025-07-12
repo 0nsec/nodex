@@ -58,7 +58,7 @@
 بابت تست از شما سپاسگزاریم.</string>
   <string name="download_briar">برای ادامه استفاده از Nodex، لطفا آخرین نسخه را دانلود کنید.</string>
   <string name="create_new_account">لازم است تا یک حساب کاربری جدید ایجاد کنید، ولی می توانید از همان نام مستعار استفاده کنید.</string>
-  <string name="download_briar_button">دانلود آخرین نسخه</string>
+  <string name="download_nodex_button">دانلود آخرین نسخه</string>
   <string name="old_android_expiry_date_reached">Nodex دیگر روی اندروید 4 اجرا نمی‌شود.\nلطفا Nodex را روی دستگاه جدیدتر نصب کنید. </string>
   <string name="old_android_delete_account">برای حذف حساب کاربری خود از این دستگاه می‌توانید روی دکمه زیر ضربه بزنید.</string>
   <string name="delete_account_button">حذف حساب کاربری</string>

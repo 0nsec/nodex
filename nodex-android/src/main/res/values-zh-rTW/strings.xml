@@ -53,7 +53,7 @@
   <string name="expiry_date_reached">本軟件已過期。\n感謝您的測試！</string>
   <string name="download_briar">爲了繼續使用 Nodex，請下載最新版。</string>
   <string name="create_new_account">您要創建一個新帳戶，但可以續用現時的暱稱。</string>
-  <string name="download_briar_button">下載最新版</string>
+  <string name="download_nodex_button">下載最新版</string>
   <string name="old_android_expiry_date_reached">Nodex 不再支援 Android 4 \n 請在較新設備上安裝 Nodex </string>
   <string name="old_android_delete_account">您可以輕觸下方按鍵好從設備上刪除帳號</string>
   <string name="delete_account_button">刪除帳戶</string>

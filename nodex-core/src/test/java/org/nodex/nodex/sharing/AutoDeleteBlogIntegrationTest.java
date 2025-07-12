@@ -8,7 +8,7 @@ import org.nodex.api.conversation.event.ConversationMessageReceivedEvent;
 import org.nodex.api.sharing.InvitationResponse;
 import org.nodex.api.sharing.Shareable;
 import org.nodex.api.sharing.SharingManager;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.junit.Before;
 import java.util.Collection;
 public class AutoDeleteBlogIntegrationTest
@@ -33,7 +33,7 @@ public class AutoDeleteBlogIntegrationTest
 	}
 	@Override
 	protected ConversationClient getConversationClient(
-			BriarIntegrationTestComponent component) {
+			NodexIntegrationTestComponent component) {
 		return component.getBlogSharingManager();
 	}
 	@Override

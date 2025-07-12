@@ -6,7 +6,7 @@ import android.widget.Toast;
 import org.nodex.core.api.contact.ContactId;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
@@ -20,7 +20,7 @@ import static org.nodex.android.conversation.ConversationActivity.CONTACT_ID;
 import static org.nodex.android.util.UiUtils.showFragment;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class ConnectViaBluetoothActivity extends BriarActivity {
+public class ConnectViaBluetoothActivity extends NodexActivity {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
 	private ConnectViaBluetoothViewModel viewModel;

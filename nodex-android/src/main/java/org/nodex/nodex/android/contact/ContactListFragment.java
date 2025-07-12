@@ -15,8 +15,8 @@ import org.nodex.android.contact.add.remote.AddContactActivity;
 import org.nodex.android.contact.add.remote.PendingContactListActivity;
 import org.nodex.android.conversation.ConversationActivity;
 import org.nodex.android.fragment.BaseFragment;
-import org.nodex.android.util.BriarSnackbarBuilder;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.util.NodexSnackbarBuilder;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
@@ -38,7 +38,7 @@ public class ContactListFragment extends BaseFragment
 	ViewModelProvider.Factory viewModelFactory;
 	private ContactListViewModel viewModel;
 	private final ContactListAdapter adapter = new ContactListAdapter(this);
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	private FabSpeedDial speedDial;
 	@Nullable
 	private Snackbar snackbar = null;
@@ -126,7 +126,7 @@ public class ContactListFragment extends BaseFragment
 		if (snackbar != null) return;
 		View v = requireView();
 		int stringRes = R.string.pending_contact_requests_snackbar;
-		snackbar = new BriarSnackbarBuilder()
+		snackbar = new NodexSnackbarBuilder()
 				.setAction(R.string.show, view -> showPendingContactList())
 				.make(v, stringRes, LENGTH_INDEFINITE);
 		snackbar.show();

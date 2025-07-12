@@ -10,7 +10,7 @@ import org.nodex.core.api.identity.LocalAuthor;
 import org.nodex.core.api.sync.GroupId;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.view.TextInputView;
 import org.nodex.android.view.TextSendController;
 import org.nodex.android.view.TextSendController.SendListener;
@@ -38,7 +38,7 @@ import static org.nodex.android.view.TextSendController.SendState.SENT;
 import static org.nodex.api.blog.BlogConstants.MAX_BLOG_POST_TEXT_LENGTH;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class WriteBlogPostActivity extends BriarActivity
+public class WriteBlogPostActivity extends NodexActivity
 		implements SendListener {
 	private static final Logger LOG =
 			Logger.getLogger(WriteBlogPostActivity.class.getName());

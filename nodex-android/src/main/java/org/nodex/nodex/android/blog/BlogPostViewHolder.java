@@ -19,7 +19,7 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
 import static org.nodex.android.blog.BlogPostFragment.POST_ID;
 import static org.nodex.android.util.UiUtils.TEASER_LENGTH;
 import static org.nodex.android.util.UiUtils.getSpanned;

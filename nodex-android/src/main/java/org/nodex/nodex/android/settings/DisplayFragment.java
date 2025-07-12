@@ -17,7 +17,7 @@ import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static java.util.Objects.requireNonNull;
-import static org.nodex.android.BriarApplication.ENTRY_ACTIVITY;
+import static org.nodex.android.NodexApplication.ENTRY_ACTIVITY;
 import static org.nodex.android.navdrawer.NavDrawerActivity.SIGN_OUT_URI;
 import static org.nodex.android.settings.SettingsActivity.EXTRA_THEME_CHANGE;
 @NotNullByDefault

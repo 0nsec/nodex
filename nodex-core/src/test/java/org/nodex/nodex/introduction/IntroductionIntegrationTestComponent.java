@@ -9,7 +9,7 @@ import org.nodex.attachment.AttachmentModule;
 import org.nodex.autodelete.AutoDeleteModule;
 import org.nodex.avatar.AvatarModule;
 import org.nodex.blog.BlogModule;
-import org.nodex.client.BriarClientModule;
+import org.nodex.client.NodexClientModule;
 import org.nodex.conversation.ConversationModule;
 import org.nodex.forum.ForumModule;
 import org.nodex.identity.IdentityModule;
@@ -17,7 +17,7 @@ import org.nodex.messaging.MessagingModule;
 import org.nodex.privategroup.PrivateGroupModule;
 import org.nodex.privategroup.invitation.GroupInvitationModule;
 import org.nodex.sharing.SharingModule;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTestComponent;
 import javax.inject.Singleton;
 import dagger.Component;
 @Singleton
@@ -28,7 +28,7 @@ import dagger.Component;
 		AutoDeleteModule.class,
 		AvatarModule.class,
 		BlogModule.class,
-		BriarClientModule.class,
+		NodexClientModule.class,
 		ConversationModule.class,
 		ForumModule.class,
 		GroupInvitationModule.class,
@@ -43,7 +43,7 @@ import dagger.Component;
 		TestPluginConfigModule.class,
 })
 interface IntroductionIntegrationTestComponent
-		extends BriarIntegrationTestComponent {
+		extends NodexIntegrationTestComponent {
 	void inject(IntroductionIntegrationTest init);
 	void inject(MessageEncoderParserIntegrationTest init);
 	void inject(SessionEncoderParserIntegrationTest init);

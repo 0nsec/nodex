@@ -17,8 +17,8 @@ import org.nodex.api.blog.event.BlogInvitationRequestReceivedEvent;
 import org.nodex.api.blog.event.BlogInvitationResponseReceivedEvent;
 import org.nodex.api.conversation.ConversationMessageHeader;
 import org.nodex.api.conversation.ConversationResponse;
-import org.nodex.test.BriarIntegrationTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTest;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.nodex.test.DaggerBriarIntegrationTestComponent;
 import org.nodex.nullsafety.NotNullByDefault;
 import org.junit.Before;
@@ -31,7 +31,7 @@ import static org.nodex.api.blog.BlogSharingManager.CLIENT_ID;
 import static org.nodex.api.blog.BlogSharingManager.MAJOR_VERSION;
 import static org.nodex.api.sharing.SharingManager.SharingStatus.SHAREABLE;
 import static org.nodex.api.sharing.SharingManager.SharingStatus.SHARING;
-import static org.nodex.test.BriarTestUtils.assertGroupCount;
+import static org.nodex.test.NodexTestUtils.assertGroupCount;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -39,7 +39,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 public class BlogSharingIntegrationTest
-		extends BriarIntegrationTest<BriarIntegrationTestComponent> {
+		extends NodexIntegrationTest<NodexIntegrationTestComponent> {
 	private BlogManager blogManager0, blogManager1;
 	private Blog blog0, blog1, blog2, rssBlog;
 	private SharerListener listener0;
@@ -68,22 +68,22 @@ public class BlogSharingIntegrationTest
 	}
 	@Override
 	protected void createComponents() {
-		BriarIntegrationTestComponent component =
+		NodexIntegrationTestComponent component =
 				DaggerBriarIntegrationTestComponent.builder().build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(component);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
 		c0 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c0);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
 		c1 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c1);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
 		c2 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c2);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);
 	}
 	@Test
 	public void testPersonalBlogCannotBeSharedWithOwner() throws Exception {

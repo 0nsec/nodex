@@ -3,7 +3,7 @@ import android.os.Bundle;
 import org.nodex.core.api.contact.ContactId;
 import org.nodex.core.api.sync.GroupId;
 import org.nodex.R;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.fragment.BaseFragment.BaseFragmentListener;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
@@ -17,7 +17,7 @@ import androidx.annotation.UiThread;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class ContactSelectorActivity
-		extends BriarActivity
+		extends NodexActivity
 		implements BaseFragmentListener, ContactSelectorListener {
 	protected final static String CONTACTS = "contacts";
 	protected GroupId groupId;

@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.nodex.core.api.crypto.DecryptionResult;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import javax.inject.Inject;
 import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.ViewModelProvider;
@@ -31,7 +31,7 @@ import static org.nodex.android.login.LoginUtils.createKeyStrengthenerErrorDialo
 import static org.nodex.android.util.UiUtils.hideSoftKeyboard;
 import static org.nodex.android.util.UiUtils.setError;
 import static org.nodex.android.util.UiUtils.showSoftKeyboard;
-public class ChangePasswordActivity extends BriarActivity
+public class ChangePasswordActivity extends NodexActivity
 		implements OnClickListener, OnEditorActionListener {
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;

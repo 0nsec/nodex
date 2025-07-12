@@ -11,8 +11,8 @@ import org.nodex.api.messaging.MessagingManager;
 import org.nodex.api.messaging.PrivateMessage;
 import org.nodex.api.messaging.PrivateMessageFactory;
 import org.nodex.api.messaging.PrivateMessageHeader;
-import org.nodex.test.BriarIntegrationTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTest;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.nodex.test.DaggerBriarIntegrationTestComponent;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,13 +30,13 @@ import static org.nodex.core.test.TestUtils.getRandomBytes;
 import static org.nodex.core.util.StringUtils.getRandomString;
 import static org.nodex.api.autodelete.AutoDeleteConstants.MIN_AUTO_DELETE_TIMER_MS;
 import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
-import static org.nodex.test.BriarTestUtils.assertGroupCount;
+import static org.nodex.test.NodexTestUtils.assertGroupCount;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 public class MessagingManagerIntegrationTest
-		extends BriarIntegrationTest<BriarIntegrationTestComponent> {
+		extends NodexIntegrationTest<NodexIntegrationTestComponent> {
 	private DatabaseComponent db0, db1;
 	private MessagingManager messagingManager0, messagingManager1;
 	private PrivateMessageFactory messageFactory;
@@ -55,22 +55,22 @@ public class MessagingManagerIntegrationTest
 	}
 	@Override
 	protected void createComponents() {
-		BriarIntegrationTestComponent component =
+		NodexIntegrationTestComponent component =
 				DaggerBriarIntegrationTestComponent.builder().build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(component);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
 		c0 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c0);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
 		c1 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c1);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
 		c2 = DaggerBriarIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c2);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);
 	}
 	@Test
 	public void testSimpleConversation() throws Exception {
@@ -253,17 +253,17 @@ public class MessagingManagerIntegrationTest
 				messagingManager0.deleteMessages(txn, contactId, emptySet()))
 				.allDeleted());
 	}
-	private PrivateMessage sendMessage(BriarIntegrationTestComponent from,
-			BriarIntegrationTestComponent to, String text) throws Exception {
+	private PrivateMessage sendMessage(NodexIntegrationTestComponent from,
+			NodexIntegrationTestComponent to, String text) throws Exception {
 		return sendMessage(from, to, text, emptyList());
 	}
-	private PrivateMessage sendMessage(BriarIntegrationTestComponent from,
-			BriarIntegrationTestComponent to, @Nullable String text,
+	private PrivateMessage sendMessage(NodexIntegrationTestComponent from,
+			NodexIntegrationTestComponent to, @Nullable String text,
 			List<AttachmentHeader> attachments) throws Exception {
 		return sendMessage(from, to, text, attachments, NO_AUTO_DELETE_TIMER);
 	}
-	private PrivateMessage sendMessage(BriarIntegrationTestComponent from,
-			BriarIntegrationTestComponent to, @Nullable String text,
+	private PrivateMessage sendMessage(NodexIntegrationTestComponent from,
+			NodexIntegrationTestComponent to, @Nullable String text,
 			List<AttachmentHeader> attachments, long autoDeleteTimer)
 			throws Exception {
 		GroupId g = from.getMessagingManager().getConversationId(contactId);
@@ -274,7 +274,7 @@ public class MessagingManagerIntegrationTest
 		syncMessage(from, to, contactId, 1 + attachments.size(), true);
 		return m;
 	}
-	private AttachmentHeader addAttachment(BriarIntegrationTestComponent c)
+	private AttachmentHeader addAttachment(NodexIntegrationTestComponent c)
 			throws Exception {
 		GroupId g = c.getMessagingManager().getConversationId(contactId);
 		InputStream stream = new ByteArrayInputStream(getRandomBytes(42));
@@ -282,7 +282,7 @@ public class MessagingManagerIntegrationTest
 				c.getClock().currentTimeMillis(), "image/jpeg", stream);
 	}
 	private Collection<ConversationMessageHeader> getMessages(
-			BriarIntegrationTestComponent c)
+			NodexIntegrationTestComponent c)
 			throws Exception {
 		Collection<ConversationMessageHeader> messages =
 				c.getDatabaseComponent().transactionWithResult(true,
@@ -299,7 +299,7 @@ public class MessagingManagerIntegrationTest
 		}
 		return messages;
 	}
-	private void assertGroupCounts(BriarIntegrationTestComponent c,
+	private void assertGroupCounts(NodexIntegrationTestComponent c,
 			long msgCount, long unreadCount) throws Exception {
 		GroupId g = c.getMessagingManager().getConversationId(contactId);
 		assertGroupCount(c.getMessageTracker(), g, msgCount, unreadCount);

@@ -51,7 +51,7 @@
   <string name="expiry_date_reached">Aquesta versió de Nodex ha caducat.\nGràcies per haver-lo provat!</string>
   <string name="download_briar">Per continuar utilitzant Nodex, baixeu la darrera versió.</string>
   <string name="create_new_account">Haureu de crear un compte nou, però podeu utilitzar el mateix sobrenom.</string>
-  <string name="download_briar_button">Descarrega la darrera versió</string>
+  <string name="download_nodex_button">Descarrega la darrera versió</string>
   <string name="old_android_expiry_date_reached">El Nodex ja no funciona amb l\'Android 4.\nInstal·leu el Nodex en un dispositiu més nou.</string>
   <string name="old_android_delete_account">Podeu tocar el botó següent per suprimir el vostre compte d\'aquest dispositiu.</string>
   <string name="delete_account_button">Esborreu el compte</string>

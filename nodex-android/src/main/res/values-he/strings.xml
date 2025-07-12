@@ -43,7 +43,7 @@
   <string name="expiry_date_reached">תוכנה זו פגה.\nתודה על הבדיקה!</string>
   <string name="download_briar">כדי להמשיך להשתמש ב־Nodex, אנא הורד את השחרור האחרון.</string>
   <string name="create_new_account">יהיה צריך ליצור חשבון חדש, אבל אפשר להשתמש באותו הכינוי.</string>
-  <string name="download_briar_button">הורד שחרור אחרון</string>
+  <string name="download_nodex_button">הורד שחרור אחרון</string>
   <string name="delete_account_button">מחק חשבון</string>
   <string name="startup_open_database">מפענח מסד נתונים…</string>
   <string name="startup_migrate_database">משדרג מסד נתונים…</string>

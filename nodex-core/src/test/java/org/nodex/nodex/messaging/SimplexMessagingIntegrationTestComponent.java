@@ -14,7 +14,7 @@ import org.nodex.core.test.TestSocksModule;
 import org.nodex.api.messaging.MessagingManager;
 import org.nodex.api.messaging.PrivateMessageFactory;
 import org.nodex.autodelete.AutoDeleteModule;
-import org.nodex.client.BriarClientModule;
+import org.nodex.client.NodexClientModule;
 import org.nodex.conversation.ConversationModule;
 import javax.inject.Singleton;
 import dagger.Component;
@@ -23,7 +23,7 @@ import dagger.Component;
 		AutoDeleteModule.class,
 		BrambleCoreIntegrationTestModule.class,
 		BrambleCoreModule.class,
-		BriarClientModule.class,
+		NodexClientModule.class,
 		ConversationModule.class,
 		MessagingModule.class,
 		ModularMailboxModule.class,

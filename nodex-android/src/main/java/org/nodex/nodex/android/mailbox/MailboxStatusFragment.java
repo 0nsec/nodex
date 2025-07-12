@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import org.nodex.core.api.mailbox.MailboxStatus;
 import org.nodex.R;
-import org.nodex.android.view.BriarButton;
+import org.nodex.android.view.NodexButton;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.inject.Inject;
@@ -75,7 +75,7 @@ public class MailboxStatusFragment extends Fragment {
 	@Override
 	public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(v, savedInstanceState);
-		BriarButton checkButton = v.findViewById(R.id.checkButton);
+		NodexButton checkButton = v.findViewById(R.id.checkButton);
 		checkButton.setOnClickListener(view ->
 				observeOnce(viewModel.checkConnection(), this, result ->
 						checkButton.reset()

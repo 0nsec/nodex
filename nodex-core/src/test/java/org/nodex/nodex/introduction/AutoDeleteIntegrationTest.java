@@ -15,7 +15,7 @@ import org.nodex.api.introduction.IntroductionRequest;
 import org.nodex.api.introduction.IntroductionResponse;
 import org.nodex.api.introduction.event.IntroductionResponseReceivedEvent;
 import org.nodex.autodelete.AbstractAutoDeleteTest;
-import org.nodex.test.BriarIntegrationTestComponent;
+import org.nodex.test.NodexIntegrationTestComponent;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.Collections;
@@ -44,7 +44,7 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 	protected void createComponents() {
 		IntroductionIntegrationTestComponent component =
 				DaggerIntroductionIntegrationTestComponent.builder().build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(component);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
 		IntroductionIntegrationTestComponent c0 =
 				DaggerIntroductionIntegrationTestComponent.builder()
@@ -52,21 +52,21 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 								new TestDatabaseConfigModule(t0Dir))
 						.timeTravelModule(new TimeTravelModule(true))
 						.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c0);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
 		IntroductionIntegrationTestComponent c1 =
 				DaggerIntroductionIntegrationTestComponent.builder()
 						.testDatabaseConfigModule(
 								new TestDatabaseConfigModule(t1Dir))
 						.timeTravelModule(new TimeTravelModule(true))
 						.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c1);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
 		IntroductionIntegrationTestComponent c2 =
 				DaggerIntroductionIntegrationTestComponent.builder()
 						.testDatabaseConfigModule(
 								new TestDatabaseConfigModule(t2Dir))
 						.timeTravelModule(new TimeTravelModule(true))
 						.build();
-		BriarIntegrationTestComponent.Helper.injectEagerSingletons(c2);
+		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);
 		this.c0 = c0;
 		this.c1 = c1;
 		this.c2 = c2;
@@ -86,7 +86,7 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 	}
 	@Override
 	protected ConversationClient getConversationClient(
-			BriarIntegrationTestComponent component) {
+			NodexIntegrationTestComponent component) {
 		return component.getIntroductionManager();
 	}
 	@Test
@@ -601,7 +601,7 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 		waitForEvents(c2);
 	}
 	private void respondToMostRecentIntroduction(
-			BriarIntegrationTestComponent c, ContactId contactId,
+			NodexIntegrationTestComponent c, ContactId contactId,
 			boolean accept) throws Exception {
 		List<ConversationMessageHeader> headers =
 				getMessageHeaders(c, contactId);
@@ -616,7 +616,7 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 		}
 		fail("no introduction found");
 	}
-	private void markMessagesRead(BriarIntegrationTestComponent c,
+	private void markMessagesRead(NodexIntegrationTestComponent c,
 			Contact contact) throws Exception {
 		for (ConversationMessageHeader h : getMessageHeaders(c,
 				contact.getId())) {
@@ -631,11 +631,11 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 		sync1To0(1, true);
 		sync0To2(1, true);
 	}
-	private void timeTravel(BriarIntegrationTestComponent c) throws Exception {
+	private void timeTravel(NodexIntegrationTestComponent c) throws Exception {
 		long timerLatency = MIN_AUTO_DELETE_TIMER_MS + BATCH_DELAY_MS;
 		timeTravel(c, timerLatency);
 	}
-	private void timeTravel(BriarIntegrationTestComponent c, long timerLatency)
+	private void timeTravel(NodexIntegrationTestComponent c, long timerLatency)
 			throws Exception {
 		c.getTimeTravel().addCurrentTimeMillis(timerLatency);
 		waitForEvents(c);
@@ -728,7 +728,7 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 		assertEquals(alice ? AWAIT_RESPONSE_B : AWAIT_RESPONSE_A,
 				introducerSession.getState());
 	}
-	private void assertIntroduceeStatus(BriarIntegrationTestComponent c,
+	private void assertIntroduceeStatus(NodexIntegrationTestComponent c,
 			IntroduceeState state)
 			throws DbException, FormatException {
 		IntroduceeSession introduceeSession = getIntroduceeSession(c);
@@ -796,7 +796,7 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 		return sessionParser.parseIntroducerSession(d);
 	}
 	private IntroduceeSession getIntroduceeSession(
-			BriarIntegrationTestComponent c)
+			NodexIntegrationTestComponent c)
 			throws DbException, FormatException {
 		Map<MessageId, BdfDictionary> dicts = c.getClientHelper()
 				.getMessageMetadataAsDictionary(getLocalGroup().getId());

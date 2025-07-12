@@ -44,7 +44,7 @@ class ReportViewModel extends AndroidViewModel {
 			getLogger(ReportViewModel.class.getName());
 	private final CachingLogHandler logHandler;
 	private final LogDecrypter logDecrypter;
-	private final BriarReportCollector collector;
+	private final NodexReportCollector collector;
 	private final DevReporter reporter;
 	private final PluginManager pluginManager;
 	private final MutableLiveEvent<Boolean> showReport =
@@ -66,7 +66,7 @@ class ReportViewModel extends AndroidViewModel {
 			DevReporter reporter,
 			PluginManager pluginManager) {
 		super(application);
-		collector = new BriarReportCollector(application, networkUsageMetrics);
+		collector = new NodexReportCollector(application, networkUsageMetrics);
 		this.logHandler = logHandler;
 		this.logDecrypter = logDecrypter;
 		this.reporter = reporter;

@@ -7,13 +7,13 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.api.test.TestDataCreator;
 import javax.inject.Inject;
 import androidx.appcompat.app.ActionBar;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static org.nodex.android.BriarApplication.ENTRY_ACTIVITY;
-public class TestDataActivity extends BriarActivity {
+import static org.nodex.android.NodexApplication.ENTRY_ACTIVITY;
+public class TestDataActivity extends NodexActivity {
 	@Inject
 	TestDataCreator testDataCreator;
 	private TextView contactsTextView, forumsTextView, privateGroupsTextView;

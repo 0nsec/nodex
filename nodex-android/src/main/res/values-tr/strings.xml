@@ -55,7 +55,7 @@
   <string name="expiry_date_reached">Bu yazılımın geçerlilik süresi geçmiş.\nDenediğiniz için teşekkürler!</string>
   <string name="download_briar">Nodex kullanmayı sürdürmek için lütfen güncel sürümü indirin.</string>
   <string name="create_new_account">Yeni bir hesap oluşturmanız gerekecek, fakat aynı takma adı kullanabilirsiniz.</string>
-  <string name="download_briar_button">Güncel sürümü indir</string>
+  <string name="download_nodex_button">Güncel sürümü indir</string>
   <string name="old_android_expiry_date_reached">Nodex artık Android 4 üzerinde çalışmıyor.\nLütfen Nodex uygulamasını daha yeni bir aygıta kurun.</string>
   <string name="old_android_delete_account">Bu aygıttaki hesabınızı silmek için aşağıdaki düğmeye dokunabilirsiniz.</string>
   <string name="delete_account_button">Hesabı sil</string>

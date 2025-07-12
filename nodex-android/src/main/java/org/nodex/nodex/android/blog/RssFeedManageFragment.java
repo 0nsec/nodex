@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
 import org.nodex.android.fragment.BaseFragment;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.api.feed.Feed;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
@@ -19,7 +19,7 @@ import javax.inject.Inject;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
 import static org.nodex.android.blog.RssFeedAdapter.RssFeedListener;
 import static org.nodex.nullsafety.NullSafety.requireNonNull;
 @MethodsNotNullByDefault
@@ -30,7 +30,7 @@ public class RssFeedManageFragment extends BaseFragment
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
 	private RssFeedViewModel viewModel;
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	private final RssFeedAdapter adapter = new RssFeedAdapter(this);
 	public static RssFeedManageFragment newInstance() {
 		return new RssFeedManageFragment();

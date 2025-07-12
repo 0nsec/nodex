@@ -5,7 +5,7 @@ import org.nodex.core.api.db.DbException;
 import org.nodex.core.api.sync.GroupId;
 import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.controller.handler.UiResultExceptionHandler;
 import org.nodex.android.privategroup.conversation.GroupActivity;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 import javax.inject.Inject;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-public class CreateGroupActivity extends BriarActivity
+public class CreateGroupActivity extends NodexActivity
 		implements CreateGroupListener {
 	@Inject
 	CreateGroupController controller;

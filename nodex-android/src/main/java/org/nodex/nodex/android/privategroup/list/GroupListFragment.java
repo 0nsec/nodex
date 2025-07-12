@@ -15,8 +15,8 @@ import org.nodex.android.fragment.BaseFragment;
 import org.nodex.android.privategroup.creation.CreateGroupActivity;
 import org.nodex.android.privategroup.invitation.GroupInvitationActivity;
 import org.nodex.android.privategroup.list.GroupViewHolder.OnGroupRemoveClickListener;
-import org.nodex.android.util.BriarSnackbarBuilder;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.util.NodexSnackbarBuilder;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
 import javax.annotation.Nullable;
@@ -37,7 +37,7 @@ public class GroupListFragment extends BaseFragment implements
 	@Inject
 	ViewModelProvider.Factory viewModelFactory;
 	private GroupListViewModel viewModel;
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	private GroupListAdapter adapter;
 	@Override
 	public void injectFragment(ActivityComponent component) {
@@ -65,7 +65,7 @@ public class GroupListFragment extends BaseFragment implements
 					if (requireNonNull(items).size() == 0) list.showData();
 				})
 		);
-		Snackbar snackbar = new BriarSnackbarBuilder()
+		Snackbar snackbar = new NodexSnackbarBuilder()
 				.setAction(R.string.show, this)
 				.make(list, "", LENGTH_INDEFINITE);
 		viewModel.getNumInvitations().observe(getViewLifecycleOwner(), num -> {

@@ -41,7 +41,7 @@
   <string name="expiry_date_reached">Deze software is verlopen.\nBedankt vor het testen!</string>
   <string name="download_briar">Download de laatste versie om Nodex te kunnen blijven gebruiken.</string>
   <string name="create_new_account">Je moet een nieuw account aanmaken. Je kan dezelfde bijnaam gebruiken.</string>
-  <string name="download_briar_button">Download de laatste versie</string>
+  <string name="download_nodex_button">Download de laatste versie</string>
   <string name="delete_account_button">Verwijder account</string>
   <string name="startup_open_database">Database aan het ontsleutelen…</string>
   <string name="startup_migrate_database">Database aan het upgraden…</string>

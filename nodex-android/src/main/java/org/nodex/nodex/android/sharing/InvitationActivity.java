@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.widget.Toast;
 import org.nodex.core.api.db.DbException;
 import org.nodex.R;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.controller.handler.UiExceptionHandler;
 import org.nodex.android.controller.handler.UiResultExceptionHandler;
 import org.nodex.android.sharing.InvitationController.InvitationListener;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.api.sharing.InvitationItem;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
 import org.nodex.nullsafety.ParametersNotNullByDefault;
@@ -22,12 +22,12 @@ import static org.nodex.android.sharing.InvitationAdapter.InvitationClickListene
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
 public abstract class InvitationActivity<I extends InvitationItem>
-		extends BriarActivity
+		extends NodexActivity
 		implements InvitationListener, InvitationClickListener<I> {
 	protected static final Logger LOG =
 			Logger.getLogger(InvitationActivity.class.getName());
 	private InvitationAdapter<I, ?> adapter;
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	@Override
 	public void onCreate(@Nullable Bundle state) {
 		super.onCreate(state);

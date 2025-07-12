@@ -12,8 +12,8 @@ import org.nodex.R;
 import org.nodex.android.activity.ActivityComponent;
 import org.nodex.android.blog.BaseViewModel.ListUpdate;
 import org.nodex.android.fragment.BaseFragment;
-import org.nodex.android.util.BriarSnackbarBuilder;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.util.NodexSnackbarBuilder;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.android.widget.LinkDialogFragment;
 import org.nodex.api.blog.Blog;
 import org.nodex.nullsafety.MethodsNotNullByDefault;
@@ -24,7 +24,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static com.google.android.material.snackbar.Snackbar.LENGTH_LONG;
-import static org.nodex.android.activity.BriarActivity.GROUP_ID;
+import static org.nodex.android.activity.NodexActivity.GROUP_ID;
 import static org.nodex.android.blog.BlogPostFragment.POST_ID;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
@@ -36,7 +36,7 @@ public class FeedFragment extends BaseFragment
 	private FeedViewModel viewModel;
 	private final BlogPostAdapter adapter = new BlogPostAdapter(true, this);
 	private LinearLayoutManager layoutManager;
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	public static FeedFragment newInstance() {
 		FeedFragment f = new FeedFragment();
 		Bundle args = new Bundle();
@@ -148,7 +148,7 @@ public class FeedFragment extends BaseFragment
 		int lastVisible = layoutManager.findLastCompletelyVisibleItemPosition();
 		int count = adapter.getItemCount();
 		boolean scroll = !isLocal && count > (lastVisible - firstVisible + 1);
-		BriarSnackbarBuilder sb = new BriarSnackbarBuilder();
+		NodexSnackbarBuilder sb = new NodexSnackbarBuilder();
 		if (scroll) {
 			sb.setAction(R.string.blogs_blog_post_scroll_to,
 					v -> list.smoothScrollToPosition(0));

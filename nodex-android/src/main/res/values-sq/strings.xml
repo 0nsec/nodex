@@ -56,7 +56,7 @@ dhe s’mund të hapet me këtë version.\n\nJu lutemi, përmirësojeni me versi
   <string name="expiry_date_reached">Ky software ka skaduar.\nFaleminderit që e provuat!</string>
   <string name="download_briar">Që të vazhdoni të përdorni Nodex-in, ju lutemi shkarkoni versionin më të ri.</string>
   <string name="create_new_account">Do t’ju duhet të krijoni një llogari të re, por mund të përdorni të njëjtën nofkë.</string>
-  <string name="download_briar_button">Shkarkoni Hedhjen Më të Re Në Qarkullim</string>
+  <string name="download_nodex_button">Shkarkoni Hedhjen Më të Re Në Qarkullim</string>
   <string name="old_android_expiry_date_reached">Nodex-i nuk funksionon më në Android 4.\nJu lutemi, instalojeni Nodex-in në një pajisje më të re.</string>
   <string name="old_android_delete_account">Mund të prekni butonin më poshtë që të fshini llogarinë tuaj prej kësaj pajisjeje.</string>
   <string name="delete_account_button">Fshi Llogarinë</string>

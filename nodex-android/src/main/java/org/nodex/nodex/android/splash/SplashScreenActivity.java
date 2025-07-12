@@ -19,7 +19,7 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static androidx.preference.PreferenceManager.setDefaultValues;
 import static java.lang.System.currentTimeMillis;
 import static java.util.logging.Logger.getLogger;
-import static org.nodex.android.BriarApplication.ENTRY_ACTIVITY;
+import static org.nodex.android.NodexApplication.ENTRY_ACTIVITY;
 import static org.nodex.android.TestingConstants.EXPIRY_DATE;
 import static org.nodex.android.TestingConstants.IS_DEBUG_BUILD;
 @MethodsNotNullByDefault

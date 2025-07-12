@@ -59,7 +59,7 @@
   <string name="expiry_date_reached">هذا البرنامج قد انتهت مدته.\nشكرا لك للتجربة!</string>
   <string name="download_briar">لمتابعة استخدام Nodex (براير)، يرجى تنزيل آخر إصدار. </string>
   <string name="create_new_account">انت في حاجة لانشاء حساب جديد، لكن يمكنك استعمال نفس الاسم المستعار.</string>
-  <string name="download_briar_button">تنزيل آخر أصدار</string>
+  <string name="download_nodex_button">تنزيل آخر أصدار</string>
   <string name="old_android_expiry_date_reached">لم يعد براير يعمل على نظام التشغيل Android 4.\nيُرجى تثبيت براير على جهاز أحدث.</string>
   <string name="old_android_delete_account">يمكنك النقر على الزر أدناه لحذف حسابك من هذا الجهاز.</string>
   <string name="delete_account_button">حذف الحساب</string>

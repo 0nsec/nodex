@@ -57,7 +57,7 @@
   <string name="expiry_date_reached">Platnost tohoto software vypršela.\nDěkujeme za jeho otestování!</string>
   <string name="download_briar">Pro pokračování v používání aplikace Nodex si prosím stáhněte její nejnovější verzi.</string>
   <string name="create_new_account">Budete potřebovat vytvořit nový účet, ale můžete použít stejné uživatelské jméno.</string>
-  <string name="download_briar_button">Stáhnout nejnovější vydání</string>
+  <string name="download_nodex_button">Stáhnout nejnovější vydání</string>
   <string name="old_android_expiry_date_reached">Nodex již neběží na systému Android 4.\nNainstalujte prosím Nodex na novější zařízení.</string>
   <string name="old_android_delete_account">Klepnutím na tlačítko níže odstraníte svůj účet z tohoto zařízení.</string>
   <string name="delete_account_button">Odstranit účet</string>

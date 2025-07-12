@@ -6,7 +6,7 @@ import com.bumptech.glide.load.Transformation;
 import org.nodex.core.api.sync.MessageId;
 import org.nodex.R;
 import org.nodex.android.attachment.AttachmentItem;
-import org.nodex.android.conversation.glide.BriarImageTransformation;
+import org.nodex.android.conversation.glide.NodexImageTransformation;
 import org.nodex.android.conversation.glide.GlideApp;
 import org.nodex.android.conversation.glide.Radii;
 import org.nodex.nullsafety.NotNullByDefault;
@@ -60,7 +60,7 @@ class ImageViewHolder extends ViewHolder {
 		imageView.setLayoutParams(params);
 	}
 	private void loadImage(AttachmentItem a, Radii r) {
-		Transformation<Bitmap> transformation = new BriarImageTransformation(r);
+		Transformation<Bitmap> transformation = new NodexImageTransformation(r);
 		GlideApp.with(imageView)
 				.load(a.getHeader())
 				.diskCacheStrategy(NONE)

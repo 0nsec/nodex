@@ -47,7 +47,7 @@
   <string name="expiry_date_reached">Þessi hugbúnaður er úreltur.\nTakk fyrir að hafa tekið þátt í prófunum!</string>
   <string name="download_briar">Til að halda áfram að nota Nodex, ættirðu að sækja nýjustu útgáfuna.</string>
   <string name="create_new_account">Þú þarft að búa til nýjan notandaaðgang, en þú getur notað áfram sama stuttnefni.</string>
-  <string name="download_briar_button">Ná í nýjustu útgáfu</string>
+  <string name="download_nodex_button">Ná í nýjustu útgáfu</string>
   <string name="old_android_expiry_date_reached">Nodex keyrir ekki lengur á Android 4.\nSettu Nodex upp á nýrra tæki.</string>
   <string name="old_android_delete_account">Þú getur ýtt á hnappinn hér fyrir neðan til að eyða aðgangnum þínum af þessu tæki.</string>
   <string name="delete_account_button">Eyða notandaaðgangi</string>

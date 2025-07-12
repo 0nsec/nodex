@@ -13,9 +13,9 @@ import org.nodex.core.api.event.EventListener;
 import org.nodex.core.api.sync.GroupId;
 import org.nodex.core.api.sync.event.GroupRemovedEvent;
 import org.nodex.R;
-import org.nodex.android.activity.BriarActivity;
+import org.nodex.android.activity.NodexActivity;
 import org.nodex.android.contact.ContactItem;
-import org.nodex.android.view.BriarRecyclerView;
+import org.nodex.android.view.NodexRecyclerView;
 import org.nodex.api.identity.AuthorInfo;
 import org.nodex.api.identity.AuthorManager;
 import org.nodex.api.sharing.event.ContactLeftShareableEvent;
@@ -34,7 +34,7 @@ import static java.util.logging.Level.WARNING;
 import static org.nodex.core.util.LogUtils.logException;
 @MethodsNotNullByDefault
 @ParametersNotNullByDefault
-abstract class SharingStatusActivity extends BriarActivity
+abstract class SharingStatusActivity extends NodexActivity
 		implements EventListener {
 	@Inject
 	volatile AuthorManager authorManager;
@@ -45,7 +45,7 @@ abstract class SharingStatusActivity extends BriarActivity
 	private static final Logger LOG =
 			Logger.getLogger(SharingStatusActivity.class.getName());
 	private GroupId groupId;
-	private BriarRecyclerView list;
+	private NodexRecyclerView list;
 	private SharingStatusAdapter adapter;
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
