@@ -1,7 +1,5 @@
 package org.nodex.core.api.crypto;
 
-import org.nodex.api.crypto.CryptoConstants;
-
 /**
  * Constants for crypto operations - exact match to Briar.
  */
