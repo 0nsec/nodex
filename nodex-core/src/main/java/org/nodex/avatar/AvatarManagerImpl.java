@@ -40,10 +40,27 @@ import static org.nodex.api.sync.validation.IncomingMessageHookConstants.Deliver
 import static org.nodex.api.attachment.MediaConstants.MSG_KEY_CONTENT_TYPE;
 import static org.nodex.avatar.AvatarConstants.GROUP_KEY_CONTACT_ID;
 import static org.nodex.avatar.AvatarConstants.MSG_KEY_VERSION;
+import static org.nodex.api.avatar.AvatarManager.CLIENT_ID;
+import static org.nodex.api.avatar.AvatarManager.MAJOR_VERSION;
 @Immutable
 @NotNullByDefault
 class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 		ClientVersioningHook, IncomingMessageHook {
+
+	@Override
+	public void onContactAdded(Contact contact) {
+		// TODO: Implement logic for when a contact is added
+	}
+
+	@Override
+	public void onContactRemoved(Contact contact) {
+		// TODO: Implement logic for when a contact is removed
+	}
+
+	@Override
+	public void onContactUpdated(Contact contact) {
+		// TODO: Implement logic for when a contact is updated
+	}
 	private final DatabaseComponent db;
 	private final IdentityManager identityManager;
 	private final ClientHelper clientHelper;
@@ -81,7 +98,7 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 		db.addGroup(txn, ourGroup);
 		for (Contact c : db.getContacts(txn)) addingContact(txn, c);
 	}
-	@Override
+	
 	public void addingContact(Transaction txn, Contact c) throws DbException {
 		Group theirGroup = getGroup(c.getAuthor().getId());
 		db.addGroup(txn, theirGroup);
@@ -98,17 +115,13 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 		db.setGroupVisibility(txn, c.getId(), ourGroup.getId(), client);
 		db.setGroupVisibility(txn, c.getId(), theirGroup.getId(), client);
 	}
-	@Override
 	public void removingContact(Transaction txn, Contact c) throws DbException {
 		db.removeGroup(txn, getGroup(c.getAuthor().getId()));
 	}
+	
 	@Override
-	public void onClientVisibilityChanging(Transaction txn, Contact c,
-			Visibility v) throws DbException {
-		Group ourGroup = getOurGroup(txn);
-		Group theirGroup = getGroup(c.getAuthor().getId());
-		db.setGroupVisibility(txn, c.getId(), ourGroup.getId(), v);
-		db.setGroupVisibility(txn, c.getId(), theirGroup.getId(), v);
+	public void onClientVersionUpdated(String clientId, int majorVersion, int minorVersion) {
+		// Implementation for ClientVersioningHook
 	}
 	@Override
 	public DeliveryAction incomingMessage(Transaction txn, Message m,
@@ -119,7 +132,7 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 					"Received incoming message in my avatar group");
 		}
 		try {
-			BdfDictionary d = metadataParser.parse(meta);
+			BdfDictionary d = metadataParser.toDict(meta);
 			LatestUpdate latest = findLatest(txn, m.getGroupId());
 			if (latest != null) {
 				if (d.getLong(MSG_KEY_VERSION) > latest.version) {
@@ -128,7 +141,7 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 				} else {
 					db.deleteMessage(txn, m.getId());
 					db.deleteMessageMetadata(txn, m.getId());
-					return ACCEPT_DO_NOT_SHARE;
+					return IncomingMessageHook.DeliveryAction.ACCEPT_DO_NOT_SHARE;
 				}
 			}
 			ContactId contactId = getContactId(txn, m.getGroupId());
@@ -139,7 +152,7 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 		} catch (FormatException e) {
 			throw new InvalidMessageException(e);
 		}
-		return ACCEPT_DO_NOT_SHARE;
+		return IncomingMessageHook.DeliveryAction.ACCEPT_DO_NOT_SHARE;
 	}
 	@Override
 	public AttachmentHeader addAvatar(String contentType, InputStream in)
@@ -149,7 +162,11 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 		Transaction txn = db.startTransaction(true);
 		try {
 			groupId = getOurGroup(txn).getId();
-			latest = findLatest(txn, groupId);
+			try {
+				latest = findLatest(txn, groupId);
+			} catch (FormatException e) {
+				throw new DbException(e);
+			}
 			db.commitTransaction(txn);
 		} finally {
 			db.endTransaction(txn);
@@ -160,16 +177,20 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 		Message m = encodedMessage.getFirst();
 		BdfDictionary meta = encodedMessage.getSecond();
 		return db.transactionWithResult(false, txn2 -> {
-			LatestUpdate newLatest = findLatest(txn2, groupId);
-			if (newLatest != null && newLatest.version > version) {
-				return new AttachmentHeader(groupId, newLatest.messageId,
-						newLatest.contentType);
-			} else if (newLatest != null) {
-				db.deleteMessage(txn2, newLatest.messageId);
-				db.deleteMessageMetadata(txn2, newLatest.messageId);
+			try {
+				LatestUpdate newLatest = findLatest(txn2, groupId);
+				if (newLatest != null && newLatest.version > version) {
+					return new AttachmentHeader(groupId, newLatest.messageId,
+							newLatest.contentType);
+				} else if (newLatest != null) {
+					db.deleteMessage(txn2, newLatest.messageId);
+					db.deleteMessageMetadata(txn2, newLatest.messageId);
+				}
+				clientHelper.addLocalMessage(txn2, m, meta, true, false);
+				return new AttachmentHeader(groupId, m.getId(), contentType);
+			} catch (FormatException e) {
+				throw new DbException(e);
 			}
-			clientHelper.addLocalMessage(txn2, m, meta, true, false);
-			return new AttachmentHeader(groupId, m.getId(), contentType);
 		});
 	}
 	@Nullable
@@ -205,8 +226,9 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 	@Nullable
 	private LatestUpdate findLatest(Transaction txn, GroupId g)
 			throws DbException, FormatException {
+		BdfDictionary query = new BdfDictionary();
 		Map<MessageId, BdfDictionary> metadata =
-				clientHelper.getMessageMetadataAsDictionary(txn, g);
+				clientHelper.getMessageMetadataAsDictionary(txn, g, query);
 		for (Map.Entry<MessageId, BdfDictionary> e : metadata.entrySet()) {
 			BdfDictionary meta = e.getValue();
 			long version = meta.getLong(MSG_KEY_VERSION);
@@ -231,7 +253,7 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 	}
 	private Group getGroup(AuthorId authorId) {
 		return groupFactory
-				.createGroup(CLIENT_ID.toString(), MAJOR_VERSION, authorId.getBytes());
+				.createGroup(CLIENT_ID, MAJOR_VERSION, authorId.getBytes());
 	}
 	private static class LatestUpdate {
 		private final MessageId messageId;

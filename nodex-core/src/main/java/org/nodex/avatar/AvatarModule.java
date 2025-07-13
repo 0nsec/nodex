@@ -50,9 +50,9 @@ public class AvatarModule {
 			AvatarManagerImpl avatarManager) {
 		lifecycleManager.registerOpenDatabaseHook(avatarManager);
 		contactManager.registerContactHook(avatarManager);
-		validationManager.registerIncomingMessageHook(CLIENT_ID,
+		validationManager.registerIncomingMessageHook(CLIENT_ID.getString(),
 				MAJOR_VERSION, avatarManager);
-		clientVersioningManager.registerClient(CLIENT_ID,
+		clientVersioningManager.registerClient(CLIENT_ID.getString(),
 				MAJOR_VERSION, MINOR_VERSION, avatarManager);
 		return avatarManager;
 	}

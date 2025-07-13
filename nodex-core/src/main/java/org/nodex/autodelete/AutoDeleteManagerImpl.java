@@ -62,14 +62,24 @@ class AutoDeleteManagerImpl
 		for (Contact c : db.getContacts(txn)) addingContact(txn, c);
 	}
 	@Override
+	public void onContactAdded(Contact c) {
+		// Implementation for ContactManager.ContactHook
+	}
+	
+	@Override
+	public void onContactRemoved(Contact c) {
+		// Implementation for ContactManager.ContactHook
+	}
+	
+	@Override
+	public void onContactUpdated(Contact c) {
+		// Implementation for ContactManager.ContactHook
+	}
+	
 	public void addingContact(Transaction txn, Contact c) throws DbException {
 		Group g = getGroup(c);
 		db.addGroup(txn, g);
 		clientHelper.setContactId(txn, g.getId(), c.getId());
-	}
-	@Override
-	public void removingContact(Transaction txn, Contact c) throws DbException {
-		db.removeGroup(txn, getGroup(c));
 	}
 	@Override
 	public long getAutoDeleteTimer(Transaction txn, ContactId c)

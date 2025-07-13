@@ -10,6 +10,7 @@ import org.nodex.api.sync.Group;
 import org.nodex.api.sync.InvalidMessageException;
 import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageContext;
+import org.nodex.api.sync.MessageContextImpl;
 import org.nodex.api.sync.validation.MessageValidator;
 import org.nodex.api.system.Clock;
 import org.nodex.attachment.CountingInputStream;
@@ -55,8 +56,8 @@ class AvatarValidator implements MessageValidator {
 			BdfList list = reader.readList();
 			long bytesRead = countIn.getBytesRead();
 			BdfDictionary d = validateUpdate(list, bytesRead);
-			Metadata meta = metadataEncoder.encode(d);
-			return new MessageContext(meta);
+			byte[] meta = metadataEncoder.encode(d);
+			return new MessageContextImpl(new Metadata(meta));
 		} catch (IOException e) {
 			throw new InvalidMessageException(e);
 		}
