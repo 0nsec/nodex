@@ -11,12 +11,13 @@ import javax.annotation.concurrent.Immutable;
  */
 @Immutable
 @NotNullByDefault
-public class SharingInvitationReceivedEvent implements Event {
+public class SharingInvitationReceivedEvent extends Event {
     
     private final ContactId contactId;
     private final String invitationText;
     
     public SharingInvitationReceivedEvent(ContactId contactId, String invitationText) {
+        super();
         this.contactId = contactId;
         this.invitationText = invitationText;
     }
