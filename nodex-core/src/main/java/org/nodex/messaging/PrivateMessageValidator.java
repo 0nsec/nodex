@@ -54,8 +54,8 @@ class PrivateMessageValidator implements MessageValidator {
 		this.clock = clock;
 	}
 	@Override
-	public MessageContext validateMessage(Message m, Group g)
-			throws InvalidMessageException {
+   public BdfMessageContext validateMessage(Message m, Group g)
+		   throws InvalidMessageException {
 		long now = clock.currentTimeMillis();
 		if (m.getTimestamp() - now > MAX_CLOCK_DIFFERENCE) {
 			throw new InvalidMessageException(
@@ -68,23 +68,23 @@ class PrivateMessageValidator implements MessageValidator {
 			BdfReader reader = bdfReaderFactory.createReader(countIn);
 			BdfList list = reader.readBdfList();
 			long bytesRead = countIn.getBytesRead();
-			BdfMessageContext context;
-			if (list.size() == 1) {
-				if (!reader.eof()) throw new FormatException();
-				context = validateLegacyPrivateMessage(m, list);
-			} else {
-				int messageType = list.getInt(0);
-				if (messageType == PRIVATE_MESSAGE) {
-					if (!reader.eof()) throw new FormatException();
-					context = validatePrivateMessage(m, list);
-				} else if (messageType == ATTACHMENT) {
+		   BdfMessageContext context;
+		   if (list.size() == 1) {
+			   if (!reader.eof()) throw new FormatException();
+			   context = validateLegacyPrivateMessage(m, list);
+		   } else {
+			   int messageType = list.getInt(0);
+			   if (messageType == PRIVATE_MESSAGE) {
+				   if (!reader.eof()) throw new FormatException();
+				   context = validatePrivateMessage(m, list);
+			   } else if (messageType == ATTACHMENT) {
 					context = validateAttachment(m, list, bytesRead);
 				} else {
 					throw new InvalidMessageException();
 				}
 			}
 			byte[] meta = metadataEncoder.encode(context.getDictionary());
-			return new BdfMessageContextImpl(m, list, context.getDictionary(), m.getTimestamp());
+					   return new BdfMessageContextImpl(m, list, context.getDictionary(), m.getTimestamp());
 		} catch (IOException e) {
 			throw new InvalidMessageException(e);
 		}
@@ -130,7 +130,7 @@ class PrivateMessageValidator implements MessageValidator {
 		if (timer != NO_AUTO_DELETE_TIMER) {
 			meta.put(MSG_KEY_AUTO_DELETE_TIMER, timer);
 		}
-		return new BdfMessageContext(meta);
+			   return new BdfMessageContextImpl(m, null, meta, m.getTimestamp());
 	}
 	private BdfMessageContext validateAttachment(Message m, BdfList descriptor,
 			long descriptorLength) throws FormatException {
@@ -143,6 +143,6 @@ class PrivateMessageValidator implements MessageValidator {
 		meta.put(MSG_KEY_MSG_TYPE, ATTACHMENT);
 		meta.put(MSG_KEY_DESCRIPTOR_LENGTH, descriptorLength);
 		meta.put(MSG_KEY_CONTENT_TYPE, contentType);
-		return new BdfMessageContext(meta);
+			   return new BdfMessageContextImpl(m, null, meta, m.getTimestamp());
 	}
 }
