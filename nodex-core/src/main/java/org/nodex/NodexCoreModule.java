@@ -2,7 +2,6 @@ package org.nodex;
 import org.nodex.attachment.AttachmentModule;
 import org.nodex.autodelete.AutoDeleteModule;
 import org.nodex.avatar.AvatarModule;
-import org.nodex.blog.BlogModule;
 import org.nodex.client.NodexClientModule;
 import org.nodex.conversation.ConversationModule;
 import org.nodex.feed.FeedModule;
@@ -19,7 +18,6 @@ import dagger.Module;
 		AttachmentModule.class,
 		AutoDeleteModule.class,
 		AvatarModule.class,
-		BlogModule.class,
 		NodexClientModule.class,
 		ConversationModule.class,
 		FeedModule.class,
