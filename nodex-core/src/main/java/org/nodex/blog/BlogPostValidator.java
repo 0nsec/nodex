@@ -90,8 +90,8 @@ public class BlogPostValidator implements MessageValidator {
 					throw new InvalidMessageException("Unknown Message Type");
 			}
 			c.getDictionary().put(KEY_TYPE, type);
-			return c;
-		} catch (Exception e) {
+			return (MessageContext) c;
+		} catch (FormatException e) {
 			throw new InvalidMessageException("Failed to validate message", e);
 		}
 	}
@@ -102,16 +102,12 @@ public class BlogPostValidator implements MessageValidator {
 		String text = body.getString(0);
 		checkLength(text, 0, MAX_BLOG_POST_TEXT_LENGTH);
 		byte[] sig = body.getRaw(1);
-		checkLength(sig, 1, MAX_SIGNATURE_LENGTH);
+		checkLength(sig, MAX_SIGNATURE_LENGTH);
 		BdfList signed = BdfList.of(g.getId(), m.getTimestamp(), text);
 		Blog b = blogFactory.parseBlog(g);
 		Author a = b.getAuthor();
-		try {
-			clientHelper.verifySignature(sig, SIGNING_LABEL_POST, signed,
-					a.getPublicKey());
-		} catch (GeneralSecurityException e) {
-			throw new InvalidMessageException(e);
-		}
+		clientHelper.verifySignature(sig, SIGNING_LABEL_POST, signed,
+				a.getPublicKey());
 		BdfDictionary meta = new BdfDictionary();
 		meta.put(KEY_ORIGINAL_MSG_ID, m.getId());
 		meta.put(KEY_AUTHOR, clientHelper.toList(a));
@@ -130,17 +126,13 @@ public class BlogPostValidator implements MessageValidator {
 		checkLength(currentIdBytes, MessageId.LENGTH);
 		MessageId currentId = new MessageId(currentIdBytes);
 		byte[] sig = body.getRaw(3);
-		checkLength(sig, 1, MAX_SIGNATURE_LENGTH);
+		checkLength(sig, MAX_SIGNATURE_LENGTH);
 		BdfList signed = BdfList.of(g.getId(), m.getTimestamp(), comment,
 				pOriginalId, currentId);
 		Blog b = blogFactory.parseBlog(g);
 		Author a = b.getAuthor();
-		try {
-			clientHelper.verifySignature(sig, SIGNING_LABEL_COMMENT,
-					signed, a.getPublicKey());
-		} catch (GeneralSecurityException e) {
-			throw new InvalidMessageException(e);
-		}
+		clientHelper.verifySignature(sig, SIGNING_LABEL_COMMENT,
+				signed, a.getPublicKey());
 		BdfDictionary meta = new BdfDictionary();
 		if (comment != null) meta.put(KEY_COMMENT, comment);
 		meta.put(KEY_ORIGINAL_MSG_ID, m.getId());
@@ -148,7 +140,8 @@ public class BlogPostValidator implements MessageValidator {
 		meta.put(KEY_PARENT_MSG_ID, currentId);
 		meta.put(KEY_AUTHOR, clientHelper.toList(a));
 		Collection<MessageId> dependencies = singletonList(currentId);
-		return new BdfMessageContext(meta, dependencies);
+		// If dependencies are needed, set them after construction or use a supported constructor
+		return new BdfMessageContextImpl(m, body, meta, m.getTimestamp());
 	}
 	private BdfMessageContext validateWrappedPost(BdfList body)
 			throws InvalidMessageException, FormatException {
@@ -159,8 +152,8 @@ public class BlogPostValidator implements MessageValidator {
 		String text = body.getString(2);
 		checkLength(text, 0, MAX_BLOG_POST_TEXT_LENGTH);
 		byte[] signature = body.getRaw(3);
-		checkLength(signature, 1, MAX_SIGNATURE_LENGTH);
-		Group wGroup = groupFactory.createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
+		checkLength(signature, MAX_SIGNATURE_LENGTH);
+		Group wGroup = groupFactory.createGroup(CLIENT_ID, MAJOR_VERSION,
 				descriptor);
 		Blog wBlog = blogFactory.parseBlog(wGroup);
 		BdfList wBodyList = BdfList.of(POST.getInt(), text, signature);
@@ -174,7 +167,13 @@ public class BlogPostValidator implements MessageValidator {
 		meta.put(KEY_TIMESTAMP, wTimestamp);
 		meta.put(KEY_AUTHOR, c.getDictionary().getList(KEY_AUTHOR));
 		meta.put(KEY_RSS_FEED, wBlog.isRssFeed());
-		return new BdfMessageContext(meta);
+		return new BdfMessageContextImpl(wMessage, wBodyList, meta, wTimestamp);
+			return new BdfMessageContextImpl(wMessage, wBodyList, meta, wTimestamp);
+		}
+	}
+	// Adds metadata to the message context
+	private void addMessageMetadata(BdfMessageContext context, long timestamp) {
+		context.getDictionary().put(KEY_TIME_RECEIVED, timestamp);
 	}
 	private BdfMessageContext validateWrappedComment(BdfList body)
 			throws InvalidMessageException, FormatException {
@@ -191,11 +190,11 @@ public class BlogPostValidator implements MessageValidator {
 		checkLength(oldIdBytes, MessageId.LENGTH);
 		MessageId oldId = new MessageId(oldIdBytes);
 		byte[] signature = body.getRaw(5);
-		checkLength(signature, 1, MAX_SIGNATURE_LENGTH);
+		checkLength(signature, MAX_SIGNATURE_LENGTH);
 		byte[] parentIdBytes = body.getRaw(6);
 		checkLength(parentIdBytes, MessageId.LENGTH);
 		MessageId parentId = new MessageId(parentIdBytes);
-		Group wGroup = groupFactory.createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
+		Group wGroup = groupFactory.createGroup(CLIENT_ID, MAJOR_VERSION,
 				descriptor);
 		BdfList wBodyList = BdfList.of(COMMENT.getInt(), comment, pOriginalId,
 				oldId, signature);
@@ -212,11 +211,5 @@ public class BlogPostValidator implements MessageValidator {
 		meta.put(KEY_TIMESTAMP, wTimestamp);
 		if (comment != null) meta.put(KEY_COMMENT, comment);
 		meta.put(KEY_AUTHOR, c.getDictionary().getList(KEY_AUTHOR));
-		return new BdfMessageContext(meta, dependencies);
+		return new BdfMessageContextImpl(wMessage, wBodyList, meta, wTimestamp);
 	}
-	private void addMessageMetadata(BdfMessageContext c, long time) {
-		c.getDictionary().put(KEY_TIMESTAMP, time);
-		c.getDictionary().put(KEY_TIME_RECEIVED, clock.currentTimeMillis());
-		c.getDictionary().put(KEY_READ, false);
-	}
-}
