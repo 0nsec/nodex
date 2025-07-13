@@ -3,9 +3,10 @@ package org.nodex.api.transport;
 import org.nodex.api.nullsafety.NotNullByDefault;
 
 import javax.annotation.concurrent.Immutable;
+import java.util.Objects;
 
 /**
- * Transport-specific properties for configuration.
+ * Transport-specific properties.
  */
 @Immutable
 @NotNullByDefault
@@ -32,16 +33,19 @@ public class TransportProperties {
         if (this == o) return true;
         if (!(o instanceof TransportProperties)) return false;
         TransportProperties that = (TransportProperties) o;
-        return key.equals(that.key) && value.equals(that.value);
+        return Objects.equals(key, that.key) && Objects.equals(value, that.value);
     }
     
     @Override
     public int hashCode() {
-        return key.hashCode() * 31 + value.hashCode();
+        return Objects.hash(key, value);
     }
     
     @Override
     public String toString() {
-        return key + "=" + value;
+        return "TransportProperties{" +
+                "key='" + key + '\'' +
+                ", value='" + value + '\'' +
+                '}';
     }
 }

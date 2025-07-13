@@ -1,9 +1,11 @@
 package org.nodex.core.transport.lan;
 
 import org.nodex.api.plugin.TransportPlugin;
-import org.nodex.api.transport.TransportId;
+import org.nodex.api.Pair;
+import org.nodex.api.transport.ConnectionHandler;
+import org.nodex.api.plugin.TransportId;
 import org.nodex.api.transport.TransportKeys;
-import org.nodex.api.transport.TransportProperties;
+import org.nodex.api.properties.TransportProperties;
 import org.nodex.api.contact.ContactId;
 import org.nodex.api.lifecycle.Service;
 import org.nodex.api.lifecycle.ServiceException;
@@ -151,7 +153,7 @@ public class LanPlugin implements TransportPlugin, Service {
     }
 
     @Override
-    public void poll(Collection<ContactId> connectedContacts) {
+    public void poll(Collection<Pair<TransportProperties, ConnectionHandler>> properties) {
         if (!started) return;
         
         // Trigger discovery and connection attempts

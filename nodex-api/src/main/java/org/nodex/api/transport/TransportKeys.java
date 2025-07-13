@@ -1,108 +1,45 @@
 package org.nodex.api.transport;
 
-import org.nodex.api.crypto.SecretKey;
-import org.nodex.api.plugin.TransportId;
+import org.nodex.api.crypto.PublicKey;
+import org.nodex.api.crypto.PrivateKey;
 import org.nodex.api.nullsafety.NotNullByDefault;
 
-import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
 /**
- * Keys for communicating with a given contact or pending contact over a given
- * transport.
+ * Transport-specific cryptographic keys.
  */
 @Immutable
 @NotNullByDefault
 public class TransportKeys {
-
-	private final TransportId transportId;
-	private final IncomingKeys inPrev, inCurr, inNext;
-	private final OutgoingKeys outCurr;
-	@Nullable
-	private final SecretKey rootKey;
-	private final boolean alice;
-
-	/**
-	 * Constructor for rotation mode.
-	 */
-	public TransportKeys(TransportId transportId, IncomingKeys inPrev,
-			IncomingKeys inCurr, IncomingKeys inNext, OutgoingKeys outCurr) {
-		this(transportId, inPrev, inCurr, inNext, outCurr, null, false);
-	}
-
-	/**
-	 * Constructor for handshake mode.
-	 */
-	public TransportKeys(TransportId transportId, IncomingKeys inPrev,
-			IncomingKeys inCurr, IncomingKeys inNext, OutgoingKeys outCurr,
-			@Nullable SecretKey rootKey, boolean alice) {
-		if (inPrev.getTimePeriod() != outCurr.getTimePeriod() - 1)
-			throw new IllegalArgumentException();
-		if (inCurr.getTimePeriod() != outCurr.getTimePeriod())
-			throw new IllegalArgumentException();
-		if (inNext.getTimePeriod() != outCurr.getTimePeriod() + 1)
-			throw new IllegalArgumentException();
-		this.transportId = transportId;
-		this.inPrev = inPrev;
-		this.inCurr = inCurr;
-		this.inNext = inNext;
-		this.outCurr = outCurr;
-		this.rootKey = rootKey;
-		this.alice = alice;
-	}
-
-	public TransportId getTransportId() {
-		return transportId;
-	}
-
-	public IncomingKeys getPreviousIncomingKeys() {
-		return inPrev;
-	}
-
-	public IncomingKeys getCurrentIncomingKeys() {
-		return inCurr;
-	}
-
-	public IncomingKeys getNextIncomingKeys() {
-		return inNext;
-	}
-
-	public OutgoingKeys getCurrentOutgoingKeys() {
-		return outCurr;
-	}
-
-	public long getTimePeriod() {
-		return outCurr.getTimePeriod();
-	}
-
-	/**
-	 * Returns true if these keys are for use in handshake mode or false if
-	 * they're for use in rotation mode.
-	 */
-	public boolean isHandshakeMode() {
-		return rootKey != null;
-	}
-
-	/**
-	 * If these keys are for use in handshake mode, returns the root key.
-	 *
-	 * @throws UnsupportedOperationException If these keys are for use in
-	 * rotation mode
-	 */
-	public SecretKey getRootKey() {
-		if (rootKey == null) throw new UnsupportedOperationException();
-		return rootKey;
-	}
-
-	/**
-	 * If these keys are for use in handshake mode, returns true if the local
-	 * party is Alice.
-	 *
-	 * @throws UnsupportedOperationException If these keys are for use in
-	 * rotation mode
-	 */
-	public boolean isAlice() {
-		if (rootKey == null) throw new UnsupportedOperationException();
-		return alice;
-	}
+    
+    private final PublicKey publicKey;
+    private final PrivateKey privateKey;
+    
+    public TransportKeys(PublicKey publicKey, PrivateKey privateKey) {
+        this.publicKey = publicKey;
+        this.privateKey = privateKey;
+    }
+    
+    public PublicKey getPublicKey() {
+        return publicKey;
+    }
+    
+    public PrivateKey getPrivateKey() {
+        return privateKey;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TransportKeys)) return false;
+        TransportKeys that = (TransportKeys) o;
+        return publicKey.equals(that.publicKey) && 
+               privateKey.equals(that.privateKey);
+    }
+    
+    @Override
+    public int hashCode() {
+        return publicKey.hashCode() ^ privateKey.hashCode();
+    }
 }

@@ -2,6 +2,7 @@ package org.nodex.api.plugin;
 
 import org.nodex.api.Pair;
 import org.nodex.api.properties.TransportProperties;
+import org.nodex.api.transport.ConnectionHandler;
 import org.nodex.api.settings.SettingsManager;
 import org.nodex.api.system.Wakeful;
 import org.nodex.api.nullsafety.NotNullByDefault;

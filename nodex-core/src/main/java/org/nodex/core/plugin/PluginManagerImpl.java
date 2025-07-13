@@ -1,10 +1,10 @@
 package org.nodex.core.plugin;
 
-import org.nodex.api.plugin.PluginManager;
-import org.nodex.api.plugin.Plugin;
+import org.nodex.api.transport.TransportPluginManager;
+import org.nodex.api.transport.TransportPlugin;
 import org.nodex.api.plugin.TransportPlugin;
-import org.nodex.api.plugin.PluginConfig;
-import org.nodex.api.transport.TransportId;
+import org.nodex.api.transport.TransportPluginConfig;
+import org.nodex.api.plugin.TransportId;
 import org.nodex.api.lifecycle.Service;
 import org.nodex.api.lifecycle.ServiceException;
 import org.nodex.api.nullsafety.NotNullByDefault;

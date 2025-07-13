@@ -1,9 +1,9 @@
 package org.nodex.core.transport.bluetooth;
 
 import org.nodex.api.plugin.TransportPlugin;
-import org.nodex.api.transport.TransportId;
+import org.nodex.api.plugin.TransportId;
 import org.nodex.api.transport.TransportKeys;
-import org.nodex.api.transport.TransportProperties;
+import org.nodex.api.properties.TransportProperties;
 import org.nodex.api.contact.ContactId;
 import org.nodex.api.lifecycle.Service;
 import org.nodex.api.lifecycle.ServiceException;

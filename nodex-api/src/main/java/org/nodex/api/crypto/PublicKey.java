@@ -1,19 +1,25 @@
 package org.nodex.api.crypto;
 
 import org.nodex.api.nullsafety.NotNullByDefault;
-import javax.annotation.concurrent.Immutable;
 
-@Immutable
+/**
+ * A public key for cryptographic operations.
+ */
 @NotNullByDefault
 public interface PublicKey {
     
     /**
-     * Get the encoded form of this public key.
+     * Returns the key type.
+     */
+    String getKeyType();
+    
+    /**
+     * Returns the encoded key bytes.
      */
     byte[] getEncoded();
     
     /**
-     * Get the key type (e.g., "ECDH", "ECDSA").
+     * Returns the key size in bytes.
      */
-    String getKeyType();
+    int size();
 }

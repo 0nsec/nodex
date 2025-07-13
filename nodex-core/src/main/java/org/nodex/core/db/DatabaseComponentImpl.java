@@ -17,7 +17,7 @@ import org.nodex.api.identity.Identity;
 import org.nodex.api.identity.LocalAuthor;
 import org.nodex.api.identity.Author;
 import org.nodex.api.identity.AuthorId;
-import org.nodex.api.transport.TransportId;
+import org.nodex.api.plugin.TransportId;
 import org.nodex.api.transport.TransportKeys;
 import org.nodex.api.settings.Settings;
 import org.nodex.api.nullsafety.NotNullByDefault;

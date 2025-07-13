@@ -1,19 +1,25 @@
 package org.nodex.api.crypto;
 
 import org.nodex.api.nullsafety.NotNullByDefault;
-import javax.annotation.concurrent.Immutable;
 
-@Immutable
+/**
+ * A private key for cryptographic operations.
+ */
 @NotNullByDefault
 public interface PrivateKey {
     
     /**
-     * Get the encoded form of this private key.
+     * Returns the key type.
+     */
+    String getKeyType();
+    
+    /**
+     * Returns the encoded key bytes.
      */
     byte[] getEncoded();
     
     /**
-     * Get the key type (e.g., "ECDH", "ECDSA").
+     * Returns the key size in bytes.
      */
-    String getKeyType();
+    int size();
 }
