@@ -10,7 +10,7 @@ import org.nodex.api.sync.Group;
 import org.nodex.api.sync.InvalidMessageException;
 import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageContext;
-import org.nodex.api.sync.MessageContextImpl;
+import org.nodex.api.sync.BdfMessageContextImpl;
 import org.nodex.api.sync.validation.MessageValidator;
 import org.nodex.api.system.Clock;
 import org.nodex.attachment.CountingInputStream;
@@ -18,6 +18,7 @@ import org.nodex.nullsafety.NotNullByDefault;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import javax.annotation.concurrent.Immutable;
 import static org.nodex.core.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
 import static org.nodex.core.api.transport.TransportConstants.MAX_CLOCK_DIFFERENCE;
@@ -53,11 +54,12 @@ class AvatarValidator implements MessageValidator {
 			CountingInputStream countIn =
 					new CountingInputStream(in, MAX_MESSAGE_BODY_LENGTH);
 			BdfReader reader = bdfReaderFactory.createReader(countIn);
-			BdfList list = reader.readList();
+			List<Object> rawList = reader.readList();
+			BdfList list = new BdfList(rawList);
 			long bytesRead = countIn.getBytesRead();
 			BdfDictionary d = validateUpdate(list, bytesRead);
 			byte[] meta = metadataEncoder.encode(d);
-			return new MessageContextImpl(new Metadata(meta));
+			return new BdfMessageContextImpl(m, list, d, m.getTimestamp());
 		} catch (IOException e) {
 			throw new InvalidMessageException(e);
 		}

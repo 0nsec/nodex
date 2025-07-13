@@ -1,15 +1,11 @@
 package org.nodex.api.client;
 
-import org.nodex.api.data.BdfDictionary;
 import org.nodex.api.data.BdfList;
 import org.nodex.api.sync.ClientId;
 import org.nodex.api.sync.Group;
 import org.nodex.api.sync.Message;
-import org.nodex.api.sync.MessageId;
 import org.nodex.api.sync.MessageContext;
 import org.nodex.api.sync.InvalidMessageException;
-import org.nodex.api.db.DbException;
-import org.nodex.api.db.Transaction;
 import org.nodex.api.nullsafety.NotNullByDefault;
 import org.nodex.api.sync.validation.MessageValidator;
 

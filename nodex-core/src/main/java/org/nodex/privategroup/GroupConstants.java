@@ -13,4 +13,6 @@ interface GroupConstants {
 	String GROUP_KEY_CREATOR_ID = "creatorId";
 	String GROUP_KEY_DISSOLVED = "dissolved";
 	String GROUP_KEY_VISIBILITY = "visibility";
+	String GROUP_VISIBILITY_PRIVATE = "private";
+	String GROUP_VISIBILITY_PUBLIC = "public";
 }

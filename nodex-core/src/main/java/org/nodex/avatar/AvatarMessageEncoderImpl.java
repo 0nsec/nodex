@@ -1,4 +1,5 @@
 package org.nodex.avatar;
+import org.nodex.api.FormatException;
 import org.nodex.api.Pair;
 import org.nodex.api.client.ClientHelper;
 import org.nodex.api.data.BdfDictionary;

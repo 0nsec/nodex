@@ -15,10 +15,9 @@ public class AutoDeleteModule {
 	@Provides
 	@Singleton
 	AutoDeleteManager provideAutoDeleteManager(
-			LifecycleManager lifecycleManager, ContactManager contactManager,
-			AutoDeleteManagerImpl autoDeleteManager) {
-		lifecycleManager.registerOpenDatabaseHook(autoDeleteManager);
-		contactManager.registerContactHook(autoDeleteManager);
+			LifecycleManager lifecycleManager, ContactManager contactManager, AutoDeleteManager autoDeleteManager) {
+		lifecycleManager.registerOpenDatabaseHook((LifecycleManager.OpenDatabaseHook) autoDeleteManager);
+		contactManager.registerContactHook((ContactManager.ContactHook) autoDeleteManager);
 		return autoDeleteManager;
 	}
 }

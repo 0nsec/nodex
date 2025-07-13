@@ -18,6 +18,7 @@ import org.nodex.api.identity.LocalAuthor;
 import org.nodex.api.lifecycle.LifecycleManager.OpenDatabaseHook;
 import org.nodex.api.sync.Group;
 import org.nodex.api.sync.GroupId;
+import org.nodex.api.sync.InvalidMessageException;
 import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageId;
 import org.nodex.api.blog.Blog;
@@ -101,10 +102,42 @@ class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 		Blog b = blogFactory.createBlog(a);
 		db.addGroup(txn, b.getGroup());
 	}
+	
 	@Override
+	public DeliveryAction incomingMessage(Transaction txn, Message m,
+			org.nodex.api.db.Metadata meta) throws DbException, InvalidMessageException {
+		try {
+			BdfDictionary metaDict = metadataParser.toDict(meta);
+			BdfList list = clientHelper.getMessageAsList(txn, m.getId());
+			return incomingMessage(txn, m, list, metaDict);
+		} catch (FormatException e) {
+			throw new InvalidMessageException(e);
+		}
+	}
+	
+	@Override
+	public void onDatabaseOpened() throws DbException {
+		// Implementation for parameter-less version
+	}
+	
+	@Override
+	public void onContactAdded(Contact contact) {
+		// Implementation for ContactManager.ContactHook
+	}
+	
+	@Override
+	public void onContactRemoved(Contact contact) {
+		// Implementation for ContactManager.ContactHook  
+	}
+	
+	@Override
+	public void onContactUpdated(Contact contact) {
+		// Implementation for ContactManager.ContactHook
+	}
+	
 	public void addingContact(Transaction txn, Contact c) {
 	}
-	@Override
+	
 	public void removingContact(Transaction txn, Contact c) throws DbException {
 		Blog b = blogFactory.createBlog(c.getAuthor());
 		if (db.containsGroup(txn, b.getId())) removeBlog(txn, b);
@@ -112,7 +145,7 @@ class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 	@Override
 	protected DeliveryAction incomingMessage(Transaction txn, Message m,
 			BdfList list, BdfDictionary meta)
-			throws DbException, FormatException {
+			throws DbException {
 		GroupId groupId = m.getGroupId();
 		MessageType type = getMessageType(meta);
 		if (type == POST || type == COMMENT) {
@@ -132,7 +165,7 @@ class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 			BlogPostAddedEvent event =
 					new BlogPostAddedEvent(groupId, h, false);
 			txn.attach(event);
-			return ACCEPT_SHARE;
+			return BdfIncomingMessageHook.DeliveryAction.ACCEPT_SHARE;
 		} else if (type == WRAPPED_COMMENT) {
 			MessageId dependencyId =
 					new MessageId(meta.getRaw(KEY_PARENT_MSG_ID));
@@ -144,7 +177,7 @@ class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 				throw new FormatException();
 			}
 		}
-		return ACCEPT_DO_NOT_SHARE;
+		return BdfIncomingMessageHook.DeliveryAction.ACCEPT_DO_NOT_SHARE;
 	}
 	@Override
 	public void addBlog(Blog b) throws DbException {
@@ -386,7 +419,7 @@ class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 		try {
 			List<Blog> blogs = new ArrayList<>();
 			Collection<Group> groups =
-					db.getGroups(txn, CLIENT_ID.toString(), MAJOR_VERSION);
+					db.getGroups(txn, CLIENT_ID, MAJOR_VERSION);
 			for (Group g : groups) {
 				blogs.add(blogFactory.parseBlog(g));
 			}
@@ -398,7 +431,7 @@ class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 	@Override
 	public Collection<GroupId> getBlogIds(Transaction txn) throws DbException {
 		List<GroupId> groupIds = new ArrayList<>();
-		Collection<Group> groups = db.getGroups(txn, CLIENT_ID.toString(), MAJOR_VERSION);
+		Collection<Group> groups = db.getGroups(txn, CLIENT_ID, MAJOR_VERSION);
 		for (Group g : groups) groupIds.add(g.getId());
 		return groupIds;
 	}

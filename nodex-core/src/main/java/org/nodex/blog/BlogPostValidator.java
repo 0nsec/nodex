@@ -1,8 +1,10 @@
 package org.nodex.blog;
 import org.nodex.api.FormatException;
 import org.nodex.api.client.BdfMessageContext;
+import org.nodex.api.sync.BdfMessageContextImpl;
 import org.nodex.api.client.BdfMessageValidator;
 import org.nodex.api.client.ClientHelper;
+import org.nodex.api.client.MessageContext;
 import org.nodex.api.data.BdfDictionary;
 import org.nodex.api.data.BdfList;
 import org.nodex.api.data.MetadataEncoder;
@@ -49,17 +51,27 @@ public class BlogPostValidator extends BdfMessageValidator {
 	private final GroupFactory groupFactory;
 	private final MessageFactory messageFactory;
 	private final BlogFactory blogFactory;
+	private final ClientHelper clientHelper;
+	private final Clock clock;
+	
 	public BlogPostValidator(GroupFactory groupFactory, MessageFactory messageFactory,
 			BlogFactory blogFactory, ClientHelper clientHelper,
 			MetadataEncoder metadataEncoder, Clock clock) {
-		super(clientHelper, metadataEncoder, clock);
+		super(CLIENT_ID, MAJOR_VERSION);
 		this.groupFactory = groupFactory;
 		this.messageFactory = messageFactory;
 		this.blogFactory = blogFactory;
+		this.clientHelper = clientHelper;
+		this.clock = clock;
 	}
+	
 	@Override
-	protected BdfMessageContext validateMessage(Message m, Group g,
-			BdfList body) throws InvalidMessageException, FormatException {
+	public BdfList parseMessage(Message m) throws Exception {
+		return clientHelper.getMessageAsList(null, m.getId());
+	}
+	
+	@Override
+	protected MessageContext validateMessage(BdfList body, Group g) throws InvalidMessageException {
 		BdfMessageContext c;
 		int type = body.getInt(0);
 		body.remove(0);
@@ -104,7 +116,7 @@ public class BlogPostValidator extends BdfMessageValidator {
 		meta.put(KEY_ORIGINAL_MSG_ID, m.getId());
 		meta.put(KEY_AUTHOR, clientHelper.toList(a));
 		meta.put(KEY_RSS_FEED, b.isRssFeed());
-		return new BdfMessageContext(meta);
+		return new BdfMessageContextImpl(m, body, meta, m.getTimestamp());
 	}
 	private BdfMessageContext validateComment(Message m, Group g, BdfList body)
 			throws InvalidMessageException, FormatException {
