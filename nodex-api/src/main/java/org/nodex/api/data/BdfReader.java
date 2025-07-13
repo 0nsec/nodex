@@ -39,4 +39,14 @@ public interface BdfReader {
      * Close the reader.
      */
     void close() throws IOException;
+    
+    /**
+     * Check if end of file reached.
+     */
+    boolean eof() throws IOException;
+    
+    /**
+     * Read a BdfList.
+     */
+    BdfList readBdfList() throws IOException;
 }
