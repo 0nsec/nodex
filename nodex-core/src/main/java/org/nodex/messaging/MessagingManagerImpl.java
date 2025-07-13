@@ -60,7 +60,7 @@ import static java.util.Collections.emptyList;
 import static java.util.logging.Logger.getLogger;
 import static org.nodex.core.api.client.ContactGroupConstants.GROUP_KEY_CONTACT_ID;
 import static org.nodex.core.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
-import static org.nodex.api.sync.validation.IncomingMessageHookConstants.DeliveryAction.ACCEPT_DO_NOT_SHARE;
+import static org.nodex.api.sync.validation.IncomingMessageHook.DeliveryAction.ACCEPT_DO_NOT_SHARE;
 import static org.nodex.core.util.IoUtils.copyAndClose;
 import static org.nodex.core.util.LogUtils.logDuration;
 import static org.nodex.core.util.LogUtils.now;
@@ -80,6 +80,8 @@ import static org.nodex.messaging.MessagingConstants.MSG_KEY_HAS_TEXT;
 import static org.nodex.messaging.MessagingConstants.MSG_KEY_LOCAL;
 import static org.nodex.messaging.MessagingConstants.MSG_KEY_MSG_TYPE;
 import static org.nodex.messaging.MessagingConstants.MSG_KEY_TIMESTAMP;
+import static org.nodex.messaging.MessagingConstants.CLIENT_ID;
+import static org.nodex.messaging.MessagingConstants.MAJOR_VERSION;
 import static org.nodex.messaging.MessagingConstants.CLIENT_ID;
 import static org.nodex.messaging.MessagingConstants.MAJOR_VERSION;
 @Immutable

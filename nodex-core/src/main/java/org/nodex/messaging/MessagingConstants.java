@@ -1,6 +1,9 @@
 package org.nodex.messaging;
+import org.nodex.api.sync.ClientId;
 import static java.util.concurrent.TimeUnit.DAYS;
 interface MessagingConstants {
+	ClientId CLIENT_ID = new ClientId("org.nodex.messaging");
+	int MAJOR_VERSION = 1;
 	String MSG_KEY_TIMESTAMP = "timestamp";
 	String MSG_KEY_LOCAL = "local";
 	String MSG_KEY_MSG_TYPE = "messageType";
