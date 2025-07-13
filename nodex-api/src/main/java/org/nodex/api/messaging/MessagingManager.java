@@ -38,5 +38,10 @@ public interface MessagingManager extends ConversationClient {
     String getMessageText(Transaction txn, MessageId m) throws DbException;
     PrivateMessageFormat getContactMessageFormat(Transaction txn, ContactId c)
         throws DbException;
+    // Methods required by MessagingManagerImpl
+    GroupId getContactGroup(Contact contact);
+    Collection<PrivateMessageHeader> getMessageHeaders(ContactId contactId) throws DbException;
+    void setReadFlag(MessageId messageId, boolean read) throws DbException;
+    long getTimestamp(MessageId messageId) throws DbException;
 // removed extra closing brace
 }
