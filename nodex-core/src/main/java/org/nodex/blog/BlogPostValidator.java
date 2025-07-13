@@ -213,3 +213,4 @@ public class BlogPostValidator implements MessageValidator {
 		meta.put(KEY_AUTHOR, c.getDictionary().getList(KEY_AUTHOR));
 		return new BdfMessageContextImpl(wMessage, wBodyList, meta, wTimestamp);
 	}
+}
