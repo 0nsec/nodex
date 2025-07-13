@@ -38,7 +38,7 @@ public class MessagingModule {
 			Clock clock) {
 		PrivateMessageValidator validator = new PrivateMessageValidator(
 				bdfReaderFactory, metadataEncoder, clock);
-		validationManager.registerMessageValidator(CLIENT_ID, MAJOR_VERSION,
+		validationManager.registerMessageValidator(CLIENT_ID.toString(), MAJOR_VERSION,
 				validator);
 		return validator;
 	}
@@ -58,9 +58,9 @@ public class MessagingModule {
 		boolean images = featureFlags.shouldEnableImageAttachments();
 		boolean disappear = featureFlags.shouldEnableDisappearingMessages();
 		int minorVersion = images ? (disappear ? MINOR_VERSION : 2) : 0;
-		clientVersioningManager.registerClient(CLIENT_ID, MAJOR_VERSION,
+		clientVersioningManager.registerClient(CLIENT_ID.toString(), MAJOR_VERSION,
 				minorVersion, messagingManager);
-		cleanupManager.registerCleanupHook(CLIENT_ID, MAJOR_VERSION,
+		cleanupManager.registerCleanupHook(CLIENT_ID.toString(), MAJOR_VERSION,
 				messagingManager);
 		return messagingManager;
 	}
