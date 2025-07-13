@@ -1,43 +1,41 @@
 package org.nodex.api;
 
-/**
- * Utility class for holding two values together
- */
-public class Pair<T, U> {
-    private final T first;
-    private final U second;
+import org.nodex.api.nullsafety.NotNullByDefault;
+import javax.annotation.concurrent.Immutable;
 
-    public Pair(T first, U second) {
+/**
+ * A generic pair of objects.
+ */
+@Immutable
+@NotNullByDefault
+public class Pair<A, B> {
+    
+    private final A first;
+    private final B second;
+    
+    public Pair(A first, B second) {
         this.first = first;
         this.second = second;
     }
-
-    public T getFirst() {
+    
+    public A getFirst() {
         return first;
     }
-
-    public U getSecond() {
+    
+    public B getSecond() {
         return second;
     }
-
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Pair)) return false;
         Pair<?, ?> pair = (Pair<?, ?>) o;
-        return (first != null ? first.equals(pair.first) : pair.first == null) &&
-               (second != null ? second.equals(pair.second) : pair.second == null);
+        return first.equals(pair.first) && second.equals(pair.second);
     }
-
+    
     @Override
     public int hashCode() {
-        int result = first != null ? first.hashCode() : 0;
-        result = 31 * result + (second != null ? second.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Pair{" + first + ", " + second + '}';
+        return first.hashCode() * 31 + second.hashCode();
     }
 }
