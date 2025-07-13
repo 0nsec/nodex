@@ -65,7 +65,7 @@ class PrivateMessageValidator implements MessageValidator {
 			CountingInputStream countIn =
 					new CountingInputStream(in, MAX_MESSAGE_BODY_LENGTH);
 			BdfReader reader = bdfReaderFactory.createReader(countIn);
-			BdfList list = reader.readList();
+			BdfList list = reader.readBdfList();
 			long bytesRead = countIn.getBytesRead();
 			BdfMessageContext context;
 			if (list.size() == 1) {
