@@ -1,7 +1,6 @@
 package org.nodex;
 import org.nodex.autodelete.AutoDeleteModule;
 import org.nodex.avatar.AvatarModule;
-import org.nodex.blog.BlogModule;
 import org.nodex.conversation.ConversationModule;
 import org.nodex.feed.FeedModule;
 import org.nodex.forum.ForumModule;
@@ -14,7 +13,6 @@ import org.nodex.sharing.SharingModule;
 public interface NodexCoreEagerSingletons {
 	void inject(AutoDeleteModule.EagerSingletons init);
 	void inject(AvatarModule.EagerSingletons init);
-	void inject(BlogModule.EagerSingletons init);
 	void inject(ConversationModule.EagerSingletons init);
 	void inject(FeedModule.EagerSingletons init);
 	void inject(ForumModule.EagerSingletons init);
