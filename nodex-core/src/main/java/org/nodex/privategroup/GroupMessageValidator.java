@@ -38,10 +38,10 @@ import static org.nodex.privategroup.GroupConstants.KEY_TIMESTAMP;
 import static org.nodex.privategroup.GroupConstants.KEY_TYPE;
 @Immutable
 @NotNullByDefault
-class GroupMessageValidator extends BdfMessageValidator {
+public class GroupMessageValidator extends BdfMessageValidator {
 	private final PrivateGroupFactory privateGroupFactory;
 	private final GroupInvitationFactory groupInvitationFactory;
-	GroupMessageValidator(PrivateGroupFactory privateGroupFactory,
+	public GroupMessageValidator(PrivateGroupFactory privateGroupFactory,
 			ClientHelper clientHelper, MetadataEncoder metadataEncoder,
 			Clock clock, GroupInvitationFactory groupInvitationFactory) {
 		super(clientHelper, metadataEncoder, clock);

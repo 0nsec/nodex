@@ -45,7 +45,7 @@ import static org.nodex.api.blog.MessageType.COMMENT;
 import static org.nodex.api.blog.MessageType.POST;
 @Immutable
 @NotNullByDefault
-class BlogPostValidator extends BdfMessageValidator {
+public class BlogPostValidator extends BdfMessageValidator {
 	private final GroupFactory groupFactory;
 	private final MessageFactory messageFactory;
 	private final BlogFactory blogFactory;
