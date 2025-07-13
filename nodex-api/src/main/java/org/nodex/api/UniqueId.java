@@ -6,6 +6,12 @@ import java.util.Arrays;
  * Base class for unique identifiers
  */
 public abstract class UniqueId {
+    
+    /**
+     * Standard length for unique identifiers.
+     */
+    public static final int LENGTH = 32;
+    
     protected final byte[] id;
 
     protected UniqueId(byte[] id) {
