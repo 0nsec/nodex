@@ -2,7 +2,6 @@ package org.nodex.blog;
 import org.nodex.api.FormatException;
 import org.nodex.api.client.BdfMessageContext;
 import org.nodex.api.sync.BdfMessageContextImpl;
-import org.nodex.api.client.BdfMessageValidator;
 import org.nodex.api.client.ClientHelper;
 import org.nodex.api.data.BdfDictionary;
 import org.nodex.api.data.BdfList;
@@ -14,6 +13,8 @@ import org.nodex.api.sync.InvalidMessageException;
 import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageFactory;
 import org.nodex.api.sync.MessageId;
+import org.nodex.api.sync.MessageContext;
+import org.nodex.api.sync.validation.MessageValidator;
 import org.nodex.api.system.Clock;
 import org.nodex.api.blog.Blog;
 import org.nodex.api.blog.BlogFactory;
@@ -46,7 +47,7 @@ import static org.nodex.api.blog.MessageType.COMMENT;
 import static org.nodex.api.blog.MessageType.POST;
 @Immutable
 @NotNullByDefault
-public class BlogPostValidator extends BdfMessageValidator {
+public class BlogPostValidator implements MessageValidator {
 	private final GroupFactory groupFactory;
 	private final MessageFactory messageFactory;
 	private final BlogFactory blogFactory;
