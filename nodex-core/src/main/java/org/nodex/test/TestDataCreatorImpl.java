@@ -95,7 +95,6 @@ public class TestDataCreatorImpl implements TestDataCreator {
 	private final TestAvatarCreator testAvatarCreator;
 	private final AvatarMessageEncoder avatarMessageEncoder;
 	private final FeatureFlags featureFlags;
-	@IoExecutor
 	private final Executor ioExecutor;
 	private final Random random = new Random();
 	private final Map<Contact, LocalAuthor> localAuthors = new HashMap<>();
@@ -117,7 +116,7 @@ public class TestDataCreatorImpl implements TestDataCreator {
 			TestAvatarCreator testAvatarCreator,
 			AvatarMessageEncoder avatarMessageEncoder,
 			FeatureFlags featureFlags,
-			@IoExecutor Executor ioExecutor) {
+			Executor ioExecutor) {
 		this.authorFactory = authorFactory;
 		this.clock = clock;
 		this.groupFactory = groupFactory;
@@ -158,7 +157,7 @@ public class TestDataCreatorImpl implements TestDataCreator {
 			}
 		});
 	}
-	@IoExecutor
+	
 	private void createTestDataOnIoExecutor(int numContacts, int numPrivateMsgs,
 			int avatarPercent, int numBlogPosts, int numForums,
 			int numForumPosts, int numPrivateGroups,

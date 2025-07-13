@@ -95,7 +95,7 @@ class FeedManagerImpl implements FeedManager, EventListener, OpenDatabaseHook,
 	private volatile boolean torActive = false;
 	@Inject
 	FeedManagerImpl(TaskScheduler scheduler,
-			@IoExecutor Executor ioExecutor,
+			Executor ioExecutor,
 			DatabaseComponent db,
 			ContactGroupFactory contactGroupFactory,
 			ClientHelper clientHelper,
