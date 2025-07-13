@@ -1,10 +1,11 @@
 package org.nodex.core.plugin;
 
 import org.nodex.api.transport.TransportPluginManager;
-import org.nodex.api.transport.TransportPlugin;
-import org.nodex.api.plugin.TransportPlugin;
+
+
 import org.nodex.api.transport.TransportPluginConfig;
 import org.nodex.api.plugin.TransportId;
+import org.nodex.api.plugin.TransportPlugin as PluginTransportPlugin;
 import org.nodex.api.lifecycle.Service;
 import org.nodex.api.lifecycle.ServiceException;
 import org.nodex.api.nullsafety.NotNullByDefault;
@@ -28,7 +29,7 @@ public class PluginManagerImpl implements PluginManager, Service {
     private static final Logger LOG = Logger.getLogger(PluginManagerImpl.class.getName());
 
     private final ConcurrentHashMap<String, Plugin> plugins = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<TransportId, TransportPlugin> transportPlugins = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<TransportId, org.nodex.api.plugin.TransportPlugin> transportPlugins = new ConcurrentHashMap<>();
     private final CopyOnWriteArrayList<PluginConfig> pluginConfigs = new CopyOnWriteArrayList<>();
     
     private volatile boolean started = false;
@@ -129,12 +130,12 @@ public class PluginManagerImpl implements PluginManager, Service {
     }
 
     @Override
-    public Collection<TransportPlugin> getTransportPlugins() {
+    public Collection<org.nodex.api.plugin.TransportPlugin> getTransportPlugins() {
         return transportPlugins.values();
     }
 
     @Override
-    public TransportPlugin getTransportPlugin(TransportId transportId) {
+    public org.nodex.api.plugin.TransportPlugin getTransportPlugin(TransportId transportId) {
         return transportPlugins.get(transportId);
     }
 

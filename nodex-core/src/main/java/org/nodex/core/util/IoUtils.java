@@ -24,3 +24,16 @@ public class IoUtils {
         }
     }
 }
+
+    public static void copyAndClose(java.io.InputStream input, java.io.OutputStream output) throws java.io.IOException {
+        try {
+            byte[] buffer = new byte[8192];
+            int bytesRead;
+            while ((bytesRead = input.read(buffer)) != -1) {
+                output.write(buffer, 0, bytesRead);
+            }
+        } finally {
+            tryToClose(input);
+            tryToClose(output);
+        }
+    }
