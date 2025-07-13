@@ -53,13 +53,13 @@ public class AttachmentReaderImplTest extends BrambleMockTestCase {
 	@Test(expected = NoSuchMessageException.class)
 	public void testWrongContentType() throws Exception {
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, "image/png"));
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, "image/png"));
 		testInvalidMetadata(meta);
 	}
 	@Test(expected = NoSuchMessageException.class)
 	public void testMissingDescriptorLength() throws Exception {
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType));
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType));
 		testInvalidMetadata(meta);
 	}
 	private void testInvalidMetadata(BdfDictionary meta) throws Exception {
@@ -78,8 +78,8 @@ public class AttachmentReaderImplTest extends BrambleMockTestCase {
 	public void testSkipsDescriptor() throws Exception {
 		int descriptorLength = 123;
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType),
-				new BdfEntry(MSG_KEY_DESCRIPTOR_LENGTH, descriptorLength));
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType),
+				BdfEntry.of(MSG_KEY_DESCRIPTOR_LENGTH, descriptorLength));
 		byte[] body = message.getBody();
 		byte[] expectedData = new byte[body.length - descriptorLength];
 		arraycopy(body, descriptorLength, expectedData, 0, expectedData.length);

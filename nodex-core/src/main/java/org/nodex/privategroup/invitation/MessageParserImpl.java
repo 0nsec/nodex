@@ -40,22 +40,22 @@ class MessageParserImpl implements MessageParser {
 	}
 	@Override
 	public BdfDictionary getMessagesVisibleInUiQuery() {
-		return BdfDictionary.of(new BdfEntry(MSG_KEY_VISIBLE_IN_UI, true));
+		return BdfDictionary.of(BdfEntry.of(MSG_KEY_VISIBLE_IN_UI, true));
 	}
 	@Override
 	public BdfDictionary getInvitesAvailableToAnswerQuery() {
 		return BdfDictionary.of(
-				new BdfEntry(MSG_KEY_AVAILABLE_TO_ANSWER, true),
-				new BdfEntry(MSG_KEY_MESSAGE_TYPE, INVITE.getValue())
+				BdfEntry.of(MSG_KEY_AVAILABLE_TO_ANSWER, true),
+				BdfEntry.of(MSG_KEY_MESSAGE_TYPE, INVITE.getValue())
 		);
 	}
 	@Override
 	public BdfDictionary getInvitesAvailableToAnswerQuery(
 			GroupId privateGroupId) {
 		return BdfDictionary.of(
-				new BdfEntry(MSG_KEY_AVAILABLE_TO_ANSWER, true),
-				new BdfEntry(MSG_KEY_MESSAGE_TYPE, INVITE.getValue()),
-				new BdfEntry(MSG_KEY_PRIVATE_GROUP_ID, privateGroupId)
+				BdfEntry.of(MSG_KEY_AVAILABLE_TO_ANSWER, true),
+				BdfEntry.of(MSG_KEY_MESSAGE_TYPE, INVITE.getValue()),
+				BdfEntry.of(MSG_KEY_PRIVATE_GROUP_ID, privateGroupId)
 		);
 	}
 	@Override

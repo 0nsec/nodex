@@ -144,7 +144,7 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		db.addGroup(txn, g);
 		// Apply the client's visibility to the contact group
 		Visibility client = clientVersioningManager.getClientVisibility(txn,
-				c.getId(), CLIENT_ID, MAJOR_VERSION);
+				c.getId(), CLIENT_ID.toString(), MAJOR_VERSION);
 		db.setGroupVisibility(txn, c.getId(), g.getId(), client);
 		// Attach the contact ID to the group
 		clientHelper.setContactId(txn, g.getId(), c.getId());
@@ -238,8 +238,8 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 			throws DbException, FormatException {
 		// Fetch the IDs of all remote attachments
 		BdfDictionary query = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_MSG_TYPE, ATTACHMENT),
-				new BdfEntry(MSG_KEY_LOCAL, false));
+				BdfEntry.of(MSG_KEY_MSG_TYPE, ATTACHMENT),
+				BdfEntry.of(MSG_KEY_LOCAL, false));
 		Collection<MessageId> results =
 				clientHelper.getMessageIds(txn, m.getGroupId(), query);
 		// Stop the cleanup timers of any attachments that have already
@@ -255,8 +255,8 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		ContactId contactId = getContactId(txn, m.getGroupId());
 		txn.attach(new AttachmentReceivedEvent(m.getId(), contactId));
 		BdfDictionary query = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_MSG_TYPE, PRIVATE_MESSAGE),
-				new BdfEntry(MSG_KEY_LOCAL, false));
+				BdfEntry.of(MSG_KEY_MSG_TYPE, PRIVATE_MESSAGE),
+				BdfEntry.of(MSG_KEY_LOCAL, false));
 		try {
 			Map<MessageId, BdfDictionary> results = clientHelper
 					.getMessageMetadataAsDictionary(txn, m.getGroupId(), query);

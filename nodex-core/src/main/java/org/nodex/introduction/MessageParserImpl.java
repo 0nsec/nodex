@@ -35,15 +35,15 @@ class MessageParserImpl implements MessageParser {
 	}
 	@Override
 	public BdfDictionary getMessagesVisibleInUiQuery() {
-		return BdfDictionary.of(new BdfEntry(MSG_KEY_VISIBLE_IN_UI, true));
+		return BdfDictionary.of(BdfEntry.of(MSG_KEY_VISIBLE_IN_UI, true));
 	}
 	@Override
 	public BdfDictionary getRequestsAvailableToAnswerQuery(
 			SessionId sessionId) {
 		return BdfDictionary.of(
-				new BdfEntry(MSG_KEY_AVAILABLE_TO_ANSWER, true),
-				new BdfEntry(MSG_KEY_MESSAGE_TYPE, REQUEST.getValue()),
-				new BdfEntry(MSG_KEY_SESSION_ID, sessionId)
+				BdfEntry.of(MSG_KEY_AVAILABLE_TO_ANSWER, true),
+				BdfEntry.of(MSG_KEY_MESSAGE_TYPE, REQUEST.getValue()),
+				BdfEntry.of(MSG_KEY_SESSION_ID, sessionId)
 		);
 	}
 	@Override

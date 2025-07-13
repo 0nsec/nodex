@@ -148,7 +148,7 @@ public class BlogPostValidator extends BdfMessageValidator {
 		checkLength(text, 0, MAX_BLOG_POST_TEXT_LENGTH);
 		byte[] signature = body.getRaw(3);
 		checkLength(signature, 1, MAX_SIGNATURE_LENGTH);
-		Group wGroup = groupFactory.createGroup(CLIENT_ID, MAJOR_VERSION,
+		Group wGroup = groupFactory.createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
 				descriptor);
 		Blog wBlog = blogFactory.parseBlog(wGroup);
 		BdfList wBodyList = BdfList.of(POST.getInt(), text, signature);
@@ -183,7 +183,7 @@ public class BlogPostValidator extends BdfMessageValidator {
 		byte[] parentIdBytes = body.getRaw(6);
 		checkLength(parentIdBytes, MessageId.LENGTH);
 		MessageId parentId = new MessageId(parentIdBytes);
-		Group wGroup = groupFactory.createGroup(CLIENT_ID, MAJOR_VERSION,
+		Group wGroup = groupFactory.createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
 				descriptor);
 		BdfList wBodyList = BdfList.of(COMMENT.getInt(), comment, pOriginalId,
 				oldId, signature);

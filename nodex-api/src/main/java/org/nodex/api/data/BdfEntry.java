@@ -9,6 +9,13 @@ import org.nodex.api.nullsafety.NotNullByDefault;
 public interface BdfEntry {
     
     /**
+     * Creates a new BdfEntry.
+     */
+    static BdfEntry of(String key, Object value) {
+        return new BdfEntryImpl(key, value);
+    }
+    
+    /**
      * Returns the key of this entry.
      */
     String getKey();

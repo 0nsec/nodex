@@ -35,7 +35,7 @@ class BlogFactoryImpl implements BlogFactory {
 		try {
 			BdfList blog = BdfList.of(clientHelper.toList(a), rssFeed);
 			byte[] descriptor = clientHelper.toByteArray(blog);
-			Group g = groupFactory.createGroup(CLIENT_ID, MAJOR_VERSION,
+			Group g = groupFactory.createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
 					descriptor);
 			return new Blog(g, a, rssFeed);
 		} catch (FormatException e) {

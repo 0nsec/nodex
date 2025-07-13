@@ -265,7 +265,7 @@ abstract class AbstractProtocolEngine<S extends Session<?>>
 	private boolean contactSupportsAutoDeletion(Transaction txn, ContactId c)
 			throws DbException {
 		int minorVersion = clientVersioningManager.getClientMinorVersion(txn, c,
-				CLIENT_ID, MAJOR_VERSION);
+				CLIENT_ID.toString(), MAJOR_VERSION);
 		return minorVersion >= 1;
 	}
 }

@@ -37,15 +37,15 @@ public class AutoDeleteManagerImplTest extends BrambleMockTestCase {
 	private final GroupFactory groupFactory = context.mock(GroupFactory.class);
 	private final ContactGroupFactory contactGroupFactory =
 			context.mock(ContactGroupFactory.class);
-	private final Group localGroup = getGroup(CLIENT_ID, MAJOR_VERSION);
-	private final Group contactGroup = getGroup(CLIENT_ID, MAJOR_VERSION);
+	private final Group localGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
+	private final Group contactGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	private final Contact contact = getContact();
 	private final long now = System.currentTimeMillis();
 	private final AutoDeleteManagerImpl autoDeleteManager;
 	public AutoDeleteManagerImplTest() {
 		context.checking(new Expectations() {{
 			oneOf(contactGroupFactory)
-					.createLocalGroup(CLIENT_ID, MAJOR_VERSION);
+					.createLocalGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 			will(returnValue(localGroup));
 		}});
 		autoDeleteManager = new AutoDeleteManagerImpl(db, clientHelper,
@@ -107,12 +107,12 @@ public class AutoDeleteManagerImplTest extends BrambleMockTestCase {
 		long oldTimer = MIN_AUTO_DELETE_TIMER_MS;
 		long newTimer = MAX_AUTO_DELETE_TIMER_MS;
 		BdfDictionary oldMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMER, oldTimer),
-				new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER),
-				new BdfEntry(GROUP_KEY_TIMESTAMP, now));
+				BdfEntry.of(GROUP_KEY_TIMER, oldTimer),
+				BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER),
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, now));
 		BdfDictionary newMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMER, newTimer),
-				new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, oldTimer));
+				BdfEntry.of(GROUP_KEY_TIMER, newTimer),
+				BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, oldTimer));
 		expectGetContact(txn);
 		expectGetContactGroup();
 		context.checking(new Expectations() {{
@@ -129,9 +129,9 @@ public class AutoDeleteManagerImplTest extends BrambleMockTestCase {
 		Transaction txn = new Transaction(null, false);
 		long timer = MAX_AUTO_DELETE_TIMER_MS;
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMER, timer),
-				new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER),
-				new BdfEntry(GROUP_KEY_TIMESTAMP, now));
+				BdfEntry.of(GROUP_KEY_TIMER, timer),
+				BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER),
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, now));
 		expectGetContact(txn);
 		expectGetContactGroup();
 		context.checking(new Expectations() {{
@@ -146,11 +146,11 @@ public class AutoDeleteManagerImplTest extends BrambleMockTestCase {
 		Transaction txn = new Transaction(null, false);
 		long timer = MAX_AUTO_DELETE_TIMER_MS;
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_CONTACT_ID, contact.getId().getInt()),
-				new BdfEntry(GROUP_KEY_TIMER, timer));
+				BdfEntry.of(GROUP_KEY_CONTACT_ID, contact.getId().getInt()),
+				BdfEntry.of(GROUP_KEY_TIMER, timer));
 		BdfDictionary newMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMESTAMP, now),
-				new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER));
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, now),
+				BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER));
 		expectGetContact(txn);
 		expectGetContactGroup();
 		context.checking(new Expectations() {{
@@ -167,10 +167,10 @@ public class AutoDeleteManagerImplTest extends BrambleMockTestCase {
 	public void testReturnsConstantIfNoTimerIsStored() throws Exception {
 		Transaction txn = new Transaction(null, false);
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_CONTACT_ID, contact.getId().getInt()));
+				BdfEntry.of(GROUP_KEY_CONTACT_ID, contact.getId().getInt()));
 		BdfDictionary newMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMESTAMP, now),
-				new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER));
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, now),
+				BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER));
 		expectGetContact(txn);
 		expectGetContactGroup();
 		context.checking(new Expectations() {{
@@ -198,9 +198,9 @@ public class AutoDeleteManagerImplTest extends BrambleMockTestCase {
 		long localTimer = MIN_AUTO_DELETE_TIMER_MS;
 		long remoteTimer = MAX_AUTO_DELETE_TIMER_MS;
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMER, localTimer),
-				new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER),
-				new BdfEntry(GROUP_KEY_TIMESTAMP, now));
+				BdfEntry.of(GROUP_KEY_TIMER, localTimer),
+				BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER),
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, now));
 		expectGetContact(txn);
 		expectGetContactGroup();
 		context.checking(new Expectations() {{
@@ -219,12 +219,12 @@ public class AutoDeleteManagerImplTest extends BrambleMockTestCase {
 		long remoteTimer = MAX_AUTO_DELETE_TIMER_MS;
 		long remoteTimestamp = now + 1;
 		BdfDictionary oldMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMER, localTimer),
-				new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER),
-				new BdfEntry(GROUP_KEY_TIMESTAMP, now));
+				BdfEntry.of(GROUP_KEY_TIMER, localTimer),
+				BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER),
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, now));
 		BdfDictionary newMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMESTAMP, remoteTimestamp),
-				new BdfEntry(GROUP_KEY_TIMER, remoteTimer));
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, remoteTimestamp),
+				BdfEntry.of(GROUP_KEY_TIMER, remoteTimer));
 		expectGetContact(txn);
 		expectGetContactGroup();
 		context.checking(new Expectations() {{
@@ -246,11 +246,11 @@ public class AutoDeleteManagerImplTest extends BrambleMockTestCase {
 		long remoteTimer = MAX_AUTO_DELETE_TIMER_MS;
 		long remoteTimestamp = now + 1;
 		BdfDictionary oldMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMER, localTimer),
-				new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, remoteTimer),
-				new BdfEntry(GROUP_KEY_TIMESTAMP, now));
+				BdfEntry.of(GROUP_KEY_TIMER, localTimer),
+				BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, remoteTimer),
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, now));
 		BdfDictionary newMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMESTAMP, remoteTimestamp));
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, remoteTimestamp));
 		expectGetContact(txn);
 		expectGetContactGroup();
 		context.checking(new Expectations() {{
@@ -273,13 +273,13 @@ public class AutoDeleteManagerImplTest extends BrambleMockTestCase {
 		long newRemoteTimer = MAX_AUTO_DELETE_TIMER_MS - 1;
 		long remoteTimestamp = now + 1;
 		BdfDictionary oldMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMER, localTimer),
-				new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, oldRemoteTimer),
-				new BdfEntry(GROUP_KEY_TIMESTAMP, now));
+				BdfEntry.of(GROUP_KEY_TIMER, localTimer),
+				BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, oldRemoteTimer),
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, now));
 		BdfDictionary newMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_TIMESTAMP, remoteTimestamp),
-				new BdfEntry(GROUP_KEY_TIMER, newRemoteTimer),
-				new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER));
+				BdfEntry.of(GROUP_KEY_TIMESTAMP, remoteTimestamp),
+				BdfEntry.of(GROUP_KEY_TIMER, newRemoteTimer),
+				BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER));
 		expectGetContact(txn);
 		expectGetContactGroup();
 		context.checking(new Expectations() {{
@@ -301,7 +301,7 @@ public class AutoDeleteManagerImplTest extends BrambleMockTestCase {
 	}
 	private void expectGetContactGroup() {
 		context.checking(new Expectations() {{
-			oneOf(groupFactory).createGroup(CLIENT_ID, MAJOR_VERSION,
+			oneOf(groupFactory).createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
 					contact.getAuthor().getId().getBytes());
 			will(returnValue(contactGroup));
 		}});

@@ -29,11 +29,11 @@ class SessionParserImpl implements SessionParser {
 	}
 	@Override
 	public BdfDictionary getSessionQuery(SessionId s) {
-		return BdfDictionary.of(new BdfEntry(SESSION_KEY_SESSION_ID, s));
+		return BdfDictionary.of(BdfEntry.of(SESSION_KEY_SESSION_ID, s));
 	}
 	@Override
 	public BdfDictionary getAllSessionsQuery() {
-		return BdfDictionary.of(new BdfEntry(SESSION_KEY_IS_SESSION, true));
+		return BdfDictionary.of(BdfEntry.of(SESSION_KEY_IS_SESSION, true));
 	}
 	@Override
 	public Role getRole(BdfDictionary d) throws FormatException {

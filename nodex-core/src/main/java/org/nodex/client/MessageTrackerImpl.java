@@ -74,7 +74,7 @@ class MessageTrackerImpl implements MessageTracker {
 	@Override
 	public void storeMessageId(GroupId g, MessageId m) throws DbException {
 		BdfDictionary d = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_STORED_MESSAGE_ID, m)
+				BdfEntry.of(GROUP_KEY_STORED_MESSAGE_ID, m)
 		);
 		try {
 			clientHelper.mergeGroupMetadata(g, d);
@@ -112,9 +112,9 @@ class MessageTrackerImpl implements MessageTracker {
 			throws DbException {
 		try {
 			BdfDictionary d = BdfDictionary.of(
-					new BdfEntry(GROUP_KEY_MSG_COUNT, c.getMsgCount()),
-					new BdfEntry(GROUP_KEY_UNREAD_COUNT, c.getUnreadCount()),
-					new BdfEntry(GROUP_KEY_LATEST_MSG, c.getLatestMsgTime())
+					BdfEntry.of(GROUP_KEY_MSG_COUNT, c.getMsgCount()),
+					BdfEntry.of(GROUP_KEY_UNREAD_COUNT, c.getUnreadCount()),
+					BdfEntry.of(GROUP_KEY_LATEST_MSG, c.getLatestMsgTime())
 			);
 			clientHelper.mergeGroupMetadata(txn, g, d);
 		} catch (FormatException e) {

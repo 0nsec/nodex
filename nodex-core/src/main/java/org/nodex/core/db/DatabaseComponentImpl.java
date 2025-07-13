@@ -318,7 +318,7 @@ public class DatabaseComponentImpl implements DatabaseComponent, Service {
         TransactionImpl transaction = (TransactionImpl) txn;
         try {
             PreparedStatement stmt = transaction.getConnection().prepareStatement(
-                "INSERT INTO groups (id, client_id, major_version, descriptor) VALUES (?, ?, ?, ?)"
+                "INSERT INTO groups (id, CLIENT_ID.toString(), MAJOR_VERSION, descriptor) VALUES (?, ?, ?, ?)"
             );
             stmt.setBytes(1, group.getId().getBytes());
             stmt.setString(2, group.getClientId().getString());
@@ -335,7 +335,7 @@ public class DatabaseComponentImpl implements DatabaseComponent, Service {
         TransactionImpl transaction = (TransactionImpl) txn;
         try {
             PreparedStatement stmt = transaction.getConnection().prepareStatement(
-                "SELECT id, client_id, major_version, descriptor FROM groups WHERE id = ?"
+                "SELECT id, CLIENT_ID.toString(), MAJOR_VERSION, descriptor FROM groups WHERE id = ?"
             );
             stmt.setBytes(1, groupId.getBytes());
             ResultSet rs = stmt.executeQuery();

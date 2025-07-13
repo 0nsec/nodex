@@ -55,7 +55,7 @@ public class MessageEncoderParserIntegrationTest extends BrambleTestCase {
 	private final MessageEncoder messageEncoder;
 	private final MessageParser messageParser;
 	private final IntroductionValidator validator;
-	private final Group group = getGroup(CLIENT_ID, MAJOR_VERSION);
+	private final Group group = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	private final GroupId groupId = group.getId();
 	private final long timestamp = 42L;
 	private final SessionId sessionId = new SessionId(getRandomId());

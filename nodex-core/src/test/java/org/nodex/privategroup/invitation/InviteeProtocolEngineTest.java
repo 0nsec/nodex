@@ -640,7 +640,7 @@ public class InviteeProtocolEngineTest extends AbstractProtocolEngineTest {
 		expectSendAbortMessage();
 	}
 	private void expectMarkInvitesUnavailableToAnswer() throws Exception {
-		BdfDictionary query = BdfDictionary.of(new BdfEntry("query", ""));
+		BdfDictionary query = BdfDictionary.of(BdfEntry.of("query", ""));
 		Collection<MessageId> invites = singletonList(lastRemoteMessageId);
 		context.checking(new Expectations() {{
 			oneOf(messageParser)

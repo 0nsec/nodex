@@ -69,6 +69,11 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 		this.avatarMessageEncoder = avatarMessageEncoder;
 	}
 	@Override
+	public void onDatabaseOpened() throws DbException {
+		// Implementation for parameter-less version
+	}
+	
+	@Override
 	public void onDatabaseOpened(Transaction txn) throws DbException {
 		LocalAuthor a = identityManager.getLocalAuthor(txn);
 		Group ourGroup = getGroup(a.getId());
@@ -88,8 +93,8 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 			throw new AssertionError(e);
 		}
 		Group ourGroup = getOurGroup(txn);
-		Visibility client = clientVersioningManager.getClientVisibility(txn,
-				c.getId(), CLIENT_ID, MAJOR_VERSION);
+		org.nodex.api.sync.Visibility client = clientVersioningManager.getClientVisibility(txn,
+				c.getId(), CLIENT_ID.getString(), MAJOR_VERSION);
 		db.setGroupVisibility(txn, c.getId(), ourGroup.getId(), client);
 		db.setGroupVisibility(txn, c.getId(), theirGroup.getId(), client);
 	}
@@ -226,7 +231,7 @@ class AvatarManagerImpl implements AvatarManager, OpenDatabaseHook, ContactHook,
 	}
 	private Group getGroup(AuthorId authorId) {
 		return groupFactory
-				.createGroup(CLIENT_ID, MAJOR_VERSION, authorId.getBytes());
+				.createGroup(CLIENT_ID.toString(), MAJOR_VERSION, authorId.getBytes());
 	}
 	private static class LatestUpdate {
 		private final MessageId messageId;

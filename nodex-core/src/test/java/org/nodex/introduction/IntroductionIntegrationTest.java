@@ -700,7 +700,7 @@ public class IntroductionIntegrationTest
 					true, false);
 			Group group0 = getLocalGroup();
 			BdfDictionary query = BdfDictionary.of(
-					new BdfEntry(SESSION_KEY_SESSION_ID, m.getSessionId())
+					BdfEntry.of(SESSION_KEY_SESSION_ID, m.getSessionId())
 			);
 			Map.Entry<MessageId, BdfDictionary> session = c0.getClientHelper()
 					.getMessageMetadataAsDictionary(txn, group0.getId(), query)
@@ -1273,7 +1273,7 @@ public class IntroductionIntegrationTest
 			throws FormatException, DbException {
 		Group g = introductionManager0.getContactGroup(contact);
 		BdfDictionary query = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_MESSAGE_TYPE, type.getValue())
+				BdfEntry.of(MSG_KEY_MESSAGE_TYPE, type.getValue())
 		);
 		Map<MessageId, BdfDictionary> map =
 				ch.getMessageMetadataAsDictionary(g.getId(), query);
@@ -1323,6 +1323,6 @@ public class IntroductionIntegrationTest
 				.parseIntroduceeSession(introducerGroup.getId(), d);
 	}
 	private Group getLocalGroup() {
-		return contactGroupFactory.createLocalGroup(CLIENT_ID, MAJOR_VERSION);
+		return contactGroupFactory.createLocalGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	}
 }

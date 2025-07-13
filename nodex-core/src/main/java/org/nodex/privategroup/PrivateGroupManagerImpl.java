@@ -72,6 +72,9 @@ import static org.nodex.privategroup.GroupConstants.KEY_PREVIOUS_MSG_ID;
 import static org.nodex.privategroup.GroupConstants.KEY_READ;
 import static org.nodex.privategroup.GroupConstants.KEY_TIMESTAMP;
 import static org.nodex.privategroup.GroupConstants.KEY_TYPE;
+import static org.nodex.api.privategroup.PrivateGroupManager.CLIENT_ID;
+import static org.nodex.api.privategroup.PrivateGroupManager.MAJOR_VERSION;
+
 @ThreadSafe
 @NotNullByDefault
 class PrivateGroupManagerImpl extends BdfIncomingMessageHook
@@ -88,7 +91,7 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			PrivateGroupFactory privateGroupFactory,
 			ContactManager contactManager, IdentityManager identityManager,
 			AuthorManager authorManager, MessageTracker messageTracker) {
-		super(db, clientHelper, metadataParser);
+		super(CLIENT_ID, MAJOR_VERSION);
 		this.privateGroupFactory = privateGroupFactory;
 		this.contactManager = contactManager;
 		this.identityManager = identityManager;
@@ -114,10 +117,10 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 			db.addGroup(txn, group.getGroup());
 			AuthorId creatorId = group.getCreator().getId();
 			BdfDictionary meta = BdfDictionary.of(
-					new BdfEntry(GROUP_KEY_MEMBERS, new BdfList()),
-					new BdfEntry(GROUP_KEY_CREATOR_ID, creatorId),
-					new BdfEntry(GROUP_KEY_OUR_GROUP, creator),
-					new BdfEntry(GROUP_KEY_DISSOLVED, false)
+					BdfEntry.of(GROUP_KEY_MEMBERS, new BdfList()),
+					BdfEntry.of(GROUP_KEY_CREATOR_ID, creatorId),
+					BdfEntry.of(GROUP_KEY_OUR_GROUP, creator),
+					BdfEntry.of(GROUP_KEY_DISSOLVED, false)
 			);
 			clientHelper.mergeGroupMetadata(txn, group.getId(), meta);
 			joinPrivateGroup(txn, joinMsg, creator);
@@ -169,14 +172,14 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 	private void setPreviousMsgId(Transaction txn, GroupId g,
 			MessageId previousMsgId) throws DbException, FormatException {
 		BdfDictionary d = BdfDictionary
-				.of(new BdfEntry(KEY_PREVIOUS_MSG_ID, previousMsgId));
+				.of(BdfEntry.of(KEY_PREVIOUS_MSG_ID, previousMsgId));
 		clientHelper.mergeGroupMetadata(txn, g, d);
 	}
 	@Override
 	public void markGroupDissolved(Transaction txn, GroupId g)
 			throws DbException {
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_DISSOLVED, true)
+				BdfEntry.of(GROUP_KEY_DISSOLVED, true)
 		);
 		try {
 			clientHelper.mergeGroupMetadata(txn, g, meta);
@@ -245,7 +248,7 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 	@Override
 	public Collection<PrivateGroup> getPrivateGroups(Transaction txn)
 			throws DbException {
-		Collection<Group> groups = db.getGroups(txn, CLIENT_ID, MAJOR_VERSION);
+		Collection<Group> groups = db.getGroups(txn, CLIENT_ID.toString(), MAJOR_VERSION);
 		Collection<PrivateGroup> privateGroups = new ArrayList<>(groups.size());
 		try {
 			for (Group g : groups) {
@@ -553,8 +556,8 @@ class PrivateGroupManagerImpl extends BdfIncomingMessageHook
 		BdfDictionary meta = clientHelper.getGroupMetadataAsDictionary(txn, g);
 		BdfList members = meta.getList(GROUP_KEY_MEMBERS);
 		members.add(BdfDictionary.of(
-				new BdfEntry(KEY_MEMBER, clientHelper.toList(a)),
-				new BdfEntry(GROUP_KEY_VISIBILITY, v.getInt())
+				BdfEntry.of(KEY_MEMBER, clientHelper.toList(a)),
+				BdfEntry.of(GROUP_KEY_VISIBILITY, v.getInt())
 		));
 		clientHelper.mergeGroupMetadata(txn, g, meta);
 		for (PrivateGroupHook hook : hooks) {

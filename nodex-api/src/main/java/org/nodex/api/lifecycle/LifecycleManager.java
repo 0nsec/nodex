@@ -40,7 +40,14 @@ public interface LifecycleManager {
         /**
          * Called when the database is opened.
          */
-        void onDatabaseOpened();
+        void onDatabaseOpened() throws org.nodex.api.db.DbException;
+        
+        /**
+         * Called when the database is opened with transaction.
+         */
+        default void onDatabaseOpened(org.nodex.api.db.Transaction txn) throws org.nodex.api.db.DbException {
+            onDatabaseOpened();
+        }
     }
     
     /**

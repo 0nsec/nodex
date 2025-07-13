@@ -47,7 +47,7 @@ class PrivateGroupFactoryImpl implements PrivateGroupFactory {
 			BdfList creatorList = clientHelper.toList(creator);
 			BdfList group = BdfList.of(creatorList, name, salt);
 			byte[] descriptor = clientHelper.toByteArray(group);
-			Group g = groupFactory.createGroup(CLIENT_ID, MAJOR_VERSION,
+			Group g = groupFactory.createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
 					descriptor);
 			return new PrivateGroup(g, name, creator, salt);
 		} catch (FormatException e) {

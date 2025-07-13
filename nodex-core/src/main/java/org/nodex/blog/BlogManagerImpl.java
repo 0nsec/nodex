@@ -66,6 +66,9 @@ import static org.nodex.api.identity.AuthorInfo.Status.NONE;
 @NotNullByDefault
 class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 		OpenDatabaseHook, ContactHook {
+	private final DatabaseComponent db;
+	private final ClientHelper clientHelper;
+	private final MetadataParser metadataParser;
 	private final IdentityManager identityManager;
 	private final AuthorManager authorManager;
 	private final BlogFactory blogFactory;
@@ -76,13 +79,22 @@ class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 			AuthorManager authorManager, ClientHelper clientHelper,
 			MetadataParser metadataParser, BlogFactory blogFactory,
 			BlogPostFactory blogPostFactory) {
-		super(db, clientHelper, metadataParser);
+		super(CLIENT_ID, MAJOR_VERSION);
+		this.db = db;
+		this.clientHelper = clientHelper;
+		this.metadataParser = metadataParser;
 		this.identityManager = identityManager;
 		this.authorManager = authorManager;
 		this.blogFactory = blogFactory;
 		this.blogPostFactory = blogPostFactory;
 		removeHooks = new CopyOnWriteArrayList<>();
 	}
+
+	@Override
+	protected BdfList parseMessage(Message message) throws Exception {
+		return clientHelper.toList(message);
+	}
+
 	@Override
 	public void onDatabaseOpened(Transaction txn) throws DbException {
 		LocalAuthor a = identityManager.getLocalAuthor(txn);
@@ -374,7 +386,7 @@ class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 		try {
 			List<Blog> blogs = new ArrayList<>();
 			Collection<Group> groups =
-					db.getGroups(txn, CLIENT_ID, MAJOR_VERSION);
+					db.getGroups(txn, CLIENT_ID.toString(), MAJOR_VERSION);
 			for (Group g : groups) {
 				blogs.add(blogFactory.parseBlog(g));
 			}
@@ -386,7 +398,7 @@ class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 	@Override
 	public Collection<GroupId> getBlogIds(Transaction txn) throws DbException {
 		List<GroupId> groupIds = new ArrayList<>();
-		Collection<Group> groups = db.getGroups(txn, CLIENT_ID, MAJOR_VERSION);
+		Collection<Group> groups = db.getGroups(txn, CLIENT_ID.toString(), MAJOR_VERSION);
 		for (Group g : groups) groupIds.add(g.getId());
 		return groupIds;
 	}
@@ -436,10 +448,10 @@ class BlogManagerImpl extends BdfIncomingMessageHook implements BlogManager,
 	public List<BlogPostHeader> getPostHeaders(Transaction txn, GroupId g)
 			throws DbException {
 		BdfDictionary query1 = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, POST.getInt())
+				BdfEntry.of(KEY_TYPE, POST.getInt())
 		);
 		BdfDictionary query2 = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, COMMENT.getInt())
+				BdfEntry.of(KEY_TYPE, COMMENT.getInt())
 		);
 		List<BlogPostHeader> headers = new ArrayList<>();
 		try {

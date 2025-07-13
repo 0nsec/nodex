@@ -174,7 +174,7 @@ abstract class AbstractProtocolEngineTest extends BrambleMockTestCase {
 	}
 	private void expectSendMessage(MessageType type, boolean visible)
 			throws Exception {
-		BdfDictionary meta = BdfDictionary.of(new BdfEntry("me", "ta"));
+		BdfDictionary meta = BdfDictionary.of(BdfEntry.of("me", "ta"));
 		context.checking(new Expectations() {{
 			oneOf(messageEncoder).encodeMetadata(type, privateGroupId,
 					message.getTimestamp(), true, true, visible, false, false,

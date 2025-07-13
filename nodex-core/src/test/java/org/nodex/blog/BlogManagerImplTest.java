@@ -152,12 +152,12 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		Transaction txn = new Transaction(null, false);
 		BdfList body = BdfList.of("body");
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, POST.getInt()),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_TIME_RECEIVED, timeReceived),
-				new BdfEntry(KEY_AUTHOR, authorList1),
-				new BdfEntry(KEY_READ, false),
-				new BdfEntry(KEY_RSS_FEED, false)
+				BdfEntry.of(KEY_TYPE, POST.getInt()),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_TIME_RECEIVED, timeReceived),
+				BdfEntry.of(KEY_AUTHOR, authorList1),
+				BdfEntry.of(KEY_READ, false),
+				BdfEntry.of(KEY_RSS_FEED, false)
 		);
 		context.checking(new Expectations() {{
 			oneOf(clientHelper).parseAndValidateAuthor(authorList1);
@@ -191,12 +191,12 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		Transaction txn = new Transaction(null, false);
 		BdfList body = BdfList.of("body");
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, POST.getInt()),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_TIME_RECEIVED, timeReceived),
-				new BdfEntry(KEY_AUTHOR, rssAuthorList),
-				new BdfEntry(KEY_READ, false),
-				new BdfEntry(KEY_RSS_FEED, true)
+				BdfEntry.of(KEY_TYPE, POST.getInt()),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_TIME_RECEIVED, timeReceived),
+				BdfEntry.of(KEY_AUTHOR, rssAuthorList),
+				BdfEntry.of(KEY_READ, false),
+				BdfEntry.of(KEY_RSS_FEED, true)
 		);
 		context.checking(new Expectations() {{
 			oneOf(clientHelper).parseAndValidateAuthor(rssAuthorList);
@@ -243,11 +243,11 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		Transaction txn = new Transaction(null, false);
 		BlogPost post = new BlogPost(message, null, localAuthor1);
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, POST.getInt()),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_AUTHOR, authorList1),
-				new BdfEntry(KEY_READ, true),
-				new BdfEntry(KEY_RSS_FEED, false)
+				BdfEntry.of(KEY_TYPE, POST.getInt()),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_AUTHOR, authorList1),
+				BdfEntry.of(KEY_READ, true),
+				BdfEntry.of(KEY_RSS_FEED, false)
 		);
 		context.checking(new Expectations() {{
 			oneOf(db).startTransaction(false);
@@ -292,11 +292,11 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		Transaction txn = new Transaction(null, false);
 		BlogPost post = new BlogPost(rssMessage, null, rssLocalAuthor);
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, POST.getInt()),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_AUTHOR, rssAuthorList),
-				new BdfEntry(KEY_READ, true),
-				new BdfEntry(KEY_RSS_FEED, true)
+				BdfEntry.of(KEY_TYPE, POST.getInt()),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_AUTHOR, rssAuthorList),
+				BdfEntry.of(KEY_READ, true),
+				BdfEntry.of(KEY_RSS_FEED, true)
 		);
 		context.checking(new Expectations() {{
 			oneOf(db).startTransaction(false);
@@ -339,24 +339,24 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 	public void testAddLocalCommentToLocalPost() throws Exception {
 		Transaction txn = new Transaction(null, false);
 		BdfDictionary postMeta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, POST.getInt()),
-				new BdfEntry(KEY_RSS_FEED, false),
-				new BdfEntry(KEY_ORIGINAL_MSG_ID, messageId),
-				new BdfEntry(KEY_AUTHOR, authorList1),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_TIME_RECEIVED, timeReceived)
+				BdfEntry.of(KEY_TYPE, POST.getInt()),
+				BdfEntry.of(KEY_RSS_FEED, false),
+				BdfEntry.of(KEY_ORIGINAL_MSG_ID, messageId),
+				BdfEntry.of(KEY_AUTHOR, authorList1),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_TIME_RECEIVED, timeReceived)
 		);
 		Message commentMsg = getMessage(blog1.getId());
 		MessageId commentId = commentMsg.getId();
 		BdfDictionary commentMeta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, COMMENT.getInt()),
-				new BdfEntry(KEY_COMMENT, comment),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_ORIGINAL_MSG_ID, commentId),
-				new BdfEntry(KEY_ORIGINAL_PARENT_MSG_ID, messageId),
-				new BdfEntry(KEY_PARENT_MSG_ID, messageId),
-				new BdfEntry(KEY_AUTHOR, authorList1),
-				new BdfEntry(KEY_READ, true)
+				BdfEntry.of(KEY_TYPE, COMMENT.getInt()),
+				BdfEntry.of(KEY_COMMENT, comment),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_ORIGINAL_MSG_ID, commentId),
+				BdfEntry.of(KEY_ORIGINAL_PARENT_MSG_ID, messageId),
+				BdfEntry.of(KEY_PARENT_MSG_ID, messageId),
+				BdfEntry.of(KEY_AUTHOR, authorList1),
+				BdfEntry.of(KEY_READ, true)
 		);
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
@@ -421,24 +421,24 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		Message wrappedPostMsg = getMessage(blog2.getId());
 		MessageId wrappedPostId = wrappedPostMsg.getId();
 		BdfDictionary wrappedPostMeta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, WRAPPED_POST.getInt()),
-				new BdfEntry(KEY_RSS_FEED, false),
-				new BdfEntry(KEY_ORIGINAL_MSG_ID, messageId),
-				new BdfEntry(KEY_AUTHOR, authorList1),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_TIME_RECEIVED, timeReceived)
+				BdfEntry.of(KEY_TYPE, WRAPPED_POST.getInt()),
+				BdfEntry.of(KEY_RSS_FEED, false),
+				BdfEntry.of(KEY_ORIGINAL_MSG_ID, messageId),
+				BdfEntry.of(KEY_AUTHOR, authorList1),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_TIME_RECEIVED, timeReceived)
 		);
 		Message commentMsg = getMessage(blog2.getId());
 		MessageId commentId = commentMsg.getId();
 		BdfDictionary commentMeta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, COMMENT.getInt()),
-				new BdfEntry(KEY_COMMENT, comment),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_ORIGINAL_MSG_ID, commentId),
-				new BdfEntry(KEY_ORIGINAL_PARENT_MSG_ID, messageId),
-				new BdfEntry(KEY_PARENT_MSG_ID, wrappedPostId),
-				new BdfEntry(KEY_AUTHOR, authorList2),
-				new BdfEntry(KEY_READ, true)
+				BdfEntry.of(KEY_TYPE, COMMENT.getInt()),
+				BdfEntry.of(KEY_COMMENT, comment),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_ORIGINAL_MSG_ID, commentId),
+				BdfEntry.of(KEY_ORIGINAL_PARENT_MSG_ID, messageId),
+				BdfEntry.of(KEY_PARENT_MSG_ID, wrappedPostId),
+				BdfEntry.of(KEY_AUTHOR, authorList2),
+				BdfEntry.of(KEY_READ, true)
 		);
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
@@ -516,24 +516,24 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		Message wrappedPostMsg = getMessage(blog1.getId());
 		MessageId wrappedPostId = wrappedPostMsg.getId();
 		BdfDictionary wrappedPostMeta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, WRAPPED_POST.getInt()),
-				new BdfEntry(KEY_RSS_FEED, true),
-				new BdfEntry(KEY_ORIGINAL_MSG_ID, rssMessageId),
-				new BdfEntry(KEY_AUTHOR, rssAuthorList),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_TIME_RECEIVED, timeReceived)
+				BdfEntry.of(KEY_TYPE, WRAPPED_POST.getInt()),
+				BdfEntry.of(KEY_RSS_FEED, true),
+				BdfEntry.of(KEY_ORIGINAL_MSG_ID, rssMessageId),
+				BdfEntry.of(KEY_AUTHOR, rssAuthorList),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_TIME_RECEIVED, timeReceived)
 		);
 		Message commentMsg = getMessage(blog1.getId());
 		MessageId commentId = commentMsg.getId();
 		BdfDictionary commentMeta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, COMMENT.getInt()),
-				new BdfEntry(KEY_COMMENT, comment),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_ORIGINAL_MSG_ID, commentId),
-				new BdfEntry(KEY_ORIGINAL_PARENT_MSG_ID, rssMessageId),
-				new BdfEntry(KEY_PARENT_MSG_ID, wrappedPostId),
-				new BdfEntry(KEY_AUTHOR, authorList1),
-				new BdfEntry(KEY_READ, true)
+				BdfEntry.of(KEY_TYPE, COMMENT.getInt()),
+				BdfEntry.of(KEY_COMMENT, comment),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_ORIGINAL_MSG_ID, commentId),
+				BdfEntry.of(KEY_ORIGINAL_PARENT_MSG_ID, rssMessageId),
+				BdfEntry.of(KEY_PARENT_MSG_ID, wrappedPostId),
+				BdfEntry.of(KEY_AUTHOR, authorList1),
+				BdfEntry.of(KEY_READ, true)
 		);
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
@@ -612,36 +612,36 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		Message rewrappedPostMsg = getMessage(blog2.getId());
 		MessageId rewrappedPostId = rewrappedPostMsg.getId();
 		BdfDictionary rewrappedPostMeta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, WRAPPED_POST.getInt()),
-				new BdfEntry(KEY_RSS_FEED, true),
-				new BdfEntry(KEY_ORIGINAL_MSG_ID, messageId),
-				new BdfEntry(KEY_AUTHOR, rssAuthorList),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_TIME_RECEIVED, timeReceived)
+				BdfEntry.of(KEY_TYPE, WRAPPED_POST.getInt()),
+				BdfEntry.of(KEY_RSS_FEED, true),
+				BdfEntry.of(KEY_ORIGINAL_MSG_ID, messageId),
+				BdfEntry.of(KEY_AUTHOR, rssAuthorList),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_TIME_RECEIVED, timeReceived)
 		);
 		Message wrappedCommentMsg = getMessage(blog2.getId());
 		MessageId wrappedCommentId = wrappedCommentMsg.getId();
 		BdfDictionary wrappedCommentMeta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, WRAPPED_COMMENT.getInt()),
-				new BdfEntry(KEY_COMMENT, comment),
-				new BdfEntry(KEY_PARENT_MSG_ID, rewrappedPostId),
-				new BdfEntry(KEY_ORIGINAL_MSG_ID, originalCommentId),
-				new BdfEntry(KEY_AUTHOR, authorList1),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_TIME_RECEIVED, timeReceived)
+				BdfEntry.of(KEY_TYPE, WRAPPED_COMMENT.getInt()),
+				BdfEntry.of(KEY_COMMENT, comment),
+				BdfEntry.of(KEY_PARENT_MSG_ID, rewrappedPostId),
+				BdfEntry.of(KEY_ORIGINAL_MSG_ID, originalCommentId),
+				BdfEntry.of(KEY_AUTHOR, authorList1),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_TIME_RECEIVED, timeReceived)
 		);
 		String localComment = getRandomString(MAX_BLOG_COMMENT_TEXT_LENGTH);
 		Message localCommentMsg = getMessage(blog2.getId());
 		MessageId localCommentId = localCommentMsg.getId();
 		BdfDictionary localCommentMeta = BdfDictionary.of(
-				new BdfEntry(KEY_TYPE, COMMENT.getInt()),
-				new BdfEntry(KEY_COMMENT, localComment),
-				new BdfEntry(KEY_TIMESTAMP, timestamp),
-				new BdfEntry(KEY_ORIGINAL_MSG_ID, localCommentId),
-				new BdfEntry(KEY_ORIGINAL_PARENT_MSG_ID, originalCommentId),
-				new BdfEntry(KEY_PARENT_MSG_ID, wrappedCommentId),
-				new BdfEntry(KEY_AUTHOR, authorList2),
-				new BdfEntry(KEY_READ, true)
+				BdfEntry.of(KEY_TYPE, COMMENT.getInt()),
+				BdfEntry.of(KEY_COMMENT, localComment),
+				BdfEntry.of(KEY_TIMESTAMP, timestamp),
+				BdfEntry.of(KEY_ORIGINAL_MSG_ID, localCommentId),
+				BdfEntry.of(KEY_ORIGINAL_PARENT_MSG_ID, originalCommentId),
+				BdfEntry.of(KEY_PARENT_MSG_ID, wrappedCommentId),
+				BdfEntry.of(KEY_AUTHOR, authorList2),
+				BdfEntry.of(KEY_READ, true)
 		);
 		context.checking(new DbExpectations() {{
 			oneOf(db).transaction(with(false), withDbRunnable(txn));
@@ -772,7 +772,7 @@ public class BlogManagerImplTest extends BrambleMockTestCase {
 		context.assertIsSatisfied();
 	}
 	private Blog createBlog(LocalAuthor localAuthor, boolean rssFeed) {
-		Group group = getGroup(CLIENT_ID, MAJOR_VERSION);
+		Group group = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 		return new Blog(group, localAuthor, rssFeed);
 	}
 	private BdfList authorToBdfList(Author a) {

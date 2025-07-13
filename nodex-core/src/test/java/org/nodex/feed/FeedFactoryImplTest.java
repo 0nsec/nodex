@@ -39,7 +39,7 @@ public class FeedFactoryImplTest extends BrambleMockTestCase {
 	private final ClientHelper clientHelper = context.mock(ClientHelper.class);
 	private final Clock clock = context.mock(Clock.class);
 	private final LocalAuthor localAuthor = getLocalAuthor();
-	private final Group blogGroup = getGroup(CLIENT_ID, MAJOR_VERSION);
+	private final Group blogGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	private final Blog blog = new Blog(blogGroup, localAuthor, true);
 	private final BdfList authorList = BdfList.of("foo");
 	private final long added = 123, updated = 234, lastEntryTime = 345;
@@ -64,11 +64,11 @@ public class FeedFactoryImplTest extends BrambleMockTestCase {
 		}});
 		BdfDictionary dict = feedFactory.feedToBdfDictionary(before);
 		BdfDictionary expectedDict = BdfDictionary.of(
-				new BdfEntry(KEY_FEED_AUTHOR, authorList),
-				new BdfEntry(KEY_FEED_PRIVATE_KEY, localAuthor.getPrivateKey()),
-				new BdfEntry(KEY_FEED_ADDED, added),
-				new BdfEntry(KEY_FEED_UPDATED, updated),
-				new BdfEntry(KEY_FEED_LAST_ENTRY, lastEntryTime)
+				BdfEntry.of(KEY_FEED_AUTHOR, authorList),
+				BdfEntry.of(KEY_FEED_PRIVATE_KEY, localAuthor.getPrivateKey()),
+				BdfEntry.of(KEY_FEED_ADDED, added),
+				BdfEntry.of(KEY_FEED_UPDATED, updated),
+				BdfEntry.of(KEY_FEED_LAST_ENTRY, lastEntryTime)
 		);
 		assertEquals(expectedDict, dict);
 		context.checking(new Expectations() {{
@@ -102,17 +102,17 @@ public class FeedFactoryImplTest extends BrambleMockTestCase {
 		}});
 		BdfDictionary dict = feedFactory.feedToBdfDictionary(before);
 		BdfDictionary expectedDict = BdfDictionary.of(
-				new BdfEntry(KEY_FEED_AUTHOR, authorList),
-				new BdfEntry(KEY_FEED_PRIVATE_KEY, localAuthor.getPrivateKey()),
-				new BdfEntry(KEY_FEED_ADDED, added),
-				new BdfEntry(KEY_FEED_UPDATED, updated),
-				new BdfEntry(KEY_FEED_LAST_ENTRY, lastEntryTime),
-				new BdfEntry(KEY_FEED_URL, url),
-				new BdfEntry(KEY_FEED_RSS_TITLE, title),
-				new BdfEntry(KEY_FEED_DESC, description),
-				new BdfEntry(KEY_FEED_RSS_AUTHOR, rssAuthor),
-				new BdfEntry(KEY_FEED_RSS_LINK, link),
-				new BdfEntry(KEY_FEED_RSS_URI, uri)
+				BdfEntry.of(KEY_FEED_AUTHOR, authorList),
+				BdfEntry.of(KEY_FEED_PRIVATE_KEY, localAuthor.getPrivateKey()),
+				BdfEntry.of(KEY_FEED_ADDED, added),
+				BdfEntry.of(KEY_FEED_UPDATED, updated),
+				BdfEntry.of(KEY_FEED_LAST_ENTRY, lastEntryTime),
+				BdfEntry.of(KEY_FEED_URL, url),
+				BdfEntry.of(KEY_FEED_RSS_TITLE, title),
+				BdfEntry.of(KEY_FEED_DESC, description),
+				BdfEntry.of(KEY_FEED_RSS_AUTHOR, rssAuthor),
+				BdfEntry.of(KEY_FEED_RSS_LINK, link),
+				BdfEntry.of(KEY_FEED_RSS_URI, uri)
 		);
 		assertEquals(expectedDict, dict);
 		context.checking(new Expectations() {{

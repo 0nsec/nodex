@@ -117,7 +117,7 @@ class GroupInvitationManagerImpl extends ConversationClientImpl
 		Group g = getContactGroup(c);
 		db.addGroup(txn, g);
 		Visibility client = clientVersioningManager.getClientVisibility(txn,
-				c.getId(), CLIENT_ID, MAJOR_VERSION);
+				c.getId(), CLIENT_ID.toString(), MAJOR_VERSION);
 		db.setGroupVisibility(txn, c.getId(), g.getId(), client);
 		clientHelper.setContactId(txn, g.getId(), c.getId());
 		for (Group group : db.getGroups(txn, PrivateGroupManager.CLIENT_ID,

@@ -93,11 +93,11 @@ class FeedFactoryImpl implements FeedFactory {
 		LocalAuthor localAuthor = feed.getLocalAuthor();
 		BdfList authorList = clientHelper.toList(localAuthor);
 		BdfDictionary d = BdfDictionary.of(
-				new BdfEntry(KEY_FEED_AUTHOR, authorList),
-				new BdfEntry(KEY_FEED_PRIVATE_KEY, localAuthor.getPrivateKey()),
-				new BdfEntry(KEY_FEED_ADDED, feed.getAdded()),
-				new BdfEntry(KEY_FEED_UPDATED, feed.getUpdated()),
-				new BdfEntry(KEY_FEED_LAST_ENTRY, feed.getLastEntryTime())
+				BdfEntry.of(KEY_FEED_AUTHOR, authorList),
+				BdfEntry.of(KEY_FEED_PRIVATE_KEY, localAuthor.getPrivateKey()),
+				BdfEntry.of(KEY_FEED_ADDED, feed.getAdded()),
+				BdfEntry.of(KEY_FEED_UPDATED, feed.getUpdated()),
+				BdfEntry.of(KEY_FEED_LAST_ENTRY, feed.getLastEntryTime())
 		);
 		RssProperties properties = feed.getProperties();
 		if (properties.getUrl() != null)

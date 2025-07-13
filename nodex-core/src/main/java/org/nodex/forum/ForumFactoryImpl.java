@@ -43,7 +43,7 @@ class ForumFactoryImpl implements ForumFactory {
 		try {
 			BdfList forum = BdfList.of(name, salt);
 			byte[] descriptor = clientHelper.toByteArray(forum);
-			Group g = groupFactory.createGroup(CLIENT_ID, MAJOR_VERSION,
+			Group g = groupFactory.createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
 					descriptor);
 			return new Forum(g, name, salt);
 		} catch (FormatException e) {

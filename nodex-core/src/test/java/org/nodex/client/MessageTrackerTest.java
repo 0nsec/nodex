@@ -28,16 +28,16 @@ public class MessageTrackerTest extends BrambleMockTestCase {
 	private final MessageTracker messageTracker =
 			new MessageTrackerImpl(db, clientHelper, clock);
 	private final BdfDictionary dictionary = BdfDictionary.of(
-			new BdfEntry(GROUP_KEY_STORED_MESSAGE_ID, messageId)
+			BdfEntry.of(GROUP_KEY_STORED_MESSAGE_ID, messageId)
 	);
 	@Test
 	public void testInitializeGroupCount() throws Exception {
 		Transaction txn = new Transaction(null, false);
 		long now = 42L;
 		BdfDictionary dictionary = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_MSG_COUNT, 0),
-				new BdfEntry(GROUP_KEY_UNREAD_COUNT, 0),
-				new BdfEntry(GROUP_KEY_LATEST_MSG, now)
+				BdfEntry.of(GROUP_KEY_MSG_COUNT, 0),
+				BdfEntry.of(GROUP_KEY_UNREAD_COUNT, 0),
+				BdfEntry.of(GROUP_KEY_LATEST_MSG, now)
 		);
 		context.checking(new Expectations() {{
 			oneOf(clock).currentTimeMillis();

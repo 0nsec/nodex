@@ -1,5 +1,6 @@
 package org.nodex.api.contact;
 
+import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 public class ContactId {
@@ -12,8 +13,19 @@ public class ContactId {
         this.id = id.clone();
     }
 
+    public ContactId(int id) {
+        this.id = ByteBuffer.allocate(4).putInt(id).array();
+    }
+
     public byte[] getBytes() {
         return id.clone();
+    }
+
+    public int getInt() {
+        if (id.length < 4) {
+            throw new IllegalStateException("ContactId does not contain a valid int");
+        }
+        return ByteBuffer.wrap(id).getInt();
     }
 
     @Override

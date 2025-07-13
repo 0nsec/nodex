@@ -92,4 +92,12 @@ public class BdfList extends ArrayList<Object> {
         }
         throw new IllegalArgumentException("Expected byte array at index " + index);
     }
+
+    public boolean getBoolean(int index) {
+        Object obj = get(index);
+        if (obj instanceof Boolean) {
+            return (Boolean) obj;
+        }
+        throw new IllegalArgumentException("Expected boolean at index " + index);
+    }
 }

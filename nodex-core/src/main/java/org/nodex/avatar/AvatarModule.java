@@ -30,7 +30,7 @@ public class AvatarModule {
 			Clock clock) {
 		AvatarValidator avatarValidator =
 				new AvatarValidator(bdfReaderFactory, metadataEncoder, clock);
-		validationManager.registerMessageValidator(CLIENT_ID, MAJOR_VERSION,
+		validationManager.registerMessageValidator(CLIENT_ID.toString(), MAJOR_VERSION,
 				avatarValidator);
 		return avatarValidator;
 	}

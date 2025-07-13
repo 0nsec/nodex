@@ -39,9 +39,9 @@ public class AvatarValidatorTest extends BrambleMockTestCase {
 	private final String contentType = getRandomString(MAX_CONTENT_TYPE_BYTES);
 	private final long version = System.currentTimeMillis();
 	private final BdfDictionary meta = BdfDictionary.of(
-			new BdfEntry(MSG_KEY_VERSION, version),
-			new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType),
-			new BdfEntry(MSG_KEY_DESCRIPTOR_LENGTH, 0L)
+			BdfEntry.of(MSG_KEY_VERSION, version),
+			BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType),
+			BdfEntry.of(MSG_KEY_DESCRIPTOR_LENGTH, 0L)
 	);
 	private final AvatarValidator validator =
 			new AvatarValidator(bdfReaderFactory, metadataEncoder, clock);
@@ -114,9 +114,9 @@ public class AvatarValidatorTest extends BrambleMockTestCase {
 	public void testAcceptsZeroVersion() throws Exception {
 		BdfList body = BdfList.of(MSG_TYPE_UPDATE, 0L, contentType);
 		BdfDictionary meta = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_VERSION, 0L),
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType),
-				new BdfEntry(MSG_KEY_DESCRIPTOR_LENGTH, 0L)
+				BdfEntry.of(MSG_KEY_VERSION, 0L),
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType),
+				BdfEntry.of(MSG_KEY_DESCRIPTOR_LENGTH, 0L)
 		);
 		testAcceptsUpdateMessage(body, meta);
 	}

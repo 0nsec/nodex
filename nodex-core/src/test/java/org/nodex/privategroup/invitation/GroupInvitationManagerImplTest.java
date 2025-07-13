@@ -101,19 +101,19 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 	private final Contact contact = getContact(author,
 			new AuthorId(getRandomId()), true);
 	private final ContactId contactId = contact.getId();
-	private final Group localGroup = getGroup(CLIENT_ID, MAJOR_VERSION);
-	private final Group contactGroup = getGroup(CLIENT_ID, MAJOR_VERSION);
-	private final Group group = getGroup(CLIENT_ID, MAJOR_VERSION);
+	private final Group localGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
+	private final Group contactGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
+	private final Group group = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	private final PrivateGroup privateGroup = new PrivateGroup(group,
 			getRandomString(5), getAuthor(), getRandomBytes(32));
-	private final BdfDictionary meta = BdfDictionary.of(new BdfEntry("m", "e"));
+	private final BdfDictionary meta = BdfDictionary.of(BdfEntry.of("m", "e"));
 	private final Message message = getMessage(contactGroup.getId());
 	private final BdfList body = BdfList.of("body");
 	private final SessionId sessionId =
 			new SessionId(privateGroup.getId().getBytes());
 	private final Message storageMessage = getMessage(contactGroup.getId());
 	private final BdfDictionary bdfSession =
-			BdfDictionary.of(new BdfEntry("f", "o"));
+			BdfDictionary.of(BdfEntry.of("f", "o"));
 	private final Map<MessageId, BdfDictionary> oneResult =
 			Collections.singletonMap(storageMessage.getId(), bdfSession);
 	private final Map<MessageId, BdfDictionary> noResults =
@@ -177,7 +177,7 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(contactGroup));
 			oneOf(db).addGroup(txn, contactGroup);
 			oneOf(clientVersioningManager).getClientVisibility(txn, contactId,
-					CLIENT_ID, MAJOR_VERSION);
+					CLIENT_ID.toString(), MAJOR_VERSION);
 			will(returnValue(SHARED));
 			oneOf(db).setGroupVisibility(txn, c.getId(), contactGroup.getId(),
 					SHARED);
@@ -223,7 +223,7 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 	}
 	private void expectGetSession(Map<MessageId, BdfDictionary> results,
 			SessionId sessionId, GroupId contactGroupId) throws Exception {
-		BdfDictionary query = BdfDictionary.of(new BdfEntry("q", "u"));
+		BdfDictionary query = BdfDictionary.of(BdfEntry.of("q", "u"));
 		context.checking(new Expectations() {{
 			oneOf(sessionParser).getSessionQuery(sessionId);
 			will(returnValue(query));
@@ -394,7 +394,7 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 	}
 	private void expectIncomingMessage(Role role, MessageType type)
 			throws Exception {
-		BdfDictionary bdfSession = BdfDictionary.of(new BdfEntry("f", "o"));
+		BdfDictionary bdfSession = BdfDictionary.of(BdfEntry.of("f", "o"));
 		expectIncomingMessageWithSession(role, type, bdfSession);
 	}
 	private void expectIncomingMessageWithSession(Role role, MessageType type,
@@ -660,9 +660,9 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 	}
 	@Test
 	public void testGetInvitationMessages() throws Exception {
-		BdfDictionary query = BdfDictionary.of(new BdfEntry("q", "u"));
+		BdfDictionary query = BdfDictionary.of(BdfEntry.of("q", "u"));
 		MessageId messageId2 = new MessageId(TestUtils.getRandomId());
-		BdfDictionary meta2 = BdfDictionary.of(new BdfEntry("m2", "e"));
+		BdfDictionary meta2 = BdfDictionary.of(BdfEntry.of("m2", "e"));
 		Map<MessageId, BdfDictionary> results = new HashMap<>();
 		results.put(message.getId(), meta);
 		results.put(messageId2, meta2);
@@ -726,7 +726,7 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 	}
 	@Test
 	public void testGetInvitations() throws Exception {
-		BdfDictionary query = BdfDictionary.of(new BdfEntry("q", "u"));
+		BdfDictionary query = BdfDictionary.of(BdfEntry.of("q", "u"));
 		Message message2 = getMessage(contactGroup.getId());
 		Collection<MessageId> results =
 				asList(message.getId(), message2.getId());
@@ -836,14 +836,14 @@ public class GroupInvitationManagerImplTest extends BrambleMockTestCase {
 		Contact contact2 = getContact();
 		Contact contact3 = getContact();
 		Collection<Contact> contacts = asList(contact, contact2, contact3);
-		Group contactGroup2 = getGroup(CLIENT_ID, MAJOR_VERSION);
-		Group contactGroup3 = getGroup(CLIENT_ID, MAJOR_VERSION);
+		Group contactGroup2 = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
+		Group contactGroup3 = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 		MessageId storageId2 = new MessageId(getRandomId());
 		MessageId storageId3 = new MessageId(getRandomId());
 		BdfDictionary bdfSession2 =
-				BdfDictionary.of(new BdfEntry("f2", "o"));
+				BdfDictionary.of(BdfEntry.of("f2", "o"));
 		BdfDictionary bdfSession3 =
-				BdfDictionary.of(new BdfEntry("f3", "o"));
+				BdfDictionary.of(BdfEntry.of("f3", "o"));
 		expectGetSession(oneResult, sessionId, contactGroup.getId());
 		expectGetSession(Collections.singletonMap(storageId2, bdfSession2),
 				sessionId, contactGroup2.getId());

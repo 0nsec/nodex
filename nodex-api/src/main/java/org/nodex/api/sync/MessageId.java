@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class MessageId {
+    public static final int LENGTH = 32;
+    
     private final byte[] id;
 
     public MessageId(byte[] id) {

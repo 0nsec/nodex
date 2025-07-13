@@ -68,19 +68,19 @@ public class AvatarManagerImplTest extends BrambleMockTestCase {
 	private final GroupFactory groupFactory = context.mock(GroupFactory.class);
 	private final AvatarMessageEncoder avatarMessageEncoder =
 			context.mock(AvatarMessageEncoder.class);
-	private final Group localGroup = getGroup(CLIENT_ID, MAJOR_VERSION);
+	private final Group localGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	private final GroupId localGroupId = localGroup.getId();
 	private final LocalAuthor localAuthor = getLocalAuthor();
 	private final Contact contact = getContact();
-	private final Group contactGroup = getGroup(CLIENT_ID, MAJOR_VERSION, 32);
+	private final Group contactGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION, 32);
 	private final GroupId contactGroupId = contactGroup.getId();
 	private final Message ourMsg = getMessage(localGroupId);
 	private final Message contactMsg = getMessage(contactGroupId);
 	private final Metadata meta = new Metadata();
 	private final String contentType = getRandomString(MAX_CONTENT_TYPE_BYTES);
 	private final BdfDictionary metaDict = BdfDictionary.of(
-			new BdfEntry(MSG_KEY_VERSION, 1),
-			new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType)
+			BdfEntry.of(MSG_KEY_VERSION, 1),
+			BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType)
 	);
 	private final AvatarManagerImpl avatarManager =
 			new AvatarManagerImpl(db, identityManager, clientHelper,
@@ -158,7 +158,7 @@ public class AvatarManagerImplTest extends BrambleMockTestCase {
 			throws DbException, InvalidMessageException, FormatException {
 		Transaction txn = new Transaction(null, false);
 		BdfDictionary d = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType)
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType)
 		);
 		expectGetOurGroup(txn);
 		context.checking(new Expectations() {{
@@ -182,13 +182,13 @@ public class AvatarManagerImplTest extends BrambleMockTestCase {
 			throws DbException, InvalidMessageException, FormatException {
 		Transaction txn = new Transaction(null, false);
 		BdfDictionary d = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_VERSION, 1),
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType)
+				BdfEntry.of(MSG_KEY_VERSION, 1),
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType)
 		);
 		MessageId latestMsgId = new MessageId(getRandomId());
 		BdfDictionary latest = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_VERSION, 0),
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType)
+				BdfEntry.of(MSG_KEY_VERSION, 0),
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType)
 		);
 		expectGetOurGroup(txn);
 		context.checking(new Expectations() {{
@@ -208,13 +208,13 @@ public class AvatarManagerImplTest extends BrambleMockTestCase {
 			throws DbException, InvalidMessageException, FormatException {
 		Transaction txn = new Transaction(null, false);
 		BdfDictionary d = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_VERSION, 0),
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType)
+				BdfEntry.of(MSG_KEY_VERSION, 0),
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType)
 		);
 		MessageId latestMsgId = new MessageId(getRandomId());
 		BdfDictionary latest = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_VERSION, 1),
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType)
+				BdfEntry.of(MSG_KEY_VERSION, 1),
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType)
 		);
 		expectGetOurGroup(txn);
 		context.checking(new Expectations() {{
@@ -246,9 +246,9 @@ public class AvatarManagerImplTest extends BrambleMockTestCase {
 		long version = latestVersion + 1;
 		Message newMsg = getMessage(localGroupId);
 		BdfDictionary newMeta = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_VERSION, version),
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType),
-				new BdfEntry(MSG_KEY_DESCRIPTOR_LENGTH, 0)
+				BdfEntry.of(MSG_KEY_VERSION, version),
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType),
+				BdfEntry.of(MSG_KEY_DESCRIPTOR_LENGTH, 0)
 		);
 		context.checking(new DbExpectations() {{
 			oneOf(db).startTransaction(true);
@@ -281,9 +281,9 @@ public class AvatarManagerImplTest extends BrambleMockTestCase {
 		long latestVersion = metaDict.getLong(MSG_KEY_VERSION);
 		Message newMsg = getMessage(localGroupId);
 		BdfDictionary newMeta = BdfDictionary.of(
-				new BdfEntry(MSG_KEY_VERSION, latestVersion + 2),
-				new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType),
-				new BdfEntry(MSG_KEY_DESCRIPTOR_LENGTH, 0)
+				BdfEntry.of(MSG_KEY_VERSION, latestVersion + 2),
+				BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType),
+				BdfEntry.of(MSG_KEY_DESCRIPTOR_LENGTH, 0)
 		);
 		context.checking(new DbExpectations() {{
 			oneOf(db).startTransaction(true);
@@ -306,7 +306,7 @@ public class AvatarManagerImplTest extends BrambleMockTestCase {
 	private void expectGetContactId(Transaction txn, GroupId groupId,
 			ContactId contactId) throws DbException, FormatException {
 		BdfDictionary d = BdfDictionary
-				.of(new BdfEntry(GROUP_KEY_CONTACT_ID, contactId.getInt()));
+				.of(BdfEntry.of(GROUP_KEY_CONTACT_ID, contactId.getInt()));
 		context.checking(new Expectations() {{
 			oneOf(clientHelper).getGroupMetadataAsDictionary(txn, groupId);
 			will(returnValue(d));
@@ -332,11 +332,11 @@ public class AvatarManagerImplTest extends BrambleMockTestCase {
 	private void expectAddingContact(Transaction txn, Contact c, Visibility v)
 			throws DbException, FormatException {
 		BdfDictionary groupMeta = BdfDictionary.of(
-				new BdfEntry(GROUP_KEY_CONTACT_ID, c.getId().getInt())
+				BdfEntry.of(GROUP_KEY_CONTACT_ID, c.getId().getInt())
 		);
 		expectGetOurGroup(txn);
 		context.checking(new Expectations() {{
-			oneOf(groupFactory).createGroup(CLIENT_ID, MAJOR_VERSION,
+			oneOf(groupFactory).createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
 					c.getAuthor().getId().getBytes());
 			will(returnValue(contactGroup));
 			oneOf(db).addGroup(txn, contactGroup);
@@ -360,7 +360,7 @@ public class AvatarManagerImplTest extends BrambleMockTestCase {
 	private void expectCreateGroup(AuthorId authorId, Group group) {
 		context.checking(new Expectations() {{
 			oneOf(groupFactory)
-					.createGroup(CLIENT_ID, MAJOR_VERSION, authorId.getBytes());
+					.createGroup(CLIENT_ID.toString(), MAJOR_VERSION, authorId.getBytes());
 			will(returnValue(group));
 		}});
 	}

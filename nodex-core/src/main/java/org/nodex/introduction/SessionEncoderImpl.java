@@ -53,15 +53,15 @@ class SessionEncoderImpl implements SessionEncoder {
 	public BdfDictionary getIntroduceeSessionsByIntroducerQuery(
 			Author introducer) {
 		return BdfDictionary.of(
-				new BdfEntry(SESSION_KEY_ROLE, INTRODUCEE.getValue()),
-				new BdfEntry(SESSION_KEY_INTRODUCER,
+				BdfEntry.of(SESSION_KEY_ROLE, INTRODUCEE.getValue()),
+				BdfEntry.of(SESSION_KEY_INTRODUCER,
 						clientHelper.toList(introducer))
 		);
 	}
 	@Override
 	public BdfDictionary getIntroducerSessionsQuery() {
 		return BdfDictionary.of(
-				new BdfEntry(SESSION_KEY_ROLE, INTRODUCER.getValue())
+				BdfEntry.of(SESSION_KEY_ROLE, INTRODUCER.getValue())
 		);
 	}
 	@Override

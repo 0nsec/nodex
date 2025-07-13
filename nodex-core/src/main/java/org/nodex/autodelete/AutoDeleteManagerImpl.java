@@ -51,6 +51,11 @@ class AutoDeleteManagerImpl
 				MAJOR_VERSION);
 	}
 	@Override
+	public void onDatabaseOpened() throws DbException {
+		// Implementation for parameter-less version
+	}
+	
+	@Override
 	public void onDatabaseOpened(Transaction txn) throws DbException {
 		if (db.containsGroup(txn, localGroup.getId())) return;
 		db.addGroup(txn, localGroup);
@@ -90,8 +95,8 @@ class AutoDeleteManagerImpl
 				LOG.info("Sending message with auto-delete timer " + timer);
 			}
 			meta = BdfDictionary.of(
-					new BdfEntry(GROUP_KEY_TIMESTAMP, timestamp),
-					new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER));
+					BdfEntry.of(GROUP_KEY_TIMESTAMP, timestamp),
+					BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, NO_PREVIOUS_TIMER));
 			clientHelper.mergeGroupMetadata(txn, g.getId(), meta);
 			return timer;
 		} catch (FormatException e) {
@@ -112,8 +117,8 @@ class AutoDeleteManagerImpl
 				LOG.info("Setting auto-delete timer to " + timer);
 			}
 			meta = BdfDictionary.of(
-					new BdfEntry(GROUP_KEY_TIMER, timer),
-					new BdfEntry(GROUP_KEY_PREVIOUS_TIMER, oldTimer));
+					BdfEntry.of(GROUP_KEY_TIMER, timer),
+					BdfEntry.of(GROUP_KEY_PREVIOUS_TIMER, oldTimer));
 			clientHelper.mergeGroupMetadata(txn, g.getId(), meta);
 		} catch (FormatException e) {
 			throw new DbException(e);

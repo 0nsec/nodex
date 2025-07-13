@@ -7,6 +7,7 @@ import org.nodex.api.data.MetadataParser;
 import org.nodex.api.db.DatabaseComponent;
 import org.nodex.api.db.DbException;
 import org.nodex.api.db.Transaction;
+import org.nodex.api.sync.ClientId;
 import org.nodex.api.sync.GroupId;
 import org.nodex.api.client.MessageTracker;
 import org.nodex.api.client.MessageTracker.GroupCount;
@@ -17,11 +18,18 @@ import javax.annotation.concurrent.Immutable;
 @NotNullByDefault
 public abstract class ConversationClientImpl extends BdfIncomingMessageHook
 		implements ConversationClient {
+		
+	private static final ClientId CLIENT_ID = new ClientId("org.nodex.conversation");
+	private static final int MAJOR_VERSION = 0;
+	
 	protected final MessageTracker messageTracker;
 	protected ConversationClientImpl(DatabaseComponent db,
 			ClientHelper clientHelper, MetadataParser metadataParser,
 			MessageTracker messageTracker) {
-		super(db, clientHelper, metadataParser);
+		super(CLIENT_ID, MAJOR_VERSION);
+		this.db = db;
+		this.clientHelper = clientHelper;
+		this.metadataParser = metadataParser;
 		this.messageTracker = messageTracker;
 	}
 	@Override

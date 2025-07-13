@@ -115,7 +115,7 @@ class IntroductionManagerImpl extends ConversationClientImpl
 		this.identityManager = identityManager;
 		this.authorManager = authorManager;
 		this.localGroup =
-				contactGroupFactory.createLocalGroup(CLIENT_ID, MAJOR_VERSION);
+				contactGroupFactory.createLocalGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	}
 	@Override
 	public void onDatabaseOpened(Transaction txn) throws DbException {
@@ -128,7 +128,7 @@ class IntroductionManagerImpl extends ConversationClientImpl
 		Group g = getContactGroup(c);
 		db.addGroup(txn, g);
 		Visibility client = clientVersioningManager.getClientVisibility(txn,
-				c.getId(), CLIENT_ID, MAJOR_VERSION);
+				c.getId(), CLIENT_ID.toString(), MAJOR_VERSION);
 		db.setGroupVisibility(txn, c.getId(), g.getId(), client);
 		clientHelper.setContactId(txn, g.getId(), c.getId());
 	}
@@ -147,7 +147,7 @@ class IntroductionManagerImpl extends ConversationClientImpl
 	@Override
 	public Group getContactGroup(Contact c) {
 		return contactGroupFactory
-				.createContactGroup(CLIENT_ID, MAJOR_VERSION, c);
+				.createContactGroup(CLIENT_ID.toString(), MAJOR_VERSION, c);
 	}
 	@Override
 	protected DeliveryAction incomingMessage(Transaction txn, Message m,

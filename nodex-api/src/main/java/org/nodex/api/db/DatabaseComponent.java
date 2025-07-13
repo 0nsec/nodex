@@ -18,6 +18,21 @@ public interface DatabaseComponent {
     Transaction createTransaction();
     
     /**
+     * Start a transaction.
+     */
+    Transaction startTransaction(boolean readOnly) throws DbException;
+    
+    /**
+     * Commit a transaction.
+     */
+    void commitTransaction(Transaction txn) throws DbException;
+    
+    /**
+     * End a transaction.
+     */
+    void endTransaction(Transaction txn);
+    
+    /**
      * Execute a transaction with result.
      */
     <R, E extends Exception> R transactionWithResult(boolean readOnly, DbCallable<R, E> callable) throws DbException, E;
@@ -59,6 +74,16 @@ public interface DatabaseComponent {
         org.nodex.api.sync.GroupId groupId, org.nodex.api.sync.Visibility visibility) throws DbException;
     
     /**
+     * Delete a message.
+     */
+    void deleteMessage(Transaction txn, org.nodex.api.sync.MessageId messageId) throws DbException;
+    
+    /**
+     * Delete message metadata.
+     */
+    void deleteMessageMetadata(Transaction txn, org.nodex.api.sync.MessageId messageId) throws DbException;
+    
+    /**
      * Start cleanup timer for a message.
      */
     void startCleanupTimer(Transaction txn, org.nodex.api.sync.MessageId messageId) throws DbException;
@@ -82,4 +107,14 @@ public interface DatabaseComponent {
      * Set message as permanent.
      */
     void setMessagePermanent(Transaction txn, org.nodex.api.sync.MessageId messageId) throws DbException;
+    
+    /**
+     * Get a group by ID.
+     */
+    org.nodex.api.sync.Group getGroup(Transaction txn, org.nodex.api.sync.GroupId groupId) throws DbException;
+    
+    /**
+     * Get all groups for a client.
+     */
+    java.util.Collection<org.nodex.api.sync.Group> getGroups(Transaction txn, org.nodex.api.sync.ClientId clientId, int majorVersion) throws DbException;
 }

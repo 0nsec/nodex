@@ -811,6 +811,6 @@ public class AutoDeleteIntegrationTest extends AbstractAutoDeleteTest {
 	}
 	private Group getLocalGroup() {
 		return contactGroupFactory
-				.createLocalGroup(CLIENT_ID, MAJOR_VERSION);
+				.createLocalGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	}
 }

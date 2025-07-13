@@ -31,7 +31,7 @@ public class PrivateGroupModule {
 		if (!featureFlags.shouldEnablePrivateGroupsInCore()) {
 			return groupManager;
 		}
-		validationManager.registerIncomingMessageHook(CLIENT_ID, MAJOR_VERSION,
+		validationManager.registerIncomingMessageHook(CLIENT_ID.toString(), MAJOR_VERSION,
 				groupManager);
 		return groupManager;
 	}
@@ -56,7 +56,7 @@ public class PrivateGroupModule {
 				privateGroupFactory, clientHelper, metadataEncoder, clock,
 				groupInvitationFactory);
 		if (featureFlags.shouldEnablePrivateGroupsInCore()) {
-			validationManager.registerMessageValidator(CLIENT_ID, MAJOR_VERSION,
+			validationManager.registerMessageValidator(CLIENT_ID.toString(), MAJOR_VERSION,
 					validator);
 		}
 		return validator;

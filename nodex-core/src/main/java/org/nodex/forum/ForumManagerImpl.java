@@ -47,6 +47,9 @@ import static org.nodex.api.forum.ForumConstants.KEY_LOCAL;
 import static org.nodex.api.forum.ForumConstants.KEY_PARENT;
 import static org.nodex.api.forum.ForumConstants.KEY_TIMESTAMP;
 import static org.nodex.client.MessageTrackerConstants.MSG_KEY_READ;
+import static org.nodex.api.forum.ForumManager.CLIENT_ID;
+import static org.nodex.api.forum.ForumManager.MAJOR_VERSION;
+
 @ThreadSafe
 @NotNullByDefault
 class ForumManagerImpl extends BdfIncomingMessageHook implements ForumManager {
@@ -60,7 +63,7 @@ class ForumManagerImpl extends BdfIncomingMessageHook implements ForumManager {
 			MetadataParser metadataParser, AuthorManager authorManager,
 			ForumFactory forumFactory, ForumPostFactory forumPostFactory,
 			MessageTracker messageTracker) {
-		super(db, clientHelper, metadataParser);
+		super(CLIENT_ID, MAJOR_VERSION);
 		this.authorManager = authorManager;
 		this.forumFactory = forumFactory;
 		this.forumPostFactory = forumPostFactory;
@@ -156,7 +159,7 @@ class ForumManagerImpl extends BdfIncomingMessageHook implements ForumManager {
 	}
 	@Override
 	public Collection<Forum> getForums(Transaction txn) throws DbException {
-		Collection<Group> groups = db.getGroups(txn, CLIENT_ID, MAJOR_VERSION);
+		Collection<Group> groups = db.getGroups(txn, CLIENT_ID.toString(), MAJOR_VERSION);
 		try {
 			List<Forum> forums = new ArrayList<>();
 			for (Group g : groups) forums.add(parseForum(g));

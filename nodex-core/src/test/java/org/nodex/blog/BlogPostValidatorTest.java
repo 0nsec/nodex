@@ -57,7 +57,7 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 	private final Author author;
 	private final String text = getRandomString(42);
 	public BlogPostValidatorTest() {
-		group = getGroup(CLIENT_ID, MAJOR_VERSION);
+		group = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 		descriptor = group.getDescriptor();
 		author = getAuthor();
 		authorList = BdfList.of(
@@ -167,7 +167,7 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 		BdfList originalList = BdfList.of(POST.getInt(), text, sigBytes);
 		byte[] originalBody = getRandomBytes(42);
 		context.checking(new Expectations() {{
-			oneOf(groupFactory).createGroup(CLIENT_ID, MAJOR_VERSION,
+			oneOf(groupFactory).createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
 					descriptor);
 			will(returnValue(b.getGroup()));
 			oneOf(blogFactory).parseBlog(b.getGroup());
@@ -203,7 +203,7 @@ public class BlogPostValidatorTest extends BrambleMockTestCase {
 				originalId, oldId, sigBytes);
 		byte[] originalBody = getRandomBytes(42);
 		context.checking(new Expectations() {{
-			oneOf(groupFactory).createGroup(CLIENT_ID, MAJOR_VERSION,
+			oneOf(groupFactory).createGroup(CLIENT_ID.toString(), MAJOR_VERSION,
 					descriptor);
 			will(returnValue(blog.getGroup()));
 			oneOf(clientHelper).toByteArray(originalList);

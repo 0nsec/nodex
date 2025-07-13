@@ -42,18 +42,18 @@ public class GroupInvitationModule {
 			return groupInvitationManager;
 		}
 		lifecycleManager.registerOpenDatabaseHook(groupInvitationManager);
-		validationManager.registerIncomingMessageHook(CLIENT_ID, MAJOR_VERSION,
+		validationManager.registerIncomingMessageHook(CLIENT_ID.toString(), MAJOR_VERSION,
 				groupInvitationManager);
 		contactManager.registerContactHook(groupInvitationManager);
 		privateGroupManager.registerPrivateGroupHook(groupInvitationManager);
 		conversationManager.registerConversationClient(groupInvitationManager);
-		clientVersioningManager.registerClient(CLIENT_ID, MAJOR_VERSION,
+		clientVersioningManager.registerClient(CLIENT_ID.toString(), MAJOR_VERSION,
 				MINOR_VERSION, groupInvitationManager);
 		clientVersioningManager.registerClient(PrivateGroupManager.CLIENT_ID,
 				PrivateGroupManager.MAJOR_VERSION,
 				PrivateGroupManager.MINOR_VERSION,
 				groupInvitationManager.getPrivateGroupClientVersioningHook());
-		cleanupManager.registerCleanupHook(CLIENT_ID, MAJOR_VERSION,
+		cleanupManager.registerCleanupHook(CLIENT_ID.toString(), MAJOR_VERSION,
 				groupInvitationManager);
 		return groupInvitationManager;
 	}
@@ -69,7 +69,7 @@ public class GroupInvitationModule {
 				clientHelper, metadataEncoder, clock, privateGroupFactory,
 				messageEncoder);
 		if (featureFlags.shouldEnablePrivateGroupsInCore()) {
-			validationManager.registerMessageValidator(CLIENT_ID, MAJOR_VERSION,
+			validationManager.registerMessageValidator(CLIENT_ID.toString(), MAJOR_VERSION,
 					validator);
 		}
 		return validator;

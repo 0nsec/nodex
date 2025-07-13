@@ -57,33 +57,33 @@ public class PrivateMessageValidatorTest extends BrambleMockTestCase {
 	private final MessageId attachmentId = new MessageId(getRandomId());
 	private final String contentType = getRandomString(MAX_CONTENT_TYPE_BYTES);
 	private final BdfDictionary legacyMeta = BdfDictionary.of(
-			new BdfEntry(MSG_KEY_TIMESTAMP, message.getTimestamp()),
-			new BdfEntry(MSG_KEY_LOCAL, false),
-			new BdfEntry(MSG_KEY_READ, false)
+			BdfEntry.of(MSG_KEY_TIMESTAMP, message.getTimestamp()),
+			BdfEntry.of(MSG_KEY_LOCAL, false),
+			BdfEntry.of(MSG_KEY_READ, false)
 	);
 	private final BdfDictionary noAttachmentsMeta = BdfDictionary.of(
-			new BdfEntry(MSG_KEY_TIMESTAMP, message.getTimestamp()),
-			new BdfEntry(MSG_KEY_LOCAL, false),
-			new BdfEntry(MSG_KEY_READ, false),
-			new BdfEntry(MSG_KEY_MSG_TYPE, PRIVATE_MESSAGE),
-			new BdfEntry(MSG_KEY_HAS_TEXT, true),
-			new BdfEntry(MSG_KEY_ATTACHMENT_HEADERS, new BdfList())
+			BdfEntry.of(MSG_KEY_TIMESTAMP, message.getTimestamp()),
+			BdfEntry.of(MSG_KEY_LOCAL, false),
+			BdfEntry.of(MSG_KEY_READ, false),
+			BdfEntry.of(MSG_KEY_MSG_TYPE, PRIVATE_MESSAGE),
+			BdfEntry.of(MSG_KEY_HAS_TEXT, true),
+			BdfEntry.of(MSG_KEY_ATTACHMENT_HEADERS, new BdfList())
 	);
 	private final BdfDictionary noTextMeta = BdfDictionary.of(
-			new BdfEntry(MSG_KEY_TIMESTAMP, message.getTimestamp()),
-			new BdfEntry(MSG_KEY_LOCAL, false),
-			new BdfEntry(MSG_KEY_READ, false),
-			new BdfEntry(MSG_KEY_MSG_TYPE, PRIVATE_MESSAGE),
-			new BdfEntry(MSG_KEY_HAS_TEXT, false),
-			new BdfEntry(MSG_KEY_ATTACHMENT_HEADERS,
+			BdfEntry.of(MSG_KEY_TIMESTAMP, message.getTimestamp()),
+			BdfEntry.of(MSG_KEY_LOCAL, false),
+			BdfEntry.of(MSG_KEY_READ, false),
+			BdfEntry.of(MSG_KEY_MSG_TYPE, PRIVATE_MESSAGE),
+			BdfEntry.of(MSG_KEY_HAS_TEXT, false),
+			BdfEntry.of(MSG_KEY_ATTACHMENT_HEADERS,
 					BdfList.of(attachmentHeader))
 	);
 	private final BdfDictionary attachmentMeta = BdfDictionary.of(
-			new BdfEntry(MSG_KEY_TIMESTAMP, message.getTimestamp()),
-			new BdfEntry(MSG_KEY_LOCAL, false),
-			new BdfEntry(MSG_KEY_MSG_TYPE, ATTACHMENT),
-			new BdfEntry(MSG_KEY_DESCRIPTOR_LENGTH, 0L),
-			new BdfEntry(MSG_KEY_CONTENT_TYPE, contentType)
+			BdfEntry.of(MSG_KEY_TIMESTAMP, message.getTimestamp()),
+			BdfEntry.of(MSG_KEY_LOCAL, false),
+			BdfEntry.of(MSG_KEY_MSG_TYPE, ATTACHMENT),
+			BdfEntry.of(MSG_KEY_DESCRIPTOR_LENGTH, 0L),
+			BdfEntry.of(MSG_KEY_CONTENT_TYPE, contentType)
 	);
 	private final PrivateMessageValidator validator =
 			new PrivateMessageValidator(bdfReaderFactory, metadataEncoder,

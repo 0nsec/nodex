@@ -29,7 +29,7 @@ public class ForumModule {
 		if (!featureFlags.shouldEnableForumsInCore()) {
 			return forumManager;
 		}
-		validationManager.registerIncomingMessageHook(CLIENT_ID, MAJOR_VERSION,
+		validationManager.registerIncomingMessageHook(CLIENT_ID.toString(), MAJOR_VERSION,
 				forumManager);
 		return forumManager;
 	}
@@ -51,7 +51,7 @@ public class ForumModule {
 		ForumPostValidator validator = new ForumPostValidator(clientHelper,
 				metadataEncoder, clock);
 		if (featureFlags.shouldEnableForumsInCore()) {
-			validationManager.registerMessageValidator(CLIENT_ID, MAJOR_VERSION,
+			validationManager.registerMessageValidator(CLIENT_ID.toString(), MAJOR_VERSION,
 					validator);
 		}
 		return validator;

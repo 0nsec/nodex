@@ -48,7 +48,7 @@ public class IntroductionValidatorTest extends ValidatorTestCase {
 	private final long acceptTimestamp = 42;
 	private final TransportId transportId = getTransportId();
 	private final BdfDictionary transportProperties = BdfDictionary.of(
-			new BdfEntry(transportId.getString(), new BdfDictionary())
+			BdfEntry.of(transportId.getString(), new BdfDictionary())
 	);
 	private final Map<TransportId, TransportProperties> transportPropertiesMap =
 			singletonMap(transportId, new TransportProperties());

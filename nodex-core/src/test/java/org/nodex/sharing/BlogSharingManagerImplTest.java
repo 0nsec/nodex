@@ -59,8 +59,8 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 	private final ContactId contactId = contact.getId();
 	private final Collection<Contact> contacts =
 			Collections.singletonList(contact);
-	private final Group localGroup = getGroup(CLIENT_ID, MAJOR_VERSION);
-	private final Group contactGroup = getGroup(CLIENT_ID, MAJOR_VERSION);
+	private final Group localGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
+	private final Group contactGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	private final Group blogGroup =
 			getGroup(BlogManager.CLIENT_ID, BlogManager.MAJOR_VERSION);
 	private final Blog blog = new Blog(blogGroup, author, false);
@@ -108,7 +108,7 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 			will(returnValue(contactGroup));
 			oneOf(db).addGroup(txn, contactGroup);
 			oneOf(clientVersioningManager).getClientVisibility(txn, contactId,
-					CLIENT_ID, MAJOR_VERSION);
+					CLIENT_ID.toString(), MAJOR_VERSION);
 			will(returnValue(SHARED));
 			oneOf(db).setGroupVisibility(txn, contactId, contactGroup.getId(),
 					SHARED);
@@ -163,7 +163,7 @@ public class BlogSharingManagerImplTest extends BrambleMockTestCase {
 	private void expectPreShareShareable(Transaction txn, Contact contact,
 			Blog blog, Map<MessageId, BdfDictionary> sessions)
 			throws Exception {
-		Group contactGroup = getGroup(CLIENT_ID, MAJOR_VERSION);
+		Group contactGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 		BdfDictionary sessionDict = new BdfDictionary();
 		Message message = getMessage(contactGroup.getId());
 		context.checking(new Expectations() {{

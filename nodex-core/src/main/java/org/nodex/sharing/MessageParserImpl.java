@@ -34,21 +34,21 @@ abstract class MessageParserImpl<S extends Shareable>
 	}
 	@Override
 	public BdfDictionary getMessagesVisibleInUiQuery() {
-		return BdfDictionary.of(new BdfEntry(MSG_KEY_VISIBLE_IN_UI, true));
+		return BdfDictionary.of(BdfEntry.of(MSG_KEY_VISIBLE_IN_UI, true));
 	}
 	@Override
 	public BdfDictionary getInvitesAvailableToAnswerQuery() {
 		return BdfDictionary.of(
-				new BdfEntry(MSG_KEY_AVAILABLE_TO_ANSWER, true),
-				new BdfEntry(MSG_KEY_MESSAGE_TYPE, INVITE.getValue())
+				BdfEntry.of(MSG_KEY_AVAILABLE_TO_ANSWER, true),
+				BdfEntry.of(MSG_KEY_MESSAGE_TYPE, INVITE.getValue())
 		);
 	}
 	@Override
 	public BdfDictionary getInvitesAvailableToAnswerQuery(GroupId shareableId) {
 		return BdfDictionary.of(
-				new BdfEntry(MSG_KEY_AVAILABLE_TO_ANSWER, true),
-				new BdfEntry(MSG_KEY_MESSAGE_TYPE, INVITE.getValue()),
-				new BdfEntry(MSG_KEY_SHAREABLE_ID, shareableId)
+				BdfEntry.of(MSG_KEY_AVAILABLE_TO_ANSWER, true),
+				BdfEntry.of(MSG_KEY_MESSAGE_TYPE, INVITE.getValue()),
+				BdfEntry.of(MSG_KEY_SHAREABLE_ID, shareableId)
 		);
 	}
 	@Override

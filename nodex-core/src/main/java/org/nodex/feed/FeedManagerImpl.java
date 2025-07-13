@@ -230,7 +230,7 @@ class FeedManagerImpl implements FeedManager, EventListener, OpenDatabaseHook,
 		for (Feed feed : feeds) {
 			feedList.add(feedFactory.feedToBdfDictionary(feed));
 		}
-		BdfDictionary gm = BdfDictionary.of(new BdfEntry(KEY_FEEDS, feedList));
+		BdfDictionary gm = BdfDictionary.of(BdfEntry.of(KEY_FEEDS, feedList));
 		try {
 			clientHelper.mergeGroupMetadata(txn, getLocalGroup().getId(), gm);
 		} catch (FormatException e) {
@@ -418,6 +418,6 @@ class FeedManagerImpl implements FeedManager, EventListener, OpenDatabaseHook,
 		};
 	}
 	private Group getLocalGroup() {
-		return contactGroupFactory.createLocalGroup(CLIENT_ID, MAJOR_VERSION);
+		return contactGroupFactory.createLocalGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	}
 }

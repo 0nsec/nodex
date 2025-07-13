@@ -65,7 +65,7 @@ public class FeedManagerImplTest extends BrambleMockTestCase {
 					return client;
 				}
 			};
-	private final Group localGroup = getGroup(CLIENT_ID, MAJOR_VERSION);
+	private final Group localGroup = getGroup(CLIENT_ID.toString(), MAJOR_VERSION);
 	private final GroupId localGroupId = localGroup.getId();
 	private final Group blogGroup =
 			getGroup(BlogManager.CLIENT_ID, BlogManager.MAJOR_VERSION);
@@ -264,7 +264,7 @@ public class FeedManagerImplTest extends BrambleMockTestCase {
 			feedList.add(new BdfDictionary());
 		}
 		BdfDictionary feedsDict =
-				BdfDictionary.of(new BdfEntry(KEY_FEEDS, feedList));
+				BdfDictionary.of(BdfEntry.of(KEY_FEEDS, feedList));
 		expectGetLocalGroup();
 		context.checking(new Expectations() {{
 			oneOf(clientHelper).getGroupMetadataAsDictionary(txn, localGroupId);
@@ -282,7 +282,7 @@ public class FeedManagerImplTest extends BrambleMockTestCase {
 			feedList.add(new BdfDictionary());
 		}
 		BdfDictionary feedDict =
-				BdfDictionary.of(new BdfEntry(KEY_FEEDS, feedList));
+				BdfDictionary.of(BdfEntry.of(KEY_FEEDS, feedList));
 		expectGetLocalGroup();
 		context.checking(new Expectations() {{
 			oneOf(clientHelper).mergeGroupMetadata(txn, localGroupId, feedDict);

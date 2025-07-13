@@ -32,7 +32,7 @@ public class IntroductionModule {
 		IntroductionValidator introductionValidator =
 				new IntroductionValidator(messageEncoder, clientHelper,
 						metadataEncoder, clock);
-		validationManager.registerMessageValidator(CLIENT_ID, MAJOR_VERSION,
+		validationManager.registerMessageValidator(CLIENT_ID.toString(), MAJOR_VERSION,
 				introductionValidator);
 		return introductionValidator;
 	}
@@ -50,9 +50,9 @@ public class IntroductionModule {
 		validationManager.registerIncomingMessageHook(CLIENT_ID,
 				MAJOR_VERSION, introductionManager);
 		conversationManager.registerConversationClient(introductionManager);
-		clientVersioningManager.registerClient(CLIENT_ID, MAJOR_VERSION,
+		clientVersioningManager.registerClient(CLIENT_ID.toString(), MAJOR_VERSION,
 				MINOR_VERSION, introductionManager);
-		cleanupManager.registerCleanupHook(CLIENT_ID, MAJOR_VERSION,
+		cleanupManager.registerCleanupHook(CLIENT_ID.toString(), MAJOR_VERSION,
 				introductionManager);
 		return introductionManager;
 	}

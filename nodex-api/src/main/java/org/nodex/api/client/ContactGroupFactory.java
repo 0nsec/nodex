@@ -22,6 +22,11 @@ public interface ContactGroupFactory {
     Group createContactGroup(ContactId contactId, GroupId groupId);
     
     /**
+     * Creates a local group for the given client.
+     */
+    Group createLocalGroup(org.nodex.api.sync.ClientId clientId, int majorVersion);
+    
+    /**
      * Returns the group ID for a contact.
      */
     GroupId getContactGroupId(ContactId contactId);

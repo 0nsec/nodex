@@ -2,6 +2,8 @@ package org.nodex.api.identity;
 
 import org.nodex.api.crypto.KeyPair;
 import org.nodex.api.nullsafety.NotNullByDefault;
+import org.nodex.api.db.Transaction;
+import org.nodex.api.db.DbException;
 
 /**
  * Manager for identity operations.
@@ -23,6 +25,11 @@ public interface IdentityManager {
      * Returns the local author if one exists.
      */
     LocalAuthor getLocalAuthor();
+    
+    /**
+     * Returns the local author if one exists (transaction version).
+     */
+    LocalAuthor getLocalAuthor(Transaction txn) throws DbException;
     
     /**
      * Returns true if a local author exists.

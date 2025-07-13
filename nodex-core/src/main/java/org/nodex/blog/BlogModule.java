@@ -35,7 +35,7 @@ public class BlogModule {
 		}
 		lifecycleManager.registerOpenDatabaseHook(blogManager);
 		contactManager.registerContactHook(blogManager);
-		validationManager.registerIncomingMessageHook(CLIENT_ID, MAJOR_VERSION,
+		validationManager.registerIncomingMessageHook(CLIENT_ID.toString(), MAJOR_VERSION,
 				blogManager);
 		return blogManager;
 	}
@@ -59,7 +59,7 @@ public class BlogModule {
 				messageFactory, blogFactory, clientHelper, metadataEncoder,
 				clock);
 		if (featureFlags.shouldEnableBlogsInCore()) {
-			validationManager.registerMessageValidator(CLIENT_ID, MAJOR_VERSION,
+			validationManager.registerMessageValidator(CLIENT_ID.toString(), MAJOR_VERSION,
 					validator);
 		}
 		return validator;
