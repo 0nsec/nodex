@@ -363,7 +363,7 @@ public class TestDataCreatorImpl implements TestDataCreator {
 	private void createPrivateMessages(List<Contact> contacts,
 			int numPrivateMsgs) throws DbException {
 		for (Contact contact : contacts) {
-			Group group = messagingManager.getContactGroup(contact);
+			GroupId groupId = messagingManager.getContactGroupId(contact);
 			shareGroup(contact.getId(), group.getId());
 			for (int i = 0; i < numPrivateMsgs; i++) {
 				createRandomPrivateMessage(contact.getId(), group.getId(), i);
