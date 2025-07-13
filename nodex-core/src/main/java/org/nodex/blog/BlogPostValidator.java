@@ -49,7 +49,7 @@ public class BlogPostValidator extends BdfMessageValidator {
 	private final GroupFactory groupFactory;
 	private final MessageFactory messageFactory;
 	private final BlogFactory blogFactory;
-	BlogPostValidator(GroupFactory groupFactory, MessageFactory messageFactory,
+	public BlogPostValidator(GroupFactory groupFactory, MessageFactory messageFactory,
 			BlogFactory blogFactory, ClientHelper clientHelper,
 			MetadataEncoder metadataEncoder, Clock clock) {
 		super(clientHelper, metadataEncoder, clock);

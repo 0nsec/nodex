@@ -30,8 +30,8 @@ import static org.nodex.api.forum.ForumConstants.MAX_FORUM_POST_TEXT_LENGTH;
 import static org.nodex.api.forum.ForumPostFactory.SIGNING_LABEL_POST;
 @Immutable
 @NotNullByDefault
-class ForumPostValidator extends BdfMessageValidator {
-	ForumPostValidator(ClientHelper clientHelper,
+public class ForumPostValidator extends BdfMessageValidator {
+	public ForumPostValidator(ClientHelper clientHelper,
 			MetadataEncoder metadataEncoder, Clock clock) {
 		super(clientHelper, metadataEncoder, clock);
 	}
