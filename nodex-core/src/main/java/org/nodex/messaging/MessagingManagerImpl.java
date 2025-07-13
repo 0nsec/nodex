@@ -122,41 +122,53 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 	public GroupCount getGroupCount(Transaction txn, ContactId contactId)
 			throws DbException {
 		Contact contact = db.getContact(txn, contactId);
-		GroupId groupId = getContactGroupId(contact);
+		GroupId groupId = getContactGroup(contact).getId();
 		return messageTracker.getGroupCount(txn, groupId);
 	}
+
 	@Override
 	public void onDatabaseOpened(Transaction txn) throws DbException {
-	   Group localGroup = contactGroupFactory.createLocalGroup(CLIENT_ID.toString(),
-			   MAJOR_VERSION);
+		// Create a local group to indicate that we've set this client up
+		Group localGroup = contactGroupFactory.createLocalGroup(CLIENT_ID,
+				MAJOR_VERSION);
 		if (db.containsGroup(txn, localGroup.getId())) return;
 		db.addGroup(txn, localGroup);
+		// Set things up for any pre-existing contacts
 		for (Contact c : db.getContacts(txn)) addingContact(txn, c);
 	}
+
 	@Override
 	public void addingContact(Transaction txn, Contact c) throws DbException {
-		GroupId groupId = getContactGroupId(c);
-		db.addGroup(txn, groupId);
-	   Visibility client = clientVersioningManager.getClientVisibility(txn,
-			   c.getId(), CLIENT_ID.toString(), MAJOR_VERSION);
-		db.setGroupVisibility(txn, c.getId(), groupId, client);
-	   clientHelper.setContactId(txn, groupId, c.getId());
-		messageTracker.initializeGroupCount(txn, groupId);
+		// Create a group to share with the contact
+		Group g = getContactGroup(c);
+		db.addGroup(txn, g);
+		// Apply the client's visibility to the contact group
+		Visibility client = clientVersioningManager.getClientVisibility(txn,
+				c.getId(), CLIENT_ID, MAJOR_VERSION);
+		db.setGroupVisibility(txn, c.getId(), g.getId(), client);
+		// Attach the contact ID to the group
+		clientHelper.setContactId(txn, g.getId(), c.getId());
+		// Initialize the group count with current time
+		messageTracker.initializeGroupCount(txn, g.getId());
 	}
+
 	@Override
-   public GroupId getContactGroupId(Contact c) {
-	   return contactGroupFactory.createContactGroupId(CLIENT_ID.toString(),
-			   MAJOR_VERSION, c);
+	public Group getContactGroup(Contact c) {
+		return contactGroupFactory.createContactGroup(CLIENT_ID,
+				MAJOR_VERSION, c);
 	}
+
 	@Override
 	public void removingContact(Transaction txn, Contact c) throws DbException {
-		db.removeGroup(txn, getContactGroupId(c));
+		db.removeGroup(txn, getContactGroup(c));
 	}
+
 	@Override
 	public void onClientVisibilityChanging(Transaction txn, Contact c,
 			Visibility v) throws DbException {
-		GroupId groupId = getContactGroupId(c);
-		db.setGroupVisibility(txn, c.getId(), groupId, v);
+		// Apply the client's visibility to the contact group
+		Group g = getContactGroup(c);
+		db.setGroupVisibility(txn, c.getId(), g.getId(), v);
 	}
 	@Override
 	public DeliveryAction incomingMessage(Transaction txn, Message m,
