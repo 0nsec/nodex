@@ -22,6 +22,9 @@ public abstract class ConversationClientImpl extends BdfIncomingMessageHook
 	private static final ClientId CLIENT_ID = new ClientId("org.nodex.conversation");
 	private static final int MAJOR_VERSION = 0;
 	
+	protected final DatabaseComponent db;
+	protected final ClientHelper clientHelper;
+	protected final MetadataParser metadataParser;
 	protected final MessageTracker messageTracker;
 	protected ConversationClientImpl(DatabaseComponent db,
 			ClientHelper clientHelper, MetadataParser metadataParser,

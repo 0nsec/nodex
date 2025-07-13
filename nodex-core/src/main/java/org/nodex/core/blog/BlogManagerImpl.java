@@ -75,7 +75,7 @@ public class BlogManagerImpl implements BlogManager, Service {
             return blog;
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
@@ -93,7 +93,7 @@ public class BlogManagerImpl implements BlogManager, Service {
             return blogs;
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
@@ -109,7 +109,7 @@ public class BlogManagerImpl implements BlogManager, Service {
             LOG.info("Added local blog post: " + post.getId());
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
@@ -131,7 +131,7 @@ public class BlogManagerImpl implements BlogManager, Service {
             return headers;
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
@@ -147,7 +147,7 @@ public class BlogManagerImpl implements BlogManager, Service {
             return text;
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
@@ -162,7 +162,7 @@ public class BlogManagerImpl implements BlogManager, Service {
             LOG.fine("Set read flag for blog post " + postId + " to " + read);
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
@@ -177,7 +177,7 @@ public class BlogManagerImpl implements BlogManager, Service {
             LOG.info("Removed blog: " + blog.getId());
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }

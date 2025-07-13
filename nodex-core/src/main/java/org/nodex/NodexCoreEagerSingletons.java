@@ -26,7 +26,6 @@ public interface NodexCoreEagerSingletons {
 		public static void injectEagerSingletons(NodexCoreEagerSingletons c) {
 			c.inject(new AutoDeleteModule.EagerSingletons());
 			c.inject(new AvatarModule.EagerSingletons());
-			c.inject(new BlogModule.EagerSingletons());
 			c.inject(new ConversationModule.EagerSingletons());
 			c.inject(new FeedModule.EagerSingletons());
 			c.inject(new ForumModule.EagerSingletons());

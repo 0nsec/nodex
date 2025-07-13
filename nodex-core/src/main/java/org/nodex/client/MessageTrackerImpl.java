@@ -71,6 +71,7 @@ class MessageTrackerImpl implements MessageTracker {
 			throw new DbException(e);
 		}
 	}
+
 	@Override
 	public void storeMessageId(GroupId g, MessageId m) throws DbException {
 		BdfDictionary d = BdfDictionary.of(

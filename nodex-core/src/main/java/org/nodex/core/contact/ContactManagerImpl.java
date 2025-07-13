@@ -73,7 +73,7 @@ public class ContactManagerImpl implements ContactManager, Service {
             throw new ContactExistsException("Contact already exists: " + author.getName());
         }
 
-        Contact contact = new Contact(contactId, author, verified);
+        Contact contact = new Contact(contactId, author, author.getName(), null, verified);
         
         // Store in database
         Transaction txn = db.startTransaction(false);
@@ -81,7 +81,7 @@ public class ContactManagerImpl implements ContactManager, Service {
             storeContact(txn, contact);
             db.commitTransaction(txn);
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
 
@@ -109,7 +109,7 @@ public class ContactManagerImpl implements ContactManager, Service {
             deleteContact(txn, contactId);
             db.commitTransaction(txn);
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
 
@@ -160,7 +160,7 @@ public class ContactManagerImpl implements ContactManager, Service {
         }
 
         // Create updated contact
-        Contact updatedContact = new Contact(contactId, contact.getAuthor(), verified);
+        Contact updatedContact = new Contact(contactId, contact.getAuthor(), contact.getName(), contact.getAlias(), verified);
         
         // Update in database
         Transaction txn = db.startTransaction(false);
@@ -168,7 +168,7 @@ public class ContactManagerImpl implements ContactManager, Service {
             updateContact(txn, updatedContact);
             db.commitTransaction(txn);
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
 
@@ -190,7 +190,7 @@ public class ContactManagerImpl implements ContactManager, Service {
             
             LOG.info("Loaded " + loaded.size() + " contacts");
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }

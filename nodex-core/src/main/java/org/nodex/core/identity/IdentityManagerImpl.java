@@ -83,7 +83,7 @@ public class IdentityManagerImpl implements IdentityManager, Service {
             storeLocalAuthor(txn, author);
             db.commitTransaction(txn);
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
         
@@ -111,7 +111,7 @@ public class IdentityManagerImpl implements IdentityManager, Service {
             storeLocalAuthor(txn, author);
             db.commitTransaction(txn);
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
         
@@ -181,7 +181,7 @@ public class IdentityManagerImpl implements IdentityManager, Service {
             
             LOG.info("Loaded " + loaded.size() + " local authors");
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }

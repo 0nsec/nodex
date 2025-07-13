@@ -16,6 +16,11 @@ import org.nodex.api.db.Transaction;
 import org.nodex.api.nullsafety.NotNullByDefault;
 import org.nodex.api.data.MetadataEncoder;
 import org.nodex.api.data.MetadataParser;
+import org.nodex.api.FormatException;
+import org.nodex.api.contact.ContactId;
+
+import java.util.Map;
+import java.util.HashMap;
 
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;

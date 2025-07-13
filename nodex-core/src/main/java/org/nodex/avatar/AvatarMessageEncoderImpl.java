@@ -7,7 +7,6 @@ import org.nodex.api.data.BdfList;
 import org.nodex.api.sync.GroupId;
 import org.nodex.api.sync.Message;
 import org.nodex.api.system.Clock;
-import org.nodex.api.attachment.FileTooBigException;
 import org.nodex.api.avatar.AvatarMessageEncoder;
 import org.nodex.nullsafety.NotNullByDefault;
 import java.io.ByteArrayOutputStream;
@@ -35,20 +34,25 @@ class AvatarMessageEncoderImpl implements AvatarMessageEncoder {
 	public Pair<Message, BdfDictionary> encodeUpdateMessage(GroupId groupId,
 			long version, String contentType, InputStream in)
 			throws IOException {
-		BdfList list = BdfList.of(MSG_TYPE_UPDATE, version, contentType);
-		byte[] descriptor = clientHelper.toByteArray(list);
-		ByteArrayOutputStream bodyOut = new ByteArrayOutputStream();
-		bodyOut.write(descriptor);
-		copyAndClose(in, bodyOut);
-		if (bodyOut.size() > MAX_MESSAGE_BODY_LENGTH)
-			throw new FileTooBigException();
-		byte[] body = bodyOut.toByteArray();
-		long timestamp = clock.currentTimeMillis();
-		Message m = clientHelper.createMessage(groupId, timestamp, body);
-		BdfDictionary meta = new BdfDictionary();
-		meta.put(MSG_KEY_VERSION, version);
-		meta.put(MSG_KEY_CONTENT_TYPE, contentType);
-		meta.put(MSG_KEY_DESCRIPTOR_LENGTH, descriptor.length);
-		return new Pair<>(m, meta);
+		try {
+			BdfList list = BdfList.of(MSG_TYPE_UPDATE, version, contentType);
+			byte[] descriptor = clientHelper.toByteArray(list);
+			ByteArrayOutputStream bodyOut = new ByteArrayOutputStream();
+			bodyOut.write(descriptor);
+			copyAndClose(in, bodyOut);
+			if (bodyOut.size() > MAX_MESSAGE_BODY_LENGTH)
+				throw new IOException("File too big");
+			byte[] body = bodyOut.toByteArray();
+			long timestamp = clock.currentTimeMillis();
+			Message m = clientHelper.createMessage(groupId, timestamp, body);
+			
+			BdfDictionary meta = new BdfDictionary();
+			meta.put(MSG_KEY_VERSION, version);
+			meta.put(MSG_KEY_CONTENT_TYPE, contentType);
+			meta.put(MSG_KEY_DESCRIPTOR_LENGTH, descriptor.length);
+			return new Pair<>(m, meta);
+		} catch (FormatException e) {
+			throw new IOException("Format error", e);
+		}
 	}
 }

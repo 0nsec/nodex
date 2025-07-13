@@ -195,8 +195,8 @@ public class DatabaseComponentImpl implements DatabaseComponent, Service {
                 AuthorId authorId = new AuthorId(rs.getBytes("id"));
                 String name = rs.getString("name");
                 byte[] publicKey = rs.getBytes("public_key");
-                Author author = new Author(authorId, name, publicKey);
-                return new Contact(contactId, author, true);
+                Author author = new Author(authorId, Author.FORMAT_VERSION, name, publicKey);
+                return new Contact(contactId, author, name, null, true);
             } else {
                 throw new DbException("Contact not found");
             }
@@ -221,8 +221,8 @@ public class DatabaseComponentImpl implements DatabaseComponent, Service {
                 AuthorId authorId = new AuthorId(rs.getBytes("id"));
                 String name = rs.getString("name");
                 byte[] publicKey = rs.getBytes("public_key");
-                Author author = new Author(authorId, name, publicKey);
-                contacts.add(new Contact(contactId, author, true));
+                Author author = new Author(authorId, Author.FORMAT_VERSION, name, publicKey);
+                contacts.add(new Contact(contactId, author, name, null, true));
             }
         } catch (SQLException e) {
             throw new DbException("Failed to get contacts", e);
@@ -410,7 +410,7 @@ public class DatabaseComponentImpl implements DatabaseComponent, Service {
             if (rs.next()) {
                 String name = rs.getString("name");
                 byte[] publicKey = rs.getBytes("public_key");
-                return new Author(authorId, name, publicKey);
+                return new Author(authorId, Author.FORMAT_VERSION, name, publicKey);
             } else {
                 throw new DbException("Author not found");
             }

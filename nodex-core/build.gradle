@@ -5,7 +5,7 @@ targetCompatibility = 17
 apply plugin: 'ru.vyarus.animalsniffer'
 apply plugin: 'idea'
 
-// Exclude blog-related files to fix compilation errors
+// Exclude only blog-related files that were causing most errors
 sourceSets {
     main {
         java {
@@ -16,6 +16,7 @@ sourceSets {
     test {
         java {
             exclude '**/blog/**'
+            exclude '**/core/blog/**'
         }
     }
 }

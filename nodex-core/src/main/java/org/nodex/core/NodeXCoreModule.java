@@ -16,6 +16,7 @@ import org.nodex.core.crypto.CryptoModule;
 import org.nodex.core.attachment.AttachmentModule;
 import org.nodex.core.autodelete.AutoDeleteModule;
 import org.nodex.core.identity.IdentityModule;
+import org.nodex.client.NodexClientModule;
 
 import dagger.Module;
 
@@ -39,7 +40,8 @@ import dagger.Module;
     CryptoModule.class,
     AttachmentModule.class,
     AutoDeleteModule.class,
-    IdentityModule.class
+    IdentityModule.class,
+    NodexClientModule.class
 })
 public class NodeXCoreModule {
     // All functionality provided by included modules

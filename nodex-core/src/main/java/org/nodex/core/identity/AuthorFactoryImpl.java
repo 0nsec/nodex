@@ -47,14 +47,14 @@ public class AuthorFactoryImpl implements AuthorFactory {
 
     @Override
     public Author createAuthor(AuthorId authorId, String name, PublicKey publicKey) {
-        return new Author(authorId, name, publicKey);
+        return new Author(authorId, Author.FORMAT_VERSION, name, publicKey.getEncoded());
     }
 
     @Override
     public Author createAuthor(String name, PublicKey publicKey) {
         // Generate author ID from public key
         AuthorId authorId = new AuthorId(crypto.hash(publicKey.getEncoded()));
-        return new Author(authorId, name, publicKey);
+        return new Author(authorId, Author.FORMAT_VERSION, name, publicKey.getEncoded());
     }
 
     @Override

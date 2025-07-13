@@ -82,7 +82,7 @@ public class MessagingManagerImpl implements MessagingManager, Service {
             LOG.info("Added local private message: " + message.getId());
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
@@ -109,7 +109,7 @@ public class MessagingManagerImpl implements MessagingManager, Service {
             return headers;
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
@@ -127,7 +127,7 @@ public class MessagingManagerImpl implements MessagingManager, Service {
             return text;
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
@@ -143,7 +143,7 @@ public class MessagingManagerImpl implements MessagingManager, Service {
             LOG.fine("Set read flag for message " + messageId + " to " + read);
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
@@ -159,7 +159,7 @@ public class MessagingManagerImpl implements MessagingManager, Service {
             return timestamp;
             
         } catch (DbException e) {
-            db.abortTransaction(txn);
+            db.endTransaction(txn);
             throw e;
         }
     }
