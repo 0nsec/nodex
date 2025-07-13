@@ -82,8 +82,8 @@ class PrivateMessageValidator implements MessageValidator {
 					throw new InvalidMessageException();
 				}
 			}
-			Metadata meta = metadataEncoder.encode(context.getDictionary());
-			return new MessageContext(meta, context.getDependencies());
+			byte[] meta = metadataEncoder.encode(context.getDictionary());
+			return new BdfMessageContextImpl(m, list, context.getDictionary(), m.getTimestamp());
 		} catch (IOException e) {
 			throw new InvalidMessageException(e);
 		}
@@ -97,7 +97,7 @@ class PrivateMessageValidator implements MessageValidator {
 		meta.put(MSG_KEY_TIMESTAMP, m.getTimestamp());
 		meta.put(MSG_KEY_LOCAL, false);
 		meta.put(MSG_KEY_READ, false);
-		return new BdfMessageContext(meta);
+	return new BdfMessageContextImpl(m, body, meta, m.getTimestamp());
 	}
 	private BdfMessageContext validatePrivateMessage(Message m, BdfList body)
 			throws FormatException {
