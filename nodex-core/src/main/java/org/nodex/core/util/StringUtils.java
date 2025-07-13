@@ -20,6 +20,20 @@ public class StringUtils {
         return sb.toString();
     }
     
+    /**
+     * Check if a string is null or empty.
+     */
+    public static boolean isNullOrEmpty(String s) {
+        return s == null || s.isEmpty();
+    }
+    
+    /**
+     * Check if a string is null, empty, or contains only whitespace.
+     */
+    public static boolean isNullOrBlank(String s) {
+        return s == null || s.trim().isEmpty();
+    }
+    
     public static String truncateUtf8(String s, int maxBytes) {
         if (s == null) return null;
         byte[] bytes = s.getBytes(StandardCharsets.UTF_8);
