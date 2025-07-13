@@ -44,7 +44,7 @@ public interface MessagingManager extends ConversationClient {
         throws DbException;
     // Methods required by MessagingManagerImpl
     // Change return type to match ConversationClient to avoid clash
-    org.nodex.api.sync.Group getContactGroup(Contact contact);
+    GroupId getContactGroup(Contact contact);
     Collection<PrivateMessageHeader> getMessageHeaders(ContactId contactId) throws DbException;
     void setReadFlag(MessageId messageId, boolean read) throws DbException;
     long getTimestamp(MessageId messageId) throws DbException;
