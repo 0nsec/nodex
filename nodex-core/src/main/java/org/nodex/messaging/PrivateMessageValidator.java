@@ -2,6 +2,7 @@ package org.nodex.messaging;
 import org.nodex.api.FormatException;
 import org.nodex.api.UniqueId;
 import org.nodex.api.client.BdfMessageContext;
+import org.nodex.api.sync.BdfMessageContextImpl;
 import org.nodex.api.data.BdfDictionary;
 import org.nodex.api.data.BdfList;
 import org.nodex.api.data.BdfReader;
