@@ -1,4 +1,5 @@
 
+package org.nodex.api.messaging;
 
 
 import org.nodex.api.attachment.AttachmentHeader;
