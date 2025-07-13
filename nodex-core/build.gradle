@@ -11,6 +11,9 @@ sourceSets {
             exclude '**/messaging/MessagingManagerImpl.java'
             exclude '**/test/TestDataCreatorImpl.java'
             exclude '**/privategroup/PrivateGroupFactoryImpl.java'
+            exclude '**/messaging/MessagingModule.java'
+            exclude '**/test/TestModule.java'
+            exclude '**/privategroup/PrivateGroupModule.java'
         }
     }
 }
