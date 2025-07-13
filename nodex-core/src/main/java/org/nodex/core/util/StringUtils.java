@@ -13,7 +13,6 @@ public class StringUtils {
     public static String truncate(String str, int maxLength) {
         return org.nodex.api.util.StringUtils.truncate(str, maxLength);
     }
-}
 
     public static boolean utf8IsTooLong(String str, int maxBytes) {
         if (str == null) return false;
@@ -32,3 +31,4 @@ public class StringUtils {
         }
         return new String(bytes, 0, truncatePoint, java.nio.charset.StandardCharsets.UTF_8);
     }
+}

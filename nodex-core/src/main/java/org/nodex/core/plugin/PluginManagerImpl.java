@@ -5,7 +5,7 @@ import org.nodex.api.transport.TransportPluginManager;
 
 import org.nodex.api.transport.TransportPluginConfig;
 import org.nodex.api.plugin.TransportId;
-import org.nodex.api.plugin.TransportPlugin as PluginTransportPlugin;
+import org.nodex.api.plugin.TransportPlugin;
 import org.nodex.api.lifecycle.Service;
 import org.nodex.api.lifecycle.ServiceException;
 import org.nodex.api.nullsafety.NotNullByDefault;
