@@ -23,7 +23,6 @@ public class IoUtils {
             tryToClose(closeable);
         }
     }
-}
 
     public static void copyAndClose(java.io.InputStream input, java.io.OutputStream output) throws java.io.IOException {
         try {
@@ -37,3 +36,4 @@ public class IoUtils {
             tryToClose(output);
         }
     }
+}
