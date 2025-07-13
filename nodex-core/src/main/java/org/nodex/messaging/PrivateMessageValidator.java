@@ -41,50 +41,43 @@ import static org.nodex.messaging.MessagingConstants.MSG_KEY_LOCAL;
 import static org.nodex.messaging.MessagingConstants.MSG_KEY_MSG_TYPE;
 import static org.nodex.messaging.MessagingConstants.MSG_KEY_TIMESTAMP;
 import static org.nodex.util.ValidationUtils.validateAutoDeleteTimer;
-@Immutable
-@NotNullByDefault
-class PrivateMessageValidator implements MessageValidator {
-	private final BdfReaderFactory bdfReaderFactory;
-	private final MetadataEncoder metadataEncoder;
-	private final Clock clock;
-	PrivateMessageValidator(BdfReaderFactory bdfReaderFactory,
-			MetadataEncoder metadataEncoder, Clock clock) {
-		this.bdfReaderFactory = bdfReaderFactory;
-		this.metadataEncoder = metadataEncoder;
-		this.clock = clock;
-	}
 	@Override
-   public MessageContext validateMessage(Message m, Group g)
-		   throws InvalidMessageException {
+	public MessageContext validateMessage(Message m, Group g) throws InvalidMessageException {
 		long now = clock.currentTimeMillis();
 		if (m.getTimestamp() - now > MAX_CLOCK_DIFFERENCE) {
-			throw new InvalidMessageException(
-					"Timestamp is too far in the future");
+			throw new InvalidMessageException("Timestamp is too far in the future");
 		}
 		try {
 			InputStream in = new ByteArrayInputStream(m.getBody());
-			CountingInputStream countIn =
-					new CountingInputStream(in, MAX_MESSAGE_BODY_LENGTH);
+			CountingInputStream countIn = new CountingInputStream(in, MAX_MESSAGE_BODY_LENGTH);
 			BdfReader reader = bdfReaderFactory.createReader(countIn);
 			BdfList list = reader.readBdfList();
 			long bytesRead = countIn.getBytesRead();
-		   MessageContext context;
-		   if (list.size() == 1) {
-			   if (!reader.eof()) throw new FormatException();
-			   context = validateLegacyPrivateMessage(m, list);
-		   } else {
-			   int messageType = list.getInt(0);
-			   if (messageType == PRIVATE_MESSAGE) {
-				   if (!reader.eof()) throw new FormatException();
-				   context = validatePrivateMessage(m, list);
-			   } else if (messageType == ATTACHMENT) {
-					context = validateAttachment(m, list, bytesRead);
-				} else {
-					throw new InvalidMessageException();
+			MessageContext context;
+			if (list.size() == 1) {
+				try {
+					if (!reader.eof()) throw new FormatException();
+					context = validateLegacyPrivateMessage(m, list);
+				} catch (FormatException fe) {
+					throw new InvalidMessageException(fe);
+				}
+			} else {
+				int messageType = list.getInt(0);
+				try {
+					if (messageType == PRIVATE_MESSAGE) {
+						if (!reader.eof()) throw new FormatException();
+						context = validatePrivateMessage(m, list);
+					} else if (messageType == ATTACHMENT) {
+						context = validateAttachment(m, list, bytesRead);
+					} else {
+						throw new InvalidMessageException();
+					}
+				} catch (FormatException fe) {
+					throw new InvalidMessageException(fe);
 				}
 			}
-		   byte[] meta = metadataEncoder.encode(((BdfMessageContextImpl)context).getDictionary());
-		   return new BdfMessageContextImpl(m, list, ((BdfMessageContextImpl)context).getDictionary(), m.getTimestamp());
+			byte[] meta = metadataEncoder.encode(((BdfMessageContextImpl)context).getDictionary());
+			return new BdfMessageContextImpl(m, list, ((BdfMessageContextImpl)context).getDictionary(), m.getTimestamp());
 		} catch (IOException e) {
 			throw new InvalidMessageException(e);
 		}
