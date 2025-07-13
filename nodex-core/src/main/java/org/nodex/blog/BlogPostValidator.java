@@ -57,7 +57,6 @@ public class BlogPostValidator implements MessageValidator {
 	public BlogPostValidator(GroupFactory groupFactory, MessageFactory messageFactory,
 			BlogFactory blogFactory, ClientHelper clientHelper,
 			MetadataEncoder metadataEncoder, Clock clock) {
-		super(CLIENT_ID, MAJOR_VERSION);
 		this.groupFactory = groupFactory;
 		this.messageFactory = messageFactory;
 		this.blogFactory = blogFactory;
@@ -66,36 +65,37 @@ public class BlogPostValidator implements MessageValidator {
 	}
 	
 	@Override
-	public BdfList parseMessage(Message m) throws Exception {
-		return clientHelper.getMessageAsList(null, m.getId());
+	public MessageContext validateMessage(Message m, Group g) throws InvalidMessageException {
+		try {
+			BdfList body = clientHelper.getMessageAsList(null, m.getId());
+			BdfMessageContext c;
+			int type = body.getInt(0);
+			body.remove(0);
+			switch (MessageType.valueOf(type)) {
+				case POST:
+					c = validatePost(m, g, body);
+					addMessageMetadata(c, m.getTimestamp());
+					break;
+				case COMMENT:
+					c = validateComment(m, g, body);
+					addMessageMetadata(c, m.getTimestamp());
+					break;
+				case WRAPPED_POST:
+					c = validateWrappedPost(body);
+					break;
+				case WRAPPED_COMMENT:
+					c = validateWrappedComment(body);
+					break;
+				default:
+					throw new InvalidMessageException("Unknown Message Type");
+			}
+			c.getDictionary().put(KEY_TYPE, type);
+			return c;
+		} catch (Exception e) {
+			throw new InvalidMessageException("Failed to validate message", e);
+		}
 	}
 	
-	@Override
-	protected MessageContext validateMessage(BdfList body, Group g) throws InvalidMessageException {
-		BdfMessageContext c;
-		int type = body.getInt(0);
-		body.remove(0);
-		switch (MessageType.valueOf(type)) {
-			case POST:
-				c = validatePost(m, g, body);
-				addMessageMetadata(c, m.getTimestamp());
-				break;
-			case COMMENT:
-				c = validateComment(m, g, body);
-				addMessageMetadata(c, m.getTimestamp());
-				break;
-			case WRAPPED_POST:
-				c = validateWrappedPost(body);
-				break;
-			case WRAPPED_COMMENT:
-				c = validateWrappedComment(body);
-				break;
-			default:
-				throw new InvalidMessageException("Unknown Message Type");
-		}
-		c.getDictionary().put(KEY_TYPE, type);
-		return c;
-	}
 	private BdfMessageContext validatePost(Message m, Group g, BdfList body)
 			throws InvalidMessageException, FormatException {
 		checkSize(body, 2);
