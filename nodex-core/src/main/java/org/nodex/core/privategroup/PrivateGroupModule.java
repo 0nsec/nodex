@@ -12,6 +12,7 @@ import org.nodex.api.data.MetadataParser;
 import org.nodex.api.system.Clock;
 import org.nodex.api.identity.IdentityManager;
 import org.nodex.api.db.DatabaseComponent;
+import org.nodex.privategroup.GroupMessageValidator;
 
 import dagger.Module;
 import dagger.Provides;

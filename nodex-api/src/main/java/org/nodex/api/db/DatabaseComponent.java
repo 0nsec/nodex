@@ -20,7 +20,7 @@ public interface DatabaseComponent {
     /**
      * Execute a transaction with result.
      */
-    <T> T transactionWithResult(boolean readOnly, DbCallable<T, DbException> callable) throws DbException;
+    <R, E extends Exception> R transactionWithResult(boolean readOnly, DbCallable<R, E> callable) throws DbException, E;
     
     /**
      * Execute a transaction.
