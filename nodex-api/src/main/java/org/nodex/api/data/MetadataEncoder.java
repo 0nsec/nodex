@@ -1,16 +1,11 @@
 package org.nodex.api.data;
 
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.FormatException;
+import org.nodex.api.db.Metadata;
+import org.nodex.api.nullsafety.NotNullByDefault;
 
-import java.util.Map;
-
-/**
- * Encoder for metadata.
- */
 @NotNullByDefault
 public interface MetadataEncoder {
-    /**
-     * Encode metadata to bytes.
-     */
-    byte[] encode(Map<String, Object> metadata);
+
+	Metadata encode(BdfDictionary d) throws FormatException;
 }

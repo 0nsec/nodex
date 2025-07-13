@@ -2,57 +2,77 @@ package org.nodex.api.sync;
 
 import org.nodex.api.nullsafety.NotNullByDefault;
 
-/**
- * A message within a group
- */
+import javax.annotation.concurrent.Immutable;
+
+import static org.nodex.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
+import static org.nodex.api.sync.SyncConstants.MESSAGE_HEADER_LENGTH;
+
+@Immutable
 @NotNullByDefault
 public class Message {
-    private final MessageId id;
-    private final GroupId groupId;
-    private final long timestamp;
-    private final byte[] body;
 
-    public Message(MessageId id, GroupId groupId, long timestamp, byte[] body) {
-        if (id == null) throw new IllegalArgumentException("Message ID cannot be null");
-        if (groupId == null) throw new IllegalArgumentException("Group ID cannot be null");
-        if (body == null) throw new IllegalArgumentException("Body cannot be null");
-        this.id = id;
-        this.groupId = groupId;
-        this.timestamp = timestamp;
-        this.body = body.clone();
-    }
+	/**
+	 * The current version of the message format.
+	 */
+	public static final int FORMAT_VERSION = 1;
 
-    public MessageId getId() {
-        return id;
-    }
+	private final MessageId id;
+	private final GroupId groupId;
+	private final long timestamp;
+	private final byte[] body;
 
-    public GroupId getGroupId() {
-        return groupId;
-    }
+	public Message(MessageId id, GroupId groupId, long timestamp, byte[] body) {
+		if (body.length == 0) throw new IllegalArgumentException();
+		if (body.length > MAX_MESSAGE_BODY_LENGTH)
+			throw new IllegalArgumentException();
+		this.id = id;
+		this.groupId = groupId;
+		this.timestamp = timestamp;
+		this.body = body;
+	}
 
-    public long getTimestamp() {
-        return timestamp;
-    }
+	/**
+	 * Returns the message's unique identifier.
+	 */
+	public MessageId getId() {
+		return id;
+	}
 
-    public byte[] getBody() {
-        return body.clone();
-    }
+	/**
+	 * Returns the ID of the {@link Group} to which the message belongs.
+	 */
+	public GroupId getGroupId() {
+		return groupId;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Message message = (Message) o;
-        return id.equals(message.id);
-    }
+	/**
+	 * Returns the message's timestamp in milliseconds since the Unix epoch.
+	 */
+	public long getTimestamp() {
+		return timestamp;
+	}
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
+	/**
+	 * Returns the length of the raw message in bytes.
+	 */
+	public int getRawLength() {
+		return MESSAGE_HEADER_LENGTH + body.length;
+	}
 
-    @Override
-    public String toString() {
-        return "Message{id=" + id + ", groupId=" + groupId + ", timestamp=" + timestamp + '}';
-    }
+	/**
+	 * Returns the message body.
+	 */
+	public byte[] getBody() {
+		return body;
+	}
+
+	@Override
+	public int hashCode() {
+		return id.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		return o instanceof Message && id.equals(((Message) o).getId());
+	}
 }
