@@ -16,4 +16,8 @@ public interface PluginManager {
     <T extends Plugin> T getPlugin(Class<T> pluginClass);
     
     boolean isPluginRegistered(Class<? extends Plugin> pluginClass);
+    
+    void addPluginConfig(PluginConfig config);
+    
+    Collection<PluginConfig> getPluginConfigs();
 }
