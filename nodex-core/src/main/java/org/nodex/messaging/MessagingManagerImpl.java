@@ -175,6 +175,7 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 			Metadata meta) throws DbException, InvalidMessageException {
 		try {
 			BdfDictionary metaDict = metadataParser.parse(meta);
+			// Message type is null for version 0.0 private messages
 			Integer messageType = metaDict.getOptionalInt(MSG_KEY_MSG_TYPE);
 			if (messageType == null) {
 				incomingPrivateMessage(txn, m, metaDict, true, emptyList());
@@ -235,11 +236,14 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 	private void stopAttachmentCleanupTimers(Transaction txn, Message m,
 			List<AttachmentHeader> headers)
 			throws DbException, FormatException {
+		// Fetch the IDs of all remote attachments
 		BdfDictionary query = BdfDictionary.of(
 				new BdfEntry(MSG_KEY_MSG_TYPE, ATTACHMENT),
 				new BdfEntry(MSG_KEY_LOCAL, false));
 		Collection<MessageId> results =
 				clientHelper.getMessageIds(txn, m.getGroupId(), query);
+		// Stop the cleanup timers of any attachments that have already
+		// been delivered
 		for (AttachmentHeader h : headers) {
 			MessageId id = h.getMessageId();
 			if (results.contains(id)) db.stopCleanupTimer(txn, id);
