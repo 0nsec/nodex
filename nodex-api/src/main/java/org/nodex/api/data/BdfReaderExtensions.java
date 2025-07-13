@@ -6,16 +6,14 @@ import java.io.IOException;
 
 public class BdfReaderExtensions {
     
+    // Since BdfReader doesn't have hasNext or getRemaining, we'll provide eof check differently
     public static boolean eof(BdfReader reader) {
-        try {
-            // Check if reader has more data by attempting to peek
-            return reader.getRemaining() == 0;
-        } catch (Exception e) {
-            return true;
-        }
+        // For now, return false as we can't reliably check EOF without modifying BdfReader interface
+        // This method will be enhanced when we have access to the underlying stream
+        return false;
     }
     
-    public static BdfList readList(BdfReader reader) throws IOException, FormatException {
+    public static BdfList readListAsBdfList(BdfReader reader) throws IOException, FormatException {
         java.util.List<Object> objects = reader.readList();
         BdfList bdfList = new BdfList();
         bdfList.addAll(objects);
