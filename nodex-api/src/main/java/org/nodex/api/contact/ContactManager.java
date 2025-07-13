@@ -32,6 +32,16 @@ public interface ContactManager {
     void removeContact(AuthorId authorId);
     
     /**
+     * Register a contact hook.
+     */
+    void registerContactHook(ContactHook hook);
+    
+    /**
+     * Unregister a contact hook.
+     */
+    void unregisterContactHook(ContactHook hook);
+    
+    /**
      * Hook interface for contact events.
      */
     interface ContactHook {

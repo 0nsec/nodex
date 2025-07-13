@@ -29,6 +29,21 @@ public interface ClientVersioningManager {
     void setSupportedVersion(String clientId, int majorVersion, int minorVersion);
     
     /**
+     * Register a client.
+     */
+    void registerClient(String clientId, int majorVersion, int minorVersion, Object client);
+    
+    /**
+     * Get client visibility.
+     */
+    org.nodex.api.sync.Visibility getClientVisibility(org.nodex.api.db.Transaction txn, org.nodex.api.contact.ContactId contactId, String clientId, int majorVersion) throws org.nodex.api.db.DbException;
+    
+    /**
+     * Unregister a client.
+     */
+    void unregisterClient(String clientId);
+    
+    /**
      * Hook interface for client versioning events.
      */
     interface ClientVersioningHook {
