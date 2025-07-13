@@ -3,23 +3,18 @@ package org.nodex.api.crypto;
 import org.nodex.api.nullsafety.NotNullByDefault;
 
 /**
- * Represents a private key.
+ * The private half of a public/private {@link KeyPair}.
  */
 @NotNullByDefault
 public interface PrivateKey {
-    
-    /**
-     * Returns the encoded form of this private key.
-     */
-    byte[] getEncoded();
-    
-    /**
-     * Returns the algorithm name for this private key.
-     */
-    String getAlgorithm();
-    
-    /**
-     * Returns the format of this private key.
-     */
-    String getFormat();
+
+	/**
+	 * Returns the type of this key pair.
+	 */
+	String getKeyType();
+
+	/**
+	 * Returns the encoded representation of this key.
+	 */
+	byte[] getEncoded();
 }

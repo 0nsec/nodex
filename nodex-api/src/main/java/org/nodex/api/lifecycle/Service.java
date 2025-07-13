@@ -1,25 +1,20 @@
 package org.nodex.api.lifecycle;
 
-import org.nodex.api.nullsafety.NotNullByDefault;
+import org.nodex.api.system.Wakeful;
 
-/**
- * Base interface for all services in the NodeX system.
- */
-@NotNullByDefault
 public interface Service {
-    
-    /**
-     * Start the service.
-     */
-    void startService() throws ServiceException;
-    
-    /**
-     * Stop the service.
-     */
-    void stopService() throws ServiceException;
-    
-    /**
-     * Check if the service is running.
-     */
-    boolean isRunning();
+
+	/**
+	 * Starts the service. This method must not be called concurrently with
+	 * {@link #stopService()}.
+	 */
+	@Wakeful
+	void startService() throws ServiceException;
+
+	/**
+	 * Stops the service. This method must not be called concurrently with
+	 * {@link #startService()}.
+	 */
+	@Wakeful
+	void stopService() throws ServiceException;
 }

@@ -1,23 +1,40 @@
 package org.nodex.api.system;
 
+import org.nodex.api.Cancellable;
 import org.nodex.api.nullsafety.NotNullByDefault;
-import java.util.concurrent.Executor;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * A service that can be used to schedule the execution of tasks.
+ */
 @NotNullByDefault
-public interface TaskScheduler extends Executor {
-    
-    /**
-     * Schedule a task to run after a delay.
-     */
-    void schedule(Runnable task, long delayMs);
-    
-    /**
-     * Schedule a task to run periodically.
-     */
-    void scheduleRepeating(Runnable task, long initialDelayMs, long periodMs);
-    
-    /**
-     * Cancel all scheduled tasks.
-     */
-    void cancelAll();
+public interface TaskScheduler {
+
+	/**
+	 * Submits the given task to the given executor after the given delay.
+	 * <p>
+	 * If the platform supports wake locks, a wake lock will be held while
+	 * submitting and running the task.
+	 *
+	 * @return A {@link Cancellable} for cancelling the task.
+	 */
+	Cancellable schedule(Runnable task, Executor executor, long delay,
+			TimeUnit unit);
+
+	/**
+	 * Submits the given task to the given executor after the given delay,
+	 * and then repeatedly with the given interval between executions
+	 * (measured from the end of one execution to the beginning of the next).
+	 * <p>
+	 * If the platform supports wake locks, a wake lock will be held while
+	 * submitting and running the task.
+	 *
+	 * @return A {@link Cancellable} for cancelling all future executions of
+	 * the task.
+	 */
+	Cancellable scheduleWithFixedDelay(Runnable task, Executor executor,
+			long delay, long interval, TimeUnit unit);
+
 }

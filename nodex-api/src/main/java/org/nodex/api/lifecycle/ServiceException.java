@@ -1,26 +1,15 @@
 package org.nodex.api.lifecycle;
 
-import org.nodex.api.nullsafety.NotNullByDefault;
-
 /**
- * Exception thrown by services.
+ * An exception that indicates an error starting or stopping a {@link Service}.
  */
-@NotNullByDefault
 public class ServiceException extends Exception {
-    
-    public ServiceException() {
-        super();
-    }
-    
-    public ServiceException(String message) {
-        super(message);
-    }
-    
-    public ServiceException(Throwable cause) {
-        super(cause);
-    }
-    
-    public ServiceException(String message, Throwable cause) {
-        super(message, cause);
-    }
+
+	public ServiceException() {
+		super();
+	}
+
+	public ServiceException(Throwable cause) {
+		super(cause);
+	}
 }
