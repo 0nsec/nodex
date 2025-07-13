@@ -66,4 +66,21 @@ public class BdfDictionary extends HashMap<String, Object> {
         }
         throw new IllegalArgumentException("Value for key '" + key + "' is not a byte array");
     }
+    public Integer getOptionalInt(String key) {
+        Object value = get(key);
+        return value instanceof Integer ? (Integer) value : null;
+    }
+
+    public boolean getBoolean(String key) {
+        Object value = get(key);
+        if (value instanceof Boolean) {
+            return (Boolean) value;
+        }
+        throw new IllegalArgumentException("Expected boolean for key: " + key);
+    }
+
+    public boolean getBoolean(String key, boolean defaultValue) {
+        Object value = get(key);
+        return value instanceof Boolean ? (Boolean) value : defaultValue;
+    }
 }

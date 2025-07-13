@@ -1,24 +1,13 @@
 package org.nodex.api.cleanup;
 
-import org.nodex.nullsafety.NotNullByDefault;
+import org.nodex.api.nullsafety.NotNullByDefault;
 
-/**
- * Manager for cleaning up old data and messages.
- */
 @NotNullByDefault
 public interface CleanupManager {
-    /**
-     * Clean up old messages based on retention policy.
-     */
-    void cleanupOldMessages();
     
-    /**
-     * Clean up temporary files.
-     */
-    void cleanupTemporaryFiles();
+    void registerCleanupHook(String clientId, int majorVersion, CleanupHook hook);
     
-    /**
-     * Schedule cleanup task.
-     */
-    void scheduleCleanup();
+    void unregisterCleanupHook(String clientId, int majorVersion);
+    
+    void performCleanup();
 }
