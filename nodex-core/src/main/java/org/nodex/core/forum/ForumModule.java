@@ -4,6 +4,7 @@ import org.nodex.api.forum.ForumFactory;
 import org.nodex.api.forum.ForumManager;
 import org.nodex.api.forum.ForumPostFactory;
 import org.nodex.api.client.ClientHelper;
+import org.nodex.api.client.ForumPostValidator;
 import org.nodex.api.lifecycle.LifecycleManager;
 import org.nodex.api.sync.ValidationManager;
 import org.nodex.api.versioning.ClientVersioningManager;

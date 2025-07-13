@@ -4,6 +4,7 @@ import org.nodex.api.blog.BlogFactory;
 import org.nodex.api.blog.BlogManager;
 import org.nodex.api.blog.BlogPostFactory;
 import org.nodex.api.client.ClientHelper;
+import org.nodex.api.client.BlogPostValidator;
 import org.nodex.api.lifecycle.LifecycleManager;
 import org.nodex.api.sync.ValidationManager;
 import org.nodex.api.versioning.ClientVersioningManager;
