@@ -10,14 +10,16 @@ public class MessageContextImpl implements MessageContext {
     
     private final Message message;
     private final Group group;
-    private final Metadata metadata;
-    private final Collection<GroupId> dependencies;
+    private final long timestamp;
+    private final boolean shouldDeliver;
+    private final boolean shouldShare;
     
-    public MessageContextImpl(Message message, Group group, Metadata metadata, Collection<GroupId> dependencies) {
+    public MessageContextImpl(Message message, Group group, long timestamp, boolean shouldDeliver, boolean shouldShare) {
         this.message = message;
         this.group = group;
-        this.metadata = metadata;
-        this.dependencies = dependencies;
+        this.timestamp = timestamp;
+        this.shouldDeliver = shouldDeliver;
+        this.shouldShare = shouldShare;
     }
     
     @Override
@@ -31,12 +33,17 @@ public class MessageContextImpl implements MessageContext {
     }
     
     @Override
-    public Metadata getMetadata() {
-        return metadata;
+    public long getTimestamp() {
+        return timestamp;
     }
     
     @Override
-    public Collection<GroupId> getDependencies() {
-        return dependencies;
+    public boolean shouldDeliver() {
+        return shouldDeliver;
+    }
+    
+    @Override
+    public boolean shouldShare() {
+        return shouldShare;
     }
 }
