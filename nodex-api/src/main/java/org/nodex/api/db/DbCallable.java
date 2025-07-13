@@ -7,5 +7,5 @@ import org.nodex.api.nullsafety.NotNullByDefault;
  */
 @NotNullByDefault
 public interface DbCallable<R, E extends Exception> {
-    R call() throws DbException, E;
+    R call(Transaction txn) throws DbException, E;
 }
