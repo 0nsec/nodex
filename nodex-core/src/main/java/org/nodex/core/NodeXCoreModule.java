@@ -1,6 +1,5 @@
 package org.nodex.core;
 
-import org.nodex.core.blog.BlogModule;
 import org.nodex.core.forum.ForumModule;
 import org.nodex.core.privategroup.PrivateGroupModule;
 import org.nodex.core.avatar.AvatarModule;
@@ -25,7 +24,6 @@ import dagger.Module;
  * This provides a complete implementation of all Briar-compatible features.
  */
 @Module(includes = {
-    BlogModule.class,
     ForumModule.class,
     PrivateGroupModule.class,
     AvatarModule.class,
