@@ -80,6 +80,8 @@ import static org.nodex.messaging.MessagingConstants.MSG_KEY_HAS_TEXT;
 import static org.nodex.messaging.MessagingConstants.MSG_KEY_LOCAL;
 import static org.nodex.messaging.MessagingConstants.MSG_KEY_MSG_TYPE;
 import static org.nodex.messaging.MessagingConstants.MSG_KEY_TIMESTAMP;
+import static org.nodex.messaging.MessagingConstants.CLIENT_ID;
+import static org.nodex.messaging.MessagingConstants.MAJOR_VERSION;
 @Immutable
 @NotNullByDefault
 class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
@@ -506,5 +508,16 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 		} catch (FormatException e) {
 			throw new DbException(e);
 		}
+	}
+	@Override
+	public long getTimestamp(MessageId messageId) throws DbException {
+		return db.transactionWithResult(true, txn -> {
+			try {
+				BdfDictionary meta = clientHelper.getMessageMetadataAsDictionary(txn, messageId);
+				return meta.getLong(MSG_KEY_TIMESTAMP);
+			} catch (FormatException e) {
+				throw new DbException(e);
+			}
+		});
 	}
 }

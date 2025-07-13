@@ -37,7 +37,7 @@ public class MessagingModule {
 			BdfReaderFactory bdfReaderFactory, MetadataEncoder metadataEncoder,
 			Clock clock) {
 		PrivateMessageValidator validator = new PrivateMessageValidator(
-				bdfReaderFactory, metadataEncoder, clock);
+				clock, bdfReaderFactory, metadataEncoder);
 		validationManager.registerMessageValidator(CLIENT_ID.toString(), MAJOR_VERSION,
 				validator);
 		return validator;

@@ -41,6 +41,19 @@ import static org.nodex.messaging.MessagingConstants.MSG_KEY_LOCAL;
 import static org.nodex.messaging.MessagingConstants.MSG_KEY_MSG_TYPE;
 import static org.nodex.messaging.MessagingConstants.MSG_KEY_TIMESTAMP;
 import static org.nodex.util.ValidationUtils.validateAutoDeleteTimer;
+
+public class PrivateMessageValidator implements MessageValidator {
+
+	private final Clock clock;
+	private final BdfReaderFactory bdfReaderFactory;
+	private final MetadataEncoder metadataEncoder;
+
+	public PrivateMessageValidator(Clock clock, BdfReaderFactory bdfReaderFactory, MetadataEncoder metadataEncoder) {
+		this.clock = clock;
+		this.bdfReaderFactory = bdfReaderFactory;
+		this.metadataEncoder = metadataEncoder;
+	}
+
 	@Override
 	public MessageContext validateMessage(Message m, Group g) throws InvalidMessageException {
 		long now = clock.currentTimeMillis();
