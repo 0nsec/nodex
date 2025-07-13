@@ -1,7 +1,7 @@
 package org.nodex.api.plugin;
 
 import org.nodex.api.nullsafety.NotNullByDefault;
-import org.nodex.api.transport.TransportId;
+import org.nodex.api.plugin.TransportId;
 import org.nodex.api.lifecycle.Service;
 import java.util.Collection;
 

@@ -1,7 +1,7 @@
 package org.nodex.api.connection;
 
 import org.nodex.api.contact.ContactId;
-import org.nodex.api.transport.TransportId;
+import org.nodex.api.plugin.TransportId;
 import org.nodex.api.nullsafety.NotNullByDefault;
 
 import java.util.Collection;

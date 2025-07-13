@@ -25,6 +25,10 @@ public class CryptoConstants {
     // Hash lengths
     public static final int HASH_BYTES = 32;
     
+    // Key types
+    public static final String KEY_TYPE_AGREEMENT = "agreement";
+    public static final String KEY_TYPE_SIGNATURE = "signature";
+    
     private CryptoConstants() {
         // Utility class
     }
