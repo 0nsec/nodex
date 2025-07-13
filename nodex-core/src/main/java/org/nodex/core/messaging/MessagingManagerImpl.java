@@ -92,7 +92,7 @@ public class MessagingManagerImpl implements MessagingManager, Service {
         Transaction txn = db.startTransaction(true);
         try {
             Contact contact = db.getContact(txn, contactId);
-            GroupId groupId = getContactGroup(contact);
+            GroupId groupId = getContactGroupId(contact);
             
             // Get all messages for this contact group
             Collection<org.nodex.api.sync.Message> messages = db.getMessages(txn, groupId);
