@@ -4,7 +4,6 @@ import org.nodex.api.client.BdfMessageContext;
 import org.nodex.api.sync.BdfMessageContextImpl;
 import org.nodex.api.client.BdfMessageValidator;
 import org.nodex.api.client.ClientHelper;
-import org.nodex.api.client.MessageContext;
 import org.nodex.api.data.BdfDictionary;
 import org.nodex.api.data.BdfList;
 import org.nodex.api.data.MetadataEncoder;
