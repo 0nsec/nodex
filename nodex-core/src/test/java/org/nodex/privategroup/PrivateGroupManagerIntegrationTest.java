@@ -18,7 +18,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.util.Collection;
 import static org.nodex.api.identity.AuthorInfo.Status.VERIFIED;
-import static org.nodex.core.api.sync.Group.Visibility.SHARED;
+import static org.nodex.api.sync.Group.Visibility.SHARED;
 import static org.nodex.core.test.TestUtils.getRandomBytes;
 import static org.nodex.core.test.TestUtils.getRandomId;
 import static org.nodex.api.privategroup.Visibility.INVISIBLE;

@@ -31,7 +31,7 @@ import org.nodex.api.identity.AuthorInfo;
 import org.nodex.api.identity.AuthorManager;
 import org.jmock.Expectations;
 import org.junit.Test;
-import static org.nodex.core.api.sync.validation.IncomingMessageHook.DeliveryAction.ACCEPT_SHARE;
+import static org.nodex.api.sync.validation.IncomingMessageHook.DeliveryAction.ACCEPT_SHARE;
 import static org.nodex.core.test.TestUtils.getContact;
 import static org.nodex.core.test.TestUtils.getGroup;
 import static org.nodex.core.test.TestUtils.getLocalAuthor;

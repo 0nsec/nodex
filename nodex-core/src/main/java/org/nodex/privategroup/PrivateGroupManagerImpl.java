@@ -51,7 +51,7 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import javax.annotation.concurrent.ThreadSafe;
 import javax.inject.Inject;
-import static org.nodex.core.api.sync.validation.IncomingMessageHookConstants.DeliveryAction.ACCEPT_SHARE;
+import static org.nodex.api.sync.validation.IncomingMessageHookConstants.DeliveryAction.ACCEPT_SHARE;
 import static org.nodex.api.identity.AuthorInfo.Status.UNVERIFIED;
 import static org.nodex.api.identity.AuthorInfo.Status.VERIFIED;
 import static org.nodex.api.privategroup.MessageType.JOIN;

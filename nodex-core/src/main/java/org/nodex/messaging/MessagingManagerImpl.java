@@ -60,7 +60,7 @@ import static java.util.Collections.emptyList;
 import static java.util.logging.Logger.getLogger;
 import static org.nodex.core.api.client.ContactGroupConstants.GROUP_KEY_CONTACT_ID;
 import static org.nodex.core.api.sync.SyncConstants.MAX_MESSAGE_BODY_LENGTH;
-import static org.nodex.core.api.sync.validation.IncomingMessageHookConstants.DeliveryAction.ACCEPT_DO_NOT_SHARE;
+import static org.nodex.api.sync.validation.IncomingMessageHookConstants.DeliveryAction.ACCEPT_DO_NOT_SHARE;
 import static org.nodex.core.util.IoUtils.copyAndClose;
 import static org.nodex.core.util.LogUtils.logDuration;
 import static org.nodex.core.util.LogUtils.now;

@@ -26,7 +26,7 @@ import org.nodex.api.privategroup.PrivateGroupManager;
 import org.nodex.api.privategroup.invitation.GroupInvitationManager;
 import org.jmock.Expectations;
 import static org.nodex.core.api.identity.AuthorConstants.MAX_SIGNATURE_LENGTH;
-import static org.nodex.core.api.sync.Group.Visibility.SHARED;
+import static org.nodex.api.sync.Group.Visibility.SHARED;
 import static org.nodex.core.test.TestUtils.getContact;
 import static org.nodex.core.test.TestUtils.getGroup;
 import static org.nodex.core.test.TestUtils.getMessage;

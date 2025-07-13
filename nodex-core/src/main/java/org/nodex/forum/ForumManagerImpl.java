@@ -41,7 +41,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 import javax.inject.Inject;
-import static org.nodex.core.api.sync.validation.IncomingMessageHook.DeliveryAction.ACCEPT_SHARE;
+import static org.nodex.api.sync.validation.IncomingMessageHook.DeliveryAction.ACCEPT_SHARE;
 import static org.nodex.api.forum.ForumConstants.KEY_AUTHOR;
 import static org.nodex.api.forum.ForumConstants.KEY_LOCAL;
 import static org.nodex.api.forum.ForumConstants.KEY_PARENT;

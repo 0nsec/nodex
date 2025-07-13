@@ -3,9 +3,9 @@ import org.nodex.api.FormatException;
 import org.nodex.api.sync.Group.Visibility;
 import org.nodex.nullsafety.NotNullByDefault;
 import javax.annotation.concurrent.Immutable;
-import static org.nodex.core.api.sync.Group.Visibility.INVISIBLE;
-import static org.nodex.core.api.sync.Group.Visibility.SHARED;
-import static org.nodex.core.api.sync.Group.Visibility.VISIBLE;
+import static org.nodex.api.sync.Group.Visibility.INVISIBLE;
+import static org.nodex.api.sync.Group.Visibility.SHARED;
+import static org.nodex.api.sync.Group.Visibility.VISIBLE;
 @Immutable
 @NotNullByDefault
 enum State {

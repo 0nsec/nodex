@@ -52,7 +52,7 @@ import java.util.Set;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.inject.Inject;
-import static org.nodex.core.api.sync.validation.IncomingMessageHookConstants.DeliveryAction.ACCEPT_DO_NOT_SHARE;
+import static org.nodex.api.sync.validation.IncomingMessageHookConstants.DeliveryAction.ACCEPT_DO_NOT_SHARE;
 import static org.nodex.api.autodelete.AutoDeleteConstants.NO_AUTO_DELETE_TIMER;
 import static org.nodex.api.introduction.Role.INTRODUCEE;
 import static org.nodex.api.introduction.Role.INTRODUCER;

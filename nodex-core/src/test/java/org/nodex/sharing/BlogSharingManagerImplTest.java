@@ -28,7 +28,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import static org.nodex.core.api.sync.Group.Visibility.SHARED;
+import static org.nodex.api.sync.Group.Visibility.SHARED;
 import static org.nodex.core.test.TestUtils.getAuthor;
 import static org.nodex.core.test.TestUtils.getContact;
 import static org.nodex.core.test.TestUtils.getGroup;
