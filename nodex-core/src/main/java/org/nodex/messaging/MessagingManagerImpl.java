@@ -118,7 +118,7 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 	public GroupCount getGroupCount(Transaction txn, ContactId contactId)
 			throws DbException {
 		Contact contact = db.getContact(txn, contactId);
-		GroupId groupId = getContactGroup(contact).getId();
+		GroupId groupId = getContactGroupId(contact);
 		return messageTracker.getGroupCount(txn, groupId);
 	}
 	@Override
@@ -131,28 +131,28 @@ class MessagingManagerImpl implements MessagingManager, IncomingMessageHook,
 	}
 	@Override
 	public void addingContact(Transaction txn, Contact c) throws DbException {
-		Group g = getContactGroup(c);
-		db.addGroup(txn, g);
+		GroupId groupId = getContactGroupId(c);
+		db.addGroup(txn, groupId);
 		Visibility client = clientVersioningManager.getClientVisibility(txn,
 				c.getId(), CLIENT_ID, MAJOR_VERSION);
-		db.setGroupVisibility(txn, c.getId(), g.getId(), client);
-		clientHelper.setContactId(txn, g.getId(), c.getId());
-		messageTracker.initializeGroupCount(txn, g.getId());
+		db.setGroupVisibility(txn, c.getId(), groupId, client);
+		clientHelper.setContactId(txn, groupId, c.getId());
+		messageTracker.initializeGroupCount(txn, groupId);
 	}
 	@Override
-	public Group getContactGroup(Contact c) {
-		return contactGroupFactory.createContactGroup(CLIENT_ID,
+	public GroupId getContactGroupId(Contact c) {
+		return contactGroupFactory.createContactGroupId(CLIENT_ID,
 				MAJOR_VERSION, c);
 	}
 	@Override
 	public void removingContact(Transaction txn, Contact c) throws DbException {
-		db.removeGroup(txn, getContactGroup(c));
+		db.removeGroup(txn, getContactGroupId(c));
 	}
 	@Override
 	public void onClientVisibilityChanging(Transaction txn, Contact c,
 			Visibility v) throws DbException {
-		Group g = getContactGroup(c);
-		db.setGroupVisibility(txn, c.getId(), g.getId(), v);
+		GroupId groupId = getContactGroupId(c);
+		db.setGroupVisibility(txn, c.getId(), groupId, v);
 	}
 	@Override
 	public DeliveryAction incomingMessage(Transaction txn, Message m,
