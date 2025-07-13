@@ -62,7 +62,7 @@ public class MessagingManagerImpl implements MessagingManager, Service {
     }
 
     @Override
-    public GroupId getContactGroup(Contact contact) {
+    public GroupId getContactGroupId(Contact contact) {
         // Generate a consistent group ID for messaging with this contact
         byte[] groupBytes = new byte[32];
         // In a real implementation, this would derive from contact ID + local identity
