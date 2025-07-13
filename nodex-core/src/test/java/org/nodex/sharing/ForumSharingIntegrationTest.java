@@ -27,7 +27,7 @@ import org.nodex.api.forum.event.ForumInvitationResponseReceivedEvent;
 import org.nodex.api.sharing.SharingInvitationItem;
 import org.nodex.test.NodexIntegrationTest;
 import org.nodex.test.NodexIntegrationTestComponent;
-import org.nodex.test.DaggerBriarIntegrationTestComponent;
+import org.nodex.test.DaggerNodexIntegrationTestComponent;
 import org.nodex.nullsafety.NotNullByDefault;
 import org.junit.Before;
 import org.junit.Rule;
@@ -86,18 +86,18 @@ public class ForumSharingIntegrationTest
 	@Override
 	protected void createComponents() {
 		NodexIntegrationTestComponent component =
-				DaggerBriarIntegrationTestComponent.builder().build();
+				DaggerNodexIntegrationTestComponent.builder().build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
-		c0 = DaggerBriarIntegrationTestComponent.builder()
+		c0 = DaggerNodexIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
-		c1 = DaggerBriarIntegrationTestComponent.builder()
+		c1 = DaggerNodexIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
-		c2 = DaggerBriarIntegrationTestComponent.builder()
+		c2 = DaggerNodexIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);

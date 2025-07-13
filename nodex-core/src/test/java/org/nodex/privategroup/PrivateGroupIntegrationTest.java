@@ -15,7 +15,7 @@ import org.nodex.api.privategroup.PrivateGroupManager;
 import org.nodex.api.privategroup.invitation.GroupInvitationManager;
 import org.nodex.test.NodexIntegrationTest;
 import org.nodex.test.NodexIntegrationTestComponent;
-import org.nodex.test.DaggerBriarIntegrationTestComponent;
+import org.nodex.test.DaggerNodexIntegrationTestComponent;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.Collection;
@@ -56,18 +56,18 @@ public class PrivateGroupIntegrationTest
 	@Override
 	protected void createComponents() {
 		NodexIntegrationTestComponent component =
-				DaggerBriarIntegrationTestComponent.builder().build();
+				DaggerNodexIntegrationTestComponent.builder().build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
-		c0 = DaggerBriarIntegrationTestComponent.builder()
+		c0 = DaggerNodexIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
-		c1 = DaggerBriarIntegrationTestComponent.builder()
+		c1 = DaggerNodexIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
-		c2 = DaggerBriarIntegrationTestComponent.builder()
+		c2 = DaggerNodexIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c2);

@@ -14,7 +14,7 @@ import org.nodex.api.conversation.ConversationManager.ConversationClient;
 import org.nodex.api.conversation.ConversationMessageHeader;
 import org.nodex.test.NodexIntegrationTest;
 import org.nodex.test.NodexIntegrationTestComponent;
-import org.nodex.test.DaggerBriarIntegrationTestComponent;
+import org.nodex.test.DaggerNodexIntegrationTestComponent;
 import org.junit.Before;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,20 +31,20 @@ public abstract class AbstractAutoDeleteTest extends
 	@Override
 	protected void createComponents() {
 		NodexIntegrationTestComponent component =
-				DaggerBriarIntegrationTestComponent.builder().build();
+				DaggerNodexIntegrationTestComponent.builder().build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(component);
 		component.inject(this);
-		c0 = DaggerBriarIntegrationTestComponent.builder()
+		c0 = DaggerNodexIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t0Dir))
 				.timeTravelModule(new TimeTravelModule(true))
 				.build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c0);
-		c1 = DaggerBriarIntegrationTestComponent.builder()
+		c1 = DaggerNodexIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t1Dir))
 				.timeTravelModule(new TimeTravelModule(true))
 				.build();
 		NodexIntegrationTestComponent.Helper.injectEagerSingletons(c1);
-		c2 = DaggerBriarIntegrationTestComponent.builder()
+		c2 = DaggerNodexIntegrationTestComponent.builder()
 				.testDatabaseConfigModule(new TestDatabaseConfigModule(t2Dir))
 				.timeTravelModule(new TimeTravelModule(true))
 				.build();
