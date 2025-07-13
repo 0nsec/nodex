@@ -1,8 +1,12 @@
 
 
+
 import org.nodex.api.attachment.AttachmentHeader;
 import org.nodex.api.attachment.FileTooBigException;
 import org.nodex.api.contact.ContactId;
+import org.nodex.api.contact.Contact;
+import org.nodex.api.messaging.PrivateMessageHeader;
+import java.util.Collection;
 import org.nodex.api.conversation.ConversationManager.ConversationClient;
 import org.nodex.api.db.DbException;
 import org.nodex.api.db.Transaction;
@@ -39,7 +43,8 @@ public interface MessagingManager extends ConversationClient {
     PrivateMessageFormat getContactMessageFormat(Transaction txn, ContactId c)
         throws DbException;
     // Methods required by MessagingManagerImpl
-    GroupId getContactGroup(Contact contact);
+    // Change return type to match ConversationClient to avoid clash
+    org.nodex.api.sync.Group getContactGroup(Contact contact);
     Collection<PrivateMessageHeader> getMessageHeaders(ContactId contactId) throws DbException;
     void setReadFlag(MessageId messageId, boolean read) throws DbException;
     long getTimestamp(MessageId messageId) throws DbException;
