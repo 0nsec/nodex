@@ -1,41 +1,43 @@
 package org.nodex.api;
 
-import org.nodex.api.nullsafety.NotNullByDefault;
-import javax.annotation.concurrent.Immutable;
-
 /**
- * A generic pair of objects.
+ * Utility class for holding two values together
  */
-@Immutable
-@NotNullByDefault
-public class Pair<A, B> {
-    
-    private final A first;
-    private final B second;
-    
-    public Pair(A first, B second) {
+public class Pair<T, U> {
+    private final T first;
+    private final U second;
+
+    public Pair(T first, U second) {
         this.first = first;
         this.second = second;
     }
-    
-    public A getFirst() {
+
+    public T getFirst() {
         return first;
     }
-    
-    public B getSecond() {
+
+    public U getSecond() {
         return second;
     }
-    
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Pair)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Pair<?, ?> pair = (Pair<?, ?>) o;
-        return first.equals(pair.first) && second.equals(pair.second);
+        return (first != null ? first.equals(pair.first) : pair.first == null) &&
+               (second != null ? second.equals(pair.second) : pair.second == null);
     }
-    
+
     @Override
     public int hashCode() {
-        return first.hashCode() * 31 + second.hashCode();
+        int result = first != null ? first.hashCode() : 0;
+        result = 31 * result + (second != null ? second.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Pair{" + first + ", " + second + '}';
     }
 }

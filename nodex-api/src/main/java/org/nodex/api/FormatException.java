@@ -1,7 +1,10 @@
-package org.nodex.api.system;
+package org.nodex.api;
 
 import org.nodex.api.nullsafety.NotNullByDefault;
 
+/**
+ * Exception thrown when data format is invalid.
+ */
 @NotNullByDefault
 public class FormatException extends Exception {
     

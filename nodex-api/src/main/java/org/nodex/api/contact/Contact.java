@@ -1,78 +1,58 @@
 package org.nodex.api.contact;
 
-import org.nodex.api.crypto.PublicKey;
-import org.nodex.api.identity.Author;
-import org.nodex.api.identity.AuthorId;
 import org.nodex.api.nullsafety.NotNullByDefault;
 
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.Immutable;
-
-import static org.nodex.api.identity.AuthorConstants.MAX_AUTHOR_NAME_LENGTH;
-import static org.nodex.api.util.StringUtils.toUtf8;
-
-@Immutable
+/**
+ * A contact in the system
+ */
 @NotNullByDefault
 public class Contact {
+    private final ContactId id;
+    private final String name;
+    private final String alias;
+    private final boolean verified;
 
-	private final ContactId id;
-	private final Author author;
-	private final AuthorId localAuthorId;
-	@Nullable
-	private final String alias;
-	@Nullable
-	private final PublicKey handshakePublicKey;
-	private final boolean verified;
+    public Contact(ContactId id, String name, String alias, boolean verified) {
+        if (id == null) throw new IllegalArgumentException("Contact ID cannot be null");
+        if (name == null || name.trim().isEmpty()) 
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        this.id = id;
+        this.name = name.trim();
+        this.alias = alias != null ? alias.trim() : null;
+        this.verified = verified;
+    }
 
-	public Contact(ContactId id, Author author, AuthorId localAuthorId,
-			@Nullable String alias, @Nullable PublicKey handshakePublicKey,
-			boolean verified) {
-		if (alias != null) {
-			int aliasLength = toUtf8(alias).length;
-			if (aliasLength == 0 || aliasLength > MAX_AUTHOR_NAME_LENGTH)
-				throw new IllegalArgumentException();
-		}
-		this.id = id;
-		this.author = author;
-		this.localAuthorId = localAuthorId;
-		this.alias = alias;
-		this.handshakePublicKey = handshakePublicKey;
-		this.verified = verified;
-	}
+    public ContactId getId() {
+        return id;
+    }
 
-	public ContactId getId() {
-		return id;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Author getAuthor() {
-		return author;
-	}
+    public String getAlias() {
+        return alias;
+    }
 
-	public AuthorId getLocalAuthorId() {
-		return localAuthorId;
-	}
+    public boolean isVerified() {
+        return verified;
+    }
 
-	@Nullable
-	public String getAlias() {
-		return alias;
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contact contact = (Contact) o;
+        return id.equals(contact.id);
+    }
 
-	@Nullable
-	public PublicKey getHandshakePublicKey() {
-		return handshakePublicKey;
-	}
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 
-	public boolean isVerified() {
-		return verified;
-	}
-
-	@Override
-	public int hashCode() {
-		return id.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		return o instanceof Contact && id.equals(((Contact) o).id);
-	}
+    @Override
+    public String toString() {
+        return "Contact{id=" + id + ", name='" + name + "', verified=" + verified + '}';
+    }
 }

@@ -1,7 +1,6 @@
 package org.nodex.core.util;
 
 import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -37,18 +36,5 @@ public class IoUtils {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         copy(in, out);
         return out.toByteArray();
-    }
-    
-    /**
-     * Try to close a closeable resource, ignoring any exceptions.
-     */
-    public static void tryToClose(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException e) {
-                // Ignore
-            }
-        }
     }
 }

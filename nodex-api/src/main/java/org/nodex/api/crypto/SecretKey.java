@@ -1,19 +1,25 @@
 package org.nodex.api.crypto;
 
-import org.nodex.api.Bytes;
+import org.nodex.api.nullsafety.NotNullByDefault;
 
 /**
- * A secret key used for encryption and/or authentication.
+ * Represents a secret key for symmetric encryption.
  */
-public class SecretKey extends Bytes {
-
-	/**
-	 * The length of a secret key in bytes.
-	 */
-	public static final int LENGTH = 32;
-
-	public SecretKey(byte[] key) {
-		super(key);
-		if (key.length != LENGTH) throw new IllegalArgumentException();
-	}
+@NotNullByDefault
+public interface SecretKey {
+    
+    /**
+     * Returns the encoded form of this secret key.
+     */
+    byte[] getEncoded();
+    
+    /**
+     * Returns the algorithm name for this secret key.
+     */
+    String getAlgorithm();
+    
+    /**
+     * Returns the format of this secret key.
+     */
+    String getFormat();
 }

@@ -3,6 +3,7 @@ package org.nodex.api.util;
 import org.nodex.api.nullsafety.NotNullByDefault;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Collection;
 
 @NotNullByDefault
 public class StringUtils {
@@ -20,6 +21,10 @@ public class StringUtils {
     }
     
     public static String join(List<String> strings, String delimiter) {
+        return String.join(delimiter, strings);
+    }
+    
+    public static String join(Collection<String> strings, String delimiter) {
         return String.join(delimiter, strings);
     }
 }

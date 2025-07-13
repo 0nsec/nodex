@@ -1,23 +1,36 @@
 package org.nodex.api.sync;
 
-import org.nodex.api.UniqueId;
-import org.nodex.api.nullsafety.NotNullByDefault;
+import java.util.Arrays;
 
-import javax.annotation.concurrent.ThreadSafe;
+public class GroupId {
+    private final byte[] id;
 
-/**
- * Type-safe wrapper for a byte array that uniquely identifies a {@link Group}.
- */
-@ThreadSafe
-@NotNullByDefault
-public class GroupId extends UniqueId {
+    public GroupId(byte[] id) {
+        if (id == null || id.length == 0) {
+            throw new IllegalArgumentException("GroupId cannot be null or empty");
+        }
+        this.id = id.clone();
+    }
 
-	/**
-	 * Label for hashing groups to calculate their identifiers.
-	 */
-	public static final String LABEL = "org.briarproject.bramble/GROUP_ID";
+    public byte[] getBytes() {
+        return id.clone();
+    }
 
-	public GroupId(byte[] id) {
-		super(id);
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GroupId groupId = (GroupId) o;
+        return Arrays.equals(id, groupId.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "GroupId{" + Arrays.toString(id) + '}';
+    }
 }

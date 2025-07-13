@@ -4,7 +4,6 @@ import org.nodex.api.privategroup.PrivateGroupFactory;
 import org.nodex.api.privategroup.PrivateGroupManager;
 import org.nodex.api.privategroup.GroupMessageFactory;
 import org.nodex.api.client.ClientHelper;
-import org.nodex.api.client.GroupMessageValidator;
 import org.nodex.api.lifecycle.LifecycleManager;
 import org.nodex.api.sync.ValidationManager;
 import org.nodex.api.versioning.ClientVersioningManager;

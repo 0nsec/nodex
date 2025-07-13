@@ -1,6 +1,6 @@
 package org.nodex.api.privategroup;
 
-import org.nodex.api.system.FormatException;
+import org.nodex.api.FormatException;
 import org.nodex.api.identity.LocalAuthor;
 import org.nodex.api.nullsafety.NotNullByDefault;
 import org.nodex.api.sync.GroupId;

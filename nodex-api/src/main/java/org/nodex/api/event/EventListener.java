@@ -3,15 +3,13 @@ package org.nodex.api.event;
 import org.nodex.api.nullsafety.NotNullByDefault;
 
 /**
- * An interface for receiving notifications when events occur.
+ * Interface for listening to events.
  */
 @NotNullByDefault
 public interface EventListener {
-
-	/**
-	 * Called when an event is broadcast. Implementations of this method must
-	 * not block.
-	 */
-	@EventExecutor
-	void eventOccurred(Event e);
+    
+    /**
+     * Called when an event occurs.
+     */
+    void eventOccurred(Event event);
 }

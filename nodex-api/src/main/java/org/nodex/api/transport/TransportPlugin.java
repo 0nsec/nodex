@@ -1,59 +1,30 @@
 package org.nodex.api.transport;
 
-import org.nodex.api.nullsafety.NotNullByDefault;
+import org.nodex.api.plugin.Plugin;
 import org.nodex.api.contact.ContactId;
-import org.nodex.api.lifecycle.Service;
-
+import org.nodex.api.nullsafety.NotNullByDefault;
 import java.util.Collection;
 
-/**
- * Interface for transport plugins that handle communication over specific protocols.
- */
 @NotNullByDefault
-public interface TransportPlugin extends Service {
+public interface TransportPlugin extends Plugin {
     
     /**
-     * Get the unique identifier for this transport.
+     * Get the transport ID for this plugin.
      */
     TransportId getId();
     
     /**
-     * Get the maximum latency in milliseconds for this transport.
+     * Generate transport keys for this plugin.
      */
-    int getMaxLatency();
+    TransportKeys generateKeys();
     
     /**
-     * Get the maximum message size in bytes for this transport.
+     * Check if we can connect to a contact.
      */
-    int getMaxIdleTime();
+    boolean shouldConnect(ContactId contactId);
     
     /**
-     * Check if this transport should be polled for incoming connections.
+     * Get the maximum latency for this transport in milliseconds.
      */
-    boolean shouldPoll();
-    
-    /**
-     * Check if this transport supports key agreement.
-     */
-    boolean supportsKeyAgreement();
-    
-    /**
-     * Start the transport and begin listening for connections.
-     */
-    void startTransport() throws TransportException;
-    
-    /**
-     * Stop the transport and close all connections.
-     */
-    void stopTransport() throws TransportException;
-    
-    /**
-     * Check if the transport is running.
-     */
-    boolean isRunning();
-    
-    /**
-     * Create an outgoing connection to the specified contact.
-     */
-    boolean createConnection(ContactId contactId);
+    long getMaxLatency();
 }

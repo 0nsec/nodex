@@ -1,30 +1,37 @@
 package org.nodex.api.sync;
 
-import org.nodex.api.UniqueId;
-import org.nodex.api.nullsafety.NotNullByDefault;
+import java.util.Arrays;
+import java.util.Objects;
 
-import javax.annotation.concurrent.ThreadSafe;
+public class MessageId {
+    private final byte[] id;
 
-/**
- * Type-safe wrapper for a byte array that uniquely identifies a
- * {@link Message}.
- */
-@ThreadSafe
-@NotNullByDefault
-public class MessageId extends UniqueId {
+    public MessageId(byte[] id) {
+        if (id == null || id.length == 0) {
+            throw new IllegalArgumentException("MessageId cannot be null or empty");
+        }
+        this.id = id.clone();
+    }
 
-	/**
-	 * Label for hashing messages to calculate their identifiers.
-	 */
-	public static final String ID_LABEL = "org.briarproject.bramble/MESSAGE_ID";
+    public byte[] getBytes() {
+        return id.clone();
+    }
 
-	/**
-	 * Label for hashing blocks of messages.
-	 */
-	public static final String BLOCK_LABEL =
-			"org.briarproject.bramble/MESSAGE_BLOCK";
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MessageId messageId = (MessageId) o;
+        return Arrays.equals(id, messageId.id);
+    }
 
-	public MessageId(byte[] id) {
-		super(id);
-	}
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "MessageId{" + Arrays.toString(id) + '}';
+    }
 }

@@ -6,11 +6,6 @@ package org.nodex.api.sync;
 public class SyncConstants {
     
     /**
-     * The length of a message header in bytes.
-     */
-    public static final int MESSAGE_HEADER_LENGTH = 36;
-    
-    /**
      * The maximum length of a group descriptor in bytes.
      */
     public static final int MAX_GROUP_DESCRIPTOR_LENGTH = 1024;
