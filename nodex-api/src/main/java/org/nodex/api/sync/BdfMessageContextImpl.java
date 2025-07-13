@@ -43,7 +43,6 @@ public class BdfMessageContextImpl implements MessageContext, BdfMessageContext 
     public boolean shouldShare() {
         return share;
     }
-    }
     
     @Override
     public Message getMessage() {
