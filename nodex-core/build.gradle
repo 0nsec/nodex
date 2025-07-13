@@ -14,6 +14,9 @@ sourceSets {
             exclude '**/messaging/MessagingModule.java'
             exclude '**/test/TestModule.java'
             exclude '**/privategroup/PrivateGroupModule.java'
+            exclude '**/NodexCoreModule.java'
+            exclude '**/NodexCoreEagerSingletons.java'
+            exclude '**/core/NodeXCoreModule.java'
         }
     }
 }
