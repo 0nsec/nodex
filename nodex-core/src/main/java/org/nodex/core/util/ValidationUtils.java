@@ -33,4 +33,32 @@ public class ValidationUtils {
             throw new IllegalArgumentException(message);
         }
     }
+    
+    public static void checkLength(String s, int minLength, int maxLength) {
+        if (s != null) {
+            if (s.length() < minLength) {
+                throw new IllegalArgumentException("String too short: " + s.length() + " < " + minLength);
+            }
+            if (s.length() > maxLength) {
+                throw new IllegalArgumentException("String too long: " + s.length() + " > " + maxLength);
+            }
+        }
+    }
+    
+    public static void checkLength(byte[] bytes, int expectedLength) {
+        if (bytes != null && bytes.length != expectedLength) {
+            throw new IllegalArgumentException("Byte array wrong length: " + bytes.length + " != " + expectedLength);
+        }
+    }
+    
+    public static void checkSize(Collection<?> collection, int minSize, int maxSize) {
+        if (collection != null) {
+            if (collection.size() < minSize) {
+                throw new IllegalArgumentException("Collection too small: " + collection.size() + " < " + minSize);
+            }
+            if (collection.size() > maxSize) {
+                throw new IllegalArgumentException("Collection too large: " + collection.size() + " > " + maxSize);
+            }
+        }
+    }
 }
