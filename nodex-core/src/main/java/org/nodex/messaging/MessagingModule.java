@@ -52,7 +52,7 @@ public class MessagingModule {
 			MessagingManagerImpl messagingManager) {
 		lifecycleManager.registerOpenDatabaseHook(messagingManager);
 		contactManager.registerContactHook(messagingManager);
-		validationManager.registerIncomingMessageHook(CLIENT_ID, MAJOR_VERSION,
+		validationManager.registerIncomingMessageHook(CLIENT_ID.toString(), MAJOR_VERSION,
 				messagingManager);
 		conversationManager.registerConversationClient(messagingManager);
 		boolean images = featureFlags.shouldEnableImageAttachments();
