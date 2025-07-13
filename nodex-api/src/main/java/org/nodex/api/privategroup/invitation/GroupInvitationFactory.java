@@ -1,6 +1,6 @@
 package org.nodex.api.privategroup.invitation;
 
-import org.nodex.api.FormatException;
+import org.nodex.api.system.FormatException;
 import org.nodex.api.contact.ContactId;
 import org.nodex.api.identity.LocalAuthor;
 import org.nodex.api.nullsafety.NotNullByDefault;

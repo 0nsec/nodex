@@ -1,7 +1,7 @@
 package org.nodex.api.data;
 
 import org.nodex.api.Bytes;
-import org.nodex.api.FormatException;
+import org.nodex.api.system.FormatException;
 
 import java.util.Map;
 import java.util.Map.Entry;

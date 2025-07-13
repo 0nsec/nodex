@@ -1,5 +1,5 @@
 package org.nodex.api.blog;
-import org.nodex.api.FormatException;
+import org.nodex.api.system.FormatException;
 import org.nodex.api.data.BdfList;
 import org.nodex.api.identity.LocalAuthor;
 import org.nodex.api.sync.GroupId;

@@ -1,5 +1,5 @@
 package org.nodex.api.blog;
-import org.nodex.api.FormatException;
+import org.nodex.api.system.FormatException;
 import org.nodex.api.identity.Author;
 import org.nodex.api.sync.Group;
 import org.nodex.nullsafety.NotNullByDefault;

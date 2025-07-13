@@ -1,6 +1,6 @@
 package org.nodex.api.client;
 
-import org.nodex.api.FormatException;
+import org.nodex.api.system.FormatException;
 import org.nodex.api.contact.ContactId;
 import org.nodex.api.crypto.PrivateKey;
 import org.nodex.api.crypto.PublicKey;
