@@ -50,7 +50,7 @@ public interface ClientHelper {
     /**
      * Get message metadata as dictionary.
      */
-    java.util.Collection<org.nodex.api.data.BdfDictionary> getMessageMetadataAsDictionary(org.nodex.api.db.Transaction txn, org.nodex.api.sync.GroupId groupId, org.nodex.api.data.BdfDictionary query) throws org.nodex.api.db.DbException;
+    java.util.Map<org.nodex.api.sync.MessageId, org.nodex.api.data.BdfDictionary> getMessageMetadataAsDictionary(org.nodex.api.db.Transaction txn, org.nodex.api.sync.GroupId groupId, org.nodex.api.data.BdfDictionary query) throws org.nodex.api.db.DbException;
     
     /**
      * Add local message.
