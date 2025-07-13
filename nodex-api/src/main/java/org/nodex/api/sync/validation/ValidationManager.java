@@ -29,7 +29,22 @@ public interface ValidationManager {
     void unregisterIncomingMessageHook(String clientId);
     
     /**
+     * Registers a message validator with version.
+     */
+    void registerMessageValidator(String clientId, int majorVersion, MessageValidator validator);
+    
+    /**
+     * Registers an incoming message hook with version.
+     */
+    void registerIncomingMessageHook(String clientId, int majorVersion, IncomingMessageHook hook);
+    
+    /**
      * Validates a message using the registered validators.
      */
     boolean validateMessage(String clientId, org.nodex.api.sync.Message message);
+    
+    /**
+     * Validates a message.
+     */
+    ValidationResult validateMessage(org.nodex.api.sync.MessageContext context, org.nodex.api.data.BdfList body) throws org.nodex.api.FormatException;
 }
