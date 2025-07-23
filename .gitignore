@@ -1,7 +1,7 @@
 .metadata
 *.tmp
 *.swp
-
+briar/
 # Windows thumbnail db
 Thumbs.db
 
