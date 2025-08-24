@@ -2,9 +2,6 @@ package org.nodex.api.event;
 
 import org.nodex.api.nullsafety.NotNullByDefault;
 
-// Added lightweight Event marker interface for legacy compatibility
-interface Event {}
-
 /**
  * Interface for publishing and subscribing to events.
  */
