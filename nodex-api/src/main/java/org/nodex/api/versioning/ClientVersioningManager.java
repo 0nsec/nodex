@@ -38,6 +38,8 @@ public interface ClientVersioningManager {
      */
     org.nodex.api.sync.Visibility getClientVisibility(org.nodex.api.db.Transaction txn, org.nodex.api.contact.ContactId contactId, String clientId, int majorVersion) throws org.nodex.api.db.DbException;
     default int getClientMinorVersion(org.nodex.api.db.Transaction txn, org.nodex.api.contact.ContactId contactId, org.nodex.api.sync.ClientId clientId, int majorVersion, int defaultValue) { return defaultValue; }
+    // Overload without default value parameter (returns 0) matching legacy usage
+    default int getClientMinorVersion(org.nodex.api.db.Transaction txn, org.nodex.api.contact.ContactId contactId, org.nodex.api.sync.ClientId clientId, int majorVersion) { return 0; }
     
     /**
      * Unregister a client.

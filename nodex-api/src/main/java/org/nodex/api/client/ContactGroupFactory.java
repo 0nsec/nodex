@@ -26,6 +26,10 @@ public interface ContactGroupFactory {
      * Creates a local group for the given client.
      */
     Group createLocalGroup(org.nodex.api.sync.ClientId clientId, int majorVersion);
+    // Legacy overload using String clientId
+    default Group createLocalGroup(String clientId, int majorVersion) {
+        return createLocalGroup(new org.nodex.api.sync.ClientId(clientId), majorVersion);
+    }
     
     /**
      * Returns the group ID for a contact.
