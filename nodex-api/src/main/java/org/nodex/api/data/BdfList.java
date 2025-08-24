@@ -100,4 +100,22 @@ public class BdfList extends ArrayList<Object> {
         }
         throw new IllegalArgumentException("Expected boolean at index " + index);
     }
+
+    // Compatibility helpers expected by core implementation
+    public byte[] getOptionalRaw(int index) {
+        if (index >= size()) return null;
+        Object obj = get(index);
+        return (obj instanceof byte[]) ? (byte[]) obj : null;
+    }
+
+    public BdfDictionary getDictionary(int index) {
+        Object obj = get(index);
+        if (obj instanceof BdfDictionary) return (BdfDictionary) obj;
+        throw new IllegalArgumentException("Expected dictionary at index " + index);
+    }
+
+    // Overload variant used erroneously in some parser code (ignore default value, just return getLong)
+    public long getLong(int index, long unusedDefault) {
+        return getLong(index);
+    }
 }

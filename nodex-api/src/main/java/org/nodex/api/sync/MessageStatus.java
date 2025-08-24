@@ -2,6 +2,16 @@ package org.nodex.api.sync;
 
 import org.nodex.api.nullsafety.NotNullByDefault;
 
+@NotNullByDefault
+public interface MessageStatus {
+    MessageId getMessageId();
+    boolean isSent();
+    boolean isSeen();
+}
+package org.nodex.api.sync;
+
+import org.nodex.api.nullsafety.NotNullByDefault;
+
 /**
  * Represents the status of a message in the synchronization system.
  */
