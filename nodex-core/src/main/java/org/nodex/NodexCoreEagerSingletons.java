@@ -4,8 +4,6 @@ import org.nodex.avatar.AvatarModule;
 import org.nodex.conversation.ConversationModule;
 import org.nodex.feed.FeedModule;
 import org.nodex.identity.IdentityModule;
-import org.nodex.introduction.IntroductionModule;
-import org.nodex.messaging.MessagingModule;
 public interface NodexCoreEagerSingletons {
 	void inject(AutoDeleteModule.EagerSingletons init);
 	void inject(AvatarModule.EagerSingletons init);
@@ -13,8 +11,6 @@ public interface NodexCoreEagerSingletons {
 	void inject(FeedModule.EagerSingletons init);
 	// Excluded: ForumModule, GroupInvitationModule
 	void inject(IdentityModule.EagerSingletons init);
-	void inject(IntroductionModule.EagerSingletons init);
-	void inject(MessagingModule.EagerSingletons init);
 	// Excluded: PrivateGroupModule, SharingModule
 	class Helper {
 		public static void injectEagerSingletons(NodexCoreEagerSingletons c) {
@@ -23,10 +19,8 @@ public interface NodexCoreEagerSingletons {
 			c.inject(new ConversationModule.EagerSingletons());
 			c.inject(new FeedModule.EagerSingletons());
 			// Excluded: forum and group invitation eager singletons
-			c.inject(new MessagingModule.EagerSingletons());
-			// Excluded: private group and sharing eager singletons
+			// Excluded: messaging, private group and sharing eager singletons
 			c.inject(new IdentityModule.EagerSingletons());
-			c.inject(new IntroductionModule.EagerSingletons());
 		}
 	}
 }

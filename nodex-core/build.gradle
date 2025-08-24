@@ -15,6 +15,9 @@ sourceSets {
 			exclude '**/sharing/**'
 			exclude '**/privategroup/**'
 			exclude '**/forum/**'
+			// Newly excluded large subsystems to enable minimal build
+			exclude '**/messaging/**'
+			exclude '**/introduction/**'
         }
     }
     test {
@@ -24,6 +27,8 @@ sourceSets {
 			exclude '**/sharing/**'
 			exclude '**/privategroup/**'
 			exclude '**/forum/**'
+			exclude '**/messaging/**'
+			exclude '**/introduction/**'
         }
     }
 }

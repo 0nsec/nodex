@@ -6,8 +6,6 @@ import org.nodex.client.NodexClientModule;
 import org.nodex.conversation.ConversationModule;
 import org.nodex.feed.FeedModule;
 import org.nodex.identity.IdentityModule;
-import org.nodex.introduction.IntroductionModule;
-import org.nodex.messaging.MessagingModule;
 import org.nodex.test.TestModule;
 import dagger.Module;
 @Module(includes = {
@@ -18,8 +16,6 @@ import dagger.Module;
 		ConversationModule.class,
 		FeedModule.class,
 		IdentityModule.class,
-		IntroductionModule.class,
-		MessagingModule.class,
 		TestModule.class
 })
 public class NodexCoreModule {

@@ -1,8 +1,6 @@
 package org.nodex.core;
 
 import org.nodex.core.avatar.AvatarModule;
-import org.nodex.core.introduction.IntroductionModule;
-import org.nodex.core.messaging.MessagingModule;
 import org.nodex.core.feed.FeedModule;
 import org.nodex.core.transport.TransportModule;
 import org.nodex.core.transport.mailbox.MailboxModule;
@@ -24,8 +22,6 @@ import dagger.Module;
 @Module(includes = {
     // Excluded incomplete modules: ForumModule, PrivateGroupModule
     AvatarModule.class,
-    IntroductionModule.class,
-    MessagingModule.class,
     FeedModule.class,
     // SharingModule excluded for now
     TransportModule.class,
