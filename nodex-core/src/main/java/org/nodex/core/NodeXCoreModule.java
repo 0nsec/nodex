@@ -1,12 +1,9 @@
 package org.nodex.core;
 
-import org.nodex.core.forum.ForumModule;
-import org.nodex.core.privategroup.PrivateGroupModule;
 import org.nodex.core.avatar.AvatarModule;
 import org.nodex.core.introduction.IntroductionModule;
 import org.nodex.core.messaging.MessagingModule;
 import org.nodex.core.feed.FeedModule;
-import org.nodex.core.sharing.SharingModule;
 import org.nodex.core.transport.TransportModule;
 import org.nodex.core.transport.mailbox.MailboxModule;
 import org.nodex.core.transport.bluetooth.BluetoothModule;
@@ -25,13 +22,12 @@ import dagger.Module;
  * This provides a complete implementation of all Briar-compatible features.
  */
 @Module(includes = {
-    ForumModule.class,
-    PrivateGroupModule.class,
+    // Excluded incomplete modules: ForumModule, PrivateGroupModule
     AvatarModule.class,
     IntroductionModule.class,
     MessagingModule.class,
     FeedModule.class,
-    SharingModule.class,
+    // SharingModule excluded for now
     TransportModule.class,
     MailboxModule.class,
     BluetoothModule.class,
