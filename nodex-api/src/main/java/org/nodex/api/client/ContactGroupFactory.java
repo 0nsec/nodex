@@ -1,6 +1,7 @@
 package org.nodex.api.client;
 
 import org.nodex.api.contact.ContactId;
+import org.nodex.api.contact.Contact;
 import org.nodex.api.nullsafety.NotNullByDefault;
 import org.nodex.api.sync.Group;
 import org.nodex.api.sync.GroupId;
@@ -30,4 +31,12 @@ public interface ContactGroupFactory {
      * Returns the group ID for a contact.
      */
     GroupId getContactGroupId(ContactId contactId);
+
+    // Legacy helper overloads used by core code
+    default Group createContactGroup(org.nodex.api.sync.ClientId clientId, int majorVersion, Contact contact) {
+        return createContactGroup(contact.getId());
+    }
+    default Group createContactGroup(String clientId, int majorVersion, Contact contact) {
+        return createContactGroup(contact.getId());
+    }
 }

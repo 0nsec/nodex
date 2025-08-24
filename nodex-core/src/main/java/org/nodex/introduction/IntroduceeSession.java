@@ -4,7 +4,7 @@ import org.nodex.api.crypto.PublicKey;
 import org.nodex.api.crypto.SecretKey;
 import org.nodex.api.identity.Author;
 import org.nodex.api.plugin.TransportId;
-import org.nodex.api.properties.TransportProperties;
+import org.nodex.api.plugin.TransportProperties;
 import org.nodex.api.sync.GroupId;
 import org.nodex.api.sync.Message;
 import org.nodex.api.sync.MessageId;
@@ -89,14 +89,14 @@ class IntroduceeSession extends Session<IntroduceeState>
 		Local local = new Local(s.local.alice, m.getId(), m.getTimestamp(),
 				s.local.ephemeralPublicKey, s.local.ephemeralPrivateKey,
 				s.local.transportProperties, s.local.acceptTimestamp,
-				s.local.alice ? aliceMacKey.getBytes() : bobMacKey.getBytes());
+				s.local.alice ? aliceMacKey.getEncoded() : bobMacKey.getEncoded());
 		Remote remote = new Remote(s.remote.alice, s.remote.author,
 				s.remote.lastMessageId, s.remote.ephemeralPublicKey,
 				s.remote.transportProperties, s.remote.acceptTimestamp,
-				s.remote.alice ? aliceMacKey.getBytes() : bobMacKey.getBytes());
+				s.remote.alice ? aliceMacKey.getEncoded() : bobMacKey.getEncoded());
 		return new IntroduceeSession(s.getSessionId(), state,
 				s.getRequestTimestamp(), s.contactGroupId, s.introducer, local,
-				remote, masterKey.getBytes(), s.transportKeys);
+				remote, masterKey.getEncoded(), s.transportKeys);
 	}
 	static IntroduceeSession awaitActivate(IntroduceeSession s, AuthMessage m,
 			Message sent, @Nullable Map<TransportId, KeySetId> transportKeys) {

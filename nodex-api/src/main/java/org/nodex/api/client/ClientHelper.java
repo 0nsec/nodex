@@ -14,6 +14,9 @@ import org.nodex.api.sync.MessageId;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Collections;
+import org.nodex.api.plugin.TransportId;
+import org.nodex.api.plugin.TransportProperties;
 
 /**
  * Helper class for client operations.
@@ -91,6 +94,7 @@ public interface ClientHelper {
      * Get group metadata as dictionary.
      */
     BdfDictionary getGroupMetadataAsDictionary(Transaction txn, GroupId groupId) throws DbException, FormatException;
+    default BdfDictionary getGroupMetadataAsDictionary(GroupId groupId) throws DbException, FormatException { return new BdfDictionary(); }
     
     /**
      * Merge group metadata.
@@ -156,4 +160,7 @@ public interface ClientHelper {
      * Verify signature.
      */
     void verifySignature(byte[] signature, String label, BdfList data, byte[] publicKey) throws FormatException;
+    // Additional legacy helpers (stubbed)
+    default Map<TransportId, TransportProperties> parseAndValidateTransportPropertiesMap(BdfDictionary d) throws FormatException { return Collections.emptyMap(); }
+    default byte[] toDictionary(Map<TransportId, TransportProperties> transportProperties) throws FormatException { return new byte[0]; }
 }

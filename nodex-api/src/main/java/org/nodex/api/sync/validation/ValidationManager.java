@@ -22,21 +22,33 @@ public interface ValidationManager {
      * Registers an incoming message hook.
      */
     void registerIncomingMessageHook(String clientId, IncomingMessageHook hook);
+    default void registerIncomingMessageHook(org.nodex.api.sync.ClientId clientId, IncomingMessageHook hook) {
+        registerIncomingMessageHook(clientId.toString(), hook);
+    }
     
     /**
      * Unregisters an incoming message hook.
      */
     void unregisterIncomingMessageHook(String clientId);
+    default void unregisterIncomingMessageHook(org.nodex.api.sync.ClientId clientId) {
+        unregisterIncomingMessageHook(clientId.toString());
+    }
     
     /**
      * Registers a message validator with version.
      */
     void registerMessageValidator(String clientId, int majorVersion, MessageValidator validator);
+    default void registerMessageValidator(org.nodex.api.sync.ClientId clientId, int majorVersion, MessageValidator validator) {
+        registerMessageValidator(clientId.toString(), majorVersion, validator);
+    }
     
     /**
      * Registers an incoming message hook with version.
      */
     void registerIncomingMessageHook(String clientId, int majorVersion, IncomingMessageHook hook);
+    default void registerIncomingMessageHook(org.nodex.api.sync.ClientId clientId, int majorVersion, IncomingMessageHook hook) {
+        registerIncomingMessageHook(clientId.toString(), majorVersion, hook);
+    }
     
     /**
      * Validates a message using the registered validators.

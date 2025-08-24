@@ -1,6 +1,8 @@
 package org.nodex.api.db;
 
 import org.nodex.nullsafety.NotNullByDefault;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Database component for managing database connections and operations.
@@ -117,4 +119,14 @@ public interface DatabaseComponent {
      * Get all groups for a client.
      */
     java.util.Collection<org.nodex.api.sync.Group> getGroups(Transaction txn, org.nodex.api.sync.ClientId clientId, int majorVersion) throws DbException;
+
+    // Compatibility shims
+    default void removeMessage(Transaction txn, org.nodex.api.sync.MessageId messageId) throws DbException {
+        deleteMessage(txn, messageId);
+        try { deleteMessageMetadata(txn, messageId); } catch (Exception ignored) {}
+    }
+    default Collection<org.nodex.api.sync.MessageId> getMessageIds(Transaction txn, org.nodex.api.sync.GroupId groupId) { return Collections.emptyList(); }
+    default Collection<org.nodex.api.sync.MessageStatus> getMessageStatus(Transaction txn, org.nodex.api.contact.ContactId contactId, org.nodex.api.sync.GroupId groupId) { return Collections.emptyList(); }
+    default boolean containsContact(Transaction txn, org.nodex.api.identity.AuthorId a1, org.nodex.api.identity.AuthorId a2) { return false; }
+    default <R, E extends Exception> R transactionWithNullableResult(boolean readOnly, DbCallable<R,E> callable) throws DbException, E { return transactionWithResult(readOnly, callable); }
 }

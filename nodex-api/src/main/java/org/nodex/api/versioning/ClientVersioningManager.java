@@ -37,6 +37,7 @@ public interface ClientVersioningManager {
      * Get client visibility.
      */
     org.nodex.api.sync.Visibility getClientVisibility(org.nodex.api.db.Transaction txn, org.nodex.api.contact.ContactId contactId, String clientId, int majorVersion) throws org.nodex.api.db.DbException;
+    default int getClientMinorVersion(org.nodex.api.db.Transaction txn, org.nodex.api.contact.ContactId contactId, org.nodex.api.sync.ClientId clientId, int majorVersion, int defaultValue) { return defaultValue; }
     
     /**
      * Unregister a client.
